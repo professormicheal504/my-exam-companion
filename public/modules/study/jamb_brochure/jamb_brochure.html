@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMB Brochure 2025 | My Exam Companion</title>
+  <meta name="description" content="Access the latest JAMB Brochure for all institutions. Find courses, subject combinations, and requirements for UTME and Direct Entry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================  APP SHELL  =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px; flex: 1; display: flex; flex-direction: column;
+      min-height: 100vh; min-width: 0; max-width: calc(100% - 90px); overflow-x: hidden;
+    }
+
+    /* ===========================  TOPBAR  =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 20px; position: sticky;
+      top: 0; z-index: 40; gap: 14px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 44px; width: auto; min-width: 140px; object-fit: contain; }
+    .topbar__search {
+      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 420px;
+      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
+    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
+    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
+    .topbar__search input::placeholder { color: #b0b0b0; }
+    .topbar__actions { display: flex; align-items: center; gap: 10px; margin-left: auto; flex-shrink: 0; }
+    .btn-login { padding: 8px 18px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+    .btn-register { padding: 8px 18px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
+    .btn-register:hover { background: #2d2d2d; }
+
+    /* ===========================  CONTENT  =========================== */
+    .content-area { display: flex; flex: 1; }
+    .main-content { flex: 1; padding: 28px 24px; min-width: 0; overflow-x: hidden; }
+
+    /* ===========================  PAGE LAYOUT  =========================== */
+    .page-layout { display: flex; gap: 28px; max-width: 1280px; margin: 0 auto; align-items: flex-start; }
+    .left-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+    .right-col { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; position: sticky; top: 72px; max-height: calc(100vh - 90px); overflow-y: auto; }
+    .right-col::-webkit-scrollbar { width: 4px; }
+    .right-col::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+
+    /* ===========================  HERO HEADER  =========================== */
+    .hero-card {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 16px; padding: 28px 28px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fef2f2; color: #b70c01; border: 1px solid #fecaca;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 99px; margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: #111827;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .hero-title span { color: #b70c01; }
+    .hero-desc {
+      font-size: 13.5px; color: #4b5563; line-height: 1.8; margin-bottom: 20px;
+    }
+    .hero-desc a { color: #b70c01; font-weight: 600; }
+    .hero-desc a:hover { text-decoration: underline; }
+
+    /* Action chips */
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px;
+      border: 1px solid #e5e7eb; border-radius: 99px; background: #fff;
+      font-size: 12px; font-weight: 600; color: #374151; cursor: pointer; transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .chip:hover { background: #f9fafb; border-color: #d1d5db; }
+    .chip.accent { color: #b70c01; border-color: #fecaca; font-weight: 700; }
+    .chip.accent:hover { background: #fef2f2; }
+
+    /* ===========================  FACULTY SECTION  =========================== */
+    .faculty-section { background: #fff; border: 1px solid #f0f0f0; border-radius: 16px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.03); }
+    .faculty-section + .faculty-section { margin-top: 0; }
+
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .section-title {
+      font-size: 18px; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 10px;
+    }
+    .section-badge {
+      font-size: 11px; font-weight: 700; background: #f3f4f6; color: #6b7280;
+      padding: 3px 9px; border-radius: 99px; letter-spacing: 0.03em;
+    }
+
+    .faculty-list { display: flex; flex-direction: column; }
+    .faculty-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid #f5f5f5; cursor: pointer;
+      transition: all 0.18s; gap: 12px;
+    }
+    .faculty-item:last-child { border-bottom: none; }
+    .faculty-item:hover { padding-left: 6px; }
+    .faculty-item:hover .faculty-name { color: #b70c01; }
+    .faculty-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .faculty-num {
+      width: 32px; height: 32px; border-radius: 8px; background: #f9fafb;
+      border: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #9ca3af; flex-shrink: 0; transition: all 0.18s;
+    }
+    .faculty-item:hover .faculty-num { background: #fef2f2; border-color: #fecaca; color: #b70c01; }
+    .faculty-name { font-size: 13.5px; font-weight: 600; color: #374151; transition: color 0.18s; min-width: 0; }
+    .faculty-arrow { color: #d1d5db; flex-shrink: 0; transition: all 0.18s; }
+    .faculty-item:hover .faculty-arrow { color: #b70c01; transform: translateX(3px); }
+
+    /* Accordion content */
+    .faculty-details {
+      display: none; padding: 0 0 14px 46px;
+      font-size: 13px; color: #6b7280; line-height: 1.7;
+    }
+    .faculty-details.open { display: block; animation: fadeIn 0.2s ease; }
+    .faculty-details ul { padding-left: 18px; list-style: disc; display: flex; flex-direction: column; gap: 4px; }
+    .faculty-details li { color: #374151; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===========================  INSTITUTION TABS  =========================== */
+    .tab-bar { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; margin-bottom: 20px; }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: 8px 18px; border-radius: 99px; font-size: 12.5px; font-weight: 600;
+      white-space: nowrap; border: 1.5px solid #e5e7eb; background: #fff; color: #6b7280;
+      cursor: pointer; transition: all 0.18s; flex-shrink: 0;
+    }
+    .tab-btn.active { background: #111827; color: #fff; border-color: #111827; }
+    .tab-btn:hover:not(.active) { border-color: #b70c01; color: #b70c01; }
+
+    /* ===========================  PDF SIDEBAR CARD  =========================== */
+    .pdf-card {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 14px; padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .pdf-card-title { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+    .pdf-card-desc { font-size: 12.5px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; }
+
+    .pdf-list { display: flex; flex-direction: column; gap: 2px; }
+    .pdf-item {
+      display: flex; align-items: center; gap: 12px; padding: 11px 10px; border-radius: 10px;
+      cursor: pointer; transition: background 0.15s; border-bottom: 1px solid #f5f5f5;
+    }
+    .pdf-item:last-child { border-bottom: none; }
+    .pdf-item:hover { background: #fef2f2; }
+    .pdf-icon {
+      width: 36px; height: 36px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .pdf-icon svg { color: #b70c01; }
+    .pdf-name { flex: 1; font-size: 12.5px; font-weight: 600; color: #374151; min-width: 0; }
+    .pdf-dl {
+      font-size: 11.5px; font-weight: 700; color: #b70c01; white-space: nowrap;
+      padding: 4px 10px; border-radius: 6px; background: #fef2f2; border: 1px solid #fecaca;
+      transition: all 0.15s;
+    }
+    .pdf-item:hover .pdf-dl { background: #b70c01; color: #fff; border-color: #b70c01; }
+
+    /* ===========================  INFO CARDS  =========================== */
+    .info-card {
+      background: linear-gradient(135deg, #b70c01 0%, #8a0a01 100%);
+      border-radius: 14px; padding: 20px; color: #fff;
+    }
+    .info-card-title { font-size: 14px; font-weight: 800; margin-bottom: 8px; }
+    .info-card-text { font-size: 12.5px; line-height: 1.6; opacity: 0.88; margin-bottom: 14px; }
+    .info-card-btn {
+      display: block; width: 100%; padding: 9px; text-align: center; border-radius: 8px;
+      background: rgba(255,255,255,0.15); color: #fff; font-size: 12.5px; font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition: background 0.18s;
+      backdrop-filter: blur(4px);
+    }
+    .info-card-btn:hover { background: rgba(255,255,255,0.25); }
+
+    /* ===========================  RESPONSIVE  =========================== */
+    @media (max-width: 1024px) {
+      .right-col { display: none; }
+    }
+    @media (max-width: 768px) {
+      .topbar__actions { display: none; }
+      .main-content { padding: 16px 14px; }
+    }
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .main-content { padding: 12px 10px; }
+      .topbar { height: 52px; padding: 0 10px; }
+      .topbar__logo img { height: 34px; min-width: 0 !important; }
+      .topbar__search { flex: 1; max-width: none; padding: 6px 12px; }
+      .topbar__search input { font-size: 12px; }
+      .hero-title { font-size: 20px; }
+      .hero-card { padding: 18px; }
+      .faculty-section { padding: 16px; }
+      .page-layout { gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../"></app-sidebar>
+    <div class="main-wrapper">
+
+      <!-- TOPBAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT -->
+      <div class="content-area">
+        <main class="main-content">
+          <div class="page-layout">
+
+            <!-- ========================  LEFT COLUMN  ======================== -->
+            <div class="left-col">
+
+              <!-- Hero Card -->
+              <div class="hero-card">
+                <div class="hero-eyebrow">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  2025 Edition — Free Access
+                </div>
+                <h1 class="hero-title">Latest JAMB Brochure<br><span>For All Institutions</span></h1>
+                <p class="hero-desc">
+                  The official JAMB brochure for 2025 shows you a list of courses offered in various institutions,
+                  their JAMB UTME, O'level and Direct Entry subject combination, and requirements for entry into
+                  those courses in various faculties across all institutions in Nigeria. You can also
+                  <a href="#">download the PDF Version of the JAMB Brochure here</a>, and it's all
+                  <strong style="color:#b70c01;">Totally Free!</strong>
+                </p>
+                <p class="hero-desc" style="margin-bottom:20px;">
+                  If you are confused about the subject combination (for JAMB UTME or O'level) to write for
+                  your chosen course, then use this facility to navigate and download the Free JAMB Brochure
+                  for your course of study. It is important to also check to see if your chosen institution
+                  offers the course and also see if you have any waivers or special considerations.
+                </p>
+                <div class="chips">
+                  <button class="chip">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                    Share
+                  </button>
+                  <button class="chip">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy link
+                  </button>
+                  <button class="chip accent">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    Download Offline App
+                  </button>
+                </div>
+              </div>
+
+              <!-- Institution Tabs -->
+              <div class="faculty-section">
+                <div class="tab-bar" id="instTabs">
+                  <button class="tab-btn active" onclick="switchTab(this, 'university')">University</button>
+                  <button class="tab-btn" onclick="switchTab(this, 'polytechnic')">Polytechnic</button>
+                  <button class="tab-btn" onclick="switchTab(this, 'college')">College of Education</button>
+                  <button class="tab-btn" onclick="switchTab(this, 'monotechnic')">Monotechnic</button>
+                </div>
+
+                <!-- University Faculties -->
+                <div id="tab-university" class="tab-content">
+                  <div class="section-header">
+                    <div class="section-title">
+                      University
+                      <span class="section-badge">12 Faculties</span>
+                    </div>
+                  </div>
+                  <div class="faculty-list">
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">1</div>
+                        <span class="faculty-name">Administration</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Accounting</li><li>Banking and Finance</li><li>Business Administration</li>
+                        <li>Insurance</li><li>Marketing</li><li>Public Administration</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">2</div>
+                        <span class="faculty-name">Agriculture</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Agricultural Economics</li><li>Agronomy</li><li>Animal Science</li>
+                        <li>Crop Science</li><li>Food Science &amp; Technology</li><li>Forestry</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">3</div>
+                        <span class="faculty-name">Arts &amp; Humanities</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>English Language</li><li>French</li><li>History &amp; International Studies</li>
+                        <li>Linguistics</li><li>Music</li><li>Philosophy</li><li>Religious Studies</li>
+                        <li>Theatre Arts</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">4</div>
+                        <span class="faculty-name">Education</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Education / Biology</li><li>Education / Chemistry</li><li>Education / English</li>
+                        <li>Education / Mathematics</li><li>Education / Physics</li><li>Guidance &amp; Counselling</li>
+                        <li>Library Science</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">5</div>
+                        <span class="faculty-name">Engineering, Environment &amp; Technology</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Chemical Engineering</li><li>Civil Engineering</li><li>Computer Engineering</li>
+                        <li>Electrical / Electronics Engineering</li><li>Mechanical Engineering</li>
+                        <li>Petroleum Engineering</li><li>Urban &amp; Regional Planning</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">6</div>
+                        <span class="faculty-name">Law</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Law</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">7</div>
+                        <span class="faculty-name">Medical, Pharmaceutical &amp; Health Sciences</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Dentistry</li><li>Medicine &amp; Surgery</li><li>Nursing Science</li>
+                        <li>Pharmacy</li><li>Physiotherapy</li><li>Radiography</li><li>Veterinary Medicine</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">8</div>
+                        <span class="faculty-name">Science</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Biochemistry</li><li>Biology</li><li>Chemistry</li><li>Computer Science</li>
+                        <li>Mathematics</li><li>Microbiology</li><li>Physics</li><li>Statistics</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">9</div>
+                        <span class="faculty-name">Social &amp; Management Sciences</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Economics</li><li>Geography</li><li>Mass Communication</li>
+                        <li>Political Science</li><li>Psychology</li><li>Sociology</li>
+                      </ul>
+                    </div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left">
+                        <div class="faculty-num">10</div>
+                        <span class="faculty-name">Vocational &amp; Technical Education</span>
+                      </div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details">
+                      <ul>
+                        <li>Agriculture Education</li><li>Business Education</li><li>Computer Education</li>
+                        <li>Home Economics Education</li><li>Technical Education</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Polytechnic Tab -->
+                <div id="tab-polytechnic" class="tab-content" style="display:none;">
+                  <div class="section-header">
+                    <div class="section-title">
+                      Polytechnic
+                      <span class="section-badge">8 Schools</span>
+                    </div>
+                  </div>
+                  <div class="faculty-list">
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">1</div><span class="faculty-name">School of Applied Science</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Computer Science</li><li>Statistics</li><li>Mathematics / Computer</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">2</div><span class="faculty-name">School of Business Studies</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Accountancy</li><li>Banking &amp; Finance</li><li>Marketing</li><li>Office Technology</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">3</div><span class="faculty-name">School of Engineering Technology</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Civil Engineering Technology</li><li>Electrical Engineering Technology</li><li>Mechanical Engineering Technology</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">4</div><span class="faculty-name">School of Environmental Studies</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Architecture</li><li>Building Technology</li><li>Estate Management</li><li>Urban &amp; Regional Planning</li></ul></div>
+                  </div>
+                </div>
+
+                <!-- College of Education Tab -->
+                <div id="tab-college" class="tab-content" style="display:none;">
+                  <div class="section-header">
+                    <div class="section-title">College of Education <span class="section-badge">6 Departments</span></div>
+                  </div>
+                  <div class="faculty-list">
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">1</div><span class="faculty-name">Department of Arts &amp; Social Sciences</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>English / CRS</li><li>History / Government</li><li>Yoruba / English</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">2</div><span class="faculty-name">Department of Science</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Biology / Chemistry</li><li>Computer Science / Mathematics</li><li>Physics / Mathematics</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">3</div><span class="faculty-name">Department of Vocational Studies</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Business Education</li><li>Home Economics</li><li>Technical Education</li></ul></div>
+                  </div>
+                </div>
+
+                <!-- Monotechnic Tab -->
+                <div id="tab-monotechnic" class="tab-content" style="display:none;">
+                  <div class="section-header">
+                    <div class="section-title">Monotechnic <span class="section-badge">3 Programmes</span></div>
+                  </div>
+                  <div class="faculty-list">
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">1</div><span class="faculty-name">Agriculture Related Programmes</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Animal Health &amp; Production Technology</li><li>Fisheries Technology</li></ul></div>
+
+                    <div class="faculty-item" onclick="toggleFaculty(this)">
+                      <div class="faculty-left"><div class="faculty-num">2</div><span class="faculty-name">Science Related Programmes</span></div>
+                      <svg class="faculty-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="faculty-details"><ul><li>Medical Laboratory Technology</li><li>Radiography Technology</li></ul></div>
+                  </div>
+                </div>
+
+              </div><!-- end faculty-section -->
+            </div><!-- end left-col -->
+
+            <!-- ========================  RIGHT COLUMN  ======================== -->
+            <aside class="right-col">
+
+              <!-- PDF Downloads Card -->
+              <div class="pdf-card">
+                <div class="pdf-card-title">PDF Version of JAMB Brochure</div>
+                <p class="pdf-card-desc">
+                  Access the official JAMB Brochure in PDF format. Crosscheck course and institution
+                  information using the official PDF from JAMB.
+                </p>
+                <div class="pdf-list">
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Administration</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Agriculture</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Engineering, Environment &amp; Technology</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Education</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Arts &amp; Humanities</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Law</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Medical, Pharmaceutical &amp; Health Sciences</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                  <div class="pdf-item">
+                    <div class="pdf-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <span class="pdf-name">Science</span>
+                    <span class="pdf-dl">Download</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Promo Card -->
+              <div class="info-card">
+                <div class="info-card-title">📲 Get the Offline App</div>
+                <p class="info-card-text">Access the JAMB Brochure, past questions, and study materials anywhere — even without internet.</p>
+                <button class="info-card-btn">Download Now — It's Free</button>
+              </div>
+
+            </aside>
+
+          </div><!-- end page-layout -->
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+  <script>
+    function switchTab(btn, tabId) {
+      // Deactivate all tabs and hide all content
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+      btn.classList.add('active');
+      document.getElementById('tab-' + tabId).style.display = 'block';
+    }
+
+    function toggleFaculty(item) {
+      const details = item.nextElementSibling;
+      if (!details || !details.classList.contains('faculty-details')) return;
+      const isOpen = details.classList.contains('open');
+      // Close all open siblings first
+      const siblings = item.parentElement.querySelectorAll('.faculty-details.open');
+      siblings.forEach(s => s.classList.remove('open'));
+      if (!isOpen) details.classList.add('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Leaderboard – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    body { min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    
+    :root {
+      --primary: #b70c01;
+      --primary-dk: #9a0a01;
+      --gold: #f59e0b;
+      --silver: #94a3b8;
+      --bronze: #b45309;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; position: relative; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px 100px; flex: 1; overflow-y: auto; max-width: 1000px; margin: 0 auto; width: 100%; }
+
+    /* ==============================
+       PAGE HEADER
+    ============================== */
+    .page-header {
+      display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; gap: 16px;
+    }
+    .page-header__title { font-size: 26px; font-weight: 800; color: #131212; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .page-header__desc { font-size: 14.5px; color: #6b7280; line-height: 1.5; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: #4b5563;
+      margin-bottom: 16px; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--primary); }
+
+    /* ==============================
+       PODIUM (TOP 3)
+    ============================== */
+    .podium-container {
+      display: flex; justify-content: center; align-items: flex-end; gap: 16px; margin-bottom: 48px;
+      padding-top: 20px;
+    }
+    .podium-item {
+      display: flex; flex-direction: column; align-items: center; width: 110px; position: relative;
+    }
+    
+    .podium-avatar {
+      width: 64px; height: 64px; border-radius: 50%; background: white; border: 4px solid white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: 700; z-index: 2; margin-bottom: -16px;
+    }
+    .podium-item.first .podium-avatar { width: 80px; height: 80px; border-color: var(--gold); }
+    .podium-item.second .podium-avatar { border-color: var(--silver); }
+    .podium-item.third .podium-avatar { border-color: var(--bronze); }
+    
+    .podium-name {
+      font-size: 14px; font-weight: 700; text-align: center; margin-bottom: 4px; z-index: 2;
+      background: rgba(255,255,255,0.9); padding: 2px 8px; border-radius: 8px;
+    }
+    .podium-score { font-size: 18px; font-weight: 800; color: white; z-index: 2; margin-bottom: 12px; }
+    
+    .podium-block {
+      width: 100%; border-radius: 12px 12px 0 0; display: flex; flex-direction: column; justify-content: flex-end;
+      align-items: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); padding-bottom: 16px;
+    }
+    
+    .podium-rank { font-size: 32px; font-weight: 800; color: rgba(255,255,255,0.8); line-height: 1; }
+
+    /* Heights and Colors */
+    .podium-item.first .podium-block { height: 180px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dk) 100%); }
+    .podium-item.second .podium-block { height: 130px; background: linear-gradient(135deg, #64748b 0%, #475569 100%); }
+    .podium-item.third .podium-block { height: 100px; background: linear-gradient(135deg, #d97706 0%, #b45309 100%); }
+
+    /* Order on screen (2nd, 1st, 3rd) */
+    .podium-item.second { order: 1; }
+    .podium-item.first { order: 2; z-index: 10; margin: 0 -10px; }
+    .podium-item.third { order: 3; }
+
+    /* ==============================
+       LIST (4 - 20)
+    ============================== */
+    .leaderboard-list {
+      display: flex; flex-direction: column; gap: 8px; margin-bottom: 40px;
+    }
+    .list-item {
+      display: flex; align-items: center; background: white; border-radius: 16px; padding: 16px 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02); border: 1px solid #ebebeb; transition: transform 0.2s;
+    }
+    .list-item:hover { transform: translateX(4px); border-color: #d1d5db; }
+    
+    .list-rank { width: 40px; font-size: 16px; font-weight: 800; color: #6b7280; }
+    .list-avatar { width: 40px; height: 40px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #4b5563; margin-right: 16px; }
+    .list-info { flex: 1; }
+    .list-name { font-size: 15px; font-weight: 700; color: #111827; }
+    .list-time { font-size: 12px; color: #6b7280; margin-top: 2px; }
+    .list-score { font-size: 18px; font-weight: 800; color: var(--primary); text-align: right; }
+
+    /* ==============================
+       FIXED BOTTOM CURRENT USER
+    ============================== */
+    .fixed-user-bar {
+      position: fixed; bottom: 0; left: 90px; right: 0; background: white; padding: 20px 24px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08); border-top: 2px solid var(--primary);
+      display: flex; justify-content: center; z-index: 100;
+    }
+    @media (max-width: 768px) { .fixed-user-bar { left: 80px; } }
+    @media (max-width: 600px) { .fixed-user-bar { left: 0; padding-bottom: 80px; } }
+
+    .current-user-card {
+      display: flex; align-items: center; width: 100%; max-width: 950px;
+    }
+    .current-user-card .list-rank { color: var(--primary); }
+    .current-user-card .list-avatar { background: #fff1f2; color: var(--primary); border: 2px solid var(--primary); }
+    .current-user-card .list-score { background: var(--primary); color: white; padding: 6px 16px; border-radius: 99px; font-size: 16px; }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="exam_studio"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        <a href="teacher_entry.html" class="back-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Rooms
+        </a>
+
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Leaderboard</h1>
+            <p class="page-header__desc">JAMB Physics Masterclass 2026 • Top Performers</p>
+          </div>
+        </div>
+        
+        <!-- PODIUM -->
+        <div class="podium-container">
+          <!-- 2nd Place -->
+          <div class="podium-item second">
+            <div class="podium-avatar" style="color: var(--silver);">OM</div>
+            <div class="podium-name">Oluwa M.</div>
+            <div class="podium-block">
+              <div class="podium-score">342</div>
+              <div class="podium-rank">2</div>
+            </div>
+          </div>
+          
+          <!-- 1st Place -->
+          <div class="podium-item first">
+            <div class="podium-avatar" style="color: var(--gold);">👨🏾‍🎓</div>
+            <div class="podium-name">Chinedu K.</div>
+            <div class="podium-block">
+              <div class="podium-score">355</div>
+              <div class="podium-rank">1</div>
+            </div>
+          </div>
+          
+          <!-- 3rd Place -->
+          <div class="podium-item third">
+            <div class="podium-avatar" style="color: var(--bronze);">AO</div>
+            <div class="podium-name">Aisha O.</div>
+            <div class="podium-block">
+              <div class="podium-score">338</div>
+              <div class="podium-rank">3</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIST (4-20) Generated via JS below -->
+        <div class="leaderboard-list" id="leaderboard-list">
+          <!-- Injecting items 4 to 20 -->
+        </div>
+
+      </main>
+
+      <!-- FIXED BOTTOM (CURRENT USER) -->
+      <div class="fixed-user-bar">
+        <div class="current-user-card">
+          <div class="list-rank">42</div>
+          <div class="list-avatar">You</div>
+          <div class="list-info">
+            <div class="list-name">Your Performance</div>
+            <div class="list-time">Time taken: 55m 20s</div>
+          </div>
+          <div class="list-score">285</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <script>
+    // Generate mock data for positions 4 to 20
+    const listContainer = document.getElementById('leaderboard-list');
+    const mockNames = [
+      "Ibrahim S.", "Grace T.", "Tunde L.", "Fatima R.", "Emeka U.", "Sarah B.", "Michael A.",
+      "Zainab K.", "David E.", "Joy N.", "Samuel P.", "Ruth O.", "Victor M.", "Mary C.",
+      "Daniel F.", "Esther W.", "John D."
+    ];
+    
+    let currentScore = 335;
+    
+    for(let i = 4; i <= 20; i++) {
+      const name = mockNames[i-4] || `Student ${i}`;
+      currentScore -= Math.floor(Math.random() * 5) + 1; // Decrease score slightly
+      const timeM = 35 + Math.floor(Math.random() * 20);
+      const timeS = Math.floor(Math.random() * 60);
+      const initials = name.split(' ').map(n => n[0]).join('');
+      
+      const itemHTML = `
+        <div class="list-item">
+          <div class="list-rank">${i}</div>
+          <div class="list-avatar">${initials}</div>
+          <div class="list-info">
+            <div class="list-name">${name}</div>
+            <div class="list-time">Time taken: ${timeM}m ${timeS.toString().padStart(2, '0')}s</div>
+          </div>
+          <div class="list-score">${currentScore}</div>
+        </div>
+      `;
+      listContainer.innerHTML += itemHTML;
+    }
+  </script>
+
+  <script src="../../../components/sidebar.js"></script>
+  <script src="../../../components/topbar.js"></script>
+</body>
+</html>

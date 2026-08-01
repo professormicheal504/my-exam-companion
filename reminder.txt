@@ -1,0 +1,6 @@
+it should match with the theme color (public\modules\cbt_test\jamb_cbt\jamb_all_subject.html)
+
+we may need to update the cloudflare again.
+remove the hardcoded value JAMB, number of subject and others(public/modules/cbt_test/core/instruction.html)
+(emember grid is where user has to input answe if there are no options) in the CBT
+in here (public/modules/cbt_test/core/result.htm) is still showing hardcoded value.

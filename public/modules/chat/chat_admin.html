@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chat | My Exam Companion</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=5">
+    
+    <style>
+        :root {
+            --primary: #b70c01;
+            --primary-light: #fff0f0;
+            --primary-dark: #960a01;
+            
+            --bg-color: #f8fafc;
+            --chat-bg: #f3f4f6;
+            --border-color: #e2e8f0;
+            
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            
+            --bubble-sys: #e2e8f0;
+            --bubble-out: var(--primary);
+            --bubble-in: #ffffff;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow: hidden; /* App container handles scroll */
+        }
+
+        .chat-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--chat-bg);
+            position: relative;
+            /* Subtle background pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ─── HEADER ─── */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 10;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 12px; }
+
+        .back-btn {
+            background: none; border: none; cursor: pointer; color: var(--text-muted);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .bot-avatar {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: var(--primary-light); color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; border: 1px solid rgba(183, 12, 1, 0.2);
+        }
+
+        .bot-info { display: flex; flex-direction: column; }
+        .bot-name { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-main); }
+        .bot-status { font-size: 12px; color: #10B981; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+        .bot-status::before { content: ''; width: 6px; height: 6px; background: #10B981; border-radius: 50%; }
+
+        /* ─── TIMELINE ─── */
+        .chat-timeline {
+            flex: 1;
+            padding: 24px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        /* Date separator */
+        .date-sep {
+            text-align: center; margin: 10px 0;
+        }
+        .date-sep span {
+            background: #e2e8f0; color: #64748b; font-size: 11px; font-weight: 600;
+            padding: 4px 12px; border-radius: 12px; letter-spacing: 0.5px;
+        }
+
+        /* Message Bubbles */
+        .msg-row { display: flex; flex-direction: column; max-width: 85%; animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .msg-row.incoming { align-self: flex-start; }
+        .msg-row.outgoing { align-self: flex-end; align-items: flex-end; }
+
+        .sender-name { font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; margin-left: 4px; }
+        .msg-row.outgoing .sender-name { display: none; } /* Hide for user */
+
+        .bubble {
+            padding: 12px 16px;
+            font-size: 15px;
+            line-height: 1.5;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .msg-row.incoming .bubble {
+            background: var(--bubble-in);
+            color: var(--text-main);
+            border-radius: 16px 16px 16px 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .msg-row.outgoing .bubble {
+            background: var(--bubble-out);
+            color: white;
+            border-radius: 16px 16px 4px 16px;
+        }
+
+        .msg-meta {
+            font-size: 11px; color: var(--text-muted); margin-top: 4px;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .msg-row.outgoing .msg-meta {
+            justify-content: flex-end;
+            color: var(--text-muted);
+        }
+        .tick { color: #53bdeb; font-size: 13px; font-weight: bold; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typing indicator */
+        .typing-indicator { display: flex; align-items: center; gap: 4px; padding: 4px 8px; }
+        .typing-dot { width: 6px; height: 6px; background: #cbd5e1; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+
+        /* ─── CHAT INPUT (FOOTER) ─── */
+        .chat-input-area {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 12px 16px;
+            z-index: 10;
+        }
+
+        .chat-box {
+            display: flex; gap: 8px; align-items: flex-end;
+        }
+        
+        .chat-input-wrap {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            display: flex; align-items: flex-end;
+            padding: 8px 16px;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input-wrap:focus-within {
+            border-color: var(--primary); background: white;
+        }
+        
+        .chat-input {
+            flex: 1; border: none; outline: none; font-family: 'Inter', sans-serif; font-size: 15px;
+            background: transparent; color: var(--text-main);
+            resize: none; min-height: 24px; max-height: 120px; line-height: 1.5;
+            padding: 2px 0;
+        }
+        .chat-input::placeholder { color: #9ca3af; }
+        
+        .chat-send-btn {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--primary); color: white;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            border: none; cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(183, 12, 1, 0.3);
+        }
+        .chat-send-btn:active { transform: scale(0.95); }
+
+    </style>
+</head>
+<body>
+
+<app-sidebar data-base="../../"></app-sidebar>
+<div class="main-wrapper" style="background:var(--chat-bg);">
+    <app-topbar data-base="../../"></app-topbar>
+
+<div class="chat-container">
+    
+    <!-- HEADER -->
+    <header class="chat-header">
+        <div class="header-left">
+            <div class="bot-avatar">👩‍🏫</div>
+            <div class="bot-info">
+                <div class="bot-name">Sarah (Tutor)</div>
+                <div class="bot-status">Online</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <!-- Additional header actions can go here -->
+        </div>
+    </header>
+
+    <!-- TIMELINE -->
+    <main class="chat-timeline" id="timeline">
+        
+        <div class="date-sep"><span>TODAY</span></div>
+
+        <!-- Initial Admin Message -->
+        <div class="msg-row incoming">
+            <div class="sender-name">Sarah (Tutor)</div>
+            <div class="bubble">
+                Hello! 👋 Welcome to My Exam Companion Support. I'm Sarah, your Academic Tutor. How can I help you today?
+            </div>
+            <div class="msg-meta">10:02 AM</div>
+        </div>
+        
+        <!-- User message 1 -->
+        <div class="msg-row outgoing">
+            <div class="bubble">
+                Hi Sarah! I'm having trouble understanding how to solve JAMB Mathematics questions on permutation and combination.
+            </div>
+            <div class="msg-meta">10:04 AM <span class="tick">✓✓</span></div>
+        </div>
+
+        <!-- Admin message 2 -->
+        <div class="msg-row incoming">
+            <div class="sender-name">Sarah (Tutor)</div>
+            <div class="bubble">
+                Great question! 😊 Permutation and combination is one of the most common topics in JAMB. Let me break it down for you.<br><br>
+                <strong>Permutation (nPr)</strong> is used when <em>order matters</em>.<br>
+                <strong>Combination (nCr)</strong> is used when <em>order does NOT matter</em>.<br><br>
+                For example: How many ways can 3 students be chosen from a group of 10?
+            </div>
+            <div class="msg-meta">10:06 AM</div>
+        </div>
+
+        <!-- User message 2 -->
+        <div class="msg-row outgoing">
+            <div class="bubble">
+                Oh I see! So for choosing, we use Combination?
+            </div>
+            <div class="msg-meta">10:07 AM <span class="tick">✓✓</span></div>
+        </div>
+        
+        <!-- Admin message 3 -->
+        <div class="msg-row incoming">
+            <div class="sender-name">Sarah (Tutor)</div>
+            <div class="bubble">
+                Exactly! 🎉 You've got it. When the problem says "choose", "select", or "pick" — always use Combination (nCr).<br><br>
+                When it says "arrange", "rank", or "schedule" — always use Permutation (nPr).<br><br>
+                Do you want me to walk you through a few past JAMB questions?
+            </div>
+            <div class="msg-meta">10:09 AM</div>
+        </div>
+
+        <div class="msg-row incoming" id="typing-indicator" style="display: none;">
+            <div class="sender-name">Sarah is typing</div>
+            <div class="bubble typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CHAT INPUT -->
+    <div class="chat-input-area">
+        <div class="chat-box">
+            <div class="chat-input-wrap">
+                <textarea class="chat-input" id="chat-input" rows="1" placeholder="Type a message..." onkeydown="handleKey(event)"></textarea>
+            </div>
+            <button class="chat-send-btn" id="chat-send-btn" onclick="sendChat()">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+</div> <!-- End main-wrapper -->
+<script src="../../components/topbar.js"></script>
+  <script src="../../components/sidebar.js?v=6"></script>
+<script>
+    const timeline = document.getElementById('timeline');
+    const chatInput = document.getElementById('chat-input');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    // Auto-resize textarea
+    chatInput.addEventListener('input', () => {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
+    });
+
+    function handleKey(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendChat();
+        }
+    }
+
+    function scrollToBottom() {
+        timeline.scrollTop = timeline.scrollHeight;
+    }
+
+    function now() {
+        return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+
+    function sendChat() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        // Append user message
+        const row = document.createElement('div');
+        row.className = 'msg-row outgoing';
+        row.innerHTML = `
+            <div class="bubble">${text.replace(/\n/g, '<br>')}</div>
+            <div class="msg-meta">${now()} <span class="tick">✓✓</span></div>
+        `;
+        timeline.insertBefore(row, typingIndicator);
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        scrollToBottom();
+
+        // Simulate admin response
+        setTimeout(() => {
+            typingIndicator.style.display = 'flex';
+            scrollToBottom();
+            
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                const adminRow = document.createElement('div');
+                adminRow.className = 'msg-row incoming';
+                adminRow.innerHTML = `
+                    <div class="sender-name">Sarah (Tutor)</div>
+                    <div class="bubble">Thanks for your message! Our support team will respond shortly. In the meantime, feel free to explore the Study section for more resources. 📚</div>
+                    <div class="msg-meta">${now()}</div>
+                `;
+                timeline.insertBefore(adminRow, typingIndicator);
+                scrollToBottom();
+            }, 2000);
+        }, 800);
+    }
+
+    // Init scroll
+    scrollToBottom();
+</script>
+
+</body>
+</html>

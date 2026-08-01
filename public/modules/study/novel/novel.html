@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    :root {
+      --bg-color: #f7f9fc;
+      --surface: #ffffff;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --accent: #b70c01;
+      --accent-hover: #9b0a01;
+      
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+      --shadow-hover: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f7f7f8;
+      color: #131212;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app {
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ==============================
+       MAIN WRAPPER (right of sidebar)
+    ============================== */
+    .main-wrapper {
+      margin-left: 72px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-width: 0;
+      transition: margin-left 0.2s;
+    }
+
+    /* ==============================
+       TOP BAR
+    ============================== */
+    .topbar {
+      height: 58px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      gap: 16px;
+    }
+
+    .topbar__logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .topbar__search {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f5f5;
+      border: 1px solid #ebebeb;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+
+    .topbar__search:focus-within {
+      border-color: #b70c01;
+      background: white;
+    }
+
+    .topbar__search-icon {
+      color: #9ca3af;
+      flex-shrink: 0;
+    }
+
+    .topbar__search input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      color: #131212;
+      font-family: inherit;
+    }
+
+    .topbar__search input::placeholder {
+      color: #b0b0b0;
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-login {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #131212;
+      border: 1px solid #ddd;
+      background: white;
+      transition: background 0.15s;
+    }
+
+    .btn-login:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-register {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: #131212;
+      border: 1px solid #131212;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-register:hover {
+      background: #2d2d2d;
+      transform: translateY(-1px);
+    }
+
+    /* ==============================
+       CONTENT AREA (main + right sidebar)
+    ============================== */
+    .content-area {
+      display: flex;
+      flex: 1;
+      gap: 0;
+    }
+
+    /* ==============================
+       MAIN CONTENT
+    ============================== */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 72px;
+      }
+      .topbar__actions {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+      .main-content {
+        padding: 16px 12px;
+      }
+      .topbar {
+        padding: 0 10px;
+        gap: 8px;
+      }
+      .topbar__logo {
+        flex-shrink: 0;
+      }
+      .topbar__logo img {
+        min-width: 90px !important;
+        height: 32px !important;
+      }
+      .topbar__search {
+        display: flex;
+        flex: 0 1 150px;
+        min-width: 80px;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+      .topbar__search input {
+        font-size: 12px;
+        min-width: 0;
+        width: 0;
+        flex: 1;
+      }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #111827 0%, #4b5563 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* Novel Grid */
+    .novel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .novel-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .novel-card:hover {
+      border-color: #d1d5db;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+    }
+
+    .novel-cover-container {
+      position: relative;
+      background: #f9fafb;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 260px;
+      margin-bottom: 8px;
+    }
+
+    .novel-cover {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      box-shadow: 0 8px 16px -4px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .novel-card:hover .novel-cover {
+      transform: scale(1.03);
+    }
+
+    .novel-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 12px;
+      border-radius: 99px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 1px solid #a7f3d0;
+      z-index: 10;
+    }
+
+    .novel-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .novel-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .tag-jamb {
+      background: #fff7ed;
+      color: #c2410c;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid #ffedd5;
+    }
+
+    .tag-eng {
+      background: #f0f9ff;
+      color: #0369a1;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid #e0f2fe;
+    }
+
+    .novel-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .btn-action {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid #e5e7eb;
+      background: var(--surface);
+      color: var(--text-primary);
+    }
+
+    .btn-action:hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
+      .hero { padding: 40px; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 30px 20px; }
+      .hero h2 { font-size: 32px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 24px 16px; border-radius: 12px; text-align: center; align-items: center; }
+      .hero h2 { font-size: 24px; }
+      .hero p { font-size: 14px; }
+      .novel-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../"></app-sidebar>
+    <div class="main-wrapper">
+      
+      <!-- TOP BAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT AREA -->
+      <div class="content-area">
+        <main class="main-content">
+          <div class="container">
+    
+    <!-- Hero Header -->
+    <header class="hero">
+      <h2>Recommended JAMB Novels.</h2>
+      <p>Read summaries and practice questions specifically curated for the recommended reading syllabus.</p>
+    </header>
+
+    <!-- Subjects -->
+    <div class="section-header">
+      <h3 class="section-title">JAMB Literature Series</h3>
+    </div>
+    
+    <div class="novel-grid">
+      
+      <!-- The Lekki Headmaster -->
+      <div class="novel-card">
+        <div class="novel-badge">Current</div>
+        <div class="novel-cover-container">
+          <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop" alt="The Lekki Headmaster" class="novel-cover">
+        </div>
+        <h4 class="novel-title">The Lekki Headmaster</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb">JAMB</span>
+          <span class="tag-eng">ENG</span>
+        </div>
+        <div class="novel-actions">
+          <button class="btn-action">Summary</button>
+          <button class="btn-action btn-primary">Past Questions</button>
+        </div>
+      </div>
+
+      <!-- The Marriage of Anansewa -->
+      <div class="novel-card">
+        <div class="novel-badge">Current</div>
+        <div class="novel-cover-container">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=300&auto=format&fit=crop" alt="The Marriage of Anansewa" class="novel-cover">
+        </div>
+        <h4 class="novel-title">The Marriage of Anansewa</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb">JAMB</span>
+          <span class="tag-eng">ENG</span>
+        </div>
+        <div class="novel-actions">
+          <button class="btn-action">Summary</button>
+          <button class="btn-action btn-primary">Past Questions</button>
+        </div>
+      </div>
+
+      <!-- Sweet Sixteen -->
+      <div class="novel-card">
+        <div class="novel-cover-container">
+          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=300&auto=format&fit=crop" alt="Sweet Sixteen" class="novel-cover">
+        </div>
+        <h4 class="novel-title">Sweet Sixteen</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb">JAMB</span>
+          <span class="tag-eng">ENG</span>
+        </div>
+        <div class="novel-actions">
+          <button class="btn-action">Summary</button>
+          <button class="btn-action">Past Questions</button>
+        </div>
+      </div>
+
+      <!-- In Dependence -->
+      <div class="novel-card">
+        <div class="novel-cover-container">
+          <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=300&auto=format&fit=crop" alt="In Dependence" class="novel-cover">
+        </div>
+        <h4 class="novel-title">In Dependence</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb">JAMB</span>
+          <span class="tag-eng">ENG</span>
+        </div>
+        <div class="novel-actions">
+          <button class="btn-action">Summary</button>
+          <button class="btn-action">Past Questions</button>
+        </div>
+      </div>
+
+      <!-- The Life Changer -->
+      <div class="novel-card">
+        <div class="novel-cover-container">
+          <img src="https://images.unsplash.com/photo-1495640388908-05fa85288e61?q=80&w=300&auto=format&fit=crop" alt="The Life Changer" class="novel-cover">
+        </div>
+        <h4 class="novel-title">The Life Changer</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb">JAMB</span>
+          <span class="tag-eng">ENG</span>
+        </div>
+        <div class="novel-actions">
+          <button class="btn-action">Summary</button>
+          <button class="btn-action">Past Questions</button>
+        </div>
+      </div>
+      
+    </div>
+    </div><!-- end container -->
+        </main><!-- end main-content -->
+      </div><!-- end content-area -->
+    </div><!-- end main-wrapper -->
+  </div><!-- end app -->
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

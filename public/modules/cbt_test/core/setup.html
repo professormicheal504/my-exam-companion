@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>JAMB CBT Simulator Setup – Myschool.ng</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global (copied from index.html) ---- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      font-size: 14px;
+    }
+
+    body {
+      background: #f7f7f8;
+      color: #131212;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ==============================
+       MAIN WRAPPER
+    ============================== */
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      /* prevent horizontal overflow */
+    }
+
+    /* Tablet: shrunk sidebar */
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 80px;
+      }
+    }
+
+    /* Mobile: full-screen — sidebar is off-canvas */
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+
+      .topbar {
+        padding: 0 10px;
+        gap: 8px;
+      }
+
+      .topbar__logo {
+        flex-shrink: 0;
+      }
+
+      .topbar__logo img {
+        min-width: 90px !important;
+        height: 32px !important;
+      }
+
+      .topbar__search {
+        display: flex;
+        flex: 0 1 150px;
+        min-width: 80px;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
+      .topbar__search input {
+        font-size: 12px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+    }
+
+    /* ==============================
+       TOP BAR
+    ============================== */
+    .topbar {
+      height: 58px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      gap: 16px;
+    }
+
+    .topbar__logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .topbar__logo-myschool {
+      font-size: 22px;
+      font-weight: 800;
+      color: #b70c01;
+      letter-spacing: -0.04em;
+    }
+
+    .topbar__logo-ng {
+      font-size: 13px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+
+    .topbar__search {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f5f5;
+      border: 1px solid #ebebeb;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+
+    .topbar__search:focus-within {
+      border-color: #b70c01;
+      background: white;
+    }
+
+    .topbar__search input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      color: #131212;
+      font-family: inherit;
+    }
+
+    .topbar__search input::placeholder {
+      color: #b0b0b0;
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-login {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #131212;
+      border: 1px solid #ddd;
+      background: white;
+      transition: background 0.15s;
+    }
+
+    .btn-login:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-register {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: #131212;
+      border: 1px solid #131212;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-register:hover {
+      background: #2d2d2d;
+      transform: translateY(-1px);
+    }
+
+    /* ==============================
+       CONTENT AREA (main + right sidebar)
+    ============================== */
+    .content-area {
+      display: flex;
+      flex: 1;
+      gap: 0;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* prevent card overflow */
+      min-width: 0;
+    }
+
+    .right-sidebar {
+      width: 280px;
+      background: #ffffff;
+      border-left: 1px solid #f0f0f0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ==============================
+       PAGE SPECIFIC: CBT SIMULATOR SETUP
+    ============================== */
+    .page-header {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .page-header__title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #131212;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .page-header__desc {
+      font-size: 14px;
+      color: #6b7280;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .setup-card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #ebebeb;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .setup-section {
+      margin-bottom: 24px;
+    }
+
+    .setup-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .setup-section__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #131212;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .setup-section__title span {
+      background: #fff0f0;
+      color: #b70c01;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    /* ---- Form Grid ---- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .form-select {
+      appearance: none;
+      background: #f9fafb url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px 40px 12px 16px;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: inherit;
+      color: #131212;
+      outline: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .form-select:focus {
+      border-color: #b70c01;
+      box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
+      background-color: white;
+    }
+
+    .form-select:disabled {
+      background-color: #f3f4f6;
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    /* ---- Exam Modes ---- */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .mode-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .mode-card:hover {
+      border-color: #d1d5db;
+      background: #f9fafb;
+    }
+
+    .mode-card.selected {
+      border-color: #b70c01;
+      background: #fff0f0;
+    }
+
+    .mode-card__radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      flex-shrink: 0;
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .mode-card.selected .mode-card__radio {
+      border-color: #b70c01;
+    }
+
+    .mode-card.selected .mode-card__radio::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #b70c01;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mode-card__content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #131212;
+      margin-bottom: 4px;
+    }
+
+    .mode-card.selected .mode-card__content h4 {
+      color: #b70c01;
+    }
+
+    .mode-card__content p {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+
+    /* ---- Submit Area ---- */
+    .submit-area {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-start {
+      background: #b70c01;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+
+    .btn-start:hover {
+      background: #9a0a01;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+    }
+
+    /* ---- Right Sidebar Info ---- */
+    .info-card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .info-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-card p,
+    .info-card ul {
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .info-card ul {
+      list-style-type: disc;
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    .info-card ul li {
+      margin-bottom: 4px;
+    }
+
+    /* ==============================
+       MOBILE RESPONSIVE
+    ============================== */
+    @media (max-width: 1024px) {
+      .right-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-content {
+        padding: 12px 10px;
+      }
+
+      .page-header__title {
+        font-size: 20px;
+      }
+
+      .setup-card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .setup-card select,
+      .setup-card input {
+        max-width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-start {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+    <!-- ============================
+       LEFT SIDEBAR (Web Component)
+  ============================ -->
+    <app-sidebar data-base="../../"></app-sidebar>
+
+    <!-- ============================
+       MAIN WRAPPER
+  ============================ -->
+    <div class="main-wrapper">
+
+      <!-- TOP BAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT AREA -->
+      <main class="content-area">
+
+        <!-- Center / Main Content -->
+        <section class="main-content">
+
+          <div class="page-header">
+            <div>
+              <h1 class="page-header__title" id="page-title">CBT Simulator Setup</h1>
+              <p class="page-header__desc" id="page-desc">Configure your CBT exam environment.</p>
+            </div>
+          </div>
+
+          <div class="setup-card">
+
+            <!-- Subjects Selection -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>1</span> Choose Your Subject</h3>
+              <div class="form-grid" id="subject-checkboxes">
+                <span style="color:#6b7280; font-size:13px; grid-column: 1 / -1;">Loading subjects...</span>
+              </div>
+            </div>
+
+            <!-- Exam Year -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>2</span> Select Exam Year</h3>
+              <div class="form-group" style="max-width: 400px;">
+                <select class="form-select" id="year-select">
+                  <option value="random" selected>Random (All Years)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Exam Mode -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>3</span> Select Exam Mode</h3>
+              <div class="mode-grid">
+
+                <div class="mode-card selected" onclick="selectMode(this)">
+                  <div class="mode-card__radio"></div>
+                  <div class="mode-card__content">
+                    <h4>Full Exam Mode</h4>
+                    <p>Standard timing. Answers are hidden until the end of the exam. Best for assessing true readiness.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="submit-area">
+              <button class="btn-start" onclick="startExam()">
+                Start CBT Exam 🚀
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Right Sidebar (Tips/Info) -->
+        <aside class="right-sidebar">
+
+          <div class="info-card">
+            <h4>💡 Quick Tips</h4>
+            <p>For the best simulation experience, ensure you are in a quiet environment free from distractions.</p>
+            <ul>
+              <li>Do not refresh the page during the exam.</li>
+              <li>Use the calculator tool provided in the CBT interface.</li>
+            </ul>
+          </div>
+
+          <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
+            <h4>🏆 Leaderboard Challenge</h4>
+            <p>Join the weekly MyExamCompanion CBT challenge to win cash prizes and airtime!</p>
+          </div>
+
+        </aside>
+
+      </main>
+    </div><!-- end main-wrapper -->
+  </div><!-- end app -->
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+  <script>
+    // Exam mode selection styling
+    function selectMode(element) {
+      document.querySelectorAll('.mode-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+
+    let EXAM_CONFIG = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const examId = urlParams.get('exam_id') || 'us_sat';
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const R2_BASE_URL = 'https://YOUR-R2-PUBLIC-URL.com';
+      const pageTitle = document.getElementById('page-title');
+      const pageDesc = document.getElementById('page-desc');
+      const subjectContainer = document.getElementById('subject-checkboxes');
+      const yearSelect = document.getElementById('year-select');
+
+      pageTitle.textContent = "Loading Exam Setup...";
+
+      try {
+        let data;
+        try {
+          const res = await fetch(`../../../r2_staging_area/content/exams/${examId}/index.json`);
+          if (!res.ok) throw new Error('Local fallback failed');
+          data = await res.json();
+        } catch (e) {
+          console.warn('Failed to fetch from local, trying R2...');
+          const res = await fetch(`${R2_BASE_URL}/content/exams/${examId}/index.json`);
+          data = await res.json();
+        }
+
+        EXAM_CONFIG = data;
+        
+        // Update Title & Desc
+        document.title = `${data.display_name} CBT Simulator Setup`;
+        pageTitle.textContent = `${data.display_name} CBT Simulator Setup`;
+        pageDesc.textContent = `Configure your ${data.display_name} CBT exam environment. Select your subjects, choose your exam year, and begin your practice session.`;
+
+        // Populate Subjects as checkboxes
+        if (data.subjects && data.subjects.length > 0) {
+          subjectContainer.innerHTML = data.subjects.map((sub, index) => `
+            <div class="form-group">
+              <label>Subject ${index + 1} (Fixed)</label>
+              <select class="form-select subject-fixed-select" disabled data-value="${sub.id}">
+                <option selected>${sub.name}</option>
+              </select>
+            </div>
+          `).join('');
+          
+          // Populate Years based on the first available subject
+          updateYears();
+        } else {
+          subjectContainer.innerHTML = `<span style="color:red;">No subjects found</span>`;
+        }
+
+        // Add event listeners to checkboxes to update years if needed
+        subjectContainer.addEventListener('change', updateYears);
+
+      } catch (err) {
+        console.error("Error loading config:", err);
+        pageTitle.textContent = "Error Loading Exam Setup";
+        pageDesc.textContent = "Please check your network connection or try again later.";
+      }
+    });
+
+    function updateYears() {
+      const yearSelect = document.getElementById('year-select');
+      if (!EXAM_CONFIG) return;
+      
+      const subjectsElements = document.querySelectorAll('.subject-fixed-select');
+      if (subjectsElements.length === 0) {
+        yearSelect.innerHTML = `<option disabled selected>Select a subject first</option>`;
+        return;
+      }
+      
+      // Get years from the first subject (assuming they share similar years)
+      const subjectId = subjectsElements[0].getAttribute('data-value');
+      const subject = EXAM_CONFIG.subjects.find(s => s.id === subjectId);
+      if (subject && subject.years) {
+        yearSelect.innerHTML = `<option value="random" selected>Random (All Years)</option>` + 
+          subject.years.map(y => `<option value="${y}">${y}</option>`).join('');
+      }
+    }
+
+    function startExam() {
+      const subjectsElements = document.querySelectorAll('.subject-fixed-select');
+      if (subjectsElements.length === 0) {
+        return alert("Please select at least one subject.");
+      }
+      
+      const selectedSubjects = Array.from(subjectsElements).map(el => el.getAttribute('data-value').replace(`${examId}_`, '')).join(',');
+      let year = document.getElementById('year-select').value;
+      
+      if (!year || year === "Select a subject first") {
+        return alert("Please select a valid year.");
+      }
+      
+      // Random year logic
+      if (year === 'random') {
+        const subjectId = subjectsElements[0].getAttribute('data-value');
+        const subject = EXAM_CONFIG.subjects.find(s => s.id === subjectId);
+        if (subject && subject.years && subject.years.length > 0) {
+          const randomIndex = Math.floor(Math.random() * subject.years.length);
+          year = subject.years[randomIndex];
+        } else {
+          year = "2024"; // fallback
+        }
+      }
+      
+      // Navigate to instruction page
+      window.location.href = `instruction.html?exam_id=${examId}&subject=${selectedSubjects}&year=${year}`;
+    }
+  </script>
+</body>
+
+</html>

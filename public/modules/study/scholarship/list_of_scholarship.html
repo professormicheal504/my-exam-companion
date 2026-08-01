@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarships | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================
+       APP SHELL
+    =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
+    }
+
+    /* ===========================
+       TOPBAR
+    =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
+    .topbar__search {
+      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 400px;
+      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 7px 14px;
+      transition: border-color 0.15s;
+    }
+    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
+    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
+    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
+    .topbar__search input::placeholder { color: #b0b0b0; }
+    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+    .btn-register { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
+    .btn-register:hover { background: #2d2d2d; }
+
+    /* ===========================
+       CONTENT AREA
+    =========================== */
+    .content-area { display: flex; flex: 1; overflow-x: hidden; }
+    .main-content { flex: 1; padding: 32px 24px; min-width: 0; width: 100%; overflow-x: hidden; max-width: 1200px; margin: 0 auto; }
+
+    /* ===========================
+       SCHOLARSHIPS HEADER
+    =========================== */
+    .page-header { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .page-title { font-size: 28px; font-weight: 800; color: #111827; letter-spacing: -0.02em; }
+    
+    .toolbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+    .search-filter-wrapper { display: flex; gap: 12px; flex: 1; max-width: 600px; }
+    
+    .local-search {
+      flex: 1; display: flex; align-items: center; gap: 10px;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 16px;
+      transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .local-search:focus-within { border-color: #b70c01; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.1); }
+    .local-search svg { color: #9ca3af; }
+    .local-search input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; font-family: inherit; color: #111827; }
+    
+    .btn-filter {
+      display: flex; align-items: center; gap: 8px;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 16px;
+      font-size: 14px; font-weight: 600; color: #374151; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .btn-filter:hover { background: #f9fafb; border-color: #d1d5db; color: #111827; }
+    .btn-filter svg { color: #6b7280; }
+
+    .results-count { font-size: 14px; font-weight: 500; color: #6b7280; }
+
+    /* ===========================
+       SCHOLARSHIPS GRID
+    =========================== */
+    .scholarship-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    
+    .scholarship-card {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 16px; padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .scholarship-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+      border-color: #e5e7eb;
+    }
+    
+    /* Top section: Logo and Actions */
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    
+    .card-logo {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #fff;
+      background: #f9fafb;
+    }
+    
+    .card-actions { display: flex; gap: 8px; }
+    .action-btn {
+      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: #f9fafb; border: 1px solid #f3f4f6; color: #6b7280; transition: all 0.2s;
+    }
+    .action-btn:hover { background: #fee2e2; color: #b70c01; border-color: #fecaca; }
+    
+    /* Body section */
+    .card-title {
+      font-size: 17px; font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 16px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    
+    .card-details { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; flex: 1; }
+    .detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #4b5563; line-height: 1.4; }
+    .detail-item svg { width: 18px; height: 18px; color: #9ca3af; flex-shrink: 0; margin-top: 1px; }
+    
+    /* Footer section */
+    .card-footer { display: flex; justify-content: center; margin-top: auto; padding-top: 20px; border-top: 1px dashed #f3f4f6; }
+    .deadline-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 99px; background: #fff;
+      border: 1.5px solid #f3f4f6; font-size: 13.5px; font-weight: 700; color: #b70c01;
+    }
+    .deadline-badge svg { color: #d97706; }
+    
+    /* Ads / Promo Card */
+    .promo-card {
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      border: 1px solid #e2e8f0; text-align: center; justify-content: center; align-items: center;
+    }
+    .promo-card .promo-icon { width: 80px; height: 80px; margin-bottom: 16px; }
+    .promo-title { font-size: 20px; font-weight: 800; color: #1e293b; margin-bottom: 12px; font-family: 'Georgia', serif; font-style: italic; }
+    
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      .topbar__actions { display: none; }
+      .main-content { padding: 24px 16px; }
+      .topbar { padding: 0 12px; }
+      .page-title { font-size: 24px; }
+    }
+    
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
+      .topbar__logo img { height: 34px; min-width: 0 !important; }
+      .topbar__search { display: none; } /* Hide global search on mobile to save space */
+      
+      .search-filter-wrapper { flex-direction: column; }
+      .scholarship-grid { grid-template-columns: 1fr; }
+      .card-title { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <app-sidebar data-base="../../"></app-sidebar>
+
+    <div class="main-wrapper">
+      <!-- TOPBAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT -->
+      <div class="content-area">
+        <main class="main-content">
+          
+          <div class="page-header">
+            <h1 class="page-title">Explore Scholarships</h1>
+            
+            <div class="toolbar">
+              <div class="search-filter-wrapper">
+                <div class="local-search">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Search scholarships by name, country, or type...">
+                </div>
+                <button class="btn-filter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                  Filter
+                </button>
+              </div>
+              <div class="results-count">Showing 15 Scholarships</div>
+            </div>
+          </div>
+
+          <div class="scholarship-grid">
+            
+            <!-- Card 1 -->
+            <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
+              <div class="card-top">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <div class="card-actions">
+                  <button class="action-btn" aria-label="Share">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <button class="action-btn" aria-label="Save">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                </div>
+              </div>
+              
+              <h2 class="card-title">Fully Funded Scholarship at University of Milan DSU, Italy 2026/27</h2>
+              
+              <div class="card-details">
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  <span>Fully Funded</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <span>Masters, Undergraduate</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Italy (Italia)</span>
+                </div>
+              </div>
+              
+              <div class="card-footer">
+                <div class="deadline-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  30th Sep, 2026
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
+              <div class="card-top">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <div class="card-actions">
+                  <button class="action-btn" aria-label="Share">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <button class="action-btn" aria-label="Save">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                </div>
+              </div>
+              
+              <h2 class="card-title">UK Government Chevening Scholarships 2026/27 (Fully Funded)</h2>
+              
+              <div class="card-details">
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  <span>Fully Funded</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <span>Masters Only</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>United Kingdom (UK)</span>
+                </div>
+              </div>
+              
+              <div class="card-footer">
+                <div class="deadline-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  7th Nov, 2026
+                </div>
+              </div>
+            </div>
+
+            <!-- Promo Card -->
+            <div class="scholarship-card promo-card">
+              <div class="card-actions" style="position: absolute; right: 16px; top: 16px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </div>
+              <img src="https://img.icons8.com/color/96/000000/university.png" alt="UK University" class="promo-icon">
+              <div class="promo-title">UK University<br>Scholarships</div>
+              <p style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Premium opportunities curated for you</p>
+              <button style="background: #111827; color: #fff; border-radius: 8px; padding: 10px 20px; font-weight: 600; font-size: 14px;">View Premium list</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
+              <div class="card-top">
+                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <div class="card-actions">
+                  <button class="action-btn" aria-label="Share">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <button class="action-btn" aria-label="Save">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                </div>
+              </div>
+              
+              <h2 class="card-title">MEXT Japanese Government Scholarship 2027</h2>
+              
+              <div class="card-details">
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  <span>Fully Funded + Stipend</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <span>Undergraduate, Masters, PhD</span>
+                </div>
+                <div class="detail-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Japan</span>
+                </div>
+              </div>
+              
+              <div class="card-footer">
+                <div class="deadline-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  15th May, 2027
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

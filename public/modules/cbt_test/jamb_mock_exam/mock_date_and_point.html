@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JAMB Mock Exam - Schedule & Credits</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../index.css">
+
+    <!-- Sidebar Component -->
+    <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css">
+    <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js" type="module"></script>
+
+    <style>
+        :root {
+            --bg-base: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+
+            --primary: #b70c01;
+            --primary-hover: #900a01;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --t: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            display: flex;
+        }
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin-left: 72px;
+        }
+        
+        .main-content {
+            padding: 24px;
+            flex: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                margin-left: 72px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-wrapper {
+                margin-left: 0;
+            }
+            .main-content {
+                padding: 16px;
+            }
+        }
+
+        /* Top Header */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .back-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--t);
+        }
+
+        .back-btn:hover {
+            background: var(--bg-base);
+            transform: translateY(-2px);
+        }
+
+        .page-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .page-title p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 4px 0 0 0;
+        }
+
+        /* Container */
+        .dashboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Base Card Style */
+        .dash-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        /* ── Schedule Banner ── */
+        .schedule-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: #fef2f2;
+            color: var(--text-main);
+            border: 1px solid #fecaca;
+        }
+
+        .sb-content h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            margin: 0 0 8px 0;
+        }
+
+        .sb-content p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .next-exam-badge {
+            background: #ffffff;
+            border: 1px solid #fecaca;
+            padding: 16px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .neb-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .neb-date {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .schedule-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .next-exam-badge {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        /* ── Credit Wallet ── */
+        .wallet-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .wallet-icon {
+            width: 64px;
+            height: 64px;
+            background: #fef2f2;
+            color: var(--primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .wallet-info {
+            flex: 1;
+        }
+
+        .wallet-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .wallet-balance {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        /* Action Area */
+        .action-card {
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            background: #f1f5f9;
+            color: var(--text-muted);
+        }
+
+        .status-icon.ready {
+            background: #dcfce7;
+            color: var(--success);
+            box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.1);
+            animation: pulse-green 2s infinite;
+        }
+
+        .status-icon.error {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .status-icon.wait {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .action-msg {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 0 8px 0;
+        }
+
+        .action-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0 0 24px 0;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--t);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-main:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-main:disabled,
+        .btn-main.disabled {
+            background: var(--text-subtle);
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ── Dev Tools (Simulation) ── */
+        .dev-tools {
+            margin-top: 40px;
+            padding: 16px;
+            border: 1px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            background: #f8fafc;
+            font-size: 12px;
+        }
+
+        .dev-tools h4 {
+            margin: 0 0 12px 0;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .dev-btn {
+            padding: 6px 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dev-btn:hover {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <app-sidebar data-base="../../" data-active="test"></app-sidebar>
+
+    <main class="main-wrapper">
+        <app-topbar data-base="../../"></app-topbar>
+        <div class="main-content">
+            <header class="page-header">
+            <a href="../jamb_cbt/jamb_all_subject.html" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <div class="page-title">
+                <h1>JAMB Mock Exam</h1>
+                <p>Participate in scheduled mock exams to evaluate your readiness.</p>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+
+            <!-- Schedule Banner -->
+            <div class="dash-card schedule-banner">
+                <div class="sb-content">
+                    <h2>Official Exam Schedule</h2>
+                    <p>Mock exams are exclusively held every <strong>Tuesday</strong> and
+                        <strong>Saturday</strong>.<br>Ensure you have an active exam credit to join on these days.</p>
+                </div>
+                <div class="next-exam-badge">
+                    <div class="neb-label">Next Upcoming Exam</div>
+                    <div class="neb-date" id="ui-next-date">Calculating...</div>
+                </div>
+            </div>
+
+            <!-- Credit Wallet -->
+            <div class="dash-card wallet-card">
+                <div class="wallet-icon">💳</div>
+                <div class="wallet-info">
+                    <div class="wallet-label">Available Exam Credits</div>
+                    <div class="wallet-balance" id="ui-credit-balance">0</div>
+                </div>
+                <div>
+                    <!-- For real app, this would open a payment gateway -->
+                    <button class="btn-main" onclick="buyCredit()" style="padding: 12px 24px; font-size: 14px;">
+                        Buy Credit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Area -->
+            <div class="dash-card action-card">
+                <div class="status-icon" id="ui-status-icon">⏳</div>
+                <h3 class="action-msg" id="ui-action-msg">Checking status...</h3>
+                <p class="action-sub" id="ui-action-sub">Please wait while we verify the exam schedule and your credits.
+                </p>
+                <button class="btn-main" id="ui-action-btn" onclick="joinExam()">Join Mock Exam Room</button>
+            </div>
+
+            <!-- Dev Tools (For simulation in this environment) -->
+            <div class="dev-tools">
+                <h4>Developer Tools (Simulation)</h4>
+                <button class="dev-btn" onclick="simSetDay(2)">Simulate Tuesday</button>
+                <button class="dev-btn" onclick="simSetDay(6)">Simulate Saturday</button>
+                <button class="dev-btn" onclick="simSetDay(1)">Simulate Monday</button>
+                <button class="dev-btn" onclick="simSetCredits(0)">Set Credits: 0</button>
+                <button class="dev-btn" onclick="simSetCredits(1)">Set Credits: 1</button>
+            </div>
+
+        </div>
+        </div>
+    </main>
+
+    <script>
+        /* ── STATE ── */
+        // For demo purposes, we allow overriding the current date for testing
+        let simulatedDate = null;
+        let examCredits = 0; // Load from localStorage in a real app
+
+        function getNow() {
+            return simulatedDate ? new Date(simulatedDate) : new Date();
+        }
+
+        /* ── LOGIC ── */
+        function getNextExamDate(now) {
+            // Find the next Tuesday (2) or Saturday (6)
+            const currentDay = now.getDay();
+            let daysUntilNext = 0;
+
+            if (currentDay === 2 || currentDay === 6) {
+                // Today is exam day!
+                return { isToday: true, date: now };
+            }
+
+            // Compute days to next Tuesday (2) or Saturday (6)
+            const toTuesday = (2 - currentDay + 7) % 7;
+            const toSaturday = (6 - currentDay + 7) % 7;
+
+            // If we are past Tuesday (e.g., Wed), toTuesday will be 6. 
+            // If we are on Sun (0), toTue is 2, toSat is 6.
+            daysUntilNext = Math.min(toTuesday === 0 ? 7 : toTuesday, toSaturday === 0 ? 7 : toSaturday);
+
+            const nextDate = new Date(now);
+            nextDate.setDate(now.getDate() + daysUntilNext);
+
+            return { isToday: false, date: nextDate };
+        }
+
+        function formatDate(dateObj) {
+            const options = { weekday: 'long', month: 'short', day: 'numeric' };
+            return dateObj.toLocaleDateString('en-US', options);
+        }
+
+        function updateUI() {
+            const now = getNow();
+            const nextExam = getNextExamDate(now);
+
+            // Update Schedule Banner
+            document.getElementById('ui-next-date').textContent = nextExam.isToday ? "Today!" : formatDate(nextExam.date);
+
+            // Update Wallet
+            document.getElementById('ui-credit-balance').textContent = examCredits;
+
+            // Update Action Area
+            const icon = document.getElementById('ui-status-icon');
+            const msg = document.getElementById('ui-action-msg');
+            const sub = document.getElementById('ui-action-sub');
+            const btn = document.getElementById('ui-action-btn');
+
+            // Reset classes
+            icon.className = 'status-icon';
+            btn.className = 'btn-main';
+            btn.disabled = false;
+            btn.textContent = 'Join Mock Exam Room';
+
+            if (examCredits <= 0) {
+                // No credits
+                icon.classList.add('error');
+                icon.textContent = '💳';
+                msg.textContent = 'Insufficient Exam Credits';
+                sub.textContent = 'You need at least 1 exam credit to participate in the Mock Exam. Please purchase a credit to proceed.';
+                btn.textContent = 'Purchase Credit to Join';
+                btn.disabled = true;
+            }
+            else if (!nextExam.isToday) {
+                // Has credits, wrong day
+                icon.classList.add('wait');
+                icon.textContent = '⏳';
+                msg.textContent = 'Exam Room is Closed';
+                sub.textContent = `The next mock exam is scheduled for ${formatDate(nextExam.date)}. Check back then!`;
+                btn.textContent = 'Locked Until Exam Day';
+                btn.disabled = true;
+            }
+            else {
+                // Has credits, and today is the day!
+                icon.classList.add('ready');
+                icon.textContent = '🎯';
+                msg.textContent = 'Exam Room is Open!';
+                sub.textContent = 'You have an active credit and the exam room is ready. Good luck!';
+            }
+        }
+
+        /* ── ACTIONS ── */
+        function buyCredit() {
+            // Simulation of buying a credit
+            examCredits++;
+            alert("Successfully purchased 1 Exam Credit! (Demo)");
+            updateUI();
+        }
+
+        function joinExam() {
+            // Deduct credit and navigate
+            examCredits--;
+            // In a real application, you would save state and verify securely
+            window.location.href = '../jamb_cbt/jamb_cbt_board.html';
+        }
+
+        /* ── SIMULATION TOOLS ── */
+        function simSetDay(dayOfWeek) {
+            const now = new Date();
+            const currentDay = now.getDay();
+            const distance = dayOfWeek - currentDay;
+            now.setDate(now.getDate() + distance);
+            simulatedDate = now;
+            updateUI();
+        }
+
+        function simSetCredits(val) {
+            examCredits = val;
+            updateUI();
+        }
+
+        // Init
+        window.addEventListener('DOMContentLoaded', updateUI);
+
+    </script>
+</body>
+
+</html>

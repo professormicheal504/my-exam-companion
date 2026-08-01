@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tasks & Rewards – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    body { min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; -webkit-appearance: none; appearance: none; }
+    
+    :root {
+      --primary: #b70c01;
+      --primary-dk: #9a0a01;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --gray-light: #f3f4f6;
+      --gray-border: #e5e7eb;
+      --gray-text: #6b7280;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; max-width: 1200px; margin: 0 auto; width: 100%; min-width: 0; }
+
+    /* ==============================
+       PAGE HEADER
+    ============================== */
+    .page-header { margin-bottom: 32px; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: #131212; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header__desc { font-size: 15px; color: var(--gray-text); line-height: 1.5; font-weight: 500; }
+
+    .main-grid {
+      display: grid; grid-template-columns: 1fr 400px; gap: 32px; align-items: start; min-width: 0; max-width: 100%;
+    }
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==============================
+       TASKS LIST
+    ============================== */
+    .tasks-card {
+      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 0; max-width: 100%;
+    }
+    .tasks-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #111827; }
+
+    .task-list { display: flex; flex-direction: column; gap: 16px; }
+    .task-item {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      background: #fafafa; padding: 20px; border-radius: 12px; border: 1px solid var(--gray-border);
+      transition: border-color 0.2s;
+    }
+    .task-item.completed { border-color: #a7f3d0; background: #ecfdf5; opacity: 0.7; pointer-events: none; }
+    
+    .task-info { flex: 1; }
+    .task-title { font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 4px; }
+    .task-desc { font-size: 13px; color: var(--gray-text); font-weight: 500; line-height: 1.4; }
+    .task-reward {
+      display: inline-flex; align-items: center; gap: 4px; background: #fff1f2; color: var(--primary);
+      padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; margin-top: 8px;
+    }
+
+    .task-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .btn-action {
+      background: var(--primary); color: #ffffff !important; padding: 10px 16px; border-radius: 8px;
+      font-size: 13px; font-weight: 700; transition: all 0.2s; white-space: nowrap; text-align: center;
+      display: flex; align-items: center; justify-content: center; line-height: normal;
+    }
+    .btn-action:hover { background: var(--primary-dk); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(183,12,1,0.2); }
+    .btn-action:active { transform: translateY(0); }
+    
+    .btn-skip {
+      background: white; color: #374151 !important; border: 1px solid #d1d5db; padding: 8px 16px;
+      border-radius: 8px; font-size: 12px; font-weight: 600; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px;
+    }
+    .btn-skip:hover { background: #f9fafb; color: #374151; }
+
+    /* ==============================
+       SPIN WHEEL (ROULETTE)
+    ============================== */
+    .spin-card {
+      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: sticky; top: 32px; text-align: center;
+      min-width: 0; max-width: 100%; overflow: hidden;
+    }
+    .spin-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: #111827; }
+    .spin-subtitle { font-size: 13px; color: var(--gray-text); font-weight: 500; margin-bottom: 24px; }
+    
+    .spins-count {
+      display: inline-flex; background: #fef2f2; color: var(--primary); padding: 6px 12px; border-radius: 99px;
+      font-size: 14px; font-weight: 800; margin-bottom: 24px;
+    }
+
+    /* BB Racing Style Horizontal Roulette */
+    .roulette-wrapper { position: relative; margin-bottom: 24px; width: 100%; min-width: 0; max-width: 100%; }
+    .roulette-container {
+      width: 100%; height: 120px; background: #1f2937; border-radius: 12px;
+      overflow: hidden; box-shadow: inset 0 4px 12px rgba(0,0,0,0.3); min-width: 0; max-width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    
+    .roulette-pointer {
+      position: absolute; top: -5px; bottom: -5px; left: 50%; transform: translateX(-50%);
+      width: 4px; background: var(--warning); z-index: 20; box-shadow: 0 0 10px var(--warning);
+    }
+    .roulette-pointer::before {
+      content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%);
+      border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--warning);
+    }
+    .roulette-pointer::after {
+      content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+      border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 15px solid var(--warning);
+    }
+
+    .roulette-track {
+      display: flex; height: 100%; align-items: center; width: max-content;
+      transition: transform 5s cubic-bezier(0.1, 0.7, 0.1, 1); /* The spin physics */
+    }
+    
+    .roulette-item {
+      width: 100px; height: 90px; margin: 0 5px; flex-shrink: 0; border-radius: 8px;
+      background: linear-gradient(135deg, #374151 0%, #1f2937 100%); border: 2px solid #4b5563;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: white; font-weight: 800; font-size: 15px; text-align: center; padding: 10px;
+    }
+    .roulette-item.gold { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-color: #fcd34d; color: #fffbeb; }
+    .roulette-item.silver { background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%); border-color: #e2e8f0; }
+    .roulette-item.bronze { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dk) 100%); border-color: #fca5a5; }
+
+    .btn-spin {
+      width: 100%; background: var(--primary); color: #ffffff !important; font-size: 16px; font-weight: 800;
+      padding: 16px; border-radius: 12px; transition: all 0.2s ease; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; line-height: normal; text-align: center;
+    }
+    .btn-spin:hover:not(:disabled) { background: var(--primary-dk); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(183,12,1,0.2); }
+    .btn-spin:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-spin-ad {
+      width: 100%; background: #111827; color: #ffffff !important; font-size: 14px; font-weight: 700;
+      padding: 12px; border-radius: 12px; transition: all 0.2s ease; border: none; cursor: pointer;
+      display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; text-align: center;
+    }
+    .btn-spin-ad:hover { background: #374151; }
+
+    /* Result Modal */
+    .result-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000;
+      display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);
+    }
+    .result-card {
+      background: white; padding: 40px; border-radius: 24px; text-align: center; max-width: 400px; width: 90%;
+      transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .result-overlay.show { display: flex; }
+    .result-overlay.show .result-card { transform: scale(1); }
+    
+    .result-icon { font-size: 64px; margin-bottom: 16px; }
+    .result-title { font-size: 24px; font-weight: 800; color: #111827; margin-bottom: 8px; }
+    .result-desc { font-size: 15px; color: var(--gray-text); margin-bottom: 24px; font-weight: 500; }
+    
+    .btn-claim {
+      background: var(--primary); color: white; font-size: 15px; font-weight: 700;
+      padding: 14px 24px; border-radius: 12px; width: 100%; cursor: pointer; border: none;
+    }
+
+    /* Mobile overrides */
+    @media (max-width: 600px) {
+      .content-area { padding: 20px 16px 80px; }
+      .page-header__title { font-size: 24px; }
+      .tasks-card, .spin-card { padding: 20px; }
+      .task-item { flex-direction: column; align-items: flex-start; }
+      .task-actions { align-items: stretch; flex-direction: column; width: 100%; margin-top: 12px; }
+      .btn-action, .btn-skip { flex: 1; justify-content: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../" data-active="reward_task"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../"></app-topbar>
+
+      <main class="content-area">
+        <div class="page-header">
+          <h1 class="page-header__title">Daily Quests & Rewards</h1>
+          <p class="page-header__desc">Complete tasks to increase your rank and earn spins for real cash & data!</p>
+        </div>
+        
+        <div class="main-grid">
+          
+          <!-- TASKS LIST -->
+          <div class="tasks-card">
+            <h2>Available Tasks</h2>
+            <div class="task-list">
+              
+              <div class="task-item" id="task-1">
+                <div class="task-info">
+                  <div class="task-title">Score 270 in JAMB CBT</div>
+                  <div class="task-desc">Take a full JAMB Mock Exam and score at least 270 points.</div>
+                  <div class="task-reward">🎁 +1 Spin Ticket</div>
+                </div>
+                <div class="task-actions">
+                  <button class="btn-action" onclick="completeTask('task-1')">Simulate CBT</button>
+                  <button class="btn-skip" onclick="skipWithAd('task-1')">▶ Skip (Watch Ad)</button>
+                </div>
+              </div>
+
+              <div class="task-item" id="task-2">
+                <div class="task-info">
+                  <div class="task-title">Score >50 in any WAEC Subject</div>
+                  <div class="task-desc">Ace any subject in the WAEC simulator.</div>
+                  <div class="task-reward">🎁 +1 Spin Ticket</div>
+                </div>
+                <div class="task-actions">
+                  <button class="btn-action" onclick="completeTask('task-2')">Play WAEC</button>
+                  <button class="btn-skip" onclick="skipWithAd('task-2')">▶ Skip (Watch Ad)</button>
+                </div>
+              </div>
+
+              <div class="task-item" id="task-3">
+                <div class="task-info">
+                  <div class="task-title">Read 2 Articles</div>
+                  <div class="task-desc">Stay updated! Read 2 articles in the News section.</div>
+                  <div class="task-reward">🎁 +1 Spin Ticket</div>
+                </div>
+                <div class="task-actions">
+                  <button class="btn-action" onclick="completeTask('task-3')">Go to News</button>
+                  <button class="btn-skip" onclick="skipWithAd('task-3')">▶ Skip (Watch Ad)</button>
+                </div>
+              </div>
+
+              <div class="task-item" id="task-4">
+                <div class="task-info">
+                  <div class="task-title">Join our WhatsApp Group</div>
+                  <div class="task-desc">Join our official community and verify by uploading a screenshot.</div>
+                  <div class="task-reward">🎁 +2 Spin Tickets</div>
+                </div>
+                <div class="task-actions">
+                  <button class="btn-action" onclick="document.getElementById('file-upload').click()">Upload Screenshot</button>
+                  <input type="file" id="file-upload" style="display:none;" onchange="completeTask('task-4', 2)">
+                  <button class="btn-skip" onclick="skipWithAd('task-4', 2)">▶ Skip (Watch Ad)</button>
+                </div>
+              </div>
+
+              <div class="task-item" id="task-5">
+                <div class="task-info">
+                  <div class="task-title">Upgrade to Pro</div>
+                  <div class="task-desc">Unlock all premium features to get a massive spin reward.</div>
+                  <div class="task-reward">🎁 +5 Spin Tickets</div>
+                </div>
+                <div class="task-actions">
+                  <button class="btn-action" onclick="completeTask('task-5', 5)">Upgrade Now</button>
+                  <button class="btn-skip" onclick="skipWithAd('task-5', 5)">▶ Skip (Watch Ad)</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SPIN WHEEL -->
+          <div class="spin-card">
+            <h2>Reward Spinner</h2>
+            <p class="spin-subtitle">Spin the wheel to win Cash, Airtime, or Data!</p>
+            
+            <div class="spins-count" id="spins-count">🎟️ 0 Spins Available</div>
+            
+            <!-- BB Racing Style Ticker -->
+            <div class="roulette-wrapper">
+              <div class="roulette-pointer"></div>
+              <div class="roulette-container">
+                <div class="roulette-track" id="roulette-track">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-spin" id="btn-spin" disabled onclick="spinWheel()">SPIN NOW!</button>
+            <button class="btn-spin-ad" id="btn-spin-ad" onclick="spinWithAd()">▶ Spin Again (Watch Ad)</button>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <!-- Reward Result Modal -->
+  <div class="result-overlay" id="result-overlay">
+    <div class="result-card">
+      <div class="result-icon" id="result-icon">🎉</div>
+      <h3 class="result-title" id="result-title">You Won ₦500!</h3>
+      <p class="result-desc" id="result-desc">The cash has been added to your earnings balance.</p>
+      <button class="btn-claim" onclick="closeResult()">Awesome!</button>
+    </div>
+  </div>
+
+  <script>
+    // Global State
+    let spinsAvailable = 10;
+    let isSpinning = false;
+    let adSpinsUsed = 0; // The user can spin "one more time with ads" per completion
+
+    // Elements
+    const spinsCountEl = document.getElementById('spins-count');
+    const btnSpin = document.getElementById('btn-spin');
+    const btnSpinAd = document.getElementById('btn-spin-ad');
+    const track = document.getElementById('roulette-track');
+    
+    // Roulette items configuration (Over 30 elements)
+    const itemTypes = [
+      { text: "₦50", class: "bronze", icon: "💵" },
+      { text: "₦100", class: "silver", icon: "💸" },
+      { text: "₦500", class: "gold", icon: "🤑" },
+      { text: "100MB", class: "silver", icon: "📶" },
+      { text: "1GB", class: "gold", icon: "🚀" },
+      { text: "Try Again", class: "", icon: "😢" },
+      { text: "+50 Rank Pts", class: "bronze", icon: "⭐" },
+    ];
+
+    // Generate exactly 50 items for the track
+    const totalItems = 50;
+    const itemWidth = 110; // 100px width + 10px total margin
+    const itemsData = [];
+
+    function initRoulette() {
+      track.innerHTML = '';
+      for (let i = 0; i < totalItems; i++) {
+        // Randomly pick an item, make 'gold' items rare
+        let type;
+        const rand = Math.random();
+        if (rand < 0.05) type = itemTypes.find(t => t.text === "₦500" || t.text === "1GB"); // 5% chance for jackpot visual
+        else if (rand < 0.2) type = itemTypes.find(t => t.text === "₦100" || t.text === "100MB");
+        else type = itemTypes[Math.floor(Math.random() * itemTypes.length)];
+        
+        itemsData.push(type);
+        
+        const div = document.createElement('div');
+        div.className = `roulette-item ${type.class}`;
+        div.innerHTML = `<div style="font-size:24px; margin-bottom:4px;">${type.icon}</div><div>${type.text}</div>`;
+        track.appendChild(div);
+      }
+      // Start position (middle of the container, at index 2)
+      // Container is 100% wide. Let's just reset transform.
+      track.style.transform = `translateX(0px)`;
+    }
+
+    initRoulette();
+    updateSpinsUI(); // Call once at initialization so the 10 free spins are shown
+
+    function updateSpinsUI() {
+      spinsCountEl.innerHTML = `🎟️ ${spinsAvailable} Spins Available`;
+      if (spinsAvailable > 0 && !isSpinning) {
+        btnSpin.disabled = false;
+        btnSpin.innerHTML = "SPIN NOW!";
+      } else {
+        btnSpin.disabled = true;
+        if(spinsAvailable <= 0) btnSpin.innerHTML = "NO SPINS LEFT";
+      }
+    }
+
+    // Task Actions
+    function completeTask(id, tickets = 1) {
+      if(isSpinning) return;
+      document.getElementById(id).classList.add('completed');
+      document.getElementById(id).querySelector('.btn-action').innerText = 'Completed ✓';
+      spinsAvailable += tickets;
+      updateSpinsUI();
+      alert(`Task Completed! You earned ${tickets} Spin Ticket(s).`);
+    }
+
+    function skipWithAd(id, tickets = 1) {
+      if(isSpinning) return;
+      alert("Simulating Ad Video Playback... (15s)");
+      setTimeout(() => {
+        document.getElementById(id).classList.add('completed');
+        document.getElementById(id).querySelector('.btn-action').innerText = 'Skipped ✓';
+        spinsAvailable += tickets;
+        updateSpinsUI();
+      }, 1000);
+    }
+
+    // Spin Logic
+    function spinWheel() {
+      if (spinsAvailable <= 0 || isSpinning) return;
+      spinsAvailable--;
+      updateSpinsUI();
+      executeSpin();
+    }
+
+    function spinWithAd() {
+      if (isSpinning) return;
+      alert("Simulating Ad Video Playback... (15s)");
+      setTimeout(() => {
+        btnSpinAd.style.display = 'none'; // Only one ad spin allowed per completion
+        executeSpin();
+      }, 1000);
+    }
+
+    function executeSpin() {
+      isSpinning = true;
+      btnSpin.disabled = true;
+      btnSpin.innerHTML = "SPINNING...";
+      
+      // Calculate stopping point (between index 30 and 45 to ensure a long spin)
+      const stopIndex = Math.floor(Math.random() * 15) + 30;
+      const wonItem = itemsData[stopIndex];
+      
+      // Calculate translation. 
+      // Pointer is exactly in the center of the container.
+      // Container width changes, but we want the center of item `stopIndex` to align with pointer.
+      // Each item is 110px. Offset = stopIndex * 110.
+      // We also add a random variance so it doesn't land exactly dead center every time.
+      const variance = Math.floor(Math.random() * 80) - 40; // -40px to +40px
+      const containerCenterOffset = track.parentElement.offsetWidth / 2;
+      const targetTransform = (stopIndex * itemWidth) - containerCenterOffset + 55 + variance; // 55 is half item width
+
+      // Reset track to 0 instantly if it was already spun previously
+      track.style.transition = 'none';
+      track.style.transform = `translateX(0px)`;
+      
+      // Force reflow
+      track.offsetHeight;
+      
+      // Apply spin
+      track.style.transition = 'transform 5s cubic-bezier(0.1, 0.7, 0.1, 1)';
+      track.style.transform = `translateX(-${targetTransform}px)`;
+
+      setTimeout(() => {
+        isSpinning = false;
+        showResult(wonItem);
+        updateSpinsUI();
+        
+        // Show "Spin Again (Watch Ad)" if no spins left (give them 1 chance)
+        if (spinsAvailable === 0) {
+          btnSpinAd.style.display = 'flex';
+        }
+      }, 5200);
+    }
+
+    function showResult(item) {
+      document.getElementById('result-icon').innerText = item.icon;
+      
+      if(item.text === "Try Again") {
+        document.getElementById('result-title').innerText = "Oops!";
+        document.getElementById('result-desc').innerText = "Better luck next time. Complete more tasks for another chance!";
+      } else {
+        document.getElementById('result-title').innerText = `You Won ${item.text}!`;
+        document.getElementById('result-desc').innerText = "The reward has been credited to your account.";
+      }
+      
+      document.getElementById('result-overlay').classList.add('show');
+    }
+
+    function closeResult() {
+      document.getElementById('result-overlay').classList.remove('show');
+    }
+  </script>
+
+  <script src="../../components/sidebar.js"></script>
+  <script src="../../components/topbar.js"></script>
+</body>
+</html>

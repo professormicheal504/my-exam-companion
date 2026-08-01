@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+
+  <defs>
+    <linearGradient id="premiumRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b70c01" />
+    </linearGradient>
+    <linearGradient id="premiumRedLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+
+    <path d="M23 7l-7 5 7 5V7z" fill="url(#premiumRedLight)" opacity="0.2"/>
+    <path d="M23 7l-7 5 7 5V7z" fill="none" stroke="url(#premiumRed)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="1" y="5" width="15" height="14" rx="2" fill="url(#premiumRed)" opacity="0.15"/>
+    <rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="url(#premiumRed)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 12l2 2 4-4" fill="none" stroke="url(#premiumRed)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  
+</svg>

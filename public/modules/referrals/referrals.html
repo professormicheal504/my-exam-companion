@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Refer & Earn – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    body { min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; -webkit-appearance: none; appearance: none; }
+    
+    :root {
+      --primary: #b70c01;
+      --primary-dk: #9a0a01;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --gray-light: #f3f4f6;
+      --gray-border: #e5e7eb;
+      --gray-text: #6b7280;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; max-width: 1000px; margin: 0 auto; width: 100%; min-width: 0; max-width: 100%; }
+
+    /* ==============================
+       PAGE HEADER
+    ============================== */
+    .page-header { margin-bottom: 32px; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: #131212; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header__desc { font-size: 15px; color: var(--gray-text); line-height: 1.5; font-weight: 500; }
+
+    /* ==============================
+       CODE & STATS SECTION
+    ============================== */
+    .top-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; min-width: 0; max-width: 100%;
+    }
+
+    .info-card {
+      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 0; max-width: 100%;
+    }
+    .info-card h2 { font-size: 18px; font-weight: 800; margin-bottom: 16px; color: #111827; }
+    .info-card p { font-size: 14px; color: var(--gray-text); margin-bottom: 24px; line-height: 1.5; }
+
+    /* Referral Code Display */
+    .code-box {
+      display: flex; align-items: stretch; background: #fafafa; border: 2px dashed #d1d5db;
+      border-radius: 12px; overflow: hidden; margin-bottom: 16px;
+    }
+    .code-text {
+      flex: 1; font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: 2px;
+      padding: 16px 20px; display: flex; align-items: center; justify-content: center;
+    }
+    .btn-copy {
+      background: var(--primary); color: #ffffff !important; font-size: 14px; font-weight: 700;
+      padding: 0 24px; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+    }
+    .btn-copy:hover { background: var(--primary-dk); }
+    .btn-copy.copied { background: var(--success); }
+
+    /* Stats Grid */
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-box {
+      background: #fafafa; padding: 20px; border-radius: 12px; border: 1px solid var(--gray-border);
+      display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center;
+    }
+    .stat-num { font-size: 36px; font-weight: 800; color: #111827; margin-bottom: 4px; line-height: 1; }
+    .stat-lbl { font-size: 13px; font-weight: 600; color: var(--gray-text); text-transform: uppercase; }
+
+    /* ==============================
+       REFERRALS TABLE
+    ============================== */
+    .table-card {
+      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 0; max-width: 100%; overflow: hidden;
+    }
+    .table-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #111827; }
+
+    .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .ref-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+    .ref-table th {
+      text-align: left; padding: 16px; font-size: 13px; font-weight: 700; color: var(--gray-text);
+      text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--gray-border);
+    }
+    .ref-table td {
+      padding: 16px; border-bottom: 1px solid #f3f4f6; font-size: 15px; font-weight: 600; color: #111827;
+    }
+    .ref-table tr:last-child td { border-bottom: none; }
+    
+    .user-col { display: flex; align-items: center; gap: 12px; }
+    .user-avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: #fff1f2; color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 99px;
+      font-size: 12px; font-weight: 700;
+    }
+    .badge.apprentice { background: #ecfdf5; color: var(--success); }
+    .badge.scholar { background: #fef2f2; color: var(--primary); }
+    .badge.novice { background: #fffbeb; color: var(--warning); }
+
+    /* ==============================
+       MOBILE RESPONSIVENESS
+    ============================== */
+    @media (max-width: 900px) {
+      .top-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-area { padding: 20px 16px 80px; }
+      .page-header__title { font-size: 24px; }
+      .info-card, .table-card { padding: 20px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .code-box { flex-direction: column; border: 1px solid var(--gray-border); }
+      .btn-copy { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../" data-active="reward_referrals"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../"></app-topbar>
+
+      <main class="content-area">
+        <div class="page-header">
+          <h1 class="page-header__title">Refer & Earn</h1>
+          <p class="page-header__desc">Invite your friends to use My Exam Companion and unlock monetization rewards once they reach the Apprentice rank.</p>
+        </div>
+        
+        <div class="top-grid">
+          <!-- Referral Code Card -->
+          <div class="info-card">
+            <h2>Your Unique Code</h2>
+            <p>Share this code with your friends. They must enter it during sign-up for you to get the credit.</p>
+            
+            <div class="code-box">
+              <div class="code-text" id="refCodeText">MEC-9A4B7C</div>
+              <button class="btn-copy" id="btnCopy" onclick="copyCode()">Copy Code</button>
+            </div>
+            
+            <p style="margin-bottom:0; font-size:13px;">
+              <span style="color: var(--primary); font-weight:700;">Tip:</span> You need 10 friends to reach the Apprentice rank to unlock your earnings gateway!
+            </p>
+          </div>
+
+          <!-- Stats Card -->
+          <div class="info-card">
+            <h2>Performance Snapshot</h2>
+            <div class="stats-row">
+              <div class="stat-box">
+                <div class="stat-num">12</div>
+                <div class="stat-lbl">Total Friends Invited</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color: var(--primary);">8</div>
+                <div class="stat-lbl">Reached Apprentice</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Referrals Table -->
+        <div class="table-card">
+          <h2>Your Referrals</h2>
+          <div class="table-container">
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Date Joined</th>
+                  <th>Current Rank</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td>
+                    <div class="user-col">
+                      <div class="user-avatar">CD</div>
+                      Chinedu D.
+                    </div>
+                  </td>
+                  <td>Oct 12, 2026</td>
+                  <td><span class="badge scholar">Scholar</span></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="user-col">
+                      <div class="user-avatar">AO</div>
+                      Aisha O.
+                    </div>
+                  </td>
+                  <td>Oct 14, 2026</td>
+                  <td><span class="badge apprentice">Apprentice</span></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="user-col">
+                      <div class="user-avatar">FM</div>
+                      Favour M.
+                    </div>
+                  </td>
+                  <td>Oct 15, 2026</td>
+                  <td><span class="badge apprentice">Apprentice</span></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="user-col">
+                      <div class="user-avatar">IP</div>
+                      Ibrahim P.
+                    </div>
+                  </td>
+                  <td>Oct 18, 2026</td>
+                  <td><span class="badge novice">Novice</span></td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="user-col">
+                      <div class="user-avatar">GK</div>
+                      Grace K.
+                    </div>
+                  </td>
+                  <td>Oct 20, 2026</td>
+                  <td><span class="badge novice">Novice</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById('refCodeText').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('btnCopy');
+        btn.innerText = 'Copied! ✓';
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerText = 'Copy Code';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+  <script src="../../components/sidebar.js"></script>
+  <script src="../../components/topbar.js"></script>
+</body>
+</html>

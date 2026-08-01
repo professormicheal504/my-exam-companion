@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMB CBT Result | My Exam Companion</title>
+    <meta name="description" content="Your JAMB CBT Simulator Result">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 14px;
+            background: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        body {
+            background: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px 120px;
+        }
+
+        /* Action bar */
+        .action-bar {
+            width: 100%;
+            max-width: 860px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .action-bar h2 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-print {
+            padding: 9px 20px;
+            border-radius: 8px;
+            background: white;
+            color: #374151;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #d1d5db;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.15s;
+            font-family: inherit;
+        }
+
+        .btn-print:hover {
+            background: #f9fafb;
+        }
+
+        .btn-retake {
+            padding: 9px 20px;
+            border-radius: 8px;
+            background: #b70c01;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .btn-retake:hover {
+            background: #960a01;
+        }
+
+        .btn-home {
+            padding: 9px 20px;
+            border-radius: 8px;
+            background: white;
+            color: #374151;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #d1d5db;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .btn-home:hover {
+            background: #f9fafb;
+        }
+
+        /* Slip */
+        .slip-wrapper {
+            width: 100%;
+            max-width: 860px;
+        }
+
+        .slip {
+            background: white;
+            border: 1px solid #bbb;
+            padding: 40px 52px;
+            color: #000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Header */
+        .slip-header {
+            text-align: center;
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+        }
+
+        .slip-logo {
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .slip-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        /* Info */
+        .slip-info {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            row-gap: 7px;
+            margin-bottom: 24px;
+            font-size: 13.5px;
+        }
+
+        .slip-info .lbl {
+            color: #222;
+            font-weight: 400;
+        }
+
+        .slip-info .val {
+            font-weight: 700;
+            color: #000;
+            word-break: break-word;
+        }
+
+        /* Table */
+        .slip-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 13.5px;
+        }
+
+        .slip-table thead tr {
+            background: #c6d9f0;
+        }
+
+        .slip-table th {
+            text-align: left;
+            padding: 10px 14px;
+            font-weight: 700;
+            border: 1px solid #9eb8d8;
+            color: #000;
+        }
+
+        .slip-table td {
+            padding: 9px 14px;
+            border: 1px solid #ccc;
+            color: #000;
+        }
+
+        .slip-table tbody tr:nth-child(even) td {
+            background: #e8f5e9;
+        }
+
+        .slip-table .score-col {
+            font-weight: 700;
+        }
+
+        /* Total */
+        .total-row {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 8px 0 28px;
+        }
+
+        .total-row strong {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .perf-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 4px;
+            font-size: 12.5px;
+            font-weight: 700;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .badge-excellent {
+            background: #166534;
+            color: white;
+        }
+
+        .badge-good {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .badge-average {
+            background: #92400e;
+            color: white;
+        }
+
+        .badge-poor {
+            background: #7f1d1d;
+            color: white;
+        }
+
+        /* Footer */
+        .slip-credit {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #333;
+            border-top: 1px solid #ccc;
+            margin-top: 14px;
+            padding-top: 10px;
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .action-bar,
+            .fixed-review-bar {
+                display: none !important;
+            }
+
+            .slip {
+                border: none;
+                box-shadow: none;
+                padding: 20px 30px;
+            }
+        }
+
+        /* Fixed Review Bar */
+        .fixed-review-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .btn-review-fixed {
+            background: white;
+            color: #374151;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            border: 1px solid #d1d5db;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.15s, transform 0.1s;
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+        }
+
+        .btn-review-fixed:hover {
+            background: #f9fafb;
+        }
+
+        .btn-review-fixed:active {
+            transform: scale(0.98);
+        }
+
+        .btn-analysis-fixed {
+            background: #b70c01;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.15s, transform 0.1s;
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-analysis-fixed:hover {
+            background: #960a01;
+        }
+
+        .btn-analysis-fixed:active {
+            transform: scale(0.98);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 14px 8px 100px;
+            }
+
+            .slip {
+                padding: 20px 16px;
+            }
+
+            .slip-header h1 {
+                font-size: 15px;
+            }
+
+            .slip-logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .slip-info {
+                grid-template-columns: 100px 1fr;
+                font-size: 12px;
+                row-gap: 5px;
+            }
+
+            .slip-table th,
+            .slip-table td {
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            .total-row {
+                font-size: 14px;
+            }
+
+            .total-row strong {
+                font-size: 18px;
+            }
+
+            .action-btns {
+                width: 100%;
+            }
+
+            .btn-print,
+            .btn-retake,
+            .btn-home {
+                font-size: 12px;
+                padding: 8px 12px;
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="action-bar">
+        <h2>📄 JAMB CBT Result Slip</h2>
+        <div class="action-btns">
+            <a href="all_rooms.html" class="btn-retake">🔄 Retake</a>
+            <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+            <a href="../index.html" class="btn-home">🏠 Home</a>
+        </div>
+    </div>
+
+    <div class="slip-wrapper">
+        <div class="slip">
+            <div class="slip-header">
+                <img src="../../../assets/images/jamb_logo.webp" alt="JAMB Logo" class="slip-logo">
+                <h1 id="slip-title">JAMB 2025 UTME Results Notification</h1>
+            </div>
+
+            <div class="slip-info">
+                <span class="lbl">Name:</span> <span class="val" id="info-name">Practice Candidate</span>
+                <span class="lbl">Reg Number:</span><span class="val" id="info-reg">SIM-2025-PRACTICE</span>
+                <span class="lbl">Date of Birth:</span><span class="val">—</span>
+                <span class="lbl">Exam Mode:</span> <span class="val" id="info-mode">Full Exam Mode</span>
+                <span class="lbl">Exam No:</span> <span class="val" id="info-examno">—</span>
+                <span class="lbl">Centre Name:</span><span class="val">My Exam Companion – Online CBT Simulator</span>
+            </div>
+
+            <table class="slip-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="score-tbody"></tbody>
+            </table>
+
+            <div class="total-row">
+                Total Score: <strong id="total-score">—</strong>
+                <span class="perf-badge" id="perf-badge"></span>
+            </div>
+
+
+
+            <div class="slip-credit" id="slip-year-label">JAMB UTME 2025</div>
+        </div>
+    </div>
+
+    <!-- Fixed Review Bar -->
+    <div class="fixed-review-bar">
+        <button class="btn-review-fixed" onclick="startReview()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+            Review Answers
+        </button>
+        <a href="analysis.html" class="btn-analysis-fixed">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            Deep Analysis
+        </a>
+    </div>
+
+    <script>
+        function startReview() {
+            localStorage.setItem('jamb_review', 'true');
+            window.location.href = 'cbt_board.html';
+        }
+
+        let result = null;
+        try { result = JSON.parse(localStorage.getItem('jamb_result') || 'null'); } catch (e) { }
+
+        if (!result) {
+            result = {
+                year: 2025, mode: 'Full Exam Mode',
+                subjects: [
+                    { name: 'Use of English', score: 46 },
+                    { name: 'Mathematics', score: 38 },
+                    { name: 'Physics', score: 35 },
+                    { name: 'Chemistry', score: 32 },
+                ],
+                totalScore: 151, maxScore: 400,
+                regNo: 'SIM-2025-PRACTICE', examNo: '—'
+            };
+        }
+
+        document.getElementById('slip-title').textContent = `JAMB ${result.year} UTME Results Notification`;
+        document.getElementById('slip-year-label').textContent = `JAMB UTME ${result.year}`;
+        document.getElementById('info-reg').textContent = result.regNo || '—';
+        document.getElementById('info-examno').textContent = result.examNo || '—';
+        document.getElementById('info-mode').textContent = result.mode || 'Full Exam Mode';
+
+        const tbody = document.getElementById('score-tbody');
+        result.subjects.forEach(sub => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${sub.name}</td><td class="score-col">${sub.score}</td>`;
+            tbody.appendChild(tr);
+        });
+
+        const total = result.totalScore;
+        const pct = Math.round((total / (result.maxScore || 400)) * 100);
+        document.getElementById('total-score').textContent = total;
+
+        const badge = document.getElementById('perf-badge');
+        if (pct >= 75) { badge.textContent = 'Excellent'; badge.className = 'perf-badge badge-excellent'; }
+        else if (pct >= 50) { badge.textContent = 'Good'; badge.className = 'perf-badge badge-good'; }
+        else if (pct >= 35) { badge.textContent = 'Average'; badge.className = 'perf-badge badge-average'; }
+        else { badge.textContent = 'Needs Work'; badge.className = 'perf-badge badge-poor'; }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Classroom | My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=6">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; overflow-y: auto; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* ==============================
+       PAGE HEADER
+    ============================== */
+    .page-header { margin-bottom: 32px; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .page-header__desc { font-size: 15px; color: #6b7280; line-height: 1.5; max-width: 600px; }
+
+    /* ==============================
+       SEARCH & FILTERS
+    ============================== */
+    .filters-container {
+      display: flex; gap: 16px; margin-bottom: 32px; align-items: center; flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      display: flex; flex: 1; min-width: 250px; align-items: center; background: white; border: 1px solid #e5e7eb;
+      border-radius: 12px; padding: 12px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s ease;
+    }
+    .search-bar:focus-within { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1); }
+    .search-bar svg { color: #9ca3af; margin-right: 12px; flex-shrink: 0; }
+    .search-bar input { flex: 1; border: none; outline: none; font-size: 15px; color: #111827; background: transparent; }
+    .search-bar input::placeholder { color: #9ca3af; }
+
+    .filter-chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+    .filter-chip {
+      padding: 10px 20px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563;
+      font-size: 14px; font-weight: 600; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
+    }
+    .filter-chip:hover { border-color: #d1d5db; background: #f9fafb; }
+    .filter-chip.active {
+      background: #fff0f0; color: #b70c01; border-color: #b70c01;
+    }
+
+    /* ==============================
+       SUBJECTS GRID
+    ============================== */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .subject-card {
+      background: white;
+      border: 1px solid #ebebeb;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .subject-card:hover {
+      border-color: #b70c01;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(183, 12, 1, 0.1);
+    }
+
+    .subject-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9fafb;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .subject-card:hover .subject-icon {
+      background: #fff0f0;
+      color: #b70c01;
+    }
+
+    .subject-info { flex: 1; }
+    .subject-info h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+    .subject-card:hover .subject-info h4 {
+      color: #b70c01;
+    }
+
+    .subject-info p {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* Animation */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .content-area { padding: 24px 16px; }
+      .filters-container { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 24px; }
+      .search-bar { min-width: 0; }
+      .subjects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="classroom"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        
+        <div class="page-header">
+          <h1 class="page-header__title">Classroom</h1>
+          <p class="page-header__desc">Select a subject to dive straight into topic-specific study materials and past questions to master your exams.</p>
+        </div>
+
+        <div class="filters-container">
+          <div class="search-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="subjectSearch" placeholder="Search for a subject...">
+          </div>
+          
+          <div class="filter-chips" id="filterChips">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="science">Science</button>
+            <button class="filter-chip" data-filter="commercial">Commercial</button>
+            <button class="filter-chip" data-filter="arts">Arts</button>
+          </div>
+        </div>
+
+        <div class="subjects-grid">
+          
+          <!-- English -->
+          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div class="subject-info">
+              <h4>English Language</h4>
+              <p>12,450 Questions</p>
+            </div>
+          </div>
+
+          <!-- Mathematics -->
+          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Mathematics</h4>
+              <p>9,320 Questions</p>
+            </div>
+          </div>
+
+          <!-- Physics -->
+          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Physics</h4>
+              <p>7,840 Questions</p>
+            </div>
+          </div>
+
+          <!-- Chemistry -->
+          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H15"></path><path d="M10 3V8L3 17V21H21V17L14 8V3"></path><path d="M3 17H21"></path></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Chemistry</h4>
+              <p>8,100 Questions</p>
+            </div>
+          </div>
+
+          <!-- Biology -->
+          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m12 2 3 5"></path><path d="m12 2-3 5"></path><path d="m15 7 2 4"></path><path d="m9 7-2 4"></path><path d="m17 11 1 5"></path><path d="m7 11-1 5"></path><path d="m18 16-3 4"></path><path d="m6 16 3 4"></path><path d="m15 20-3 2"></path><path d="m9 20 3 2"></path></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Biology</h4>
+              <p>10,250 Questions</p>
+            </div>
+          </div>
+
+          <!-- Economics -->
+          <div class="subject-card" data-category="commercial" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Economics</h4>
+              <p>6,430 Questions</p>
+            </div>
+          </div>
+
+          <!-- Government -->
+          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Government</h4>
+              <p>5,920 Questions</p>
+            </div>
+          </div>
+
+          <!-- Literature -->
+          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
+            <div class="subject-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <div class="subject-info">
+              <h4>Literature in English</h4>
+              <p>4,100 Questions</p>
+            </div>
+          </div>
+          
+        </div>
+        
+      </main>
+    </div>
+  </div>
+
+  <script src="../../../components/sidebar.js"></script>
+  <script src="../../../components/topbar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('subjectSearch');
+      const chips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.subject-card');
+      let currentFilter = 'all';
+
+      function filterSubjects() {
+        const query = searchInput.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+          
+          const matchesQuery = title.includes(query);
+          const matchesCategory = currentFilter === 'all' || category === currentFilter;
+
+          if (matchesQuery && matchesCategory) {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeInDown 0.3s ease-out forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', filterSubjects);
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          chips.forEach(c => c.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+          currentFilter = e.currentTarget.getAttribute('data-filter');
+          filterSubjects();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

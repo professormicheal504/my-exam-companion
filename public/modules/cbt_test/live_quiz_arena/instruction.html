@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Live Arena Instructions</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=5">
+    
+    <style>
+        :root {
+            /* Light Theme with Website Red Accent */
+            --primary: #b70c01;
+            --primary-light: #fff0f0;
+            --primary-dark: #960a01;
+            
+            --success: #10B981;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-float: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* Subtle background pattern */
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px 140px; /* Bottom padding for fixed action bar */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ─── HEADER ─── */
+        .inst-header {
+            padding: 32px 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .back-btn {
+            background: none; border: none; cursor: pointer;
+            color: var(--text-muted); display: inline-flex; align-items: center; gap: 6px;
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px;
+            width: fit-content; transition: color 0.2s;
+        }
+        .back-btn:hover { color: var(--primary); }
+
+        .header-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .inst-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .live-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--primary-light); color: var(--primary);
+            padding: 6px 12px; border-radius: 99px;
+            font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            border: 1px solid rgba(183, 12, 1, 0.2);
+        }
+        
+        .live-dot {
+            width: 8px; height: 8px; background: var(--primary); border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0 rgba(183, 12, 1, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(183, 12, 1, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(183, 12, 1, 0); }
+        }
+
+
+        /* ─── MAIN CONTENT ─── */
+        .instruction-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 32px 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            
+            /* Entrance Animation */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.5s 0.1s forwards;
+        }
+
+        @keyframes slideUpFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-icon {
+            width: 64px; height: 64px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; margin-bottom: 24px;
+            border: 2px solid rgba(183, 12, 1, 0.1);
+        }
+
+        .instruction-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .instruction-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Rules List */
+        .rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .rule-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .rule-icon {
+            flex-shrink: 0;
+            width: 40px; height: 40px;
+            background: white;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .rule-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px; font-weight: 700; color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .rule-content p {
+            font-size: 14px; margin: 0; color: var(--text-muted); line-height: 1.4;
+        }
+
+        /* ─── FIXED ACTION AREA ─── */
+        .action-area {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            display: flex; flex-direction: column; align-items: center;
+            background: linear-gradient(to top, rgba(255,255,255,1) 70%, rgba(255,255,255,0));
+            padding: 24px 20px 32px;
+            z-index: 100;
+            pointer-events: none; /* Let clicks pass through gradient */
+        }
+        
+        .action-content {
+            width: 100%; max-width: 600px;
+            pointer-events: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .consent-row {
+            display: flex; align-items: center; gap: 10px;
+            background: white; padding: 12px 16px; border-radius: 12px;
+            border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+        }
+
+        .consent-row input[type="checkbox"] {
+            width: 20px; height: 20px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .consent-row label {
+            font-size: 14px; font-weight: 500; color: var(--text-main);
+            cursor: pointer; user-select: none;
+        }
+
+        .btn-start {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 16px -4px rgba(183, 12, 1, 0.3);
+            transition: all 0.2s ease;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        .btn-start:disabled {
+            background: #cbd5e1;
+            box-shadow: none;
+            cursor: not-allowed;
+            color: #94a3b8;
+        }
+
+        .btn-start:not(:disabled):hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-start:not(:disabled):active { transform: translateY(1px); }
+
+    </style>
+</head>
+<body>
+
+<app-sidebar data-base="../../../"></app-sidebar>
+<div class="main-wrapper">
+    <app-topbar data-base="../../../"></app-topbar>
+
+<div class="container">
+    <header class="inst-header">
+        <button class="back-btn" onclick="window.location.href='all_subject.html'">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Arena Hub
+        </button>
+        <div class="header-title-row">
+            <h1 class="inst-title">How to Play</h1>
+            <div class="live-tag">
+                <div class="live-dot"></div> Live Chat
+            </div>
+        </div>
+    </header>
+
+    <main class="instruction-card">
+        <div class="hero-icon">⚔️</div>
+        <h2>Welcome to the Chat Arena</h2>
+        <p>You are about to enter a fast-paced, live multiplayer quiz room. You'll compete against other students in real-time to answer questions as quickly as possible.</p>
+        
+        <div class="rules-list">
+            <div class="rule-item">
+                <div class="rule-icon">💬</div>
+                <div class="rule-content">
+                    <h4>Chat-Style Interface</h4>
+                    <p>Questions will be sent directly into the chat timeline by the Arena Bot.</p>
+                </div>
+            </div>
+            
+            <div class="rule-item">
+                <div class="rule-icon">⚡</div>
+                <div class="rule-content">
+                    <h4>Tap to Answer</h4>
+                    <p>Simply tap the option you want directly on the chat screen to select it, then confirm to lock it in.</p>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">⏱️</div>
+                <div class="rule-content">
+                    <h4>Beat the Clock</h4>
+                    <p>You have limited time for each question. The faster you answer correctly, the higher you rank on the leaderboard!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="action-area">
+        <div class="action-content">
+            <div class="consent-row">
+                <input type="checkbox" id="ready-check" onchange="toggleBtn()">
+                <label for="ready-check">I've read the rules and I am ready to begin</label>
+            </div>
+            <button class="btn-start" id="btn-start" onclick="startRound()" disabled>
+                Enter Arena 🚀
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const check = document.getElementById('ready-check');
+    const btn = document.getElementById('btn-start');
+
+    function toggleBtn() {
+        btn.disabled = !check.checked;
+    }
+
+    function startRound() {
+        // Show loading state
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" class="spin"><circle cx="12" cy="12" r="10"></circle><path d="M12 2v4"></path></svg> Connecting...`;
+        
+        // Navigate to actual quiz room
+        setTimeout(() => {
+            window.location.href = 'quiz_body.html';
+        }, 600);
+    }
+</script>
+
+<style>
+    /* Utility for spinner */
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+</style>
+
+</div> <!-- End main-wrapper -->
+<script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+
+</body>
+</html>

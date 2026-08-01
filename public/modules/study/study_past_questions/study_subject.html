@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    :root {
+      --bg-color: #f7f9fc;
+      --surface: #ffffff;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --accent: #b70c01;
+      --accent-hover: #9b0a01;
+
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+      --shadow-hover: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    html {
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f7f7f8;
+      color: #131212;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app {
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ==============================
+       MAIN WRAPPER (right of sidebar)
+    ============================== */
+    .main-wrapper {
+      margin-left: 72px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-width: 0;
+      transition: margin-left 0.2s;
+    }
+
+    /* ==============================
+       TOP BAR
+    ============================== */
+    .topbar {
+      height: 58px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      gap: 16px;
+    }
+
+    .topbar__logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .topbar__search {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f5f5;
+      border: 1px solid #ebebeb;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+
+    .topbar__search:focus-within {
+      border-color: #b70c01;
+      background: white;
+    }
+
+    .topbar__search-icon {
+      color: #9ca3af;
+      flex-shrink: 0;
+    }
+
+    .topbar__search input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      color: #131212;
+      font-family: inherit;
+    }
+
+    .topbar__search input::placeholder {
+      color: #b0b0b0;
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-login {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #131212;
+      border: 1px solid #ddd;
+      background: white;
+      transition: background 0.15s;
+    }
+
+    .btn-login:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-register {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: #131212;
+      border: 1px solid #131212;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-register:hover {
+      background: #2d2d2d;
+      transform: translateY(-1px);
+    }
+
+    /* ==============================
+       CONTENT AREA (main + right sidebar)
+    ============================== */
+    .content-area {
+      display: flex;
+      flex: 1;
+      gap: 0;
+    }
+
+    /* ==============================
+       MAIN CONTENT
+    ============================== */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 72px;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+
+      .main-content {
+        padding: 16px 12px;
+      }
+
+      .topbar {
+        padding: 0 10px;
+        gap: 8px;
+      }
+
+      .topbar__logo {
+        flex-shrink: 0;
+      }
+
+      .topbar__logo img {
+        min-width: 90px !important;
+        height: 32px !important;
+      }
+
+      .topbar__search {
+        display: flex;
+        flex: 0 1 150px;
+        min-width: 80px;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
+      .topbar__search input {
+        font-size: 12px;
+        min-width: 0;
+        width: 0;
+        flex: 1;
+      }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #111827 0%, #4b5563 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Simulators Section */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .simulators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .simulator-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      overflow: hidden;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 140px;
+      background: linear-gradient(135deg, #d11205 0%, #8a0b02 100%);
+    }
+
+    .simulator-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .simulator-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+      z-index: 1;
+    }
+
+    /* Removed multi-colored patterns to strictly enforce the red theme */
+
+    .simulator-card .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .simulator-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .simulator-card p {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .simulator-card .icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    /* Subjects Section */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .subject-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .subject-card:hover {
+      border-color: var(--text-tertiary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .subject-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f4f6;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .subject-card:hover .subject-icon {
+      background: #fee2e2;
+      color: var(--accent);
+    }
+
+    .subject-info h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .subject-info p {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 80px;
+      }
+
+      .topbar {
+        padding: 0 12px;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+
+      .hero {
+        padding: 30px 20px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      .topbar {
+        height: 52px;
+        padding: 0 10px;
+        gap: 8px;
+      }
+
+      .topbar__logo img {
+        height: 34px;
+        min-width: 0 !important;
+      }
+
+      .topbar__search {
+        flex: 1;
+        max-width: none;
+        padding: 6px 12px;
+      }
+
+      .topbar__search input {
+        font-size: 12px;
+      }
+
+      .main-content {
+        padding: 16px;
+      }
+
+      .hero {
+        padding: 24px 16px;
+        border-radius: 12px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .topbar__search {
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../"></app-sidebar>
+    <div class="main-wrapper">
+
+      <!-- TOP BAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT AREA -->
+      <div class="content-area">
+        <main class="main-content">
+          <div class="container">
+
+            <!-- Hero Header -->
+            <header class="hero">
+              <h2>Study Happily. Master Your Subjects.</h2>
+              <p>Select an exam simulator or dive straight into subject-specific topics and past questions designed to
+                help you ace your exams.</p>
+            </header>
+
+
+
+            <!-- Subjects -->
+            <div class="section-header">
+              <h3 class="section-title">Study by Subject</h3>
+            </div>
+
+            <!-- Advanced Filter -->
+            <div class="filter-container" style="margin-bottom: 24px;">
+              <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 200px; position: relative;">
+                  <input type="text" id="subjectSearch" placeholder="Search for a subject..."
+                    style="width: 100%; padding: 12px 16px 12px 40px; border-radius: 99px; border: 1px solid #e5e7eb; font-size: 14px; outline: none; transition: border-color 0.2s;">
+                  <svg style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #9ca3af;"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
+                <div class="filter-chips" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;"
+                  id="filterChips">
+                  <button class="filter-chip active" data-filter="all"
+                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #b70c01; background: #b70c01; color: white; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">All</button>
+                  <button class="filter-chip" data-filter="science"
+                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">Science</button>
+                  <button class="filter-chip" data-filter="commercial"
+                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">Commercial</button>
+                  <button class="filter-chip" data-filter="arts"
+                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">Arts</button>
+                </div>
+              </div>
+            </div>
+            <div class="subjects-grid">
+
+              <!-- English -->
+              <div class="subject-card" data-category="arts" onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>English Language</h4>
+                  <p>12,450 Questions</p>
+                </div>
+              </div>
+
+              <!-- Mathematics -->
+              <div class="subject-card" data-category="science"
+                onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="5" x2="5" y2="19"></line>
+                    <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                    <circle cx="17.5" cy="17.5" r="2.5"></circle>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Mathematics</h4>
+                  <p>9,320 Questions</p>
+                </div>
+              </div>
+
+              <!-- Physics -->
+              <div class="subject-card" data-category="science"
+                onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                    <path d="M2 12h20"></path>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Physics</h4>
+                  <p>7,840 Questions</p>
+                </div>
+              </div>
+
+              <!-- Chemistry -->
+              <div class="subject-card" data-category="science"
+                onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 3H15"></path>
+                    <path d="M10 3V8L3 17V21H21V17L14 8V3"></path>
+                    <path d="M3 17H21"></path>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Chemistry</h4>
+                  <p>8,100 Questions</p>
+                </div>
+              </div>
+
+              <!-- Biology -->
+              <div class="subject-card" data-category="science"
+                onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                    <path d="m12 2 3 5"></path>
+                    <path d="m12 2-3 5"></path>
+                    <path d="m15 7 2 4"></path>
+                    <path d="m9 7-2 4"></path>
+                    <path d="m17 11 1 5"></path>
+                    <path d="m7 11-1 5"></path>
+                    <path d="m18 16-3 4"></path>
+                    <path d="m6 16 3 4"></path>
+                    <path d="m15 20-3 2"></path>
+                    <path d="m9 20 3 2"></path>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Biology</h4>
+                  <p>10,250 Questions</p>
+                </div>
+              </div>
+
+              <!-- Economics -->
+              <div class="subject-card" data-category="commercial"
+                onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Economics</h4>
+                  <p>6,430 Questions</p>
+                </div>
+              </div>
+
+              <!-- Government -->
+              <div class="subject-card" data-category="arts" onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Government</h4>
+                  <p>5,920 Questions</p>
+                </div>
+              </div>
+
+              <!-- Literature -->
+              <div class="subject-card" data-category="arts" onclick="window.location.href='study_past_questions.html';">
+                <div class="subject-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <div class="subject-info">
+                  <h4>Literature in English</h4>
+                  <p>4,100 Questions</p>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- end container -->
+        </main><!-- end main-content -->
+      </div><!-- end content-area -->
+    </div><!-- end main-wrapper -->
+  </div><!-- end app -->
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+  <script>
+    // Advanced Search & Filter Algorithm
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('subjectSearch');
+      const chips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.subject-card');
+      let currentFilter = 'all';
+
+      function filterSubjects() {
+        const query = searchInput.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+
+          const matchesQuery = title.includes(query);
+          const matchesCategory = currentFilter === 'all' || category === currentFilter;
+
+          if (matchesQuery && matchesCategory) {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeInDown 0.3s ease-out forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', filterSubjects);
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          // Update active chip styling
+          chips.forEach(c => {
+            c.classList.remove('active');
+            c.style.background = 'white';
+            c.style.color = '#4b5563';
+            c.style.borderColor = '#e5e7eb';
+          });
+          const target = e.currentTarget;
+          target.classList.add('active');
+          target.style.background = '#b70c01';
+          target.style.color = 'white';
+          target.style.borderColor = '#b70c01';
+
+          currentFilter = target.getAttribute('data-filter');
+          filterSubjects();
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

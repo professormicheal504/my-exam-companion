@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Live Arena - Chat</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=5">
+    
+    <style>
+        :root {
+            /* Theme - standard red */
+            --primary: #b70c01;
+            --primary-light: #fff0f0;
+            --primary-dark: #960a01;
+            
+            --success: #10B981;
+            --error: #EF4444;
+            
+            /* Chat Theme (WhatsApp/iMessage style) */
+            --chat-bg: #e5e5e5;
+            --msg-in-bg: #ffffff;
+            --msg-in-text: #0f172a;
+            --msg-out-bg-alt: #b70c01; 
+            --msg-out-text: #ffffff;
+            --border-color: #e2e8f0;
+            --text-muted: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        /* The Holy Grail Chat Layout: Lock the body completely */
+        body, html {
+            height: 100%;
+            margin: 0; 
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--chat-bg);
+            color: var(--msg-in-text);
+            overflow: hidden; /* Prevent body scroll */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Force wrapper to be exactly viewport height, setup flex layout */
+        .main-wrapper {
+            height: 100vh !important;
+            height: 100dvh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden !important;
+            background: transparent !important;
+        }
+
+        app-topbar {
+            flex-shrink: 0; /* Topbar must not shrink */
+        }
+
+        .quiz-container {
+            width: 100%;
+            max-width: 600px;
+            flex: 1; /* Takes all remaining space */
+            min-height: 0; /* CRUCIAL: allows flex children to scroll */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background: rgba(229, 229, 229, 0.95);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* ─── CHAT HEADER ─── */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 10;
+            flex-shrink: 0; /* Header must not shrink */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: none; border: none; cursor: pointer;
+            color: var(--primary); display: flex; align-items: center;
+            padding: 4px;
+        }
+
+        .avatar-group {
+            position: relative;
+            width: 40px; height: 40px;
+        }
+        .bot-avatar {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+        }
+        .live-indicator {
+            position: absolute; bottom: 0; right: 0;
+            width: 12px; height: 12px;
+            background: var(--success);
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        .chat-info { display: flex; flex-direction: column; }
+        .chat-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px; }
+        .chat-status { font-size: 12px; color: var(--success); font-weight: 500; }
+
+        .header-right {
+            display: flex; flex-direction: column; align-items: flex-end;
+        }
+        
+        .timer-pill {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 99px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700; font-size: 14px;
+            display: flex; align-items: center; gap: 4px;
+            transition: all 0.3s;
+        }
+        .timer-pill.urgent { background: var(--error); color: white; animation: pulse 1s infinite; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ─── TIMELINE (SCROLLING AREA) ─── */
+        .chat-timeline {
+            flex: 1; /* Takes all remaining space in container */
+            min-height: 0; /* CRUCIAL */
+            overflow-y: auto; /* THIS is the only thing that scrolls */
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        .msg-row { display: flex; width: 100%; animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; }
+        .msg-row.incoming { justify-content: flex-start; }
+        .msg-row.outgoing { justify-content: flex-end; }
+        .msg-row.system { justify-content: center; margin: 8px 0; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Chat Bubbles */
+        .bubble {
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 15px;
+            line-height: 1.4;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .incoming .bubble {
+            background: var(--msg-in-bg);
+            color: var(--msg-in-text);
+            border-radius: 0 16px 16px 16px;
+        }
+
+        .outgoing .bubble {
+            background: var(--msg-out-bg-alt);
+            color: var(--msg-out-text);
+            border-radius: 16px 0 16px 16px;
+        }
+
+        .bubble-header {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px; font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .bubble-time {
+            font-size: 10px; color: #94a3b8;
+            float: right; margin-left: 12px; margin-top: 6px;
+        }
+        .outgoing .bubble-time { color: rgba(255,255,255,0.7); }
+
+        /* System Pills */
+        .system-pill {
+            background: rgba(0,0,0,0.4);
+            color: white;
+            font-size: 12px; font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 99px;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        /* Question specific styling in bubble */
+        .q-text { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .q-subject { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; margin-bottom: 4px; }
+        .q-options-list { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .q-opt { 
+            display: flex; font-size: 14px; background: #f8fafc; padding: 10px 12px; 
+            border-radius: 8px; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.2s;
+        }
+        .q-opt:active { background: #e2e8f0; transform: scale(0.98); }
+        .q-opt-letter { font-weight: 700; color: var(--primary); margin-right: 8px; }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex; gap: 4px; padding: 12px 16px;
+            background: var(--msg-in-bg); border-radius: 0 16px 16px 16px;
+            width: fit-content; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .typing-dot {
+            width: 6px; height: 6px; background: #94a3b8; border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+        /* ─── QUICK REPLIES & CHAT INPUT (FOOTER) ─── */
+        .chat-input-area {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 12px 16px;
+            z-index: 10;
+            flex-shrink: 0; /* Input area must not shrink, sits natively at bottom */
+            width: 100%;
+        }
+        
+        .status-bar {
+            text-align: center; font-size: 14px; font-weight: 500; color: var(--text-muted);
+            padding: 12px 0 4px; display: none;
+        }
+
+        .chat-box {
+            display: flex; gap: 8px; align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1; padding: 12px 16px; border: 1px solid var(--border-color);
+            border-radius: 99px; font-family: 'Inter', sans-serif; font-size: 15px;
+            background: #f8fafc; outline: none; transition: border-color 0.2s;
+        }
+        .chat-input:focus { border-color: var(--primary); background: white; }
+        .chat-input:disabled { background: #e2e8f0; cursor: not-allowed; opacity: 0.7; }
+        
+        .chat-send-btn {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--primary); color: white;
+            display: flex; align-items: center; justify-content: center;
+            border: none; cursor: pointer; transition: all 0.2s;
+        }
+        .chat-send-btn:active { transform: scale(0.95); }
+        .chat-send-btn:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
+
+        .chat-action-btn {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: none; color: var(--text-muted);
+            display: flex; align-items: center; justify-content: center;
+            border: none; cursor: pointer; transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .chat-action-btn:hover { color: var(--primary); background: #f1f5f9; }
+        .chat-action-btn:active { transform: scale(0.95); }
+        .chat-action-btn:disabled { color: #cbd5e1; cursor: not-allowed; background: none; transform: none; }
+
+        /* ─── LOCK MODAL ─── */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-card {
+            background: #fff; width: 85%; max-width: 320px;
+            border-radius: 20px; padding: 24px; text-align: center;
+            transform: scale(0.95); transition: transform 0.2s; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .modal-overlay.open .modal-card { transform: scale(1); }
+        .modal-title { font-family: 'Outfit', sans-serif; font-size: 20px; margin-bottom: 8px; color: var(--msg-in-text); }
+        .modal-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.4; }
+        
+        .selected-preview {
+            background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);
+            margin-bottom: 24px; font-weight: 600; font-size: 15px; text-align: left;
+        }
+        .sp-letter { color: var(--primary); margin-right: 8px; }
+
+        .modal-actions { display: flex; gap: 10px; }
+        .btn-modal { flex: 1; padding: 12px; border-radius: 10px; font-weight: 600; font-family: 'Outfit', sans-serif; border: none; cursor: pointer; }
+        .btn-cancel { background: #f1f5f9; color: var(--msg-in-text); }
+        .btn-lock { background: var(--primary); color: white; }
+        .btn-lock:active { background: var(--primary-dark); }
+
+    </style>
+</head>
+<body>
+
+<app-sidebar data-base="../../../"></app-sidebar>
+<div class="main-wrapper">
+
+    <div class="quiz-container">
+        
+        <!-- HEADER -->
+        <header class="chat-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='../../../modules/index.html'">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <div class="avatar-group">
+                    <div class="bot-avatar">QA</div>
+                    <div class="live-indicator"></div>
+                </div>
+                <div class="chat-info">
+                    <span class="chat-name">Live Arena Bot</span>
+                    <span class="chat-status" id="ui-participants">142 online</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="timer-pill" id="main-timer">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span id="ui-time">--</span>s
+                </div>
+            </div>
+        </header>
+
+        <!-- TIMELINE -->
+        <div class="chat-timeline" id="timeline">
+            <div class="msg-row system">
+                <div class="system-pill">Welcome to the Live Arena! Session started.</div>
+            </div>
+            <!-- Messages appended here -->
+        </div>
+
+        <!-- CHAT STATUS FOOTER -->
+        <div class="chat-input-area">
+            <div class="status-bar" id="input-status">Waiting for next question...</div>
+            <div class="chat-box">
+                <button class="chat-action-btn" id="chat-sticker-btn" disabled>
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                </button>
+                <input type="text" id="chat-input" class="chat-input" placeholder="Chat is muted while voting..." disabled onkeypress="if(event.key==='Enter') sendChat()">
+                <button class="chat-action-btn" id="chat-mic-btn" disabled>
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                </button>
+                <button class="chat-send-btn" id="chat-send-btn" onclick="sendChat()" disabled>
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div> <!-- End main-wrapper -->
+
+<!-- LOCK MODAL -->
+<div class="modal-overlay" id="lock-modal">
+    <div class="modal-card">
+        <h3 class="modal-title">Lock in answer?</h3>
+        <p class="modal-desc">You are about to submit the following answer. This cannot be undone.</p>
+        <div class="selected-preview" id="modal-preview">
+            <span class="sp-letter">A</span> Option Text Here
+        </div>
+        <div class="modal-actions">
+            <button class="btn-modal btn-cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn-modal btn-lock" onclick="confirmLock()">Send Answer</button>
+        </div>
+    </div>
+</div>
+
+<script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+
+<script>
+    // --- Mock Data ---
+    const MOCK_QUESTIONS = [
+        {
+            subject: "English Language",
+            text: "Identify the word that has a different stress pattern from the others.",
+            options: ["Photograph", "Telephone", "Computer", "Television"],
+            correctIndex: 2,
+            explanation: "'Computer' has stress on the second syllable (com-PU-ter), while the others have stress on the first syllable.",
+            winners: "Chisom (1.2s), Tunde (1.5s)"
+        },
+        {
+            subject: "Government",
+            text: "A system of government where the central authority is supreme but delegates powers to local units is called:",
+            options: ["Federal system", "Unitary system", "Confederal system", "Presidential system"],
+            correctIndex: 1,
+            explanation: "In a Unitary system, the central government holds supreme power and can create or abolish local administrative units at will.",
+            winners: "Emeka (0.9s), Sarah (1.1s)"
+        }
+    ];
+
+    let currentQIndex = 0;
+    let currentQ = null;
+    let selectedIdx = -1;
+    let locked = false;
+    let mainTimerInterval;
+
+    // DOM
+    const timeline = document.getElementById('timeline');
+    const inputStatus = document.getElementById('input-status');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatStickerBtn = document.getElementById('chat-sticker-btn');
+    const chatMicBtn = document.getElementById('chat-mic-btn');
+    const uiTime = document.getElementById('ui-time');
+    const mainTimerEl = document.getElementById('main-timer');
+    const lockModal = document.getElementById('lock-modal');
+    const modalPreview = document.getElementById('modal-preview');
+
+    const letters = ['A', 'B', 'C', 'D'];
+
+    function getAmPm() {
+        const d = new Date();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        const ampm = h >= 12 ? 'pm' : 'am';
+        h = h % 12;
+        h = h ? h : 12; 
+        m = m < 10 ? '0'+m : m;
+        return `${h}:${m} ${ampm}`;
+    }
+
+    // --- Timeline Builders ---
+    function appendSystem(text) {
+        const div = document.createElement('div');
+        div.className = 'msg-row system';
+        div.innerHTML = `<div class="system-pill">${text}</div>`;
+        timeline.appendChild(div);
+        scrollToBottom();
+    }
+
+    function appendIncoming(htmlContent, header = 'Quiz Bot') {
+        const div = document.createElement('div');
+        div.className = 'msg-row incoming';
+        div.innerHTML = `
+            <div class="bubble">
+                <div class="bubble-header">${header}</div>
+                ${htmlContent}
+                <span class="bubble-time">${getAmPm()}</span>
+            </div>
+        `;
+        timeline.appendChild(div);
+        scrollToBottom();
+    }
+
+    function appendOutgoing(text) {
+        const div = document.createElement('div');
+        div.className = 'msg-row outgoing';
+        div.innerHTML = `
+            <div class="bubble">
+                ${text}
+                <span class="bubble-time">${getAmPm()} <span>✓✓</span></span>
+            </div>
+        `;
+        timeline.appendChild(div);
+        scrollToBottom();
+    }
+
+    function appendTyping(id) {
+        const div = document.createElement('div');
+        div.className = 'msg-row incoming typing-row';
+        div.id = id;
+        div.innerHTML = `
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        `;
+        timeline.appendChild(div);
+        scrollToBottom();
+    }
+
+    function removeTyping(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    // Reliable native scroll function
+    function scrollToBottom() {
+        setTimeout(() => {
+            if (timeline) {
+                // Because of the perfect flexbox layout, the timeline is exactly the element that overflows
+                timeline.scrollTo({
+                    top: timeline.scrollHeight + 5000,
+                    behavior: 'smooth'
+                });
+            }
+        }, 50);
+
+        // Fallback for tricky animations
+        setTimeout(() => {
+            if (timeline && timeline.lastElementChild) {
+                timeline.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        }, 150);
+    }
+
+    // --- Timers ---
+    function startTimer(seconds, onExpire, isUrgentAlert = false) {
+        clearInterval(mainTimerInterval);
+        let left = seconds;
+        uiTime.textContent = left;
+        mainTimerEl.classList.remove('urgent');
+
+        mainTimerInterval = setInterval(() => {
+            left--;
+            uiTime.textContent = left;
+            
+            if (isUrgentAlert && left <= 5 && left > 0) {
+                mainTimerEl.classList.add('urgent');
+            } else {
+                mainTimerEl.classList.remove('urgent');
+            }
+
+            if (left <= 0) {
+                clearInterval(mainTimerInterval);
+                if (onExpire) onExpire();
+            }
+        }, 1000);
+    }
+
+    // --- Game Flow ---
+    function startGame() {
+        document.getElementById('ui-participants').textContent = Math.floor(Math.random() * 200 + 100) + " online";
+        setTimeout(() => loadQuestion(0), 1000);
+    }
+
+    function loadQuestion(index) {
+        if (index >= MOCK_QUESTIONS.length) {
+            appendSystem("Quiz Complete! Thanks for playing.");
+            uiTime.textContent = "--";
+            return;
+        }
+
+        currentQIndex = index;
+        currentQ = MOCK_QUESTIONS[index];
+        selectedIdx = -1;
+        locked = false;
+
+        // Show typing
+        const tId = 'typing-' + Date.now();
+        appendTyping(tId);
+        
+        setTimeout(() => {
+            removeTyping(tId);
+            
+            // Build Question Bubble
+            let optsHtml = currentQ.options.map((opt, i) => `
+                <div class="q-opt" onclick="tapOption(${i})">
+                    <span class="q-opt-letter">${letters[i]}</span> ${opt}
+                </div>
+            `).join('');
+
+            let qHtml = `
+                <div class="q-subject">${currentQ.subject} • Q${index + 1}/${MOCK_QUESTIONS.length}</div>
+                <div class="q-text">${currentQ.text}</div>
+                <div class="q-options-list">${optsHtml}</div>
+            `;
+            
+            appendIncoming(qHtml);
+
+            // Wait for user interaction
+            inputStatus.style.display = 'block';
+            inputStatus.textContent = 'Select an option above...';
+            chatInput.disabled = true;
+            chatSendBtn.disabled = true;
+            chatStickerBtn.disabled = true;
+            chatMicBtn.disabled = true;
+            chatInput.placeholder = "Chat is muted while voting...";
+
+            // Start Vote Timer (15s for demo)
+            startTimer(15, handleVoteTimeout, true);
+
+        }, 1200);
+    }
+
+    function tapOption(index) {
+        if (locked) return;
+        selectedIdx = index;
+        
+        // Populate modal
+        modalPreview.innerHTML = `<span class="sp-letter">${letters[index]}</span> ${currentQ.options[index]}`;
+        lockModal.classList.add('open');
+    }
+
+    function closeModal() {
+        lockModal.classList.remove('open');
+    }
+
+    function confirmLock() {
+        closeModal();
+        locked = true;
+        
+        // Update status
+        inputStatus.style.display = 'block';
+        inputStatus.textContent = "Waiting for others to finish...";
+
+        // Send outgoing message
+        appendOutgoing(`<b>${letters[selectedIdx]}</b> - ${currentQ.options[selectedIdx]}`);
+    }
+
+    function handleVoteTimeout() {
+        if (!locked) {
+            // Auto lock if didn't answer, or mark missed
+            inputStatus.style.display = 'block';
+            inputStatus.textContent = "Time's up!";
+            if (selectedIdx === -1) {
+                appendSystem("You didn't answer in time ⏳");
+            } else {
+                appendOutgoing(`<b>${letters[selectedIdx]}</b> - ${currentQ.options[selectedIdx]}`);
+                locked = true;
+            }
+        }
+
+        // Proceed to Reveal
+        setTimeout(revealAnswer, 1000);
+    }
+
+    function revealAnswer() {
+        const tId = 'typing-reveal';
+        appendTyping(tId);
+
+        setTimeout(() => {
+            removeTyping(tId);
+            
+            // Check correct/incorrect
+            let isCorrect = (selectedIdx === currentQ.correctIndex);
+            let resultHtml = "";
+            
+            if (selectedIdx === -1) {
+                resultHtml = `<b>Time's up!</b> The correct answer was <b>${letters[currentQ.correctIndex]}</b>.`;
+            } else if (isCorrect) {
+                resultHtml = `<b>Correct! 🎉</b> +10 points.`;
+            } else {
+                resultHtml = `<b>Incorrect ❌</b> The correct answer was <b>${letters[currentQ.correctIndex]}</b>.`;
+            }
+            
+            appendIncoming(resultHtml);
+
+            // Explanation typing
+            const tId2 = 'typing-exp';
+            appendTyping(tId2);
+            
+            setTimeout(() => {
+                removeTyping(tId2);
+                appendIncoming(`<b>Explanation:</b><br>${currentQ.explanation}`);
+                
+                setTimeout(() => {
+                    appendSystem(`🏆 Fastest Winners: ${currentQ.winners}`);
+                    
+                    // Unlock Chat
+                    chatInput.disabled = false;
+                    chatSendBtn.disabled = false;
+                    chatStickerBtn.disabled = false;
+                    chatMicBtn.disabled = false;
+                    chatInput.placeholder = "Type a message to discuss...";
+                    inputStatus.style.display = 'none';
+
+                    // Start discuss timer
+                    startTimer(8, () => {
+                        appendSystem(`Loading Next Question...`);
+                        chatInput.disabled = true;
+                        chatSendBtn.disabled = true;
+                        chatStickerBtn.disabled = true;
+                        chatMicBtn.disabled = true;
+                        chatInput.placeholder = "Chat is muted while voting...";
+                        setTimeout(() => loadQuestion(currentQIndex + 1), 1500);
+                    });
+                }, 1000);
+            }, 2000);
+        }, 1500);
+    }
+
+    function sendChat() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        appendOutgoing(text);
+        chatInput.value = '';
+    }
+
+    // Init
+    startGame();
+
+</script>
+
+</body>
+</html>

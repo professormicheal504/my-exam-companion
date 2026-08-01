@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rank & Rewards | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=2">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================
+       APP SHELL
+    =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
+    }
+
+    /* ===========================
+       TOPBAR
+    =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
+    .topbar__search {
+      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 400px;
+      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 7px 14px;
+      transition: border-color 0.15s;
+    }
+    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
+    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
+    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
+    .topbar__search input::placeholder { color: #b0b0b0; }
+    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+    .btn-register { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
+    .btn-register:hover { background: #2d2d2d; }
+
+    /* ===========================
+       CONTENT AREA
+    =========================== */
+    .content-area { display: flex; flex: 1; overflow-x: hidden; background: #fff; }
+    .main-content { flex: 1; min-width: 0; width: 100%; overflow-x: hidden; padding-bottom: 40px; }
+    .page-container { max-width: 800px; margin: 0 auto; padding: 40px 32px; }
+
+    /* ===========================
+       PROMO BANNER
+    =========================== */
+    .promo-banner {
+      background: linear-gradient(135deg, #f59e0b 0%, #b70c01 100%);
+      border-radius: 20px;
+      padding: 32px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(183, 12, 1, 0.2);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate { 100% { transform: rotate(360deg); } }
+    
+    .promo-content { position: relative; z-index: 1; }
+    .promo-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .promo-desc { font-size: 16px; font-weight: 500; opacity: 0.9; max-width: 400px; line-height: 1.5; }
+    .promo-icon {
+      font-size: 80px; position: relative; z-index: 1;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===========================
+       CURRENT STATUS
+    =========================== */
+    .status-card {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 20px;
+      padding: 32px; text-align: center; margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .status-icon { font-size: 64px; margin-bottom: 16px; }
+    .status-level { font-size: 14px; font-weight: 700; color: #b70c01; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .status-title { font-size: 28px; font-weight: 800; color: #111827; margin-bottom: 12px; }
+    .status-desc { font-size: 15px; color: #6b7280; font-weight: 500; }
+
+    /* ===========================
+       LEVEL PROGRESSION (15 Levels)
+    =========================== */
+    .journey-title {
+      font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 24px; text-align: center;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+    
+    /* The main connecting line */
+    .timeline::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 40px; width: 4px;
+      background: #f3f4f6; border-radius: 4px;
+    }
+    
+    /* The filled connecting line (Progress) */
+    .timeline-progress-line {
+      position: absolute; top: 0; left: 40px; width: 4px; background: #b70c01;
+      border-radius: 4px; z-index: 1;
+      /* Adjust height to show progress, e.g. level 4 out of 15 is roughly 25% */
+      height: 25%; 
+    }
+
+    .level-node {
+      display: flex; align-items: center; margin-bottom: 24px; position: relative; z-index: 2;
+    }
+    .level-node:last-child { margin-bottom: 0; }
+    
+    .node-icon-wrapper {
+      width: 84px; display: flex; justify-content: center; flex-shrink: 0;
+    }
+    
+    .node-dot {
+      width: 32px; height: 32px; border-radius: 50%; background: #fff;
+      border: 4px solid #e5e7eb; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: #9ca3af; transition: all 0.3s;
+    }
+    
+    .level-node.completed .node-dot {
+      background: #b70c01; border-color: #b70c01; color: #fff;
+      box-shadow: 0 0 0 4px rgba(183, 12, 1, 0.2);
+    }
+    
+    .level-node.current .node-dot {
+      background: #fff; border-color: #b70c01; color: #b70c01;
+      box-shadow: 0 0 0 4px rgba(183, 12, 1, 0.2);
+      transform: scale(1.2);
+    }
+
+    .node-content {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 16px 20px;
+      flex: 1; box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: transform 0.2s;
+    }
+    .level-node.current .node-content {
+      border-color: #b70c01; box-shadow: 0 4px 15px rgba(183, 12, 1, 0.1);
+      transform: translateX(5px);
+    }
+    .level-node.completed .node-content { opacity: 0.7; }
+    
+    .level-name { font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+    .level-reward { font-size: 13px; color: #f59e0b; font-weight: 800; display: flex; align-items: center; gap: 4px; }
+    .level-desc { font-size: 13px; color: #6b7280; }
+
+    /* The final Level 15 Styling */
+    .level-node.final .node-content {
+      background: linear-gradient(135deg, #fffbeb 0%, #fff 100%);
+      border: 2px solid #f59e0b;
+    }
+    .level-node.final .level-name { color: #b45309; font-size: 18px; }
+    .level-node.final .node-dot { border-color: #f59e0b; color: #f59e0b; width: 40px; height: 40px; font-size: 20px; background: #fffbeb; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      .topbar__actions { display: none; }
+      .page-container { padding: 24px 20px; }
+      .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 24px; }
+      .promo-icon { font-size: 60px; }
+      .promo-title { font-size: 24px; }
+    }
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
+      .topbar__logo img { height: 34px; min-width: 0 !important; }
+      .topbar__search { flex: 1; max-width: none; padding: 6px 12px; font-size: 12px; }
+      .topbar__search input { font-size: 12px; }
+      .timeline::before, .timeline-progress-line { left: 20px; }
+      .node-icon-wrapper { width: 44px; }
+      .node-content { padding: 12px 16px; }
+      .level-name { font-size: 15px; }
+      .node-dot { width: 24px; height: 24px; font-size: 12px; border-width: 3px; }
+      .level-node.final .node-dot { width: 32px; height: 32px; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../"></app-sidebar>
+    <div class="main-wrapper">
+
+      <!-- TOPBAR -->
+      <app-topbar data-base="../"></app-topbar>
+
+      <!-- CONTENT -->
+      <div class="content-area">
+        <main class="main-content">
+          <div class="page-container">
+            
+            <!-- PROMO BANNER -->
+            <div class="promo-banner">
+              <div class="promo-content">
+                <h1 class="promo-title">Win ₦300,000 Cash!</h1>
+                <p class="promo-desc">Climb the ranks by taking CBT tests, answering trivia, and participating in group challenges. Reach the highest rank to claim the ultimate prize.</p>
+              </div>
+              <div class="promo-icon">🏆</div>
+            </div>
+
+            <!-- CURRENT STATUS -->
+            <div class="status-card">
+              <div class="status-icon">🚀</div>
+              <div class="status-level">Level 4</div>
+              <div class="status-title">Apprentice Scholar</div>
+              <div class="status-desc">Keep learning! You are just a few challenges away from reaching Level 5.</div>
+              
+              <!-- Horizontal Progress Bar (15 Levels) -->
+              <div class="progress-bar-container" style="margin-top: 24px; width: 100%; height: 16px; background: #f3f4f6; border-radius: 9999px; display: flex; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                <div style="flex: 1; background: #b70c01; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; background: #b70c01; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; background: #b70c01; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; background: #f59e0b; border-right: 2px solid #fff;"></div> <!-- Current Level 4 -->
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1; border-right: 2px solid #fff;"></div>
+                <div style="flex: 1;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase;">
+                <span>Level 1</span>
+                <span>Level 15 (Max)</span>
+              </div>
+            </div>
+
+            <h2 class="journey-title">Your Progression Journey</h2>
+
+            <!-- TIMELINE -->
+            <div class="timeline">
+              <div class="timeline-progress-line"></div>
+
+              <!-- Level 1 -->
+              <div class="level-node completed">
+                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+                <div class="node-content">
+                  <div class="level-name">1. Novice</div>
+                  <div class="level-desc">Just starting out on the journey.</div>
+                </div>
+              </div>
+
+              <!-- Level 2 -->
+              <div class="level-node completed">
+                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+                <div class="node-content">
+                  <div class="level-name">2. Beginner</div>
+                  <div class="level-desc">Getting the hang of the questions.</div>
+                </div>
+              </div>
+
+              <!-- Level 3 -->
+              <div class="level-node completed">
+                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+                <div class="node-content">
+                  <div class="level-name">3. Learner</div>
+                  <div class="level-desc">Consistent practice makes perfect.</div>
+                </div>
+              </div>
+
+              <!-- Level 4 (CURRENT) -->
+              <div class="level-node current">
+                <div class="node-icon-wrapper"><div class="node-dot">4</div></div>
+                <div class="node-content">
+                  <div class="level-name">4. Apprentice <span>🔥</span></div>
+                  <div class="level-desc">You are here! Keep pushing forward.</div>
+                </div>
+              </div>
+
+              <!-- Level 5 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">5</div></div>
+                <div class="node-content">
+                  <div class="level-name">5. Adept</div>
+                  <div class="level-desc">Showing strong potential.</div>
+                </div>
+              </div>
+
+              <!-- Level 6 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">6</div></div>
+                <div class="node-content">
+                  <div class="level-name">6. Challenger</div>
+                  <div class="level-desc">Ready for tougher questions.</div>
+                </div>
+              </div>
+
+              <!-- Level 7 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">7</div></div>
+                <div class="node-content">
+                  <div class="level-name">7. Scholar</div>
+                  <div class="level-desc">Demonstrating broad knowledge.</div>
+                </div>
+              </div>
+
+              <!-- Level 8 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">8</div></div>
+                <div class="node-content">
+                  <div class="level-name">8. Brainiac</div>
+                  <div class="level-desc">A step above the rest.</div>
+                </div>
+              </div>
+
+              <!-- Level 9 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">9</div></div>
+                <div class="node-content">
+                  <div class="level-name">9. Expert</div>
+                  <div class="level-desc">Very high proficiency achieved.</div>
+                </div>
+              </div>
+
+              <!-- Level 10 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">10</div></div>
+                <div class="node-content">
+                  <div class="level-name">10. Master</div>
+                  <div class="level-desc">Elite tier of students.</div>
+                </div>
+              </div>
+
+              <!-- Level 11 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">11</div></div>
+                <div class="node-content">
+                  <div class="level-name">11. Grandmaster</div>
+                  <div class="level-desc">Unstoppable exam cruncher.</div>
+                </div>
+              </div>
+
+              <!-- Level 12 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">12</div></div>
+                <div class="node-content">
+                  <div class="level-name">12. Elite</div>
+                  <div class="level-desc">Top 1% of the platform.</div>
+                </div>
+              </div>
+
+              <!-- Level 13 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">13</div></div>
+                <div class="node-content">
+                  <div class="level-name">13. Champion</div>
+                  <div class="level-desc">Dominating all CBT challenges.</div>
+                </div>
+              </div>
+
+              <!-- Level 14 -->
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">14</div></div>
+                <div class="node-content">
+                  <div class="level-name">14. Legend</div>
+                  <div class="level-desc">A true myth in the making.</div>
+                </div>
+              </div>
+
+              <!-- Level 15 (FINAL) -->
+              <div class="level-node final">
+                <div class="node-icon-wrapper"><div class="node-dot">👑</div></div>
+                <div class="node-content">
+                  <div class="level-name">15. Supreme Genius <span class="level-reward">₦300,000</span></div>
+                  <div class="level-desc">The absolute peak. Claim your ultimate cash reward!</div>
+                </div>
+              </div>
+
+            </div><!-- end timeline -->
+            
+          </div><!-- end page-container -->
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../components/topbar.js"></script>
+  <script src="../../components/sidebar.js?v=6"></script>
+</body>
+</html>

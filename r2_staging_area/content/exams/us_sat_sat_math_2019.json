@@ -1,0 +1,1511 @@
+[
+    {
+        "question_id": "us_sat_sat_math_2019_1",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $3x + 7 = 22$, what is the value of $3x - 5$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$10$"
+            },
+            {
+                "id": "B",
+                "text": "$12$"
+            },
+            {
+                "id": "C",
+                "text": "$15$"
+            },
+            {
+                "id": "D",
+                "text": "$20$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>First, solve for $x$ in the equation $3x + 7 = 22$. Subtract 7 from both sides to get $3x = 15$. Then, divide both sides by 3 to find $x = 5$. Now, substitute $x = 5$ into the expression $3x - 5$: $3(5) - 5 = 15 - 5 = 10$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one variable"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_2",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of a linear function passes through the points $(1, 4)$ and $(3, 10)$. What is the slope of the line?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$2$"
+            },
+            {
+                "id": "B",
+                "text": "$3$"
+            },
+            {
+                "id": "C",
+                "text": "$4$"
+            },
+            {
+                "id": "D",
+                "text": "$6$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>The slope $m$ of a line passing through two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by $m = \\\frac{y_2 - y_1}{x_2 - x_1}$. Substituting the given points $(1, 4)$ and $(3, 10)$, we get $m = \\\frac{10 - 4}{3 - 1} = \\\frac{6}{2} = 3$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_3",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar should be used?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio: $\\\frac{3}{2} = \\\frac{9}{x}$, where $x$ is the number of cups of sugar needed. Cross-multiply to get $3x = 18$, then solve for $x$ by dividing both sides by 3: $x = 6$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_4",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt is on sale for $24$ after a $20\\%$ discount. What was the original price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$$28$"
+            },
+            {
+                "id": "B",
+                "text": "$$30$"
+            },
+            {
+                "id": "C",
+                "text": "$$32$"
+            },
+            {
+                "id": "D",
+                "text": "$$36$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Let $P$ be the original price of the shirt. A $20\\%$ discount means the shirt is sold for $80\\%$ of its original price, so $0.8P = 24$. Solve for $P$ by dividing both sides by $0.8$: $P = \\\frac{24}{0.8} = 30$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_5",
+        "content_type": "multiple_choice",
+        "question_text": "<p>Which of the following is a solution to the equation $x^2 - 5x + 6 = 0$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$1$"
+            },
+            {
+                "id": "B",
+                "text": "$2$"
+            },
+            {
+                "id": "C",
+                "text": "$4$"
+            },
+            {
+                "id": "D",
+                "text": "$5$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Factor the quadratic equation: $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$. Setting each factor equal to zero gives $x = 2$ or $x = 3$. Thus, the solutions are $2$ and $3$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_6",
+        "content_type": "short_answer",
+        "question_text": "<p>If $\\sqrt{2x + 3} = 5$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Square both sides of the equation to eliminate the square root: $(\\sqrt{2x + 3})^2 = 5^2$, which simplifies to $2x + 3 = 25$. Subtract 3 from both sides to get $2x = 22$, then divide by 2 to find $x = 11$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_7",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A survey of $200$ students found that $60\\%$ prefer online classes. How many students prefer online classes?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$100$"
+            },
+            {
+                "id": "B",
+                "text": "$120$"
+            },
+            {
+                "id": "C",
+                "text": "$140$"
+            },
+            {
+                "id": "D",
+                "text": "$160$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate $60\\%$ of $200$ by multiplying $200$ by $0.60$: $200 \\\times 0.60 = 120$. Thus, $120$ students prefer online classes.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_8",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the product of $(x + 2)(x - 3)$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x^2 - x - 6$"
+            },
+            {
+                "id": "B",
+                "text": "$x^2 + x - 6$"
+            },
+            {
+                "id": "C",
+                "text": "$x^2 - 5x - 6$"
+            },
+            {
+                "id": "D",
+                "text": "$x^2 + 5x - 6$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Use the distributive property (FOIL method) to expand $(x + 2)(x - 3)$: $x \\cdot x + x \\cdot (-3) + 2 \\cdot x + 2 \\cdot (-3) = x^2 - 3x + 2x - 6 = x^2 - x - 6$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Operations with polynomials"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_9",
+        "content_type": "short_answer",
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$, where $a$ and $b$ are the legs and $c$ is the hypotenuse. Substitute $a = 6$ and $b = 8$: $6^2 + 8^2 = c^2$, which simplifies to $36 + 64 = c^2$ or $100 = c^2$. Taking the square root of both sides gives $c = 10$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_10",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the sum of $3 + 2i$ and $5 - 4i$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$8 - 2i$"
+            },
+            {
+                "id": "B",
+                "text": "$8 + 2i$"
+            },
+            {
+                "id": "C",
+                "text": "$2 - 2i$"
+            },
+            {
+                "id": "D",
+                "text": "$2 + 6i$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Add the real parts and the imaginary parts separately: $(3 + 5) + (2i - 4i) = 8 - 2i$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Complex numbers"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_11",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $2x + 3y = 12$ and $4x - y = 5$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x = 1$"
+            },
+            {
+                "id": "B",
+                "text": "$x = \\frac{27}{14}$"
+            },
+            {
+                "id": "C",
+                "text": "$x = 2$"
+            },
+            {
+                "id": "D",
+                "text": "$x = \\frac{14}{27}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>To solve the system of equations:<br><br>1. Start with the given equations:<br>$2x + 3y = 12$ (Equation 1)<br>$4x - y = 5$ (Equation 2)<br><br>2. Solve Equation 2 for $y$:<br>$4x - y = 5$<br>$-y = 5 - 4x$<br>$y = 4x - 5$<br><br>3. Substitute $y = 4x - 5$ into Equation 1:<br>$2x + 3(4x - 5) = 12$<br>$2x + 12x - 15 = 12$<br>$14x - 15 = 12$<br>$14x = 27$<br>$x = \\frac{27}{14}$<br><br>However, let's verify using elimination for accuracy:<br><br>Multiply Equation 2 by 3:<br>$12x - 3y = 15$ (Equation 3)<br><br>Add Equation 1 and Equation 3:<br>$2x + 3y + 12x - 3y = 12 + 15$<br>$14x = 27$<br>$x = \\frac{27}{14}$<br><br>The value of $x$ is $\\frac{27}{14}$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one and two variables"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_12",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of a linear function $f$ passes through the points $(1, 4)$ and $(3, 10)$. What is the slope of the graph of $f$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$1$"
+            },
+            {
+                "id": "B",
+                "text": "$2$"
+            },
+            {
+                "id": "C",
+                "text": "$3$"
+            },
+            {
+                "id": "D",
+                "text": "$4$"
+            }
+        ],
+        "correct_option_id": "C",
+        "deep_analysis": {
+            "explanation": "<p>The slope $m$ of a line passing through two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by:<br><br>$m = \\frac{y_2 - y_1}{x_2 - x_1}$<br><br>Using the points $(1, 4)$ and $(3, 10)$:<br><br>$m = \\frac{10 - 4}{3 - 1} = \\frac{6}{2} = 3$<br><br>The slope of the graph of $f$ is $3$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_13",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. How many cups of flour are needed if $8$ cups of sugar are used?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio:<br><br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{x \\text{ cups flour}}{8 \\text{ cups sugar}}$<br><br>Cross-multiply to solve for $x$:<br>$3 \\times 8 = 2 \\times x$<br>$24 = 2x$<br>$x = 12$<br><br>$12$ cups of flour are needed.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_14",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $30\\%$ off. What is the sale price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\$12$"
+            },
+            {
+                "id": "B",
+                "text": "$\\$28$"
+            },
+            {
+                "id": "C",
+                "text": "$\\$30$"
+            },
+            {
+                "id": "D",
+                "text": "$\\$32$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate the discount amount:<br><br>$30\\%$ of $\\$40 = 0.30 \\times 40 = \\$12$<br><br>Subtract the discount from the original price:<br>$40 - 12 = \\$28$<br><br>The sale price of the shirt is $\\$28$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_15",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>105</td></tr><tr><td>12</td><td>100</td></tr></table><br>What percentage of the total number of students are in Grade 10?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$20\\%$"
+            },
+            {
+                "id": "B",
+                "text": "$25\\%$"
+            },
+            {
+                "id": "C",
+                "text": "$30\\%$"
+            },
+            {
+                "id": "D",
+                "text": "$35\\%$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>First, calculate the total number of students:<br>$120 + 110 + 105 + 100 = 435$<br><br>Next, calculate the percentage of Grade 10 students:<br>$\\frac{110}{435} \\times 100 \\approx 25.29\\%$<br><br>Rounded to the nearest whole number, $25\\%$ of the students are in Grade 10.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_16",
+        "content_type": "short_answer",
+        "question_text": "<p>What is the smallest value of $x$ that satisfies the equation $x^2 - 5x + 6 = 0$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Factor the quadratic equation:<br><br>$x^2 - 5x + 6 = (x - 2)(x - 3) = 0$<br><br>Set each factor equal to zero:<br>$x - 2 = 0 \\rightarrow x = 2$<br>$x - 3 = 0 \\rightarrow x = 3$<br><br>The smallest value of $x$ that satisfies the equation is $2$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_17",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the solution to the equation $\\sqrt{2x + 3} = 5$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x = 4$"
+            },
+            {
+                "id": "B",
+                "text": "$x = 11$"
+            },
+            {
+                "id": "C",
+                "text": "$x = 14$"
+            },
+            {
+                "id": "D",
+                "text": "$x = 25$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Square both sides to eliminate the square root:<br><br>$(\\sqrt{2x + 3})^2 = 5^2$<br>$2x + 3 = 25$<br><br>Solve for $x$:<br>$2x = 25 - 3$<br>$2x = 22$<br>$x = 11$<br><br>The solution to the equation is $x = 11$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_18",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$5$"
+            },
+            {
+                "id": "B",
+                "text": "$10$"
+            },
+            {
+                "id": "C",
+                "text": "$12$"
+            },
+            {
+                "id": "D",
+                "text": "$14$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem:<br><br>$a^2 + b^2 = c^2$<br><br>Substitute the given lengths:<br>$6^2 + 8^2 = c^2$<br>$36 + 64 = c^2$<br>$100 = c^2$<br>$c = \\sqrt{100} = 10$<br><br>The length of the hypotenuse is $10$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_19",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $2x + 3y = 12$ and $4x - y = 5$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x = 1$"
+            },
+            {
+                "id": "B",
+                "text": "$x = \\frac{27}{14}$"
+            },
+            {
+                "id": "C",
+                "text": "$x = 2$"
+            },
+            {
+                "id": "D",
+                "text": "$x = \\frac{14}{27}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>To solve the system of equations, we can use the substitution or elimination method. Here, we use elimination:<br><br>1. Multiply the second equation by 3 to align the coefficients of $y$: $12x - 3y = 15$.<br>2. Add the modified second equation to the first equation: $(2x + 3y) + (12x - 3y) = 12 + 15$.<br>3. Simplify: $14x = 27$.<br>4. Solve for $x$: $x = \\frac{27}{14}$.<br><br>However, let's verify using substitution:<br>1. Solve the second equation for $y$: $y = 4x - 5$.<br>2. Substitute $y$ into the first equation: $2x + 3(4x - 5) = 12$.<br>3. Simplify: $2x + 12x - 15 = 12$ \u2192 $14x = 27$.<br>4. Solve for $x$: $x = \\frac{27}{14}$.<br><br>The correct value of $x$ is $\\frac{27}{14}$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one and two variables"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_20",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of a linear function passes through the points $(1, 4)$ and $(3, 10)$. What is the slope of the line?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$1$"
+            },
+            {
+                "id": "B",
+                "text": "$2$"
+            },
+            {
+                "id": "C",
+                "text": "$3$"
+            },
+            {
+                "id": "D",
+                "text": "$4$"
+            }
+        ],
+        "correct_option_id": "C",
+        "deep_analysis": {
+            "explanation": "<p>The slope $m$ of a line passing through two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by:<br>$m = \\frac{y_2 - y_1}{x_2 - x_1}$.<br><br>Substitute the given points $(1, 4)$ and $(3, 10)$:<br>$m = \\frac{10 - 4}{3 - 1} = \\frac{6}{2} = 3$.<br><br>The slope of the line is $3$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_21",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar are needed?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br><br>Cross-multiply to solve for $x$: $3x = 18$ \u2192 $x = 6$.<br><br>The baker needs $6$ cups of sugar.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_22",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt is originally priced at $\\$40$ and is on sale for $25\\%$ off. What is the sale price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\$25$"
+            },
+            {
+                "id": "B",
+                "text": "$\\$30$"
+            },
+            {
+                "id": "C",
+                "text": "$\\$32$"
+            },
+            {
+                "id": "D",
+                "text": "$\\$35$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate the discount amount:<br>$25\\%$ of $\\$40$ is $0.25 \\times 40 = \\$10$.<br><br>Subtract the discount from the original price:<br>$40 - 10 = \\$30$.<br><br>The sale price of the shirt is $\\$30$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_23",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A survey of $200$ students found that $60\\%$ prefer online classes, $30\\%$ prefer in-person classes, and the rest are undecided. How many students are undecided?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$10$"
+            },
+            {
+                "id": "B",
+                "text": "$20$"
+            },
+            {
+                "id": "C",
+                "text": "$30$"
+            },
+            {
+                "id": "D",
+                "text": "$40$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate the percentage of undecided students:<br>$100\\% - 60\\% - 30\\% = 10\\%$.<br><br>Find the number of undecided students:<br>$10\\%$ of $200$ is $0.10 \\times 200 = 20$.<br><br>There are $20$ undecided students.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_24",
+        "content_type": "short_answer",
+        "question_text": "<p>The function $f(x) = 2^x$ is evaluated at $x = 5$. What is the value of $f(5)$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Substitute $x = 5$ into the function:<br>$f(5) = 2^5 = 32$.<br><br>The value of $f(5)$ is $32$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_25",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the solution to the equation $\\sqrt{3x + 1} = 4$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x = 3$"
+            },
+            {
+                "id": "B",
+                "text": "$x = 5$"
+            },
+            {
+                "id": "C",
+                "text": "$x = 7$"
+            },
+            {
+                "id": "D",
+                "text": "$x = 9$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{3x + 1})^2 = 4^2$ \u2192 $3x + 1 = 16$.<br><br>Solve for $x$: $3x = 15$ \u2192 $x = 5$.<br><br>The solution is $x = 5$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_26",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the product of $(x + 3)(x - 2)$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x^2 - 6$"
+            },
+            {
+                "id": "B",
+                "text": "$x^2 + x - 6$"
+            },
+            {
+                "id": "C",
+                "text": "$x^2 - x - 6$"
+            },
+            {
+                "id": "D",
+                "text": "$x^2 + 6$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Use the distributive property (FOIL method):<br>$(x + 3)(x - 2) = x \\cdot x + x \\cdot (-2) + 3 \\cdot x + 3 \\cdot (-2)$.<br><br>Simplify:<br>$x^2 - 2x + 3x - 6 = x^2 + x - 6$.<br><br>The product is $x^2 + x - 6$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Operations with polynomials"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_27",
+        "content_type": "short_answer",
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem:<br>$a^2 + b^2 = c^2$, where $a = 6$ and $b = 8$.<br><br>Substitute the values:<br>$6^2 + 8^2 = c^2$ \u2192 $36 + 64 = c^2$ \u2192 $100 = c^2$.<br><br>Solve for $c$: $c = \\sqrt{100} = 10$.<br><br>The length of the hypotenuse is $10$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_28",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the sum of $3 + 2i$ and $5 - 4i$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$8 + 2i$"
+            },
+            {
+                "id": "B",
+                "text": "$8 - 2i$"
+            },
+            {
+                "id": "C",
+                "text": "$2 + 6i$"
+            },
+            {
+                "id": "D",
+                "text": "$2 - 6i$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Add the real parts and the imaginary parts separately:<br>$(3 + 5) + (2i - 4i) = 8 - 2i$.<br><br>The sum is $8 - 2i$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Complex numbers"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_29",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$2$"
+            },
+            {
+                "id": "B",
+                "text": "$\\frac{14}{5}$"
+            },
+            {
+                "id": "C",
+                "text": "$3$"
+            },
+            {
+                "id": "D",
+                "text": "$\\frac{9}{5}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$ (Equation 1)<br>$x - y = 1$ (Equation 2)<br><br>First, solve Equation 2 for $x$: $x = y + 1$. Substitute $x = y + 1$ into Equation 1:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$. Now substitute $y = \\frac{9}{5}$ back into $x = y + 1$: $x = \\frac{9}{5} + 1 = \\frac{14}{5}$. Thus, the value of $x$ is $\\frac{14}{5}$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one and two variables"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_30",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(x) = mx + b$ and the graph of $f$ passes through the points $(0, -2)$ and $(3, 4)$, what is the value of $m$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$-2$"
+            },
+            {
+                "id": "B",
+                "text": "$2$"
+            },
+            {
+                "id": "C",
+                "text": "$\\frac{1}{2}$"
+            },
+            {
+                "id": "D",
+                "text": "$-1$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>The slope $m$ of the line passing through $(0, -2)$ and $(3, 4)$ is calculated as:<br>$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (-2)}{3 - 0} = \\frac{6}{3} = 2$. Thus, the value of $m$ is $2$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_31",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $4$ cups of sugar. If a baker uses $9$ cups of flour, how many cups of sugar are needed?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{4 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$. Cross-multiply to solve for $x$: $3x = 36$, so $x = 12$. Thus, $12$ cups of sugar are needed.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_32",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $30\\%$ off. What is the sale price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\$12$"
+            },
+            {
+                "id": "B",
+                "text": "$\\$28$"
+            },
+            {
+                "id": "C",
+                "text": "$\\$30$"
+            },
+            {
+                "id": "D",
+                "text": "$\\$32$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate $30\\%$ of $\\$40$: $0.30 \\times 40 = 12$. Subtract the discount from the original price: $40 - 12 = 28$. Thus, the sale price is $\\$28$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_33",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total number of students are in grade 10?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$24\\%$"
+            },
+            {
+                "id": "B",
+                "text": "$26\\%$"
+            },
+            {
+                "id": "C",
+                "text": "$28\\%$"
+            },
+            {
+                "id": "D",
+                "text": "$30\\%$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>First, calculate the total number of students: $120 + 110 + 100 + 90 = 420$. The number of grade 10 students is $110$. The percentage is $\\frac{110}{420} \\times 100 \\approx 26.19\\%$. Rounded to the nearest whole percent, this is $26\\%$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_34",
+        "content_type": "short_answer",
+        "question_text": "<p>If $f(x) = 2x^2 - 4x + 1$, what is the value of $f(3)$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Substitute $x = 3$ into the function:<br>$f(3) = 2(3)^2 - 4(3) + 1 = 2(9) - 12 + 1 = 18 - 12 + 1 = 7$. Thus, the value of $f(3)$ is $7$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_35",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the solution to the equation $\\sqrt{2x + 3} = 5$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$4$"
+            },
+            {
+                "id": "B",
+                "text": "$11$"
+            },
+            {
+                "id": "C",
+                "text": "$7$"
+            },
+            {
+                "id": "D",
+                "text": "$14$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{2x + 3})^2 = 5^2$<br>$2x + 3 = 25$<br>$2x = 22$<br>$x = 11$. Thus, the solution is $x = 11$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_36",
+        "content_type": "multiple_choice",
+        "question_text": "<p>Which of the following is equivalent to $(3x^2 - 2x + 1)(x - 4)$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$3x^3 - 14x^2 + 9x - 4$"
+            },
+            {
+                "id": "B",
+                "text": "$3x^3 - 10x^2 + 9x - 4$"
+            },
+            {
+                "id": "C",
+                "text": "$3x^3 - 14x^2 - 7x - 4$"
+            },
+            {
+                "id": "D",
+                "text": "$3x^2 - 14x + 5$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Use the distributive property to expand:<br>$(3x^2 - 2x + 1)(x - 4) = 3x^2(x) + 3x^2(-4) - 2x(x) - 2x(-4) + 1(x) + 1(-4)$<br>$= 3x^3 - 12x^2 - 2x^2 + 8x + x - 4$<br>$= 3x^3 - 14x^2 + 9x - 4$. Thus, the equivalent expression is $3x^3 - 14x^2 + 9x - 4$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Operations with polynomials"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_37",
+        "content_type": "short_answer",
+        "question_text": "<p>A right triangle has legs of lengths $5$ and $12$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$, where $a = 5$ and $b = 12$.<br>$5^2 + 12^2 = c^2$<br>$25 + 144 = c^2$<br>$169 = c^2$<br>$c = 13$. Thus, the length of the hypotenuse is $13$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_38",
+        "content_type": "multiple_choice",
+        "question_text": "<p>What is the product of $2 + 3i$ and $4 - i$? (Note: $i = \\sqrt{-1}$)</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$5 + 10i$"
+            },
+            {
+                "id": "B",
+                "text": "$11 + 10i$"
+            },
+            {
+                "id": "C",
+                "text": "$8 + 11i$"
+            },
+            {
+                "id": "D",
+                "text": "$11 - 10i$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Use the distributive property to multiply:<br>$(2 + 3i)(4 - i) = 2(4) + 2(-i) + 3i(4) + 3i(-i)$<br>$= 8 - 2i + 12i - 3i^2$<br>Since $i^2 = -1$, this becomes:<br>$= 8 + 10i - 3(-1)$<br>$= 8 + 10i + 3$<br>$= 11 + 10i$. Thus, the product is $11 + 10i$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Complex numbers"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_39",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$1$"
+            },
+            {
+                "id": "B",
+                "text": "$2$"
+            },
+            {
+                "id": "C",
+                "text": "$\\frac{14}{5}$"
+            },
+            {
+                "id": "D",
+                "text": "$3$"
+            }
+        ],
+        "correct_option_id": "C",
+        "deep_analysis": {
+            "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$<br>$x - y = 1$<br><br>First, solve the second equation for $x$: $x = y + 1$. Substitute this into the first equation:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Now substitute $y = \\frac{9}{5}$ back into $x = y + 1$:<br>$x = \\frac{9}{5} + 1 = \\frac{14}{5}$. However, let's verify the substitution step again for accuracy:<br><br>Substitute $x = y + 1$ into $3x + 2y = 12$:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Now, $x = \\frac{9}{5} + 1 = \\frac{9}{5} + \\frac{5}{5} = \\frac{14}{5}$. The correct value of $x$ is $\\frac{14}{5}$, but this does not match any of the provided options. Rechecking the problem, let's solve it using elimination instead:<br><br>Multiply the second equation by 2:<br>$2x - 2y = 2$.<br>Add this to the first equation:<br>$3x + 2y + 2x - 2y = 12 + 2$<br>$5x = 14$<br>$x = \\frac{14}{5}$. The correct answer is $\\frac{14}{5}$, but since this is a multiple-choice question, there may be an error in the options. Assuming the question expects $x = 2$, let's re-examine the equations:<br><br>If $x = 2$, then from $x - y = 1$, $y = 1$. Substituting into $3x + 2y = 12$: $6 + 2 = 8 \\neq 12$. Thus, the correct value of $x$ is indeed $\\frac{14}{5}$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one and two variables"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_40",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If the slope of the line is $2$ and it passes through the point $(1, 3)$, which of the following is the equation of $f$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$y = 2x - 1$"
+            },
+            {
+                "id": "B",
+                "text": "$y = 2x + 1$"
+            },
+            {
+                "id": "C",
+                "text": "$y = x + 2$"
+            },
+            {
+                "id": "D",
+                "text": "$y = 3x - 2$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>The equation of a line in slope-intercept form is $y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept. Given the slope $m = 2$ and a point $(1, 3)$, substitute into the equation to find $b$: $3 = 2(1) + b$<br>$3 = 2 + b$<br>$b = 1$.<br><br>Thus, the equation of the line is $y = 2x + 1$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_41",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar should be used?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br>Cross-multiply to solve for $x$: $3x = 18$<br>$x = 6$.<br><br>The baker should use $6$ cups of sugar.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_42",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $25\\%$ off. What is the sale price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\$25$"
+            },
+            {
+                "id": "B",
+                "text": "$\\$30$"
+            },
+            {
+                "id": "C",
+                "text": "$\\$32$"
+            },
+            {
+                "id": "D",
+                "text": "$\\$35$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate $25\\%$ of $\\$40$: $0.25 \\times 40 = 10$.<br>Subtract the discount from the original price: $40 - 10 = 30$.<br><br>The sale price of the shirt is $\\$30$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_43",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The table below shows the number of students in two classes who prefer either tea or coffee.<br><br><table border='1'><tr><th>Class</th><th>Tea</th><th>Coffee</th></tr><tr><td>A</td><td>12</td><td>8</td></tr><tr><td>B</td><td>15</td><td>5</td></tr></table><br>What fraction of all students prefer coffee?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\frac{1}{4}$"
+            },
+            {
+                "id": "B",
+                "text": "$\\frac{13}{40}$"
+            },
+            {
+                "id": "C",
+                "text": "$\\frac{1}{3}$"
+            },
+            {
+                "id": "D",
+                "text": "$\\frac{1}{2}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Total number of students who prefer coffee: $8 + 5 = 13$.<br>Total number of students: $12 + 8 + 15 + 5 = 40$.<br><br>The fraction of students who prefer coffee is $\\frac{13}{40}$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_44",
+        "content_type": "multiple_choice",
+        "question_text": "<p>Which of the following is equivalent to $2^{3x} = 8^{x+1}$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x = 1$"
+            },
+            {
+                "id": "B",
+                "text": "$3x = 3x + 3$"
+            },
+            {
+                "id": "C",
+                "text": "$x = 0$"
+            },
+            {
+                "id": "D",
+                "text": "$x = -1$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Express $8$ as a power of $2$: $8 = 2^3$.<br>Rewrite the equation: $2^{3x} = (2^3)^{x+1}$<br>$2^{3x} = 2^{3(x+1)}$<br>Since the bases are equal, set the exponents equal: $3x = 3(x + 1)$<br>$3x = 3x + 3$<br>$0 = 3$.<br><br>This is a contradiction, so the equation has no solution. However, let's re-examine the original equation:<br>$2^{3x} = 8^{x+1}$<br>$2^{3x} = (2^3)^{x+1}$<br>$2^{3x} = 2^{3x + 3}$<br>Set exponents equal: $3x = 3x + 3$<br>$0 = 3$.<br><br>Thus, there is no solution, but the question asks for an equivalent form. The equivalent form is $3x = 3x + 3$, which simplifies to $0 = 3$. The correct interpretation is that the equation has no solution, but among the options, the closest equivalent form is $x = x + 1$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_45",
+        "content_type": "short_answer",
+        "question_text": "<p>If $\\sqrt{2x + 3} = 5$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{2x + 3})^2 = 5^2$<br>$2x + 3 = 25$<br>$2x = 22$<br>$x = 11$.<br><br>The value of $x$ is $11$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_46",
+        "content_type": "multiple_choice",
+        "question_text": "<p>Which of the following is equivalent to $(3x^2 - 2x + 1)(x - 4)$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$3x^3 - 14x^2 + 9x - 4$"
+            },
+            {
+                "id": "B",
+                "text": "$3x^3 - 10x^2 + 9x - 4$"
+            },
+            {
+                "id": "C",
+                "text": "$3x^3 - 14x^2 + x - 4$"
+            },
+            {
+                "id": "D",
+                "text": "$3x^3 - 12x^2 + 9x - 4$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Use the distributive property to expand:<br>$(3x^2 - 2x + 1)(x - 4) = 3x^2(x) + 3x^2(-4) - 2x(x) - 2x(-4) + 1(x) + 1(-4)$<br>$= 3x^3 - 12x^2 - 2x^2 + 8x + x - 4$<br>$= 3x^3 - 14x^2 + 9x - 4$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Operations with polynomials"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_47",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$5$"
+            },
+            {
+                "id": "B",
+                "text": "$10$"
+            },
+            {
+                "id": "C",
+                "text": "$12$"
+            },
+            {
+                "id": "D",
+                "text": "$14$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$, where $c$ is the hypotenuse.<br>$6^2 + 8^2 = c^2$<br>$36 + 64 = c^2$<br>$100 = c^2$<br>$c = 10$.<br><br>The length of the hypotenuse is $10$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_48",
+        "content_type": "short_answer",
+        "question_text": "<p>If $i$ is the imaginary unit, what is the value of $i^5 + i^6 + i^7$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Recall that $i^1 = i$, $i^2 = -1$, $i^3 = -i$, and $i^4 = 1$. The powers of $i$ cycle every $4$ exponents.<br>Calculate each term:<br>$i^5 = i^{4+1} = i$<br>$i^6 = i^{4+2} = -1$<br>$i^7 = i^{4+3} = -i$<br><br>Sum the terms: $i + (-1) + (-i) = -1$.<br><br>The value is $-1$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Complex numbers"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_49",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$2$"
+            },
+            {
+                "id": "B",
+                "text": "$\\frac{14}{5}$"
+            },
+            {
+                "id": "C",
+                "text": "$3$"
+            },
+            {
+                "id": "D",
+                "text": "$\\frac{9}{5}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$ (1)<br>$x - y = 1$ (2)<br>From equation (2), solve for $x$: $x = y + 1$. Substitute $x = y + 1$ into equation (1):<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$. Substitute $y = \\frac{9}{5}$ back into $x = y + 1$:<br>$x = \\frac{9}{5} + 1 = \\frac{14}{5}$. Thus, the value of $x$ is $\\frac{14}{5}$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear equations and systems in one and two variables"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_50",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(2) = 4$ and the slope of the graph of $f$ is $-3$, which of the following is the equation of $f$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$f(x) = -3x + 2$"
+            },
+            {
+                "id": "B",
+                "text": "$f(x) = -3x + 10$"
+            },
+            {
+                "id": "C",
+                "text": "$f(x) = 3x + 4$"
+            },
+            {
+                "id": "D",
+                "text": "$f(x) = -3x - 2$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Using the point-slope form of a linear equation: $y - y_1 = m(x - x_1)$. Given $m = -3$ and the point $(2, 4)$, substitute into the equation:<br>$y - 4 = -3(x - 2)$<br>$y - 4 = -3x + 6$<br>$y = -3x + 10$. Thus, the equation of $f$ is $f(x) = -3x + 10$.</p>",
+            "topic_tags": [
+                "Heart of Algebra: Linear functions and their graphs"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_51",
+        "content_type": "short_answer",
+        "question_text": "<p>A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar should be used?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$. Cross-multiply:<br>$3x = 18$<br>$x = 6$. Thus, $6$ cups of sugar should be used.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_52",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $25\\%$ off. What is the sale price of the shirt?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\$25$"
+            },
+            {
+                "id": "B",
+                "text": "$\\$30$"
+            },
+            {
+                "id": "C",
+                "text": "$\\$35$"
+            },
+            {
+                "id": "D",
+                "text": "$\\$32$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Calculate $25\\%$ of $\\$40$: $0.25 \\times 40 = 10$. Subtract the discount from the original price: $40 - 10 = 30$. Thus, the sale price is $\\$30$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Percentages and units"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_53",
+        "content_type": "multiple_choice",
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>105</td></tr><tr><td>12</td><td>100</td></tr></table><br>What fraction of the students are in grade 10?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$\\frac{1}{4}$"
+            },
+            {
+                "id": "B",
+                "text": "$\\frac{22}{87}$"
+            },
+            {
+                "id": "C",
+                "text": "$\\frac{1}{3}$"
+            },
+            {
+                "id": "D",
+                "text": "$\\frac{11}{43}$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Total number of students: $120 + 110 + 105 + 100 = 435$. Number of grade 10 students: $110$. Fraction of grade 10 students: $\\frac{110}{435} = \\frac{22}{87}$.</p>",
+            "topic_tags": [
+                "Problem Solving and Data Analysis: Analyzing categorical and quantitative data"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_54",
+        "content_type": "multiple_choice",
+        "question_text": "<p>Which of the following is equivalent to $2^{3x} \\times 4^{x+1}$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$2^{5x+2}$"
+            },
+            {
+                "id": "B",
+                "text": "$2^{4x+1}$"
+            },
+            {
+                "id": "C",
+                "text": "$8^{4x+1}$"
+            },
+            {
+                "id": "D",
+                "text": "$2^{3x^2 + 2x}$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Rewrite $4^{x+1}$ as $(2^2)^{x+1} = 2^{2x+2}$. Combine the exponents:<br>$2^{3x} \\times 2^{2x+2} = 2^{5x+2}$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Quadratic and exponential functions"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_55",
+        "content_type": "short_answer",
+        "question_text": "<p>If $\\frac{3}{x} + \\frac{2}{x+1} = 1$, what is the value of $x$? (Assume $x \\neq 0$ and $x \\neq -1$.)</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Combine the fractions:<br>$\\frac{3(x+1) + 2x}{x(x+1)} = 1$<br>Simplify the numerator:<br>$3x + 3 + 2x = 5x + 3$. Set equal to the denominator:<br>$5x + 3 = x^2 + x$<br>$x^2 - 4x - 3 = 0$. Solve the quadratic equation using the quadratic formula:<br>$x = \\frac{4 \\pm \\sqrt{16 + 12}}{2} = \\frac{4 \\pm \\sqrt{28}}{2} = \\frac{4 \\pm 2 \\sqrt{7}}{2} = 2 \\pm \\sqrt{7}$. Since $x \\neq 0$ and $x \\neq -1$, both solutions are valid. The positive solution is $2 + \\sqrt{7}$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Radical and rational equations"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_56",
+        "content_type": "multiple_choice",
+        "question_text": "<p>If $P(x) = x^3 - 2x^2 + 3x - 4$ and $Q(x) = x - 1$, what is $P(x) \\times Q(x)$?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$x^4 - 3x^3 + 5x^2 - 7x + 4$"
+            },
+            {
+                "id": "B",
+                "text": "$x^4 - x^3 + x^2 - x - 4$"
+            },
+            {
+                "id": "C",
+                "text": "$x^4 - 3x^3 + 3x^2 - 7x + 4$"
+            },
+            {
+                "id": "D",
+                "text": "$x^4 - 2x^3 + 4x^2 - 5x + 4$"
+            }
+        ],
+        "correct_option_id": "A",
+        "deep_analysis": {
+            "explanation": "<p>Multiply $P(x)$ by $Q(x)$:<br>$(x^3 - 2x^2 + 3x - 4)(x - 1) = x^4 - x^3 - 2x^3 + 2x^2 + 3x^2 - 3x - 4x + 4$<br>Combine like terms:<br>$x^4 - 3x^3 + 5x^2 - 7x + 4$.</p>",
+            "topic_tags": [
+                "Passport to Advanced Math: Operations with polynomials"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_57",
+        "content_type": "multiple_choice",
+        "question_text": "<p>A right triangle has legs of lengths $5$ and $12$. What is the length of the hypotenuse?</p>",
+        "media_url": null,
+        "options": [
+            {
+                "id": "A",
+                "text": "$10$"
+            },
+            {
+                "id": "B",
+                "text": "$13$"
+            },
+            {
+                "id": "C",
+                "text": "$15$"
+            },
+            {
+                "id": "D",
+                "text": "$17$"
+            }
+        ],
+        "correct_option_id": "B",
+        "deep_analysis": {
+            "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$. Substitute $a = 5$ and $b = 12$:<br>$5^2 + 12^2 = c^2$<br>$25 + 144 = c^2$<br>$169 = c^2$<br>$c = 13$. Thus, the hypotenuse is $13$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Geometry and trigonometry"
+            ]
+        }
+    },
+    {
+        "question_id": "us_sat_sat_math_2019_58",
+        "content_type": "short_answer",
+        "question_text": "<p>If $i$ is the imaginary unit, what is the value of $(3 + 2i)(4 - i)$?</p>",
+        "media_url": null,
+        "options": [],
+        "correct_option_id": null,
+        "deep_analysis": {
+            "explanation": "<p>Expand the product using the distributive property:<br>$(3 + 2i)(4 - i) = 3 \\times 4 + 3 \\times (-i) + 2i \\times 4 + 2i \\times (-i)$<br>$= 12 - 3i + 8i - 2i^2$<br>Simplify using $i^2 = -1$:<br>$= 12 + 5i - 2(-1) = 12 + 5i + 2 = 14 + 5i$. The real part is $14$.</p>",
+            "topic_tags": [
+                "Additional Topics in Math: Complex numbers"
+            ]
+        }
+    }
+]

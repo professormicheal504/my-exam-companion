@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship Details | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================
+       APP SHELL
+    =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
+    }
+
+    /* ===========================
+       TOPBAR
+    =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
+    .topbar__search {
+      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 400px;
+      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 7px 14px;
+      transition: border-color 0.15s;
+    }
+    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
+    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
+    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
+    .topbar__search input::placeholder { color: #b0b0b0; }
+    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+    .btn-register { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
+    .btn-register:hover { background: #2d2d2d; }
+
+    /* ===========================
+       CONTENT AREA
+    =========================== */
+    .content-area { display: flex; flex: 1; overflow-x: hidden; }
+    .main-content { flex: 1; padding: 32px 24px; min-width: 0; width: 100%; overflow-x: hidden; max-width: 800px; margin: 0 auto; }
+
+    /* ===========================
+       BLOG LAYOUT
+    =========================== */
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: #fff;
+      font-size: 14px; font-weight: 700; color: #b70c01; cursor: pointer; transition: all 0.2s;
+      margin-bottom: 32px;
+    }
+    .btn-back:hover { border-color: #fecaca; background: #fef2f2; }
+    .btn-back svg { color: #b70c01; }
+    
+    .blog-card {
+      background: #fff; border: 1px solid #f0f0f0; border-radius: 20px; padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+    
+    .blog-title {
+      font-size: 32px; font-weight: 800; color: #111827; letter-spacing: -0.02em; line-height: 1.3;
+      margin-bottom: 32px;
+    }
+    
+    .blog-details-list {
+      display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;
+    }
+    .detail-item {
+      display: flex; align-items: center; gap: 16px; font-size: 16px; color: #374151; font-weight: 500;
+    }
+    .detail-icon-wrap {
+      width: 40px; height: 40px; border-radius: 50%; background: #fef2f2;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .detail-item svg { width: 20px; height: 20px; color: #b70c01; }
+    
+    .blog-meta {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+      padding: 24px 0; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; margin-bottom: 32px;
+    }
+    .deadline-group {
+      display: flex; align-items: center; gap: 16px; font-size: 15px; font-weight: 500; color: #4b5563;
+    }
+    .deadline-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: #fff;
+      font-size: 15px; font-weight: 700; color: #7c3aed; /* Using purple/brand color for emphasis as in image */
+    }
+    .deadline-badge svg { color: #d97706; }
+    
+    .blog-actions { display: flex; gap: 12px; }
+    .action-btn {
+      width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: #fff; border: 1px solid #e5e7eb; color: #b70c01; transition: all 0.2s;
+    }
+    .action-btn:hover { background: #fef2f2; border-color: #fecaca; }
+    .action-btn svg { width: 18px; height: 18px; }
+    
+    .blog-content {
+      font-size: 17px; line-height: 1.8; color: #374151;
+    }
+    .blog-content p { margin-bottom: 24px; }
+    .blog-content h2 { font-size: 22px; font-weight: 700; color: #111827; margin: 32px 0 16px; }
+    .blog-content ul { margin-bottom: 24px; padding-left: 24px; }
+    .blog-content li { margin-bottom: 12px; }
+    
+    .apply-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: #b70c01; color: #fff; border-radius: 12px; padding: 16px 32px;
+      font-size: 16px; font-weight: 700; width: 100%; transition: background 0.2s; margin-top: 24px;
+    }
+    .apply-btn:hover { background: #960a01; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      .topbar__actions { display: none; }
+      .main-content { padding: 24px 16px; }
+      .topbar { padding: 0 12px; }
+      .blog-card { padding: 24px; border-radius: 16px; }
+      .blog-title { font-size: 26px; }
+      .blog-meta { flex-direction: column; align-items: flex-start; }
+      .deadline-group { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
+      .topbar__logo img { height: 34px; min-width: 0 !important; }
+      .topbar__search { display: none; }
+      
+      .blog-title { font-size: 22px; }
+      .detail-item { font-size: 15px; }
+      .detail-icon-wrap { width: 36px; height: 36px; }
+      .blog-content { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <app-sidebar data-base="../../"></app-sidebar>
+
+    <div class="main-wrapper">
+      <!-- TOPBAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT -->
+      <div class="content-area">
+        <main class="main-content">
+          
+          <a href="list_of_scholarship.html" class="btn-back">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back
+          </a>
+
+          <div class="blog-card">
+            <h1 class="blog-title">Fully Funded Scholarship at University of Milan DSU, Italy 2026/27</h1>
+            
+            <div class="blog-details-list">
+              <div class="detail-item">
+                <div class="detail-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><circle cx="12" cy="14" r="2"/></svg>
+                </div>
+                <span>Fully Funded</span>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <span>Masters, Undergraduate</span>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                </div>
+                <span>Italy (Italia)</span>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V9"/><path d="M10 21V9"/><path d="M14 21V9"/><path d="M18 21V9"/><path d="M4 9h16"/><path d="M12 3L3 9h18z"/></svg>
+                </div>
+                <span>University of Milan</span>
+              </div>
+            </div>
+            
+            <div class="blog-meta">
+              <div class="deadline-group">
+                <span>Deadline</span>
+                <div class="deadline-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  30th September, 2026
+                </div>
+              </div>
+              <div class="blog-actions">
+                <button class="action-btn" aria-label="Share">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </button>
+                <button class="action-btn" aria-label="Save">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                </button>
+              </div>
+            </div>
+            
+            <div class="blog-content">
+              <p>The call for applications is now open for international students to apply for the University of Milan DSU Scholarship in Italy 2026/27. Studying and Living in Italy is very Cheap. The University of Milan Scholarships for International Students is available in All-Academic Fields and Majors and Open to all International Students. The scholarship offers a total tuition waiver paid in installments, and a grant of €6,000.</p>
+              
+              <h2>Eligibility Criteria</h2>
+              <ul>
+                <li>Must be an international student.</li>
+                <li>Must hold an equivalent degree for Master's or Bachelor's program.</li>
+                <li>Proof of English Language Proficiency.</li>
+              </ul>
+              
+              <p>The DSU Scholarship provides substantial financial support that completely waives the tuition fees and provides a yearly stipend, alongside free meals in the university canteens. Don't miss this opportunity to study in one of Europe's most beautiful and historic nations.</p>
+
+              <button class="apply-btn">
+                Apply Now 
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

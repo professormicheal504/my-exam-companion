@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify OTP – My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f9fafb;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(183, 12, 1, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(183, 12, 1, 0.15) 0px, transparent 50%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .modal-box {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+      animation: popIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .btn-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #f5f5f5;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-close:hover {
+      background: #e5e7eb;
+      color: #131212;
+    }
+    .modal-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .modal-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #131212;
+      margin-bottom: 8px;
+    }
+    .modal-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .otp-inputs {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .otp-input {
+      flex: 1;
+      width: 0;
+      max-width: 56px;
+      height: 56px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.15s;
+      background: #fafafa;
+    }
+    .otp-input:focus {
+      border-color: #b70c01;
+      background: #fff;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 12px;
+      background: #b70c01;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover {
+      background: #960a01;
+      transform: translateY(-1px);
+    }
+    .auth-links {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13.5px;
+      color: #6b7280;
+    }
+    .auth-links button {
+      color: #b70c01;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .auth-links button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal-overlay">
+    <div class="modal-box">
+      <a href="../index.html" class="btn-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </a>
+      
+      <div class="modal-header">
+        <h2 class="modal-title">Verify Email</h2>
+        <p class="modal-subtitle">We sent a 6-digit code to your email. Enter it below to verify your account.</p>
+      </div>
+
+      <form id="otpForm" onsubmit="event.preventDefault(); handleVerify();">
+        <div class="form-group">
+          <div class="otp-inputs" id="otpContainer">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+            <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-primary">Verify Code</button>
+      </form>
+
+      <div class="auth-links">
+        Didn't receive a code? <button type="button">Resend Code</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle OTP input auto-focus
+    const inputs = document.querySelectorAll('.otp-input');
+    
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        // Move to next input if there's a value
+        if (e.target.value.length > 0) {
+          if (index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        }
+      });
+      
+      input.addEventListener('keydown', (e) => {
+        // Handle backspace
+        if (e.key === 'Backspace' && e.target.value.length === 0) {
+          if (index > 0) {
+            inputs[index - 1].focus();
+            inputs[index - 1].value = ''; // clear the previous one
+          }
+        }
+      });
+    });
+
+    function handleVerify() {
+      // Simulate successful verification
+      window.location.href = 'fill_form.html';
+    }
+  </script>
+</body>
+</html>

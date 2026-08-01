@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Support | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=2">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================
+       APP SHELL
+    =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
+    }
+
+    /* ===========================
+       TOPBAR
+    =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
+    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+
+    /* ===========================
+       CONTENT AREA
+    =========================== */
+    .content-area { display: flex; flex: 1; justify-content: center; background: #fff; padding: 20px; }
+    
+    .chat-container {
+      width: 100%; max-width: 600px;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 16px;
+      display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      overflow: hidden; height: calc(100vh - 100px);
+    }
+    
+    .chat-header {
+      padding: 20px; border-bottom: 1px solid #e5e7eb; background: #fafafa;
+    }
+    .chat-header h1 { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 4px; }
+    .chat-header p { font-size: 13px; color: #6b7280; }
+
+    .admin-list { flex: 1; overflow-y: auto; padding: 12px; }
+    
+    .admin-item {
+      display: flex; align-items: center; padding: 16px; border-radius: 12px;
+      transition: all 0.2s ease; cursor: pointer; text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .admin-item:hover { background: #f9fafb; border-color: #f3f4f6; transform: translateY(-1px); }
+    
+    .admin-avatar {
+      position: relative; width: 48px; height: 48px; border-radius: 50%;
+      background: #e5e7eb; display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0; margin-right: 16px;
+    }
+    
+    .status-dot {
+      position: absolute; bottom: 0; right: 0; width: 14px; height: 14px;
+      border-radius: 50%; border: 2px solid #fff;
+    }
+    .status-dot.online { background: #10b981; }
+    .status-dot.offline { background: #9ca3af; }
+
+    .admin-info { flex: 1; min-width: 0; }
+    .admin-name { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 2px; }
+    .admin-role { font-size: 13px; color: #6b7280; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    
+    .admin-action { font-size: 20px; color: #d1d5db; transition: color 0.2s; }
+    .admin-item:hover .admin-action { color: #b70c01; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
+      .content-area { padding: 0; }
+      .chat-container { border-radius: 0; border: none; height: calc(100vh - 52px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../"></app-sidebar>
+    <div class="main-wrapper">
+
+      <app-topbar data-base="../"></app-topbar>
+
+      <div class="content-area">
+        <div class="chat-container">
+          
+          <div class="chat-header">
+            <h1>Support & Tutors</h1>
+            <p>Chat with our available admins and tutors for quick assistance.</p>
+          </div>
+
+          <div class="admin-list">
+            
+            <!-- Online Admin 1 -->
+            <a href="chat_admin.html?admin=sarah" class="admin-item">
+              <div class="admin-avatar">
+                👩‍🏫
+                <div class="status-dot online"></div>
+              </div>
+              <div class="admin-info">
+                <div class="admin-name">Admin Sarah</div>
+                <span class="admin-role">Academic Tutor (Mathematics)</span>
+              </div>
+              <div class="admin-action">💬</div>
+            </a>
+
+            <!-- Online Admin 2 -->
+            <a href="chat_admin.html?admin=michael" class="admin-item">
+              <div class="admin-avatar">
+                👨‍💻
+                <div class="status-dot online"></div>
+              </div>
+              <div class="admin-info">
+                <div class="admin-name">Admin Michael</div>
+                <span class="admin-role">Technical Support</span>
+              </div>
+              <div class="admin-action">💬</div>
+            </a>
+
+            <!-- Offline Admin 1 -->
+            <a href="chat_admin.html?admin=jessica" class="admin-item">
+              <div class="admin-avatar" style="opacity: 0.7;">
+                👩‍💼
+                <div class="status-dot offline"></div>
+              </div>
+              <div class="admin-info">
+                <div class="admin-name">Admin Jessica</div>
+                <span class="admin-role">Billing & Subscriptions (Last seen: 2 hours ago)</span>
+              </div>
+              <div class="admin-action">💬</div>
+            </a>
+
+            <!-- Offline Admin 2 -->
+            <a href="chat_admin.html?admin=david" class="admin-item">
+              <div class="admin-avatar" style="opacity: 0.7;">
+                👨‍🏫
+                <div class="status-dot offline"></div>
+              </div>
+              <div class="admin-info">
+                <div class="admin-name">Admin David</div>
+                <span class="admin-role">English Tutor (Offline)</span>
+              </div>
+              <div class="admin-action">💬</div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../components/topbar.js"></script>
+  <script src="../../components/sidebar.js?v=6"></script>
+</body>
+</html>

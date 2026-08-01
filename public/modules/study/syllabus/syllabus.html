@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus | My Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===========================
+       APP SHELL
+    =========================== */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
+    }
+
+    /* ===========================
+       TOPBAR
+    =========================== */
+    .topbar {
+      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
+    }
+    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
+    .topbar__search {
+      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 400px;
+      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 7px 14px;
+      transition: border-color 0.15s;
+    }
+    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
+    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
+    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
+    .topbar__search input::placeholder { color: #b0b0b0; }
+    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
+    .btn-login:hover { background: #f5f5f5; }
+    .btn-register { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
+    .btn-register:hover { background: #2d2d2d; }
+
+    /* ===========================
+       CONTENT AREA
+    =========================== */
+    .content-area { display: flex; flex: 1; overflow-x: hidden; }
+    .main-content { flex: 1; padding: 20px 16px; min-width: 0; width: 100%; overflow-x: hidden; }
+
+    /* ===========================
+       PAGE LAYOUT — 2 COLUMN
+    =========================== */
+    .page-layout { display: flex; gap: 24px; max-width: 1280px; margin: 0 auto; align-items: flex-start; width: 100%; }
+    .main-col { flex: 1; min-width: 0; width: 0; display: flex; flex-direction: column; gap: 20px; }
+    
+    /* ===========================
+       RIGHT SUBJECT COLUMN (Desktop)
+    =========================== */
+    .subject-col {
+      width: 280px; flex-shrink: 0; background: #fff; border-radius: 12px; padding: 20px;
+      border: 1px solid #f0f0f0; position: sticky; top: 76px;
+      max-height: calc(100vh - 96px); overflow-y: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .subject-col::-webkit-scrollbar { width: 4px; }
+    .subject-col::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+
+    .qs-label { font-size: 10.5px; font-weight: 800; color: #9ca3af; letter-spacing: 0.07em; display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+    .qs-search { position: relative; margin-bottom: 14px; }
+    .qs-search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; pointer-events: none; }
+    .qs-search input {
+      width: 100%; padding: 9px 14px 9px 36px; border: 1px solid #e5e7eb; border-radius: 99px;
+      font-size: 12px; outline: none; background: #f9fafb; font-family: inherit; transition: all 0.2s;
+    }
+    .qs-search input:focus { border-color: #b70c01; background: #fff; }
+    .qs-list { display: flex; flex-direction: column; }
+    .qs-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 13.5px; font-weight: 500; color: #4b5563; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: color 0.15s; }
+    .qs-item:last-child { border-bottom: none; }
+    .qs-item:hover, .qs-item.active { color: #b70c01; font-weight: 600; }
+    .qs-item svg { color: #e5e7eb; transition: all 0.15s; }
+    .qs-item:hover svg, .qs-item.active svg { transform: translateX(3px); color: #b70c01; }
+
+    /* ===========================
+       CARD BASE
+    =========================== */
+    .card { background: #fff; border: 1px solid #f0f0f0; border-radius: 16px; padding: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.015); width: 100%; overflow: hidden; }
+
+    /* ===========================
+       HEADER NAV & TITLE (Mobile/Tablet)
+    =========================== */
+    .header-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; gap: 12px; }
+    .btn-nav {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 9px 18px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: #fff;
+      font-size: 13px; font-weight: 600; color: #374151; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-nav:hover { border-color: #d1d5db; background: #f9fafb; }
+    .btn-nav svg { color: #b70c01; }
+    
+    .btn-nav.dark { color: #111827; }
+    .btn-nav.dark svg { color: #111827; }
+    .btn-nav.dark:hover { border-color: #111827; background: #fafafa; }
+
+    .title-block { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .title-icon {
+      width: 64px; height: 64px; border-radius: 50%; background: #4a0d0d;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: #fff; font-size: 24px; box-shadow: 0 4px 12px rgba(74, 13, 13, 0.15);
+    }
+    .title-text { font-size: 26px; font-weight: 800; color: #111827; letter-spacing: -0.02em; }
+
+    /* ===========================
+       TABS
+    =========================== */
+    .tabs { display: flex; gap: 24px; border-bottom: 1px solid #f0f0f0; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      padding: 0 4px 12px; font-size: 15px; font-weight: 600; color: #9ca3af;
+      border-bottom: 2.5px solid transparent; cursor: pointer; transition: all 0.2s;
+      white-space: nowrap; position: relative; top: 1px;
+    }
+    .tab:hover { color: #4b5563; }
+    .tab.active { color: #111827; border-bottom-color: #b70c01; }
+
+    /* ===========================
+       SYLLABUS CONTENT
+    =========================== */
+    .syllabus-subtitle { font-size: 18px; font-weight: 700; color: #6b7280; margin-bottom: 20px; }
+    
+    /* Action Chips */
+    .action-chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 24px; scrollbar-width: none; }
+    .action-chips::-webkit-scrollbar { display: none; }
+    .chip {
+      display: flex; align-items: center; gap: 6px; padding: 8px 16px; white-space: nowrap;
+      border: 1px solid #e5e7eb; border-radius: 99px; background: #fff; flex-shrink: 0;
+      font-size: 12.5px; font-weight: 600; color: #4b5563; cursor: pointer; transition: all 0.2s;
+    }
+    .chip:hover { background: #f9fafb; border-color: #d1d5db; color: #111827; }
+    .chip svg { color: #9ca3af; transition: color 0.2s; }
+    .chip:hover svg { color: #4b5563; }
+    .chip.danger { color: #b70c01; border-color: #fecaca; }
+    .chip.danger:hover { background: #fef2f2; }
+
+    /* Text Content */
+    .syllabus-text { font-size: 15.5px; line-height: 1.8; color: #374151; }
+    .syllabus-text p { margin-bottom: 16px; }
+    .syllabus-text ul, .syllabus-text ol { padding-left: 24px; margin-bottom: 16px; }
+    .syllabus-text li { margin-bottom: 8px; }
+    
+    .section-heading { font-size: 17px; font-weight: 700; color: #111827; margin: 24px 0 12px; }
+
+    /* ===========================
+       MOBILE SUBJECT TOGGLE
+    =========================== */
+    .mobile-subj-toggle { display: none; width: 100%; padding: 12px 18px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; font-size: 14px; font-weight: 600; color: #374151; align-items: center; gap: 8px; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.02); transition: background 0.15s; margin-bottom: 16px; }
+    .mobile-subj-toggle:hover { background: #f9fafb; }
+    .mobile-subj-toggle .toggle-icon { transition: transform 0.25s; }
+    .mobile-subj-toggle.open .toggle-icon { transform: rotate(180deg); }
+    
+    .mobile-subj-panel { display: none; background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 20px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .mobile-subj-panel.open { display: block; animation: slideDown 0.2s ease-out; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .subject-col { display: none; }
+      /* Don't show desktop right column on tablet, use mobile toggle or "Other Subjects" button */
+    }
+    
+    @media (max-width: 768px) {
+      .topbar__actions { display: none; }
+      .main-content { padding: 16px 12px; }
+      .topbar { padding: 0 12px; }
+    }
+    
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; max-width: 100%; }
+      .main-content { padding: 12px 10px; }
+      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
+      .topbar__logo img { height: 34px; min-width: 0 !important; }
+      .topbar__search { flex: 1; max-width: none; padding: 6px 12px; }
+      .topbar__search input { font-size: 12px; }
+      
+      .card { padding: 16px; border-radius: 12px; }
+      
+      .header-nav { margin-bottom: 20px; }
+      .btn-nav { font-size: 12px; padding: 8px 14px; }
+      
+      .title-block { gap: 12px; margin-bottom: 20px; }
+      .title-icon { width: 48px; height: 48px; font-size: 20px; }
+      .title-text { font-size: 22px; }
+      
+      .tabs { gap: 16px; margin-bottom: 20px; }
+      .tab { font-size: 14px; padding-bottom: 10px; }
+      
+      .syllabus-subtitle { font-size: 16px; margin-bottom: 16px; }
+      .chip { font-size: 11.5px; padding: 7px 14px; }
+      
+      .syllabus-text { font-size: 14.5px; }
+      
+      .mobile-subj-toggle { display: flex; }
+      .header-nav .btn-nav.dark { display: none; } /* Hide "Other Subjects" button in favor of the full-width dropdown toggle */
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../"></app-sidebar>
+    <div class="main-wrapper">
+
+      <!-- TOPBAR -->
+      <app-topbar data-base="../../"></app-topbar>
+
+      <!-- CONTENT -->
+      <div class="content-area">
+        <main class="main-content">
+          <div class="page-layout">
+
+            <!-- MAIN COLUMN -->
+            <div class="main-col">
+              
+              <!-- Mobile Subject Dropdown Toggle -->
+              <button class="mobile-subj-toggle" id="subjToggle" onclick="toggleSubjPanel()">
+                <span style="display:flex;align-items:center;gap:8px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  Select Other Subject
+                </span>
+                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              
+              <!-- Mobile Subject Dropdown Panel -->
+              <div class="mobile-subj-panel" id="subjPanel">
+                <div class="qs-label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                  ALL SUBJECTS
+                </div>
+                <div class="qs-search">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Search Subject" oninput="filterSubjects(this.value, 'subj-list-mobile')">
+                </div>
+                <div class="qs-list" id="subj-list-mobile">
+                  <a href="#" class="qs-item active">Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  <a href="#" class="qs-item">English Language <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  <a href="#" class="qs-item">Physics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  <a href="#" class="qs-item">Chemistry <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  <a href="#" class="qs-item">Biology <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+              </div>
+
+              <div class="card">
+                
+                <!-- Top Nav (Back / Other Subjects) -->
+                <div class="header-nav">
+                  <button class="btn-nav" onclick="window.history.back()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Back
+                  </button>
+                  <button class="btn-nav dark" onclick="document.querySelector('.qs-search input').focus()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Other Subjects
+                  </button>
+                </div>
+
+                <!-- Title Block -->
+                <div class="title-block">
+                  <div class="title-icon">
+                    <!-- Custom Math Icon combining + - x ÷ -->
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="3" x2="12" y2="21" stroke-width="1.5" stroke="#ffffff30"/>
+                      <line x1="3" y1="12" x2="21" y2="12" stroke-width="1.5" stroke="#ffffff30"/>
+                      <!-- Plus -->
+                      <line x1="5" y1="7" x2="9" y2="7"/><line x1="7" y1="5" x2="7" y2="9"/>
+                      <!-- Minus -->
+                      <line x1="15" y1="7" x2="19" y2="7"/>
+                      <!-- Multiply -->
+                      <line x1="5" y1="15" x2="9" y2="19"/><line x1="9" y1="15" x2="5" y2="19"/>
+                      <!-- Divide -->
+                      <line x1="15" y1="17" x2="19" y2="17"/><circle cx="17" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="19.5" r="1" fill="currentColor" stroke="none"/>
+                    </svg>
+                  </div>
+                  <h1 class="title-text">Mathematics</h1>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                  <div class="tab active">JAMB Syllabus</div>
+                  <div class="tab">WAEC Syllabus</div>
+                  <div class="tab">NECO Syllabus</div>
+                </div>
+
+                <!-- Syllabus Content Area -->
+                <div class="syllabus-content">
+                  <h2 class="syllabus-subtitle">Mathematics</h2>
+                  
+                  <!-- Action Chips -->
+                  <div class="action-chips">
+                    <button class="chip">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                      Share
+                    </button>
+                    <button class="chip">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      Copy link
+                    </button>
+                    <button class="chip danger">
+                      Download Offline App
+                    </button>
+                  </div>
+
+                  <!-- Text Body -->
+                  <div class="syllabus-text">
+                    <p>The aim of the Unified Tertiary Matriculation Examination (UTME) 2026 syllabus in Mathematics is to prepare the candidates for the Board's examination. It is designed to test the achievement of the course objectives, which are to:</p>
+                    <ul>
+                      <li>Acquire computational and manipulative skills;</li>
+                      <li>Develop precise, logical and formal reasoning skills;</li>
+                      <li>Develop deductive skills in interpretation of graphs, diagrams and data;</li>
+                      <li>Apply mathematical concepts to resolve issues in daily living.</li>
+                    </ul>
+                    
+                    <h3 class="section-heading">SECTION I: NUMBER AND NUMERATION</h3>
+                    <p><strong>1. Number Bases</strong><br>
+                    (a) operations in different number bases from 2 to 10;<br>
+                    (b) conversion from one base to another including fractional parts.</p>
+                    
+                    <p><strong>2. Fractions, Decimals, Approximations and Percentages</strong><br>
+                    (a) fractions and decimals;<br>
+                    (b) significant figures;<br>
+                    (c) decimal places;<br>
+                    (d) percentage errors;<br>
+                    (e) simple interest;<br>
+                    (f) profit and loss percent;<br>
+                    (g) ratio, proportion and rate;<br>
+                    (h) shares and valued added tax (VAT).</p>
+
+                    <h3 class="section-heading">SECTION II: ALGEBRA</h3>
+                    <p><strong>3. Polynomials</strong><br>
+                    (a) change of subject of formula;<br>
+                    (b) factor and remainder theorems;<br>
+                    (c) factorization of polynomials of degree not exceeding 3;<br>
+                    (d) multiplication and division of polynomials;<br>
+                    (e) roots of polynomials not exceeding degree 3.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- end main-col -->
+
+            <!-- RIGHT SIDEBAR (Desktop) -->
+            <aside class="subject-col">
+              <div class="qs-label">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                ALL SUBJECTS
+              </div>
+              <div class="qs-search">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" placeholder="Search Subject" oninput="filterSubjects(this.value, 'subj-list-desktop')">
+              </div>
+              <div class="qs-list" id="subj-list-desktop">
+                <a href="#" class="qs-item active">Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">English Language <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Physics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Chemistry <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Biology <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Economics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Government <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Geography <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Literature in English <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Commerce <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Financial Accounting <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Christian Religious Studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Islamic Religious Studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">Agricultural Science <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">History <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="#" class="qs-item">French <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </aside>
+
+          </div>
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js?v=6"></script>
+  <script>
+    function toggleSubjPanel() {
+      const toggle = document.getElementById('subjToggle');
+      const panel  = document.getElementById('subjPanel');
+      toggle.classList.toggle('open');
+      panel.classList.toggle('open');
+    }
+    
+    function filterSubjects(val, listId) {
+      const items = document.querySelectorAll('#' + listId + ' .qs-item');
+      const q = val.toLowerCase();
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+
+    // Simple tab switching logic for demo purposes
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+

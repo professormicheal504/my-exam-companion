@@ -1,0 +1,245 @@
+/* ═══════════════════════════════════════════════════════
+   MY EXAM COMPANION — App Shell Design System v9
+   Light Theme, Chess.com-style layout
+═══════════════════════════════════════════════════════ */
+
+/* ── Font Import ────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ── Global tap reset ───────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TOP BAR — Consistent across all pages
+═══════════════════════════════════════════════════════ */
+app-topbar {
+  display: block;
+  position: sticky;
+  top: 0;
+  /* MUST be above sidebar (200) and overlay (199) */
+  z-index: 300;
+  width: 100%;
+  background: #ffffff;
+}
+
+.mec-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 12px 0 8px;
+  background: #ffffff;
+  border-bottom: 1.5px solid #ededed;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  gap: 8px;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Left cluster: [hamburger] [logo — expands to fill space] */
+.mec-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* Grow to take all space between hamburger and right icons */
+  flex: 1;
+  min-width: 0;
+}
+
+/* Right cluster: [search] [flag] [messages] [notifications] [profile] */
+.mec-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+/* Logo stretches to fill the available width */
+.mec-topbar__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  user-select: none;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Text logo — matches original bubbly style ─────────
+   White text, thick red stroke, rounded font (Fredoka One)
+   on a red rounded-rectangle background blob
+──────────────────────────────────────────────────────── */
+.mec-logo-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  gap: 0;
+  background: #c0120a;
+  border-radius: 10px;
+  padding: 4px 12px 5px 10px;
+  box-shadow:
+    0 2px 0 #8a0000,
+    0 3px 8px rgba(183,12,1,0.28);
+}
+
+.mec-logo-line1,
+.mec-logo-line2 {
+  font-family: 'Fredoka One', 'Outfit', cursive;
+  font-weight: 400; /* Fredoka One only has one weight */
+  color: #ffffff;
+  display: block;
+  letter-spacing: 0.02em;
+  /* Red stroke outline to mimic the logo */
+  -webkit-text-stroke: 2px #8a0000;
+  paint-order: stroke fill;
+  text-shadow:
+    1px 1px 0 rgba(0,0,0,0.15);
+}
+
+.mec-logo-line1 {
+  font-size: 14px;
+}
+
+.mec-logo-line2 {
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive sizing */
+@media (min-width: 400px) {
+  .mec-logo-line1 { font-size: 16px; }
+  .mec-logo-line2 { font-size: 15px; }
+}
+@media (min-width: 520px) {
+  .mec-logo-line1 { font-size: 18px; }
+  .mec-logo-line2 { font-size: 17px; }
+}
+
+/* Hamburger / menu toggle */
+.mec-sb-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #374151;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+  padding: 0;
+}
+.mec-sb-toggle:hover {
+  background: #f3f4f6;
+  color: #b70c01;
+}
+.mec-sb-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+/* Icon buttons on the right */
+.mec-tb-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #6b7280;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.mec-tb-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+.mec-tb-btn svg {
+  width: 21px;
+  height: 21px;
+}
+/* Nigeria flag — use SVG strips instead of emoji (emoji unreliable on Android) */
+.mec-tb-btn--flag {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+}
+.mec-flag-svg {
+  display: block;
+  width: 28px;
+  height: 18px;
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Notification badge */
+.mec-tb-badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #fff;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Profile pill */
+.mec-tb-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+.mec-tb-profile:hover {
+  border-color: #b70c01;
+  box-shadow: 0 0 0 3px rgba(183,12,1,0.08);
+}
+.mec-tb-profile svg {
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .mec-topbar { padding: 0 8px 0 6px; }
+  .mec-topbar__logo img { min-width: 110px; height: 34px; }
+  .mec-tb-btn { width: 36px; height: 36px; }
+  .mec-tb-btn svg { width: 19px; height: 19px; }
+  .mec-sb-toggle { width: 36px; height: 36px; }
+  .mec-tb-btn--flag { font-size: 20px; }
+}
+
+@media (max-width: 380px) {
+  .mec-topbar__logo img { min-width: 95px; }
+}

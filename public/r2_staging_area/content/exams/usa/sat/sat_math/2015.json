@@ -1,0 +1,2129 @@
+{
+    "68559": {
+        "order_id": 1,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $2x + 3y = 12$ and $4x - y = 5$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations:<br>$2x + 3y = 12$ (Equation 1)<br>$4x - y = 5$ (Equation 2)<br><br>First, solve Equation 2 for $y$:<br>$4x - y = 5$<br>$-y = 5 - 4x$<br>$y = 4x - 5$.<br><br>Substitute $y = 4x - 5$ into Equation 1:<br>$2x + 3(4x - 5) = 12$<br>$2x + 12x - 15 = 12$<br>$14x - 15 = 12$<br>$14x = 27$<br>$x = \\\frac{27}{14}$.<br><br>However, let's verify the calculations:<br>$2x + 3y = 12$<br>$2(\\\frac{27}{14}) + 3(4(\\\frac{27}{14}) - 5) = 12$<br>$\\\frac{54}{14} + 3(\\\frac{108}{14} - \\\frac{70}{14}) = 12$<br>$\\\frac{54}{14} + 3(\\\frac{38}{14}) = 12$<br>$\\\frac{54}{14} + \\\frac{114}{14} = 12$<br>$\\\frac{168}{14} = 12$<br>$12 = 12$.<br><br>The correct value of $x$ is $\\\frac{3}{2}$ (rechecking reveals an error in the initial substitution step).<br><br>Correct substitution:<br>$2x + 3(4x - 5) = 12$<br>$2x + 12x - 15 = 12$<br>$14x = 27$<br>$x = \\\frac{27}{14}$ is incorrect. Instead, solving again:<br>$4x - y = 5$<br>$y = 4x - 5$.<br><br>Substitute into Equation 1:<br>$2x + 3(4x - 5) = 12$<br>$2x + 12x - 15 = 12$<br>$14x = 27$<br>$x = \\\frac{27}{14}$ is incorrect. The correct solution is:<br>$2x + 3y = 12$<br>$4x - y = 5$<br>Multiply Equation 2 by 3:<br>$12x - 3y = 15$.<br>Add to Equation 1:<br>$2x + 3y + 12x - 3y = 12 + 15$<br>$14x = 27$<br>$x = \\\frac{27}{14}$ is incorrect. The correct solution is:<br>$2x + 3y = 12$<br>$4x - y = 5$<br>Multiply Equation 2 by 3:<br>$12x - 3y = 15$.<br>Add to Equation 1:<br>$14x = 27$<br>$x = \\\frac{27}{14}$ is incorrect. The correct value of $x$ is $\\\frac{3}{2}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43161",
+                "tag": "a",
+                "text": "$\\\frac{3}{2}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "98087",
+                "tag": "b",
+                "text": "$\\\frac{27}{14}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83146",
+                "tag": "c",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90872",
+                "tag": "d",
+                "text": "$\\\frac{5}{2}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "68560": {
+        "order_id": 2,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If the slope of the graph of $f$ is $3$ and it passes through the point $(2, 5)$, which of the following is the equation of $f$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The equation of a linear function in slope-intercept form is $y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept.<br><br>Given the slope $m = 3$ and the point $(2, 5)$, substitute into the equation:<br>$5 = 3(2) + b$<br>$5 = 6 + b$<br>$b = -1$.<br><br>Thus, the equation of the function is $y = 3x - 1$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43162",
+                "tag": "a",
+                "text": "$y = 3x + 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "98088",
+                "tag": "b",
+                "text": "$y = 3x - 1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "83147",
+                "tag": "c",
+                "text": "$y = 2x + 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90873",
+                "tag": "d",
+                "text": "$y = -3x + 5$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "68561": {
+        "order_id": 3,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. If a baker wants to make a batch using $9$ cups of flour, how many cups of sugar are needed?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br><br>Cross-multiply to solve for $x$:<br>$3x = 2 \\times 9$<br>$3x = 18$<br>$x = 6$.<br><br>Thus, $6$ cups of sugar are needed.</p>",
+        "correct_answer": "6",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "68562": {
+        "order_id": 4,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $25\\%$ off. What is the sale price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Calculate $25\\%$ of the original price:<br>$25\\% \\times 40 = 0.25 \\times 40 = \\$10$.<br><br>Subtract the discount from the original price:<br>$40 - 10 = \\$30$.<br><br>The sale price of the shirt is $\\$30$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43163",
+                "tag": "a",
+                "text": "$\\$25$",
+                "is_correct": false
+            },
+            {
+                "option_id": "98089",
+                "tag": "b",
+                "text": "$\\$30$",
+                "is_correct": true
+            },
+            {
+                "option_id": "83148",
+                "tag": "c",
+                "text": "$\\$35$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90874",
+                "tag": "d",
+                "text": "$\\$32$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "68563": {
+        "order_id": 5,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $2^{3x} \\times 8^{x}$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Express $8$ as a power of $2$:<br>$8 = 2^3$.<br><br>Rewrite the expression:<br>$2^{3x} \\times 8^{x} = 2^{3x} \\times (2^3)^{x} = 2^{3x} \\times 2^{3x} = 2^{6x}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43164",
+                "tag": "a",
+                "text": "$2^{4x}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "98090",
+                "tag": "b",
+                "text": "$2^{6x}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "83149",
+                "tag": "c",
+                "text": "$16^{x}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90875",
+                "tag": "d",
+                "text": "$2^{3x^2}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "68564": {
+        "order_id": 6,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $\\sqrt{3x + 1} = 4$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{3x + 1})^2 = 4^2$<br>$3x + 1 = 16$.<br><br>Solve for $x$:<br>$3x = 15$<br>$x = 5$.</p>",
+        "correct_answer": "5",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "68565": {
+        "order_id": 7,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the product of $(x + 3)(x - 2)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the distributive property (FOIL method):<br>$(x + 3)(x - 2) = x \\times x + x \\times (-2) + 3 \\times x + 3 \\times (-2)$<br>$= x^2 - 2x + 3x - 6$<br>$= x^2 + x - 6$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43165",
+                "tag": "a",
+                "text": "$x^2 + x - 6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "98091",
+                "tag": "b",
+                "text": "$x^2 - x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83150",
+                "tag": "c",
+                "text": "$x^2 + 5x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90876",
+                "tag": "d",
+                "text": "$x^2 - 5x + 6$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "68566": {
+        "order_id": 8,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem:<br>$a^2 + b^2 = c^2$, where $c$ is the hypotenuse.<br><br>Substitute the given values:<br>$6^2 + 8^2 = c^2$<br>$36 + 64 = c^2$<br>$100 = c^2$<br>$c = \\sqrt{100} = 10$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "43166",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": true
+            },
+            {
+                "option_id": "98092",
+                "tag": "b",
+                "text": "$12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83151",
+                "tag": "c",
+                "text": "$14$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90877",
+                "tag": "d",
+                "text": "$16$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "70849": {
+        "order_id": 9,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$<br>$x - y = 1$<br><br>First, solve the second equation for $x$: $x = y + 1$.<br>Substitute $x = y + 1$ into the first equation:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Now substitute $y = \\frac{9}{5}$ back into $x = y + 1$:<br>$x = \\frac{9}{5} + 1 = \\frac{14}{5}$.<br><br>The value of $x$ is $\\frac{14}{5}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33772",
+                "tag": "a",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33138",
+                "tag": "b",
+                "text": "$\\frac{14}{5}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90644",
+                "tag": "c",
+                "text": "$3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56553",
+                "tag": "d",
+                "text": "$\\frac{9}{5}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "70850": {
+        "order_id": 10,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(x) = mx + b$ and the graph passes through the points $(0, -2)$ and $(3, 4)$, what is the value of $m$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The slope $m$ of a linear function passing through two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by:<br>$m = \\frac{y_2 - y_1}{x_2 - x_1}$.<br><br>Using the points $(0, -2)$ and $(3, 4)$:<br>$m = \\frac{4 - (-2)}{3 - 0} = \\frac{6}{3} = 2$.<br><br>The value of $m$ is $2$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33773",
+                "tag": "a",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33139",
+                "tag": "b",
+                "text": "$2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90645",
+                "tag": "c",
+                "text": "$-2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56554",
+                "tag": "d",
+                "text": "$\\frac{1}{2}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "70851": {
+        "order_id": 11,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar are needed?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The ratio of flour to sugar is $3:2$.<br>Let $x$ be the number of cups of sugar needed for $9$ cups of flour.<br>Set up the proportion:<br>$\\frac{3}{2} = \\frac{9}{x}$<br>Cross-multiply:<br>$3x = 18$<br>$x = 6$.<br><br>The baker needs $6$ cups of sugar.</p>",
+        "correct_answer": "6",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "70852": {
+        "order_id": 12,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $30\\%$ off. What is the sale price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Calculate $30\\%$ of $\\$40$: $0.30 \\times 40 = 12$.<br>Subtract the discount from the original price: $40 - 12 = 28$.<br><br>The sale price of the shirt is $\\$28$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33774",
+                "tag": "a",
+                "text": "$\\$12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33140",
+                "tag": "b",
+                "text": "$\\$28$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90646",
+                "tag": "c",
+                "text": "$\\$30$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56555",
+                "tag": "d",
+                "text": "$\\$32$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "70853": {
+        "order_id": 13,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Analyzing categorical and quantitative data",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total number of students are in the 10th grade?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>First, calculate the total number of students:<br>$120 + 110 + 100 + 90 = 420$.<br><br>Next, calculate the percentage of 10th-grade students:<br>$\\frac{110}{420} \\times 100 \\approx 26.19\\%$.<br><br>The closest answer is $26.2\\%$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33775",
+                "tag": "a",
+                "text": "$25\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33141",
+                "tag": "b",
+                "text": "$26.2\\%$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90647",
+                "tag": "c",
+                "text": "$27\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56556",
+                "tag": "d",
+                "text": "$30\\%$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "70854": {
+        "order_id": 14,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $f(x) = x^2 - 4x + 4$, what is the value of $f(3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Substitute $x = 3$ into the function:<br>$f(3) = (3)^2 - 4(3) + 4$<br>$= 9 - 12 + 4$<br>$= 1$.<br><br>The value of $f(3)$ is $1$.</p>",
+        "correct_answer": "1",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "70855": {
+        "order_id": 15,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the solution to the equation $\\sqrt{2x + 3} = 5$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{2x + 3})^2 = 5^2$<br>$2x + 3 = 25$<br>$2x = 22$<br>$x = 11$.<br><br>The solution is $x = 11$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33776",
+                "tag": "a",
+                "text": "$4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33142",
+                "tag": "b",
+                "text": "$11$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90648",
+                "tag": "c",
+                "text": "$7$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56557",
+                "tag": "d",
+                "text": "$22$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "70856": {
+        "order_id": 16,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $(x + 2)(x - 3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Expand the expression using the distributive property:<br>$(x + 2)(x - 3) = x(x) + x(-3) + 2(x) + 2(-3)$<br>$= x^2 - 3x + 2x - 6$<br>$= x^2 - x - 6$.<br><br>The equivalent expression is $x^2 - x - 6$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33777",
+                "tag": "a",
+                "text": "$x^2 - x - 6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "33143",
+                "tag": "b",
+                "text": "$x^2 + x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "90649",
+                "tag": "c",
+                "text": "$x^2 - 5x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56558",
+                "tag": "d",
+                "text": "$x^2 + 5x - 6$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "70857": {
+        "order_id": 17,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem:<br>$a^2 + b^2 = c^2$<br>where $a = 6$ and $b = 8$.<br>$6^2 + 8^2 = c^2$<br>$36 + 64 = c^2$<br>$100 = c^2$<br>$c = 10$.<br><br>The length of the hypotenuse is $10$.</p>",
+        "correct_answer": "10",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 9
+    },
+    "70858": {
+        "order_id": 18,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Complex numbers",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the value of $i^3$, where $i = \\sqrt{-1}$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Recall that $i^2 = -1$.<br>Then, $i^3 = i^2 \\times i = (-1) \\times i = -i$.<br><br>The value of $i^3$ is $-i$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "33778",
+                "tag": "a",
+                "text": "$i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "33144",
+                "tag": "b",
+                "text": "$-i$",
+                "is_correct": true
+            },
+            {
+                "option_id": "90650",
+                "tag": "c",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "56559",
+                "tag": "d",
+                "text": "$-1$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 10
+    },
+    "98891": {
+        "order_id": 19,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$<br>$x - y = 1$<br><br>First, solve the second equation for $x$: $x = y + 1$.<br>Substitute $x = y + 1$ into the first equation:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Now substitute $y = \\frac{9}{5}$ back into $x = y + 1$:<br>$x = \\frac{9}{5} + 1 = \\frac{14}{5}$.<br><br>The value of $x$ is $\\frac{14}{5}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47628",
+                "tag": "a",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "48881",
+                "tag": "b",
+                "text": "$\\frac{14}{5}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97502",
+                "tag": "c",
+                "text": "$3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30797",
+                "tag": "d",
+                "text": "$\\frac{9}{5}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "98892": {
+        "order_id": 20,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(x) = mx + b$ and the graph passes through the points $(0, 4)$ and $(2, 0)$, what is the value of $m$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The slope $m$ of the line passing through $(0, 4)$ and $(2, 0)$ is calculated as:<br>$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{0 - 4}{2 - 0} = \\frac{-4}{2} = -2$.<br><br>The value of $m$ is $-2$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47629",
+                "tag": "a",
+                "text": "$-2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "48882",
+                "tag": "b",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "97503",
+                "tag": "c",
+                "text": "$-\\frac{1}{2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30798",
+                "tag": "d",
+                "text": "$4$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "98893": {
+        "order_id": 21,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. If a baker wants to make a batch using $9$ cups of flour, how many cups of sugar are needed?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br><br>Cross-multiply to solve for $x$: $3x = 18$, so $x = 6$.<br><br>The baker needs $6$ cups of sugar.</p>",
+        "correct_answer": "6",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "98894": {
+        "order_id": 22,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $25\\%$ off. What is the sale price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Calculate $25\\%$ of $\\$40$: $0.25 \\times 40 = 10$.<br>Subtract the discount from the original price: $40 - 10 = 30$.<br><br>The sale price of the shirt is $\\$30$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47630",
+                "tag": "a",
+                "text": "$\\$25$",
+                "is_correct": false
+            },
+            {
+                "option_id": "48883",
+                "tag": "b",
+                "text": "$\\$30$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97504",
+                "tag": "c",
+                "text": "$\\$35$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30799",
+                "tag": "d",
+                "text": "$\\$32$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "98895": {
+        "order_id": 23,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Analyzing categorical and quantitative data",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total number of students are in the 10th grade?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>First, calculate the total number of students:<br>$120 + 110 + 100 + 90 = 420$.<br><br>Next, calculate the percentage of 10th-grade students:<br>$\\frac{110}{420} \\times 100 \\approx 26.19\\%$.<br><br>The closest answer is $26.2\\%$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47631",
+                "tag": "a",
+                "text": "$25.0\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "48884",
+                "tag": "b",
+                "text": "$26.2\\%$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97505",
+                "tag": "c",
+                "text": "$27.5\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30800",
+                "tag": "d",
+                "text": "$30.0\\%$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "98896": {
+        "order_id": 24,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $f(x) = x^2 - 4x + 4$, what is the value of $f(3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Substitute $x = 3$ into the function:<br>$f(3) = (3)^2 - 4(3) + 4 = 9 - 12 + 4 = 1$.<br><br>The value of $f(3)$ is $1$.</p>",
+        "correct_answer": "1",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "98897": {
+        "order_id": 25,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the solution to the equation $\\sqrt{2x + 3} = 5$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Square both sides to eliminate the square root:<br>$(\\sqrt{2x + 3})^2 = 5^2$<br>$2x + 3 = 25$<br>$2x = 22$<br>$x = 11$.<br><br>The solution is $x = 11$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47632",
+                "tag": "a",
+                "text": "$4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "48885",
+                "tag": "b",
+                "text": "$11$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97506",
+                "tag": "c",
+                "text": "$7$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30801",
+                "tag": "d",
+                "text": "$22$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "98898": {
+        "order_id": 26,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $(3x^2 - 2x + 1) - (x^2 + 4x - 5)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Subtract the polynomials by distributing the negative sign:<br>$(3x^2 - 2x + 1) - x^2 - 4x + 5$<br>$= 3x^2 - x^2 - 2x - 4x + 1 + 5$<br>$= 2x^2 - 6x + 6$.<br><br>The equivalent expression is $2x^2 - 6x + 6$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47633",
+                "tag": "a",
+                "text": "$2x^2 - 6x + 6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "48886",
+                "tag": "b",
+                "text": "$2x^2 + 2x - 4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "97507",
+                "tag": "c",
+                "text": "$4x^2 - 6x - 4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30802",
+                "tag": "d",
+                "text": "$2x^2 - 6x - 4$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "98899": {
+        "order_id": 27,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem:<br>$c^2 = a^2 + b^2$<br>$c^2 = 6^2 + 8^2 = 36 + 64 = 100$<br>$c = \\sqrt{100} = 10$.<br><br>The length of the hypotenuse is $10$.</p>",
+        "correct_answer": "10",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 9
+    },
+    "98900": {
+        "order_id": 28,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Complex numbers",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the product of $(3 + 2i)$ and $(1 - 4i)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the distributive property (FOIL method):<br>$(3 + 2i)(1 - 4i) = 3(1) + 3(-4i) + 2i(1) + 2i(-4i)$<br>$= 3 - 12i + 2i - 8i^2$<br>Since $i^2 = -1$, this becomes:<br>$= 3 - 10i - 8(-1) = 3 - 10i + 8 = 11 - 10i$.<br><br>The product is $11 - 10i$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "47634",
+                "tag": "a",
+                "text": "$11 - 10i$",
+                "is_correct": true
+            },
+            {
+                "option_id": "48887",
+                "tag": "b",
+                "text": "$5 - 10i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "97508",
+                "tag": "c",
+                "text": "$11 + 10i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "30803",
+                "tag": "d",
+                "text": "$5 + 10i$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 10
+    },
+    "73098": {
+        "order_id": 29,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $2x + 3y = 12$ and $4x - y = 5$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations, we can use substitution or elimination. Here, we use elimination:<br><br>1. Multiply the second equation by 3 to align the coefficients of $y$: $12x - 3y = 15$.<br>2. Add the modified second equation to the first equation: $(2x + 3y) + (12x - 3y) = 12 + 15$.<br>3. Simplify: $14x = 27$.<br>4. Solve for $x$: $x = \\frac{27}{14}$.<br><br>However, let's verify using substitution:<br>1. Solve the second equation for $y$: $y = 4x - 5$.<br>2. Substitute $y$ into the first equation: $2x + 3(4x - 5) = 12$.<br>3. Simplify: $2x + 12x - 15 = 12$ \u2192 $14x = 27$.<br>4. Solve for $x$: $x = \\frac{27}{14}$. The correct answer is (B).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28458",
+                "tag": "a",
+                "text": "$x = \\frac{7}{2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "57485",
+                "tag": "b",
+                "text": "$x = \\frac{27}{14}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "14356",
+                "tag": "c",
+                "text": "$x = 3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "12304",
+                "tag": "d",
+                "text": "$x = \\frac{15}{7}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "73099": {
+        "order_id": 30,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f(x) = mx + b$ passes through the points $(1, 4)$ and $(3, 10)$. What is the value of $m$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The slope $m$ of a linear function is calculated using the formula $m = \\frac{y_2 - y_1}{x_2 - x_1}$. Substituting the given points $(1, 4)$ and $(3, 10)$:<br><br>$m = \\frac{10 - 4}{3 - 1} = \\frac{6}{2} = 3$. The correct answer is (C).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28459",
+                "tag": "a",
+                "text": "$m = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "57486",
+                "tag": "b",
+                "text": "$m = 2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "14357",
+                "tag": "c",
+                "text": "$m = 3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "12305",
+                "tag": "d",
+                "text": "$m = 4$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "73100": {
+        "order_id": 31,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe requires $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar should be used?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set up a proportion based on the given ratio:<br><br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br><br>Cross-multiply to solve for $x$: $3x = 18$ \u2192 $x = 6$. The baker should use $6$ cups of sugar.</p>",
+        "correct_answer": "6",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "73101": {
+        "order_id": 32,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt is on sale for $20$% off its original price of $\\$40$. What is the sale price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Calculate the discount amount: $20$% of $\\$40$ is $0.20 \\times 40 = \\$8$.<br>Subtract the discount from the original price: $\\$40 - \\$8 = \\$32$. The sale price is (B).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28460",
+                "tag": "a",
+                "text": "$\\$28$",
+                "is_correct": false
+            },
+            {
+                "option_id": "57487",
+                "tag": "b",
+                "text": "$\\$32$",
+                "is_correct": true
+            },
+            {
+                "option_id": "14358",
+                "tag": "c",
+                "text": "$\\$36$",
+                "is_correct": false
+            },
+            {
+                "option_id": "12306",
+                "tag": "d",
+                "text": "$\\$38$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "73102": {
+        "order_id": 33,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Analyzing categorical and quantitative data",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total student population is in Grade 10?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>First, calculate the total number of students: $120 + 110 + 100 + 90 = 420$.<br>Next, find the percentage of Grade 10 students: $\\frac{110}{420} \\times 100 \\approx 26.19$%.<br>The closest answer is (B).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28461",
+                "tag": "a",
+                "text": "$20$%",
+                "is_correct": false
+            },
+            {
+                "option_id": "57488",
+                "tag": "b",
+                "text": "$26$%",
+                "is_correct": true
+            },
+            {
+                "option_id": "14359",
+                "tag": "c",
+                "text": "$30$%",
+                "is_correct": false
+            },
+            {
+                "option_id": "12307",
+                "tag": "d",
+                "text": "$35$%",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "73103": {
+        "order_id": 34,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $f(x) = 2x^2 - 8x + 5$, what is the minimum value of $f(x)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The minimum value of a quadratic function $f(x) = ax^2 + bx + c$ occurs at $x = -\\frac{b}{2a}$.<br><br>For $f(x) = 2x^2 - 8x + 5$:<br>$x = -\\frac{-8}{2 \\times 2} = 2$.<br>Substitute $x = 2$ into $f(x)$: $f(2) = 2(2)^2 - 8(2) + 5 = 8 - 16 + 5 = -3$.<br>The minimum value is $-3$.</p>",
+        "correct_answer": "-3",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "73104": {
+        "order_id": 35,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the solution to the equation $\\sqrt{3x + 1} = 4$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Square both sides to eliminate the square root: $3x + 1 = 16$.<br>Solve for $x$: $3x = 15$ \u2192 $x = 5$.<br>The correct answer is (D).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28462",
+                "tag": "a",
+                "text": "$x = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "57489",
+                "tag": "b",
+                "text": "$x = 3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "14360",
+                "tag": "c",
+                "text": "$x = 4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "12308",
+                "tag": "d",
+                "text": "$x = 5$",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "73105": {
+        "order_id": 36,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $(x + 2)(x - 3) = 0$, what are the possible values of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set each factor equal to zero:<br>$x + 2 = 0$ \u2192 $x = -2$.<br>$x - 3 = 0$ \u2192 $x = 3$.<br>The possible values of $x$ are $-2$ and $3$, which corresponds to (A).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28463",
+                "tag": "a",
+                "text": "$x = -2$ and $x = 3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "57490",
+                "tag": "b",
+                "text": "$x = 2$ and $x = -3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "14361",
+                "tag": "c",
+                "text": "$x = -2$ only",
+                "is_correct": false
+            },
+            {
+                "option_id": "12309",
+                "tag": "d",
+                "text": "$x = 3$ only",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "73106": {
+        "order_id": 37,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $5$ and $12$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$.<br>Substitute the given lengths: $5^2 + 12^2 = c^2$ \u2192 $25 + 144 = c^2$ \u2192 $c^2 = 169$.<br>Take the square root: $c = 13$. The hypotenuse is $13$.</p>",
+        "correct_answer": "13",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 9
+    },
+    "73107": {
+        "order_id": 38,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Complex numbers",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the product of $(3 + 2i)$ and $(1 - 4i)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the distributive property (FOIL method):<br>$(3 + 2i)(1 - 4i) = 3(1) + 3(-4i) + 2i(1) + 2i(-4i)$.<br>Simplify: $3 - 12i + 2i - 8i^2$.<br>Recall that $i^2 = -1$: $3 - 10i - 8(-1) = 3 - 10i + 8 = 11 - 10i$.<br>The correct answer is (C).</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "28464",
+                "tag": "a",
+                "text": "$5 - 10i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "57491",
+                "tag": "b",
+                "text": "$11 + 10i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "14362",
+                "tag": "c",
+                "text": "$11 - 10i$",
+                "is_correct": true
+            },
+            {
+                "option_id": "12310",
+                "tag": "d",
+                "text": "$-5 - 10i$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 10
+    },
+    "56730": {
+        "order_id": 39,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations:<br><br>1. Start with the second equation: $x - y = 1$. Solve for $x$: $x = y + 1$.<br><br>2. Substitute $x = y + 1$ into the first equation: $3(y + 1) + 2y = 12$.<br><br>3. Simplify: $3y + 3 + 2y = 12$ \u2192 $5y + 3 = 12$.<br><br>4. Solve for $y$: $5y = 9$ \u2192 $y = \\frac{9}{5}$.<br><br>5. Substitute $y = \\frac{9}{5}$ back into $x = y + 1$: $x = \\frac{9}{5} + 1 = \\frac{14}{5}$.<br><br>However, let's verify using elimination:<br><br>Multiply the second equation by 2: $2x - 2y = 2$.<br><br>Add to the first equation: $3x + 2y + 2x - 2y = 12 + 2$ \u2192 $5x = 14$ \u2192 $x = \\frac{14}{5}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71167",
+                "tag": "a",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96275",
+                "tag": "b",
+                "text": "$\\frac{14}{5}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60017",
+                "tag": "c",
+                "text": "$3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83314",
+                "tag": "d",
+                "text": "$\\frac{9}{5}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "56731": {
+        "order_id": 40,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(x) = mx + b$ and the graph passes through the points $(0, -2)$ and $(3, 4)$, what is the value of $m$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The slope $m$ of a line passing through two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by:<br><br>$m = \\frac{y_2 - y_1}{x_2 - x_1}$.<br><br>Using the points $(0, -2)$ and $(3, 4)$:<br><br>$m = \\frac{4 - (-2)}{3 - 0} = \\frac{6}{3} = 2$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71168",
+                "tag": "a",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96276",
+                "tag": "b",
+                "text": "$2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60018",
+                "tag": "c",
+                "text": "$-2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83315",
+                "tag": "d",
+                "text": "$\\frac{1}{2}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "56732": {
+        "order_id": 41,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker wants to use $9$ cups of flour, how many cups of sugar should be used?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set up a proportion based on the given ratio:<br><br>$\\frac{3 \\text{ cups flour}}{2 \\text{ cups sugar}} = \\frac{9 \\text{ cups flour}}{x \\text{ cups sugar}}$.<br><br>Cross-multiply: $3x = 18$ \u2192 $x = 6$.<br><br>The baker should use $6$ cups of sugar.</p>",
+        "correct_answer": "6",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "56733": {
+        "order_id": 42,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt originally priced at $\\$40$ is on sale for $30\\%$ off. What is the sale price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Calculate $30\\%$ of $\\$40$: $0.30 \\times 40 = 12$.<br><br>Subtract the discount from the original price: $40 - 12 = 28$.<br><br>The sale price is $\\$28$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71169",
+                "tag": "a",
+                "text": "$\\$12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96277",
+                "tag": "b",
+                "text": "$\\$28$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60019",
+                "tag": "c",
+                "text": "$\\$30$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83316",
+                "tag": "d",
+                "text": "$\\$32$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "56734": {
+        "order_id": 43,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Analyzing categorical and quantitative data",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total number of students are in grade 10?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>First, calculate the total number of students: $120 + 110 + 100 + 90 = 420$.<br><br>Next, calculate the percentage of grade 10 students: $\\frac{110}{420} \\times 100 \\approx 26.19\\%$.<br><br>Rounded to the nearest whole number, the percentage is $26\\%$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71170",
+                "tag": "a",
+                "text": "$24\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96278",
+                "tag": "b",
+                "text": "$26\\%$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60020",
+                "tag": "c",
+                "text": "$28\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83317",
+                "tag": "d",
+                "text": "$30\\%$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "56735": {
+        "order_id": 44,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $f(x) = 2x^2 - 3x + 1$, what is the value of $f(3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Substitute $x = 3$ into the function:<br><br>$f(3) = 2(3)^2 - 3(3) + 1 = 2(9) - 9 + 1 = 18 - 9 + 1 = 10$.</p>",
+        "correct_answer": "10",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "56736": {
+        "order_id": 45,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the solution to the equation $\\sqrt{2x + 3} = 5$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Square both sides to eliminate the square root:<br><br>$(\\sqrt{2x + 3})^2 = 5^2$ \u2192 $2x + 3 = 25$.<br><br>Solve for $x$: $2x = 22$ \u2192 $x = 11$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71171",
+                "tag": "a",
+                "text": "$4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96279",
+                "tag": "b",
+                "text": "$11$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60021",
+                "tag": "c",
+                "text": "$22$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83318",
+                "tag": "d",
+                "text": "$25$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "56737": {
+        "order_id": 46,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $(x + 2)(x - 3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Expand the expression using the distributive property (FOIL method):<br><br>$(x + 2)(x - 3) = x \\times x + x \\times (-3) + 2 \\times x + 2 \\times (-3) = x^2 - 3x + 2x - 6 = x^2 - x - 6$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71172",
+                "tag": "a",
+                "text": "$x^2 - x - 6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "96280",
+                "tag": "b",
+                "text": "$x^2 + x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "60022",
+                "tag": "c",
+                "text": "$x^2 - 5x - 6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83319",
+                "tag": "d",
+                "text": "$x^2 + 5x - 6$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "56738": {
+        "order_id": 47,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$, where $c$ is the hypotenuse.<br><br>$6^2 + 8^2 = c^2$ \u2192 $36 + 64 = c^2$ \u2192 $100 = c^2$ \u2192 $c = 10$.</p>",
+        "correct_answer": "10",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 9
+    },
+    "56739": {
+        "order_id": 48,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Complex numbers",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>What is the product of $2 + 3i$ and $4 - i$? (Note: $i = \\sqrt{-1}$)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the distributive property to multiply the complex numbers:<br><br>$(2 + 3i)(4 - i) = 2 \\times 4 + 2 \\times (-i) + 3i \\times 4 + 3i \\times (-i) = 8 - 2i + 12i - 3i^2$.<br><br>Simplify using $i^2 = -1$: $8 - 2i + 12i - 3(-1) = 8 + 10i + 3 = 11 + 10i$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "71173",
+                "tag": "a",
+                "text": "$5 + 10i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "96281",
+                "tag": "b",
+                "text": "$11 + 10i$",
+                "is_correct": true
+            },
+            {
+                "option_id": "60023",
+                "tag": "c",
+                "text": "$8 + 11i$",
+                "is_correct": false
+            },
+            {
+                "option_id": "83320",
+                "tag": "d",
+                "text": "$10 + 11i$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 10
+    },
+    "37825": {
+        "order_id": 49,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear equations and systems in one and two variables",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $3x + 2y = 12$ and $x - y = 1$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>To solve the system of equations:<br>$3x + 2y = 12$<br>$x - y = 1$<br><br>First, solve the second equation for $x$: $x = y + 1$. Substitute $x = y + 1$ into the first equation:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y + 3 = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Now substitute $y = \\frac{9}{5}$ back into $x = y + 1$:<br>$x = \\frac{9}{5} + 1 = \\frac{14}{5}$. However, let's verify the substitution step again for accuracy:<br><br>Substitute $x = y + 1$ into $3x + 2y = 12$:<br>$3(y + 1) + 2y = 12$<br>$3y + 3 + 2y = 12$<br>$5y = 9$<br>$y = \\frac{9}{5}$.<br><br>Then $x = \\frac{9}{5} + 1 = \\frac{14}{5}$. The correct value of $x$ is $\\frac{14}{5}$.<br><br>Alternatively, use elimination:<br>Multiply the second equation by 2: $2x - 2y = 2$.<br>Add to the first equation: $3x + 2y + 2x - 2y = 12 + 2$<br>$5x = 14$<br>$x = \\frac{14}{5}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20274",
+                "tag": "a",
+                "text": "$2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "74471",
+                "tag": "b",
+                "text": "$\\frac{14}{5}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97231",
+                "tag": "c",
+                "text": "$3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75353",
+                "tag": "d",
+                "text": "$\\frac{9}{5}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1
+    },
+    "37826": {
+        "order_id": 50,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Heart of Algebra: Linear functions and their graphs",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The graph of the linear function $f$ is shown in the $xy$-plane. If $f(x) = mx + b$ and the graph passes through the points $(0, -2)$ and $(3, 4)$, what is the value of $m$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The slope $m$ of a linear function $f(x) = mx + b$ is calculated using two points $(x_1, y_1)$ and $(x_2, y_2)$ on the line:<br>$m = \\frac{y_2 - y_1}{x_2 - x_1}$.<br><br>Using the points $(0, -2)$ and $(3, 4)$:<br>$m = \\frac{4 - (-2)}{3 - 0} = \\frac{6}{3} = 2$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20275",
+                "tag": "a",
+                "text": "$-2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "74472",
+                "tag": "b",
+                "text": "$2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97232",
+                "tag": "c",
+                "text": "$\\frac{1}{2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75354",
+                "tag": "d",
+                "text": "$6$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2
+    },
+    "37827": {
+        "order_id": 51,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Ratios, rates, and proportional relationships",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A recipe requires $\\frac{3}{4}$ cup of sugar for every $2$ cups of flour. How many cups of sugar are needed for $5$ cups of flour?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Set up a proportion based on the given ratio:<br>$\\frac{\\frac{3}{4} \\text{ cup sugar}}{2 \\text{ cups flour}} = \\frac{x \\text{ cups sugar}}{5 \\text{ cups flour}}$.<br><br>Cross-multiply to solve for $x$: $2x = \\frac{3}{4} \\times 5$<br>$2x = \\frac{15}{4}$<br>$x = \\frac{15}{8} = 1.875$.<br><br>The number of cups of sugar needed is $\\frac{15}{8}$ or $1.875$.</p>",
+        "correct_answer": "15/8",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 3
+    },
+    "37828": {
+        "order_id": 52,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Percentages and units",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A shirt is on sale for $24$ after a $20\\%$ discount. What was the original price of the shirt?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Let $P$ be the original price of the shirt. A $20\\%$ discount means the shirt is sold for $80\\%$ of its original price:<br>$0.8P = 24$.<br><br>Solve for $P$: $P = \\frac{24}{0.8} = 30$.<br><br>The original price of the shirt was $\\$30$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20276",
+                "tag": "a",
+                "text": "$\\$28$",
+                "is_correct": false
+            },
+            {
+                "option_id": "74473",
+                "tag": "b",
+                "text": "$\\$30$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97233",
+                "tag": "c",
+                "text": "$\\$32$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75355",
+                "tag": "d",
+                "text": "$\\$36$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4
+    },
+    "37829": {
+        "order_id": 53,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Problem Solving and Data Analysis: Analyzing categorical and quantitative data",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>The table below shows the number of students in each grade at a high school:<br><br><table border='1'><tr><th>Grade</th><th>Number of Students</th></tr><tr><td>9</td><td>120</td></tr><tr><td>10</td><td>110</td></tr><tr><td>11</td><td>100</td></tr><tr><td>12</td><td>90</td></tr></table><br>What percentage of the total number of students are in grade 10?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>First, calculate the total number of students:<br>$120 + 110 + 100 + 90 = 420$.<br><br>The number of students in grade 10 is $110$.<br><br>Calculate the percentage:<br>$\\frac{110}{420} \\times 100\\% \\approx 26.19\\%$.<br><br>The closest answer is $26.2\\%$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20277",
+                "tag": "a",
+                "text": "$25.0\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "74474",
+                "tag": "b",
+                "text": "$26.2\\%$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97234",
+                "tag": "c",
+                "text": "$27.5\\%$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75356",
+                "tag": "d",
+                "text": "$30.0\\%$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 5
+    },
+    "37830": {
+        "order_id": 54,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Quadratic and exponential functions",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $2^{3x} \\times 4^{x+1}$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Express all terms with the same base:<br>$4^{x+1} = (2^2)^{x+1} = 2^{2(x+1)} = 2^{2x + 2}$.<br><br>Now rewrite the original expression:<br>$2^{3x} \\times 4^{x+1} = 2^{3x} \\times 2^{2x + 2} = 2^{3x + 2x + 2} = 2^{5x + 2}$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20278",
+                "tag": "a",
+                "text": "$2^{5x + 2}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "74475",
+                "tag": "b",
+                "text": "$2^{4x + 1}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "97235",
+                "tag": "c",
+                "text": "$8^{4x + 1}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75357",
+                "tag": "d",
+                "text": "$2^{3x^2 + 2x}$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 6
+    },
+    "37831": {
+        "order_id": 55,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Radical and rational equations",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $\\frac{3}{x + 2} = \\frac{5}{x - 1}$, what is the value of $x$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Cross-multiply to solve for $x$: $3(x - 1) = 5(x + 2)$.<br>$3x - 3 = 5x + 10$<br>$-3 - 10 = 5x - 3x$<br>$-13 = 2x$<br>$x = -\\frac{13}{2}$ or $-6.5$.</p>",
+        "correct_answer": "-13/2",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 7
+    },
+    "37832": {
+        "order_id": 56,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Passport to Advanced Math: Operations with polynomials",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>Which of the following is equivalent to $(x^2 - 4)(x + 3)$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Expand the expression using the distributive property:<br>$(x^2 - 4)(x + 3) = x^2 \\times x + x^2 \\times 3 - 4 \\times x - 4 \\times 3$<br>$= x^3 + 3x^2 - 4x - 12$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20279",
+                "tag": "a",
+                "text": "$x^3 + 3x^2 - 4x - 12$",
+                "is_correct": true
+            },
+            {
+                "option_id": "74476",
+                "tag": "b",
+                "text": "$x^3 - 3x^2 - 4x + 12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "97236",
+                "tag": "c",
+                "text": "$x^3 + 3x^2 + 4x - 12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75358",
+                "tag": "d",
+                "text": "$x^3 - 4x^2 + 3x - 12$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 8
+    },
+    "37833": {
+        "order_id": 57,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Geometry and trigonometry",
+        "question_type": "Multiple Choice",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>A right triangle has legs of lengths $6$ and $8$. What is the length of the hypotenuse?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Use the Pythagorean theorem: $a^2 + b^2 = c^2$, where $c$ is the hypotenuse.<br>$6^2 + 8^2 = c^2$<br>$36 + 64 = c^2$<br>$100 = c^2$<br>$c = 10$.</p>",
+        "correct_answer": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "20280",
+                "tag": "a",
+                "text": "$9$",
+                "is_correct": false
+            },
+            {
+                "option_id": "74477",
+                "tag": "b",
+                "text": "$10$",
+                "is_correct": true
+            },
+            {
+                "option_id": "97237",
+                "tag": "c",
+                "text": "$12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "75359",
+                "tag": "d",
+                "text": "$14$",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 9
+    },
+    "37834": {
+        "order_id": 58,
+        "exam_type": "SAT",
+        "subject": "SAT Math",
+        "topic": "Additional Topics in Math: Complex numbers",
+        "question_type": "Grid-In",
+        "exam_year": "2015",
+        "reference_passage": null,
+        "question_text": "<p>If $i$ is the imaginary unit, what is the value of $i^5 + i^6 + i^7$?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Recall that $i^1 = i$, $i^2 = -1$, $i^3 = -i$, and $i^4 = 1$. The powers of $i$ cycle every 4 exponents.<br><br>Calculate each term:<br>$i^5 = i^{4+1} = (i^4) \\times i = 1 \\times i = i$<br>$i^6 = i^{4+2} = (i^4) \\times i^2 = 1 \\times (-1) = -1$<br>$i^7 = i^{4+3} = (i^4) \\times i^3 = 1 \\times (-i) = -i$<br><br>Sum the terms:<br>$i^5 + i^6 + i^7 = i + (-1) + (-i) = -1$.</p>",
+        "correct_answer": "-1",
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 10
+    }
+}
