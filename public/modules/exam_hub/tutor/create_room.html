@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Create Exam Room – My Exam Companion</title>
+  <title>Setup Tutor Hub â€“ My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
@@ -16,7 +16,7 @@
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
     
     /* ==============================
-       APP SHELL — Sidebar Layout
+       APP SHELL â€” Sidebar Layout
     ============================== */
     .app { display: flex; min-height: 100vh; }
     .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
@@ -40,64 +40,57 @@
       margin-bottom: 24px;
     }
     .back-link {
-      display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: #6b7280; margin-bottom: 16px; transition: color 0.2s;
+      display: inline-flex; align-items: center; gap: 6px; color: #6b7280; font-size: 14.5px;
+      font-weight: 500; margin-bottom: 24px; transition: color 0.2s;
     }
-    .back-link:hover { color: #b70c01; }
-    
-    .page-header__title { font-size: 26px; font-weight: 800; color: #131212; margin-bottom: 6px; letter-spacing: -0.02em; }
-    .page-header__desc { font-size: 14.5px; color: #6b7280; line-height: 1.5; }
-    
-    /* ==============================
-       SETUP CARD
-    ============================== */
-    .setup-card {
-      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 32px;
+    .back-link:hover { color: #111827; }
+
+    .page-header__title {
+      font-size: 28px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.5px;
+    }
+    .page-header__desc {
+      font-size: 15px; color: #6b7280; line-height: 1.5; max-width: 650px;
     }
 
-    .setup-section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f3f4f6; }
+    /* ==============================
+       FORM CARD
+    ============================== */
+    .setup-card {
+      background: white; border: 1px solid #e5e7eb; border-radius: 16px;
+      padding: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 40px;
+    }
+    
+    .setup-section {
+      margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #f3f4f6;
+    }
     .setup-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     
     .setup-section__title {
-      font-size: 16px; font-weight: 700; color: #131212; margin-bottom: 20px;
-      display: flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
     }
     .setup-section__title span {
-      background: #fff0f0; color: #b70c01; width: 26px; height: 26px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;
+      background: #fff0f0; color: #b70c01; border-radius: 50%; font-size: 14px; font-weight: 800;
     }
 
-    /* ==============================
-       FORM ELEMENTS
-    ============================== */
-    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: 8px;
+    }
     .form-group.full-width { grid-column: 1 / -1; }
     
-    .form-group label { font-size: 13px; font-weight: 600; color: #374151; }
+    .form-group label {
+      font-size: 14px; font-weight: 600; color: #374151;
+    }
     
     .form-control {
-      appearance: none;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 14px;
-      font-family: inherit;
-      color: #131212;
-      outline: none;
-      transition: all 0.2s ease;
-      width: 100%;
+      background: #f9fafb; border: 1px solid #d1d5db; border-radius: 10px;
+      padding: 12px 16px; font-size: 15px; color: #111827; transition: all 0.2s ease;
+      font-family: inherit; outline: none; width: 100%;
     }
-    
-    select.form-control {
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 40px;
-      cursor: pointer;
-    }
+    .form-control::placeholder { color: #9ca3af; }
 
     .form-control:focus {
       border-color: #b70c01;
@@ -105,44 +98,7 @@
       background-color: white;
     }
     
-    /* ---- Question Source Modes ---- */
-    .mode-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .mode-card {
-      border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; cursor: pointer;
-      display: flex; align-items: flex-start; gap: 12px; transition: all 0.2s ease;
-    }
-    .mode-card:hover { border-color: #d1d5db; background: #f9fafb; }
-    .mode-card.selected { border-color: #b70c01; background: #fff0f0; }
-    
-    .mode-card__radio {
-      width: 20px; height: 20px; border-radius: 50%; border: 2px solid #d1d5db;
-      flex-shrink: 0; position: relative; margin-top: 2px;
-    }
-    .mode-card.selected .mode-card__radio { border-color: #b70c01; }
-    .mode-card.selected .mode-card__radio::after {
-      content: ''; position: absolute; width: 10px; height: 10px; background: #b70c01;
-      border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    }
-    .mode-card__content h4 { font-size: 14.5px; font-weight: 700; color: #131212; margin-bottom: 4px; }
-    .mode-card.selected .mode-card__content h4 { color: #b70c01; }
-    .mode-card__content p { font-size: 13px; color: #6b7280; line-height: 1.4; }
-    
-    .custom-qs-panel {
-      display: none; background: #f9fafb; border: 1px dashed #d1d5db; border-radius: 12px;
-      padding: 20px; margin-top: 16px;
-    }
-    .custom-qs-panel.active { display: block; }
-    
-    /* ---- Plan Alerts ---- */
-    .plan-alert {
-      margin-top: 8px; font-size: 12.5px; font-weight: 700; padding: 10px 14px; border-radius: 8px;
-      display: flex; align-items: center; gap: 6px; transition: all 0.2s;
-    }
-    .plan-alert--free { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
-    .plan-alert--pro { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
-    .plan-alert--premium { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-    
-    /* THEME BUTTON (#b70c01) matching jamb_all_subject.html */
+    /* THEME BUTTON (#b70c01) */
     .btn-primary {
       background: #b70c01; color: white; font-size: 16px; font-weight: 700;
       padding: 14px 32px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -163,9 +119,8 @@
     }
     
     .submit-area {
-      display: flex; gap: 16px; margin-top: 32px;
+      display: flex; gap: 16px; margin-top: 32px; justify-content: flex-end;
     }
-    .submit-area .btn-primary { flex: 1; }
 
     /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
@@ -175,7 +130,7 @@
       .content-area { padding: 20px 16px; }
       .setup-card { padding: 20px; }
       .submit-area { flex-direction: column-reverse; gap: 12px; }
-      .submit-area .btn-secondary, .submit-area .btn-primary { width: 100%; }
+      .submit-area .btn-secondary, .submit-area .btn-primary { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -200,8 +155,8 @@
           </a>
 
           <div class="page-header">
-            <h1 class="page-header__title">Create Exam Room</h1>
-            <p class="page-header__desc">Setup a custom mock exam environment for your students. Customize the exam conditions, subjects, and pass mark to fit your curriculum.</p>
+            <h1 class="page-header__title">Create Your Tutor Hub</h1>
+            <p class="page-header__desc">Set up your personal space where students can discover you, view your specialties, and take the exclusive courses and exams you publish.</p>
           </div>
           
           <div class="setup-card">
@@ -209,210 +164,69 @@
               
               <!-- SECTION 1: General Details -->
               <div class="setup-section">
-                <h3 class="setup-section__title"><span>1</span> Room Identity</h3>
+                <h3 class="setup-section__title"><span>1</span> Hub Identity</h3>
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="tutor_name">Tutor Name</label>
-                    <input type="text" id="tutor_name" class="form-control" placeholder="e.g. Mr. Johnson" required>
+                    <label for="tutor_name">Display Name</label>
+                    <input type="text" id="tutor_name" class="form-control" placeholder="e.g. Dr. Smith" required>
                   </div>
                   
                   <div class="form-group">
-                    <label for="room_name">Room Name</label>
-                    <input type="text" id="room_name" class="form-control" placeholder="e.g. Weekly Assessment: Calculus" required>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="room_password">Entry Password</label>
-                    <input type="password" id="room_password" class="form-control" placeholder="Create a secure password" required>
-                  </div>
-                  
-                  <div class="form-group" style="position: relative;">
-                    <label for="student_limit">Maximum Students</label>
-                    <select id="student_limit" class="form-control" required onchange="checkPlanLimit()">
-                      <option value="" disabled selected>-- Select Maximum Students --</option>
-                      <option value="10">Up to 10 Students</option>
-                      <option value="50">11 to 50 Students</option>
-                      <option value="100">51 to 100 Students</option>
-                      <option value="101">100+ Students</option>
-                    </select>
-                    <div style="font-size: 12.5px; color: #059669; font-weight: 600; margin-top: 6px; display: flex; align-items: center; gap: 4px;">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                      Your students join and take exams completely free!
-                    </div>
-                    <div id="plan_alert" class="plan-alert plan-alert--free" style="display: none;"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SECTION 2: Curriculum Configuration -->
-              <div class="setup-section">
-                <h3 class="setup-section__title"><span>2</span> Curriculum Settings</h3>
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country" class="form-control" required>
-                      <option value="" disabled selected>-- Select Country --</option>
-                      <option value="nigeria">🇳🇬 Nigeria</option>
-                      <option value="ghana">🇬🇭 Ghana</option>
-                      <option value="sierra_leone">🇸🇱 Sierra Leone</option>
-                      <option value="gambia">🇬🇲 The Gambia</option>
-                      <option value="liberia">🇱🇷 Liberia</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="exam_body">Exam Body</label>
-                    <select id="exam_body" class="form-control" required>
-                      <option value="" disabled selected>-- Select Exam Body --</option>
-                      <option value="jamb">JAMB</option>
-                      <option value="waec">WAEC</option>
-                      <option value="neco">NECO</option>
-                      <option value="gce">GCE</option>
-                      <option value="nabteb">NABTEB</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="subject_1">Subject 1 (Compulsory)</label>
-                    <select id="subject_1" class="form-control" required>
-                      <option value="" disabled selected>-- Select Subject 1 --</option>
-                      <option value="mathematics">Mathematics</option>
-                      <option value="english">Use of English</option>
-                      <option value="physics">Physics</option>
-                      <option value="chemistry">Chemistry</option>
-                      <option value="biology">Biology</option>
-                      <option value="economics">Economics</option>
-                      <option value="government">Government</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="subject_2">Subject 2 (Optional)</label>
-                    <select id="subject_2" class="form-control">
-                      <option value="" selected>-- Select Subject 2 --</option>
-                      <option value="mathematics">Mathematics</option>
-                      <option value="english">Use of English</option>
-                      <option value="physics">Physics</option>
-                      <option value="chemistry">Chemistry</option>
-                      <option value="biology">Biology</option>
-                      <option value="economics">Economics</option>
-                      <option value="government">Government</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="subject_3">Subject 3 (Optional)</label>
-                    <select id="subject_3" class="form-control">
-                      <option value="" selected>-- Select Subject 3 --</option>
-                      <option value="mathematics">Mathematics</option>
-                      <option value="english">Use of English</option>
-                      <option value="physics">Physics</option>
-                      <option value="chemistry">Chemistry</option>
-                      <option value="biology">Biology</option>
-                      <option value="economics">Economics</option>
-                      <option value="government">Government</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="subject_4">Subject 4 (Optional)</label>
-                    <select id="subject_4" class="form-control">
-                      <option value="" selected>-- Select Subject 4 --</option>
-                      <option value="mathematics">Mathematics</option>
-                      <option value="english">Use of English</option>
-                      <option value="physics">Physics</option>
-                      <option value="chemistry">Chemistry</option>
-                      <option value="biology">Biology</option>
-                      <option value="economics">Economics</option>
-                      <option value="government">Government</option>
-                    </select>
+                    <label for="hub_name">Hub Name</label>
+                    <input type="text" id="hub_name" class="form-control" placeholder="e.g. The Chemistry World" required>
                   </div>
                   
                   <div class="form-group full-width">
-                    <label for="topic">Topic Focus (Optional)</label>
-                    <select id="topic" class="form-control">
-                      <option value="" selected>-- Select a Topic --</option>
-                      <option value="all">All Topics (Full Syllabus)</option>
-                      <option value="algebra">Algebra & Geometry</option>
-                      <option value="calculus">Calculus (Differentiation & Integration)</option>
-                      <option value="mechanics">Mechanics & Motion</option>
-                      <option value="organic_chem">Organic Chemistry</option>
-                      <option value="cell_biology">Cell Biology & Genetics</option>
-                    </select>
+                    <label for="hub_bio">Short Bio / Welcome Message</label>
+                    <textarea id="hub_bio" class="form-control" rows="3" placeholder="Welcome to my hub! I specialize in making complex topics easy..." required></textarea>
                   </div>
                 </div>
               </div>
 
-              <!-- SECTION 3: Question Source -->
+              <!-- SECTION 2: Specialties -->
               <div class="setup-section">
-                <h3 class="setup-section__title"><span>3</span> Question Source</h3>
-                
-                <div class="mode-grid">
-                  <div class="mode-card selected" onclick="selectQuestionSource('system')">
-                    <div class="mode-card__radio"></div>
-                    <div class="mode-card__content">
-                      <h4>Auto-generate from Syllabus</h4>
-                      <p>Questions will be automatically fetched from our standard database.</p>
-                    </div>
-                  </div>
-                  
-                  <div class="mode-card" onclick="selectQuestionSource('custom')">
-                    <div class="mode-card__radio"></div>
-                    <div class="mode-card__content">
-                      <h4>Provide Custom Questions</h4>
-                      <p>Write your own questions or copy-paste them to challenge your students.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="custom_qs_panel" class="custom-qs-panel">
-                  <div class="form-group full-width">
-                    <label for="custom_qs">Type or Paste Questions Here (Optional)</label>
-                    <textarea id="custom_qs" class="form-control" rows="5" placeholder="1. What is the formula for velocity?&#10;A) v = d/t&#10;B) v = m*a..."></textarea>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SECTION 4: Grading & Timer -->
-              <div class="setup-section">
-                <h3 class="setup-section__title"><span>4</span> Exam Parameters</h3>
+                <h3 class="setup-section__title"><span>2</span> Your Expertise</h3>
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="exam_time">Time Duration</label>
-                    <select id="exam_time" class="form-control" required>
-                      <option value="" disabled selected>-- Select Duration --</option>
-                      <option value="15">15 Minutes</option>
-                      <option value="30">30 Minutes</option>
-                      <option value="45">45 Minutes</option>
-                      <option value="60">60 Minutes (1 Hour)</option>
-                      <option value="90">90 Minutes (1.5 Hours)</option>
-                      <option value="120">120 Minutes (2 Hours)</option>
-                      <option value="180">180 Minutes (3 Hours)</option>
+                    <label for="primary_subject">Primary Subject Focus</label>
+                    <select id="primary_subject" class="form-control" required>
+                      <option value="" disabled selected>-- Select Subject --</option>
+                      <option value="mathematics">Mathematics</option>
+                      <option value="english">Use of English</option>
+                      <option value="physics">Physics</option>
+                      <option value="chemistry">Chemistry</option>
+                      <option value="biology">Biology</option>
+                      <option value="economics">Economics</option>
+                      <option value="government">Government</option>
                     </select>
                   </div>
                   
                   <div class="form-group">
-                    <label for="pass_mark">Pass Mark (%)</label>
-                    <input type="number" id="pass_mark" class="form-control" placeholder="e.g. 60" min="1" max="100" required>
+                    <label for="secondary_subject">Secondary Subject Focus</label>
+                    <select id="secondary_subject" class="form-control">
+                      <option value="" selected>-- Select Subject --</option>
+                      <option value="mathematics">Mathematics</option>
+                      <option value="english">Use of English</option>
+                      <option value="physics">Physics</option>
+                      <option value="chemistry">Chemistry</option>
+                      <option value="biology">Biology</option>
+                      <option value="economics">Economics</option>
+                      <option value="government">Government</option>
+                    </select>
                   </div>
                 </div>
               </div>
 
               <div class="submit-area">
                 <button type="button" class="btn-secondary" onclick="window.location.href='teacher_entry.html'">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                    <polyline points="7 3 7 8 15 8"></polyline>
-                  </svg>
-                  Save as Draft
+                  Cancel
                 </button>
                 <button type="submit" class="btn-primary">
+                  Launch My Hub
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                  Publish Exam Room
                 </button>
               </div>
 
@@ -424,46 +238,9 @@
     </div>
   </div>
   
-  <script src="../../../components/sidebar.js"></script>
-  <script src="../../../components/topbar.js"></script>
-  
-  <script>
-    function selectQuestionSource(source) {
-      const cards = document.querySelectorAll('.mode-card');
-      cards[0].classList.toggle('selected', source === 'system');
-      cards[1].classList.toggle('selected', source === 'custom');
-      
-      const panel = document.getElementById('custom_qs_panel');
-      if (source === 'custom') {
-        panel.classList.add('active');
-      } else {
-        panel.classList.remove('active');
-      }
-    }
-    
-    function checkPlanLimit() {
-      const select = document.getElementById('student_limit');
-      const alert = document.getElementById('plan_alert');
-      const val = parseInt(select.value) || 0;
-      
-      alert.style.display = 'flex';
-      
-      if (val === 10) {
-        alert.className = 'plan-alert plan-alert--free';
-        alert.innerHTML = '<span>✅ Free Plan included (0 ₦ / mo)</span>';
-      } else if (val === 50) {
-        alert.className = 'plan-alert plan-alert--pro';
-        alert.innerHTML = '<span>⭐ Pro Plan Upgrade Required (₦2,000 / mo)</span>';
-      } else if (val === 100) {
-        alert.className = 'plan-alert plan-alert--premium';
-        alert.innerHTML = '<span>💎 Premium Plan Upgrade Required (₦3,500 / mo)</span>';
-      } else if (val === 101) {
-        alert.className = 'plan-alert plan-alert--premium';
-        alert.innerHTML = '<span>🏢 Enterprise Plan Upgrade Required (₦6,500 / mo)</span>';
-      } else {
-        alert.style.display = 'none';
-      }
-    }
-  </script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
 </body>
 </html>
+

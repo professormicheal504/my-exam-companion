@@ -199,7 +199,7 @@
   </style>
 </head>
 <body>
-  <app-sidebar data-base="../../"></app-sidebar>
+  <app-sidebar data-base="../../../"></app-sidebar>
   <div class="main-wrapper" id="question-container">
     
     <!-- START EXAM OVERLAY -->
@@ -253,7 +253,7 @@
     <!-- RESULT SCREEN -->
     <div class="result-screen" id="result-screen">
       <div class="result-card">
-        <div id="result-emoji" style="font-size: 64px; margin-bottom:16px;">🎉</div>
+        <div id="result-emoji" style="font-size: 64px; margin-bottom:16px;">ð</div>
         <h2 class="result-title" id="result-title">Exam Submitted!</h2>
         <div class="result-score-ring">
           <svg viewBox="0 0 120 120" style="width:100%;height:100%;transform:rotate(-90deg);">
@@ -337,14 +337,14 @@
         </div>
 
         <div class="q-nav-controls" id="q-nav-controls">
-          <button class="btn-secondary" id="qn-prev">← Previous</button>
-          <button class="btn-primary" id="qn-next">Next →</button>
+          <button class="btn-secondary" id="qn-prev">â Previous</button>
+          <button class="btn-primary" id="qn-next">Next â</button>
         </div>
 
         <div class="answer-review-box" id="answer-review-box">
-          <div class="arb-icon">💡</div>
+          <div class="arb-icon">ð¡</div>
           <div>
-            <div class="arb-correct">✅ Correct Answer: <span id="arb-correct-val"></span></div>
+            <div class="arb-correct">â Correct Answer: <span id="arb-correct-val"></span></div>
             <div class="arb-explain" id="arb-explain"></div>
           </div>
         </div>
@@ -377,7 +377,7 @@
     <div class="nav-drawer" id="nav-drawer">
       <div style="display:flex; justify-content:space-between; margin-bottom:24px; align-items:center;">
         <h4 style="font-size:18px; font-weight:700;">Question Navigator</h4>
-        <button id="nav-drawer-close" style="font-size:20px; color:var(--text-muted);">✕</button>
+        <button id="nav-drawer-close" style="font-size:20px; color:var(--text-muted);">â</button>
       </div>
       <div class="q-grid" id="q-grid-drawer" style="flex:1;"></div>
       <button class="btn-primary" id="submit-btn-drawer" style="width:100%; margin-top:24px;">Submit Exam</button>
@@ -386,7 +386,7 @@
     <!-- AI FAB -->
     <div class="ai-fab-container" id="ai-fab-container">
       <div class="ai-fab-popup" id="ai-fab-popup">
-        <div class="ai-fab-header"><span>✨ AI Explanation</span> <span class="ai-fab-close" id="ai-fab-close">✕</span></div>
+        <div class="ai-fab-header"><span>â¨ AI Explanation</span> <span class="ai-fab-close" id="ai-fab-close">â</span></div>
         <div class="ai-fab-content" id="ai-fab-content-inject"></div>
       </div>
       <button class="ai-fab-btn collapsed" id="ai-fab-btn">
@@ -399,12 +399,12 @@
     <div id="calc-modal">
       <div class="calc-box">
         <div id="calc-header" style="display:flex; justify-content:space-between; margin-bottom:16px; cursor:move;">
-          <h4 style="font-weight:700; font-size:16px;">Calculator</h4> <span id="calc-close" style="cursor:pointer; color:var(--text-muted);">✕</span>
+          <h4 style="font-weight:700; font-size:16px;">Calculator</h4> <span id="calc-close" style="cursor:pointer; color:var(--text-muted);">â</span>
         </div>
         <div id="calc-display">0</div>
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
-          <button class="calc-btn" data-val="C">C</button> <button class="calc-btn" data-val="sqrt">√</button> <button class="calc-btn" data-val="%">%</button> <button class="calc-btn" style="color:var(--primary);" data-val="/">÷</button>
-          <button class="calc-btn" data-val="7">7</button> <button class="calc-btn" data-val="8">8</button> <button class="calc-btn" data-val="9">9</button> <button class="calc-btn" style="color:var(--primary);" data-val="*">×</button>
+          <button class="calc-btn" data-val="C">C</button> <button class="calc-btn" data-val="sqrt">â</button> <button class="calc-btn" data-val="%">%</button> <button class="calc-btn" style="color:var(--primary);" data-val="/">Ã·</button>
+          <button class="calc-btn" data-val="7">7</button> <button class="calc-btn" data-val="8">8</button> <button class="calc-btn" data-val="9">9</button> <button class="calc-btn" style="color:var(--primary);" data-val="*">Ã</button>
           <button class="calc-btn" data-val="4">4</button> <button class="calc-btn" data-val="5">5</button> <button class="calc-btn" data-val="6">6</button> <button class="calc-btn" style="color:var(--primary);" data-val="-">-</button>
           <button class="calc-btn" data-val="1">1</button> <button class="calc-btn" data-val="2">2</button> <button class="calc-btn" data-val="3">3</button> <button class="calc-btn" style="color:var(--primary);" data-val="+">+</button>
           <button class="calc-btn" data-val="0" style="grid-column:span 2;">0</button> <button class="calc-btn" data-val=".">.</button> <button class="calc-btn" style="background:var(--primary); color:white;" data-val="=">=</button>
@@ -413,17 +413,18 @@
     </div>
   </div>
 
+  <script src="../../../components/nav.js"></script>
   <script src="../../../components/topbar.js"></script>
   <script src="../../../components/sidebar.js"></script>
 
 
 <script>
     /* ============================================================
-       JAMB CBT BOARD — Exam Engine (Light Theme, No Firebase)
+       JAMB CBT BOARD â Exam Engine (Light Theme, No Firebase)
        Placeholder logic; wire up to your data source as needed.
     ============================================================ */
 
-    /* ── State ──────────────────────────────────────────────── */
+    /* ââ State ââââââââââââââââââââââââââââââââââââââââââââââââ */
     let EXAM_DATA = null;
     let currentQ = 0;
     let answers = {};     // { qIndex: optIndex }
@@ -435,10 +436,10 @@
     let examFinished = false;
     let reviewMode = false;
 
-    /* ── DOM helpers ────────────────────────────────────────── */
+    /* ââ DOM helpers ââââââââââââââââââââââââââââââââââââââââââ */
     const $ = id => document.getElementById(id);
 
-    /* ── Init ───────────────────────────────────────────────── */
+    /* ââ Init âââââââââââââââââââââââââââââââââââââââââââââââââ */
     window.addEventListener('DOMContentLoaded', async () => {
       // Show loading state
       $('start-desc-text').textContent = "Loading exam data from server...";
@@ -448,26 +449,54 @@
       const examId = params.get('exam_id') || 'usa/sat'; 
       const subjectStr = params.get('subject') || 'sat_math';
       const year = params.get('year') || '2024';
+      const uni = params.get('uni');
+      const uniFile = params.get('file');
       
-      const subjects = subjectStr.split(',');
+      const subjects = uni && uniFile ? ['uni_exam'] : subjectStr.split(',');
+      
+      // Map old exam IDs to new paths
+      const examPathMap = {
+        'usa/sat': 'us/exams/university_entrance/sat',
+        'nigeria/jamb': 'ng/exams/university_entrance/jamb',
+        'nigeria/waec': 'ng/exams/high_school_graduate/waec',
+        'nigeria/neco': 'ng/exams/high_school_graduate/neco',
+        'nigeria/post_utme': 'ng/exams/university_entrance/post_utme'
+      };
+      const mappedExamPath = examPathMap[examId] || examId;
       
       // TODO: Replace with your actual Cloudflare R2 Public URL
-      const R2_BASE_URL = 'https://YOUR-R2-PUBLIC-URL.com';
+      const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
       
       try {
         let allQuestions = [];
         let fetchedSubjects = [];
         
+        const activeCountry = localStorage.getItem('mec_country') || 'ng';
+
         await Promise.all(subjects.map(async (subj) => {
-          const filePath = `${examId}/${subj}/${year}.json`;
+          let filePath;
+          if (uni && uniFile) {
+            filePath = `${activeCountry}/exams/university/${uni}/${uniFile}`;
+          } else {
+            filePath = `${mappedExamPath}/${subj}/objective/${year}.json`;
+          }
+          
           let data;
           try {
-            const res = await fetch(`../../../r2_staging_area/content/exams/${filePath}`);
+            let res = await fetch(`../../../../new_staging_area/${filePath}`);
+            if (!res.ok && activeCountry !== 'ng') {
+              const fallbackPath = filePath.replace(new RegExp(`^${activeCountry}/`), 'ng/');
+              res = await fetch(`../../../../new_staging_area/${fallbackPath}`);
+            }
             if (!res.ok) throw new Error('Local fallback failed');
             data = await res.json();
           } catch (e) {
             console.warn(`Failed to fetch ${filePath} locally, trying R2...`, e);
-            const res = await fetch(`${R2_BASE_URL}/content/exams/${filePath}`);
+            let res = await fetch(`${R2_BASE_URL}/content/exams/${filePath}`);
+            if (!res.ok && activeCountry !== 'ng') {
+              const fallbackPath = filePath.replace(new RegExp(`^${activeCountry}/`), 'ng/');
+              res = await fetch(`${R2_BASE_URL}/content/exams/${fallbackPath}`);
+            }
             if (!res.ok) throw new Error('Network error');
             data = await res.json();
           }
@@ -518,7 +547,7 @@
             // Handle reference_passage
             let passage = q.reference_passage || null;
             
-            allQuestions.push({
+        allQuestions.push({
               id: q.question_id || index + 1,
               subject: subjectName,
               subjectId: subj,
@@ -536,9 +565,19 @@
         // Sort fetched subjects to maintain order
         fetchedSubjects.sort((a, b) => a.startIndex - b.startIndex);
         
+        let examTitle = `${examId.toUpperCase().replace(/_/g, ' ')} Simulator`;
+        let examSubject = `${subjects.length > 1 ? 'Multiple Subjects' : subjects[0].toUpperCase().replace(/_/g, ' ')} • ${year}`;
+        
+        if (uni && uniFile) {
+          const formattedUni = uni.replace(/_/g, ' ').toUpperCase();
+          const fileName = uniFile.split('/').pop().replace('.json', '');
+          examTitle = `${formattedUni} Past Questions`;
+          examSubject = decodeURIComponent(fileName);
+        }
+
         EXAM_DATA = {
-          title: `${examId.toUpperCase().replace(/_/g, ' ')} Simulator`,
-          subject: `${subjects.length > 1 ? 'Multiple Subjects' : subjects[0].toUpperCase().replace(/_/g, ' ')} · ${year}`,
+          title: examTitle,
+          subject: examSubject,
           totalMinutes: 120, // default
           questions: allQuestions,
           subjectMeta: fetchedSubjects
@@ -609,11 +648,11 @@
       $('exam-subject-tag').textContent = EXAM_DATA.subject;
       $('exam-title-text').textContent = EXAM_DATA.title;
       $('start-desc-text').textContent =
-        `${EXAM_DATA.questions.length} Questions · ${EXAM_DATA.totalMinutes} Minutes · Full Exam Mode`;
+        `${EXAM_DATA.questions.length} Questions • ${EXAM_DATA.totalMinutes} Minutes • Full Exam Mode`;
       renderGrids();
     });
 
-    /* ── Start exam ─────────────────────────────────────────── */
+    /* ââ Start exam âââââââââââââââââââââââââââââââââââââââââââ */
     $('btn-start-now').addEventListener('click', () => {
       $('start-screen-overlay').classList.add('hidden');
       examStarted = true;
@@ -621,7 +660,7 @@
       renderQuestion();
     });
 
-    /* ── Timer ──────────────────────────────────────────────── */
+    /* ââ Timer ââââââââââââââââââââââââââââââââââââââââââââââââ */
     function startTimer() {
       updateTimerDisplay();
       timerInterval = setInterval(() => {
@@ -644,7 +683,7 @@
       }
     }
 
-    /* ── Render question ────────────────────────────────────── */
+    /* ââ Render question ââââââââââââââââââââââââââââââââââââââ */
     function renderQuestion() {
       const q = EXAM_DATA.questions[currentQ];
       
@@ -766,7 +805,7 @@
           $('bn-next').style.color = '#059669';
         }
       } else {
-        $('qn-next').textContent = 'Next →';
+        $('qn-next').textContent = 'Next â';
         $('qn-next').style.background = '';
         $('qn-next').style.borderColor = '';
         if ($('bn-next')) {
@@ -812,7 +851,7 @@
       });
     }
 
-    /* ── MathJax Formatter ──────────────────────────────────── */
+    /* ââ MathJax Formatter ââââââââââââââââââââââââââââââââââââ */
     async function formatMath() {
       if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
         MathJax.typesetClear();
@@ -828,7 +867,7 @@
       }
     }
 
-    /* ── Option click & Grid-in input ───────────────────────── */
+    /* ââ Option click & Grid-in input âââââââââââââââââââââââââ */
     document.querySelectorAll('.option-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (examFinished) return;
@@ -845,7 +884,7 @@
       });
     }
 
-    /* ── Navigation ─────────────────────────────────────────── */
+    /* ââ Navigation âââââââââââââââââââââââââââââââââââââââââââ */
     function goTo(index) {
       if (index < 0 || index >= EXAM_DATA.questions.length) return;
       currentQ = index;
@@ -866,7 +905,7 @@
       else goTo(currentQ + 1);
     });
 
-    /* ── Flag ───────────────────────────────────────────────── */
+    /* ââ Flag âââââââââââââââââââââââââââââââââââââââââââââââââ */
     function toggleFlag() {
       if (flags.has(currentQ)) flags.delete(currentQ);
       else flags.add(currentQ);
@@ -876,7 +915,7 @@
     if ($('flag-btn')) $('flag-btn').addEventListener('click', toggleFlag);
     if ($('bn-flag')) $('bn-flag').addEventListener('click', toggleFlag);
 
-    /* ── Q Grids ────────────────────────────────────────────── */
+    /* ââ Q Grids ââââââââââââââââââââââââââââââââââââââââââââââ */
     function renderGrids() {
       ['q-grid-desktop', 'q-grid-drawer'].forEach(id => {
         const grid = $(id);
@@ -904,7 +943,7 @@
       });
     }
 
-    /* ── Navigator Drawer (mobile) ──────────────────────────── */
+    /* ââ Navigator Drawer (mobile) ââââââââââââââââââââââââââââ */
     $('bn-navigator').addEventListener('click', openDrawer);
     $('nav-drawer-close').addEventListener('click', closeDrawer);
     $('nav-drawer-overlay').addEventListener('click', closeDrawer);
@@ -919,7 +958,7 @@
       $('nav-drawer-overlay').classList.remove('visible');
     }
 
-    /* ── Submit ─────────────────────────────────────────────── */
+    /* ââ Submit âââââââââââââââââââââââââââââââââââââââââââââââ */
     function showSubmitModal() {
       const answered = Object.keys(answers).length;
       const total = EXAM_DATA.questions.length;
@@ -1087,7 +1126,7 @@
       renderQuestion();
     });
 
-    /* ── Sidebar & Quit ─────────────────────────────────────── */
+    /* ââ Sidebar & Quit âââââââââââââââââââââââââââââââââââââââ */
     if ($('btn-toggle-sidebar')) {
       $('btn-toggle-sidebar').addEventListener('click', () => {
         if (typeof mecToggleSidebar === 'function') mecToggleSidebar();
@@ -1104,7 +1143,7 @@
       });
     }
 
-    /* ── Calculator ─────────────────────────────────────────── */
+    /* ââ Calculator âââââââââââââââââââââââââââââââââââââââââââ */
     const calcModal = $('calc-modal');
     const openCalc = () => { if (calcModal) calcModal.style.display = 'block'; };
     if ($('bn-calculator')) $('bn-calculator').addEventListener('click', openCalc);
@@ -1115,7 +1154,7 @@
       });
     }
 
-    /* ── Calculator Drag Logic ──────────────────────────────── */
+    /* ââ Calculator Drag Logic ââââââââââââââââââââââââââââââââ */
     const calcHeader = $('calc-header');
     let isDragging = false, startX, startY, initialX, initialY;
 
@@ -1224,7 +1263,7 @@
       });
     });
 
-    /* ── Network status ─────────────────────────────────────── */
+    /* ââ Network status âââââââââââââââââââââââââââââââââââââââ */
     function updateNetwork() {
       const block = $('network-block');
       if (navigator.onLine) {
@@ -1239,7 +1278,7 @@
     window.addEventListener('online', updateNetwork);
     window.addEventListener('offline', updateNetwork);
 
-    /* ── Keyboard shortcuts ─────────────────────────────────── */
+    /* ââ Keyboard shortcuts âââââââââââââââââââââââââââââââââââ */
     document.addEventListener('keydown', e => {
       if (examFinished || !examStarted) return;
       const key = e.key.toUpperCase();
@@ -1258,7 +1297,7 @@
       }
     });
 
-    /* ── AI FAB Logic ───────────────────────────────────────── */
+    /* ââ AI FAB Logic âââââââââââââââââââââââââââââââââââââââââ */
     let aiFabTimeout;
     window.addEventListener('DOMContentLoaded', () => {
       // Small timeout to ensure state is restored if coming from result page
@@ -1294,7 +1333,7 @@
       }, 5000);
     });
 
-    /* ── Passage Modal Events ───────────────────────────────── */
+    /* ââ Passage Modal Events âââââââââââââââââââââââââââââââââ */
     $('btn-read-passage').addEventListener('click', () => {
       $('passage-modal').classList.add('visible');
     });

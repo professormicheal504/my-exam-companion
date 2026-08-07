@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Blog – News, Tips & Updates | My Exam Companion</title>
+    <meta name="description"
+        content="Stay updated with the latest JAMB news, scholarship opportunities, exam tips, and study strategies on My Exam Companion's education blog.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- App Shell -->
+    <link rel="stylesheet" href="../../components/topbar.css">
+    <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+    <link rel="stylesheet" href="../../components/footer.css">
+
+    <style>
+        /* == Reset ================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            font-size: 14px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #131212;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        /* == App Shell =============================================== */
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .main-wrapper {
+            margin-left: 72px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .main-wrapper {
+                margin-left: 0;
+            }
+        }
+
+        /* == Content ================================================ */
+        .content-area {
+            flex: 1;
+            padding: 20px 16px 48px;
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* == Page Header ============================================ */
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2.5px solid #131212;
+        }
+
+        .blog-header__title {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: #131212;
+        }
+
+        .blog-header__actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .blog-header__btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #b70c01;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s;
+            letter-spacing: 0.01em;
+        }
+
+        .blog-header__btn:hover {
+            background: #9a0a01;
+        }
+
+        .blog-header__icon-btn {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #efefef;
+            color: #131212;
+            cursor: pointer;
+            transition: background 0.15s;
+            border: none;
+        }
+
+        .blog-header__icon-btn:hover {
+            background: #e0e0e0;
+        }
+
+        /* == Breaking Ticker ======================================== */
+        .ticker-wrap {
+            background: #131212;
+            border-radius: 10px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .ticker-label {
+            background: #b70c01;
+            color: white;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .ticker-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ticker-text span {
+            color: #ff6b6b;
+        }
+
+        /* == Category Tabs ========================================== */
+        .category-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 22px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 2px;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-tab {
+            flex-shrink: 0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1.5px solid #e0e0e0;
+            background: #fff;
+            color: #555;
+            transition: all 0.15s;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .cat-tab:hover {
+            border-color: #b70c01;
+            color: #b70c01;
+        }
+
+        .cat-tab.active {
+            background: #b70c01;
+            color: white;
+            border-color: #b70c01;
+        }
+
+        /* == Hero Card ============================================== */
+        .hero-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 6px;
+            display: block;
+            background: #1a1a1a;
+        }
+
+        .hero-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-card:hover .hero-card__img {
+            transform: scale(1.03);
+        }
+
+        .hero-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.28) 55%, transparent 100%);
+        }
+
+        .hero-card__body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+        }
+
+        .hero-card__tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ff4d4d;
+            margin-bottom: 8px;
+        }
+
+        .hero-card__title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.22;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-card__meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .hero-card__meta-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* == Section Block ========================================== */
+        .section-block {
+            margin-top: 28px;
+            margin-bottom: 6px;
+        }
+
+        .section-block__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #131212;
+        }
+
+        .section-block__name {
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #131212;
+        }
+
+        .section-block__more {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #b70c01;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+
+        .section-block__more:hover {
+            opacity: 0.75;
+        }
+
+        /* == Grid Layouts =========================================== */
+        .featured-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .featured-row--asymmetric {
+            grid-template-columns: 1.5fr 1fr;
+        }
+
+        /* == Card Base ============================================== */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.11);
+        }
+
+        .card__img-wrap {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover .card__img {
+            transform: scale(1.04);
+        }
+
+        .card__body {
+            padding: 12px 13px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #b70c01;
+            margin-bottom: 5px;
+        }
+
+        .card__title {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #131212;
+            line-height: 1.32;
+            letter-spacing: -0.01em;
+            flex: 1;
+        }
+
+        .card--large .card__title {
+            font-size: 15px;
+        }
+
+        .card__source {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .card__source-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            background: #b70c01;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card__source-name {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #888;
+        }
+
+        .card__source-time {
+            font-size: 10px;
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        .card__menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.15s;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .card:hover .card__menu {
+            opacity: 1;
+        }
+
+        /* == List Card (horizontal) ================================= */
+        .list-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: flex;
+            align-items: stretch;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .list-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-card__img-wrap {
+            width: 110px;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .list-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .list-card:hover .list-card__img {
+            transform: scale(1.05);
+        }
+
+        .list-card__body {
+            flex: 1;
+            padding: 12px 12px 12px 14px;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .list-card__tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #b70c01;
+            margin-bottom: 4px;
+        }
+
+        .list-card__title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #131212;
+            line-height: 1.35;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .list-card__source {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .list-card__source-name {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #888;
+        }
+
+        .list-card__source-time {
+            font-size: 10px;
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        .list-card__menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.15s;
+            cursor: pointer;
+            color: #bbb;
+        }
+
+        .list-card:hover .list-card__menu {
+            opacity: 1;
+        }
+
+        /* == Wide Card ============================================== */
+        .wide-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: stretch;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            margin-bottom: 8px;
+        }
+
+        .wide-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.11);
+        }
+
+        .wide-card__color-bar {
+            width: 5px;
+            flex-shrink: 0;
+            background: #b70c01;
+        }
+
+        .wide-card__body {
+            flex: 1;
+            padding: 14px 16px;
+        }
+
+        .wide-card__label {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #b70c01;
+            margin-bottom: 5px;
+        }
+
+        .wide-card__title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #131212;
+            line-height: 1.3;
+        }
+
+        .wide-card__desc {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        .wide-card__footer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .wide-card__tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            background: #fff0ef;
+            color: #b70c01;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .wide-card__time {
+            font-size: 10.5px;
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        .wide-card__img-wrap {
+            width: 100px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .wide-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+                /* == Card Stats ============================================ */
+        .card-stats {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            font-size: 11px;
+            font-weight: 600;
+            color: #999;
+        }
+        .hero-card__meta .card-stats {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .card-stats span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        /* == Topic Pills ============================================ */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .topic-pill {
+            background: #fff;
+            border: 1.5px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .topic-pill:hover {
+            border-color: #b70c01;
+            background: #fff8f8;
+            transform: translateY(-2px);
+        }
+
+        .topic-pill__icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .topic-pill__label {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #131212;
+            line-height: 1.2;
+        }
+
+        /* == Ad Slot ================================================ */
+        .ad-slot {
+            background: #fff;
+            border: 1.5px dashed #e0e0e0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            color: #ccc;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .ad-slot--leaderboard {
+            height: 90px;
+        }
+
+        .ad-slot--rectangle {
+            height: 250px;
+        }
+
+        /* == Play Badge ============================================= */
+        .play-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.65);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        /* == More Button ============================================ */
+        .more-btn-wrap {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #b70c01;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 11px 28px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.15s;
+        }
+
+        .more-btn:hover {
+            background: #9a0a01;
+            transform: translateY(-1px);
+        }
+
+        .more-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* == Responsive ============================================= */
+        @media (max-width: 680px) {
+            .featured-row {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-row--asymmetric {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .wide-card__img-wrap {
+                display: none;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-card {
+                aspect-ratio: 4 / 3;
+            }
+        }
+
+        /* == Spinner ================================================ */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <app-sidebar data-base="../../"></app-sidebar>
+
+        <div class="main-wrapper">
+            <app-topbar data-base="../../"></app-topbar>
+
+            <div class="content-area">
+
+                <!-- Page Header -->
+                <div class="blog-header">
+                    <span class="blog-header__title">Education</span>
+                    <div class="blog-header__actions">
+                        <button class="blog-header__icon-btn" title="Search" aria-label="Search articles">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.35-4.35" />
+                            </svg>
+                        </button>
+                        <button class="blog-header__icon-btn" title="Grid view" aria-label="Change layout">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" />
+                                <rect x="14" y="3" width="7" height="7" />
+                                <rect x="14" y="14" width="7" height="7" />
+                                <rect x="3" y="14" width="7" height="7" />
+                            </svg>
+                        </button>
+                        <button class="blog-header__btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                            </svg>
+                            Follow
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Breaking News Ticker -->
+                <div class="ticker-wrap" aria-label="Breaking news">
+                    <span class="ticker-label">Breaking</span>
+                    <span class="ticker-text">JAMB releases <span>2026 UTME results</span> — Check your score now
+                        &nbsp;·&nbsp; Post-UTME screening dates announced for 14 universities &nbsp;·&nbsp; New
+                        scholarship portal opens for Nigerian students abroad</span>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="category-tabs" role="tablist" aria-label="Blog categories">
+                    <button class="cat-tab active" role="tab" aria-selected="true">All</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">JAMB</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">Scholarships</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">Admission</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">Study Tips</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">Post-UTME</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">University</button>
+                    <button class="cat-tab" role="tab" aria-selected="false">Career</button>
+                </div>
+
+                <!-- Hero Card -->
+                <a href="content.html" class="hero-card" id="hero-article">
+                    <img loading="lazy" class="hero-card__img"
+                        src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=900&q=80&auto=format&fit=crop"
+                        alt="Students studying in a modern library" loading="eager">
+                    <div class="hero-card__overlay"></div>
+                    <div class="hero-card__body">
+                        <span class="hero-card__tag">#JAMB Update</span>
+                        <h1 class="hero-card__title">JAMB Raises Minimum Score Benchmark — What Every 2026 Candidate
+                            Must Know</h1>
+                        <div class="hero-card__meta">
+                            <span>My Exam Companion</span>
+                            <span class="hero-card__meta-dot"></span>
+                            <span>2 hrs ago</span>
+                            <span class="hero-card__meta-dot"></span>
+                            <span>4 min read</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                          </div>
+                    </div>
+                </a>
+
+                <!-- Browse Topics -->
+                <div class="section-block">
+                    <div class="section-block__header">
+                        <span class="section-block__name">Browse Topics</span>
+                        <a href="content.html" class="section-block__more">All topics <svg xmlns="http://www.w3.org/2000/svg"
+                                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></a>
+                    </div>
+                    <div class="topic-grid">
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#fff0ef;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#b70c01" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+                                    <path d="M18 14h-8" />
+                                    <path d="M15 18h-5" />
+                                    <path d="M10 6h8v4h-8V6z" />
+                                </svg></div>
+                            <span class="topic-pill__label">JAMB News</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#f0fdf4;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                </svg></div>
+                            <span class="topic-pill__label">Scholarships</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#eff6ff;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                                </svg></div>
+                            <span class="topic-pill__label">Study Tips</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#fefce8;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                </svg></div>
+                            <span class="topic-pill__label">Admission</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#fdf4ff;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="8" y="2" width="8" height="4" rx="1" />
+                                    <path
+                                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                                    <path d="M12 11h4" />
+                                    <path d="M12 16h4" />
+                                    <path d="M8 11h.01" />
+                                    <path d="M8 16h.01" />
+                                </svg></div>
+                            <span class="topic-pill__label">Post-UTME</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#fff7ed;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="3" y1="22" x2="21" y2="22" />
+                                    <line x1="6" y1="18" x2="6" y2="11" />
+                                    <line x1="10" y1="18" x2="10" y2="11" />
+                                    <line x1="14" y1="18" x2="14" y2="11" />
+                                    <line x1="18" y1="18" x2="18" y2="11" />
+                                    <polygon points="12 2 20 7 4 7" />
+                                </svg></div>
+                            <span class="topic-pill__label">University</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#f0fdfa;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg></div>
+                            <span class="topic-pill__label">Career</span>
+                        </div>
+                        <div class="topic-pill" role="button" tabindex="0">
+                            <div class="topic-pill__icon" style="background:#fff0ef;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#b70c01" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="23 7 16 12 23 17 23 7" />
+                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                                </svg></div>
+                            <span class="topic-pill__label">Videos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Slot: Leaderboard -->
+                <div class="ad-slot ad-slot--leaderboard" aria-label="Advertisement">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#d0d0d0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M3 9h18M9 21V9" />
+                    </svg>
+                    Advertisement
+                </div>
+
+                <!-- JAMB & Exams Section -->
+                <div class="section-block">
+                    <div class="section-block__header">
+                        <span class="section-block__name">JAMB &amp; Exams</span>
+                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></a>
+                    </div>
+                    <div class="featured-row featured-row--asymmetric">
+                        <!-- Large card -->
+                        <a href="content.html" class="card card--large">
+                            <div class="card__img-wrap" style="aspect-ratio:4/3;">
+                                <img class="card__img"
+                                    src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80&auto=format&fit=crop"
+                                    alt="Student studying with books" loading="lazy">
+                                <div class="card__menu" role="button" aria-label="More options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <span class="card__tag">#Study Tips</span>
+                                <p class="card__title">5 Proven Techniques to Score 300+ in JAMB Without Cramming</p>
+                                <div class="card__source">
+                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
+                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg></div>
+                                    <span class="card__source-name">MEC Study Lab</span>
+                                    <span class="card__source-time">3h ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                  </div>
+                            </div>
+                        </a>
+
+                        <!-- Right list cards -->
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <a href="content.html" class="list-card">
+                                <div class="list-card__img-wrap">
+                                    <img class="list-card__img"
+                                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&q=80&auto=format&fit=crop"
+                                        alt="JAMB registration" loading="lazy">
+                                </div>
+                                <div class="list-card__body">
+                                    <span class="list-card__tag">#JAMB</span>
+                                    <p class="list-card__title">Complete Step-by-Step JAMB 2026 Registration Guide</p>
+                                    <div class="list-card__source">
+                                        <span class="list-card__source-name">MEC News</span>
+                                        <span class="list-card__source-time">5h ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                      </div>
+                                </div>
+                                <div class="list-card__menu" role="button" aria-label="More options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg>
+                                </div>
+                            </a>
+
+                            <a href="content.html" class="list-card">
+                                <div class="list-card__img-wrap">
+                                    <img class="list-card__img"
+                                        src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=300&q=80&auto=format&fit=crop"
+                                        alt="Exam books" loading="lazy">
+                                </div>
+                                <div class="list-card__body">
+                                    <span class="list-card__tag">#Syllabus</span>
+                                    <p class="list-card__title">JAMB 2026 Syllabus: Major Topics Added &amp; Removed</p>
+                                    <div class="list-card__source">
+                                        <span class="list-card__source-name">MEC News</span>
+                                        <span class="list-card__source-time">1d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                      </div>
+                                </div>
+                                <div class="list-card__menu" role="button" aria-label="More options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg>
+                                </div>
+                            </a>
+
+                            <a href="content.html" class="list-card">
+                                <div class="list-card__img-wrap">
+                                    <img class="list-card__img"
+                                        src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=300&q=80&auto=format&fit=crop"
+                                        alt="CBT practice" loading="lazy">
+                                    <div class="play-badge">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <polygon points="5 3 19 12 5 21 5 3" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="list-card__body">
+                                    <span class="list-card__tag">#CBT Video</span>
+                                    <p class="list-card__title">Watch: How to Handle CBT Exam Pressure — Expert Tips</p>
+                                    <div class="list-card__source">
+                                        <span class="list-card__source-name">MEC Video</span>
+                                        <span class="list-card__source-time">2d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                      </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scholarships -->
+                <div class="section-block">
+                    <div class="section-block__header">
+                        <span class="section-block__name">Scholarships</span>
+                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></a>
+                    </div>
+                    <div class="featured-row">
+                        <a href="content.html" class="card">
+                            <div class="card__img-wrap" style="aspect-ratio:3/2;">
+                                <img class="card__img"
+                                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80&auto=format&fit=crop"
+                                    alt="University scholarship" loading="lazy">
+                                <div class="card__menu" role="button" aria-label="More options"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg></div>
+                            </div>
+                            <div class="card__body">
+                                <span class="card__tag">#Scholarship</span>
+                                <p class="card__title">NNPC/Total Undergraduate Scholarship 2026 — Apply Now Before
+                                    Deadline</p>
+                                <div class="card__source">
+                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
+                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg></div>
+                                    <span class="card__source-name">MEC Scholarships</span>
+                                    <span class="card__source-time">6h ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                  </div>
+                            </div>
+                        </a>
+                        <a href="content.html" class="card">
+                            <div class="card__img-wrap" style="aspect-ratio:3/2;">
+                                <img class="card__img"
+                                    src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&q=80&auto=format&fit=crop"
+                                    alt="Students scholarship" loading="lazy">
+                                <div class="card__menu" role="button" aria-label="More options"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg></div>
+                            </div>
+                            <div class="card__body">
+                                <span class="card__tag">#Scholarship</span>
+                                <p class="card__title">MTN Foundation Scholarship: Requirements, Eligibility &amp; How
+                                    to Apply</p>
+                                <div class="card__source">
+                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
+                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg></div>
+                                    <span class="card__source-name">MEC Scholarships</span>
+                                    <span class="card__source-time">1d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                  </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Admission News: Wide Cards -->
+                <div class="section-block">
+                    <div class="section-block__header">
+                        <span class="section-block__name">Admission News</span>
+                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></a>
+                    </div>
+
+                    <div class="wide-card">
+                        <div class="wide-card__color-bar"></div>
+                        <div class="wide-card__body">
+                            <div class="wide-card__label">Urgent</div>
+                            <p class="wide-card__title">UNILAG Post-UTME Screening — Complete Schedule Released for
+                                2025/2026</p>
+                            <p class="wide-card__desc">The University of Lagos released its full screening timetable for
+                                all faculties. Candidates must upload credentials online before appearing.</p>
+                            <div class="wide-card__footer">
+                                <span class="wide-card__tag-pill">Admission</span>
+                                <span class="wide-card__time">4h ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                              </div>
+                        </div>
+                        <div class="wide-card__img-wrap">
+                            <img class="wide-card__img"
+                                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=300&q=80&auto=format&fit=crop"
+                                alt="University campus" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="wide-card">
+                        <div class="wide-card__color-bar" style="background:#0284c7;"></div>
+                        <div class="wide-card__body">
+                            <div class="wide-card__label" style="color:#0284c7;">Policy</div>
+                            <p class="wide-card__title">Federal Govt Approves New Admission Quota for Science Students
+                            </p>
+                            <p class="wide-card__desc">Universities are now mandated to admit a minimum of 60% science
+                                students to boost STEM education in Nigeria.</p>
+                            <div class="wide-card__footer">
+                                <span class="wide-card__tag-pill"
+                                    style="background:#e0f2fe;color:#0284c7;">Policy</span>
+                                <span class="wide-card__time">Yesterday</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                              </div>
+                        </div>
+                        <div class="wide-card__img-wrap">
+                            <img class="wide-card__img"
+                                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300&q=80&auto=format&fit=crop"
+                                alt="Science education" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="wide-card">
+                        <div class="wide-card__color-bar" style="background:#16a34a;"></div>
+                        <div class="wide-card__body">
+                            <div class="wide-card__label" style="color:#16a34a;">Good News</div>
+                            <p class="wide-card__title">JAMB Introduces Direct Entry for Top UTME Scorers — No Post-UTME
+                                Required</p>
+                            <p class="wide-card__desc">Candidates who score 320 and above in UTME may now gain direct
+                                admission without Post-UTME in participating universities.</p>
+                            <div class="wide-card__footer">
+                                <span class="wide-card__tag-pill" style="background:#f0fdf4;color:#16a34a;">JAMB
+                                    Policy</span>
+                                <span class="wide-card__time">2d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                              </div>
+                        </div>
+                        <div class="wide-card__img-wrap">
+                            <img class="wide-card__img"
+                                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=300&q=80&auto=format&fit=crop"
+                                alt="Graduating students" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mid-page Ad -->
+                <div class="ad-slot ad-slot--rectangle" aria-label="Advertisement">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="#d0d0d0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M3 9h18M9 21V9" />
+                    </svg>
+                    Advertisement
+                </div>
+
+                <!-- Study Tips -->
+                <div class="section-block">
+                    <div class="section-block__header">
+                        <span class="section-block__name">Study Tips</span>
+                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></a>
+                    </div>
+                    <div class="featured-row">
+                        <a href="content.html" class="card">
+                            <div class="card__img-wrap" style="aspect-ratio:16/10;">
+                                <img class="card__img"
+                                    src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=500&q=80&auto=format&fit=crop"
+                                    alt="Student reading" loading="lazy">
+                            </div>
+                            <div class="card__body">
+                                <span class="card__tag">#Study Tips</span>
+                                <p class="card__title">The Pomodoro Method: How Nigerian Students Use It to Read More
+                                    Effectively</p>
+                                <div class="card__source">
+                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
+                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg></div>
+                                    <span class="card__source-name">MEC Tips</span>
+                                    <span class="card__source-time">3d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                  </div>
+                            </div>
+                        </a>
+                        <a href="content.html" class="card">
+                            <div class="card__img-wrap" style="aspect-ratio:16/10;">
+                                <img class="card__img"
+                                    src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=80&auto=format&fit=crop"
+                                    alt="AI study tools" loading="lazy">
+                            </div>
+                            <div class="card__body">
+                                <span class="card__tag">#AI &amp; Tech</span>
+                                <p class="card__title">7 AI Tools That Can Help You Prepare for JAMB &amp; WAEC in 2026
+                                </p>
+                                <div class="card__source">
+                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
+                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg></div>
+                                    <span class="card__source-name">MEC Tech</span>
+                                    <span class="card__source-time">5d ago</span>
+                              <div class="card-stats">
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                              </div>
+                                  </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="more-btn-wrap">
+                    <button class="more-btn" id="load-more-btn" aria-label="Load more articles">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                        More from Education
+                    </button>
+                </div>
+
+            </div><!-- /content-area -->
+            <app-footer data-base="../../"></app-footer>
+        </div><!-- /main-wrapper -->
+    </div><!-- /app -->
+
+    <!-- Scripts -->
+    <script src="../../components/nav.js" defer></script>
+    <script src="../../components/topbar.js" defer></script>
+    <script src="../../components/sidebar.js?v=10" defer></script>
+    <script src="../../components/footer.js" defer></script>
+
+    <script>
+        /* Category tab switching */
+        document.querySelectorAll('.cat-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.cat-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+            });
+        });
+
+        /* Load more — spinner demo */
+        document.getElementById('load-more-btn').addEventListener('click', function () {
+            const btn = this;
+            const spinnerSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin .7s linear infinite"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>`;
+            btn.innerHTML = `${spinnerSvg} Loading...`;
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> More from Education`;
+                btn.disabled = false;
+            }, 1800);
+        });
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,2026 @@
+{
+    "69813": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>An advantage of bus topology over star topology is that</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>An advantage of bus topology over star topology is that &quot;it requires less cable length than star topology.&quot;<br />\r\n<br />\r\nIn a bus topology, all devices are connected to a single central cable (the bus), which means that less cabling is required compared to a star topology where each device has its own cable running to a central hub or switch. This can result in cost savings in terms of both cable material and installation.<br />\r\n<br />\r\nIt&#39;s important to note that while bus topology has its advantages, it also has drawbacks, such as potential issues with signal degradation and difficulty in identifying and isolating faults. Each topology has its own set of strengths and weaknesses, and the choice between them depends on factors like the network&#39;s size, layout, and specific requirements.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "263467",
+                "tag": "a",
+                "text": "it is stronger than star topology.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263468",
+                "tag": "b",
+                "text": "it is more expensive than star topology.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263469",
+                "tag": "c",
+                "text": "its component are easily removed compared to star topology.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263470",
+                "tag": "d",
+                "text": "it requires less cable length than star topology",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69815": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The transmission method that allows data transmission to multiple computers on a network without addressing all the computers is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The transmission method that allows data transmission to multiple computers on a network without addressing all the computers is called &quot;broadcast.&quot;<br />\r\n<br />\r\nIn a broadcast transmission, data is sent from one source to all devices within the network, and the devices that are not intended to receive the data will still process it. This approach can be efficient for sending the same data to multiple recipients simultaneously but may lead to unnecessary network traffic and can impact network performance.<br />\r\n<br />\r\nOn the other hand:<br />\r\n<br />\r\n&quot;Multicast&quot; involves sending data to a specific group of devices that have joined a multicast group. It&#39;s more efficient than broadcast because it targets only the interested devices.<br />\r\n&quot;Switch&quot; is a network device that forwards data to specific devices based on their MAC addresses, which is more efficient than using broadcast transmissions.<br />\r\n&quot;Unicast&quot; refers to the transmission of data from one sender to one receiver, specifically addressing the intended recipient.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263475",
+                "tag": "a",
+                "text": "unicast",
+                "is_correct": false
+            },
+            {
+                "option_id": "263476",
+                "tag": "b",
+                "text": "broadcast",
+                "is_correct": true
+            },
+            {
+                "option_id": "263477",
+                "tag": "c",
+                "text": "multicast",
+                "is_correct": false
+            },
+            {
+                "option_id": "263478",
+                "tag": "d",
+                "text": "switch",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69816": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The main distinguishing feature of <strong>fifth</strong> generation computers is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The main distinguishing feature of fifth generation computers is artificial intelligence.<br />\r\n<br />\r\nFifth generation computers are still in the development stage, but they are expected to be able to understand and respond to human language, learn from experience, and reason like humans. They are also expected to be able to work in parallel, which will make them much faster than previous generations of computers.<br />\r\n<br />\r\nThe other options are not as distinguishing features of fifth generation computers. Liberal use of microprocessors is a feature of fourth generation computers, extremely low cost is not a feature of any generation of computers, and versatility is a feature of all generations of computers.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263479",
+                "tag": "a",
+                "text": "artificial intelligence.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263480",
+                "tag": "b",
+                "text": "versatility.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263481",
+                "tag": "c",
+                "text": "extremely low cost.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263482",
+                "tag": "d",
+                "text": "liberal use of microprocessors.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69817": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Machine language instruction codes are expressed in</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Machine language instruction codes are expressed in &quot;binary.&quot;<br />\r\n<br />\r\nMachine language is the lowest level of programming language that a computer can understand. It is a series of binary digits (bits) that tell the computer what to do. Each instruction in machine language is a sequence of 8 bits, called a byte.<br />\r\n<br />\r\nThe bits in a machine language instruction code represent different things. For example, some bits might represent the operation that the computer should perform, while others might represent the operands of the operation.<br />\r\n<br />\r\nBinary is the only language that the computer can understand directly. Therefore, machine language instruction codes are always expressed in binary.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263483",
+                "tag": "a",
+                "text": "hexadecimal",
+                "is_correct": false
+            },
+            {
+                "option_id": "263484",
+                "tag": "b",
+                "text": "EBCDIC",
+                "is_correct": false
+            },
+            {
+                "option_id": "263485",
+                "tag": "c",
+                "text": "ASCII",
+                "is_correct": false
+            },
+            {
+                "option_id": "263486",
+                "tag": "d",
+                "text": "binary",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69818": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A wait state of zero in hardware means the</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A wait state of zero in hardware means that the processor and the memory are equally matched in speed. In computing, a wait state refers to the delay experienced by a computer processor when accessing memory. A wait state of zero means that there is no delay, implying that the processor and memory are operating at the same speed.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263487",
+                "tag": "a",
+                "text": "memory is faster than the processor in terms of speed.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263488",
+                "tag": "b",
+                "text": "processor speed is higher than that of the memory.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263489",
+                "tag": "c",
+                "text": "processor speed is lower than that of the memory.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263490",
+                "tag": "d",
+                "text": "processor and the memory are equally matched in speed.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69819": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The following are effects of file insecurities <strong>except</strong></p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The effect of &quot;data use&quot; is not considered an effect of file insecurities.<br />\r\n<br />\r\nThe other options are all possible effects of file insecurities. Data overwriting can occur when a file is overwritten with new data, which can result in the loss of the original data. Data loss can occur when a file is deleted or corrupted, which can make it impossible to access the data. File corruption can occur when a file is damaged, which can make it unreadable or unusable.<br />\r\n<br />\r\nHowever, data use is not an effect of file insecurity. Data use is simply the act of accessing and using data. It can occur even if a file is secure. For example, a user can access and use a file even if it is password protected</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263491",
+                "tag": "a",
+                "text": "file corruption.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263492",
+                "tag": "b",
+                "text": "data use.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263493",
+                "tag": "c",
+                "text": "data loss.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263494",
+                "tag": "d",
+                "text": "data overwriting.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69820": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The commands used for adding comments in QBASIC programming is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The command used for adding comments in QBASIC programming is &quot;REM.&quot;<br />\r\n<br />\r\nIn QBASIC, the &quot;REM&quot; statement is used to insert comments within your code. Comments are lines of text that are ignored by the computer when the program is executed. They are used to provide explanations, notes, or documentation about the code for the programmer&#39;s or reader&#39;s understanding. Any text following the &quot;REM&quot; keyword on the same line is treated as a comment and is not executed by the program. For example:<br />\r\n<br />\r\nREM This is a comment explaining the purpose of the following code.<br />\r\nPRINT &quot;Hello, World!&quot;<br />\r\n<br />\r\nIn the example above, the text following &quot;REM&quot; is ignored by the program, and only the &quot;PRINT&quot; statement is executed.<br />\r\n<br />\r\nThe other options are incorrect. CLS is a statement that clears the screen. INPUT is a statement that gets input from the user. PRINT is a statement that prints text to the screen.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263495",
+                "tag": "a",
+                "text": "PRINT",
+                "is_correct": false
+            },
+            {
+                "option_id": "263496",
+                "tag": "b",
+                "text": "REM",
+                "is_correct": true
+            },
+            {
+                "option_id": "263497",
+                "tag": "c",
+                "text": "CLS.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263498",
+                "tag": "d",
+                "text": "INPUT",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69821": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following IP addresses can be used to access a locally running website on a user&#39;s computer?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The IP address that can be used to access a locally running website on a user&#39;s computer is &quot;127.0.0.1.&quot;<br />\r\n<br />\r\nThe IP address &quot;127.0.0.1&quot; is known as the loopback address or localhost. It is used to refer to the user&#39;s own computer. When you enter &quot;127.0.0.1&quot; in a web browser&#39;s address bar, it directs the browser to connect to the local machine itself. This is commonly used for testing and development purposes when you want to access a website or application running on your own computer without going through the internet.<br />\r\n<br />\r\nThe other IP addresses provided (&quot;172.0.0.0,&quot; &quot;1.172.0.0,&quot; and &quot;127.1.0.1&quot;) are not typically used for this purpose and do not have the same loopback behavior as &quot;127.0.0.1.&quot;<br />\r\n<br />\r\n172.0.0.0 is a private IP address range that is used for local networks.<br />\r\n1.172.0.0 is not a valid IP address.<br />\r\n127.1.0.1 is a loopback address, but it is not the loopback address for the local comp</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263499",
+                "tag": "a",
+                "text": "127.1.0.1",
+                "is_correct": false
+            },
+            {
+                "option_id": "263500",
+                "tag": "b",
+                "text": "127.0.0.1",
+                "is_correct": true
+            },
+            {
+                "option_id": "263501",
+                "tag": "c",
+                "text": "1.172.0.0",
+                "is_correct": false
+            },
+            {
+                "option_id": "263502",
+                "tag": "d",
+                "text": "172.0.0.0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69822": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The BCD equivalent of 135 is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The BCD equivalent of 135 is 0001 0011 0101.<br />\r\n<br />\r\nBCD stands for Binary-Coded Decimal. It is a way of representing decimal numbers in binary form. In BCD, each decimal digit is represented by a 4-bit binary number. The BCD equivalent of 135 is 0001 0011 0101, which is the binary representation of the decimal digits 1, 3, and 5.<br />\r\n<br />\r\n1 = 0001<br />\r\n3 = 0011<br />\r\n5 = 0101<br />\r\n&there4; 135 = 000100110101</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "263503",
+                "tag": "a",
+                "text": "100110101",
+                "is_correct": false
+            },
+            {
+                "option_id": "263504",
+                "tag": "b",
+                "text": "001011101",
+                "is_correct": false
+            },
+            {
+                "option_id": "263505",
+                "tag": "c",
+                "text": "000100110101",
+                "is_correct": true
+            },
+            {
+                "option_id": "263506",
+                "tag": "d",
+                "text": "111101",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69823": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A <strong>good</strong> algorithm must be</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A good algorithm must be &quot;concise and finite.&quot;<br />\r\n<br />\r\nHere&#39;s the breakdown of each term:<br />\r\n<br />\r\nConcise: An algorithm should be clear and easy to understand without unnecessary complexity. A concise algorithm focuses on the essential steps needed to achieve the desired outcome.<br />\r\n<br />\r\nFinite: An algorithm must have a well-defined endpoint. It should eventually stop executing and provide a result after a finite number of steps. This is important to ensure that the algorithm doesn&#39;t run indefinitely, which could lead to inefficiency or errors.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263507",
+                "tag": "a",
+                "text": "detailed and verbose.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263508",
+                "tag": "b",
+                "text": "sequential and lengthy.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263509",
+                "tag": "c",
+                "text": "consistent and continuous.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263510",
+                "tag": "d",
+                "text": "concise and finite.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69824": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The central processing unit consists of</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The central processing unit (CPU) consists of:<br />\r\n<br />\r\ncontrol unit, arithmetic logic unit, and primary storage.<br />\r\n<br />\r\nControl Unit: The control unit is responsible for managing the execution of instructions and coordinating the activities of the other components in the CPU. It fetches instructions from memory, decodes them, and directs the flow of data and control signals to ensure that instructions are executed in the correct sequence.<br />\r\n<br />\r\nArithmetic Logic Unit (ALU): The ALU performs arithmetic operations (addition, subtraction, multiplication, division) and logical operations (AND, OR, NOT) on data. It carries out the actual computation and manipulations of data as directed by the instructions.<br />\r\n<br />\r\nPrimary Storage: Primary storage refers to the main memory of the computer, typically made up of random-access memory (RAM). It is used to temporarily store data and instructions that the CPU is currently working on. Data and instructions are fetched from secondary storage (like hard drives or solid-state drives) into primary storage before being processed by the CPU.<br />\r\n<br />\r\nThe CPU is often considered the &quot;brain&quot; of the computer, as it performs the actual processing of data and instructions, making decisions, and controlling the overall operation of the computer system</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263511",
+                "tag": "a",
+                "text": "control unit, primary storage and secondary storage.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263512",
+                "tag": "b",
+                "text": "input, output and processing.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263513",
+                "tag": "c",
+                "text": "control unit, arithmetic logic unit and primary storage.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263514",
+                "tag": "d",
+                "text": "control unit, processing and primary storage.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69825": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The technology used for <strong>first</strong> generation computers was</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The technology used for first-generation computers was vacuum tubes.<br />\r\n<br />\r\nFirst-generation computers were developed during the late 1940s and 1950s. These computers used vacuum tubes as their primary electronic component for processing and memory. Vacuum tubes were large, fragile, and consumed a lot of power, which made early computers bulky, unreliable, and generated significant amounts of heat. As technology progressed, vacuum tubes were eventually replaced by transistors in the second-generation computers, which were smaller, more reliable, and consumed less power. Integrated circuits and microprocessors came into existence in subsequent generations, leading to more compact and powerful computers</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263515",
+                "tag": "a",
+                "text": "integrated circuit.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263516",
+                "tag": "b",
+                "text": "microprocessors",
+                "is_correct": false
+            },
+            {
+                "option_id": "263517",
+                "tag": "c",
+                "text": "transistors.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263518",
+                "tag": "d",
+                "text": "vacuum tubes.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69826": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The LET statement in QBASIC</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The LET statement in QBASIC allows users to assign a value to a variable.<br />\r\n<br />\r\nIn QBASIC and other programming languages, the LET statement is used to assign a value to a variable. It is an optional keyword, and in most cases, you can simply use the variable name followed by the assignment operator (=) and the value you want to assign to the variable. For example:<br />\r\n<br />\r\nLET x = 10<br />\r\n<br />\r\nThis statement assigns the value 10 to the variable x.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "263519",
+                "tag": "a",
+                "text": "allows users to assign a value to a variable.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263520",
+                "tag": "b",
+                "text": "allows the users to enter data into the computer during program execution.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263521",
+                "tag": "c",
+                "text": "checks the errors within the code.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263522",
+                "tag": "d",
+                "text": "allows the users to enter data into the computer from",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69827": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The <strong>first</strong> attempt at using the punch card principle to do mathematical calculations led to the invention of</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The Difference Engine was designed by Charles Babbage in the 19th century. It was a mechanical calculator intended to compute polynomial functions by the method of finite differences. Babbage&#39;s design included the use of punch cards as a means of input, similar to the concept later employed in early computers.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "263523",
+                "tag": "a",
+                "text": "Napier\u2019s bone",
+                "is_correct": false
+            },
+            {
+                "option_id": "263524",
+                "tag": "b",
+                "text": "Charles Babbage Analytical Engine",
+                "is_correct": false
+            },
+            {
+                "option_id": "263525",
+                "tag": "c",
+                "text": "Charles Babbage Difference Engine",
+                "is_correct": true
+            },
+            {
+                "option_id": "263526",
+                "tag": "d",
+                "text": "Abacus",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69828": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The radix of hexadecimal number system is&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The radix of the hexadecimal number system is &quot;16.&quot;<br />\r\n<br />\r\nIn a number system, the radix (also known as the base) indicates the number of unique symbols used to represent values in that system. The hexadecimal number system uses 16 distinct symbols (0-9 and A-F) to represent values. Each digit in a hexadecimal number corresponds to a power of 16, similar to how each digit in a decimal number corresponds to a power of 10.<br />\r\n<br />\r\nThe hexadecimal number system is often used in computer science because it is a convenient way to represent binary numbers. A hexadecimal number can be used to represent 4 binary digits (bits) at a time. This makes it easier to read and write binary numbers.<br />\r\n<br />\r\nFor example, the binary number 10100001 can be represented as the hexadecimal number A1. This is because 10100001 in binary is equal to A1 in hexadecimal.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263527",
+                "tag": "a",
+                "text": "10",
+                "is_correct": false
+            },
+            {
+                "option_id": "263528",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "263529",
+                "tag": "c",
+                "text": "16",
+                "is_correct": true
+            },
+            {
+                "option_id": "263530",
+                "tag": "d",
+                "text": "8",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69829": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A file organization in which the records are stored in the order in which they occur is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A file organization in which the records are stored in the order in which they occur is called &quot;sequential file&quot;<br />\r\n<br />\r\nIn a sequential file, records are stored in the order in which they occur. This means that the first record is stored at the beginning of the file, the second record is stored after the first record, and so on. To access a record in a sequential file, the computer must start at the beginning of the file and read each record until it finds the one that it is looking for.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "263531",
+                "tag": "a",
+                "text": "indexed file.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263532",
+                "tag": "b",
+                "text": "serial file.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263533",
+                "tag": "c",
+                "text": "sequential file.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263534",
+                "tag": "d",
+                "text": "random file.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69830": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The process of converting data into information is known as data</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The process of converting data into information is known as data processing. Data processing involves collecting, manipulating, and storing data to produce information that is meaningful. Data analysis is a part of data processing where data is inspected, cleaned, and modeled to discover useful information. Data collection is the process of gathering and measuring data, information or any variables of interest in a standardized and established manner that enables the collector to answer or test hypothesis and evaluate outcomes of the particular collection. Collation is the assembly of written information into a standard order. None of these options fully encapsulate the process of converting data into information like data processing does</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263535",
+                "tag": "a",
+                "text": "collation",
+                "is_correct": false
+            },
+            {
+                "option_id": "263536",
+                "tag": "b",
+                "text": "processing",
+                "is_correct": true
+            },
+            {
+                "option_id": "263537",
+                "tag": "c",
+                "text": "analysis",
+                "is_correct": false
+            },
+            {
+                "option_id": "263538",
+                "tag": "d",
+                "text": "collection",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69831": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A BIOS configuration program that allows a windows user to configure attributes such as password, time and date is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A BIOS configuration program that allows a Windows user to configure attributes such as password, time, and date is called &quot;CMOS setup.&quot;<br />\r\n<br />\r\nCMOS (Complementary Metal-Oxide-Semiconductor) setup is a utility that lets users access and modify various settings stored in the CMOS chip on the computer&#39;s motherboard. These settings include system configuration options such as the system clock, date, passwords, boot order, and hardware settings. CMOS setup provides a way to customize system settings at a low level and is typically accessed during the computer&#39;s boot process by pressing a specific key (often Del, F2, or another designated key) as indicated on the screen.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263539",
+                "tag": "a",
+                "text": "GRUB",
+                "is_correct": false
+            },
+            {
+                "option_id": "263540",
+                "tag": "b",
+                "text": "Bootstrap",
+                "is_correct": false
+            },
+            {
+                "option_id": "263541",
+                "tag": "c",
+                "text": "CMOS setup.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263542",
+                "tag": "d",
+                "text": "BIOS drivers.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69832": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The software responsible for allocating and managing system resources is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The software responsible for allocating and managing system resources is called the &quot;operating system (OS)&quot;.<br />\r\n<br />\r\nThe OS is a software program that controls the computer&#39;s hardware and software resources. It is responsible for tasks such as:<br />\r\n<br />\r\nManaging memory: The OS allocates memory to different programs and processes, and it ensures that no program uses more memory than it needs.<br />\r\nManaging processing power: The OS schedules the execution of programs and processes, and it ensures that no program hogs the CPU.<br />\r\nManaging input and output: The OS controls the flow of data between the computer and its peripherals, such as the keyboard, mouse, and printer.<br />\r\nManaging files and directories: The OS creates and manages files and directories on the computer&#39;s hard drive.<br />\r\nProviding a user interface: The OS provides a user interface that allows users to interact with the computer.<br />\r\nThe OS is a complex piece of software that is essential for the smooth operation of a computer. It is responsible for managing all of the computer&#39;s resources, and it provides a platform for running application software</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263543",
+                "tag": "a",
+                "text": "utility software.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263544",
+                "tag": "b",
+                "text": "driver",
+                "is_correct": false
+            },
+            {
+                "option_id": "263545",
+                "tag": "c",
+                "text": "translator.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263546",
+                "tag": "d",
+                "text": "operating system.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69833": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following commands can be used to switch between open window?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The command that can be used to switch between open windows is &quot;Alt + Tab.&quot;<br />\r\n<br />\r\nWhen you press the &quot;Alt + Tab&quot; keys simultaneously, it will bring up a visual display showing thumbnail previews of all open windows on your computer. While holding the &quot;Alt&quot; key, you can continue pressing the &quot;Tab&quot; key to cycle through the open windows. Releasing the &quot;Alt&quot; key will switch to the selected window.<br />\r\n<br />\r\nThis feature is commonly used in operating systems like Windows to quickly switch between different applications or open windows without using the mouse. It allows users to efficiently manage and navigate among multiple open applications or tasks on their computer.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263547",
+                "tag": "a",
+                "text": "Alt + F4",
+                "is_correct": false
+            },
+            {
+                "option_id": "263548",
+                "tag": "b",
+                "text": "Alt + Tab",
+                "is_correct": true
+            },
+            {
+                "option_id": "263549",
+                "tag": "c",
+                "text": "Ctrl + F",
+                "is_correct": false
+            },
+            {
+                "option_id": "263550",
+                "tag": "d",
+                "text": "Ctrl + D",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69834": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>During the booting process in Windows, the Master Boot Record is loaded by the</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>During the booting process in Windows, the Master Boot Record (MBR) is loaded by the &quot;BIOS&quot; (Basic Input/Output System).<br />\r\n<br />\r\nThe MBR is a small piece of code that is stored at the beginning of a hard drive. It is responsible for loading the operating system into memory. When the computer boots up, the BIOS first checks the MBR to see if it is bootable. If it is, the BIOS will load the operating system into memory.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263551",
+                "tag": "a",
+                "text": "BIOS .",
+                "is_correct": true
+            },
+            {
+                "option_id": "263552",
+                "tag": "b",
+                "text": "Init.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263553",
+                "tag": "c",
+                "text": "Kernel",
+                "is_correct": false
+            },
+            {
+                "option_id": "263554",
+                "tag": "d",
+                "text": "GRUB",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69835": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The set of instructions used to solve specific user tasks is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The set of instructions used to solve specific user tasks is called &quot;application software.&quot;<br />\r\n<br />\r\nApplication software, also known as applications or apps, is a type of computer software designed to perform specific tasks or applications for end-users. These programs are created to address the needs and requirements of users, allowing them to accomplish various tasks such as word processing, spreadsheet calculations, graphic design, video editing, web browsing, and more. Application software is distinct from system software and utility software, as it is developed to serve the users directly and provide functionality tailored to specific tasks and activities. Examples of application software include Microsoft Word, Adobe Photoshop, Google Chrome, and video gam</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263555",
+                "tag": "a",
+                "text": "editor",
+                "is_correct": false
+            },
+            {
+                "option_id": "263556",
+                "tag": "b",
+                "text": "utility software.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263557",
+                "tag": "c",
+                "text": "system software",
+                "is_correct": false
+            },
+            {
+                "option_id": "263558",
+                "tag": "d",
+                "text": "application software.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69836": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Personalized form of letters which can be sent to many people can be achieved using</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Personalized form of letters which can be sent to many people can be achieved using &quot;mail merge&quot;.<br />\r\n<br />\r\nMail merge is a feature in word processing software that allows you to create a single document that contains personalized information for multiple recipients. For example, you can use mail merge to create a form letter that includes the recipient&#39;s name and address.<br />\r\n<br />\r\nTo use mail merge, you first need to create a template document that contains the static content of the letter. This might include the letterhead, the body of the letter, and the signature block. You then need to create a data source that contains the recipient information. This might be a spreadsheet or a database.<br />\r\n<br />\r\nOnce you have created the template document and the data source, you can use mail merge to create the personalized letters. To do this, you simply select the mail merge options in your word processing software and then follow the prompts.<br />\r\n<br />\r\nMail merge is a very efficient way to create personalized letters. It can save you a lot of time and effort, and it ensures that your letters are accurate and consistent</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263559",
+                "tag": "a",
+                "text": "template.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263560",
+                "tag": "b",
+                "text": "mail merge.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263561",
+                "tag": "c",
+                "text": "query",
+                "is_correct": false
+            },
+            {
+                "option_id": "263562",
+                "tag": "d",
+                "text": "macros",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69837": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>An input device that converts an image into a text is known as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>An input device that converts an image into text is known as an &quot;optical character reader&quot; (OCR).<br />\r\n<br />\r\nOCR technology is used to recognize printed or handwritten characters in an image and convert them into editable and searchable text. It is commonly used to digitize printed documents, such as books, articles, invoices, and receipts, making it easier to store, search, and process the text electronically. OCR technology is widely used in various applications, including document scanning, data entry, text recognition, and document management systems.<br />\r\n<br />\r\nScanners and barcode readers are also input devices, but they do not convert images into text. Scanners convert images into digital images, while barcode readers convert barcodes into numbers. Optical mark readers (OMRs) are used to read marks made on a document, such as those made by a pencil or pen.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263563",
+                "tag": "a",
+                "text": "scanner.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263564",
+                "tag": "b",
+                "text": "optical mark reader.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263565",
+                "tag": "c",
+                "text": "barcode reader.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263566",
+                "tag": "d",
+                "text": "optical character reader.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69838": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following QBASIC arithmetic operations is the last in order of precedence?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>In QBASIC arithmetic operations, the order of precedence determines the sequence in which operations are performed. The operation with the highest precedence is performed first, followed by those with lower precedence. Among the options provided, the arithmetic operation that is last in order of precedence is &quot;Subtraction.&quot;<br />\r\n<br />\r\nThe order of precedence, from highest to lowest, typically follows this sequence:<br />\r\n<br />\r\nExponentiation (^)<br />\r\nMultiplication (*), Division (/), and Integer Division ()<br />\r\nAddition (+), Subtraction (-)<br />\r\n<br />\r\nFor example, the expression 2 * 3 - 4 is evaluated as follows:<br />\r\n<br />\r\nThe multiplication is performed first, so 2 * 3 = 6.<br />\r\nThe subtraction is performed next, so 6 - 4 = 2.<br />\r\nThe final value of the expression is 2.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "263567",
+                "tag": "a",
+                "text": "Subtraction",
+                "is_correct": true
+            },
+            {
+                "option_id": "263568",
+                "tag": "b",
+                "text": "Addition",
+                "is_correct": false
+            },
+            {
+                "option_id": "263569",
+                "tag": "c",
+                "text": "Division",
+                "is_correct": false
+            },
+            {
+                "option_id": "263570",
+                "tag": "d",
+                "text": "Exponentiation",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69839": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The command used to seek for assistance in Microsoft disk operating system is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The command used to seek for assistance in Microsoft Disk Operating System (DOS) is &quot;/?&quot;.<br />\r\n<br />\r\nThe /? switch is a universal switch that can be used with most MS-DOS commands to get help about the command. To use the /? switch, simply type the command followed by the /? switch and press Enter. For example, to get help about the attrib command, you would type:<br />\r\n<br />\r\nattrib /?<br />\r\nThis will display a help screen that describes the attrib command and its options.<br />\r\n<br />\r\nThe other options are incorrect. Helper is not a valid MS-DOS command. Attrib is a command that is used to change the attributes of files. /S is a switch that is used to specify that the command should be applied to all files in a directory and its subdirectories.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263571",
+                "tag": "a",
+                "text": "Attrib",
+                "is_correct": false
+            },
+            {
+                "option_id": "263572",
+                "tag": "b",
+                "text": "/S",
+                "is_correct": false
+            },
+            {
+                "option_id": "263573",
+                "tag": "c",
+                "text": "/?",
+                "is_correct": true
+            },
+            {
+                "option_id": "263574",
+                "tag": "d",
+                "text": "Helper.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69840": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following is an example of information?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Average score of students in a test is an example of information<br />\r\n<br />\r\nInformation is data that has been processed and organized so that it has meaning. It can be used to make decisions, solve problems, or understand the world around us.<br />\r\n<br />\r\nThe other options are not examples of information. Student&#39;s score in a test is data, recorded observation is data, and list of items is data. They do not have meaning until they are processed and organized.<br />\r\n<br />\r\nFor example, the student&#39;s score in a test is just a number. It does not have meaning until it is compared to the scores of other students. The average score of students in a test is information because it has meaning. It tells us how well the students did on the test.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263575",
+                "tag": "a",
+                "text": "Recorded observation",
+                "is_correct": false
+            },
+            {
+                "option_id": "263576",
+                "tag": "b",
+                "text": "Average score of students in a test",
+                "is_correct": true
+            },
+            {
+                "option_id": "263577",
+                "tag": "c",
+                "text": "List of items",
+                "is_correct": false
+            },
+            {
+                "option_id": "263578",
+                "tag": "d",
+                "text": "Student\u2019s score in a test",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69841": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The usage of the keys CTRL + W in Ms Word</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The usage of the keys &quot;CTRL + W&quot; in Microsoft Word is to &quot;close the current window.&quot;<br />\r\n<br />\r\nWhen you press &quot;CTRL + W&quot; in Microsoft Word, it closes the currently active document window. This action doesn&#39;t save the document if changes have been made; it simply closes the window. If there are unsaved changes, Word will prompt you to save before closing. This keyboard shortcut is used to quickly close documents and is commonly found in many applications to close active windows or tabs.<br />\r\n<br />\r\nTo close the current window using Ctrl + W, simply press and hold the Ctrl key and then press the W key. The current window will be closed immediately.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263579",
+                "tag": "a",
+                "text": "closes the current window.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263580",
+                "tag": "b",
+                "text": "updates the current web page.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263581",
+                "tag": "c",
+                "text": "opens the print dialogue box.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263582",
+                "tag": "d",
+                "text": "saves the current file.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69843": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The speed of data transfer can be affected by the following factors <strong>except</strong></p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The speed of data transfer can be affected by the following factors except &quot;broadband status.&quot;<br />\r\n<br />\r\nThe factors listed in the options can indeed affect the speed of data transfer in a computer system:<br />\r\n<br />\r\nAddress Bus Width: The width of the address bus determines the maximum memory capacity that the system can access. It indirectly affects data transfer speed by allowing more efficient access to memory locations.<br />\r\n<br />\r\nClock Speed: The clock speed of the CPU determines how many instructions the CPU can execute per second. A higher clock speed generally leads to faster data processing.<br />\r\n<br />\r\nData Bus Width: The width of the data bus affects the amount of data that can be transferred between the CPU and memory in a single bus cycle. A wider data bus can transfer more data at once.<br />\r\n<br />\r\nHowever, &quot;broadband status&quot; is not typically a factor that directly affects the speed of data transfer within a computer system. Broadband status is more related to network connectivity and internet speed, not internal data transfer within a computer&#39;s components.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263587",
+                "tag": "a",
+                "text": "address bus width.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263588",
+                "tag": "b",
+                "text": "broadband status.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263589",
+                "tag": "c",
+                "text": "data bus width.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263590",
+                "tag": "d",
+                "text": "clock speed.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69844": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following data is alpha-numeric?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The alpha-numeric data is a combination of alphabetic and numeric characters. Let&#39;s check each option:<br />\r\n<br />\r\n568 - This is numeric data because it contains only numbers.<br />\r\n<br />\r\nSS3 - This is alpha-numeric data because it contains both alphabetic characters (&quot;SS&quot;) and a numeric character (&quot;3&quot;).<br />\r\n<br />\r\n10.00 - This is numeric data because it contains numbers and a decimal point, which is still considered numeric.<br />\r\n<br />\r\nTwenty-five - This is alphabetic data because it contains only letters and represents a textual representation of the number 25.<br />\r\n<br />\r\nSo, the alpha-numeric data among the options is &quot;SS3&quot;.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 10,
+        "options": [
+            {
+                "option_id": "263591",
+                "tag": "a",
+                "text": "568",
+                "is_correct": false
+            },
+            {
+                "option_id": "263592",
+                "tag": "b",
+                "text": "10.00",
+                "is_correct": false
+            },
+            {
+                "option_id": "263593",
+                "tag": "c",
+                "text": "SS3",
+                "is_correct": true
+            },
+            {
+                "option_id": "263594",
+                "tag": "d",
+                "text": "Twenty-five",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69845": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The unit of the computer system that directs and supervises other units is called the</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The unit of the computer system that directs and supervises other units is called the &quot;control unit.&quot;<br />\r\n<br />\r\nThe control unit is a critical component of a computer&#39;s central processing unit (CPU). It is responsible for fetching program instructions from memory, interpreting them, and coordinating the execution of these instructions by sending control signals to other units within the CPU and other parts of the computer system. The control unit ensures that data is processed in the correct sequence and that the various components of the CPU work together harmoniously to carry out the instructions of a program. It is like the &quot;brain&quot; of the CPU, managing the flow of data and instructions and ensuring that the computer performs its tasks correctly and efficiently</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263595",
+                "tag": "a",
+                "text": "memory unit.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263596",
+                "tag": "b",
+                "text": "control unit.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263597",
+                "tag": "c",
+                "text": "arithmetic logic unit.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263598",
+                "tag": "d",
+                "text": "accumulator",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69846": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>An opening on the motherboard of a system unit where expansion cards can be inserted is known as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>An opening on the motherboard of a system unit where expansion cards can be inserted is known as an expansion slot.<br />\r\n<br />\r\nExpansion slots are used to add additional functionality to a computer, such as a graphics card, sound card, or network card. They are also used to add more memory to a computer.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263599",
+                "tag": "a",
+                "text": "expansion port.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263600",
+                "tag": "b",
+                "text": "extension box.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263601",
+                "tag": "c",
+                "text": "extension board.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263602",
+                "tag": "d",
+                "text": "expansion slot.",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69847": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Headers and footers are used in Microsoft Word documents to</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Headers and footers are used in Microsoft Word documents to &quot;allow text to appear at the top and bottom of every page.&quot;<br />\r\n<br />\r\nHeaders are sections of the document that appear at the top of each page, and footers appear at the bottom of each page. They provide a way to include consistent information such as page numbers, document titles, author names, dates, and other important details that you want to appear on every page of the document. Headers and footers enhance the professional appearance and consistency of a document, especially for larger documents or reports.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263603",
+                "tag": "a",
+                "text": "enhance the overall appearance of the document.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263604",
+                "tag": "b",
+                "text": "allow text to appear at the top and bottom of every page.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263605",
+                "tag": "c",
+                "text": "make large document more readable.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263606",
+                "tag": "d",
+                "text": "allow test to appear at the top of the first page.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69848": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If today&#39;s date is 02/02/2008, what will be the result of typing &quot;=today() - 1&quot; in a cell of a spreadsheet?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>If today&#39;s date is 02/02/2008, the result of typing &quot;=today() - 1&quot; in a cell of a spreadsheet will be &quot;02/01/2008&quot;.<br />\r\n<br />\r\nThe today() function in Excel returns the current date. The - 1 operator subtracts one from the result of the today() function. Therefore, the expression =today() - 1 will return the date that is one day before the current date.<br />\r\n<br />\r\nIn this case, the current date is 02/02/2008. Subtracting one from this date gives us 02/01/2008.<br />\r\n<br />\r\n<strong>NB:</strong> By default, Excel uses the mm/dd/yyyy format for dates. This means that the month is represented by the first two digits, the day is represented by the third digit, and the year is represented by the last four digits. The date format in Excel can be customized to suit your needs.<br />\r\n<br />\r\nHowever, you can change the date format to something else if you prefer. For example, you could change the date format to dd/mm/yyyy, which would represent the day, month, and year in that order.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "263607",
+                "tag": "a",
+                "text": "02/01/2008",
+                "is_correct": true
+            },
+            {
+                "option_id": "263608",
+                "tag": "b",
+                "text": "01/02/2009",
+                "is_correct": false
+            },
+            {
+                "option_id": "263609",
+                "tag": "c",
+                "text": "01/02/2008",
+                "is_correct": false
+            },
+            {
+                "option_id": "263610",
+                "tag": "d",
+                "text": "02/02/2007",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69849": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The act of translating data into a secret code is known as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The act of translating data into a secret code is known as &quot;encryption&quot;.<br />\r\n<br />\r\nAuthentication is the process of verifying the identity of a user or device. Authorization is the process of granting permissions to a user or device to access certain resources. Piracy is the unauthorized use or reproduction of copyrighted material.<br />\r\n<br />\r\nEncryption is a security technique that converts data into a secret code so that it cannot be read by unauthorized users. The code is only readable by someone who has the decryption key. Encryption is used to protect data from unauthorized access, disclosure, modification, or destruction</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "263611",
+                "tag": "a",
+                "text": "piracy.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263612",
+                "tag": "b",
+                "text": "encryption.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263613",
+                "tag": "c",
+                "text": "authentication.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263614",
+                "tag": "d",
+                "text": "authorization.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69850": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The https in the web address, https://waec.org.ng, is called a</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The &quot;https&quot; in the web address &quot;https://waec.org.ng&quot; is called a &quot;protocol.&quot;<br />\r\n<br />\r\nIn web addresses (URLs), &quot;https&quot; stands for &quot;Hypertext Transfer Protocol Secure.&quot; It&#39;s a communication protocol used to transmit data securely over the internet. When you access a website with an &quot;https&quot; URL, the data exchanged between your browser and the web server is encrypted to ensure privacy and security. This is especially important for transmitting sensitive information like login credentials, payment details, and personal data</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "263615",
+                "tag": "a",
+                "text": "web page.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263616",
+                "tag": "b",
+                "text": "protocol.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263617",
+                "tag": "c",
+                "text": "hostname.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263618",
+                "tag": "d",
+                "text": "file path.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69851": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The process of transferring a file from a server to a computer is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The process of transferring a file from a server to a computer is called &quot;downloading.&quot;<br />\r\n<br />\r\nDownloading involves retrieving data from a remote server and saving it to your local computer or device. It&#39;s a common action when you want to obtain files, documents, software, media, or other content from the internet. This content is copied from the server&#39;s storage to your computer&#39;s storage, enabling you to access and use it locally.<br />\r\n<br />\r\nThe opposite of downloading is uploading. When you upload a file, you are sending a file from your computer to a server. The server stores the file on its hard drive until it is needed.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263619",
+                "tag": "a",
+                "text": "pinging",
+                "is_correct": false
+            },
+            {
+                "option_id": "263620",
+                "tag": "b",
+                "text": "browsing.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263621",
+                "tag": "c",
+                "text": "downloading.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263622",
+                "tag": "d",
+                "text": "uploading.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69852": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The following are functions of database management system <strong>except</strong></p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The following are functions of a database management system (DBMS).<br />\r\n<br />\r\nBackup and replication: A DBMS can be used to backup and replicate databases. This means that the database can be copied to a different location or to multiple locations. This is important for disaster recovery purposes.<br />\r\nRule enforcement: A DBMS can be used to enforce rules on data. This means that the DBMS can be used to prevent users from entering invalid data or from making changes to data that they are not authorized to change.<br />\r\nSecurity of data: A DBMS can be used to secure data. This means that the DBMS can be used to encrypt data, to restrict access to data, and to audit access to data.<br />\r\n<br />\r\nFormat operation is not a function of a DBMS. A format operation is the process of converting data from one format to another. This is not something that a DBMS typically does</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263623",
+                "tag": "a",
+                "text": "format operation.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263624",
+                "tag": "b",
+                "text": "rule enforcement.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263625",
+                "tag": "c",
+                "text": "security of data.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263626",
+                "tag": "d",
+                "text": "backup and replication.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69853": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Input devices are computer devices that can</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Input devices are computer devices that can:<br />\r\n<br />\r\nsend data and instructions into the computer memory.<br />\r\n<br />\r\nInput devices are used to provide data and instructions to the computer. They allow users to interact with the computer by inputting various types of data, such as text, numbers, images, and commands. Examples of input devices include keyboards, mice, touchscreens, scanners, microphones, and digital cameras. These devices enable users to send data and commands to the computer&#39;s memory, where the data is processed and stored for further use</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263627",
+                "tag": "a",
+                "text": "send data and instructions into the computer memory.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263628",
+                "tag": "b",
+                "text": "be used to get data from the computer.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263629",
+                "tag": "c",
+                "text": "send results to the memory of the computer.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263630",
+                "tag": "d",
+                "text": "receive data and instructions from the computer memory.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69854": {
+        "order_id": 40,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Viruses, worms and Trojan horses are regarded as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Viruses, worms, and Trojan horses are regarded as &quot;malicious software&quot; or &quot;malware.&quot;<br />\r\n<br />\r\nThese terms refer to different types of software that are designed to disrupt, damage, or gain unauthorized access to computer systems, networks, or data. Here&#39;s a brief explanation of each:<br />\r\n<br />\r\nViruses: Viruses are programs that attach themselves to legitimate files or software and spread when those files are executed. They can cause a range of issues, from annoying pop-ups to data corruption.<br />\r\n<br />\r\nWorms: Worms are self-replicating programs that can spread over computer networks without the need for user intervention. They exploit vulnerabilities to spread and can consume network resources.<br />\r\n<br />\r\nTrojan Horses (Trojans): Trojans are programs that appear harmless but have malicious intent. They often trick users into running them, leading to unauthorized access, data theft, or other harmful actions.<br />\r\n<br />\r\nThese forms of malware can cause significant harm to computer systems and data, which is why it&#39;s important to have effective antivirus and security measures in place to protect against them</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263631",
+                "tag": "a",
+                "text": "system software.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263632",
+                "tag": "b",
+                "text": "malicious software.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263633",
+                "tag": "c",
+                "text": "application software.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263634",
+                "tag": "d",
+                "text": "utility software.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69855": {
+        "order_id": 41,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Which of the following actions is <strong>not</strong> an animation in Microsoft PowerPoint?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The action &quot;Dancing&quot; is not an animation in Microsoft PowerPoint.<br />\r\n<br />\r\nIn Microsoft PowerPoint, animations are used to add movement and visual effects to slides and their content during a presentation. The other actions you mentioned, namely &quot;Emphasis,&quot; &quot;Entrance,&quot; and &quot;Motion paths,&quot; are types of animations that you can apply to elements on your slides to enhance your presentation.<br />\r\n<br />\r\n&quot;Dancing&quot; is not a predefined animation effect in PowerPoint. However, you can use various animation effects like &quot;Emphasis,&quot; &quot;Entrance,&quot; and &quot;Motion paths&quot; to create dynamic and engaging presentations by making text, images, and other elements appear, move, or change in ways that capture your audience&#39;s attention.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263635",
+                "tag": "a",
+                "text": "Entrance",
+                "is_correct": false
+            },
+            {
+                "option_id": "263636",
+                "tag": "b",
+                "text": "Emphasis",
+                "is_correct": false
+            },
+            {
+                "option_id": "263637",
+                "tag": "c",
+                "text": "Motion paths",
+                "is_correct": false
+            },
+            {
+                "option_id": "263638",
+                "tag": "d",
+                "text": "Dancing",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69856": {
+        "order_id": 42,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The database model that uses tables with columns and rows is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The database model that uses tables with columns and rows is called a &quot;relational database.&quot;<br />\r\n<br />\r\nIn a relational database, data is organized into tables, where each table represents a specific entity or concept. The columns of the table represent attributes or properties of the entity, and each row contains a set of values corresponding to those attributes. The relationships between tables are established through keys, primarily primary keys and foreign keys.<br />\r\n<br />\r\nFor example, a table that stores customer data might have columns for customer name, address, phone number, and email address. Each row in the table would represent a single customer.<br />\r\n<br />\r\nRelational databases are widely used for managing structured data, and they provide a flexible and efficient way to store, retrieve, and manipulate data. The relational model has become one of the most dominant and popular approaches for organizing and managing data in various applications and industries.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263639",
+                "tag": "a",
+                "text": "hierarchical database.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263640",
+                "tag": "b",
+                "text": "relational database.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263641",
+                "tag": "c",
+                "text": "network database.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263642",
+                "tag": "d",
+                "text": "linear database.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69857": {
+        "order_id": 43,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Datatypes in QBASIC programming language include the following <strong>except</strong></p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Datatypes in QBASIC programming language include the following except &quot;short.&quot;<br />\r\n<br />\r\nIn QBASIC, the datatypes that are commonly used include &quot;double,&quot; &quot;float,&quot; and &quot;long.&quot; However, &quot;short&quot; is not a standard datatype in QBASIC.<br />\r\n<br />\r\nHere&#39;s a brief explanation of the other datatypes:<br />\r\n<br />\r\nINTEGER: A 16-bit signed integer variable.<br />\r\nLONG: A 32-bit signed integer variable.<br />\r\nSINGLE: A single-precision 32-bit floating-point variable.<br />\r\nDOUBLE: A double-precision 64-bit floating-point variable.<br />\r\nSTRING * n%: A fixed-length string variable n% bytes long.<br />\r\nSTRING: A variable-length string variable.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263643",
+                "tag": "a",
+                "text": "double",
+                "is_correct": false
+            },
+            {
+                "option_id": "263644",
+                "tag": "b",
+                "text": "short",
+                "is_correct": true
+            },
+            {
+                "option_id": "263645",
+                "tag": "c",
+                "text": "float.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263646",
+                "tag": "d",
+                "text": "long.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69858": {
+        "order_id": 44,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A program that converts source code instructions in high-level programming language to object codes line by line is known as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A program that converts source code instructions in high-level programming language to object codes line by line is known as an interpreter.<br />\r\n<br />\r\nAn interpreter is a program that executes source code line by line. It does not convert the source code into machine code first. This makes interpreters slower than compilers, but it also makes them more flexible. Interpreters can be used to execute programs that are written in languages that are not supported by compilers.<br />\r\n<br />\r\nCompilers, on the other hand, convert source code into machine code before executing it. This makes compilers faster than interpreters, but it also makes them less flexible. Compilers can only be used to execute programs that are written in languages that are supported by the compiler.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "263647",
+                "tag": "a",
+                "text": "interpreter.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263648",
+                "tag": "b",
+                "text": "compiler.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263649",
+                "tag": "c",
+                "text": "editor",
+                "is_correct": false
+            },
+            {
+                "option_id": "263650",
+                "tag": "d",
+                "text": "assembler.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69859": {
+        "order_id": 45,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Stored instructions and data in digital computer consist of</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Stored instructions and data in a digital computer consist of &quot;bits.&quot;<br />\r\n<br />\r\nA bit is the smallest unit of information in a digital computer. It can be either a 0 or a 1. Bits are combined to form bytes, which are used to represent characters, numbers, and instructions.<br />\r\n<br />\r\nAlphabets, numerals, and characters are all represented by bits in a digital computer. For example, the letter &quot;A&quot; can be represented by the bits 01000001, the number &quot;1&quot; can be represented by the bits 00000001, and the character &quot;@&quot; can be represented by the bits 01001000.<br />\r\n<br />\r\nThe instructions that a computer follows are also stored as bits. These instructions tell the computer what to do, such as add two numbers, print a message, or open a file.<br />\r\n<br />\r\nBits are the foundation of all data and instructions in a digital computer. Without bits, computers would not be able to function.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263651",
+                "tag": "a",
+                "text": "bits.",
+                "is_correct": true
+            },
+            {
+                "option_id": "263652",
+                "tag": "b",
+                "text": "numerals.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263653",
+                "tag": "c",
+                "text": "alphabets",
+                "is_correct": false
+            },
+            {
+                "option_id": "263654",
+                "tag": "d",
+                "text": "characters.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69860": {
+        "order_id": 46,
+        "exam_type": "WAEC",
+        "subject": "Computer Studies",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The process of making copies of files which can be used to restore the original copy in the event of data loss is called file</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The process of making copies of files which can be used to restore the original copy in the event of data loss is called &quot;backup.&quot;<br />\r\n<br />\r\nFile backup is the process of making copies of files which can be used to restore the original copy in the event of data loss. This is an important process for protecting your data from accidental deletion, corruption, or hardware failure.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "263655",
+                "tag": "a",
+                "text": "restoration.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263656",
+                "tag": "b",
+                "text": "retrieval.",
+                "is_correct": false
+            },
+            {
+                "option_id": "263657",
+                "tag": "c",
+                "text": "organization",
+                "is_correct": false
+            },
+            {
+                "option_id": "263658",
+                "tag": "d",
+                "text": "backup",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 0,
+        "editor_images": null
+    }
+}

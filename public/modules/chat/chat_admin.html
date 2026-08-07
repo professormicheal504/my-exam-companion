@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../components/topbar.css">
-  <link rel="stylesheet" href="../../components/sidebar.css?v=5">
+    <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=5">
     
     <style>
         :root {
@@ -201,9 +201,9 @@
 </head>
 <body>
 
-<app-sidebar data-base="../../"></app-sidebar>
+<app-sidebar data-base="/"></app-sidebar>
 <div class="main-wrapper" style="background:var(--chat-bg);">
-    <app-topbar data-base="../../"></app-topbar>
+    <app-topbar data-base="/"></app-topbar>
 
 <div class="chat-container">
     
@@ -300,8 +300,9 @@
 </div>
 
 </div> <!-- End main-wrapper -->
-<script src="../../components/topbar.js"></script>
-  <script src="../../components/sidebar.js?v=6"></script>
+<script defer src="/components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js?v=6"></script>
 <script>
     const timeline = document.getElementById('timeline');
     const chatInput = document.getElementById('chat-input');

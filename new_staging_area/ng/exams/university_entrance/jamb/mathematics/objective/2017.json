@@ -1,0 +1,1984 @@
+{
+    "46321": {
+        "order_id": 1,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Given T = { even numbers from 1 to 12 }<br />\r\nN = {common factors of 6, 8 and 12}<br />\r\nFind T &cap; N</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>T = {evenn numbers from 1 to 12}<br />\r\nN = {common factors of 6,8 and 12}<br />\r\nFind T &cap; N<br />\r\nT = {2, 4, 6, 8, 10, 12}<br />\r\nN = {2}<br />\r\nT &cap; N = {2} i.e value common to T &amp; N</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194043",
+                "tag": "a",
+                "text": "{2, 3}",
+                "is_correct": false
+            },
+            {
+                "option_id": "194044",
+                "tag": "b",
+                "text": "{2, 3, 4}",
+                "is_correct": false
+            },
+            {
+                "option_id": "194045",
+                "tag": "c",
+                "text": "{3, 4, 6}",
+                "is_correct": false
+            },
+            {
+                "option_id": "194046",
+                "tag": "d",
+                "text": "{2}",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46322": {
+        "order_id": 2,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "What is the next number in the series 2, 1, \\(\\frac{1}{2}\\), \\(\\frac{1}{4}\\)...",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "2, 1, \\(\\frac{1}{2}\\), \\(\\frac{1}{4}\\).....<br>\r\n<br>\r\nThere are 4 terms in the series <br>\r\nTherefore the next number will be the 5th term<br>\r\n<br>\r\nT<sub>n</sub> = ar\\(^{n \u2212 1}\\) (formular for geometric series)<br>\r\n<br>\r\na = first term = 2<br>\r\n<br>\r\nr = common rate = \\(\\frac{\\text{next term}}{\\text{previous term}}\\) = \\(\\frac{1}{2}\\)<br>\r\n<br>\r\nn = number of terms<br>\r\n<br>\r\nT<sub>5</sub> = 5th term = ?<br>\r\n<br>\r\nT<sub>5</sub> = ar\\(^{5 - 1}\\)<br>\r\n<br>\r\n= ar\\(^4\\)<br>\r\n<br>\r\n= 2 \u00d7 (ar\\(^{n \u2212 1}\\))<sup>4</sup><br>\r\n<br>\r\n= 2 \u00d7 \\(\\frac{1}{16}\\)<br>\r\n<br>\r\n= \\(\\frac{1}{8}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194047",
+                "tag": "a",
+                "text": "\\(\\frac{1}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194048",
+                "tag": "b",
+                "text": "\\(\\frac{2}{8}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194049",
+                "tag": "c",
+                "text": "\\(\\frac{3}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194050",
+                "tag": "d",
+                "text": "\\(\\frac{1}{8}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46323": {
+        "order_id": 3,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "probability",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>If U = {x : x is an integer and 1 &le; x &le; 20 }<br />\r\nE1 = {x: x is a multiple of 3}<br />\r\nE2 = {x: x is a multiple of 4} and an integer is picked at random from U, find the probability that it is not in E2</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}<br />\r\n<br />\r\nE1 = {3, 6, 9, 12, 15, 18}<br />\r\n<br />\r\nE2 = {4, 8, 12, 16, 20}<br />\r\n<br />\r\nProbability of E2 = \\(\\frac{5}{20}\\) i.e \\(\\frac{\\text{Total number in}E_2}{\\text{Entire number in set}}\\)<br />\r\n<br />\r\nProbability of set E2 = 1 &minus; \\(\\frac{5}{20}\\)<br />\r\n<br />\r\n= \\(\\frac{15}{20}\\)<br />\r\n<br />\r\n= \\(\\frac{3}{4}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "194051",
+                "tag": "a",
+                "text": "\\(\\frac{3}{4}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194052",
+                "tag": "b",
+                "text": "\\(\\frac{3}{10}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194053",
+                "tag": "c",
+                "text": "\\(\\frac{1}{4}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194054",
+                "tag": "d",
+                "text": "\\(\\frac{1}{20}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46324": {
+        "order_id": 4,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "The curved surface area of a cylinder 5cm high is 110cm<sup>2</sup>. Find the radius of its base<br>\r\n\u03c0 = \\(\\frac{22}{7}\\)",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Curved surface area of cylinder = 2\u03c0rh<br>\r\n<br>\r\n110 = 2 \u00d7 \\(\\frac{22}{7}\\) \u00d7 r \u00d7 5<br>\r\n<br>\r\nr = \\(\\frac{110 \\times 7}{44 \\times 5}\\)<br>\r\n      <br>\r\n= 3.5cm",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194055",
+                "tag": "a",
+                "text": "2.6cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "194056",
+                "tag": "b",
+                "text": "3.5cm",
+                "is_correct": true
+            },
+            {
+                "option_id": "194057",
+                "tag": "c",
+                "text": "3.6cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "194058",
+                "tag": "d",
+                "text": "7.0cm",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46325": {
+        "order_id": 5,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "graph-of-linear-and-quadratic-functions",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "If two graphs Y = px<sup>2</sup>  + q and y = 2x<sup>2</sup>  \u2212 1 intersect at x =2, find the value of p in terms of q",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Y = Px<sup>2</sup>  + q<br>\r\n<br>\r\nY = 2x<sup>2</sup> - 1<br>\r\n<br>\r\nPx<sup>2</sup> + q = 2x<sup>2</sup> - 1<br>\r\n<br>\r\nPx<sup>2</sup> = 2x<sup>2</sup> - 1 - q<br>\r\n<br>\r\np = \\(\\frac{2x^2 - 1 - q}{x^2}\\)<br>\r\n<br>\r\nat x = 2<br>\r\n<br>\r\nP = \\(\\frac{2(2)^2 - 1 - q}{2^2}\\)<br>\r\n<br>\r\n= \\(\\frac{2(4) - 1 -q}{4}\\)<br>\r\n<br>\r\n= \\(\\frac{8 - 1 - q}{4}\\)<br>\r\n<br>\r\nP = \\(\\frac{7 - q}{4}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "194059",
+                "tag": "a",
+                "text": "q \u2212 \\(\\frac{8}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194060",
+                "tag": "b",
+                "text": "7 \u2212 \\(\\frac{q}{4}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194061",
+                "tag": "c",
+                "text": "8 \u2212 \\(\\frac{q}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194062",
+                "tag": "d",
+                "text": "7 + \\(\\frac{q}{8}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46326": {
+        "order_id": 6,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "simple-operations-on-algebraic-expression",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Evaluate (\\(\\sin\\)45&ordm;&nbsp;+ \\(\\sin\\)30&ordm;&nbsp;) in surd form</p>",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/24194034192_sol_17_06b.jpg",
+        "explanation": "<p>hypotenuse<br />\r\nsin = \\(\\frac{1}{2}\\)<br />\r\n<br />\r\n\\(\\sin45 = \\frac{1}{\\sqrt{2}}\\)<br />\r\n<br />\r\n= \\(\\frac{2}{2}\\)<br />\r\n<br />\r\n&there4; (sin45 + sin30)<br />\r\n<br />\r\n= \\(\\frac{1}{\\sqrt{2}} + \\frac{1}{2}\\)<br />\r\n<br />\r\n= \\(\\frac{\\sqrt{2}}{2}\\) + \\(\\frac{1}{2}\\)<br />\r\n<br />\r\n= \\(\\frac{\\sqrt{2} + 1}{2}\\)<br />\r\n<br />\r\n= \\(\\frac{1 + \\sqrt{2}}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194063",
+                "tag": "a",
+                "text": "\\(\\frac{\\sqrt{3}}{2\\sqrt{2}}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194064",
+                "tag": "b",
+                "text": "\u221a3 \u2212 \\(\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194065",
+                "tag": "c",
+                "text": "\\(\\frac{1}{2}\\)\u221a2",
+                "is_correct": false
+            },
+            {
+                "option_id": "194066",
+                "tag": "d",
+                "text": "\\(\\frac{1 +\\sqrt{2}}{2}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46327": {
+        "order_id": 7,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>If y = x Sin x, find \\(\\frac{dy}{dx}\\) when x = \\(\\frac{\\pi}{2}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>y = xsinx<br />\r\n<br />\r\n\\(\\frac{dy}{dx}\\) = \\(1 \\sin x + x \\cos x\\)<br />\r\n<br />\r\n= \\(\\sin x + x \\cos x\\)<br />\r\n<br />\r\nAt x = \\(\\frac{\\pi}{2}\\)<br />\r\n<br />\r\n= sin\\(\\frac{\\pi}{2}\\) + \\(\\frac{\\pi}{2} \\cos {\\frac{\\pi}{2}}\\)<br />\r\n<br />\r\n= 1 + \\(\\frac{\\pi}{2}\\) &times; 0<br />\r\n<br />\r\n= 1</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "194067",
+                "tag": "a",
+                "text": "\\(\\frac{- \\pi}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194068",
+                "tag": "b",
+                "text": "-1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194069",
+                "tag": "c",
+                "text": "1",
+                "is_correct": true
+            },
+            {
+                "option_id": "194070",
+                "tag": "d",
+                "text": "\\(\\frac{ \\pi}{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46328": {
+        "order_id": 8,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "If temperature t is directly proportional to heat h, and when t = 20<sup>o</sup>C, h = 50 J, find t when h = 60J",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "t \u221d h, t = 20, h<br>\r\n<br>\r\nt = ? h = 60<br>\r\n<br>\r\nt = kh where k is constant<br>\r\n<br>\r\n20 = 50k <br>\r\n<br>\r\nk = \\(\\frac{20}{50}\\)<br>\r\n<br>\r\nk = \\(\\frac{2}{5}\\)<br>\r\n<br>\r\nwhen h = 60, t = ?<br>\r\n<br>\r\nt = \\(\\frac{2}{5}\\) \u00d7 60<br>\r\n<br>\r\nt = 24<sup>o</sup>C",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194071",
+                "tag": "a",
+                "text": "24<sup>o</sup>C",
+                "is_correct": true
+            },
+            {
+                "option_id": "194072",
+                "tag": "b",
+                "text": "20<sup>o</sup>C",
+                "is_correct": false
+            },
+            {
+                "option_id": "194073",
+                "tag": "c",
+                "text": "34<sup>o</sup>C",
+                "is_correct": false
+            },
+            {
+                "option_id": "194074",
+                "tag": "d",
+                "text": "30<sup>o</sup>C",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46329": {
+        "order_id": 9,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Evaluate 1 - (\\(\\frac{1}{5}\\) x \\(\\frac{2}{3}\\)) + ( 5 + \\(\\frac{2}{3}\\))</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194075",
+                "tag": "a",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "194076",
+                "tag": "b",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "194077",
+                "tag": "c",
+                "text": "2\\(\\frac{2}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194078",
+                "tag": "d",
+                "text": "\\(\\frac{98}{15}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46330": {
+        "order_id": 10,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "change-of-subject-of-formula",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Given m = N\\(\\sqrt{\\frac{SL}{T}}\\) make T the subject of the formula</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>M = N \\(\\sqrt{\\frac{SL}{T}}\\),<br />\r\n<br />\r\nmake T subject of formula square both sides<br />\r\n<br />\r\nM\\(^{2}\\) = \\(\\frac{N^2SL}{T}\\)<br />\r\n<br />\r\nTM\\(^{2}\\) = N\\(^{2}\\)SL<br />\r\n<br />\r\nT = \\(\\frac{N^2SL}{M^2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194079",
+                "tag": "a",
+                "text": "\\(\\frac{\\text{NSL}}{M}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194080",
+                "tag": "b",
+                "text": "\\(\\frac{N^2SL}{M^2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194081",
+                "tag": "c",
+                "text": "\\(\\frac{N^2SL}{M}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194082",
+                "tag": "d",
+                "text": "\\(\\frac{NSL}{M^2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46331": {
+        "order_id": 11,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "logarithms",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Simplify 3 \\(^{n &minus; 1}\\) &times;&nbsp; \\(\\frac{27^{n + 1}}{81^n}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>3\\(^{n - 1}\\) &times; \\(\\frac{27^{n + 1}}{81^n}\\)<br />\r\n<br />\r\n= 3\\(^{n - 1}\\) &times;&nbsp; \\(\\frac{3^{3(n + 1)}}{3^{4n}}\\)<br />\r\n<br />\r\n= 3\\(^{n - 1 + 3n + 3 &minus; 4n}\\)<br />\r\n<br />\r\n= 3\\(^{4n &minus; 4n &minus; 1 + 3}\\)<br />\r\n<br />\r\n= \\(3^{2}\\)<br />\r\n<br />\r\n= 9</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 6,
+        "options": [
+            {
+                "option_id": "194083",
+                "tag": "a",
+                "text": "3\\(^{2n}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194084",
+                "tag": "b",
+                "text": "9",
+                "is_correct": true
+            },
+            {
+                "option_id": "194085",
+                "tag": "c",
+                "text": "3<sup>n</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194086",
+                "tag": "d",
+                "text": "3 \\(^{n + 1}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46332": {
+        "order_id": 12,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "coordinate-geometry-of-straight-lines",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>The locus of a point which is equidistant from the line PQ forms a</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The locus of points equidistant from a given straight line PQ consists of two parallel lines, one on each side of PQ, each at the same perpendicular distance from it.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194087",
+                "tag": "a",
+                "text": "circle centre P",
+                "is_correct": false
+            },
+            {
+                "option_id": "194088",
+                "tag": "b",
+                "text": "pair of parallel lines each opposite to PQ",
+                "is_correct": true
+            },
+            {
+                "option_id": "194089",
+                "tag": "c",
+                "text": "circle centre Q",
+                "is_correct": false
+            },
+            {
+                "option_id": "194090",
+                "tag": "d",
+                "text": "perpendicular line to PQ",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46334": {
+        "order_id": 13,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "geometry-and-trigonometry",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Given the quadrilateral RSTO inscribed in the circle with O as centre. Find the size angle x and given RST = 60<sup>o</sup>",
+        "question_image": "nigeria/exam_image/question_image/JAMB/Mathematics/year/Objective/2017/img_46334.jpg",
+        "answer_image": null,
+        "explanation": "If RST = 60<sup>o</sup><br>\r\n<br>\r\nRXT = 2 \u00d7 RST<br>\r\n <br>\r\n(angle at the centre twice angle at the circumference)<br>\r\n<br>\r\nRXT = 2 \u00d7 60<br>\r\n<br>\r\n= 120<sup>o</sup>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194095",
+                "tag": "a",
+                "text": "100<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194096",
+                "tag": "b",
+                "text": "140<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194097",
+                "tag": "c",
+                "text": "120<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "194098",
+                "tag": "d",
+                "text": "10<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46335": {
+        "order_id": 14,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the sum of the range and the mode of the set of numbers 10, 9, 10, 9, 8, 7, 7, 10, 8, 10, 8, 4, 6, 9, 10, 9, 7, 10, 6, 5",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Range = Highest Number - Lowest Number<br>\r\n<br>\r\nMode is the number with highest occurrence<br>\r\n10, 9, 10, 9, 8, 7, 7, 10, 8, 4, 6,, 9, 10, 9, 7, 10, 6, 5<br>\r\n<br>\r\nRange = 10 \u2212 4 = 6<br>\r\n<br>\r\nMode = 10<br>\r\n<br>\r\nSum of range and mode = range + mode = 6 + 10<br>\r\n<br>\r\n= 16",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194099",
+                "tag": "a",
+                "text": "16",
+                "is_correct": true
+            },
+            {
+                "option_id": "194100",
+                "tag": "b",
+                "text": "14",
+                "is_correct": false
+            },
+            {
+                "option_id": "194101",
+                "tag": "c",
+                "text": "12",
+                "is_correct": false
+            },
+            {
+                "option_id": "194102",
+                "tag": "d",
+                "text": "10",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46336": {
+        "order_id": 15,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the sum to infinity of the series <br>\r\n\\(\\frac{1}{4}\\), \\(\\frac{1}{8}\\), \\(\\frac{1}{16}\\),..........",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Sum to infinity<br>\r\n<br>\r\n\u2211 = arn \u2212 1<br>\r\n<br>\r\n= \\(\\frac{a}{1}\\) \u2212 r<br>\r\n<br>\r\na = \\(\\frac{1}{4}\\)<br>\r\n<br>\r\n r = \\(\\frac{1}{8}\\) \u00f7 \\(\\frac{1}{4}\\)<br>\r\n<br>\r\nr = \\(\\frac{1}{s}\\) \u00d7 \\(\\frac{4}{1}\\)<br>\r\n<br>\r\n= \\(\\frac{1}{2}\\)<br>\r\n<br>\r\nS = \\(\\frac{1 \\div 4}{1}\\) \u2212 \\(\\frac{1}{2}\\)<br>\r\n<br>\r\n= \\(\\frac{1}{4}\\) \u00f7 \\(\\frac{1}{2}\\)<br>\r\n<br>\r\n= \\(\\frac{1}{4}\\) \u00d7 \\(\\frac{2}{1}\\)<br>\r\n<br>\r\n= \\(\\frac{1}{2}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194103",
+                "tag": "a",
+                "text": "\\(\\frac{1}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194104",
+                "tag": "b",
+                "text": "\\(\\frac{3}{5}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194105",
+                "tag": "c",
+                "text": "\\(\\frac{-1}{5}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194106",
+                "tag": "d",
+                "text": "\\(\\frac{73}{12}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46337": {
+        "order_id": 16,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "binary-operations",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>The base in which the operation was performed was</p>",
+        "question_image": "nigeria/exam_image/question_image/JAMB/Mathematics/year/Objective/2017/img_46337.jpg",
+        "answer_image": null,
+        "explanation": "<p>The operation was performed in base 2 because when counting in base 2, there are only two possible digits: 0 and 1.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "194107",
+                "tag": "a",
+                "text": "6",
+                "is_correct": false
+            },
+            {
+                "option_id": "194108",
+                "tag": "b",
+                "text": "2",
+                "is_correct": true
+            },
+            {
+                "option_id": "194109",
+                "tag": "c",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "194110",
+                "tag": "d",
+                "text": "5",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46338": {
+        "order_id": 17,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>The value of x + x ( xx) when x = 2 is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>when x=2, we have</p>\r\n\r\n<p>\\(2 + 2(2^{2})\\) = \\(2 + 8 = 10\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 9,
+        "options": [
+            {
+                "option_id": "194111",
+                "tag": "a",
+                "text": "16",
+                "is_correct": false
+            },
+            {
+                "option_id": "194112",
+                "tag": "b",
+                "text": "10",
+                "is_correct": true
+            },
+            {
+                "option_id": "194113",
+                "tag": "c",
+                "text": "18",
+                "is_correct": false
+            },
+            {
+                "option_id": "194114",
+                "tag": "d",
+                "text": "24",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46339": {
+        "order_id": 18,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "triangles-and-polygons",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "In a regular polygon, each interior angle doubles its corresponding exterior angle. Find the number of sides of the polygon",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "2x + x = 180<sup>o</sup><br>\r\n<br>\r\n3x = 180<sup>o</sup><br>\r\n<br>\r\nx = 60<sup>o</sup> (exterior angle of the polygon)<br>\r\n<br>\r\nangle = \\(\\frac{\\text{total angle}}{\\text{number of sides}}\\)<br>\r\n<br>\r\n60 = \\(\\frac{360}{n}\\)<br>\r\n<br>\r\nn = \\(\\frac{360}{60}\\)<br>\r\n<br>\r\nn = 6 sides",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "194115",
+                "tag": "a",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "194116",
+                "tag": "b",
+                "text": "6",
+                "is_correct": true
+            },
+            {
+                "option_id": "194117",
+                "tag": "c",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "194118",
+                "tag": "d",
+                "text": "3",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46340": {
+        "order_id": 19,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "A cylindrical tank has a capacity of 3080m<sup>3</sup>. What is the depth of the tank if the diameter of its base is 14m? Take pi = 22/7.",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Capacity = Volume = 3080m<sup>3</sup><br>\r\n<br>\r\nbase diameter = 14m<br>\r\n<br>\r\nradius = \\(\\frac{\\text{diameter}}{2}\\)<br>\r\n                   <br>\r\n= 7m<br>\r\n<br>\r\nVolume of Cylidner = Capacity of cylinder<br>\r\n<br>\r\n\u03c0r<sup>2</sup>h = 3080<br>\r\n<br>\r\n\\(\\frac{22}{7}\\) \u00d7 7 \u00d7 7 \u00d7 h = 3080<br>\r\n<br>\r\nh = \\(\\frac{3080}{22 \\times 7}\\)<br>\r\n      <br>\r\nh = 20m",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194119",
+                "tag": "a",
+                "text": "23m",
+                "is_correct": false
+            },
+            {
+                "option_id": "194120",
+                "tag": "b",
+                "text": "25m",
+                "is_correct": false
+            },
+            {
+                "option_id": "194121",
+                "tag": "c",
+                "text": "20m",
+                "is_correct": true
+            },
+            {
+                "option_id": "194122",
+                "tag": "d",
+                "text": "22m",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46341": {
+        "order_id": 20,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "simple-operations-on-algebraic-expression",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Simplify 4\\(\\sqrt{27}\\) + 5\\(\\sqrt{12}\\) \u2212 3\\(\\sqrt{75}\\)",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "4\\(\\sqrt{27}\\) + 5\\(\\sqrt{12}\\) \u2212 3\\(\\sqrt{75}\\)<br>\r\n<br>\r\n= 4\\(\\sqrt{3}\\) \u00d7 9 + 5\\(\\sqrt{3}\\) \u00d7 4 \u2212 3\\(\\sqrt{3}\\) \u00d7 25<br>\r\n<br>\r\n= 4 \u00d7 3\\(\\sqrt{3}\\) + 5 \u00d7 2\\(\\sqrt{3}\\) \u2212 3 \u00d7 5\\(\\sqrt{3}\\)<br>\r\n<br>\r\n= 12\\(\\sqrt{3}\\) + 10\\(\\sqrt{3}\\) \u2212 15\\(\\sqrt{3}\\)<br>\r\n<br>\r\n= (12 + 10 \u2212 15)\\(\\sqrt{3}\\)<br>\r\n<br>\r\n= 7\\(\\sqrt{3}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "194123",
+                "tag": "a",
+                "text": "7",
+                "is_correct": false
+            },
+            {
+                "option_id": "194124",
+                "tag": "b",
+                "text": "\u2212 7",
+                "is_correct": false
+            },
+            {
+                "option_id": "194125",
+                "tag": "c",
+                "text": "\u2212 7\\(\\sqrt{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194126",
+                "tag": "d",
+                "text": "7\\(\\sqrt{3}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46342": {
+        "order_id": 21,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "A man covered a distance of 50 miles on his first trip, on a later trip he traveled 300 miles while going 3 times as fast. His new time compared with the old distance was?",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Let the speed of the 1st trip be x miles/hr<br>\r\n<br>\r\nand the speed of the 2nd trip be 3x miles/hr<br>\r\n<br>\r\nSpeed = distance/time<br>\r\n<br>\r\n\u2234 Time taken to cover a distance of 50 miles on the 1st trip<br>\r\n<br>\r\n= \\(\\frac{50}{xhr}\\)<br>\r\n<br>\r\ntime taken to cover a distance of 300 miles on the next trip<br>\r\n<br>\r\n= \\(\\frac{300}{3xhr}\\)<br>\r\n<br>\r\n= \\(\\frac{100}{xhr}\\) <br>\r\n<br>\r\n\u2234the new time compared with the old time is twice as much",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194127",
+                "tag": "a",
+                "text": "three times as much",
+                "is_correct": false
+            },
+            {
+                "option_id": "194128",
+                "tag": "b",
+                "text": "the same",
+                "is_correct": false
+            },
+            {
+                "option_id": "194129",
+                "tag": "c",
+                "text": "twice as much",
+                "is_correct": true
+            },
+            {
+                "option_id": "194130",
+                "tag": "d",
+                "text": "half as much",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46343": {
+        "order_id": 22,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "graph-of-linear-and-quadratic-functions",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>In the figure, find x</p>",
+        "question_image": "nigeria/exam_image/question_image/JAMB/Mathematics/year/Objective/2017/img_46343.jpg",
+        "answer_image": null,
+        "explanation": "<p>Sum of angle at a point = 360o<br />\r\n<br />\r\n2x + 3x + 4x = 360<br />\r\n<br />\r\n9x = 360<br />\r\n<br />\r\nx = \\(\\frac{360}{9}\\)<br />\r\n<br />\r\nx = 40o</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194131",
+                "tag": "a",
+                "text": "40<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "194132",
+                "tag": "b",
+                "text": "55<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194133",
+                "tag": "c",
+                "text": "50<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194134",
+                "tag": "d",
+                "text": "60<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46344": {
+        "order_id": 23,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Divide 4x\\(^3\\) - 3x + 1 by 2x - 1</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>by method of long division, we get the answer.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "194135",
+                "tag": "a",
+                "text": "2x<sup>2</sup> -x + 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194136",
+                "tag": "b",
+                "text": "2x<sup>2</sup> - x -1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194137",
+                "tag": "c",
+                "text": "2x<sup>2</sup> + x + 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194138",
+                "tag": "d",
+                "text": "2x<sup>2</sup> + x -1",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46345": {
+        "order_id": 24,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>A car dealer bought a second-hand car for&nbsp;250,000 and spent N 70,000 refurbishing it. He then sold the car for N400,000. What is the percentage gain?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Total Cost Price = N(250,000 + 70,000)<br />\r\n<br />\r\n= N 320,000<br />\r\n<br />\r\nSelling Price = N 400,000(Given)<br />\r\n<br />\r\nGain = Selling Price - Cost Price<br />\r\n<br />\r\n= 400,000 - 320,000<br />\r\n<br />\r\n= 80,000<br />\r\n<br />\r\n% gain = \\(\\frac{\\text{Gain}}{\\text{Cost Price}}\\) &times; 100<br />\r\n<br />\r\n= \\(\\frac{80,000}{320,000}\\) &times; 100<br />\r\n<br />\r\nGain % = 25%</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194139",
+                "tag": "a",
+                "text": "60%",
+                "is_correct": false
+            },
+            {
+                "option_id": "194140",
+                "tag": "b",
+                "text": "32%",
+                "is_correct": false
+            },
+            {
+                "option_id": "194141",
+                "tag": "c",
+                "text": "25%",
+                "is_correct": true
+            },
+            {
+                "option_id": "194142",
+                "tag": "d",
+                "text": "20%",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46346": {
+        "order_id": 25,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "permutation-and-combination",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Find the number of ways that the letters of the word EXCELLENCE be arranged</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>EXCELLENCE<br />\r\n<br />\r\nIt is a ten-letter word = 10!<br />\r\n<br />\r\nSince we have repeating letters, we have to divide to remove the duplicates accordingly. There are 4 Es, 2 Cs, 2 Ls<br />\r\n<br />\r\n&there4; there are: \\(\\frac{10!}{4!2!2!}\\) ways to arrange</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 6,
+        "options": [
+            {
+                "option_id": "194143",
+                "tag": "a",
+                "text": "\\(\\frac{10!}{2!2!2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194144",
+                "tag": "b",
+                "text": "\\(\\frac{10!}{4!2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194145",
+                "tag": "c",
+                "text": "\\(\\frac{10!}{4!2!2!}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194146",
+                "tag": "d",
+                "text": "\\(\\frac{10!}{2!2!}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46347": {
+        "order_id": 26,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "fractions-decimals-percentages-and-approximation",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Evaluate \\(\\frac{0.00000231}{0.007}\\) and leave the answer in standard form</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{0.00000231}{0.007}\\) to standard form<br />\r\n<br />\r\n= \\(\\frac{231 \\times 10^{-8}}{7 \\times 10^{-3}}\\)<br />\r\n<br />\r\n= 33 &times; 10\\(^{-8 &minus; (&minus;3)}\\)<br />\r\n<br />\r\n= 33 &times; 10\\(^{&minus; 8 + 3}\\)<br />\r\n<br />\r\n= 33 &times; 10-5</p>\r\n\r\n<p>= 3.3 x 10^-4</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "194147",
+                "tag": "a",
+                "text": "3.3 x 10<sup>-4</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "194148",
+                "tag": "b",
+                "text": "3.3 x 10<sup>-3</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194149",
+                "tag": "c",
+                "text": "3.3 x 10<sup>-5</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194150",
+                "tag": "d",
+                "text": "3.3 x 10<sup>-8</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46348": {
+        "order_id": 27,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "fractions-decimals-percentages-and-approximation",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "If a rod 10cm in length was measured as 10.5cm, calculate the percentage error",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Actual measurement = 10cm<br>\r\n<br>\r\napproximated value of measurement = 10.5cm<br>\r\n<br>\r\n% error = \\(\\frac{\\text{Actual measurement \u2212 Approximated}}{\\text{Actual measure}}\\) \u00d7 100<br>\r\n<br>\r\n= \\(\\frac{10 \u2212 10.5}{10}\\) \u00d7 100<br>\r\n        <br>\r\n= \\(\\frac{-0.5}{10}\\) \u00d7 100<br>\r\n<br>\r\nignore -sign i.e take absolute value<br>\r\n<br>\r\n= \\(\\frac{0.5}{10}\\) \u00d7 100<br>\r\n<br>\r\n= 5 %",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194151",
+                "tag": "a",
+                "text": "5%",
+                "is_correct": true
+            },
+            {
+                "option_id": "194152",
+                "tag": "b",
+                "text": "10%",
+                "is_correct": false
+            },
+            {
+                "option_id": "194153",
+                "tag": "c",
+                "text": "8%",
+                "is_correct": false
+            },
+            {
+                "option_id": "194154",
+                "tag": "d",
+                "text": "7%",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46349": {
+        "order_id": 28,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "financial-arithmetic",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the principal which amounts to \u20a6 5,500 at a simple interest in 5 years at 2% per annum",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Principal = P, Simple Interest = I, Amount = A<br>\r\n<br>\r\nAmount = Principal + Simple Interest<br>\r\n<br>\r\nI = \\(\\frac{PRT}{100}\\)<br>\r\n<br>\r\nR = rate, T = time<br>\r\n<br>\r\nI = \\(\\frac{P \\times 5 \\times 2}{100}\\)<br>\r\n   <br>\r\nI = \\(\\frac{10P}{100}\\)<br>\r\n<br>\r\nI = \\(\\frac{P}{10}\\)<br>\r\n<br>\r\nAmount A = P + I<br>\r\n<br>\r\n5500 = P + \\(\\frac{P}{10}\\)<br>\r\n<br>\r\nMultiply through by 100<br>\r\n<br>\r\n5500 = 10P + P<br>\r\n<br>\r\n5500 = 11P<br>\r\n<br>\r\np = \\(\\frac{5500}{11}\\)<br>\r\n        <br>\r\np = \u20a65000",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194155",
+                "tag": "a",
+                "text": "\u20a6 4,900",
+                "is_correct": false
+            },
+            {
+                "option_id": "194156",
+                "tag": "b",
+                "text": "\u20a6 5,000",
+                "is_correct": true
+            },
+            {
+                "option_id": "194157",
+                "tag": "c",
+                "text": "\u20a6 4,700",
+                "is_correct": false
+            },
+            {
+                "option_id": "194158",
+                "tag": "d",
+                "text": "\u20a6 4,000",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46350": {
+        "order_id": 29,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "financial-arithmetic",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>The pie chart shows the allocation of money to each sector in a farm. The total amount allocated to the farm is \u20a6 80 000. Find the amount allocated to fertilizer</p>",
+        "question_image": "nigeria/exam_image/question_image/JAMB/Mathematics/year/Objective/2017/img_46350.jpg",
+        "answer_image": "https://myschool.ng/storage/classroom/19660236765_sol_17_31.jpg",
+        "explanation": "<p>Total angle at a point = 3600<br />\r\n<br />\r\n&there4; To get the angle occupied by fertilizer we have,<br />\r\n<br />\r\n40 + 50 + 80 + 70 + 30 + fertilizer(x) = 360<br />\r\n<br />\r\n270 + x = 360<br />\r\n<br />\r\nx = 360 - 270<br />\r\n<br />\r\nx = 90<br />\r\n<br />\r\nTotal amount allocated to the farm<br />\r\n= \u20a6 80,000<br />\r\n<br />\r\n&there4;Amount allocated to the fertilizer<br />\r\n<br />\r\n= \\(\\frac{\\text{fertilizer (angle) &times; Total amount}}{\\text{total angle}}\\)<br />\r\n<br />\r\n= \\(\\frac{90}{360}\\) &times; 80,000<br />\r\n<br />\r\n= \u20a620,000</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194159",
+                "tag": "a",
+                "text": "\u20a6 35, 000",
+                "is_correct": false
+            },
+            {
+                "option_id": "194160",
+                "tag": "b",
+                "text": "\u20a6 40,000",
+                "is_correct": false
+            },
+            {
+                "option_id": "194161",
+                "tag": "c",
+                "text": "\u20a6 25,000",
+                "is_correct": false
+            },
+            {
+                "option_id": "194162",
+                "tag": "d",
+                "text": "\u20a6 20,000",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46351": {
+        "order_id": 30,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "permutation-and-combination",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>In how many ways can the word MATHEMATICS be arranged?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>MATHEMATICS is an eleven-letter word = 11!<br />\r\n<br />\r\nThere are 2Ms and 2As and 2Ts<br />\r\n<br />\r\nDivide the number of repeating letters<br />\r\n<br />\r\n= \\(\\frac{11!}{2!2!2!}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194163",
+                "tag": "a",
+                "text": "\\(\\frac{11!}{9!2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194164",
+                "tag": "b",
+                "text": "\\(\\frac{11!}{9!2!2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194165",
+                "tag": "c",
+                "text": "\\(\\frac{11!}{2!2!2!}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194166",
+                "tag": "d",
+                "text": "\\(\\frac{11!}{2!2!}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46352": {
+        "order_id": 31,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "permutation-and-combination",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "In how many ways can the word MACICITA be arranged?",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "MACICITA is an eight letter word = 8!<br>\r\n<br>\r\nSince we have repeating letters, we have to divide to remove duplicates accordingly. There are 2A, 2C, 2I<br>\r\n<br>\r\n\u2234 \\(\\frac{8!}{2! 2! 2!}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "194167",
+                "tag": "a",
+                "text": "\\(\\frac{8!}{2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194168",
+                "tag": "b",
+                "text": "\\(\\frac{8!}{3! 2!}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194169",
+                "tag": "c",
+                "text": "\\(\\frac{8!}{2! 2! 2!}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194170",
+                "tag": "d",
+                "text": "8!",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46353": {
+        "order_id": 32,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>y is inversely proportional to x and y is&nbsp;6 when x = 7. Find the constant of the variation</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Y &prop; \\(\\frac{1}{2}\\)<br />\r\n<br />\r\nY = 6, X = 7<br />\r\n<br />\r\nY = \\(\\frac{k}{x}\\) where k is constant<br />\r\n<br />\r\n6 = \\(\\frac{k}{7}\\)<br />\r\n<br />\r\nk = 42</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194171",
+                "tag": "a",
+                "text": "47",
+                "is_correct": false
+            },
+            {
+                "option_id": "194172",
+                "tag": "b",
+                "text": "42",
+                "is_correct": true
+            },
+            {
+                "option_id": "194173",
+                "tag": "c",
+                "text": "54",
+                "is_correct": false
+            },
+            {
+                "option_id": "194174",
+                "tag": "d",
+                "text": "46",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46355": {
+        "order_id": 33,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "coordinate-geometry-of-straight-lines",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the equation of the locus of a point p (x, y) such that pv = pw, where v= (1, 1) and w = (3, 5)",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "The locus of a point p(x, y) such that pv = pw where v = (1, 1)<br>\r\n<br>\r\nand w = (3, 5). This means that the point p moves so that its distance from v and w are equidistance<br>\r\n<br>\r\n\\(\\sqrt{(x \u2212 x_1)^2 + (y \u2212 y_1)^2}\\) = \\(\\sqrt{(x \u2212 x_2)^2 + (y \u2212 y_2)^2}\\)<br>\r\n<br>\r\n\\(\\sqrt{(x -1)^2 + (y - 1)^2}\\) = \\(\\sqrt{(x - 3)^2 + (y - 5)^2}\\)<br>\r\n <br>\r\nsquare both sides<br>\r\n(x - 1)<sup>2</sup> + (y - 1)<sup>2</sup> = (x - 3)<sup>2</sup> + (y - 5)<sup>2</sup><br>\r\n<br>\r\nx<sup>2</sup> - 2x + 1 + y2 - 2y + 1 = x<sup>2</sup> - 6x + 9 + y2 - 10y + 25<br>\r\n<br>\r\nx<sup>2</sup> + y<sup>2</sup> -2x -2y + 2 = x<sup>2</sup> + y<sup>2</sup> - 6x - 10y + 34<br>\r\n<br>\r\nCollecting like terms<br>\r\nx<sup>2</sup> - x<sup>2</sup> + y<sup>2</sup> - y<sup>2</sup> - 2x + 6x -2y + 10y = 34 - 2<br>\r\n<br>\r\n4x + 8y = 32<br>\r\n<br>\r\nDivide through by 4<br>\r\n<br>\r\nx + 2y = 8",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194179",
+                "tag": "a",
+                "text": "2x + 2y = 9",
+                "is_correct": false
+            },
+            {
+                "option_id": "194180",
+                "tag": "b",
+                "text": "2x + 3y = 8",
+                "is_correct": false
+            },
+            {
+                "option_id": "194181",
+                "tag": "c",
+                "text": "2x + y = 9",
+                "is_correct": false
+            },
+            {
+                "option_id": "194182",
+                "tag": "d",
+                "text": "x + 2y = 8",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46356": {
+        "order_id": 34,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find \u222b(x<sup>2</sup>  + 3x \u2212 5)dx",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "\u222bx<sup>n</sup>dx = \\(\\frac{x_{n + 1}}{n + 1}\\)<br>\r\n<br>\r\n\u222bdx = x + k <br>\r\n<br>\r\nwhere k is constant <br>\r\n<br>\r\n\u222b(x<sup>2</sup> + 3x \u2212 5)dx <br>\r\n<br>\r\n\u222bx<sup>2</sup> dx + \u222b3xdx \u2212 \u222b5dx <br>\r\n<br>\r\n\\(\\frac{2_{2 + 1}}{2 + 1}\\) + \\(\\frac{3x^{1 + 1}}{1 + 1}\\) \u2212 5x + k<br>\r\n <br>\r\n\\(\\frac{x_3}{3}\\) + \\(\\frac{3x_2}{2}\\) \u2212 5x + k",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194183",
+                "tag": "a",
+                "text": "\\(\\frac{x_3}{3}\\) - \\(\\frac{3x_2}{2}\\) - 5x + k",
+                "is_correct": false
+            },
+            {
+                "option_id": "194184",
+                "tag": "b",
+                "text": "\\(\\frac{x_3}{3}\\) - \\(\\frac{3x_2}{2}\\) + 5x + k",
+                "is_correct": false
+            },
+            {
+                "option_id": "194185",
+                "tag": "c",
+                "text": "\\(\\frac{x_3}{3}\\) + \\(\\frac{3x_2}{2}\\) - 5x + k",
+                "is_correct": true
+            },
+            {
+                "option_id": "194186",
+                "tag": "d",
+                "text": "\\(\\frac{x_3}{3}\\) + \\(\\frac{3x_2}{2}\\) + 5x + k",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46357": {
+        "order_id": 35,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p><img alt=\"\" src=\"/db/nigeria/exam_image/editor_images/JAMB/Mathematics/2017/2020-02-19 (2).png\" style=\"height:195px; width:200px\" /></p>\r\n\r\n<p>In the diagram above&nbsp;MN is a chord of a circle KMN centre O and radius 10cm. If &lt; MON = 140&deg;, find, to the nearest cm, the length of the chord MN.</p>",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/22685647215_sol_17_72.jpg",
+        "explanation": "<p>Find the diagram<br />\r\nSin 70&deg;<br />\r\n<br />\r\nx = 10 Sin 70&deg;<br />\r\n<br />\r\n= 9.3969<br />\r\n<br />\r\nHence, length of chord MN = 2x<br />\r\n<br />\r\n= 2 &times; 9.3969<br />\r\n<br />\r\n= 18.79<br />\r\n<br />\r\n= 19cm (nearest cm)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "194187",
+                "tag": "a",
+                "text": "10cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "194188",
+                "tag": "b",
+                "text": "19cm",
+                "is_correct": true
+            },
+            {
+                "option_id": "194189",
+                "tag": "c",
+                "text": "17cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "194190",
+                "tag": "d",
+                "text": "12cm",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": [
+            "/db/nigeria/exam_image/editor_images/JAMB/Mathematics/2017/2020-02-19 (2).png"
+        ]
+    },
+    "46359": {
+        "order_id": 36,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "simple-operations-on-algebraic-expression",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Factorize completely&nbsp;X2+2XY+Y2+3X+3Y-18</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(x^{2} + 2xy + y^{2} + 3x + 3y - 18\\)<br />\r\n<br />\r\n\\(x^{2} + 2xy + 3x + y^{2} + 3y -18\\)<br />\r\n<br />\r\n\\(x^{2} + 2xy - 3x + 6x + y^{2} -3y + 6y -18\\)<br />\r\n<br />\r\n\\(x^{2} + 2xy -3x + y^{2} -3y + 6x + 6y -18\\)<br />\r\n<br />\r\n\\(x^{2} + xy -3x + xy + y^{2} - 3y + 6x + 6y -18\\)<br />\r\n<br />\r\nx(x + y - 3) + y(x + y - 3) + 6(x + y - 3)<br />\r\n<br />\r\n= (x + y - 3)(x + y + 6)<br />\r\n<br />\r\n= (x + y + 6)(x + y -3)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "194195",
+                "tag": "a",
+                "text": "(x + y + 6)(x + y -3)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194196",
+                "tag": "b",
+                "text": "(x - y - 6)(x - y + 3)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194197",
+                "tag": "c",
+                "text": "(x - y + 6)(x - y - 3)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194198",
+                "tag": "d",
+                "text": "(x +  y - 6)(x + y + 3)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46360": {
+        "order_id": 37,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "change-of-subject-of-formula",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Make S the subject of the relation<br />\r\np = s + \\(\\frac{sm^2}{nr}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>p = s + \\(\\frac{sm^2}{nr}\\)<br />\r\n<br />\r\np = s + ( 1 + \\(\\frac{m^2}{nr}\\))<br />\r\n<br />\r\np = s (1 + \\(\\frac{nr + m^2}{nr}\\))<br />\r\n<br />\r\nnr &times; p = s (nr + m2)<br />\r\n<br />\r\ns = \\(\\frac{nrp}{nr + m^2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194199",
+                "tag": "a",
+                "text": "s = \\(\\frac{nrp}{nr + m^2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194200",
+                "tag": "b",
+                "text": "s = nr + \\(\\frac{m^2}{mrp}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194201",
+                "tag": "c",
+                "text": "s = \\(\\frac{nrp}{mr}\\) + m<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "194202",
+                "tag": "d",
+                "text": "s = \\(\\frac{nrp}{nr}\\) + m<sup>2</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46361": {
+        "order_id": 38,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "algebra",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "The operation * on the set R of real number is defined by x * y = 3x + 2y \u2212 1, find 3* \u2212 1",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "x * y is an operation on 3x + 2y \u2212 1<br>\r\n<br>\r\nFind 3A \u2212 1<br>\r\n<br>\r\nx = 3, y = \u22121<br>\r\n<br>\r\n3 * \u2212 1 on 3x + 2y \u2212 1<br>\r\n<br>\r\n3(3) + 2(\u22121) \u22121<br>\r\n<br>\r\n= 9 \u2212 2 \u2212 1<br>\r\n<br>\r\n= 6",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194203",
+                "tag": "a",
+                "text": "9",
+                "is_correct": false
+            },
+            {
+                "option_id": "194204",
+                "tag": "b",
+                "text": "- 9",
+                "is_correct": false
+            },
+            {
+                "option_id": "194205",
+                "tag": "c",
+                "text": "6",
+                "is_correct": true
+            },
+            {
+                "option_id": "194206",
+                "tag": "d",
+                "text": "- 6",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46362": {
+        "order_id": 39,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "coordinate-geometry-of-straight-lines",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the gradient of the line joining the points (3, 2) and (1, 4)",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Gradient of line joining points (3, 2), (1, 4)<br>\r\n<br>\r\nGradient = \\(\\frac{\\text{Change in Y}}{\\text{Change in X}}\\)<br>\r\n             <br>\r\n= \\(\\frac{y_2 - Y_1}{x_2 - x_1}\\)\\) <br>\r\n  <br>\r\n(X1, Y1) = (3, 2)<br>\r\n<br>\r\n(X2, Y2) = (1, 4)<br>\r\n<br>\r\nGradient = \\(\\frac{4 \u2212 2}{1 + 3}\\)<br>\r\n<br>\r\n= \\(\\frac{2}{-2}\\)<br>\r\n<br>\r\n= \u22121",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "194207",
+                "tag": "a",
+                "text": "3/2",
+                "is_correct": false
+            },
+            {
+                "option_id": "194208",
+                "tag": "b",
+                "text": "2/1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194209",
+                "tag": "c",
+                "text": "-1",
+                "is_correct": true
+            },
+            {
+                "option_id": "194210",
+                "tag": "d",
+                "text": "3/2",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46363": {
+        "order_id": 40,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "simple-operations-on-algebraic-expression",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Simplify&nbsp;(\\(\\sqrt[3]{64a^3})^{-1}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>(\\(\\sqrt[3]{64a^3})^{-1}\\)<br />\r\n<br />\r\n\\(\\frac{1}{(\\sqrt[3]{64a^3})}\\)<br />\r\n<br />\r\n= \\(\\frac{1}{4a}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194211",
+                "tag": "a",
+                "text": "4a",
+                "is_correct": false
+            },
+            {
+                "option_id": "194212",
+                "tag": "b",
+                "text": "\\(\\frac{1}{8a}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194213",
+                "tag": "c",
+                "text": "8a",
+                "is_correct": false
+            },
+            {
+                "option_id": "194214",
+                "tag": "d",
+                "text": "\\(\\frac{1}{4a}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "46364": {
+        "order_id": 41,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "If \\(\\frac{2 \\sqrt{3} - \\sqrt{2}}{\\sqrt{3} + 2 \\sqrt{2}}\\) = m + n \u221a 6,<br>\r\n<br>\r\nfind the values of m and n respectively",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "\\(\\frac{2 \\sqrt{3} - \\sqrt{2}}{\\sqrt{3} + 2 \\sqrt{2}}\\)= m + n\u221a6<br>\r\n<br>\r\n\\(\\frac{2 \\sqrt{3}  - \\sqrt{2}}{\\sqrt{3} + 2 \\sqrt{2}}\\) x \\(\\frac{\\sqrt{3} - 2 \\sqrt{2}}{\\sqrt{3} - \\sqrt{2}}\\)<br>\r\n<br>\r\n<br>\r\n\\(\\frac{2 \\sqrt{3} (\\sqrt{3} - 2 \\sqrt{2}) - \\sqrt{2}(\\sqrt{3} - 2 \\sqrt{2})}{\\sqrt{3}(\\sqrt{3} - 2 \\sqrt{2}) + 2 \\sqrt{2}(\\sqrt{3} - 2 \\sqrt{2})}\\)<br>\r\n<br>\r\n\\(\\frac{2 \\times 3 - 4\\sqrt{6} - 6 + 2 \\times 2}{3 - 2 \\sqrt{6} + 2 \\sqrt{6} - 4 \\times 2}\\)<br>\r\n<br>\r\n= \\(\\frac{6 - 4 \\sqrt{6} - \\sqrt{6} + 4}{3 - 8}\\)<br>\r\n<br>\r\n= \\(\\frac{0 - 4 \\sqrt{6} - 6}{5}\\)<br>\r\n<br>\r\n= \\(\\frac{10 - 5 \\sqrt{6}}{5}\\)<br>\r\n<br>\r\n= \u2212 2 + \u221a6<br>\r\n<br>\r\n\u2234 m + n\\(\\sqrt{6}\\) = \u2212 2 + \u221a6<br>\r\n<br>\r\nm = \u2212 2, n = 1",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194215",
+                "tag": "a",
+                "text": "1, \u2212 2",
+                "is_correct": false
+            },
+            {
+                "option_id": "194216",
+                "tag": "b",
+                "text": "\u2212 2, n = 1",
+                "is_correct": true
+            },
+            {
+                "option_id": "194217",
+                "tag": "c",
+                "text": "\\(\\frac{-2}{5}\\), 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "194218",
+                "tag": "d",
+                "text": "\\(\\frac{2}{3}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "46365": {
+        "order_id": 42,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "algebraic-fractions",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>If &alpha; and &beta; are the roots of the equation 3x2&nbsp;+ 5x - 2 = 0, find the value of 1/&alpha; + 1/&beta;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p><br />\r\n1/&alpha; + 1/&beta; = &beta;+&alpha;/&alpha;&beta;<br />\r\n3x2&nbsp;+ 5x - 2 = 0<br />\r\nx2&nbsp;+ 5x/3 - 2/3 = 0<br />\r\n&alpha;&beta; = -2/3<br />\r\n&beta;+&alpha; = -5/3<br />\r\nThus; &beta;+&alpha;/&alpha;&beta; = -2/3&nbsp;-2/3 = -5/2</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "194219",
+                "tag": "a",
+                "text": "\\(\\frac{-5}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194220",
+                "tag": "b",
+                "text": "\\(\\frac{-2}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194221",
+                "tag": "c",
+                "text": "\\(\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "194222",
+                "tag": "d",
+                "text": "\\(\\frac{5}{2}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "46366": {
+        "order_id": 43,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "positive-and-negative-integers",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "Find the range of the following set of numbers 0.4, \u22120.4, 0.3, 0.47, \u22120.53, 0.2 and \u22120.2",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "0.4, \u22120.4, 0.3, 0.47, \u22120.53, 0.2, \u22120.2<br>\r\n<br>\r\nRange is the difference between the highest and lowest value<br>\r\n <br>\r\ni.e Highest \u2212 Lowest<br>\r\n<br>\r\n\u2212 0.53, \u22120.4, \u22120.2, 0.2, 0.3, 0.4, 0.47<br>\r\n<br>\r\n0.47 is the highest<br>\r\n<br>\r\n\u2212 0.53 is the lowest<br>\r\n<br>\r\n\u2234 = 0.47 \u2212 (\u2212 0.53)<br>\r\n<br>\r\n\u22340.47 + 0.53<br>\r\n<br>\r\n= 1.0",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "194223",
+                "tag": "a",
+                "text": "1.03",
+                "is_correct": false
+            },
+            {
+                "option_id": "194224",
+                "tag": "b",
+                "text": "0.07",
+                "is_correct": false
+            },
+            {
+                "option_id": "194225",
+                "tag": "c",
+                "text": "0.03",
+                "is_correct": false
+            },
+            {
+                "option_id": "194226",
+                "tag": "d",
+                "text": "1.0",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "46367": {
+        "order_id": 44,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "<p>Evaluate 1 &minus; (\\(\\frac{1}{5}\\) x&nbsp;1\\(\\frac{2}{3}\\)) + (5 + 1\\(\\frac{2}{3}\\))</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>1 &minus; (\\(\\frac{1}{5}\\) x&nbsp;1\\(\\frac{2}{3}\\)) + (5 + 1\\(\\frac{2}{3}\\))<br />\r\n<br />\r\n1 &minus; (\\(\\frac{1}{5}\\) x&nbsp;\\(\\frac{5}{3}\\)) + (5 + \\(\\frac{5}{3}\\))<br />\r\n<br />\r\n1 &minus; \\(\\frac{1}{3}\\) + \\(\\frac{20}{3}\\)<br />\r\n<br />\r\n= \\(\\frac{22}{3}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "194227",
+                "tag": "a",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "194228",
+                "tag": "b",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "194229",
+                "tag": "c",
+                "text": "\\(\\frac{22}{3}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "194230",
+                "tag": "d",
+                "text": "3\\(\\frac{2}{3}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "46368": {
+        "order_id": 45,
+        "exam_type": "JAMB",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2017",
+        "question_text": "What is the product of 2x<sup>2</sup> \u2212 x + 1 and 3 \u2212 2x",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "(2x<sup>2</sup> - x + 1) \u00d7 (3 - 2x);<br>\r\n<br>\r\n3(2x<sup>2</sup> - x + 1) - 2x (2x<sup>2</sup> - x + 1)<br>\r\n<br>\r\n6x<sup>2</sup> - 3x + 3 - 4x<sup>3</sup> + 2x<sup>2</sup> - 2x<br>\r\n<br>\r\n-4x<sup>3</sup> + 8x<sup>2</sup> -5x + 3",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "194231",
+                "tag": "a",
+                "text": "4x<sup>3</sup> \u2212 8x<sup>2</sup> + 5x + 3",
+                "is_correct": false
+            },
+            {
+                "option_id": "194232",
+                "tag": "b",
+                "text": "\u22124x<sup>3</sup> + 8x<sup>2</sup> \u2212 5x + 3",
+                "is_correct": true
+            },
+            {
+                "option_id": "194233",
+                "tag": "c",
+                "text": "\u22124x<sup>3</sup> \u2212 8x<sup>2</sup> + 5x + 3",
+                "is_correct": false
+            },
+            {
+                "option_id": "194234",
+                "tag": "d",
+                "text": "4x<sup>3</sup> + 8x<sup>2</sup> \u2212 5x + 3",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 4,
+        "editor_images": null
+    }
+}

@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Class Subjects – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* Reset & Global */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
+    body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+    /* App Shell */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: #4b5563; margin-bottom: 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: #111827; }
+
+    /* Header Section */
+    .page-header {
+      margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+    }
+    .page-title {
+      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+    }
+    .page-desc {
+      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+    }
+
+    /* Actions */
+    .btn-primary {
+      background: #b70c01; color: white; padding: 12px 24px; border-radius: 12px;
+      font-size: 14.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+    .btn-primary:hover {
+      background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: white; padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid #e5e7eb;
+      display: flex; gap: 16px; flex-wrap: wrap; box-shadow: 0 2px 10px rgba(0,0,0,0.02); align-items: center; justify-content: space-between;
+    }
+    
+    .search-input-wrapper {
+      flex: 1; min-width: 250px; display: flex; align-items: center; gap: 8px; background: #f9fafb;
+      padding: 10px 16px; border-radius: 12px; border: 1px solid #e5e7eb; transition: border-color 0.2s;
+    }
+    .search-input-wrapper:focus-within { border-color: #b70c01; background: white; }
+    .search-input-wrapper svg { color: #9ca3af; }
+    .search-input-wrapper input {
+      flex: 1; border: none; outline: none; background: transparent; font-size: 14.5px; font-family: inherit;
+    }
+    
+    .select-wrapper {
+      min-width: 200px; position: relative;
+    }
+    .select-wrapper select {
+      width: 100%; appearance: none; background: #f9fafb; border: 1px solid #e5e7eb; padding: 10px 36px 10px 16px;
+      border-radius: 12px; font-size: 14.5px; font-family: inherit; color: #374151; font-weight: 500;
+      cursor: pointer; outline: none; transition: border-color 0.2s;
+    }
+    .select-wrapper select:focus { border-color: #b70c01; background: white; }
+    .select-wrapper::after {
+      content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #6b7280; pointer-events: none;
+    }
+
+    /* Grid */
+    .subject-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
+    }
+
+    /* Subject Card */
+    .subject-card {
+      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
+      display: flex; flex-direction: column; transition: all 0.2s; position: relative; overflow: hidden;
+    }
+    .subject-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #e5e7eb;
+    }
+    
+    .subject-icon {
+      width: 56px; height: 56px; border-radius: 14px; background: #ecfdf5; border: 1px solid #a7f3d0;
+      display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; color: #047857;
+    }
+    .subject-name {
+      font-size: 18px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .subject-meta {
+      font-size: 13.5px; color: #6b7280; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
+    }
+    .subject-meta span { display: flex; align-items: center; gap: 8px; }
+    
+    /* Term Badge */
+    .term-badge {
+      display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .term-badge.first { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .term-badge.second { background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+    .term-badge.third { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+    .term-badge.all { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+
+    .card-footer { margin-top: auto; border-top: 1px solid #f3f4f6; padding-top: 20px; }
+    .card-footer .btn-primary { width: 100%; justify-content: center; padding: 10px 16px; font-size: 13.5px; }
+
+    @media (max-width: 600px) {
+      .filter-bar { flex-direction: column; align-items: stretch; }
+      .search-input-wrapper { width: 100%; }
+      .select-wrapper { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="secondary_school"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        
+        <a href="all_classes.html" class="back-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Classes
+        </a>
+
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">
+              <span id="class_display_name">Selected Class</span>
+              <span style="font-size: 14px; padding: 4px 10px; background: #f3f4f6; color: #4b5563; border-radius: 99px; border: 1px solid #e5e7eb; text-transform: uppercase; font-weight: 800;">Subjects</span>
+            </h1>
+            <p class="page-desc">Filter by term to access the specific continuous assessments or termly exams for each subject.</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-input-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="subjectSearch" placeholder="Search for a subject..." oninput="filterSubjects()">
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="termFilter" onchange="filterSubjects()">
+              <option value="all">All Terms</option>
+              <option value="First">First Term</option>
+              <option value="Second">Second Term</option>
+              <option value="Third">Third Term</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="subject-grid" id="subjectGrid">
+          <!-- Subject Cards generated by JS -->
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script>
+    // Get Class from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const className = urlParams.get('class') || 'Your Class';
+    document.getElementById('class_display_name').innerText = className.toUpperCase();
+
+    const allSubjects = [
+      { id: 'math', name: 'Mathematics', icon: '➗', term: 'All', questions: 350 },
+      { id: 'eng', name: 'English Language', icon: '📖', term: 'First', questions: 120 },
+      { id: 'eng2', name: 'English Language', icon: '📖', term: 'Second', questions: 120 },
+      { id: 'eng3', name: 'English Language', icon: '📖', term: 'Third', questions: 120 },
+      { id: 'bsci', name: 'Basic Science', icon: '🔬', term: 'All', questions: 280 },
+      { id: 'btech', name: 'Basic Technology', icon: '⚙️', term: 'First', questions: 100 },
+      { id: 'biz', name: 'Business Studies', icon: '💼', term: 'All', questions: 220 },
+      { id: 'civic', name: 'Civic Education', icon: '🇳🇬', term: 'Second', questions: 90 },
+      { id: 'agric', name: 'Agricultural Science', icon: '🌱', term: 'Third', questions: 110 }
+    ];
+
+    function getTermBadgeInfo(term) {
+      if (term === 'First') return { class: 'first', label: '1st Term' };
+      if (term === 'Second') return { class: 'second', label: '2nd Term' };
+      if (term === 'Third') return { class: 'third', label: '3rd Term' };
+      return { class: 'all', label: 'All Terms' };
+    }
+
+    function renderSubjects(list) {
+      const grid = document.getElementById('subjectGrid');
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #6b7280; background: white; border-radius: 16px; border: 1px dashed #d1d5db;">
+          <h3 style="color: #111827; font-size: 18px; margin-bottom: 8px;">No Subjects Found</h3>
+          <p>We couldn't find any subjects matching your filters.</p>
+        </div>`;
+        return;
+      }
+
+      list.forEach(sub => {
+        const badge = getTermBadgeInfo(sub.term);
+        const card = document.createElement('div');
+        card.className = 'subject-card';
+        
+        card.innerHTML = `
+          <div style="position: absolute; top: 24px; right: 24px;">
+            <div class="term-badge ${badge.class}">${badge.label}</div>
+          </div>
+          <div class="subject-icon">${sub.icon}</div>
+          <h3 class="subject-name">${sub.name}</h3>
+          
+          <div class="subject-meta">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
+              ${sub.questions} Questions Available
+            </span>
+          </div>
+          <div class="card-footer">
+            <button class="btn-primary" onclick="window.location.href='topic.html?subject=' + encodeURIComponent('${sub.name}')">View Topics</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterSubjects() {
+      const query = document.getElementById('subjectSearch').value.toLowerCase();
+      const term = document.getElementById('termFilter').value;
+
+      const filtered = allSubjects.filter(c => {
+        const matchesQuery = c.name.toLowerCase().includes(query);
+        const matchesTerm = term === 'all' || c.term === term || c.term === 'All'; 
+        // If a subject is 'All', it should show up in any term filter, or we can make it strictly match. Let's make it match.
+        return matchesQuery && matchesTerm;
+      });
+
+      renderSubjects(filtered);
+    }
+
+    // Initialize
+    renderSubjects(allSubjects);
+  </script>
+</body>
+</html>

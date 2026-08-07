@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="../../components/topbar.css">
-  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=4">
     <style>
         /* ══════════════════════════════════════════
            DESIGN TOKENS
@@ -417,12 +417,12 @@
     </style>
 </head>
 <body>
-    <app-sidebar data-base="../"></app-sidebar>
+    <app-sidebar data-base="/"></app-sidebar>
 
     <div class="app-container">
 
         <!-- Top Bar -->
-        <app-topbar data-base="../"></app-topbar>
+        <app-topbar data-base="/"></app-topbar>
 
         <!-- Scrollable body -->
         <main class="main">
@@ -505,8 +505,9 @@
 
     </div><!-- /.app-container -->
 
-    <script src="../../components/topbar.js"></script>
-  <script src="../../components/sidebar.js?v=6"></script>
+    <script defer src="/components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js?v=6"></script>
     <script>
         /* ── Auto-grow textarea ── */
         const textarea = document.getElementById('chat-input');

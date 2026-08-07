@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="../../../index.css">
 
     <!-- Sidebar Component -->
-    <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css">
-    <script src="../../../components/topbar.js"></script>
-  <script src="../../../components/sidebar.js" type="module"></script>
+    <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css">
+    <script defer src="/components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js" type="module"></script>
 
     <style>
         :root {
@@ -372,10 +373,10 @@
 
 <body>
 
-    <app-sidebar data-base="../../" data-active="test"></app-sidebar>
+    <app-sidebar data-base="/" data-active="test"></app-sidebar>
 
     <main class="main-wrapper">
-        <app-topbar data-base="../../"></app-topbar>
+        <app-topbar data-base="/"></app-topbar>
         <div class="main-content">
             <header class="page-header">
             <a href="../jamb_cbt/jamb_all_subject.html" class="back-btn">
@@ -545,7 +546,7 @@
             // Deduct credit and navigate
             examCredits--;
             // In a real application, you would save state and verify securely
-            window.location.href = '../jamb_cbt/jamb_cbt_board.html';
+            window.location.href = 'subject.html';
         }
 
         /* ── SIMULATION TOOLS ── */

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>JAMB Mock Exam Setup – My Exam Companion</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <meta name="description" content="Setup your JAMB Mock Exam. Choose 4 subjects to proceed.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
+    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    ul, ol { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* App Shell */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 24px; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 32px; max-width: 1200px; margin: 0 auto; width: 100%; }
+    
+    @media (max-width: 1024px) {
+      .content-area { grid-template-columns: 1fr; }
+      .right-sidebar { display: none; }
+    }
+    @media (max-width: 480px) { .content-area { padding: 12px 10px; } }
+
+    /* Header Section */
+    .page-header { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+    .page-header__title { font-size: 24px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .page-header__desc { font-size: 14px; color: #4b5563; max-width: 600px; line-height: 1.5; }
+
+    /* Setup Card */
+    .setup-card { background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    .setup-section { margin-bottom: 32px; }
+    .setup-section h3 { font-size: 16px; font-weight: 800; color: #111827; margin-bottom: 8px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .setup-section h3 svg { color: #b70c01; }
+    .setup-desc { font-size: 13.5px; color: #6b7280; margin-bottom: 20px; }
+
+    /* Form Grid */
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+    
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 13.5px; font-weight: 700; color: #374151; }
+    .form-select {
+      appearance: none; background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat right 12px center; background-size: 16px;
+      border: 1px solid #d1d5db; padding: 12px 36px 12px 16px; border-radius: 10px; font-size: 14.5px; font-family: inherit; color: #111827;
+      transition: all 0.2s ease; cursor: pointer; outline: none; width: 100%;
+    }
+    .form-select:hover { border-color: #9ca3af; }
+    .form-select:focus { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); background-color: white; }
+    .form-select:disabled { background-color: #f3f4f6; color: #6b7280; cursor: not-allowed; opacity: 0.8; }
+
+    /* Submit Area */
+    .submit-area { margin-top: 32px; padding-top: 24px; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
+    .btn-start {
+      background: #b70c01; color: white; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 12px;
+      display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+    .btn-start:hover { background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3); }
+    .btn-start:disabled { background: #9ca3af; transform: none; box-shadow: none; cursor: not-allowed; }
+
+    /* Right Sidebar */
+    .info-card { background: #f8fafc; border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid #e2e8f0; }
+    .info-card h4 { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .info-card p, .info-card ul { font-size: 12.5px; color: #475569; line-height: 1.5; }
+    .info-card ul { list-style-type: disc; padding-left: 16px; margin-top: 8px; }
+    .info-card ul li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <app-sidebar data-base="../../../"></app-sidebar>
+
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        <section class="main-content">
+          <div class="page-header">
+            <div>
+              <h1 class="page-header__title">JAMB Mock Exam Setup</h1>
+              <p class="page-header__desc">Select your 4 JAMB subjects. Use of English is compulsory.</p>
+            </div>
+          </div>
+
+          <div class="setup-card">
+            <div class="setup-section">
+              <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                Select Your Subjects
+              </h3>
+              <p class="setup-desc">Choose the 3 subjects you registered for in addition to Use of English.</p>
+
+              <div class="form-grid" id="subject-dropdowns">
+                <div class="form-group">
+                  <label>Subject 1 (Compulsory)</label>
+                  <select class="form-select subject-select" disabled>
+                    <option selected value="english">Use of English</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Subject 2</label>
+                  <select class="form-select subject-select dynamic-select" onchange="updateDropdowns()">
+                    <option value="">-- Select Subject --</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Subject 3</label>
+                  <select class="form-select subject-select dynamic-select" onchange="updateDropdowns()">
+                    <option value="">-- Select Subject --</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Subject 4</label>
+                  <select class="form-select subject-select dynamic-select" onchange="updateDropdowns()">
+                    <option value="">-- Select Subject --</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="submit-area">
+              <button class="btn-start" id="start-btn" onclick="startMockExam()" disabled>
+                Start Mock Exam 🚀
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="right-sidebar">
+          <div class="info-card">
+            <h4>💡 Important Instructions</h4>
+            <p>Ensure you are fully prepared before starting. The exam timer will begin immediately.</p>
+            <ul>
+              <li>Duration is 2 hours.</li>
+              <li>Do not refresh the page during the exam.</li>
+              <li>Calculators are provided within the interface.</li>
+            </ul>
+          </div>
+          <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
+            <h4>🏆 Good Luck!</h4>
+            <p>Treat this exactly like the main JAMB exam to accurately test your readiness.</p>
+          </div>
+        </aside>
+
+      </main>
+    </div>
+  </div>
+
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js"></script>
+  <script>
+    const availableSubjects = [
+      { id: 'math', name: 'Mathematics' },
+      { id: 'physics', name: 'Physics' },
+      { id: 'chemistry', name: 'Chemistry' },
+      { id: 'biology', name: 'Biology' },
+      { id: 'economics', name: 'Economics' },
+      { id: 'government', name: 'Government' },
+      { id: 'lit', name: 'Literature in English' },
+      { id: 'commerce', name: 'Commerce' },
+      { id: 'crs', name: 'CRK/CRS' },
+      { id: 'accounts', name: 'Financial Accounting' }
+    ];
+
+    function populateSelects() {
+      const selects = document.querySelectorAll('.dynamic-select');
+      selects.forEach(select => {
+        const currentValue = select.value;
+        select.innerHTML = '<option value="">-- Select Subject --</option>';
+        availableSubjects.forEach(sub => {
+          const option = document.createElement('option');
+          option.value = sub.id;
+          option.textContent = sub.name;
+          if (sub.id === currentValue) {
+            option.selected = true;
+          }
+          select.appendChild(option);
+        });
+      });
+    }
+
+    function updateDropdowns() {
+      const selects = Array.from(document.querySelectorAll('.dynamic-select'));
+      
+      // Get all currently selected values that aren't empty
+      const selectedValues = selects
+        .map(s => s.value)
+        .filter(v => v !== '');
+
+      // Check if all 3 dynamic options are selected (total 4 subjects including English)
+      const startBtn = document.getElementById('start-btn');
+      startBtn.disabled = selectedValues.length < 3;
+
+      // Prevent selecting the same subject twice
+      selects.forEach(select => {
+        const currentValue = select.value;
+        Array.from(select.options).forEach(option => {
+          if (option.value === "") return;
+          // Disable option if it is selected in another dropdown
+          if (selectedValues.includes(option.value) && option.value !== currentValue) {
+            option.disabled = true;
+          } else {
+            option.disabled = false;
+          }
+        });
+      });
+    }
+
+    function startMockExam() {
+      // In a real scenario, we'd pass the subjects as URL parameters or save to localStorage
+      // Navigate straight to the CBT Player
+      window.location.href = '../core/cbt_player.html';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSelects();
+    });
+  </script>
+</body>
+</html>

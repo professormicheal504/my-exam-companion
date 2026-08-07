@@ -1,0 +1,1718 @@
+{
+    "51472": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Simplify \\(\\frac{\\sqrt{3} + \\sqrt{48}}{\\sqrt{6}}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{\\sqrt{3} + \\sqrt{48}}{\\sqrt{6}} = \\frac{\\sqrt{3} + 4\\sqrt{3}}{\\sqrt{6}}\\)</p>\r\n\r\n<p>\\(\\frac{5\\sqrt{3}}{\\sqrt{6} = \\frac{5\\sqrt{3} \\times \\sqrt{6}}{\\sqrt{6} \\times \\sqrt{6}}\\)</p>\r\n\r\n<p>\\(\\frac{5\\sqrt{18}{6} = \\frac{15\\sqrt{2}}{6}\\)</p>\r\n\r\n<p>= \\(\\frac{5\\sqrt{2}}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211653",
+                "tag": "a",
+                "text": "\\(3\\sqrt{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211654",
+                "tag": "b",
+                "text": "\\(5\\sqrt{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211655",
+                "tag": "c",
+                "text": "\\(\\frac{5\\sqrt{2}}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211656",
+                "tag": "d",
+                "text": "\\(\\frac{3\\sqrt{2}}{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51477": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Find the range of values of x for which \\(2x^{2} + 7x - 15 &gt; 0\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2x^{2} + 7x - 15 &gt; 0 \\implies 2x^{2} - 3x + 10x - 15 &gt; 0\\)</p>\r\n\r\n<p>\\(x(2x - 3) + 5(2x - 3) &gt; 0\\)</p>\r\n\r\n<p>\\((x + 5)(2x - 3) &gt; 0\\)</p>\r\n\r\n<p>For their product to be positive, they are either both +ve or -ve.</p>\r\n\r\n<p>\\(x + 5 &gt; 0 \\implies x &gt; -5\\)</p>\r\n\r\n<p>\\(2x - 3 &gt; 0 \\implies 2x &gt; 3\\)</p>\r\n\r\n<p>\\(x &gt; \\frac{3}{2}\\)</p>\r\n\r\n<p>Check:</p>\r\n\r\n<p>\\(x &gt; -5: x = -3\\)</p>\r\n\r\n<p>\\(2(-3)^{2}&nbsp;+ 7(-3) - 15 = 18 - 21 - 15 = -18 &lt; 0\\) (Not satisfied)</p>\r\n\r\n<p>\\(\\therefore x &lt; -5\\)</p>\r\n\r\n<p>\\(x &gt; \\frac{3}{2}: x = 2\\)</p>\r\n\r\n<p>\\(2(2^{2}) + 7(2) - 15 = 8 + 14 - 15 = 7 &gt; 0\\) (Satisfied)</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211657",
+                "tag": "a",
+                "text": "\\(x < -\\frac{3}{2}\\) or \\(x > 5\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211658",
+                "tag": "b",
+                "text": "\\(x < -5\\) or \\(x > \\frac{3}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211659",
+                "tag": "c",
+                "text": "\\(-\\frac{3}{2} < x < 5\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211660",
+                "tag": "d",
+                "text": "\\(-5 < x < \\frac{3}{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51491": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>A function f is defined on R, the set of real numbers, by: \\(f : x \\to \\frac{x + 3}{x - 2}, x \\neq 2\\), find \\(f^{-1}\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(f(x) = \\frac{x + 3}{x - 2}\\)&nbsp;</p>\r\n\r\n<p>\\(f(y) = \\frac{y + 3}{y - 2}\\)</p>\r\n\r\n<p>Let f(y) = x,</p>\r\n\r\n<p>\\(x = \\frac{y + 3}{y - 2}\\)</p>\r\n\r\n<p>\\(x(y - 2) = y + 3\\)</p>\r\n\r\n<p>\\(xy - y = 2x + 3 \\implies y(x - 1) = 2x + 3\\)</p>\r\n\r\n<p>\\(y = \\frac{2x + 3}{x - 1}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211661",
+                "tag": "a",
+                "text": "\\(f^{-1} : x \\to \\frac{2x + 3}{x - 1}, x \\neq 1\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211662",
+                "tag": "b",
+                "text": "\\(f^{-1} : x \\to \\frac{x + 3}{x + 2}, x \\neq -2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211663",
+                "tag": "c",
+                "text": "\\(f^{-1} : x \\to \\frac{x - 1}{2x + 3}, x \\neq -\\frac{3}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211664",
+                "tag": "d",
+                "text": "\\(f^{-1}: x \\to \\frac{x - 2}{x + 3}, x \\neq -3\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51504": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The sum of the first n terms of a linear sequence is \\(S_{n} = n^{2} + 2n\\). Find the common difference of the sequence.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(S_{n} = \\frac{n}{2}(2a + (n - 1)d \\)</p>\r\n\r\n<p>\\(\\frac{n}{2}(2a + (n - 1) d = n^{2} + 2n\\)</p>\r\n\r\n<p>\\(n(2a + (n - 1) d = 2n^{2} + 4n\\)</p>\r\n\r\n<p>\\(2an + n^{2}d - nd = 2n^{2} + 4n\\)</p>\r\n\r\n<p>Comparing the equations, d = 2 (coefficient of \\(n^{2}\\)).</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "211665",
+                "tag": "a",
+                "text": "5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211666",
+                "tag": "b",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "211667",
+                "tag": "c",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211668",
+                "tag": "d",
+                "text": "2",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51507": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The sum of the first n terms of a linear sequence is \\(S_{n} = n^{2} + 2n\\). Determine the general term of the sequence.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(S_{n} = \\frac{n}{2}(2a + (n - 1) d = n^{2} + 2n\\)</p>\r\n\r\n<p>\\(n(2a + (n - 1) d = 2n^{2} + 4n\\)</p>\r\n\r\n<p>\\(2an + n^{2}d - nd = 2n^{2} + 4n\\)</p>\r\n\r\n<p>\\(n^{2}d = 2n^{2}\\)</p>\r\n\r\n<p>\\(d = 2\\)</p>\r\n\r\n<p>\\((2a - d) n = 4n\\)</p>\r\n\r\n<p>\\(2a - d = 4 \\implies 2a = 4 + d = 4 + 2 = 6\\)</p>\r\n\r\n<p>\\(a = 3\\)</p>\r\n\r\n<p>\\(T_{n} = a + (n - 1)d\\)</p>\r\n\r\n<p>= \\(3 + (n - 1)2 = 3 + 2n - 2 = 2n + 1\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211669",
+                "tag": "a",
+                "text": "n + 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211670",
+                "tag": "b",
+                "text": "2n + 1",
+                "is_correct": true
+            },
+            {
+                "option_id": "211671",
+                "tag": "c",
+                "text": "3n + 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211672",
+                "tag": "d",
+                "text": "4n + 1",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51511": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(f(x) = 2x^{2} - 3x - 1\\), find the value of x for which f(x) is minimum.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y&nbsp;= 2x^{2} - 3x - 1\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d y}{\\mathrm d x} = 4x - 3 = 0\\) (At turning point)</p>\r\n\r\n<p>\\(4x = 3 \\implies x = \\frac{3}{4}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211673",
+                "tag": "a",
+                "text": "\\(\\frac{3}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211674",
+                "tag": "b",
+                "text": "\\(\\frac{4}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211675",
+                "tag": "c",
+                "text": "\\(\\frac{3}{4}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211676",
+                "tag": "d",
+                "text": "\\(\\frac{2}{3}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51513": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The polynomial \\(2x^{3} + x^{2} - 3x + p\\) has a remainder of 20 when divided by (x - 2). Find the value of constant p.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Remainder for f(2) = 20.</p>\r\n\r\n<p>\\(f(2) = 2(2^{3}) + 2^{2} - 3(2) + p = 20\\)</p>\r\n\r\n<p>\\(16 + 4 - 6 + p = 20\\)</p>\r\n\r\n<p>\\(14 + p = 20\\)</p>\r\n\r\n<p>\\(p = 6\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "211677",
+                "tag": "a",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "211678",
+                "tag": "b",
+                "text": "6",
+                "is_correct": true
+            },
+            {
+                "option_id": "211679",
+                "tag": "c",
+                "text": "-6",
+                "is_correct": false
+            },
+            {
+                "option_id": "211680",
+                "tag": "d",
+                "text": "-8",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51516": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(2\\log_{4} 2 = x + 1\\), find the value of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2\\log_{4} 2 = x + 1\\)</p>\r\n\r\n<p>\\(\\log_{4} 2^{2} = \\log_{4} 4 = 1\\)</p>\r\n\r\n<p>\\(x + 1 = 1 \\implies x = 0\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211681",
+                "tag": "a",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211682",
+                "tag": "b",
+                "text": "-1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211683",
+                "tag": "c",
+                "text": "0",
+                "is_correct": true
+            },
+            {
+                "option_id": "211684",
+                "tag": "d",
+                "text": "1",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51518": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Which of the following quadratic curves will not intersect with the x- axis?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The criterion for the quadratic curve to intersect the x- axis is \\(b^{2} &gt; 4ac\\).</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211685",
+                "tag": "a",
+                "text": "\\(y = 2 - 4x - x^{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211686",
+                "tag": "b",
+                "text": "\\(y = x^{2} - 5x -1\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211687",
+                "tag": "c",
+                "text": "\\(y = 2x^{2} - x - 1\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211688",
+                "tag": "d",
+                "text": "\\(y = 3x^{2} - 2x + 4\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51521": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>What is the coordinate of the centre of the circle \\(5x^{2} + 5y^{2} - 15x + 25y - 3 = 0\\)?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Equation for a circle: \\((x - a)^{2} + (y - b)^{2} = r^{2}\\)</p>\r\n\r\n<p>Expanding, we have:</p>\r\n\r\n<p>\\(x^{2} - 2ax + a^{2} + y^{2} - 2by + b^{2} = r^{2}\\)</p>\r\n\r\n<p>Given: \\(5x^{2} + 5y^{2} - 15x + 25y - 3 = 0\\)</p>\r\n\r\n<p>Divide through by 5,</p>\r\n\r\n<p>\\(= x^{2} + y^{2} - 3x + 5y - \\frac{3}{5} = 0\\)</p>\r\n\r\n<p>Comparing, we have</p>\r\n\r\n<p>\\(- 2a = -3; a = \\frac{3}{2}\\)</p>\r\n\r\n<p>\\(-2b = 5; b = -\\frac{5}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211689",
+                "tag": "a",
+                "text": "\\((\\frac{15}{2}, -\\frac{25}{2})\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211690",
+                "tag": "b",
+                "text": "\\((\\frac{3}{2}, -\\frac{5}{2})\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211691",
+                "tag": "c",
+                "text": "\\((-\\frac{3}{2}, \\frac{5}{2})\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211692",
+                "tag": "d",
+                "text": "\\((-\\frac{15}{2}, \\frac{25}{2})\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51525": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Evaluate \\(\\int_{1}^{2} (2 + 2x - 3x^{2}) \\mathrm {d} x\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\int_{1}^{2} (2 + 2x - 3x^{2}) \\mathrm {d} x\\)</p>\r\n\r\n<p>= \\((2x + x^{2} - x^{3})|_{1}^{2}\\)</p>\r\n\r\n<p>= \\((2(2) + 2^{2} - 2^{3}) - (2(1) + 1^{2} - 1^{3})\\)</p>\r\n\r\n<p>= \\(0 - 2 = -2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211693",
+                "tag": "a",
+                "text": "-2",
+                "is_correct": true
+            },
+            {
+                "option_id": "211694",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211695",
+                "tag": "c",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "211696",
+                "tag": "d",
+                "text": "10",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51526": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>A rectangle has a perimeter of 24m. If its area is to be maximum, find its dimension.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(Perimeter = 2(l&nbsp;+ b) = 24\\)</p>\r\n\r\n<p>\\(l + b = 12 \\implies l = 12 - b\\)</p>\r\n\r\n<p>\\(Area = (12 - b) \\times b = 12b - b^{2}\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d A}{\\mathrm d b} = 12 - 2b = 0\\) (at maximum)</p>\r\n\r\n<p>\\(2b = 12 \\implies b = 6\\)</p>\r\n\r\n<p>\\(l = 12 - 6 = 6m\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211697",
+                "tag": "a",
+                "text": "12, 12",
+                "is_correct": false
+            },
+            {
+                "option_id": "211698",
+                "tag": "b",
+                "text": "6, 6",
+                "is_correct": true
+            },
+            {
+                "option_id": "211699",
+                "tag": "c",
+                "text": "4, 8",
+                "is_correct": false
+            },
+            {
+                "option_id": "211700",
+                "tag": "d",
+                "text": "9, 3",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51530": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Express \\(\\frac{7\\pi}{6}\\) radians in degrees.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\pi = 180&deg;\\)</p>\r\n\r\n<p>\\(\\frac{7\\pi}{6} = \\frac{7 \\times 180}{6} \\)</p>\r\n\r\n<p>= \\(210&deg;\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211701",
+                "tag": "a",
+                "text": "315\u00b0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211702",
+                "tag": "b",
+                "text": "210\u00b0",
+                "is_correct": true
+            },
+            {
+                "option_id": "211703",
+                "tag": "c",
+                "text": "105\u00b0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211704",
+                "tag": "d",
+                "text": "75\u00b0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51533": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(P = \\begin{pmatrix} 1 &amp; -2 \\\\ 3 &amp; 4 \\end{pmatrix}\\) and \\(Q = \\begin{pmatrix} -2 &amp; 3 \\\\ 1 &amp; 0 \\end{pmatrix}\\), find PQ.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p><strong>\\(\\begin{pmatrix} 1&nbsp;&amp; -2&nbsp;\\\\ 3&nbsp;&amp; 4&nbsp;\\end{pmatrix}&nbsp;\\(\\begin{pmatrix} -2&nbsp;&amp; 3&nbsp;\\\\ 1&nbsp;&amp; 0&nbsp;\\end{pmatrix}\\)</strong></p>\r\n\r\n<p>=&nbsp;<strong>\\(\\begin{pmatrix} (1 \\times -2) + (-2 \\times 1)&nbsp;&amp; (1 \\times 3) + (-2 \\times 0)&nbsp;\\\\ (3 \\times -2) + (4&nbsp;\\times 1) &amp; (3 \\times 3) + (4 \\times 0)&nbsp;\\end{pmatrix}\\)</strong></p>\r\n\r\n<p><strong>=&nbsp;\\(\\begin{pmatrix} -4 &amp; 3&nbsp;\\\\ -2 &amp; 9 \\end{pmatrix}\\)</strong></p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211705",
+                "tag": "a",
+                "text": "\\(\\begin{pmatrix} 4 & 1 \\\\ -2 & 9 \\end{pmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211706",
+                "tag": "b",
+                "text": "\\(\\begin{pmatrix} -4 & 1 \\\\ 2 & 9 \\end{pmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211707",
+                "tag": "c",
+                "text": "\\(\\begin{pmatrix} -4 & 3 \\\\ -2 & 13 \\end{pmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211708",
+                "tag": "d",
+                "text": "\\(\\begin{pmatrix} -4 & 3 \\\\ -2 & 9 \\end{pmatrix}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51534": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Two statements are represented by p and q as follows:</p>\r\n\r\n<p>p : He is brilliant; q : He is regular in class</p>\r\n\r\n<p>Which of the following symbols represent &quot;He is regular in class but dull&quot;?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211709",
+                "tag": "a",
+                "text": "\\(q \\vee \\sim p\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211710",
+                "tag": "b",
+                "text": "\\(q \\edge \\sim p\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211711",
+                "tag": "c",
+                "text": "\\(\\sim q \\edge \\sim p\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211712",
+                "tag": "d",
+                "text": "\\(\\sim q \\vee \\sim p\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51536": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Find the locus of points which is equidistant from P(4, 5) and Q(-6, -1).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Midpoint between P(4, 5) and Q(-6, -1) = \\(\\frac{4 - 6}{2}, \\frac{5 - 1}{2} = (-1, 2)\\)</p>\r\n\r\n<p>Gradient of PQ = \\(\\frac{5 - (-1)}{4 - (-6)} = \\frac{3}{5}\\)</p>\r\n\r\n<p>Gradient of line perpendicular to PQ = \\(\\frac{-1}{\\frac{3}{5}} = -\\frac{5}{3}\\)</p>\r\n\r\n<p>\\(line = \\frac{y - 2}{x + 1} = \\frac{-5}{3}\\)</p>\r\n\r\n<p>\\(3y - 6 = -5x - 5\\)</p>\r\n\r\n<p>\\(5x + 3y - 6 + 5 = 0 \\implies 5x + 3y - 1 = 0\\)</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211713",
+                "tag": "a",
+                "text": "3x - 5y + 13 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211714",
+                "tag": "b",
+                "text": "3x - 5y - 7 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211715",
+                "tag": "c",
+                "text": "5x - 3y + 7 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211716",
+                "tag": "d",
+                "text": "5x + 3y - 1 = 0",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51538": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>A binary operation ,*, is defined on the set R, of real numbers by \\(a * b = a^{2} + b + ab\\). Find the value of x for which \\(5 * x = 37\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(a * b = a^{2} + b + ab\\)</p>\r\n\r\n<p>\\(5 * x = 5^{2} + x + 5x = 37\\)</p>\r\n\r\n<p>\\(25 + 6x = 37 \\implies 6x = 12\\)</p>\r\n\r\n<p>\\(x = 2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211717",
+                "tag": "a",
+                "text": "7",
+                "is_correct": false
+            },
+            {
+                "option_id": "211718",
+                "tag": "b",
+                "text": "2",
+                "is_correct": true
+            },
+            {
+                "option_id": "211719",
+                "tag": "c",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211720",
+                "tag": "d",
+                "text": "-7",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51541": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Find the derivative of \\(3x^{2} + \\frac{1}{x^{2}}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y = 3x^{2} + \\frac{1}{x^{2}} \\equiv y = 3x^{2} + x^{-2}\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d y}{\\mathrm d x} = 6x - 2x^{-3}\\)</p>\r\n\r\n<p>= \\(6x - \\frac{2}{x^{3}}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211721",
+                "tag": "a",
+                "text": "\\(6x + 2x^{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211722",
+                "tag": "b",
+                "text": "\\(6x + \\frac{1}{2x}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211723",
+                "tag": "c",
+                "text": "\\(6x - \\frac{2}{x^{3}}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211724",
+                "tag": "d",
+                "text": "\\(6x - \\frac{1}{2x}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51543": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The coefficient of the 5th term in the binomial expansion of \\((1 + kx)^{8}\\), in ascending powers of x is \\(\\frac{35}{8}\\). Find the value of the constant k.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\((1 + kx)^{8} = ^{8}C_{0}(1^{8})(kx)^{0} + ^{8}C_{1}(1^{7})(kx)^{1} + ...\\)</p>\r\n\r\n<p>The 5th term = \\(^{8}C_{5 - 1}(1^{4})(kx)^{4}\\)</p>\r\n\r\n<p>= \\(^{8}C_{4} (kx)^{4}\\)</p>\r\n\r\n<p>\\(\\implies 70k^{4} = \\frac{35}{8}\\)</p>\r\n\r\n<p>\\(k^{4} = \\frac{\\frac{35}{8}}{70}\\)</p>\r\n\r\n<p>\\(k^{4} = \\frac{1}{16}\\)</p>\r\n\r\n<p>\\(k = \\frac{1}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211725",
+                "tag": "a",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211726",
+                "tag": "b",
+                "text": "\\(\\frac{1}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211727",
+                "tag": "c",
+                "text": "\\(-\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211728",
+                "tag": "d",
+                "text": "-2",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51549": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Given that \\(f &#39;(x) = 3x^{2} - 6x + 1\\) and f(3) = 5, find f(x).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(f &#39; (x) = 3x^{2} - 6x + 1\\)</p>\r\n\r\n<p>\\(f(x) = \\int (3x^{2} - 6x + 1) \\mathrm {d} x\\)</p>\r\n\r\n<p>= \\(x^{3} - 3x^{2} + x + c\\)</p>\r\n\r\n<p>\\(f(3) = 5 = 3^{3} - 3(3^{2}) + 3 + c\\)</p>\r\n\r\n<p>\\(27 - 27 + 3 + c = 5 \\implies 3 + c = 5\\)</p>\r\n\r\n<p>\\(c = 2\\)</p>\r\n\r\n<p>\\(f(x) = x^{3} - 3x^{2} + x + 2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211729",
+                "tag": "a",
+                "text": "\\(f(x) = x^{3} - 3x^{2} + x + 20\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211730",
+                "tag": "b",
+                "text": "\\(f(x) = x^{3} - 3x^{2} + x + 31\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211731",
+                "tag": "c",
+                "text": "\\(f(x) = x^{3} - 3x^{2} + x + 2\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211732",
+                "tag": "d",
+                "text": "\\(f(x) = x^{3} - 3x^{2} + x - 13\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51554": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Express \\(\\frac{1}{1 - \\sin 45&deg;}\\) in surd form.&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\sin 45 = \\frac{\\sqrt{2}}{2}\\)</p>\r\n\r\n<p>\\(\\frac{1}{1 - \\sin 45} = \\frac{1}{1 - \\frac{\\sqrt{2}}{2}}\\)</p>\r\n\r\n<p>\\(\\frac{2}{2 - \\sqrt{2}} = \\frac{4 +&nbsp;2\\sqrt{2}}{4 - 2}\\)</p>\r\n\r\n<p>= \\(2 +&nbsp;\\sqrt{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "211733",
+                "tag": "a",
+                "text": "\\(2 + \\sqrt{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211734",
+                "tag": "b",
+                "text": "\\(2 + \\sqrt{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211735",
+                "tag": "c",
+                "text": "\\(2 - \\sqrt{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211736",
+                "tag": "d",
+                "text": "\\(1 + 2\\sqrt{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51558": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(\\begin{vmatrix} 4 &amp; x \\\\ 5 &amp; 3 \\end{vmatrix} = 32\\), find the value of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\begin{vmatrix} 4 &amp; x \\\\ 5 &amp; 3 \\end{vmatrix} = 12 - 5x = 32\\)</p>\r\n\r\n<p>\\(5x = 12 - 32 = -20\\)</p>\r\n\r\n<p>\\(x = -4\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211737",
+                "tag": "a",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "211738",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211739",
+                "tag": "c",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211740",
+                "tag": "d",
+                "text": "-4",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51563": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If events A and B are independent and \\(P(A) = \\frac{7}{12}\\) and \\(P(A \\cap B) = \\frac{1}{4}\\), find P(B).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(A) = \\frac{7}{12}\\)</p>\r\n\r\n<p>\\(P(A \\cap B) = \\frac{1}{4} = P(A) \\times P(B)\\) (Independent events)</p>\r\n\r\n<p>\\(\\frac{1}{4}&nbsp;&divide; \\frac{7}{12} = \\frac{1}{4} \\times \\frac{12}{7} \\)</p>\r\n\r\n<p>= \\(\\frac{3}{7}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211741",
+                "tag": "a",
+                "text": "\\(\\frac{3}{7}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211742",
+                "tag": "b",
+                "text": "\\(\\frac{4}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211743",
+                "tag": "c",
+                "text": "\\(\\frac{5}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211744",
+                "tag": "d",
+                "text": "\\(\\frac{6}{7}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51564": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Given that \\(\\overrightarrow{AB} = 5i + 3j\\) and \\(\\overrightarrow{AC} = 2i + 5j\\), find \\(\\overrightarrow{BC}\\).&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\overrightarrow{BC} = \\overrightarrow{BA} + \\overrightarrow{AC}\\)</p>\r\n\r\n<p>\\(\\overrightarrow{BA} = - \\overrightarrow{AB} = -(5i + 3j)\\)</p>\r\n\r\n<p>= \\(-5i - 3j\\)</p>\r\n\r\n<p>\\(\\overrightarrow{BC} = (-5i - 3j) + (2i + 5j)\\)</p>\r\n\r\n<p>= \\(-3i + 2j\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211745",
+                "tag": "a",
+                "text": "-7i - 8j",
+                "is_correct": false
+            },
+            {
+                "option_id": "211746",
+                "tag": "b",
+                "text": "-3i + 2j",
+                "is_correct": true
+            },
+            {
+                "option_id": "211747",
+                "tag": "c",
+                "text": "3i - 2j",
+                "is_correct": false
+            },
+            {
+                "option_id": "211748",
+                "tag": "d",
+                "text": "3i + 8j",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51578": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The probability of Jide, Atu and Obu solving a given problem are \\(\\frac{1}{12}\\), \\(\\frac{1}{6}\\) and \\(\\frac{1}{8}\\) respectively. Calculate the probability that only one solves the problem.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(Jide) = \\frac{1}{12}; P(\\text{not Jide}) = \\frac{11}{12}\\)</p>\r\n\r\n<p>\\(P(Atu) = \\frac{1}{6}; P(\\text{not Atu}) = \\frac{5}{6}\\)</p>\r\n\r\n<p>\\(P(Obu) = \\frac{1}{8}; P(\\text{not Obu}) = \\frac{7}{8}\\)</p>\r\n\r\n<p>\\(P(\\text{only one of them}) = P(\\text{Jide not Atu not Obu}) + P(\\text{Atu not Jide not Obu}) + P(\\text{Obu not Jide not Atu})\\)</p>\r\n\r\n<p>= \\((\\frac{1}{12} \\times \\frac{5}{6} \\times \\frac{7}{8}) + (\\frac{1}{6} \\times \\frac{11}{12} \\times \\frac{7}{8}) + (\\frac{1}{8} \\times \\frac{11}{12} \\times \\frac{5}{6})\\)</p>\r\n\r\n<p>= \\(\\frac{35}{576} + \\frac{77}{576} + \\frac{55}{576}\\)</p>\r\n\r\n<p>= \\(\\frac{167}{576}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211749",
+                "tag": "a",
+                "text": "\\(\\frac{1}{576}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211750",
+                "tag": "b",
+                "text": "\\(\\frac{55}{576}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211751",
+                "tag": "c",
+                "text": "\\(\\frac{77}{576}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211752",
+                "tag": "d",
+                "text": "\\(\\frac{167}{576}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51587": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Two forces \\(F_{1} = (10N, 020&deg;)\\) and \\(F_{2} = (7N, 200&deg;)\\) act on a particle. Find the resultant force.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Given forces:<br />\r\n\\(F_1 = 10 \\, \\text{N} \\, (\\theta_1 = 20^\\circ), \\quad F_2 = 7 \\, \\text{N} \\, (\\theta_2 = 200^\\circ)\\)</p>\r\n\r\n<p>Components:</p>\r\n\r\n<p>1. For \\( F_1 \\):<br />\r\n\\(F_{1x} = 10 \\cos(20^\\circ) \\approx 9.40 \\, \\text{N}, \\quad F_{1y} = 10 \\sin(20^\\circ) \\approx 3.42 \\, \\text{N}\\)</p>\r\n\r\n<p>2. For \\( F_2 \\):</p>\r\n\r\n<p>\\(F_{2x} = 7 \\cos(200^\\circ) \\approx -6.58 \\, \\text{N}, \\quad F_{2y} = 7 \\sin(200^\\circ) \\approx -2.39 \\, \\text{N}\\)</p>\r\n\r\n<p>Resultant Components:<br />\r\n\\(R_x = F_{1x} + F_{2x} = 9.40 - 6.58 \\approx 2.82 \\, \\text{N}\\)<br />\r\n\\(R_y = F_{1y} + F_{2y} = 3.42 - 2.39 \\approx 1.03 \\, \\text{N}\\)</p>\r\n\r\n<p>Magnitude:<br />\r\n\\(R = \\sqrt{R_x^2 + R_y^2} = \\sqrt{(2.82)^2 + (1.03)^2} \\approx 3.00 \\, \\text{N}\\)</p>\r\n\r\n<p>Direction:<br />\r\n\\(\\theta = \\tan^{-1}\\left(\\frac{R_y}{R_x}\\right) = \\tan^{-1}\\left(\\frac{1.03}{2.82}\\right) \\approx 20.1^\\circ\\)<br />\r\n\\(R \\approx 3.00 \\, \\text{N} \\, \\text{at} \\, 20.1^\\circ\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "211753",
+                "tag": "a",
+                "text": "(3 N, 020\u00b0)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211754",
+                "tag": "b",
+                "text": "(3 N, 200\u00b0)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211755",
+                "tag": "c",
+                "text": "(17 N, 020\u00b0)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211756",
+                "tag": "d",
+                "text": "(17 N, 200\u00b0)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51591": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:60%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Marks</td>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>8</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>No of students</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>9</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>4</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>The table above shows the distribution of marks by some candidates in a test. What is the median score?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211757",
+                "tag": "a",
+                "text": "3.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211758",
+                "tag": "b",
+                "text": "4.0",
+                "is_correct": true
+            },
+            {
+                "option_id": "211759",
+                "tag": "c",
+                "text": "4.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211760",
+                "tag": "d",
+                "text": "5.0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51598": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:60%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Marks</td>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>8</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>No of students</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>9</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>4</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>The table above shows the distribution of marks by some candidates in a test. Find, correct to one decimal place, the mean of the distribution.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:75%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Marks(\\(x\\)</td>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>8</td>\r\n\t\t\t<td>Total</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Frequency \\(f\\)</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>9</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>40</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\\(fx\\)</td>\r\n\t\t\t<td>10</td>\r\n\t\t\t<td>21</td>\r\n\t\t\t<td>36</td>\r\n\t\t\t<td>30</td>\r\n\t\t\t<td>18</td>\r\n\t\t\t<td>42</td>\r\n\t\t\t<td>32</td>\r\n\t\t\t<td>189</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Mean \\(\\bar{x} = \\frac{\\sum fx}{\\sum f} = \\frac{189}{40}\\)</p>\r\n\r\n<p>= \\(4.725 \\approxeq 4.7\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211761",
+                "tag": "a",
+                "text": "5.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211762",
+                "tag": "b",
+                "text": "5.3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211763",
+                "tag": "c",
+                "text": "5.2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211764",
+                "tag": "d",
+                "text": "4.7",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51602": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:60%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Marks</td>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>8</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>No of students</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>9</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>4</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>The table above shows the distribution of marks by some candidates in a test. If a student is selected at random, what is the probability that she scored at least 6 marks?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211765",
+                "tag": "a",
+                "text": "\\(\\frac{3}{40}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211766",
+                "tag": "b",
+                "text": "\\(\\frac{1}{4}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211767",
+                "tag": "c",
+                "text": "\\(\\frac{13}{40}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211768",
+                "tag": "d",
+                "text": "\\(\\frac{27}{40}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51607": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Express \\(r = (12, 210&deg;)\\) in the form \\(a i + b j\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(F = F \\cos \\theta i + F \\sin \\theta j\\)</p>\r\n\r\n<p>\\(r = (12, 210&deg;) = 12 \\cos 210 i + 12 \\sin 210 j\\)</p>\r\n\r\n<p>= \\(- 6\\sqrt{3} i - 6j\\)</p>\r\n\r\n<p>= \\(6(-\\sqrt{3} i - j)\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211769",
+                "tag": "a",
+                "text": "\\(6(-i + \\sqrt{3} j)\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211770",
+                "tag": "b",
+                "text": "\\(6(-\\sqrt{3} i - j)\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211771",
+                "tag": "c",
+                "text": "\\(6(i - \\sqrt{3} j)\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211772",
+                "tag": "d",
+                "text": "\\(6(i + \\sqrt{3} j)\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51608": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>A test consists of 12 questions out of which candidates are to answer 10. If the first 6 are compulsory, in how many ways can each candidate select her questions?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The first 6 questions can only be selected in 1 way.&nbsp;</p>\r\n\r\n<p>The remaining 4 questions can be selected in \\(^{6}C_{4}\\) ways.</p>\r\n\r\n<p>= \\(\\frac{6!}{(6 - 4)! 4!} = 15\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211773",
+                "tag": "a",
+                "text": "40",
+                "is_correct": false
+            },
+            {
+                "option_id": "211774",
+                "tag": "b",
+                "text": "25",
+                "is_correct": false
+            },
+            {
+                "option_id": "211775",
+                "tag": "c",
+                "text": "15",
+                "is_correct": true
+            },
+            {
+                "option_id": "211776",
+                "tag": "d",
+                "text": "10",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51611": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>A body starts from rest and moves in a straight line with uniform acceleration of \\(5 ms^{-2}\\). How far, in metres, does it go in 10 seconds?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(s = ut + \\frac{1}{2} at^{2}\\)</p>\r\n\r\n<p>\\(u = 0, t = 10 secs, a = 5 ms^{-2}\\)</p>\r\n\r\n<p>\\(s = 0 + \\frac{1}{2} 5 \\times 10^{2}\\)</p>\r\n\r\n<p>\\(s = 250 m\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211777",
+                "tag": "a",
+                "text": "50 m",
+                "is_correct": false
+            },
+            {
+                "option_id": "211778",
+                "tag": "b",
+                "text": "250 m",
+                "is_correct": true
+            },
+            {
+                "option_id": "211779",
+                "tag": "c",
+                "text": "350 m",
+                "is_correct": false
+            },
+            {
+                "option_id": "211780",
+                "tag": "d",
+                "text": "500 m",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51618": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If n items are arranged two at a time, the number obtained is 20. Find the value of n.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(^{n}P_{2} = \\frac{n!}{(n - 2)!} = 20 \\)</p>\r\n\r\n<p>\\(\\frac{n(n - 1)(n - 2)!}{(n - 2)!} = 20\\)</p>\r\n\r\n<p>\\(n(n - 1) = 20 \\implies n^{2} - n - 20 = 0\\)</p>\r\n\r\n<p>\\(n^{2} - 5n + 4n - 20 = 0\\)</p>\r\n\r\n<p>\\(n(n - 5) + 4(n - 5) = 0\\)</p>\r\n\r\n<p>\\(n = \\text{5 or -4}\\)</p>\r\n\r\n<p>\\(n = 5\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211781",
+                "tag": "a",
+                "text": "5",
+                "is_correct": true
+            },
+            {
+                "option_id": "211782",
+                "tag": "b",
+                "text": "10",
+                "is_correct": false
+            },
+            {
+                "option_id": "211783",
+                "tag": "c",
+                "text": "15",
+                "is_correct": false
+            },
+            {
+                "option_id": "211784",
+                "tag": "d",
+                "text": "40",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51620": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(p = \\begin{pmatrix} 2 \\\\ -2 \\end{pmatrix} \\) and \\(q = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\), find \\(|q - \\frac{1}{2}p|\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(p = \\begin{pmatrix} 2 \\\\ -2 \\end{pmatrix} , q = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\)</p>\r\n\r\n<p>\\(\\frac{1}{2}p = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)</p>\r\n\r\n<p>\\(q - \\frac{1}{2}p = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 5 \\end{pmatrix}\\)</p>\r\n\r\n<p>\\(|q - \\frac{1}{2}p| = \\sqrt{2^{2} + 5^{2}} = \\sqrt{29}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211785",
+                "tag": "a",
+                "text": "\\(2\\sqrt{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211786",
+                "tag": "b",
+                "text": "\\(\\sqrt{13}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211787",
+                "tag": "c",
+                "text": "\\(5\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211788",
+                "tag": "d",
+                "text": "\\(\\sqrt{29}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51622": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>Find the value of the constant k for which \\(a = 4 i&nbsp;- k j\\) and \\(b = 3 i + 8 j\\) are perpendicular.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>For perpendicular vectors, their dot product = 0.</p>\r\n\r\n<p>\\((4i - kj). (3i + 8j) = 12 - 8k = 0\\)</p>\r\n\r\n<p>\\(8k = 12 \\implies k = \\frac{3}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211789",
+                "tag": "a",
+                "text": "\\(\\frac{2}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211790",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211791",
+                "tag": "c",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211792",
+                "tag": "d",
+                "text": "\\(\\frac{3}{2}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51623": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The initial and final velocities of an object of mass 5 kg are \\(u = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}\\) and \\(v = \\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix}\\) respectively. Find the magnitude of its change in momentum.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Change in momentum = m (v - u)</p>\r\n\r\n<p>= \\(5 \\times (\\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix})\\)</p>\r\n\r\n<p>= \\(5 \\times \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\)</p>\r\n\r\n<p>= \\(\\begin{pmatrix} 15 \\\\ 20 \\end{pmatrix}\\)</p>\r\n\r\n<p>\\(|m(v - u)| = \\sqrt{15^{2} + 20^{2}} = \\sqrt{625} = 25\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211793",
+                "tag": "a",
+                "text": "25",
+                "is_correct": true
+            },
+            {
+                "option_id": "211794",
+                "tag": "b",
+                "text": "15",
+                "is_correct": false
+            },
+            {
+                "option_id": "211795",
+                "tag": "c",
+                "text": "\\(3\\sqrt{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211796",
+                "tag": "d",
+                "text": "\\(\\sqrt{10}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51625": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>If \\(y = x^{2} - 6x + 11\\) is written in the form \\(y = a(x - h)^{2} + k\\), find the value of \\((a + h + k)\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y = x^{2} - 6x + 11\\)</p>\r\n\r\n<p>\\( y = a(x - h)^{2} + k\\)</p>\r\n\r\n<p>\\(a(x - h)^{2} + k = a(x^{2} - 2hx + h^{2}) + k\\)</p>\r\n\r\n<p>\\(ax^{2} - 2ahx + ah^{2} + k = x^{2} - 6x + 11\\)</p>\r\n\r\n<p>Comparing, we have</p>\r\n\r\n<p>\\(a = 1\\)</p>\r\n\r\n<p>\\(2ah = 6 \\implies 2h = 6; h = 3\\)</p>\r\n\r\n<p>\\(ah^{2} + k = 11 \\implies (1 \\times 3^{2}) + k = 11\\)</p>\r\n\r\n<p>\\(9 + k = 11 \\implies k = 2\\)</p>\r\n\r\n<p>\\(\\therefore a + h + k = 1 + 3 + 2 = 6\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211797",
+                "tag": "a",
+                "text": "-4",
+                "is_correct": false
+            },
+            {
+                "option_id": "211798",
+                "tag": "b",
+                "text": "-3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211799",
+                "tag": "c",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211800",
+                "tag": "d",
+                "text": "6",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51626": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>The distance between P(x, 7) and Q(6, 19) is 13 units. Find the values of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(d = \\sqrt{(x_{1} - x_{2})^{2} + (y_{1} - y_{2})^{2}}\\)</p>\r\n\r\n<p>\\(13 = \\sqrt{(x - 6)^{2} + (7 - 19)^{2}}\\)</p>\r\n\r\n<p>\\(13^{2} = x^{2} - 12x + 36 + 144\\)</p>\r\n\r\n<p>\\(169 = x^{2} - 12x + 180\\)</p>\r\n\r\n<p>\\(x^{2} - 12x + 180 - 169 = 0 \\implies x^{2} - 12x + 11 = 0\\)</p>\r\n\r\n<p>\\((x - 1)(x - 11) = 0 \\implies x = \\text{1 or 11}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211801",
+                "tag": "a",
+                "text": "1 or -7",
+                "is_correct": false
+            },
+            {
+                "option_id": "211802",
+                "tag": "b",
+                "text": "1 or 7",
+                "is_correct": false
+            },
+            {
+                "option_id": "211803",
+                "tag": "c",
+                "text": "1 or 11",
+                "is_correct": true
+            },
+            {
+                "option_id": "211804",
+                "tag": "d",
+                "text": "5 or -5",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51627": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2008",
+        "question_text": "<p>In the diagram above, forces P, Q and 50N are acting on a body at M. If the system is in equilibrium, calculate, in terms of \\(\\theta\\), the magnitude of P.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Further_Mathematics/year/Objective/2008/img_51627.jpeg",
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211805",
+                "tag": "a",
+                "text": "\\(\\frac{50 \\cos \\theta}{\\sin (\\theta + 45)\u00b0}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211806",
+                "tag": "b",
+                "text": "\\(\\frac{50 \\cos \\theta}{\\cos (\\theta + 45)\u00b0}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211807",
+                "tag": "c",
+                "text": "\\(\\frac{50 \\sin \\theta}{\\cos (\\theta + 45)\u00b0}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211808",
+                "tag": "d",
+                "text": "\\(\\frac{50 \\sin \\theta}{\\sin (\\theta + 45)\u00b0}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    }
+}

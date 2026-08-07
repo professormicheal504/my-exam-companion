@@ -13,6 +13,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../components/topbar.css">
   <link rel="stylesheet" href="../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../components/footer.css">
+  <script src="../components/nav.js" defer></script>
+  <script src="../components/topbar.js?v=3" defer></script>
+  <script src="../components/sidebar.js?v=10" defer></script>
+  <script src="../components/footer.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Initialize Supabase so it can parse OAuth tokens from the URL hash after a redirect
+    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    
+    // Listen for Supabase to finish parsing the session asynchronously
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+      // Clean up the ugly URL hash after successful OAuth login
+      if (window.location.hash.includes('access_token=')) {
+        window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
+      }
+      
+      // Force the topbar to re-render now that the session is securely in localStorage
+      const topbar = document.querySelector('app-topbar');
+      if (topbar && typeof topbar.render === 'function') {
+        topbar.render();
+      }
+    });
+    
+    // Listen for the profile data to update the Welcome Card dynamically
+    document.addEventListener('mec-profile-loaded', (e) => {
+      const profile = e.detail;
+      
+      // Update Name
+      const nameEl = document.getElementById('welcome-name');
+      if (nameEl && profile.display_name) {
+        // Capitalize first letter
+        const capitalizedName = profile.display_name.charAt(0).toUpperCase() + profile.display_name.slice(1);
+        nameEl.innerText = `Welcome back, ${capitalizedName}! 👋`;
+      }
+      
+      // Update Matric Number
+      const matricEl = document.getElementById('welcome-matric');
+      if (matricEl && profile.exam_id) {
+        matricEl.innerText = profile.exam_id;
+      }
+    });
+  </script>
   <style>
     /* ---- Reset ---- */
     *,
@@ -23,9 +68,9 @@
       padding: 0;
     }
 
-    html { 
-      font-family: 'Inter', sans-serif; 
-      scroll-behavior: smooth; 
+    html {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
     }
@@ -79,121 +124,7 @@
       min-height: 100vh;
     }
 
-    /* ==============================
-       TOP BAR
-    ============================== */
-    .topbar {
-      height: 58px;
-      background: #ffffff;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      gap: 16px;
-    }
 
-    .topbar__logo {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-      flex-shrink: 0;
-    }
-
-    .topbar__logo-my-exam-companion {
-      font-size: 22px;
-      font-weight: 800;
-      color: #b70c01;
-      letter-spacing: -0.04em;
-    }
-
-    .topbar__logo-ng {
-      font-size: 13px;
-      color: #9ca3af;
-      font-weight: 500;
-    }
-
-    .topbar__search {
-      flex: 1;
-      max-width: 420px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #f5f5f5;
-      border: 1px solid #ebebeb;
-      border-radius: 9999px;
-      padding: 8px 16px;
-      transition: border-color 0.15s;
-    }
-
-    .topbar__search:focus-within {
-      border-color: #b70c01;
-      background: white;
-    }
-
-    .topbar__search-icon {
-      color: #9ca3af;
-      flex-shrink: 0;
-    }
-
-    .topbar__search input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      outline: none;
-      font-size: 13px;
-      color: #131212;
-      font-family: inherit;
-    }
-
-    .topbar__search input::placeholder {
-      color: #b0b0b0;
-    }
-
-    .topbar__actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .btn-login {
-      padding: 8px 18px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #131212;
-      border: 1px solid #ddd;
-      background: white;
-      transition: background 0.15s;
-    }
-
-    .btn-login:hover {
-      background: #f5f5f5;
-    }
-
-    .btn-register {
-      padding: 8px 18px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 600;
-      color: white;
-      background: #131212;
-      border: 1px solid #131212;
-      transition: background 0.15s, transform 0.15s;
-    }
-
-    .btn-register:hover {
-      background: #2d2d2d;
-      transform: translateY(-1px);
-    }
-
-    /* ==============================
-       CONTENT AREA (main + right sidebar)
-    ============================== */
     .content-area {
       display: flex;
       flex: 1;
@@ -210,91 +141,34 @@
       min-width: 0;
     }
 
-    /* ---- Ad Banners ---- */
-    .ad-banners {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
+    /* ---- Ad Banners (Image) ---- */
+    .ad-banner-wrapper {
+      margin: 32px auto;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .ad-banner-img {
+      display: block;
+      width: 100%;
       border-radius: 12px;
       overflow: hidden;
-    }
-
-    .ad-banner {
-      border-radius: 10px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 12px 16px;
-      position: relative;
-      overflow: hidden;
       cursor: pointer;
-      transition: transform 0.15s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      background: #0e2212;
     }
 
-    .ad-banner:hover {
-      transform: translateY(-2px);
+    .ad-banner-img:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
     }
 
-    .ad-banner--1 {
-      background: linear-gradient(120deg, #2b1a00 0%, #5a3200 100%);
-    }
-
-    .ad-banner--2 {
-      background: linear-gradient(120deg, #0a2e0f 0%, #1a5a26 60%, #22a63b 100%);
-    }
-
-    .ad-banner--3 {
-      background: linear-gradient(120deg, #7a0a0a 0%, #c0181a 60%, #e84040 100%);
-    }
-
-    .ad-banner__content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .ad-banner__tag {
-      font-size: 9px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 4px;
-    }
-
-    .ad-banner__title {
-      font-size: 13px;
-      font-weight: 800;
-      color: white;
-      line-height: 1.25;
-      max-width: 160px;
-    }
-
-    .ad-banner__title span {
-      color: #ffd700;
-    }
-
-    .ad-banner__cta {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 3px 10px;
-      background: #ffd700;
-      color: #1a0a00;
-      border-radius: 4px;
-      font-size: 9px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .ad-banner__emoji {
-      position: absolute;
-      right: 10px;
-      bottom: -6px;
-      font-size: 42px;
-      opacity: 0.35;
-      z-index: 1;
+    .ad-banner-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
     }
 
     /* ---- Section Headers ---- */
@@ -670,9 +544,31 @@
       -webkit-line-clamp: 4;
     }
 
+    .news-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
     .news-card__date {
       font-size: 11px;
       color: #b0b0b0;
+    }
+
+    .news-card__stats {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    .news-card__stats span {
+      display: flex;
+      align-items: center;
+      gap: 3px;
     }
 
     /* ==============================
@@ -862,14 +758,6 @@
     }
 
     @media (max-width: 768px) {
-      .main-wrapper {
-        margin-left: 80px;
-      }
-
-      .ad-banners {
-        grid-template-columns: 1fr;
-      }
-
       .test-grid {
         grid-template-columns: 1fr;
       }
@@ -881,58 +769,12 @@
       .news-grid {
         grid-template-columns: 1fr;
       }
-
-      .topbar__logo-my-exam-companion {
-        font-size: 16px;
-      }
-
-      .topbar__actions {
-        display: none;
-      }
     }
 
     /* Full-screen layout on mobile — sidebar is off-canvas */
     @media (max-width: 600px) {
-      .main-wrapper {
-        margin-left: 0;
-      }
-
       .main-content {
         padding: 16px 12px;
-      }
-
-      .topbar {
-        padding: 0 10px;
-        gap: 8px;
-      }
-
-      /* Shrink logo so search bar fits */
-      .topbar__logo {
-        flex-shrink: 0;
-      }
-
-      .topbar__logo img {
-        min-width: 90px !important;
-        height: 32px !important;
-      }
-
-      /* Compact search bar — short fixed width */
-      .topbar__search {
-        display: flex;
-        flex: 0 1 150px;
-        /* won't grow beyond 150px, can shrink */
-        min-width: 80px;
-        padding: 5px 10px;
-        font-size: 12px;
-      }
-
-      /* Keep search icon, hide placeholder text */
-      .topbar__search input {
-        font-size: 12px;
-        min-width: 0;
-        width: 0;
-        /* let flex do the work */
-        flex: 1;
       }
 
       .pq-grid {
@@ -1026,7 +868,7 @@
     <!-- ============================
        LEFT SIDEBAR
   ============================ -->
-    <app-sidebar data-base="./"></app-sidebar>
+    <app-sidebar data-base="../"></app-sidebar>
 
     <!-- ============================
        MAIN WRAPPER
@@ -1034,7 +876,7 @@
     <div class="main-wrapper">
 
       <!-- TOP BAR -->
-      <app-topbar data-base="./"></app-topbar>
+      <app-topbar data-base="../"></app-topbar>
 
       <!-- CONTENT AREA -->
       <div class="content-area">
@@ -1059,20 +901,27 @@
             overflow: hidden;
           ">
             <!-- Abstract background shapes for premium texture -->
-            <div style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: rgba(255,255,255,0.04); border-radius: 50%; filter: blur(1px);"></div>
-            <div style="position: absolute; bottom: -60px; left: 15%; width: 150px; height: 150px; background: rgba(255,255,255,0.03); border-radius: 50%; filter: blur(2px);"></div>
-            
-            <div style="position: relative; z-index: 2; flex: 1; min-width: 250px;">
-              <h1 style="font-size: 22px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; text-shadow: 0 1px 3px rgba(0,0,0,0.15);">Welcome back, Ojehomon! 👋</h1>
-              <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); font-weight: 500; max-width: 420px;">Your personalized learning hub is ready. Let's ace your exams today.</p>
+            <div
+              style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: rgba(255,255,255,0.04); border-radius: 50%; filter: blur(1px);">
+            </div>
+            <div
+              style="position: absolute; bottom: -60px; left: 15%; width: 150px; height: 150px; background: rgba(255,255,255,0.03); border-radius: 50%; filter: blur(2px);">
             </div>
 
-            <div style="position: relative; z-index: 2; display: flex; align-items: center; flex-shrink: 0;">
-              
-              <!-- Matric Badge (Glassmorphism - Strict Single Row) -->
+            <div style="position: relative; z-index: 2; flex: 1; min-width: 250px;">
+              <h1 id="welcome-name"
+                style="font-size: 22px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; text-shadow: 0 1px 3px rgba(0,0,0,0.15);">
+                Welcome back! 👋</h1>
+              <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); font-weight: 500; max-width: 420px;">Your
+                personalized learning hub is ready. Let's ace your exams today.</p>
+            </div>
+
+            <div style="position: relative; z-index: 2; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; justify-content: flex-start; max-width: 100%; margin-top: 8px;">
+
+              <!-- Rank Badge -->
               <div style="
                 background: rgba(255, 255, 255, 0.12); 
-                padding: 10px 16px; 
+                padding: 8px 12px; 
                 border-radius: 12px; 
                 border: 1px solid rgba(255, 255, 255, 0.25); 
                 border-top: 1px solid rgba(255, 255, 255, 0.4);
@@ -1086,53 +935,81 @@
                 white-space: nowrap;
               ">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <div style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80, 0 0 12px #4ade80;"></div>
-                  <div style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">Matric No:</div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" width="14" height="14"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                  <div style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
+                    Rank:</div>
                 </div>
-                <div style="font-size: 16px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">MEC/2026/081</div>
+                <div style="font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                  Scholar</div>
+              </div>
+
+              <!-- Balance Badge -->
+              <div style="
+                background: rgba(255, 255, 255, 0.12); 
+                padding: 8px 12px; 
+                border-radius: 12px; 
+                border: 1px solid rgba(255, 255, 255, 0.25); 
+                border-top: 1px solid rgba(255, 255, 255, 0.4);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                white-space: nowrap;
+              ">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" width="14" height="14"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+                  <div style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
+                    Bal:</div>
+                </div>
+                <div style="font-size: 14px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                  ₦12,500</div>
+              </div>
+
+              <!-- Matric Badge (Glassmorphism - Strict Single Row) -->
+              <div style="
+                background: rgba(255, 255, 255, 0.12); 
+                padding: 8px 12px; 
+                border-radius: 12px; 
+                border: 1px solid rgba(255, 255, 255, 0.25); 
+                border-top: 1px solid rgba(255, 255, 255, 0.4);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                white-space: nowrap;
+              ">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <div
+                    style="width: 6px; height: 6px; background: #60a5fa; border-radius: 50%; box-shadow: 0 0 8px #60a5fa, 0 0 12px #60a5fa;">
+                  </div>
+                  <div
+                    style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
+                    Matric No:</div>
+                </div>
+                <div id="welcome-matric"
+                  style="font-size: 14px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                  Loading...</div>
               </div>
 
             </div>
           </div>
 
-          <!-- Ad Banners -->
-          <div class="ad-banners">
-            <div class="ad-banner ad-banner--1">
-              <div class="ad-banner__content">
-                <div class="ad-banner__tag">Earn Money</div>
-                <div class="ad-banner__title">Post UTME Agents<br>Earn up to <span>₦800k</span> &amp; more</div>
-                <span class="ad-banner__cta">Become an Agent Now!</span>
-              </div>
-              <span class="ad-banner__emoji">🤝</span>
-            </div>
-
-            <div class="ad-banner ad-banner--2">
-              <div class="ad-banner__content">
-                <div class="ad-banner__tag">Join Community</div>
-                <div class="ad-banner__title">WhatsApp Group<br>For Your School</div>
-                <span class="ad-banner__cta" style="background:#25d366;color:white;">Join Now</span>
-              </div>
-              <span class="ad-banner__emoji">💬</span>
-            </div>
-
-            <div class="ad-banner ad-banner--3">
-              <div class="ad-banner__content">
-                <div class="ad-banner__tag">Study Materials</div>
-                <div class="ad-banner__title">Post UTME<br>Past Questions</div>
-                <span class="ad-banner__cta" style="background:white;color:#b70c01;">Download PDF</span>
-              </div>
-              <span class="ad-banner__emoji">📋</span>
-            </div>
+          <!-- Banner 1 -->
+          <div class="ad-banner-wrapper">
+            <a href="#" class="ad-banner-img">
+              <img src="../assets/banners/banner_1.webp" alt="Learning Rewards – Help Others Learn, Earn Rewards" loading="lazy">
+            </a>
           </div>
 
-          <!-- Take a Test -->
-          <div class="section-header">
-            <h2 class="section-title">Take a test</h2>
-            <span class="section-menu">···</span>
-          </div>
-
-          <div class="test-grid" id="dynamic-test-grid">
-            <!-- Dynamically populated from configs/us.json -->
+          <!-- Dynamic Exam Sections -->
+          <div id="dynamic-exam-sections">
+            <!-- Dynamically populated from configs -->
           </div>
 
           <!-- Your Feed -->
@@ -1169,6 +1046,13 @@
             </div>
           </div>
 
+          <!-- Banner 3 -->
+          <div class="ad-banner-wrapper">
+            <a href="#" class="ad-banner-img">
+              <img src="../assets/banners/banner_3.webp" alt="WhatsApp Group For Your School – Join Now" loading="lazy">
+            </a>
+          </div>
+
           <!-- News -->
           <div class="news-section">
             <div class="section-header">
@@ -1176,28 +1060,40 @@
               <span style="font-size:12px;font-weight:600;color:#b70c01;cursor:pointer;">All news →</span>
             </div>
             <div class="news-grid">
-              <div class="news-card news-card--featured">
+              <div class="news-card news-card--featured" onclick="window.location.href='blog/content.html'">
                 <div class="news-card__thumb" style="background:linear-gradient(135deg,#f3f2f2,#e0e0e0);">
-                  📋
+                  📰
                   <span class="news-card__cat">JAMB</span>
                 </div>
                 <div class="news-card__body">
-                  <div class="news-card__title">JAMB 2025 UTME Registration Deadline Extended — Key Dates and How to
+                  <div class="news-card__title">JAMB 2025 UTME Registration Deadline Extended – Key Dates and How to
                     Register</div>
-                  <div class="news-card__date">July 10, 2025</div>
+                  <div class="news-card__meta">
+                    <span class="news-card__date">July 10, 2025</span>
+                    <span class="news-card__stats">
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div class="news-card">
+              <div class="news-card" onclick="window.location.href='blog/content.html'">
                 <div class="news-card__thumb" style="background:linear-gradient(135deg,#eaeafc,#d8d7f8);">
-                  📚
+                  📅
                   <span class="news-card__cat">WAEC</span>
                 </div>
                 <div class="news-card__body">
                   <div class="news-card__title">WAEC 2025 Timetable Released: Full Schedule for SSCE Candidates</div>
-                  <div class="news-card__date">July 8, 2025</div>
+                  <div class="news-card__meta">
+                    <span class="news-card__date">July 8, 2025</span>
+                    <span class="news-card__stats">
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 54</span>
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 12</span>
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div class="news-card">
+              <div class="news-card" onclick="window.location.href='blog/content.html'">
                 <div class="news-card__thumb" style="background:linear-gradient(135deg,#f3f9dc,#e0f0a0);">
                   🎓
                   <span class="news-card__cat">Scholarship</span>
@@ -1205,10 +1101,23 @@
                 <div class="news-card__body">
                   <div class="news-card__title">FG Opens Application for 2025 Bilateral Education Agreement (BEA)
                     Scholarship</div>
-                  <div class="news-card__date">July 6, 2025</div>
+                  <div class="news-card__meta">
+                    <span class="news-card__date">July 6, 2025</span>
+                    <span class="news-card__stats">
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 389</span>
+                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 94</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Banner 2 -->
+          <div class="ad-banner-wrapper">
+            <a href="#" class="ad-banner-img">
+              <img src="../assets/banners/banner_2.webp" alt="Refer & Earn – Invite Friends, Earn Rewards" loading="lazy">
+            </a>
           </div>
 
           <!-- Discuss -->
@@ -1396,62 +1305,138 @@
         </aside>
 
       </div><!-- end content-area -->
+      <app-footer data-base="../"></app-footer>
     </div><!-- end main-wrapper -->
   </div><!-- end app -->
 
-  <script src="../components/topbar.js"></script>
-  <script src="../components/sidebar.js?v=6"></script>
+
   <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      // TODO: Replace with your actual Cloudflare R2 Public URL
-      const R2_BASE_URL = 'https://YOUR-R2-PUBLIC-URL.com';
-      
-      const testGrid = document.getElementById('dynamic-test-grid');
-      
+    const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+
+    async function loadCountryModules(countryCode) {
+      const container = document.getElementById('dynamic-exam-sections');
+      const configFile = countryCode + '.json';
+      let config;
+
+      // Show loading state
+      container.innerHTML = '<div style="padding:16px;color:#9ca3af;font-size:13px;">Loading exams...</div>';
+
       try {
-        // Fetch the US configuration from R2
-        // Since we are locally testing and don't have the public URL yet, we can fallback to local file if fetch fails
-        let config;
+        // Try local new_staging_area first, then fall back to Cloudflare R2
         try {
-          const res = await fetch(`${R2_BASE_URL}/configs/us.json`);
-          if (!res.ok) throw new Error('Network response was not ok');
+          const res = await fetch(`../../new_staging_area/configs/${configFile}`);
+          if (!res.ok) throw new Error('Local fallback failed');
           config = await res.json();
         } catch (e) {
-          console.warn('Failed to fetch from R2. Using local fallback for testing...', e);
-          const res = await fetch('../r2_staging_area/configs/us.json');
+          const res = await fetch(`${R2_BASE_URL}/configs/${configFile}`);
+          if (!res.ok) throw new Error('R2 fetch also failed');
           config = await res.json();
         }
 
-        // Generate the test cards
         if (config && config.dashboard_modules) {
-          testGrid.innerHTML = '';
+          container.innerHTML = '';
           const colors = ['orange', 'green', 'dark', 'lime'];
           
-          config.dashboard_modules.forEach((mod, index) => {
-            const colorClass = `test-card__icon--${colors[index % colors.length]}`;
-            
-            // Build SEO-friendly link
-            const a = document.createElement('a');
-            a.href = `./cbt_test/core/setup.html?exam_id=${mod.id}`;
-            a.style.textDecoration = 'none';
-            a.style.color = 'inherit';
-            
-            a.innerHTML = `
-              <div class="test-card">
-                <div class="test-card__icon ${colorClass}">${mod.icon || '📝'}</div>
-                <div class="test-card__body">
-                  <div class="test-card__name">${mod.display_name}</div>
-                  <div class="test-card__desc">Practice ${mod.display_name} in a real CBT exam environment.</div>
-                </div>
-              </div>
-            `;
-            testGrid.appendChild(a);
+          // Define category order and mapping
+          const order = [
+             { id: 'university_entrance', title: 'University Entrance' },
+             { id: 'post_graduate', title: 'Post Graduate' },
+             { id: 'high_school_graduate', title: 'High School Graduate' },
+             { id: 'university', title: 'University' },
+             { id: 'other', title: 'Other' }
+          ];
+
+          // Group modules by their folder path
+          const grouped = {};
+          config.dashboard_modules.forEach(mod => {
+             let category = 'other';
+             if (mod.data_source) {
+                const parts = mod.data_source.split('/');
+                if (parts.length > 2 && parts[1] === 'exams') {
+                   category = parts[2];
+                }
+             }
+             if (!grouped[category]) grouped[category] = [];
+             grouped[category].push(mod);
           });
+          
+          let foundAny = false;
+
+          order.forEach(cat => {
+             if (grouped[cat.id] && grouped[cat.id].length > 0) {
+                 foundAny = true;
+                 
+                 // Create Section Header
+                 const sectionHeader = document.createElement('div');
+                 sectionHeader.className = 'section-header';
+                 sectionHeader.innerHTML = `
+                   <h2 class="section-title">${cat.title}</h2>
+                   <span class="section-menu">···</span>
+                 `;
+                 container.appendChild(sectionHeader);
+                 
+                 // Create Grid
+                 const testGrid = document.createElement('div');
+                 testGrid.className = 'test-grid';
+                 
+                 grouped[cat.id].forEach((mod, index) => {
+                    const colorClass = `test-card__icon--${colors[index % colors.length]}`;
+                    const a = document.createElement('a');
+
+                    // Smart routing
+                    let setupPath = cat.id === 'university' 
+                        ? '/modules/cbt_test/university_exam/university_exam.html' 
+                        : '/modules/cbt_test/core/setup.html';
+                        
+                    if (window.location.pathname.includes('/public/modules/')) {
+                      setupPath = `/public${setupPath}`;
+                    }
+                    
+                    if (cat.id === 'university') {
+                      a.href = setupPath;
+                    } else {
+                      a.href = `${setupPath}?exam_id=${mod.id}`;
+                    }
+                    a.style.textDecoration = 'none';
+                    a.style.color = 'inherit';
+
+                    a.innerHTML = `
+                      <div class="test-card">
+                        <div class="test-card__icon ${colorClass}">${mod.icon || '📝'}</div>
+                        <div class="test-card__body">
+                          <div class="test-card__name">${mod.display_name}</div>
+                          <div class="test-card__desc">Practice ${mod.display_name} in a real CBT exam environment.</div>
+                        </div>
+                      </div>
+                    `;
+                    testGrid.appendChild(a);
+                 });
+                 
+                 container.appendChild(testGrid);
+             }
+          });
+
+          if (!foundAny) {
+            container.innerHTML = '<div style="padding:16px;color:#ef4444;font-size:13px;">No modules found for this country.</div>';
+          }
+        } else {
+          container.innerHTML = '<div style="padding:16px;color:#ef4444;font-size:13px;">No modules found for this country.</div>';
         }
       } catch (err) {
         console.error('Error loading dashboard modules:', err);
-        testGrid.innerHTML = '<div style="padding: 16px; color: #ef4444;">Failed to load modules. Please check your connection.</div>';
+        container.innerHTML = '<div style="padding:16px;color:#ef4444;font-size:13px;">Failed to load modules. Please check your connection.</div>';
       }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Load the saved country (default to 'ng' for Nigeria)
+      const savedCountry = localStorage.getItem('mec_country') || 'ng';
+      loadCountryModules(savedCountry);
+
+      // Re-render grid when user switches country in topbar
+      document.addEventListener('country-changed', (e) => {
+        loadCountryModules(e.detail.code);
+      });
     });
   </script>
 </body>

@@ -6,302 +6,377 @@
   <title>Classroom | My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=6">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/footer.css">
   <style>
-    /* ---- Reset & Global ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
     body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
-    
-    /* ==============================
-       APP SHELL — Sidebar Layout
-    ============================== */
+
     .app { display: flex; min-height: 100vh; overflow-x: hidden; }
     .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
     @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
     @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
-
     .content-area { padding: 32px 24px; flex: 1; overflow-y: auto; max-width: 1200px; margin: 0 auto; width: 100%; }
 
-    /* ==============================
-       PAGE HEADER
-    ============================== */
-    .page-header { margin-bottom: 32px; }
-    .page-header__title { font-size: 28px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.5px; }
-    .page-header__desc { font-size: 15px; color: #6b7280; line-height: 1.5; max-width: 600px; }
+    /* -- Page Header -- */
+    .page-header { margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .page-header__left h1 { font-size: 26px; font-weight: 800; color: #111827; margin-bottom: 4px; letter-spacing: -0.5px; }
+    .page-header__left p { font-size: 14px; color: #6b7280; max-width: 520px; line-height: 1.5; }
 
-    /* ==============================
-       SEARCH & FILTERS
-    ============================== */
-    .filters-container {
-      display: flex; gap: 16px; margin-bottom: 32px; align-items: center; flex-wrap: wrap;
+    /* -- Country Picker -- */
+    .country-picker {
+      display: flex; align-items: center; gap: 10px; background: white;
+      border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05); flex-shrink: 0;
     }
-    
+    .country-picker label { font-size: 12px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+    .country-picker select {
+      border: none; outline: none; font-family: inherit; font-size: 14px; font-weight: 600;
+      color: #111827; background: transparent; cursor: pointer; min-width: 120px;
+    }
+
+    /* -- Exam Body Tabs -- */
+    .exam-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; }
+    .exam-tab {
+      padding: 9px 20px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: white;
+      color: #4b5563; font-size: 13px; font-weight: 700; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
+    }
+    .exam-tab:hover { border-color: #d1d5db; background: #f9fafb; }
+    .exam-tab.active { background: #b70c01; color: white; border-color: #b70c01; }
+
+    /* -- Search & Filters -- */
+    .filters-container { display: flex; gap: 12px; margin-bottom: 28px; align-items: center; flex-wrap: wrap; }
     .search-bar {
-      display: flex; flex: 1; min-width: 250px; align-items: center; background: white; border: 1px solid #e5e7eb;
-      border-radius: 12px; padding: 12px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s ease;
+      display: flex; flex: 1; min-width: 220px; align-items: center; background: white;
+      border: 1px solid #e5e7eb; border-radius: 12px; padding: 11px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s;
     }
-    .search-bar:focus-within { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1); }
-    .search-bar svg { color: #9ca3af; margin-right: 12px; flex-shrink: 0; }
-    .search-bar input { flex: 1; border: none; outline: none; font-size: 15px; color: #111827; background: transparent; }
+    .search-bar:focus-within { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .search-bar svg { color: #9ca3af; margin-right: 10px; flex-shrink: 0; }
+    .search-bar input { flex: 1; border: none; outline: none; font-size: 14px; color: #111827; background: transparent; }
     .search-bar input::placeholder { color: #9ca3af; }
 
-    .filter-chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
-    .filter-chip {
-      padding: 10px 20px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563;
-      font-size: 14px; font-weight: 600; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
-    }
-    .filter-chip:hover { border-color: #d1d5db; background: #f9fafb; }
-    .filter-chip.active {
-      background: #fff0f0; color: #b70c01; border-color: #b70c01;
-    }
-
-    /* ==============================
-       SUBJECTS GRID
-    ============================== */
+    /* -- Subjects Grid -- */
     .subjects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 16px;
     }
 
     .subject-card {
-      background: white;
-      border: 1px solid #ebebeb;
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      background: white; border: 1px solid #ebebeb; border-radius: 16px;
+      padding: 22px; display: flex; align-items: center; gap: 16px;
+      cursor: pointer; transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease;
     }
-
     .subject-card:hover {
-      border-color: #b70c01;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(183, 12, 1, 0.1);
+      border-color: #b70c01; transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(183,12,1,0.12);
     }
 
     .subject-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f9fafb;
-      color: #6b7280;
-      flex-shrink: 0;
-      transition: all 0.2s;
+      width: 50px; height: 50px; border-radius: 12px; display: flex;
+      align-items: center; justify-content: center; font-size: 22px;
+      background: #f9fafb; flex-shrink: 0; transition: all 0.2s;
+    }
+    .subject-card:hover .subject-icon { background: #fff0f0; }
+
+    .subject-info { flex: 1; min-width: 0; }
+    .subject-info h4 { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 3px; transition: color 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .subject-card:hover .subject-info h4 { color: #b70c01; }
+    .subject-info p { font-size: 12px; color: #6b7280; font-weight: 500; }
+    .subject-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px;
+      background: #fff0f0; color: #b70c01; white-space: nowrap; text-transform: uppercase;
     }
 
-    .subject-card:hover .subject-icon {
-      background: #fff0f0;
-      color: #b70c01;
+    /* -- Loading / Empty States -- */
+    .state-box {
+      grid-column: 1 / -1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      padding: 60px 24px; text-align: center;
     }
+    .state-box .spinner {
+      width: 36px; height: 36px; border: 3px solid #f0f0f0;
+      border-top-color: #b70c01; border-radius: 50%; animation: spin 0.7s linear infinite;
+    }
+    .state-box p { font-size: 14px; color: #9ca3af; font-weight: 500; }
 
-    .subject-info { flex: 1; }
-    .subject-info h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 4px;
-      transition: color 0.2s;
-    }
-    .subject-card:hover .subject-info h4 {
-      color: #b70c01;
-    }
-
-    .subject-info p {
-      font-size: 13px;
-      color: #6b7280;
-      font-weight: 500;
-    }
-
-    /* Animation */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* -- Skeleton Loaders -- */
+    .skeleton-card { background: white; border: 1px solid #ebebeb; border-radius: 16px; padding: 22px; display: flex; align-items: center; gap: 16px; }
+    .skeleton-icon { width: 50px; height: 50px; border-radius: 12px; background: #f0f0f0; animation: pulse 1.5s infinite ease-in-out; }
+    .skeleton-text { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .skeleton-line { height: 14px; background: #f0f0f0; border-radius: 4px; animation: pulse 1.5s infinite ease-in-out; }
+    .skeleton-line.short { width: 40%; }
+    
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 600px) {
-      .content-area { padding: 24px 16px; }
-      .filters-container { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 24px; }
+      .content-area { padding: 16px 12px; }
+      .page-header { flex-direction: column; align-items: stretch; gap: 16px; }
+      .country-picker { width: 100%; justify-content: space-between; }
+      .filters-container { flex-direction: column; align-items: stretch; }
       .search-bar { min-width: 0; }
       .subjects-grid { grid-template-columns: 1fr; }
+      .subject-card { padding: 16px; flex-wrap: wrap; gap: 12px; }
+      .subject-icon { width: 44px; height: 44px; font-size: 20px; }
+      .subject-badge { margin-left: auto; font-size: 9px; }
     }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- LEFT SIDEBAR -->
-    <app-sidebar data-base="../../../" data-active="classroom"></app-sidebar>
+    <app-sidebar data-base="/" data-active="classroom"></app-sidebar>
 
-    <!-- MAIN WRAPPER -->
     <div class="main-wrapper">
-      <app-topbar data-base="../../../"></app-topbar>
+      <app-topbar data-base="/"></app-topbar>
 
       <main class="content-area">
-        
+
+        <!-- Page Header + Country Picker -->
         <div class="page-header">
-          <h1 class="page-header__title">Classroom</h1>
-          <p class="page-header__desc">Select a subject to dive straight into topic-specific study materials and past questions to master your exams.</p>
+          <div class="page-header__left">
+            <h1>?? Classroom</h1>
+            <p>Select a subject from any exam body to study topic materials and past questions.</p>
+          </div>
+          <div class="country-picker">
+            <label>?? Country</label>
+            <select id="countrySelect">
+              <option value="ng">???? Nigeria</option>
+              <option value="gh">???? Ghana</option>
+              <option value="us">???? United States</option>
+            </select>
+          </div>
         </div>
 
+        <!-- Exam Body Tabs -->
+        <div class="exam-tabs" id="examTabs">
+          <button class="exam-tab active" data-exam="all">All Exams</button>
+        </div>
+
+        <!-- Search -->
         <div class="filters-container">
           <div class="search-bar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <input type="text" id="subjectSearch" placeholder="Search for a subject...">
           </div>
-          
-          <div class="filter-chips" id="filterChips">
-            <button class="filter-chip active" data-filter="all">All</button>
-            <button class="filter-chip" data-filter="science">Science</button>
-            <button class="filter-chip" data-filter="commercial">Commercial</button>
-            <button class="filter-chip" data-filter="arts">Arts</button>
+        </div>
+
+        <!-- Subjects Grid -->
+        <div class="subjects-grid" id="subjectsGrid">
+          <div class="state-box">
+            <div class="spinner"></div>
+            <p>Loading subjects...</p>
           </div>
         </div>
 
-        <div class="subjects-grid">
-          
-          <!-- English -->
-          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-            </div>
-            <div class="subject-info">
-              <h4>English Language</h4>
-              <p>12,450 Questions</p>
-            </div>
-          </div>
-
-          <!-- Mathematics -->
-          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Mathematics</h4>
-              <p>9,320 Questions</p>
-            </div>
-          </div>
-
-          <!-- Physics -->
-          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Physics</h4>
-              <p>7,840 Questions</p>
-            </div>
-          </div>
-
-          <!-- Chemistry -->
-          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H15"></path><path d="M10 3V8L3 17V21H21V17L14 8V3"></path><path d="M3 17H21"></path></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Chemistry</h4>
-              <p>8,100 Questions</p>
-            </div>
-          </div>
-
-          <!-- Biology -->
-          <div class="subject-card" data-category="science" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m12 2 3 5"></path><path d="m12 2-3 5"></path><path d="m15 7 2 4"></path><path d="m9 7-2 4"></path><path d="m17 11 1 5"></path><path d="m7 11-1 5"></path><path d="m18 16-3 4"></path><path d="m6 16 3 4"></path><path d="m15 20-3 2"></path><path d="m9 20 3 2"></path></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Biology</h4>
-              <p>10,250 Questions</p>
-            </div>
-          </div>
-
-          <!-- Economics -->
-          <div class="subject-card" data-category="commercial" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Economics</h4>
-              <p>6,430 Questions</p>
-            </div>
-          </div>
-
-          <!-- Government -->
-          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Government</h4>
-              <p>5,920 Questions</p>
-            </div>
-          </div>
-
-          <!-- Literature -->
-          <div class="subject-card" data-category="arts" onclick="window.location.href='classroom_questions.html';">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            </div>
-            <div class="subject-info">
-              <h4>Literature in English</h4>
-              <p>4,100 Questions</p>
-            </div>
-          </div>
-          
-        </div>
-        
       </main>
+      <app-footer data-base="../../../"></app-footer>
     </div>
   </div>
 
-  <script src="../../../components/sidebar.js"></script>
-  <script src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=10"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/footer.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('subjectSearch');
-      const chips = document.querySelectorAll('.filter-chip');
-      const cards = document.querySelectorAll('.subject-card');
-      let currentFilter = 'all';
+    const R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
 
-      function filterSubjects() {
-        const query = searchInput.value.toLowerCase().trim();
-        cards.forEach(card => {
-          const title = card.querySelector('h4').textContent.toLowerCase();
-          const category = card.getAttribute('data-category');
-          
-          const matchesQuery = title.includes(query);
-          const matchesCategory = currentFilter === 'all' || category === currentFilter;
+    // -- Subject icons by keyword --
+    const SUBJECT_ICONS = {
+      english: '??', mathematics: '??', maths: '??', physics: '??',
+      chemistry: '??', biology: '??', economics: '??', government: '???',
+      history: '??', geography: '???', commerce: '??', accounts: '??',
+      literature: '??', french: '????', arabic: '??', hausa: '??',
+      yoruba: '??', igbo: '??', music: '??', christian: '??',
+      islamic: '??', computer: '??', agricultural: '??', arts: '??',
+      physical: '??', home: '??', default: '??'
+    };
 
-          if (matchesQuery && matchesCategory) {
-            card.style.display = 'flex';
-            card.style.animation = 'fadeInDown 0.3s ease-out forwards';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+    function getIcon(name) {
+      const lower = name.toLowerCase();
+      for (const [key, icon] of Object.entries(SUBJECT_ICONS)) {
+        if (lower.includes(key)) return icon;
+      }
+      return SUBJECT_ICONS.default;
+    }
+
+    function formatSubjectName(id) {
+      return id.replace(/_/g, ' ').replace(/\(([^)]+)\)/g, '($1)')
+        .replace(/\b\w/g, c => c.toUpperCase()).replace(/  +/g, ' ').trim();
+    }
+
+    function getBasePath() {
+      return window.location.pathname.includes('/public/') ? '/public' : '';
+    }
+
+    // -- State --
+    let allSubjects = []; // [{examId, examName, examIcon, id, name, yearsCount}]
+    let currentExam = 'all';
+    let searchQuery = '';
+
+    // -- Fetch country config then each exam's subjects --
+    async function loadForCountry(countryCode) {
+      const grid = document.getElementById('subjectsGrid');
+      const tabs = document.getElementById('examTabs');
+
+      grid.innerHTML = Array(6).fill(`
+        <div class="skeleton-card">
+          <div class="skeleton-icon"></div>
+          <div class="skeleton-text">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+        </div>
+      `).join('');
+      tabs.innerHTML = `<button class="exam-tab active" data-exam="all">All Exams</button>`;
+      allSubjects = [];
+      currentExam = 'all';
+
+      // 1. Fetch country config
+      let config;
+      try {
+        const localRes = await fetch(`${getBasePath()}/new_staging_area/configs/${countryCode}.json`);
+        config = localRes.ok ? await localRes.json() : null;
+        if (!config) {
+          const r2Res = await fetch(`${R2_BASE}/configs/${countryCode}.json`);
+          config = r2Res.ok ? await r2Res.json() : null;
+        }
+      } catch(e) { config = null; }
+
+      if (!config || !config.dashboard_modules || !config.dashboard_modules.length) {
+        grid.innerHTML = `<div class="state-box"><p>?? No exam bodies found for this country.</p></div>`;
+        return;
       }
 
-      searchInput.addEventListener('input', filterSubjects);
+      // 2. Fetch each exam body's index.json in parallel
+      const fetches = config.dashboard_modules.map(async (mod) => {
+        let examData;
+        try {
+          const localRes = await fetch(`${getBasePath()}/new_staging_area/${mod.data_source}`);
+          examData = localRes.ok ? await localRes.json() : null;
+          if (!examData) {
+            const r2Res = await fetch(`${R2_BASE}/${mod.data_source}`);
+            examData = r2Res.ok ? await r2Res.json() : null;
+          }
+        } catch(e) { examData = null; }
 
-      chips.forEach(chip => {
-        chip.addEventListener('click', (e) => {
-          chips.forEach(c => c.classList.remove('active'));
-          e.currentTarget.classList.add('active');
-          currentFilter = e.currentTarget.getAttribute('data-filter');
-          filterSubjects();
+        if (examData && examData.subjects) {
+          return { mod, subjects: examData.subjects };
+        }
+        return { mod, subjects: [] };
+      });
+
+      const results = await Promise.all(fetches);
+
+      // 3. Build allSubjects + tabs
+      results.forEach(({ mod, subjects }) => {
+        if (!subjects.length) return;
+
+        // Add exam tab
+        const btn = document.createElement('button');
+        btn.className = 'exam-tab';
+        btn.dataset.exam = mod.id;
+        btn.textContent = `${mod.icon || '??'} ${mod.display_name}`;
+        tabs.appendChild(btn);
+
+        subjects.forEach(subj => {
+          allSubjects.push({
+            examId: mod.id,
+            examName: mod.display_name,
+            examIcon: mod.icon || '??',
+            id: subj.id,
+            name: subj.name || formatSubjectName(subj.id),
+            yearsCount: subj.years ? subj.years.length : 0,
+          });
         });
       });
+
+      // 4. Wire tab clicks
+      tabs.querySelectorAll('.exam-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.querySelectorAll('.exam-tab').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentExam = btn.dataset.exam;
+          renderSubjects();
+        });
+      });
+
+      renderSubjects();
+    }
+
+    // -- Render filtered subjects --
+    function renderSubjects() {
+      const grid = document.getElementById('subjectsGrid');
+      const q = searchQuery.toLowerCase();
+
+      const filtered = allSubjects.filter(s => {
+        const matchesExam = currentExam === 'all' || s.examId === currentExam;
+        const matchesSearch = !q || s.name.toLowerCase().includes(q) || s.examName.toLowerCase().includes(q);
+        return matchesExam && matchesSearch;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="state-box"><p>?? No subjects found. Try a different search or filter.</p></div>`;
+        return;
+      }
+
+      grid.innerHTML = '';
+      filtered.forEach(subj => {
+        const icon = getIcon(subj.name);
+        const href = `classroom_questions.html?exam_id=${encodeURIComponent(subj.examId)}&subject=${encodeURIComponent(subj.id)}`;
+
+        const card = document.createElement('a');
+        card.href = href;
+        card.className = 'subject-card';
+        card.innerHTML = `
+          <div class="subject-icon">${icon}</div>
+          <div class="subject-info">
+            <h4>${subj.name}</h4>
+            <p>${subj.yearsCount ? subj.yearsCount + ' years available' : 'Questions available'}</p>
+          </div>
+          <span class="subject-badge">${subj.examName}</span>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // -- Wire search --
+    document.getElementById('subjectSearch').addEventListener('input', e => {
+      searchQuery = e.target.value;
+      renderSubjects();
+    });
+
+    // -- Wire country picker --
+    const countrySelect = document.getElementById('countrySelect');
+    countrySelect.addEventListener('change', () => {
+      const code = countrySelect.value;
+      localStorage.setItem('mec_country', code);
+      document.dispatchEvent(new CustomEvent('country-changed', { detail: { code } }));
+      loadForCountry(code);
+    });
+
+    // -- On load: restore saved country --
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('mec_country') || 'ng';
+      countrySelect.value = saved;
+      loadForCountry(saved);
+    });
+
+    // -- Sync if user changes country from topbar --
+    document.addEventListener('country-changed', (e) => {
+      if (e.detail.code !== countrySelect.value) {
+        countrySelect.value = e.detail.code;
+        loadForCountry(e.detail.code);
+      }
     });
   </script>
 </body>

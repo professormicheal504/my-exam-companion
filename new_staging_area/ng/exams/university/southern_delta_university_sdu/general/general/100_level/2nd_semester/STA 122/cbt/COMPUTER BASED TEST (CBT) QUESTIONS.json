@@ -1,0 +1,4590 @@
+[
+    {
+        "order_id": "1",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The order of arrangement of an item in a particular order is known as:",
+        "explanation": "Permutation is the arrangement of items in a specific, distinct order.",
+        "options": [
+            {
+                "option_id": "159139",
+                "tag": "a",
+                "text": "combination",
+                "is_correct": false
+            },
+            {
+                "option_id": "260984",
+                "tag": "b",
+                "text": "factorial",
+                "is_correct": false
+            },
+            {
+                "option_id": "789370",
+                "tag": "c",
+                "text": "permutation",
+                "is_correct": true
+            },
+            {
+                "option_id": "124259",
+                "tag": "d",
+                "text": "Sets",
+                "is_correct": false
+            }
+        ],
+        "question_number": 1
+    },
+    {
+        "order_id": "2",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The Ministry of Finance has 8 field workers from which a 5-member task force on debt recovery will be formed. How many task forces can be formed?",
+        "explanation": "This is a combination problem where order doesn't matter. $\\binom{8}{5} = \\frac{8!}{5!(8-5)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
+        "options": [
+            {
+                "option_id": "476201",
+                "tag": "a",
+                "text": "56",
+                "is_correct": true
+            },
+            {
+                "option_id": "155554",
+                "tag": "b",
+                "text": "50",
+                "is_correct": false
+            },
+            {
+                "option_id": "136507",
+                "tag": "c",
+                "text": "6720",
+                "is_correct": false
+            },
+            {
+                "option_id": "250107",
+                "tag": "d",
+                "text": "57",
+                "is_correct": false
+            }
+        ],
+        "question_number": 12
+    },
+    {
+        "order_id": "3",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The act of performing a task in probability is called:",
+        "explanation": "An experiment is any procedure or process that can be infinitely repeated and has a well-defined set of possible outcomes.",
+        "options": [
+            {
+                "option_id": "241935",
+                "tag": "a",
+                "text": "Trial",
+                "is_correct": false
+            },
+            {
+                "option_id": "226586",
+                "tag": "b",
+                "text": "Experiment",
+                "is_correct": true
+            },
+            {
+                "option_id": "191206",
+                "tag": "c",
+                "text": "Sample Space",
+                "is_correct": false
+            },
+            {
+                "option_id": "128850",
+                "tag": "d",
+                "text": "Event",
+                "is_correct": false
+            }
+        ],
+        "question_number": 18
+    },
+    {
+        "order_id": "4",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The occurrence of one event that rules out the other event occurring is called:",
+        "explanation": "Mutually exclusive events are events that cannot occur at the same time.",
+        "options": [
+            {
+                "option_id": "700244",
+                "tag": "a",
+                "text": "Independent Event",
+                "is_correct": false
+            },
+            {
+                "option_id": "309071",
+                "tag": "b",
+                "text": "Dependent Event",
+                "is_correct": false
+            },
+            {
+                "option_id": "227939",
+                "tag": "c",
+                "text": "Equally likely Event",
+                "is_correct": false
+            },
+            {
+                "option_id": "216381",
+                "tag": "d",
+                "text": "Mutually Exclusive Event",
+                "is_correct": true
+            }
+        ],
+        "question_number": 24
+    },
+    {
+        "order_id": "5",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Let $g(X)$ be a function of the random variable $X$ whose probability distribution is $p(x)$. The expectation of $g(X)$ if $X$ is a discrete variable is given by:",
+        "explanation": "For a discrete random variable, the expectation of a function $g(X)$ is the sum of the product of each function value and its corresponding probability.",
+        "options": [
+            {
+                "option_id": "202532",
+                "tag": "a",
+                "text": "$\\sum g(x)p(x)$",
+                "is_correct": true
+            },
+            {
+                "option_id": "136709",
+                "tag": "b",
+                "text": "$\\sum p(x)$",
+                "is_correct": false
+            },
+            {
+                "option_id": "301015",
+                "tag": "c",
+                "text": "$\\int g(x)p(x) dx$",
+                "is_correct": false
+            },
+            {
+                "option_id": "958934",
+                "tag": "d",
+                "text": "$\\int p(x) dx$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 30
+    },
+    {
+        "order_id": "6",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "From a lot containing 20 items, 5 of the items are defective. If 4 items are drawn with replacement, what is the probability of getting exactly one defective item?",
+        "explanation": "The probability of drawing a defective item is $p = \\frac{5}{20} = \\frac{1}{4}$. Using the binomial distribution for $n=4$ trials and $x=1$ success: $P(X=1) = \\binom{4}{1} (\\frac{1}{4})^1 (\\frac{3}{4})^3 = 4 \\times \\frac{1}{4} \\times \\frac{27}{64} = \\frac{27}{64}$.",
+        "options": [
+            {
+                "option_id": "160111",
+                "tag": "a",
+                "text": "$\\frac{1}{64}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "448468",
+                "tag": "b",
+                "text": "$\\frac{3}{64}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "131424",
+                "tag": "c",
+                "text": "$\\frac{1}{156}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "173419",
+                "tag": "d",
+                "text": "$\\frac{27}{64}$",
+                "is_correct": true
+            }
+        ],
+        "question_number": 36
+    },
+    {
+        "order_id": "7",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A salesman for ABC Company makes 10 household calls a day. The probability that he will make a sale at a randomly selected house is 0.2. What is the mean of the distribution?",
+        "explanation": "For a binomial distribution, the mean is $\\mu = np$. Given $n=10$ and $p=0.2$, the mean is $10 \\times 0.2 = 2.0$.",
+        "options": [
+            {
+                "option_id": "192005",
+                "tag": "a",
+                "text": "2.0",
+                "is_correct": true
+            },
+            {
+                "option_id": "215424",
+                "tag": "b",
+                "text": "1.6",
+                "is_correct": false
+            },
+            {
+                "option_id": "325711",
+                "tag": "c",
+                "text": "2.6",
+                "is_correct": false
+            },
+            {
+                "option_id": "319428",
+                "tag": "d",
+                "text": "0.2",
+                "is_correct": false
+            }
+        ],
+        "question_number": 42
+    },
+    {
+        "order_id": "8",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Suppose the average number of students per minute arriving at a DUST cafeteria is 4. Find the probability that during one particular minute, exactly three students will arrive.",
+        "explanation": "This follows a Poisson distribution with $\\lambda = 4$. $P(X=3) = \\frac{e^{-4} \\cdot 4^3}{3!} \\approx 0.1954$.",
+        "options": [
+            {
+                "option_id": "255442",
+                "tag": "a",
+                "text": "0.1954",
+                "is_correct": true
+            },
+            {
+                "option_id": "248532",
+                "tag": "b",
+                "text": "0.1594",
+                "is_correct": false
+            },
+            {
+                "option_id": "110295",
+                "tag": "c",
+                "text": "0.1465",
+                "is_correct": false
+            },
+            {
+                "option_id": "243289",
+                "tag": "d",
+                "text": "0.9154",
+                "is_correct": false
+            }
+        ],
+        "question_number": 48
+    },
+    {
+        "order_id": "9",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Births in a hospital occur randomly at an average rate of 1.8 births per hour. What is the probability of observing 4 births in a given hour at the hospital?",
+        "explanation": "This follows a Poisson distribution with $\\lambda = 1.8$. $P(X=4) = \\frac{e^{-1.8} \\cdot 1.8^4}{4!} \\approx 0.0723$.",
+        "options": [
+            {
+                "option_id": "861234",
+                "tag": "a",
+                "text": "0.0273",
+                "is_correct": false
+            },
+            {
+                "option_id": "940980",
+                "tag": "b",
+                "text": "0.0723",
+                "is_correct": true
+            },
+            {
+                "option_id": "163130",
+                "tag": "c",
+                "text": "0.0763",
+                "is_correct": false
+            },
+            {
+                "option_id": "948223",
+                "tag": "d",
+                "text": "0.0673",
+                "is_correct": false
+            }
+        ],
+        "question_number": 54
+    },
+    {
+        "order_id": "10",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If $x$ is a continuous random variable that follows a normal distribution with mean $\\mu$ and variance $\\sigma^2$, then its probability density function (p.d.f) is given by:",
+        "explanation": "The standard probability density function for a continuous normal distribution is $f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$.",
+        "options": [
+            {
+                "option_id": "279512",
+                "tag": "a",
+                "text": "$\\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "333579",
+                "tag": "b",
+                "text": "$\\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "131763",
+                "tag": "c",
+                "text": "$\\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-(\\frac{x-\\mu}{\\sigma})^2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "489436",
+                "tag": "d",
+                "text": "$\\frac{1}{\\sigma} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 60
+    },
+    {
+        "order_id": "11",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A typist on average makes 3 errors per page. What is the probability of her typing a page with exactly one error?",
+        "explanation": "Using the Poisson distribution with $\\lambda = 3$. $P(X=1) = \\frac{e^{-3} \\cdot 3^1}{1!} = 3e^{-3} \\approx 0.149$, which rounds to 0.15.",
+        "options": [
+            {
+                "option_id": "214983",
+                "tag": "a",
+                "text": "0.15",
+                "is_correct": true
+            },
+            {
+                "option_id": "219020",
+                "tag": "b",
+                "text": "0.51",
+                "is_correct": false
+            },
+            {
+                "option_id": "211961",
+                "tag": "c",
+                "text": "0.25",
+                "is_correct": false
+            },
+            {
+                "option_id": "304697",
+                "tag": "d",
+                "text": "1.50",
+                "is_correct": false
+            }
+        ],
+        "question_number": 66
+    },
+    {
+        "order_id": "12",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A table with all possible values of a random variable and its corresponding probabilities is called:",
+        "explanation": "A probability distribution represents all possible values of a random variable and their associated probabilities.",
+        "options": [
+            {
+                "option_id": "324929",
+                "tag": "a",
+                "text": "Probability Mass Function",
+                "is_correct": false
+            },
+            {
+                "option_id": "317655",
+                "tag": "b",
+                "text": "Probability Density Function",
+                "is_correct": false
+            },
+            {
+                "option_id": "161484",
+                "tag": "c",
+                "text": "Cumulative Distribution Function",
+                "is_correct": false
+            },
+            {
+                "option_id": "177155",
+                "tag": "d",
+                "text": "Probability Distribution",
+                "is_correct": true
+            }
+        ],
+        "question_number": 72
+    },
+    {
+        "order_id": "13",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a Binomial Distribution, if '$n$' is the number of trials and '$p$' is the probability of success, then the mean value is given by:",
+        "explanation": "The mean (expected value) of a binomial distribution is the product of the number of trials and the probability of success, $\\mu = np$.",
+        "options": [
+            {
+                "option_id": "226618",
+                "tag": "a",
+                "text": "$p$",
+                "is_correct": false
+            },
+            {
+                "option_id": "131927",
+                "tag": "b",
+                "text": "$np$",
+                "is_correct": true
+            },
+            {
+                "option_id": "682222",
+                "tag": "c",
+                "text": "$p/n$",
+                "is_correct": false
+            },
+            {
+                "option_id": "128436",
+                "tag": "d",
+                "text": "$pq$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 78
+    },
+    {
+        "order_id": "14",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is not an axiom of probability?",
+        "explanation": "The probability of the entire sample space occurring is 1, not zero. $P(S) = 1$.",
+        "options": [
+            {
+                "option_id": "748052",
+                "tag": "a",
+                "text": "The probability of any given event is a non-negative number, $0 \\leq P(A) \\leq 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "173633",
+                "tag": "b",
+                "text": "The probability of a sample space is zero",
+                "is_correct": true
+            },
+            {
+                "option_id": "217776",
+                "tag": "c",
+                "text": "The probability of the null set is zero",
+                "is_correct": false
+            },
+            {
+                "option_id": "290400",
+                "tag": "d",
+                "text": "If $A^c$ is the complement of $A$, then $P(A^c) = 1 - P(A)$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 84
+    },
+    {
+        "order_id": "15",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following standard probability distributions applies to discrete random variables?",
+        "explanation": "The Poisson distribution models discrete count data, whereas Gaussian, Exponential, and Rayleigh are continuous probability distributions.",
+        "options": [
+            {
+                "option_id": "346089",
+                "tag": "a",
+                "text": "Gaussian distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "202633",
+                "tag": "b",
+                "text": "Poisson distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "912320",
+                "tag": "c",
+                "text": "Exponential distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "116646",
+                "tag": "d",
+                "text": "Rayleigh distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 90
+    },
+    {
+        "order_id": "16",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "When each member of the population selected is returned to the population before the next member is selected, it is known as:",
+        "explanation": "In sampling with replacement, selected members are put back into the population, giving them a chance to be selected again.",
+        "options": [
+            {
+                "option_id": "737768",
+                "tag": "a",
+                "text": "Sampling without replacement",
+                "is_correct": false
+            },
+            {
+                "option_id": "319545",
+                "tag": "b",
+                "text": "Simple random sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "182350",
+                "tag": "c",
+                "text": "Systematic sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "100081",
+                "tag": "d",
+                "text": "Sampling with replacement",
+                "is_correct": true
+            }
+        ],
+        "question_number": 96
+    },
+    {
+        "order_id": "17",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following sampling methods is the best way to select a group of people for a study if you are interested in making statements about the larger population?",
+        "explanation": "Simple random sampling gives every individual an equal chance of being selected, which minimizes bias and allows for generalization.",
+        "options": [
+            {
+                "option_id": "293000",
+                "tag": "a",
+                "text": "Simple random sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "127660",
+                "tag": "b",
+                "text": "Systematic sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "303064",
+                "tag": "c",
+                "text": "Stratified sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "207182",
+                "tag": "d",
+                "text": "Cluster sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 102
+    },
+    {
+        "order_id": "18",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A random sample of $n = 300$ measurements is drawn from a binomial population with a probability of success 0.43. What is the mean and standard deviation of the distribution?",
+        "explanation": "Mean $\\mu = np = 300 \\times 0.43 = 129$. Standard deviation $\\sigma = \\sqrt{np(1-p)} = \\sqrt{300 \\times 0.43 \\times 0.57} = \\sqrt{73.53} \\approx 8.57$.",
+        "options": [
+            {
+                "option_id": "201101",
+                "tag": "a",
+                "text": "129, 73.53",
+                "is_correct": false
+            },
+            {
+                "option_id": "180896",
+                "tag": "b",
+                "text": "127, 75.33",
+                "is_correct": false
+            },
+            {
+                "option_id": "136549",
+                "tag": "c",
+                "text": "129, 8.57",
+                "is_correct": true
+            },
+            {
+                "option_id": "307491",
+                "tag": "d",
+                "text": "8.57, 129",
+                "is_correct": false
+            }
+        ],
+        "question_number": 108
+    },
+    {
+        "order_id": "19",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a Binomial distribution, the mean is 15 and the variance is 10. Compute the parameter $n$.",
+        "explanation": "We know $\\mu = np = 15$ and $\\sigma^2 = npq = 10$. Dividing variance by mean: $q = \\frac{10}{15} = \\frac{2}{3}$. Since $p = 1 - q = \\frac{1}{3}$, we have $n(1/3) = 15 \\implies n = 45$.",
+        "options": [
+            {
+                "option_id": "728955",
+                "tag": "a",
+                "text": "35",
+                "is_correct": false
+            },
+            {
+                "option_id": "441640",
+                "tag": "b",
+                "text": "45",
+                "is_correct": true
+            },
+            {
+                "option_id": "267547",
+                "tag": "c",
+                "text": "15",
+                "is_correct": false
+            },
+            {
+                "option_id": "282681",
+                "tag": "d",
+                "text": "20",
+                "is_correct": false
+            }
+        ],
+        "question_number": 114
+    },
+    {
+        "order_id": "20",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a random variable $X$ satisfies the Poisson distribution with a mean value of 3, then the probability that $X \\geq 2$ is:",
+        "explanation": "$P(X \\geq 2) = 1 - P(X < 2) = 1 - [P(X=0) + P(X=1)] = 1 - [e^{-3} \\frac{3^0}{0!} + e^{-3} \\frac{3^1}{1!}] = 1 - [e^{-3} + 3e^{-3}] = 1 - 4e^{-3}$.",
+        "options": [
+            {
+                "option_id": "165385",
+                "tag": "a",
+                "text": "$1 - 2e^{-3}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "102379",
+                "tag": "b",
+                "text": "$4e^{-3}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "313781",
+                "tag": "c",
+                "text": "$1 + 4e^{-3}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "288816",
+                "tag": "d",
+                "text": "$1 - 4e^{-3}$",
+                "is_correct": true
+            }
+        ],
+        "question_number": 120
+    },
+    {
+        "order_id": "21",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Consider a Poisson distribution for tossing a biased coin. The mean for this distribution is $\\mu$. The standard deviation for this distribution is given by:",
+        "explanation": "In a Poisson distribution, the variance is equal to the mean ($\\mu$). Therefore, the standard deviation is the square root of the mean, $\\sqrt{\\mu}$.",
+        "options": [
+            {
+                "option_id": "275892",
+                "tag": "a",
+                "text": "$\\mu$",
+                "is_correct": false
+            },
+            {
+                "option_id": "240552",
+                "tag": "b",
+                "text": "$\\sqrt{\\mu}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "312548",
+                "tag": "c",
+                "text": "$\\mu^2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "230863",
+                "tag": "d",
+                "text": "$1/\\mu$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 126
+    },
+    {
+        "order_id": "22",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If calls arrive at a telephone exchange such that the time of arrival of any call is independent of the time of arrival of earlier or future calls, the probability distribution function of the total number of calls in a fixed time interval will be:",
+        "explanation": "The Poisson distribution models the number of events occurring in a fixed interval of time when events happen independently at a constant average rate.",
+        "options": [
+            {
+                "option_id": "285050",
+                "tag": "a",
+                "text": "Binomial",
+                "is_correct": false
+            },
+            {
+                "option_id": "234827",
+                "tag": "b",
+                "text": "Gaussian",
+                "is_correct": false
+            },
+            {
+                "option_id": "238496",
+                "tag": "c",
+                "text": "Poisson",
+                "is_correct": true
+            },
+            {
+                "option_id": "254405",
+                "tag": "d",
+                "text": "Hypergeometric",
+                "is_correct": false
+            }
+        ],
+        "question_number": 132
+    },
+    {
+        "order_id": "23",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The mean and variance of a geometric distribution (modeling number of failures before first success) are given by:",
+        "explanation": "For a geometric distribution describing the number of failures before the first success, the mean is $\\frac{q}{p}$ and the variance is $\\frac{q}{p^2}$.",
+        "options": [
+            {
+                "option_id": "255092",
+                "tag": "a",
+                "text": "$p/q$ and $p^2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "119045",
+                "tag": "b",
+                "text": "$q/p$ and $q/p^2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "168405",
+                "tag": "c",
+                "text": "$q/p$ and $q/p$",
+                "is_correct": false
+            },
+            {
+                "option_id": "238610",
+                "tag": "d",
+                "text": "$p/q$ and $n/p$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 138
+    },
+    {
+        "order_id": "24",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is not possible in a probability distribution?",
+        "explanation": "Probability represents a chance of occurrence and must always be a non-negative value between 0 and 1 inclusive. A negative probability is impossible.",
+        "options": [
+            {
+                "option_id": "266038",
+                "tag": "a",
+                "text": "$P(x) \\geq 0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "147720",
+                "tag": "b",
+                "text": "$\\sum P(x) = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "135175",
+                "tag": "c",
+                "text": "$\\sum x P(x) = 2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "920206",
+                "tag": "d",
+                "text": "$P(x) = -0.5$",
+                "is_correct": true
+            }
+        ],
+        "question_number": 144
+    },
+    {
+        "order_id": "25",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The expression $E[X - E(X)]$ is equal to:",
+        "explanation": "By linearity of expectation, $E[X - E(X)] = E(X) - E[E(X)] = E(X) - E(X) = 0$.",
+        "options": [
+            {
+                "option_id": "142508",
+                "tag": "a",
+                "text": "$E(X)$",
+                "is_correct": false
+            },
+            {
+                "option_id": "338632",
+                "tag": "b",
+                "text": "$Var(X)$",
+                "is_correct": false
+            },
+            {
+                "option_id": "281472",
+                "tag": "c",
+                "text": "0",
+                "is_correct": true
+            },
+            {
+                "option_id": "157121",
+                "tag": "d",
+                "text": "$E(X) - X$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 150
+    },
+    {
+        "order_id": "26",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The result of a trial is referred to as:",
+        "explanation": "An outcome is the single specific result of a probability experiment or trial.",
+        "options": [
+            {
+                "option_id": "198672",
+                "tag": "a",
+                "text": "experiment",
+                "is_correct": false
+            },
+            {
+                "option_id": "122202",
+                "tag": "b",
+                "text": "exhaustive event",
+                "is_correct": false
+            },
+            {
+                "option_id": "169449",
+                "tag": "c",
+                "text": "outcome",
+                "is_correct": true
+            },
+            {
+                "option_id": "242041",
+                "tag": "d",
+                "text": "trial result",
+                "is_correct": false
+            }
+        ],
+        "question_number": 156
+    },
+    {
+        "order_id": "27",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Suppose two events $A$ and $B$ are defined on a sample space. The two events are said to be ___ if the occurrence of $A$ does not affect the occurrence of $B$.",
+        "explanation": "Independent events are events where the outcome of one does not affect the probability of the other.",
+        "options": [
+            {
+                "option_id": "335287",
+                "tag": "a",
+                "text": "Independent",
+                "is_correct": true
+            },
+            {
+                "option_id": "331175",
+                "tag": "b",
+                "text": "Dependent",
+                "is_correct": false
+            },
+            {
+                "option_id": "970031",
+                "tag": "c",
+                "text": "Disjoint",
+                "is_correct": false
+            },
+            {
+                "option_id": "362135",
+                "tag": "d",
+                "text": "Empty",
+                "is_correct": false
+            }
+        ],
+        "question_number": 162
+    },
+    {
+        "order_id": "28",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "An experiment whose outcome cannot be predicted with certainty is called:",
+        "explanation": "A random experiment is an experiment with multiple possible outcomes, whose exact result cannot be determined deterministically in advance.",
+        "options": [
+            {
+                "option_id": "219783",
+                "tag": "a",
+                "text": "Exact",
+                "is_correct": false
+            },
+            {
+                "option_id": "302323",
+                "tag": "b",
+                "text": "Random",
+                "is_correct": true
+            },
+            {
+                "option_id": "282901",
+                "tag": "c",
+                "text": "Complete",
+                "is_correct": false
+            },
+            {
+                "option_id": "194287",
+                "tag": "d",
+                "text": "Event",
+                "is_correct": false
+            }
+        ],
+        "question_number": 168
+    },
+    {
+        "order_id": "29",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A single trial of an experiment whose outcome is either success or failure can be modelled using:",
+        "explanation": "A Bernoulli distribution models exactly one trial with only two possible outcomes: success (1) or failure (0).",
+        "options": [
+            {
+                "option_id": "845781",
+                "tag": "a",
+                "text": "Binomial distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "113843",
+                "tag": "b",
+                "text": "Bernoulli distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "323885",
+                "tag": "c",
+                "text": "Geometric distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "392636",
+                "tag": "d",
+                "text": "Poisson distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 174
+    },
+    {
+        "order_id": "30",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that the probability density function $f(x) = kx^2$ for $0 < x < 1$, obtain the value of $k$.",
+        "explanation": "The total area under the pdf must be 1. $\\int_0^1 kx^2 dx = k[\\frac{x^3}{3}]_0^1 = \\frac{k}{3} = 1$, hence $k = 3$.",
+        "options": [
+            {
+                "option_id": "134351",
+                "tag": "a",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "292858",
+                "tag": "b",
+                "text": "3",
+                "is_correct": true
+            },
+            {
+                "option_id": "130873",
+                "tag": "c",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "293005",
+                "tag": "d",
+                "text": "1",
+                "is_correct": false
+            }
+        ],
+        "question_number": 180
+    },
+    {
+        "order_id": "31",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that $f(x) = 3x^2$ for $0 < x < 1$, obtain the expectation of $X$, $E(X)$.",
+        "explanation": "$E(X) = \\int_0^1 xf(x)dx = \\int_0^1 3x^3 dx = [\\frac{3x^4}{4}]_0^1 = \\frac{3}{4}$.",
+        "options": [
+            {
+                "option_id": "137286",
+                "tag": "a",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "464295",
+                "tag": "b",
+                "text": "$3/4$",
+                "is_correct": true
+            },
+            {
+                "option_id": "641079",
+                "tag": "c",
+                "text": "$1/4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "422517",
+                "tag": "d",
+                "text": "1",
+                "is_correct": false
+            }
+        ],
+        "question_number": 186
+    },
+    {
+        "order_id": "32",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that $f(x) = kx^2$ for $0 < x < 3$, obtain the value of $k$ to make it a valid probability density function.",
+        "explanation": "We need $\\int_0^3 kx^2 dx = 1$. Evaluating the integral gives $k[\\frac{x^3}{3}]_0^3 = k(9) = 1$. Thus, $k = 1/9$.",
+        "options": [
+            {
+                "option_id": "109076",
+                "tag": "a",
+                "text": "$1/3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "218345",
+                "tag": "b",
+                "text": "$1/6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "191005",
+                "tag": "c",
+                "text": "$1/9$",
+                "is_correct": true
+            },
+            {
+                "option_id": "193198",
+                "tag": "d",
+                "text": "3",
+                "is_correct": false
+            }
+        ],
+        "question_number": 192
+    },
+    {
+        "order_id": "33",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is NOT an applicable use case for a Binomial distribution?",
+        "explanation": "The number of typing errors on a page per minute is better modeled by a Poisson distribution, as it represents events occurring in a continuous interval.",
+        "options": [
+            {
+                "option_id": "190023",
+                "tag": "a",
+                "text": "In statistical quality control to assess the number of defective items in a batch",
+                "is_correct": false
+            },
+            {
+                "option_id": "909882",
+                "tag": "b",
+                "text": "In a clinical trial to determine whether a number of patients improve or not",
+                "is_correct": false
+            },
+            {
+                "option_id": "182611",
+                "tag": "c",
+                "text": "The number of typing errors on a page of a document per minute",
+                "is_correct": true
+            },
+            {
+                "option_id": "322511",
+                "tag": "d",
+                "text": "In market research to determine whether a sample meets a particular Yes/No criterion",
+                "is_correct": false
+            }
+        ],
+        "question_number": 198
+    },
+    {
+        "order_id": "34",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is an applicable use case for a Poisson distribution?",
+        "explanation": "The Poisson distribution models the rate of occurrences of independent events over a specific interval of time, space, or area, such as typing errors per page.",
+        "options": [
+            {
+                "option_id": "184878",
+                "tag": "a",
+                "text": "In statistical quality control to assess the number of defective items in a batch",
+                "is_correct": false
+            },
+            {
+                "option_id": "311564",
+                "tag": "b",
+                "text": "In a clinical trial to determine whether a number of patients improve or not",
+                "is_correct": false
+            },
+            {
+                "option_id": "126044",
+                "tag": "c",
+                "text": "The number of typing errors on a page of a document per minute",
+                "is_correct": true
+            },
+            {
+                "option_id": "694514",
+                "tag": "d",
+                "text": "In market research to determine whether a sample meets a particular Yes/No criterion",
+                "is_correct": false
+            }
+        ],
+        "question_number": 204
+    },
+    {
+        "order_id": "35",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The probability that a student is accepted to a department of statistics is 0.4. If 10 students apply, obtain the probability that exactly 3 are accepted.",
+        "explanation": "Using binomial distribution $P(X=3) = \\binom{10}{3} (0.4)^3 (0.6)^7 = 120 \\times 0.064 \\times 0.0279936 \\approx 0.215$.",
+        "options": [
+            {
+                "option_id": "215453",
+                "tag": "a",
+                "text": "0.215",
+                "is_correct": true
+            },
+            {
+                "option_id": "192429",
+                "tag": "b",
+                "text": "0.214",
+                "is_correct": false
+            },
+            {
+                "option_id": "340183",
+                "tag": "c",
+                "text": "0.210",
+                "is_correct": false
+            },
+            {
+                "option_id": "224283",
+                "tag": "d",
+                "text": "0.225",
+                "is_correct": false
+            }
+        ],
+        "question_number": 210
+    },
+    {
+        "order_id": "36",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The distribution of an experiment that entails repeating independent Bernoulli trials until observing the first success is known as:",
+        "explanation": "The geometric distribution models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials.",
+        "options": [
+            {
+                "option_id": "284099",
+                "tag": "a",
+                "text": "Binomial distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "203692",
+                "tag": "b",
+                "text": "Bernoulli distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "321783",
+                "tag": "c",
+                "text": "Geometric distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "282791",
+                "tag": "d",
+                "text": "Poisson distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 216
+    },
+    {
+        "order_id": "37",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Hospital records show that 70% of patients suffering from a certain disease died of it. What is the probability that out of 3 randomly selected patients, exactly 1 will recover?",
+        "explanation": "Probability of recovery $p = 1 - 0.70 = 0.30$. Using binomial distribution for $n=3$, $x=1$: $P(X=1) = \\binom{3}{1} (0.3)^1 (0.7)^2 = 3 \\times 0.3 \\times 0.49 = 0.441$.",
+        "options": [
+            {
+                "option_id": "216410",
+                "tag": "a",
+                "text": "0.225",
+                "is_correct": false
+            },
+            {
+                "option_id": "203232",
+                "tag": "b",
+                "text": "0.441",
+                "is_correct": true
+            },
+            {
+                "option_id": "314699",
+                "tag": "c",
+                "text": "0.147",
+                "is_correct": false
+            },
+            {
+                "option_id": "276611",
+                "tag": "d",
+                "text": "0.490",
+                "is_correct": false
+            }
+        ],
+        "question_number": 222
+    },
+    {
+        "order_id": "38",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A distribution that is symmetrical with a single central peak at the mean of the data and forms a bell-shaped curve is known as:",
+        "explanation": "The Normal (or Gaussian) distribution is characterized by its symmetric, bell-shaped density curve centered around the mean.",
+        "options": [
+            {
+                "option_id": "324396",
+                "tag": "a",
+                "text": "Normal",
+                "is_correct": true
+            },
+            {
+                "option_id": "390447",
+                "tag": "b",
+                "text": "Exponential",
+                "is_correct": false
+            },
+            {
+                "option_id": "306832",
+                "tag": "c",
+                "text": "Binomial",
+                "is_correct": false
+            },
+            {
+                "option_id": "287431",
+                "tag": "d",
+                "text": "Gamma",
+                "is_correct": false
+            }
+        ],
+        "question_number": 228
+    },
+    {
+        "order_id": "39",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Let the sample space in the roll of a die be $S=\\{1,2,3,4,5,6\\}$. Given that $A$ is the event that the points are even and $B$ is the event that the points are odd, then $P(A)$ is:",
+        "explanation": "The even outcomes are $\\{2, 4, 6\\}$, so there are 3 outcomes. $P(A) = \\frac{3}{6} = 0.5$.",
+        "options": [
+            {
+                "option_id": "340202",
+                "tag": "a",
+                "text": "0.3",
+                "is_correct": false
+            },
+            {
+                "option_id": "338638",
+                "tag": "b",
+                "text": "0.5",
+                "is_correct": true
+            },
+            {
+                "option_id": "964463",
+                "tag": "c",
+                "text": "0.6",
+                "is_correct": false
+            },
+            {
+                "option_id": "101952",
+                "tag": "d",
+                "text": "0.7",
+                "is_correct": false
+            }
+        ],
+        "question_number": 234
+    },
+    {
+        "order_id": "40",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Let the sample space in the roll of a die be $S=\\{1,2,3,4,5,6\\}$. Given that $C$ is the event that the points are prime numbers, then $P(C)$ is:",
+        "explanation": "The prime numbers on a die are 2, 3, and 5. Therefore, event $C = \\{2, 3, 5\\}$ has 3 outcomes. $P(C) = \\frac{3}{6} = 0.5$.",
+        "options": [
+            {
+                "option_id": "412454",
+                "tag": "a",
+                "text": "0.3",
+                "is_correct": false
+            },
+            {
+                "option_id": "281266",
+                "tag": "b",
+                "text": "0.5",
+                "is_correct": true
+            },
+            {
+                "option_id": "207895",
+                "tag": "c",
+                "text": "0.6",
+                "is_correct": false
+            },
+            {
+                "option_id": "138107",
+                "tag": "d",
+                "text": "0.7",
+                "is_correct": false
+            }
+        ],
+        "question_number": 240
+    },
+    {
+        "order_id": "41",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a bag, there are 3 white balls and 4 yellow balls. 2 balls are drawn at random with replacement. What is the probability that both balls drawn will be white?",
+        "explanation": "Since drawing is with replacement, the probability of drawing a white ball is $3/7$ both times. $P(W,W) = \\frac{3}{7} \\times \\frac{3}{7} = \\frac{9}{49}$.",
+        "options": [
+            {
+                "option_id": "164475",
+                "tag": "a",
+                "text": "$12/49$",
+                "is_correct": false
+            },
+            {
+                "option_id": "495296",
+                "tag": "b",
+                "text": "$9/49$",
+                "is_correct": true
+            },
+            {
+                "option_id": "306208",
+                "tag": "c",
+                "text": "$16/49$",
+                "is_correct": false
+            },
+            {
+                "option_id": "202265",
+                "tag": "d",
+                "text": "$4/7$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 246
+    },
+    {
+        "order_id": "42",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A coin is tossed 3 times. Suppose $B$ is defined as the event of getting at least 2 heads. The total number of possible outcomes for 3 tosses is 8. What is $P(B)$?",
+        "explanation": "The outcomes with at least 2 heads are $\\{HHH, HHT, HTH, THH\\}$. There are 4 such outcomes. $P(B) = \\frac{4}{8} = \\frac{1}{2}$.",
+        "options": [
+            {
+                "option_id": "241981",
+                "tag": "a",
+                "text": "$3/4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "164160",
+                "tag": "b",
+                "text": "$1/2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "282467",
+                "tag": "c",
+                "text": "$7/8$",
+                "is_correct": false
+            },
+            {
+                "option_id": "233688",
+                "tag": "d",
+                "text": "$1/8$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 252
+    },
+    {
+        "order_id": "43",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A coin is tossed 3 times. Let $A$ be the event of getting all heads or all tails: $A = \\{HHH, TTT\\}$. Obtain $P(A)$.",
+        "explanation": "The total number of outcomes is $2^3 = 8$. Event $A$ has 2 elements (HHH, TTT). Therefore, $P(A) = \\frac{2}{8} = \\frac{1}{4}$.",
+        "options": [
+            {
+                "option_id": "305785",
+                "tag": "a",
+                "text": "$3/4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "178431",
+                "tag": "b",
+                "text": "$1/2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "228850",
+                "tag": "c",
+                "text": "$1/4$",
+                "is_correct": true
+            },
+            {
+                "option_id": "721739",
+                "tag": "d",
+                "text": "$1/8$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 258
+    },
+    {
+        "order_id": "44",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following describes a continuous random variable?",
+        "explanation": "Temperature is measured on a continuous scale, allowing for infinitely many values within an interval, unlike the others which are discrete counts.",
+        "options": [
+            {
+                "option_id": "269356",
+                "tag": "a",
+                "text": "Temperature",
+                "is_correct": true
+            },
+            {
+                "option_id": "534491",
+                "tag": "b",
+                "text": "Number of defective parts in a vehicle",
+                "is_correct": false
+            },
+            {
+                "option_id": "335925",
+                "tag": "c",
+                "text": "Number of students in a class",
+                "is_correct": false
+            },
+            {
+                "option_id": "173262",
+                "tag": "d",
+                "text": "Number of typing errors",
+                "is_correct": false
+            }
+        ],
+        "question_number": 264
+    },
+    {
+        "order_id": "45",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following describes a discrete random variable?",
+        "explanation": "The number of typing errors is counted in distinct whole numbers (discrete), while temperature, pressure, and weight are measured continuously.",
+        "options": [
+            {
+                "option_id": "239471",
+                "tag": "a",
+                "text": "Number of typing errors",
+                "is_correct": true
+            },
+            {
+                "option_id": "201099",
+                "tag": "b",
+                "text": "Temperature",
+                "is_correct": false
+            },
+            {
+                "option_id": "877653",
+                "tag": "c",
+                "text": "Pressure",
+                "is_correct": false
+            },
+            {
+                "option_id": "234597",
+                "tag": "d",
+                "text": "Weight",
+                "is_correct": false
+            }
+        ],
+        "question_number": 270
+    },
+    {
+        "order_id": "46",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that $Var(X) = 3$, $a = 2$ and $b = 4$ where $a$ and $b$ are constants. Obtain $Var(aX)$.",
+        "explanation": "The property of variance states that $Var(aX) = a^2 Var(X)$. Thus, $Var(2X) = 2^2 \\times 3 = 4 \\times 3 = 12$.",
+        "options": [
+            {
+                "option_id": "321813",
+                "tag": "a",
+                "text": "12",
+                "is_correct": true
+            },
+            {
+                "option_id": "287469",
+                "tag": "b",
+                "text": "16",
+                "is_correct": false
+            },
+            {
+                "option_id": "250218",
+                "tag": "c",
+                "text": "48",
+                "is_correct": false
+            },
+            {
+                "option_id": "294763",
+                "tag": "d",
+                "text": "4",
+                "is_correct": false
+            }
+        ],
+        "question_number": 276
+    },
+    {
+        "order_id": "47",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that $Var(X) = 3$, $a = 2$ and $b = 4$ where $a$ and $b$ are constants. Obtain the value of $Var(b + aX)$.",
+        "explanation": "Adding a constant does not change the variance. $Var(b + aX) = a^2 Var(X) = 2^2 \\times 3 = 12$.",
+        "options": [
+            {
+                "option_id": "180171",
+                "tag": "a",
+                "text": "12",
+                "is_correct": true
+            },
+            {
+                "option_id": "278094",
+                "tag": "b",
+                "text": "16",
+                "is_correct": false
+            },
+            {
+                "option_id": "187359",
+                "tag": "c",
+                "text": "48",
+                "is_correct": false
+            },
+            {
+                "option_id": "856529",
+                "tag": "d",
+                "text": "4",
+                "is_correct": false
+            }
+        ],
+        "question_number": 282
+    },
+    {
+        "order_id": "48",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given that $Var(X) = 3$, $Var(Y) = 2$, $E(X) = 2$, $E(Y) = 3$, $E(XY) = 6$. Obtain the value of $Var(2X + Y)$.",
+        "explanation": "$Cov(X,Y) = E(XY) - E(X)E(Y) = 6 - (2 \\times 3) = 0$. $Var(2X + Y) = 2^2 Var(X) + Var(Y) + 2(2)(1)Cov(X,Y) = 4(3) + 2 + 0 = 14$.",
+        "options": [
+            {
+                "option_id": "513102",
+                "tag": "a",
+                "text": "26",
+                "is_correct": false
+            },
+            {
+                "option_id": "133407",
+                "tag": "b",
+                "text": "20",
+                "is_correct": false
+            },
+            {
+                "option_id": "980938",
+                "tag": "c",
+                "text": "12",
+                "is_correct": false
+            },
+            {
+                "option_id": "175069",
+                "tag": "d",
+                "text": "14",
+                "is_correct": true
+            }
+        ],
+        "question_number": 288
+    },
+    {
+        "order_id": "49",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Identify the discrete probability distribution from the options below:",
+        "explanation": "The Geometric distribution deals with counts (number of trials until success) and is thus discrete, while the others model continuous variables.",
+        "options": [
+            {
+                "option_id": "724947",
+                "tag": "a",
+                "text": "Normal",
+                "is_correct": false
+            },
+            {
+                "option_id": "338482",
+                "tag": "b",
+                "text": "Exponential",
+                "is_correct": false
+            },
+            {
+                "option_id": "181895",
+                "tag": "c",
+                "text": "Geometric",
+                "is_correct": true
+            },
+            {
+                "option_id": "244150",
+                "tag": "d",
+                "text": "Gamma",
+                "is_correct": false
+            }
+        ],
+        "question_number": 294
+    },
+    {
+        "order_id": "50",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Identify the continuous probability distribution from the options below:",
+        "explanation": "The Normal distribution is used for continuous data, while Poisson, Geometric, and Hypergeometric distributions are all discrete.",
+        "options": [
+            {
+                "option_id": "647276",
+                "tag": "a",
+                "text": "Normal",
+                "is_correct": true
+            },
+            {
+                "option_id": "260159",
+                "tag": "b",
+                "text": "Poisson",
+                "is_correct": false
+            },
+            {
+                "option_id": "442018",
+                "tag": "c",
+                "text": "Geometric",
+                "is_correct": false
+            },
+            {
+                "option_id": "271345",
+                "tag": "d",
+                "text": "Hypergeometric",
+                "is_correct": false
+            }
+        ],
+        "question_number": 300
+    },
+    {
+        "order_id": "51",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most one head?",
+        "explanation": "Outcomes with at most one head: TTT, TTH, THT, HTT. 4/8 = 1/2.",
+        "options": [
+            {
+                "option_id": "316171",
+                "tag": "a",
+                "text": "7/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "252156",
+                "tag": "b",
+                "text": "3/4",
+                "is_correct": false
+            },
+            {
+                "option_id": "380785",
+                "tag": "c",
+                "text": "3/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "202315",
+                "tag": "d",
+                "text": "1/2",
+                "is_correct": true
+            }
+        ],
+        "question_number": 301
+    },
+    {
+        "order_id": "52",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times, what is the probability of getting exactly two tails?",
+        "explanation": "Outcomes with exactly two tails: TTH, THT, HTT. 3/8.",
+        "options": [
+            {
+                "option_id": "185035",
+                "tag": "a",
+                "text": "7/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "146817",
+                "tag": "b",
+                "text": "3/4",
+                "is_correct": false
+            },
+            {
+                "option_id": "709228",
+                "tag": "c",
+                "text": "1/4",
+                "is_correct": false
+            },
+            {
+                "option_id": "298170",
+                "tag": "d",
+                "text": "3/8",
+                "is_correct": true
+            }
+        ],
+        "question_number": 302
+    },
+    {
+        "order_id": "53",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most two heads?",
+        "explanation": "Everything except HHH (3 heads). 1 - 1/8 = 7/8.",
+        "options": [
+            {
+                "option_id": "264348",
+                "tag": "a",
+                "text": "7/8",
+                "is_correct": true
+            },
+            {
+                "option_id": "122239",
+                "tag": "b",
+                "text": "1/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "503816",
+                "tag": "c",
+                "text": "3/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "976390",
+                "tag": "d",
+                "text": "1/2",
+                "is_correct": false
+            }
+        ],
+        "question_number": 303
+    },
+    {
+        "order_id": "54",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a bag, there are 3 white balls and 4 yellow balls. 2 balls are drawn at random without replacement. What is the probability that both balls will be yellow?",
+        "explanation": "P(Y1 and Y2) = P(Y1) * P(Y2|Y1) = (4/7) * (3/6) = 12/42 = 2/7.",
+        "options": [
+            {
+                "option_id": "526630",
+                "tag": "a",
+                "text": "12/49",
+                "is_correct": false
+            },
+            {
+                "option_id": "964506",
+                "tag": "b",
+                "text": "9/49",
+                "is_correct": false
+            },
+            {
+                "option_id": "244022",
+                "tag": "c",
+                "text": "16/49",
+                "is_correct": false
+            },
+            {
+                "option_id": "992221",
+                "tag": "d",
+                "text": "2/7",
+                "is_correct": true
+            }
+        ],
+        "question_number": 304
+    },
+    {
+        "order_id": "55",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Evaluate 6!",
+        "explanation": "6! = 6 * 5 * 4 * 3 * 2 * 1 = 720.",
+        "options": [
+            {
+                "option_id": "401897",
+                "tag": "a",
+                "text": "123",
+                "is_correct": false
+            },
+            {
+                "option_id": "284466",
+                "tag": "b",
+                "text": "720",
+                "is_correct": true
+            },
+            {
+                "option_id": "721876",
+                "tag": "c",
+                "text": "553",
+                "is_correct": false
+            },
+            {
+                "option_id": "294542",
+                "tag": "d",
+                "text": "365",
+                "is_correct": false
+            }
+        ],
+        "question_number": 305
+    },
+    {
+        "order_id": "56",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a balanced die is thrown, what is the probability of getting a number that is at most 3?",
+        "explanation": "The numbers at most 3 are 1, 2, and 3. Probability is 3/6 = 0.5.",
+        "options": [
+            {
+                "option_id": "210120",
+                "tag": "a",
+                "text": "0.33",
+                "is_correct": false
+            },
+            {
+                "option_id": "296855",
+                "tag": "b",
+                "text": "0.66",
+                "is_correct": false
+            },
+            {
+                "option_id": "141868",
+                "tag": "c",
+                "text": "0.5",
+                "is_correct": true
+            },
+            {
+                "option_id": "332643",
+                "tag": "d",
+                "text": "0.83",
+                "is_correct": false
+            }
+        ],
+        "question_number": 306
+    },
+    {
+        "order_id": "57",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a balanced die is thrown, what is the probability of getting a number that is at least 3?",
+        "explanation": "The numbers at least 3 are 3, 4, 5, and 6. Probability is 4/6 \\approx 0.66.",
+        "options": [
+            {
+                "option_id": "216452",
+                "tag": "a",
+                "text": "0.33",
+                "is_correct": false
+            },
+            {
+                "option_id": "799568",
+                "tag": "b",
+                "text": "0.66",
+                "is_correct": true
+            },
+            {
+                "option_id": "339437",
+                "tag": "c",
+                "text": "0.83",
+                "is_correct": false
+            },
+            {
+                "option_id": "320894",
+                "tag": "d",
+                "text": "0.5",
+                "is_correct": false
+            }
+        ],
+        "question_number": 307
+    },
+    {
+        "order_id": "58",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The distribution that has equal mean and variance is known as:",
+        "explanation": "In a Poisson distribution, both the mean and the variance are equal to \\lambda.",
+        "options": [
+            {
+                "option_id": "272207",
+                "tag": "a",
+                "text": "Binomial distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "283838",
+                "tag": "b",
+                "text": "Geometric distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "569825",
+                "tag": "c",
+                "text": "Poisson distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "746768",
+                "tag": "d",
+                "text": "Hypergeometric distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 308
+    },
+    {
+        "order_id": "59",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Find the area under the standard normal curve for Z lying between Z = -0.32 and Z = 0.61 using the Z-table.",
+        "explanation": "P(-0.32 < Z < 0.61) = P(Z < 0.61) - P(Z < -0.32) = 0.7291 - 0.3745 = 0.3546.",
+        "options": [
+            {
+                "option_id": "105965",
+                "tag": "a",
+                "text": "0.7291",
+                "is_correct": false
+            },
+            {
+                "option_id": "218185",
+                "tag": "b",
+                "text": "0.3745",
+                "is_correct": false
+            },
+            {
+                "option_id": "279458",
+                "tag": "c",
+                "text": "0.4176",
+                "is_correct": false
+            },
+            {
+                "option_id": "273718",
+                "tag": "d",
+                "text": "0.3546",
+                "is_correct": true
+            }
+        ],
+        "question_number": 309
+    },
+    {
+        "order_id": "60",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Find the area under the standard normal curve for P(Z > 0.61) using the Z-table.",
+        "explanation": "P(Z > 0.61) = 1 - P(Z < 0.61) = 1 - 0.7291 = 0.2709.",
+        "options": [
+            {
+                "option_id": "233503",
+                "tag": "a",
+                "text": "0.7291",
+                "is_correct": false
+            },
+            {
+                "option_id": "744487",
+                "tag": "b",
+                "text": "0.3745",
+                "is_correct": false
+            },
+            {
+                "option_id": "258069",
+                "tag": "c",
+                "text": "0.2907",
+                "is_correct": false
+            },
+            {
+                "option_id": "824361",
+                "tag": "d",
+                "text": "0.2709",
+                "is_correct": true
+            }
+        ],
+        "question_number": 310
+    },
+    {
+        "order_id": "61",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the probability of success.",
+        "explanation": "\\mu = np = 25 and \\sigma^2 = npq = 5. Dividing variance by mean: q = 5 / 25 = 0.2. The probability of success is p = 1 - q = 0.8.",
+        "options": [
+            {
+                "option_id": "175090",
+                "tag": "a",
+                "text": "0.67",
+                "is_correct": false
+            },
+            {
+                "option_id": "989846",
+                "tag": "b",
+                "text": "0.80",
+                "is_correct": true
+            },
+            {
+                "option_id": "895860",
+                "tag": "c",
+                "text": "0.20",
+                "is_correct": false
+            },
+            {
+                "option_id": "218024",
+                "tag": "d",
+                "text": "0.30",
+                "is_correct": false
+            }
+        ],
+        "question_number": 311
+    },
+    {
+        "order_id": "62",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the probability of failure.",
+        "explanation": "q = \\sigma^2 / \\mu = 5 / 25 = 0.20.",
+        "options": [
+            {
+                "option_id": "333650",
+                "tag": "a",
+                "text": "0.67",
+                "is_correct": false
+            },
+            {
+                "option_id": "316096",
+                "tag": "b",
+                "text": "0.80",
+                "is_correct": false
+            },
+            {
+                "option_id": "309693",
+                "tag": "c",
+                "text": "0.20",
+                "is_correct": true
+            },
+            {
+                "option_id": "428953",
+                "tag": "d",
+                "text": "0.30",
+                "is_correct": false
+            }
+        ],
+        "question_number": 312
+    },
+    {
+        "order_id": "63",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the parameter n.",
+        "explanation": "Since np = 25 and p = 0.8, n = 25 / 0.8 = 31.25 \\approx 31.",
+        "options": [
+            {
+                "option_id": "150269",
+                "tag": "a",
+                "text": "35",
+                "is_correct": false
+            },
+            {
+                "option_id": "337960",
+                "tag": "b",
+                "text": "45",
+                "is_correct": false
+            },
+            {
+                "option_id": "331673",
+                "tag": "c",
+                "text": "15",
+                "is_correct": false
+            },
+            {
+                "option_id": "234407",
+                "tag": "d",
+                "text": "31",
+                "is_correct": true
+            }
+        ],
+        "question_number": 313
+    },
+    {
+        "order_id": "64",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times, what is the number of elements in the sample space?",
+        "explanation": "The number of outcomes is 2^n. For 3 tosses, 2^3 = 8.",
+        "options": [
+            {
+                "option_id": "163461",
+                "tag": "a",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "637467",
+                "tag": "b",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "319982",
+                "tag": "c",
+                "text": "8",
+                "is_correct": true
+            },
+            {
+                "option_id": "758782",
+                "tag": "d",
+                "text": "10",
+                "is_correct": false
+            }
+        ],
+        "question_number": 314
+    },
+    {
+        "order_id": "65",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the variance of a geometric distribution having parameter p = 0.72?",
+        "explanation": "Var(X) = (1-p) / p^2 = 0.28 / (0.72)^2 = 0.28 / 0.5184 \\approx 0.54 or 54%.",
+        "options": [
+            {
+                "option_id": "252581",
+                "tag": "a",
+                "text": "76%",
+                "is_correct": false
+            },
+            {
+                "option_id": "153905",
+                "tag": "b",
+                "text": "54%",
+                "is_correct": true
+            },
+            {
+                "option_id": "893237",
+                "tag": "c",
+                "text": "13%",
+                "is_correct": false
+            },
+            {
+                "option_id": "139624",
+                "tag": "d",
+                "text": "69%",
+                "is_correct": false
+            }
+        ],
+        "question_number": 315
+    },
+    {
+        "order_id": "66",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A discrete probability distribution that deals with an experiment where each outcome can take only one of two forms can be expressed as:",
+        "explanation": "The Bernoulli distribution has the probability mass function f(x) = p^x q^{1-x} where x \\in {0,1}.",
+        "options": [
+            {
+                "option_id": "144209",
+                "tag": "a",
+                "text": "p^x q^{1-x}",
+                "is_correct": true
+            },
+            {
+                "option_id": "642483",
+                "tag": "b",
+                "text": "pq^x",
+                "is_correct": false
+            },
+            {
+                "option_id": "160447",
+                "tag": "c",
+                "text": "n! / (n-r)!",
+                "is_correct": false
+            },
+            {
+                "option_id": "179555",
+                "tag": "d",
+                "text": "n! / (r!(n-r)!)",
+                "is_correct": false
+            }
+        ],
+        "question_number": 316
+    },
+    {
+        "order_id": "67",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following formulas can be best used to describe a Poisson distribution mathematically?",
+        "explanation": "The probability mass function of a Poisson distribution is P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}.",
+        "options": [
+            {
+                "option_id": "234112",
+                "tag": "a",
+                "text": "P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}",
+                "is_correct": true
+            },
+            {
+                "option_id": "329592",
+                "tag": "b",
+                "text": "P(X=x) = \\binom{n}{x}p^x q^{n-x}",
+                "is_correct": false
+            },
+            {
+                "option_id": "292169",
+                "tag": "c",
+                "text": "P(X=x) = p^x q^{1-x}",
+                "is_correct": false
+            },
+            {
+                "option_id": "868739",
+                "tag": "d",
+                "text": "P(X=x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}",
+                "is_correct": false
+            }
+        ],
+        "question_number": 317
+    },
+    {
+        "order_id": "68",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Calculate the expected value of the random variable X given that X has the following probability distribution: P(1)=1/10, P(2)=1/5, P(3)=2/5, P(4)=1/20, P(5)=1/4.",
+        "explanation": "E(X) = \\sum x P(x) = 1(0.1) + 2(0.2) + 3(0.4) + 4(0.05) + 5(0.25) = 3.15.",
+        "options": [
+            {
+                "option_id": "278978",
+                "tag": "a",
+                "text": "3.15",
+                "is_correct": true
+            },
+            {
+                "option_id": "626432",
+                "tag": "b",
+                "text": "3.51",
+                "is_correct": false
+            },
+            {
+                "option_id": "128621",
+                "tag": "c",
+                "text": "3.00",
+                "is_correct": false
+            },
+            {
+                "option_id": "179523",
+                "tag": "d",
+                "text": "3.30",
+                "is_correct": false
+            }
+        ],
+        "question_number": 318
+    },
+    {
+        "order_id": "69",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Simplify the expression \\frac{(n+3)!}{(n+1)!}.",
+        "explanation": "\\frac{(n+3)!}{(n+1)!} = (n+3)(n+2) = n^2 + 2n + 3n + 6 = n^2 + 5n + 6.",
+        "options": [
+            {
+                "option_id": "331677",
+                "tag": "a",
+                "text": "n^2 + 5n + 6",
+                "is_correct": true
+            },
+            {
+                "option_id": "169849",
+                "tag": "b",
+                "text": "n^2 + 3n + 2",
+                "is_correct": false
+            },
+            {
+                "option_id": "273370",
+                "tag": "c",
+                "text": "n^2 + n",
+                "is_correct": false
+            },
+            {
+                "option_id": "300937",
+                "tag": "d",
+                "text": "n^2 + 7n + 12",
+                "is_correct": false
+            }
+        ],
+        "question_number": 319
+    },
+    {
+        "order_id": "70",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given the probability distribution of a random variable X: P(0)=0.1, P(1)=0.3, P(2)=0.1, P(3)=0.31, P(4)=0.09, P(5)=0.1. Compute P(0 < X < 4).",
+        "explanation": "P(0 < X < 4) = P(1) + P(2) + P(3) = 0.3 + 0.1 + 0.31 = 0.71.",
+        "options": [
+            {
+                "option_id": "312499",
+                "tag": "a",
+                "text": "0.3",
+                "is_correct": false
+            },
+            {
+                "option_id": "304689",
+                "tag": "b",
+                "text": "0.31",
+                "is_correct": false
+            },
+            {
+                "option_id": "292488",
+                "tag": "c",
+                "text": "0.41",
+                "is_correct": false
+            },
+            {
+                "option_id": "393436",
+                "tag": "d",
+                "text": "0.71",
+                "is_correct": true
+            }
+        ],
+        "question_number": 320
+    },
+    {
+        "order_id": "71",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can the letters of the word STATISTICS be arranged?",
+        "explanation": "The word STATISTICS has 10 letters where S repeats 3 times, T repeats 3 times, and I repeats 2 times. 10! / (3!3!2!) = 50,400.",
+        "options": [
+            {
+                "option_id": "193712",
+                "tag": "a",
+                "text": "122,430",
+                "is_correct": false
+            },
+            {
+                "option_id": "296371",
+                "tag": "b",
+                "text": "60,555",
+                "is_correct": false
+            },
+            {
+                "option_id": "647511",
+                "tag": "c",
+                "text": "50,400",
+                "is_correct": true
+            },
+            {
+                "option_id": "244143",
+                "tag": "d",
+                "text": "52,430",
+                "is_correct": false
+            }
+        ],
+        "question_number": 321
+    },
+    {
+        "order_id": "72",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can the letters of the word MONOPOLY be arranged?",
+        "explanation": "The word MONOPOLY has 8 letters with 'O' repeating 3 times. 8! / 3! = 6720.",
+        "options": [
+            {
+                "option_id": "112376",
+                "tag": "a",
+                "text": "6720",
+                "is_correct": true
+            },
+            {
+                "option_id": "211209",
+                "tag": "b",
+                "text": "1680",
+                "is_correct": false
+            },
+            {
+                "option_id": "146350",
+                "tag": "c",
+                "text": "280",
+                "is_correct": false
+            },
+            {
+                "option_id": "270027",
+                "tag": "d",
+                "text": "40320",
+                "is_correct": false
+            }
+        ],
+        "question_number": 322
+    },
+    {
+        "order_id": "73",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The process of drawing a sample from a population is known as:",
+        "explanation": "Sampling is the statistical process of selecting a subset of individuals from within a population.",
+        "options": [
+            {
+                "option_id": "201108",
+                "tag": "a",
+                "text": "Census",
+                "is_correct": false
+            },
+            {
+                "option_id": "252838",
+                "tag": "b",
+                "text": "Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "205672",
+                "tag": "c",
+                "text": "Survey research",
+                "is_correct": false
+            },
+            {
+                "option_id": "337971",
+                "tag": "d",
+                "text": "None of the above",
+                "is_correct": false
+            }
+        ],
+        "question_number": 323
+    },
+    {
+        "order_id": "74",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times what is the probability of getting at least one head?",
+        "explanation": "P(at least 1 head) = 1 - P(zero heads) = 1 - P(TTT) = 1 - 1/8 = 7/8.",
+        "options": [
+            {
+                "option_id": "561268",
+                "tag": "a",
+                "text": "7/8",
+                "is_correct": true
+            },
+            {
+                "option_id": "140007",
+                "tag": "b",
+                "text": "3/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "225356",
+                "tag": "c",
+                "text": "1/4",
+                "is_correct": false
+            },
+            {
+                "option_id": "868552",
+                "tag": "d",
+                "text": "1/8",
+                "is_correct": false
+            }
+        ],
+        "question_number": 324
+    },
+    {
+        "order_id": "75",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following formulas can be used to compute the standard score when the sample size is less than 30 (n < 30)?",
+        "explanation": "For small sample sizes (n < 30) when the population standard deviation is unknown, the t-statistic is used.",
+        "options": [
+            {
+                "option_id": "159474",
+                "tag": "a",
+                "text": "t = \\frac{\\bar{x} - \\mu}{s/\\sqrt{n}}",
+                "is_correct": true
+            },
+            {
+                "option_id": "287842",
+                "tag": "b",
+                "text": "z = \\frac{\\bar{x} - \\mu}{s/\\sqrt{n}}",
+                "is_correct": false
+            },
+            {
+                "option_id": "260810",
+                "tag": "c",
+                "text": "z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}",
+                "is_correct": false
+            },
+            {
+                "option_id": "326827",
+                "tag": "d",
+                "text": "t = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}",
+                "is_correct": false
+            }
+        ],
+        "question_number": 325
+    },
+    {
+        "order_id": "76",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Assuming the mean age of a certain population is 17 years, a random sample of 25 people drawn from this population shows a mean age of 18.1 years, and sample variance of 16. What is the value of the test statistic?",
+        "explanation": "t = \\frac{\\bar{x} - \\mu}{s/\\sqrt{n}} = \\frac{18.1 - 17}{\\sqrt{16}/\\sqrt{25}} = \\frac{1.1}{4/5} = 1.375.",
+        "options": [
+            {
+                "option_id": "279206",
+                "tag": "a",
+                "text": "1.351",
+                "is_correct": false
+            },
+            {
+                "option_id": "131990",
+                "tag": "b",
+                "text": "1.375",
+                "is_correct": true
+            },
+            {
+                "option_id": "244905",
+                "tag": "c",
+                "text": "1.735",
+                "is_correct": false
+            },
+            {
+                "option_id": "305530",
+                "tag": "d",
+                "text": "none of the above",
+                "is_correct": false
+            }
+        ],
+        "question_number": 326
+    },
+    {
+        "order_id": "77",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following formulas can be used to compute the standard score when the sample size is greater than 30 (n \\ge 30)?",
+        "explanation": "For large sample sizes, the Z-score is used.",
+        "options": [
+            {
+                "option_id": "317371",
+                "tag": "a",
+                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}",
+                "is_correct": true
+            },
+            {
+                "option_id": "129004",
+                "tag": "b",
+                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma^2/\\sqrt{n}}",
+                "is_correct": false
+            },
+            {
+                "option_id": "216576",
+                "tag": "c",
+                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma/n}",
+                "is_correct": false
+            },
+            {
+                "option_id": "799550",
+                "tag": "d",
+                "text": "Z = \\frac{\\mu - \\bar{x}}{\\sigma/\\sqrt{n}}",
+                "is_correct": false
+            }
+        ],
+        "question_number": 327
+    },
+    {
+        "order_id": "78",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The concept of exploratory data analysis was popularized by:",
+        "explanation": "Exploratory Data Analysis (EDA) was promoted and popularized by John Tukey.",
+        "options": [
+            {
+                "option_id": "871930",
+                "tag": "a",
+                "text": "Isaac Newton",
+                "is_correct": false
+            },
+            {
+                "option_id": "258465",
+                "tag": "b",
+                "text": "John Thompson",
+                "is_correct": false
+            },
+            {
+                "option_id": "222149",
+                "tag": "c",
+                "text": "John Wiley",
+                "is_correct": false
+            },
+            {
+                "option_id": "228738",
+                "tag": "d",
+                "text": "John Tukey",
+                "is_correct": true
+            }
+        ],
+        "question_number": 328
+    },
+    {
+        "order_id": "79",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The following are key objectives of exploratory data analysis except:",
+        "explanation": "Drawing inferences about a population is the goal of Inferential Statistics, not EDA.",
+        "options": [
+            {
+                "option_id": "203810",
+                "tag": "a",
+                "text": "drawing inference about a population",
+                "is_correct": true
+            },
+            {
+                "option_id": "375135",
+                "tag": "b",
+                "text": "detection of outliers",
+                "is_correct": false
+            },
+            {
+                "option_id": "251733",
+                "tag": "c",
+                "text": "summarize main characteristics",
+                "is_correct": false
+            },
+            {
+                "option_id": "125929",
+                "tag": "d",
+                "text": "validates assumption",
+                "is_correct": false
+            }
+        ],
+        "question_number": 329
+    },
+    {
+        "order_id": "80",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "One of the following is not a measure of central tendency:",
+        "explanation": "Variance is a measure of dispersion, not central tendency.",
+        "options": [
+            {
+                "option_id": "179304",
+                "tag": "a",
+                "text": "arithmetic mean",
+                "is_correct": false
+            },
+            {
+                "option_id": "108988",
+                "tag": "b",
+                "text": "variance",
+                "is_correct": true
+            },
+            {
+                "option_id": "294365",
+                "tag": "c",
+                "text": "mode",
+                "is_correct": false
+            },
+            {
+                "option_id": "105260",
+                "tag": "d",
+                "text": "median",
+                "is_correct": false
+            }
+        ],
+        "question_number": 330
+    },
+    {
+        "order_id": "81",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Range, variance, standard deviation and interquartile range are measures of:",
+        "explanation": "These are all measures of how spread out a distribution is, which is known as dispersion.",
+        "options": [
+            {
+                "option_id": "435195",
+                "tag": "a",
+                "text": "central tendency",
+                "is_correct": false
+            },
+            {
+                "option_id": "102147",
+                "tag": "b",
+                "text": "dispersion",
+                "is_correct": true
+            },
+            {
+                "option_id": "144281",
+                "tag": "c",
+                "text": "shape",
+                "is_correct": false
+            },
+            {
+                "option_id": "160038",
+                "tag": "d",
+                "text": "partition",
+                "is_correct": false
+            }
+        ],
+        "question_number": 331
+    },
+    {
+        "order_id": "82",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is not a measure of partition?",
+        "explanation": "Mode is a measure of central tendency. Median, decile, and quartile divide the dataset into parts.",
+        "options": [
+            {
+                "option_id": "243316",
+                "tag": "a",
+                "text": "median",
+                "is_correct": false
+            },
+            {
+                "option_id": "256507",
+                "tag": "b",
+                "text": "decile",
+                "is_correct": false
+            },
+            {
+                "option_id": "313631",
+                "tag": "c",
+                "text": "quartile",
+                "is_correct": false
+            },
+            {
+                "option_id": "203331",
+                "tag": "d",
+                "text": "mode",
+                "is_correct": true
+            }
+        ],
+        "question_number": 332
+    },
+    {
+        "order_id": "83",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The highest occurred observation in a distribution is known as:",
+        "explanation": "The mode is the value that appears most frequently in a data set.",
+        "options": [
+            {
+                "option_id": "113333",
+                "tag": "a",
+                "text": "mode",
+                "is_correct": true
+            },
+            {
+                "option_id": "242339",
+                "tag": "b",
+                "text": "median",
+                "is_correct": false
+            },
+            {
+                "option_id": "210212",
+                "tag": "c",
+                "text": "variance",
+                "is_correct": false
+            },
+            {
+                "option_id": "136483",
+                "tag": "d",
+                "text": "skewness",
+                "is_correct": false
+            }
+        ],
+        "question_number": 333
+    },
+    {
+        "order_id": "84",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The skewness and kurtosis are classified as measures of:",
+        "explanation": "Skewness measures asymmetry and kurtosis measures the 'tailedness' of a distribution. Both describe shape.",
+        "options": [
+            {
+                "option_id": "294120",
+                "tag": "a",
+                "text": "partition",
+                "is_correct": false
+            },
+            {
+                "option_id": "132581",
+                "tag": "b",
+                "text": "dispersion",
+                "is_correct": false
+            },
+            {
+                "option_id": "266673",
+                "tag": "c",
+                "text": "shape",
+                "is_correct": true
+            },
+            {
+                "option_id": "822625",
+                "tag": "d",
+                "text": "location",
+                "is_correct": false
+            }
+        ],
+        "question_number": 334
+    },
+    {
+        "order_id": "85",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The statistical measure that divides a distribution into several equal parts is known as:",
+        "explanation": "Measures of partition, such as quartiles and deciles, divide a dataset into equal parts.",
+        "options": [
+            {
+                "option_id": "139841",
+                "tag": "a",
+                "text": "dispersion",
+                "is_correct": false
+            },
+            {
+                "option_id": "100107",
+                "tag": "b",
+                "text": "skewness",
+                "is_correct": false
+            },
+            {
+                "option_id": "171868",
+                "tag": "c",
+                "text": "variance",
+                "is_correct": false
+            },
+            {
+                "option_id": "443451",
+                "tag": "d",
+                "text": "Partition",
+                "is_correct": true
+            }
+        ],
+        "question_number": 335
+    },
+    {
+        "order_id": "86",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The probability that it will rain tomorrow is 0.72. What is the probability that it will not rain tomorrow?",
+        "explanation": "P(not rain) = 1 - P(rain) = 1 - 0.72 = 0.28 = 28%.",
+        "options": [
+            {
+                "option_id": "205916",
+                "tag": "a",
+                "text": "10%",
+                "is_correct": false
+            },
+            {
+                "option_id": "211000",
+                "tag": "b",
+                "text": "32%",
+                "is_correct": false
+            },
+            {
+                "option_id": "302953",
+                "tag": "c",
+                "text": "43%",
+                "is_correct": false
+            },
+            {
+                "option_id": "309991",
+                "tag": "d",
+                "text": "28%",
+                "is_correct": true
+            }
+        ],
+        "question_number": 336
+    },
+    {
+        "order_id": "87",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a box, there are 5 purple, 15 grey and 25 green balls. If a ball is picked up randomly, find the probability that it is neither grey nor purple?",
+        "explanation": "Neither grey nor purple means green. P(Green) = 25 / (5+15+25) = 25 / 45 = 5/9.",
+        "options": [
+            {
+                "option_id": "159816",
+                "tag": "a",
+                "text": "12/13",
+                "is_correct": false
+            },
+            {
+                "option_id": "753373",
+                "tag": "b",
+                "text": "5/9",
+                "is_correct": true
+            },
+            {
+                "option_id": "170279",
+                "tag": "c",
+                "text": "2/7",
+                "is_correct": false
+            },
+            {
+                "option_id": "301029",
+                "tag": "d",
+                "text": "5/19",
+                "is_correct": false
+            }
+        ],
+        "question_number": 337
+    },
+    {
+        "order_id": "88",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If Var(Y) = 6, then Var(2Y - 4) is:",
+        "explanation": "Var(aY + b) = a^2 Var(Y). Thus, Var(2Y - 4) = 2^2 \\times 6 = 24.",
+        "options": [
+            {
+                "option_id": "162979",
+                "tag": "a",
+                "text": "12",
+                "is_correct": false
+            },
+            {
+                "option_id": "152963",
+                "tag": "b",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "261277",
+                "tag": "c",
+                "text": "20",
+                "is_correct": false
+            },
+            {
+                "option_id": "268397",
+                "tag": "d",
+                "text": "24",
+                "is_correct": true
+            }
+        ],
+        "question_number": 338
+    },
+    {
+        "order_id": "89",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the mean of a geometric distribution having parameter p = 0.72?",
+        "explanation": "Using the geometric distribution definition for number of failures, \\mu = \\frac{1-p}{p} = \\frac{0.28}{0.72} \\approx 0.3889 or 39%.",
+        "options": [
+            {
+                "option_id": "323933",
+                "tag": "a",
+                "text": "28%",
+                "is_correct": false
+            },
+            {
+                "option_id": "207579",
+                "tag": "b",
+                "text": "39%",
+                "is_correct": true
+            },
+            {
+                "option_id": "150288",
+                "tag": "c",
+                "text": "37%",
+                "is_correct": false
+            },
+            {
+                "option_id": "150999",
+                "tag": "d",
+                "text": "60%",
+                "is_correct": false
+            }
+        ],
+        "question_number": 339
+    },
+    {
+        "order_id": "90",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most three heads?",
+        "explanation": "'At most three heads' includes all possible outcomes for three tosses, so the probability is 1.",
+        "options": [
+            {
+                "option_id": "189092",
+                "tag": "a",
+                "text": "1/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "158921",
+                "tag": "b",
+                "text": "4/8",
+                "is_correct": false
+            },
+            {
+                "option_id": "413847",
+                "tag": "c",
+                "text": "1/4",
+                "is_correct": false
+            },
+            {
+                "option_id": "676631",
+                "tag": "d",
+                "text": "1",
+                "is_correct": true
+            }
+        ],
+        "question_number": 340
+    },
+    {
+        "order_id": "91",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The standard score for the sampling distribution of difference of two means can be represented mathematically as:",
+        "explanation": "This is the correct formula for the Z-score for the difference between two sample means.",
+        "options": [
+            {
+                "option_id": "288381",
+                "tag": "a",
+                "text": "Z = \\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2}}}",
+                "is_correct": true
+            },
+            {
+                "option_id": "309952",
+                "tag": "b",
+                "text": "Z = \\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\frac{\\sigma_1}{n_1} + \\frac{\\sigma_2}{n_2}}}",
+                "is_correct": false
+            },
+            {
+                "option_id": "138677",
+                "tag": "c",
+                "text": "Z = \\frac{(\\bar{x}_1 - \\bar{x}_2)}{\\sqrt{\\sigma^2}}",
+                "is_correct": false
+            },
+            {
+                "option_id": "271773",
+                "tag": "d",
+                "text": "Z = \\frac{\\mu_1 - \\mu_2}{\\sqrt{\\sigma}}",
+                "is_correct": false
+            }
+        ],
+        "question_number": 341
+    },
+    {
+        "order_id": "92",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can we select 6 people out of 10, if a particular person is completely excluded from the selection?",
+        "explanation": "Excluding 1 person leaves 9 people to choose from. We must choose 6, which gives ^9C_6.",
+        "options": [
+            {
+                "option_id": "675178",
+                "tag": "a",
+                "text": "^9C_6",
+                "is_correct": true
+            },
+            {
+                "option_id": "306807",
+                "tag": "b",
+                "text": "^{10}C_6",
+                "is_correct": false
+            },
+            {
+                "option_id": "291205",
+                "tag": "c",
+                "text": "^9C_5",
+                "is_correct": false
+            },
+            {
+                "option_id": "338935",
+                "tag": "d",
+                "text": "^{10}C_5",
+                "is_correct": false
+            }
+        ],
+        "question_number": 342
+    },
+    {
+        "order_id": "93",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Mutually Exclusive events:",
+        "explanation": "Mutually exclusive events cannot happen at the same time, meaning they share no common sample points (their intersection is empty).",
+        "options": [
+            {
+                "option_id": "113282",
+                "tag": "a",
+                "text": "Contain all Sample points",
+                "is_correct": false
+            },
+            {
+                "option_id": "584159",
+                "tag": "b",
+                "text": "Contain many sample points",
+                "is_correct": false
+            },
+            {
+                "option_id": "206156",
+                "tag": "c",
+                "text": "Do not contain any sample point",
+                "is_correct": false
+            },
+            {
+                "option_id": "156825",
+                "tag": "d",
+                "text": "Do not contain any common sample point",
+                "is_correct": true
+            }
+        ],
+        "question_number": 343
+    },
+    {
+        "order_id": "94",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The expected value of a discrete random variable 'x' is given by:",
+        "explanation": "The expected value is the sum of the products of possible values and their probabilities: \\sum x P(x).",
+        "options": [
+            {
+                "option_id": "309463",
+                "tag": "a",
+                "text": "P(x)",
+                "is_correct": false
+            },
+            {
+                "option_id": "100222",
+                "tag": "b",
+                "text": "\\sum P(x)",
+                "is_correct": false
+            },
+            {
+                "option_id": "102839",
+                "tag": "c",
+                "text": "\\sum x P(x)",
+                "is_correct": true
+            },
+            {
+                "option_id": "314240",
+                "tag": "d",
+                "text": "\\int x P(x) dx",
+                "is_correct": false
+            }
+        ],
+        "question_number": 344
+    },
+    {
+        "order_id": "95",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A company employing 14 Women and 10 Men is forming a 6-Person Safety Committee. How many different combinations of people are possible?",
+        "explanation": "We select 6 people from a total of 24 (14 women + 10 men). ^{24}C_6 = \\frac{24!}{6!18!} = 134,596.",
+        "options": [
+            {
+                "option_id": "235071",
+                "tag": "a",
+                "text": "134,659",
+                "is_correct": false
+            },
+            {
+                "option_id": "656244",
+                "tag": "b",
+                "text": "134,596",
+                "is_correct": true
+            },
+            {
+                "option_id": "318135",
+                "tag": "c",
+                "text": "133,569",
+                "is_correct": false
+            },
+            {
+                "option_id": "382835",
+                "tag": "d",
+                "text": "1,961,256",
+                "is_correct": false
+            }
+        ],
+        "question_number": 345
+    },
+    {
+        "order_id": "96",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following conditions satisfies a discrete random variable with a probability function P(x)?",
+        "explanation": "A valid discrete probability distribution must have non-negative probabilities that sum to 1.",
+        "options": [
+            {
+                "option_id": "962532",
+                "tag": "a",
+                "text": "P(x) \\ge 0 \\forall x",
+                "is_correct": false
+            },
+            {
+                "option_id": "320909",
+                "tag": "b",
+                "text": "\\sum P(x) = 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "123437",
+                "tag": "c",
+                "text": "both a and b",
+                "is_correct": true
+            },
+            {
+                "option_id": "817212",
+                "tag": "d",
+                "text": "P(x) = 1",
+                "is_correct": false
+            }
+        ],
+        "question_number": 346
+    },
+    {
+        "order_id": "97",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A Box and Whisker plot describes a distribution as positively (right) skewed when:",
+        "explanation": "In a positively skewed distribution, the data has a long right (or top) tail. Thus, the top whisker is longer.",
+        "options": [
+            {
+                "option_id": "162714",
+                "tag": "a",
+                "text": "the top whisker is longer than the bottom whisker",
+                "is_correct": true
+            },
+            {
+                "option_id": "154505",
+                "tag": "b",
+                "text": "the top whisker is shorter than the bottom whisker",
+                "is_correct": false
+            },
+            {
+                "option_id": "100045",
+                "tag": "c",
+                "text": "the box is smaller than the whisker",
+                "is_correct": false
+            },
+            {
+                "option_id": "885924",
+                "tag": "d",
+                "text": "the whisker is smaller than the box",
+                "is_correct": false
+            }
+        ],
+        "question_number": 347
+    },
+    {
+        "order_id": "98",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The stem-and-leaf plot is drawn with two columns separated by a ___ line.",
+        "explanation": "A vertical line is used to separate the stems (leading digits) from the leaves (trailing digits).",
+        "options": [
+            {
+                "option_id": "697599",
+                "tag": "a",
+                "text": "diagonal",
+                "is_correct": false
+            },
+            {
+                "option_id": "339692",
+                "tag": "b",
+                "text": "horizontal",
+                "is_correct": false
+            },
+            {
+                "option_id": "262576",
+                "tag": "c",
+                "text": "orthogonal",
+                "is_correct": false
+            },
+            {
+                "option_id": "242923",
+                "tag": "d",
+                "text": "vertical",
+                "is_correct": true
+            }
+        ],
+        "question_number": 348
+    },
+    {
+        "order_id": "99",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The right column of a stem and leaf plot is known as the:",
+        "explanation": "The right column represents the 'leaf' of the plot, which contains the trailing digits.",
+        "options": [
+            {
+                "option_id": "190260",
+                "tag": "a",
+                "text": "leaf",
+                "is_correct": true
+            },
+            {
+                "option_id": "214471",
+                "tag": "b",
+                "text": "stem",
+                "is_correct": false
+            },
+            {
+                "option_id": "384966",
+                "tag": "c",
+                "text": "horizontal side",
+                "is_correct": false
+            },
+            {
+                "option_id": "194220",
+                "tag": "d",
+                "text": "vertical side",
+                "is_correct": false
+            }
+        ],
+        "question_number": 349
+    },
+    {
+        "order_id": "100",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The left column of a stem and leaf plot is known as the:",
+        "explanation": "The left column contains the 'stems,' grouping data by leading digits.",
+        "options": [
+            {
+                "option_id": "148153",
+                "tag": "a",
+                "text": "leaf",
+                "is_correct": false
+            },
+            {
+                "option_id": "214513",
+                "tag": "b",
+                "text": "stem",
+                "is_correct": true
+            },
+            {
+                "option_id": "295272",
+                "tag": "c",
+                "text": "horizontal side",
+                "is_correct": false
+            },
+            {
+                "option_id": "128807",
+                "tag": "d",
+                "text": "vertical side",
+                "is_correct": false
+            }
+        ],
+        "question_number": 350
+    },
+    {
+        "order_id": "101",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The first step in plotting a stem and leaf plot is:",
+        "explanation": "Arranging the data in ascending order makes it easier to organize into stems and leaves.",
+        "options": [
+            {
+                "option_id": "510271",
+                "tag": "a",
+                "text": "find the lower and upper quartile",
+                "is_correct": false
+            },
+            {
+                "option_id": "145624",
+                "tag": "b",
+                "text": "find the median",
+                "is_correct": false
+            },
+            {
+                "option_id": "313873",
+                "tag": "c",
+                "text": "arrange the distribution in an ascending order",
+                "is_correct": true
+            },
+            {
+                "option_id": "154588",
+                "tag": "d",
+                "text": "arrange the distribution in a descending order",
+                "is_correct": false
+            }
+        ],
+        "question_number": 351
+    },
+    {
+        "order_id": "102",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Obtain the stems of the following distribution: 63, 47, 28, 58, 27, 52, 87, 105, 102, and 43.",
+        "explanation": "The stems represent the leading digits (tens and hundreds). The unique stems here are 2, 4, 5, 6, 8, and 10.",
+        "options": [
+            {
+                "option_id": "294662",
+                "tag": "a",
+                "text": "2, 4, 5, 6, 8, 10",
+                "is_correct": true
+            },
+            {
+                "option_id": "980946",
+                "tag": "b",
+                "text": "2, 2, 4, 4, 5, 5, 6, 8, 10, 10",
+                "is_correct": false
+            },
+            {
+                "option_id": "914762",
+                "tag": "c",
+                "text": "1, 2, 4, 5, 6, 8",
+                "is_correct": false
+            },
+            {
+                "option_id": "332678",
+                "tag": "d",
+                "text": "1, 1, 2, 2, 4, 4, 5, 5, 6, 8",
+                "is_correct": false
+            }
+        ],
+        "question_number": 352
+    },
+    {
+        "order_id": "103",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is not a component of a histogram?",
+        "explanation": "Histograms consist of bins (intervals), bars (frequencies), and axes. 'Level' is not a standard component.",
+        "options": [
+            {
+                "option_id": "163188",
+                "tag": "a",
+                "text": "bins",
+                "is_correct": false
+            },
+            {
+                "option_id": "298567",
+                "tag": "b",
+                "text": "bars",
+                "is_correct": false
+            },
+            {
+                "option_id": "172095",
+                "tag": "c",
+                "text": "level",
+                "is_correct": true
+            },
+            {
+                "option_id": "365458",
+                "tag": "d",
+                "text": "axes",
+                "is_correct": false
+            }
+        ],
+        "question_number": 353
+    },
+    {
+        "order_id": "104",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The probability mass function (pmf) of a Bernoulli random variable X is defined as:",
+        "explanation": "The Bernoulli distribution has the pmf f(x) = p^x(1-p)^{1-x} for x \\in {0, 1}.",
+        "options": [
+            {
+                "option_id": "185718",
+                "tag": "a",
+                "text": "p^x(1-p)^{1-x}",
+                "is_correct": true
+            },
+            {
+                "option_id": "339677",
+                "tag": "b",
+                "text": "p^x(1-p)^x",
+                "is_correct": false
+            },
+            {
+                "option_id": "155314",
+                "tag": "c",
+                "text": "p^x (1-q)^x",
+                "is_correct": false
+            },
+            {
+                "option_id": "120911",
+                "tag": "d",
+                "text": "none of the above",
+                "is_correct": false
+            }
+        ],
+        "question_number": 354
+    },
+    {
+        "order_id": "105",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The mean and variance of a Bernoulli random variable X are respectively denoted by:",
+        "explanation": "The expected value is p and the variance is p(1-p) = pq.",
+        "options": [
+            {
+                "option_id": "473420",
+                "tag": "a",
+                "text": "p, pq",
+                "is_correct": true
+            },
+            {
+                "option_id": "134938",
+                "tag": "b",
+                "text": "p, q",
+                "is_correct": false
+            },
+            {
+                "option_id": "715976",
+                "tag": "c",
+                "text": "pq, q",
+                "is_correct": false
+            },
+            {
+                "option_id": "880184",
+                "tag": "d",
+                "text": "pq, p",
+                "is_correct": false
+            }
+        ],
+        "question_number": 355
+    },
+    {
+        "order_id": "106",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In a game of chance, a player has a 35% chance of winning a prize. What is the probability that the player will not win a prize?",
+        "explanation": "The probability of not winning is 1 - P(winning) = 1 - 0.35 = 0.65.",
+        "options": [
+            {
+                "option_id": "191380",
+                "tag": "a",
+                "text": "0.75",
+                "is_correct": false
+            },
+            {
+                "option_id": "130763",
+                "tag": "b",
+                "text": "0.55",
+                "is_correct": false
+            },
+            {
+                "option_id": "458981",
+                "tag": "c",
+                "text": "0.65",
+                "is_correct": true
+            },
+            {
+                "option_id": "284864",
+                "tag": "d",
+                "text": "0.70",
+                "is_correct": false
+            }
+        ],
+        "question_number": 356
+    },
+    {
+        "order_id": "107",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The random experiment with only two possible outcomes in a single trial follows the ___ distribution.",
+        "explanation": "A single trial with exactly two possible outcomes is modeled by a Bernoulli distribution.",
+        "options": [
+            {
+                "option_id": "820725",
+                "tag": "a",
+                "text": "Bernoulli",
+                "is_correct": true
+            },
+            {
+                "option_id": "138606",
+                "tag": "b",
+                "text": "Binomial",
+                "is_correct": false
+            },
+            {
+                "option_id": "281868",
+                "tag": "c",
+                "text": "Geometric",
+                "is_correct": false
+            },
+            {
+                "option_id": "271437",
+                "tag": "d",
+                "text": "Poisson",
+                "is_correct": false
+            }
+        ],
+        "question_number": 357
+    },
+    {
+        "order_id": "108",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of these discrete probability distributions has equal mean and variance?",
+        "explanation": "The Poisson distribution uniquely has its mean equal to its variance (\\lambda).",
+        "options": [
+            {
+                "option_id": "286839",
+                "tag": "a",
+                "text": "Binomial",
+                "is_correct": false
+            },
+            {
+                "option_id": "101342",
+                "tag": "b",
+                "text": "Poisson",
+                "is_correct": true
+            },
+            {
+                "option_id": "302350",
+                "tag": "c",
+                "text": "Hypergeometric",
+                "is_correct": false
+            },
+            {
+                "option_id": "310018",
+                "tag": "d",
+                "text": "Bernoulli",
+                "is_correct": false
+            }
+        ],
+        "question_number": 358
+    },
+    {
+        "order_id": "109",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The variance of a continuous uniform distribution on the interval [a, b] is obtained as:",
+        "explanation": "For a continuous uniform distribution, the variance is \\frac{(b-a)^2}{12}.",
+        "options": [
+            {
+                "option_id": "288498",
+                "tag": "a",
+                "text": "\\frac{(b-a)^2}{12}",
+                "is_correct": true
+            },
+            {
+                "option_id": "127850",
+                "tag": "b",
+                "text": "\\frac{b-a}{12}",
+                "is_correct": false
+            },
+            {
+                "option_id": "320795",
+                "tag": "c",
+                "text": "\\frac{(b-a)^2}{2}",
+                "is_correct": false
+            },
+            {
+                "option_id": "484620",
+                "tag": "d",
+                "text": "\\frac{a+b}{2}",
+                "is_correct": false
+            }
+        ],
+        "question_number": 359
+    },
+    {
+        "order_id": "110",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following statistics is classified as both a measure of central tendency and a measure of partition?",
+        "explanation": "The median is a measure of central tendency (middle value) and also a measure of partition (second quartile or fifth decile).",
+        "options": [
+            {
+                "option_id": "978604",
+                "tag": "a",
+                "text": "mean",
+                "is_correct": false
+            },
+            {
+                "option_id": "154595",
+                "tag": "b",
+                "text": "decile",
+                "is_correct": false
+            },
+            {
+                "option_id": "112478",
+                "tag": "c",
+                "text": "median",
+                "is_correct": true
+            },
+            {
+                "option_id": "163626",
+                "tag": "d",
+                "text": "mode",
+                "is_correct": false
+            }
+        ],
+        "question_number": 360
+    },
+    {
+        "order_id": "111",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The following are components of a box and whisker plot except:",
+        "explanation": "A box and whisker plot is based on the five-number summary: minimum, first quartile, median, third quartile, and maximum. The mean is excluded.",
+        "options": [
+            {
+                "option_id": "255882",
+                "tag": "a",
+                "text": "mean",
+                "is_correct": true
+            },
+            {
+                "option_id": "182975",
+                "tag": "b",
+                "text": "minimum",
+                "is_correct": false
+            },
+            {
+                "option_id": "289698",
+                "tag": "c",
+                "text": "maximum",
+                "is_correct": false
+            },
+            {
+                "option_id": "113798",
+                "tag": "d",
+                "text": "lower quartile",
+                "is_correct": false
+            }
+        ],
+        "question_number": 361
+    },
+    {
+        "order_id": "112",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A ___ plot shows the relationship between two continuous variables.",
+        "explanation": "A scatter plot displays values for two continuous variables, showing their correlation or relationship.",
+        "options": [
+            {
+                "option_id": "203943",
+                "tag": "a",
+                "text": "box and whisker",
+                "is_correct": false
+            },
+            {
+                "option_id": "117135",
+                "tag": "b",
+                "text": "scatter",
+                "is_correct": true
+            },
+            {
+                "option_id": "965904",
+                "tag": "c",
+                "text": "histogram",
+                "is_correct": false
+            },
+            {
+                "option_id": "173552",
+                "tag": "d",
+                "text": "pie chart",
+                "is_correct": false
+            }
+        ],
+        "question_number": 362
+    },
+    {
+        "order_id": "113",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "___ are data points that significantly deviate from the majority of observations in a distribution.",
+        "explanation": "Outliers are values that are abnormally distant from other observations in the data set.",
+        "options": [
+            {
+                "option_id": "515733",
+                "tag": "a",
+                "text": "events",
+                "is_correct": false
+            },
+            {
+                "option_id": "115992",
+                "tag": "b",
+                "text": "skewness",
+                "is_correct": false
+            },
+            {
+                "option_id": "431833",
+                "tag": "c",
+                "text": "outliers",
+                "is_correct": true
+            },
+            {
+                "option_id": "333921",
+                "tag": "d",
+                "text": "ranges",
+                "is_correct": false
+            }
+        ],
+        "question_number": 363
+    },
+    {
+        "order_id": "114",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The statistic that divides a distribution into two equal parts is known as the:",
+        "explanation": "The median separates the higher half of a dataset from the lower half.",
+        "options": [
+            {
+                "option_id": "813728",
+                "tag": "a",
+                "text": "mean",
+                "is_correct": false
+            },
+            {
+                "option_id": "194575",
+                "tag": "b",
+                "text": "quartile",
+                "is_correct": false
+            },
+            {
+                "option_id": "152936",
+                "tag": "c",
+                "text": "decile",
+                "is_correct": false
+            },
+            {
+                "option_id": "322180",
+                "tag": "d",
+                "text": "median",
+                "is_correct": true
+            }
+        ],
+        "question_number": 364
+    },
+    {
+        "order_id": "115",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The statistics that divide a distribution into four equal parts are known as:",
+        "explanation": "Quartiles divide a rank-ordered data set into four equal parts.",
+        "options": [
+            {
+                "option_id": "200815",
+                "tag": "a",
+                "text": "means",
+                "is_correct": false
+            },
+            {
+                "option_id": "840701",
+                "tag": "b",
+                "text": "quartiles",
+                "is_correct": true
+            },
+            {
+                "option_id": "204383",
+                "tag": "c",
+                "text": "deciles",
+                "is_correct": false
+            },
+            {
+                "option_id": "194945",
+                "tag": "d",
+                "text": "medians",
+                "is_correct": false
+            }
+        ],
+        "question_number": 365
+    },
+    {
+        "order_id": "116",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The statistics that divide a distribution into ten equal parts are known as:",
+        "explanation": "Deciles divide a rank-ordered data set into ten equal parts.",
+        "options": [
+            {
+                "option_id": "735295",
+                "tag": "a",
+                "text": "means",
+                "is_correct": false
+            },
+            {
+                "option_id": "491626",
+                "tag": "b",
+                "text": "quartiles",
+                "is_correct": false
+            },
+            {
+                "option_id": "117687",
+                "tag": "c",
+                "text": "deciles",
+                "is_correct": true
+            },
+            {
+                "option_id": "183665",
+                "tag": "d",
+                "text": "medians",
+                "is_correct": false
+            }
+        ],
+        "question_number": 366
+    },
+    {
+        "order_id": "117",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The horizontal line inside the box of a box and whisker plot is known as the:",
+        "explanation": "The line inside the box represents the median (second quartile) of the data.",
+        "options": [
+            {
+                "option_id": "846092",
+                "tag": "a",
+                "text": "minimum",
+                "is_correct": false
+            },
+            {
+                "option_id": "231388",
+                "tag": "b",
+                "text": "median",
+                "is_correct": true
+            },
+            {
+                "option_id": "138412",
+                "tag": "c",
+                "text": "maximum",
+                "is_correct": false
+            },
+            {
+                "option_id": "322715",
+                "tag": "d",
+                "text": "outlier",
+                "is_correct": false
+            }
+        ],
+        "question_number": 367
+    },
+    {
+        "order_id": "118",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The entire box in the box and whisker plot represents the:",
+        "explanation": "The box extends from the first quartile (Q1) to the third quartile (Q3), representing the interquartile range (IQR).",
+        "options": [
+            {
+                "option_id": "124232",
+                "tag": "a",
+                "text": "interquartile range",
+                "is_correct": true
+            },
+            {
+                "option_id": "234855",
+                "tag": "b",
+                "text": "domain",
+                "is_correct": false
+            },
+            {
+                "option_id": "796446",
+                "tag": "c",
+                "text": "range",
+                "is_correct": false
+            },
+            {
+                "option_id": "209565",
+                "tag": "d",
+                "text": "none of the above",
+                "is_correct": false
+            }
+        ],
+        "question_number": 368
+    },
+    {
+        "order_id": "119",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the lower quartile of the distribution.",
+        "explanation": "Sorting the data gives: 11, 13, 15, 18, 25, 26, 27, 32, 35, 45. The lower quartile (Q1) is the median of the lower half (11, 13, 15, 18, 25), which is 15.",
+        "options": [
+            {
+                "option_id": "202539",
+                "tag": "a",
+                "text": "25",
+                "is_correct": false
+            },
+            {
+                "option_id": "161213",
+                "tag": "b",
+                "text": "29.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "201769",
+                "tag": "c",
+                "text": "45",
+                "is_correct": false
+            },
+            {
+                "option_id": "875999",
+                "tag": "d",
+                "text": "15",
+                "is_correct": true
+            }
+        ],
+        "question_number": 369
+    },
+    {
+        "order_id": "120",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the upper quartile of the distribution.",
+        "explanation": "The upper quartile (Q3) is the median of the upper half of the data (26, 27, 32, 35, 45), which is 32.",
+        "options": [
+            {
+                "option_id": "240946",
+                "tag": "a",
+                "text": "25",
+                "is_correct": false
+            },
+            {
+                "option_id": "400024",
+                "tag": "b",
+                "text": "29.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "322675",
+                "tag": "c",
+                "text": "45",
+                "is_correct": false
+            },
+            {
+                "option_id": "308392",
+                "tag": "d",
+                "text": "32",
+                "is_correct": true
+            }
+        ],
+        "question_number": 370
+    },
+    {
+        "order_id": "121",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the median of the distribution.",
+        "explanation": "The median is the average of the 5th and 6th values: \\frac{25 + 26}{2} = 25.5.",
+        "options": [
+            {
+                "option_id": "172623",
+                "tag": "a",
+                "text": "25",
+                "is_correct": false
+            },
+            {
+                "option_id": "296225",
+                "tag": "b",
+                "text": "25.5",
+                "is_correct": true
+            },
+            {
+                "option_id": "145883",
+                "tag": "c",
+                "text": "45",
+                "is_correct": false
+            },
+            {
+                "option_id": "242047",
+                "tag": "d",
+                "text": "13",
+                "is_correct": false
+            }
+        ],
+        "question_number": 371
+    },
+    {
+        "order_id": "122",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Data points outside the whisker are referred to as:",
+        "explanation": "Data points lying beyond the whiskers (typically beyond 1.5 times the interquartile range) are outliers.",
+        "options": [
+            {
+                "option_id": "185398",
+                "tag": "a",
+                "text": "observations",
+                "is_correct": false
+            },
+            {
+                "option_id": "198432",
+                "tag": "b",
+                "text": "values",
+                "is_correct": false
+            },
+            {
+                "option_id": "120734",
+                "tag": "c",
+                "text": "sample points",
+                "is_correct": false
+            },
+            {
+                "option_id": "329464",
+                "tag": "d",
+                "text": "outliers",
+                "is_correct": true
+            }
+        ],
+        "question_number": 372
+    },
+    {
+        "order_id": "123",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A ___ is based on a five-number summary.",
+        "explanation": "A box and whisker plot visually displays the five-number summary: minimum, first quartile, median, third quartile, and maximum.",
+        "options": [
+            {
+                "option_id": "293363",
+                "tag": "a",
+                "text": "stem and leaf",
+                "is_correct": false
+            },
+            {
+                "option_id": "276974",
+                "tag": "b",
+                "text": "histogram",
+                "is_correct": false
+            },
+            {
+                "option_id": "301854",
+                "tag": "c",
+                "text": "box and whisker plot",
+                "is_correct": true
+            },
+            {
+                "option_id": "325165",
+                "tag": "d",
+                "text": "measure of central tendency",
+                "is_correct": false
+            }
+        ],
+        "question_number": 373
+    },
+    {
+        "order_id": "124",
+        "exam_type": "100 level CBT",
+        "topic": "COMPUTER BASED TEST (CBT) QUESTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A box and whisker plot describes a distribution as negatively (left) skewed when:",
+        "explanation": "In a negatively skewed distribution, the data has a long left (bottom) tail. Thus, the bottom whisker is longer than the top whisker.",
+        "options": [
+            {
+                "option_id": "532140",
+                "tag": "a",
+                "text": "the top whisker is longer than the bottom whisker",
+                "is_correct": false
+            },
+            {
+                "option_id": "661538",
+                "tag": "b",
+                "text": "the bottom whisker is longer than the top whisker",
+                "is_correct": true
+            },
+            {
+                "option_id": "886737",
+                "tag": "c",
+                "text": "the box is smaller than the whisker",
+                "is_correct": false
+            },
+            {
+                "option_id": "299632",
+                "tag": "d",
+                "text": "the whisker is smaller than the box",
+                "is_correct": false
+            }
+        ],
+        "question_number": 374
+    }
+]

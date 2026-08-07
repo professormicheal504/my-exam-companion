@@ -176,6 +176,7 @@
       text-decoration: underline;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="modal-overlay">
@@ -191,43 +192,193 @@
         <p class="modal-subtitle">Login to access your personalized learning hub.</p>
       </div>
 
-      <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" placeholder="Enter your email" required>
+      <div id="loginSection">
+        <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label class="form-label">Password</label>
+            <input type="password" id="password-input" class="form-input" placeholder="Enter your password" required>
+            <div style="text-align: right; margin-top: 8px;">
+              <a href="#" onclick="openForgotPassword(); return false;" style="color: #b70c01; font-size: 13px; font-weight: 600; text-decoration: none;">Forgot password?</a>
+            </div>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="btn-primary">Sign In</button>
+        </form>
+
+        <div class="divider">or</div>
+
+        <button type="button" class="btn-google" onclick="handleGoogleLogin()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-links">
+          Don't have an account? <a href="sign_up.html">Sign Up</a>
         </div>
+      </div>
+
+      <!-- FORGOT PASSWORD FORM -->
+      <form id="forgotPasswordForm" style="display: none;" onsubmit="event.preventDefault(); handleSendOTP();">
         <div class="form-group">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-input" placeholder="Enter your password" required>
+          <label class="form-label">Enter your email</label>
+          <input type="email" id="forgot-email" class="form-input" placeholder="e.g. name@example.com" required>
         </div>
-        
-        <button type="submit" class="btn-primary">Log In</button>
+        <button type="submit" id="btn-send-otp" class="btn-primary">Send Reset Code</button>
+        <div class="auth-links">
+          Remembered? <a href="#" onclick="showLoginForm(); return false;">Back to Login</a>
+        </div>
       </form>
 
-      <div class="divider">or</div>
-
-      <button type="button" class="btn-google" onclick="handleLogin()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        Continue with Google
-      </button>
-
-      <div class="auth-links">
-        Don't have an account? <a href="sign_up.html">Sign Up</a>
-      </div>
+      <!-- RESET PASSWORD FORM -->
+      <form id="resetPasswordForm" style="display: none;" onsubmit="event.preventDefault(); handleResetPassword();">
+        <div class="form-group">
+          <label class="form-label">6-Digit Code</label>
+          <input type="text" id="forgot-otp" class="form-input" placeholder="123456" required autocomplete="one-time-code">
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Password</label>
+          <input type="password" id="forgot-new-password" class="form-input" placeholder="Enter new password" required>
+        </div>
+        <button type="submit" id="btn-reset-pwd" class="btn-primary">Reset Password</button>
+        <div class="auth-links">
+          <a href="#" onclick="showLoginForm(); return false;">Cancel</a>
+        </div>
+      </form>
     </div>
   </div>
 
   <script>
-    function handleLogin() {
-      // Simulate successful login
-      localStorage.setItem('isLoggedIn', 'true');
-      window.location.href = '../index.html';
+    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function handleLogin() {
+      const email = document.getElementById('email-input').value;
+      const password = document.getElementById('password-input').value;
+      const btn = document.getElementById('submit-btn');
+      
+      try {
+        btn.disabled = true;
+        btn.innerText = 'Signing In...';
+
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        
+        if (error) throw error;
+        
+        window.location.href = new URL('../index.html', window.location.href).href;
+      } catch (error) {
+        alert('Error: ' + error.message);
+        console.error(error);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Sign In';
+      }
+    }
+
+    async function handleGoogleLogin() {
+      try {
+        const { error } = await supabaseClient.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: new URL('../index.html', window.location.href).href
+          }
+        });
+        if (error) throw error;
+      } catch (error) {
+        alert('Error with Google Login: ' + error.message);
+        console.error(error);
+      }
+    }
+
+    // -- Forgot Password UI Toggles --
+    function openForgotPassword() {
+      document.querySelector('.modal-title').innerText = 'Reset Password';
+      document.querySelector('.modal-subtitle').innerText = "Enter your email to receive a recovery code.";
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('forgotPasswordForm').style.display = 'block';
+      document.getElementById('resetPasswordForm').style.display = 'none';
+    }
+
+    function showLoginForm() {
+      document.querySelector('.modal-title').innerText = 'Welcome Back';
+      document.querySelector('.modal-subtitle').innerText = "Login to access your personalized learning hub.";
+      document.getElementById('loginSection').style.display = 'block';
+      document.getElementById('forgotPasswordForm').style.display = 'none';
+      document.getElementById('resetPasswordForm').style.display = 'none';
+    }
+
+    // -- Forgot Password Logic --
+    async function handleSendOTP() {
+      const email = document.getElementById('forgot-email').value;
+      const btn = document.getElementById('btn-send-otp');
+      try {
+        btn.disabled = true;
+        btn.innerText = 'Sending...';
+
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+        if (error) throw error;
+        
+        alert("Success! Check your email for the 6-digit code.");
+        
+        document.querySelector('.modal-subtitle').innerText = "Enter the 6-digit code and your new password.";
+        document.getElementById('forgotPasswordForm').style.display = 'none';
+        document.getElementById('resetPasswordForm').style.display = 'block';
+
+      } catch(err) {
+        alert('Error: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Send Reset Code';
+      }
+    }
+
+    async function handleResetPassword() {
+      const email = document.getElementById('forgot-email').value;
+      const token = document.getElementById('forgot-otp').value;
+      const newPassword = document.getElementById('forgot-new-password').value;
+      const btn = document.getElementById('btn-reset-pwd');
+
+      try {
+        btn.disabled = true;
+        btn.innerText = 'Verifying & Resetting...';
+
+        // Verify OTP to temporarily log them in
+        const { error: verifyError } = await supabaseClient.auth.verifyOtp({
+          email,
+          token,
+          type: 'recovery'
+        });
+        
+        if (verifyError) throw verifyError;
+
+        // Immediately update password
+        const { error: updateError } = await supabaseClient.auth.updateUser({
+          password: newPassword
+        });
+
+        if (updateError) throw updateError;
+
+        alert("Password reset successfully! You are now logged in.");
+        setTimeout(() => {
+          window.location.href = new URL('../index.html', window.location.href).href;
+        }, 1500);
+
+      } catch(err) {
+        alert('Error: ' + err.message);
+        btn.disabled = false;
+        btn.innerText = 'Reset Password';
+      }
     }
   </script>
+  <script src="../../components/toast.js"></script>
 </body>
 </html>

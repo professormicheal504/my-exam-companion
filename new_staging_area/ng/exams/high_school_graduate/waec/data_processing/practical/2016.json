@@ -1,0 +1,40 @@
+{
+    "58049": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Practical",
+        "exam_year": "2016",
+        "question_text": "<p>(a) Use the information in the spreadsheet above to answer questions 5(a)i-v</p>\r\n\r\n<p>(i) Write the formula to calculate the total score in Mathematics.</p>\r\n\r\n<p>(ii) Write two spreadsheet formulas to calculate Paul&#39;s average score in the four subjects.</p>\r\n\r\n<p>(iii) What spreadsheet function can be used to determine the highest score in English.</p>\r\n\r\n<p>(iv) Outline the procedure for&nbsp;calculating Vera&#39;s total score in all subjects and give the result in cell H8.</p>\r\n\r\n<p>(v) If the minimum pass mark is an average score of 60, write a formula to determine if Etta passed or failed.</p>\r\n\r\n<p>(b) Use the diagram below to answer b(i-vii)</p>\r\n\r\n<p><img alt=\"Open photo\" src=\"https://scontent.xx.fbcdn.net/v/t1.15752-9/441201855_458268300024496_7584833126587136247_n.jpg?stp=dst-jpg_s417x417&amp;_nc_cat=109&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_eui2=AeGazuLdOdxGteoNFpF6xEuEypffH6ZuvR7Kl98fpm69HvKaOccpBdgXnUCIKKYLD6ONWtJTsteViHWMZ_fqXHf-&amp;_nc_ohc=ytb56fcfBUsQ7kNvgEt3gRe&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;oh=03_Q7cD1QEQCUJ7EVsIube-TqUp3TUxq6OoXyKuScYdK9qxEdVCCA&amp;oe=66654F59\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>(i) What is the name of the application shown in the diagram?</p>\r\n\r\n<p>(ii) State one use of the application mentioned in 5 (b) (i)</p>\r\n\r\n<p>(iii) Outline the procedure to launch the application from its shortcut on the desktop.</p>\r\n\r\n<p>(iv) After launching the application, what is the name of the slide that appears by default?</p>\r\n\r\n<p>(v) Identify the part labeled I.</p>\r\n\r\n<p>(vi) Write the keyboard shortcut that would also perform the function of the part labeled I.</p>\r\n\r\n<p>(vii) Mention three functions that can be performed by the insert button.</p>\r\n\r\n<p>&nbsp;</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Data_Processing/year/Practical/2016/img_58049.jpeg",
+        "answer_image": null,
+        "explanation": "<p>5(a) (i) =SUM(D2,D3,D4,D5,D6,D7,D8,D9.D10,D11)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=(D2+D3+D4+D5+D6+D7+D8+D9+D10+D11)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=SUM(D2:D11)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=SUM(D11:D2)</p>\r\n\r\n<p>(ii) =AVERAGE(D4:G4)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=(D4+E4+F4+G4)/4</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=AVERAGE(D4,E4,F4,G4)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=SUM(D4:G4)/4</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=SUM(D4,E4,F4,G4)/4</p>\r\n\r\n<p>(iii) Max Function OR =MAX(E2:E11)</p>\r\n\r\n<p>(iv) Click on cell H8, Type &quot;=SUM(D8:G8)&quot;, &quot;Press Enter&quot; OR Click on D8. Hold down the mouse and stop at H8/Highlight D8 to H8, Click on Summation icon on the Menu bar OR Click on G8, Type &quot;=SUM(D8,E8,F8,G8), Press &quot;Enter&quot; OR Click on H8, Type =SUM(D8:G8), Press &quot;Enter&quot;.</p>\r\n\r\n<p>(v) =IF(111&gt;59,&quot;PASSED&quot;, FAILED&quot;)</p>\r\n\r\n<p>OR</p>\r\n\r\n<p>=IF(111&gt;=60,&quot;PASSED&quot;, FAILED&quot;)</p>\r\n\r\n<p>(b) (i) MS PowerPoint</p>\r\n\r\n<p>(ii) Presentation</p>\r\n\r\n<p>(iii) Double Click on the icon OR Right click on the icon, Select Open</p>\r\n\r\n<p>(v) Title slide</p>\r\n\r\n<p>(vi) Slide Show View Icon/Slide Show Icon! Slide Show</p>\r\n\r\n<p>(vi) F5</p>\r\n\r\n<p>(vii) Insert Shapes, Insert Textbox, Insert WordArt, Insert Comment, Insert Video, Insert Symbols, Sound, Table, Clipart, Equation, New Slide, Pictures, Header/Footer, Date &amp; Time, Text Box, Smileys etc.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "58069": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Practical",
+        "exam_year": "2016",
+        "question_text": "<p>(a) Folders are used for storing files in the computer. List the steps for carrying out the following operations; (i) creating a folder on the desktop (ii) giving name on the folder (iii) sending a file from &quot;My Documents&quot; folder into the folder created in 6 (a)(i), (iv) Changing the name of the folder in 6(a)(ii) to &quot;RESULTS&quot;.</p>\r\n\r\n<p>(b) The table below shows selected fields and Data Types in MS Access. Use it to answer questions 6(b)(i) and 6(b)(ii)</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Field</strong></td>\r\n\t\t\t<td><strong>Data Types</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Full Name</td>\r\n\t\t\t<td>Text</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mat No.</td>\r\n\t\t\t<td>Text</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Date of Birth</td>\r\n\t\t\t<td>&nbsp;*</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fees</td>\r\n\t\t\t<td>&nbsp;*</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Address</td>\r\n\t\t\t<td>Memo</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>(i) What is the appropriate data type for; (I) Date of Birth (II) Fees&nbsp;Fields</p>\r\n\r\n<p>(ii) If MS Access is running, describe the procedure to; I. Create a table with the fields as given above using design view II. Set the Mat. No. Field&nbsp;as the primary key. III. Set the Full Name Fieldto a maximum of 50 characters.</p>\r\n\r\n<p>&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>(a)<strong>(i) To Creat a folder on the Desktop</strong>; &quot;Right-click on the desktop and select &quot;New&quot;, Select &quot;Folder&quot;</p>\r\n\r\n<p><strong>(ii) Naming the folder;</strong> Click on the default name of the new folder, Type in the name, Press enter or click elsewhere on the desktop OR right-click on the folder icon and select &quot;Rename&quot;, Type-in the New Name OR Select the folder, Click on the default Name/New Folder, Type New Name, Press Enter.</p>\r\n\r\n<p><strong>(iii) Sending a file to the new folder;</strong> Double-click&nbsp; on &quot;My Document&quot;folder icon, RIght-click on the desired file icon and select &quot;copy, Open the folder created Paste the copied file OR Select the file in My Documents Folder, Drag it to the created Folder on the Desktop, Select Target Folder, Click on Save.</p>\r\n\r\n<p><strong>(iv) Renaming the folder;</strong> Right-click on the folder icon and select &quot;Rename&quot;, Type in the new name &quot;RESULTS&quot;OR select the folder, Click on the default Name/New Folder, Type &quot;RESULTS&quot;as the new name, Press Enter.</p>\r\n\r\n<p>(b)(i) (I) Date of Birth----Date/Time</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; (I) Fees--------------Currency</p>\r\n\r\n<p>&nbsp; &nbsp; (ii)(I) Create a blank database and give it a name,click on the &quot;create&quot;tab on the menu bar and select &quot;table/design/design view&quot;, Type the field names and set the data types as required. Save the file.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; (II) Select the Mat. No field, Right-click on the field and select primary key OR selct the Mat. No. field, click on the primary key icon on the menu bar.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; (III) Click on the Full Name Field, Go to the Field Properties, Change the Field Size from 255 to 50.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    }
+}

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>JAMB CBT Simulator Setup ‚Äì Myschool.ng</title>
+  <title>JAMB CBT Simulator Setup ñ Myschool.ng</title>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
@@ -60,7 +60,7 @@
     }
 
     /* ==============================
-       APP SHELL ‚Äî Sidebar Layout
+       APP SHELL ó Sidebar Layout
     ============================== */
     .app {
       display: flex;
@@ -87,7 +87,7 @@
       }
     }
 
-    /* Mobile: full-screen ‚Äî sidebar is off-canvas */
+    /* Mobile: full-screen ó sidebar is off-canvas */
     @media (max-width: 600px) {
       .main-wrapper {
         margin-left: 0;
@@ -571,7 +571,7 @@
     <!-- ============================
        LEFT SIDEBAR (Web Component)
   ============================ -->
-    <app-sidebar data-base="../../"></app-sidebar>
+    <app-sidebar data-base="/"></app-sidebar>
 
     <!-- ============================
        MAIN WRAPPER
@@ -579,7 +579,7 @@
     <div class="main-wrapper">
 
       <!-- TOP BAR -->
-      <app-topbar data-base="../../"></app-topbar>
+      <app-topbar data-base="/"></app-topbar>
 
       <!-- CONTENT AREA -->
       <main class="content-area">
@@ -633,7 +633,7 @@
             <!-- Submit -->
             <div class="submit-area">
               <button class="btn-start" onclick="startExam()">
-                Start CBT Exam üöÄ
+                Start CBT Exam ??
               </button>
             </div>
 
@@ -644,7 +644,7 @@
         <aside class="right-sidebar">
 
           <div class="info-card">
-            <h4>üí° Quick Tips</h4>
+            <h4>?? Quick Tips</h4>
             <p>For the best simulation experience, ensure you are in a quiet environment free from distractions.</p>
             <ul>
               <li>Do not refresh the page during the exam.</li>
@@ -653,7 +653,7 @@
           </div>
 
           <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
-            <h4>üèÜ Leaderboard Challenge</h4>
+            <h4>?? Leaderboard Challenge</h4>
             <p>Join the weekly MyExamCompanion CBT challenge to win cash prizes and airtime!</p>
           </div>
 
@@ -663,8 +663,10 @@
     </div><!-- end main-wrapper -->
   </div><!-- end app -->
 
-  <script src="../../../components/topbar.js"></script>
-  <script src="../../../components/sidebar.js?v=6"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=6"></script>
+  <script defer src="../../../components/exam_rules.js"></script>
   <script>
     // Exam mode selection styling
     function selectMode(element) {
@@ -679,7 +681,7 @@
     const examId = urlParams.get('exam_id') || 'us_sat';
 
     document.addEventListener("DOMContentLoaded", async () => {
-      const R2_BASE_URL = 'https://YOUR-R2-PUBLIC-URL.com';
+      const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
       const pageTitle = document.getElementById('page-title');
       const pageDesc = document.getElementById('page-desc');
       const subjectContainer = document.getElementById('subject-checkboxes');
@@ -688,14 +690,25 @@
       pageTitle.textContent = "Loading Exam Setup...";
 
       try {
-        let data;
-        try {
-          const res = await fetch(`../../../r2_staging_area/content/exams/${examId}/index.json`);
-          if (!res.ok) throw new Error('Local fallback failed');
-          data = await res.json();
-        } catch (e) {
-          console.warn('Failed to fetch from local, trying R2...');
-          const res = await fetch(`${R2_BASE_URL}/content/exams/${examId}/index.json`);
+        const indexPath = `content/exams/${examId}/index.json`;
+        let data = null;
+
+        // Try multiple local paths (handles Firebase, Express from root, and relative)
+        const localPaths = [
+          `/new_staging_area/${indexPath}`,
+          `/public/new_staging_area/${indexPath}`,
+          `../../../new_staging_area/${indexPath}`,
+        ];
+        for (const localPath of localPaths) {
+          try {
+            const res = await fetch(localPath);
+            if (res.ok) { data = await res.json(); break; }
+          } catch (e) { /* try next */ }
+        }
+
+        // Fallback to R2
+        if (!data) {
+          const res = await fetch(`${R2_BASE_URL}/${indexPath}`);
           data = await res.json();
         }
 
@@ -706,25 +719,70 @@
         pageTitle.textContent = `${data.display_name} CBT Simulator Setup`;
         pageDesc.textContent = `Configure your ${data.display_name} CBT exam environment. Select your subjects, choose your exam year, and begin your practice session.`;
 
-        // Populate Subjects as checkboxes
+        // Populate Subjects Dynamically based on Exam Rules
         if (data.subjects && data.subjects.length > 0) {
-          subjectContainer.innerHTML = data.subjects.map((sub, index) => `
-            <div class="form-group">
-              <label>Subject ${index + 1} (Fixed)</label>
-              <select class="form-select subject-fixed-select" disabled data-value="${sub.id}">
-                <option selected>${sub.name}</option>
-              </select>
-            </div>
-          `).join('');
+          let html = '';
+          const rules = EXAM_RULES.getRules(examId);
           
-          // Populate Years based on the first available subject
-          updateYears();
+          if (rules.selectionType === 'jamb_style') {
+            const english = data.subjects.find(s => s.id === 'english_language' || s.name.toLowerCase().includes(rules.compulsorySubjectKeyword));
+            const compId = english ? english.id : data.subjects[0].id;
+            const compName = english ? english.name : data.subjects[0].name;
+            
+            html += `
+              <div class="form-group">
+                <label>Subject 1 (Compulsory)</label>
+                <select class="form-select subject-select" disabled data-value="${compId}">
+                  <option selected value="${compId}">${compName}</option>
+                </select>
+              </div>
+            `;
+            
+            for (let i = 2; i <= rules.totalSubjectsAllowed; i++) {
+              html += `
+                <div class="form-group">
+                  <label>Subject ${i}</label>
+                  <select class="form-select subject-select" onchange="updateDropdowns()">
+                    <option value="">-- Select Subject --</option>
+                    ${data.subjects.filter(s => s.id !== compId).map(s => `<option value="${s.id}">${s.name}</option>`).join('')}
+                  </select>
+                </div>
+              `;
+            }
+          } else if (rules.selectionType === 'all_compulsory') {
+            // e.g. USA SAT: Render all subjects as fixed/disabled
+            data.subjects.forEach((sub, index) => {
+              html += `
+                <div class="form-group">
+                  <label>Subject ${index + 1} (Compulsory)</label>
+                  <select class="form-select subject-select" disabled data-value="${sub.id}">
+                    <option selected value="${sub.id}">${sub.name}</option>
+                  </select>
+                </div>
+              `;
+            });
+          } else {
+            // For other exams (like WAEC/NECO), give them up to 4 dropdowns (all optional selection)
+            const maxSubjects = Math.min(data.subjects.length, rules.totalSubjectsAllowed);
+            for (let i = 1; i <= maxSubjects; i++) {
+              html += `
+                <div class="form-group">
+                  <label>Subject ${i} ${i === 1 ? '(Required)' : '(Optional)'}</label>
+                  <select class="form-select subject-select" onchange="updateDropdowns()">
+                    <option value="">-- Select Subject --</option>
+                    ${data.subjects.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}
+                  </select>
+                </div>
+              `;
+            }
+          }
+          subjectContainer.innerHTML = html;
+          
+          // Initialize dropdowns and Years based on the first available subject
+          updateDropdowns();
         } else {
           subjectContainer.innerHTML = `<span style="color:red;">No subjects found</span>`;
         }
-
-        // Add event listeners to checkboxes to update years if needed
-        subjectContainer.addEventListener('change', updateYears);
 
       } catch (err) {
         console.error("Error loading config:", err);
@@ -733,48 +791,120 @@
       }
     });
 
+    function updateDropdowns() {
+      const subjectsElements = Array.from(document.querySelectorAll('.subject-select'));
+      
+      // Get all currently selected values (ignoring empty ones)
+      const selectedValues = subjectsElements
+        .map(el => el.value || el.getAttribute('data-value'))
+        .filter(val => val && val !== '');
+        
+      // Loop through each dropdown to disable options already picked in others
+      subjectsElements.forEach(select => {
+        if (select.disabled) return; // Skip fixed dropdowns (like JAMB English)
+        
+        Array.from(select.options).forEach(option => {
+          if (option.value === '') return; // Don't disable the placeholder
+          
+          // If this option's value is in selectedValues, AND it's not the value of the CURRENT select...
+          if (selectedValues.includes(option.value) && select.value !== option.value) {
+            option.disabled = true;
+          } else {
+            option.disabled = false;
+          }
+        });
+      });
+      
+      // Cascade to year update
+      updateYears();
+    }
+
     function updateYears() {
       const yearSelect = document.getElementById('year-select');
       if (!EXAM_CONFIG) return;
       
-      const subjectsElements = document.querySelectorAll('.subject-fixed-select');
-      if (subjectsElements.length === 0) {
+      // Collect all currently selected subject IDs (including fixed/disabled ones)
+      const subjectsElements = document.querySelectorAll('.subject-select');
+      const selectedIds = [];
+      for (const el of subjectsElements) {
+        let val = el.value || el.getAttribute('data-value');
+        if (val && val !== '') selectedIds.push(val);
+      }
+      
+      if (selectedIds.length === 0) {
         yearSelect.innerHTML = `<option disabled selected>Select a subject first</option>`;
         return;
       }
       
-      // Get years from the first subject (assuming they share similar years)
-      const subjectId = subjectsElements[0].getAttribute('data-value');
-      const subject = EXAM_CONFIG.subjects.find(s => s.id === subjectId);
-      if (subject && subject.years) {
-        yearSelect.innerHTML = `<option value="random" selected>Random (All Years)</option>` + 
-          subject.years.map(y => `<option value="${y}">${y}</option>`).join('');
+      // Build UNION of all years across every selected subject
+      // (player will pick nearest year per subject if exact year is missing)
+      const allYears = new Set();
+      for (const id of selectedIds) {
+        const subj = EXAM_CONFIG.subjects.find(s => s.id === id);
+        if (subj && subj.years) {
+          subj.years.forEach(y => allYears.add(String(y)));
+        }
       }
+      
+      if (allYears.size === 0) {
+        yearSelect.innerHTML = `<option disabled selected>No years found</option>`;
+        return;
+      }
+      
+      // Sort descending (most recent first)
+      const sortedYears = Array.from(allYears).map(Number).sort((a, b) => b - a);
+      yearSelect.innerHTML = `<option value="random" selected>?? Random Year</option>` +
+        sortedYears.map(y => `<option value="${y}">${y}</option>`).join('');
     }
 
     function startExam() {
-      const subjectsElements = document.querySelectorAll('.subject-fixed-select');
-      if (subjectsElements.length === 0) {
-        return alert("Please select at least one subject.");
+      const subjectsElements = document.querySelectorAll('.subject-select');
+      const selected = [];
+      
+      subjectsElements.forEach(el => {
+        let val = el.value || el.getAttribute('data-value');
+        if (val && val !== '') {
+          selected.push(val.replace(`${examId}_`, ''));
+        }
+      });
+      
+      // Remove duplicates
+      const uniqueSubjects = Array.from(new Set(selected));
+      
+      const rules = EXAM_RULES.getRules(examId);
+
+      if (rules.selectionType === 'jamb_style') {
+        if (uniqueSubjects.length !== 4) {
+          return alert("For JAMB, you must select exactly 4 different subjects.");
+        }
+      } else if (rules.selectionType === 'any_optional') {
+        if (uniqueSubjects.length === 0) {
+          return alert("Please select at least one subject.");
+        }
+      } else if (rules.selectionType === 'all_compulsory') {
+        if (uniqueSubjects.length === 0) {
+          return alert("No subjects found for this exam.");
+        }
       }
       
-      const selectedSubjects = Array.from(subjectsElements).map(el => el.getAttribute('data-value').replace(`${examId}_`, '')).join(',');
+      const selectedSubjects = uniqueSubjects.join(',');
       let year = document.getElementById('year-select').value;
       
       if (!year || year === "Select a subject first") {
         return alert("Please select a valid year.");
       }
       
-      // Random year logic
+      // Random year logic ó pick from the union of all selected subjects' years
       if (year === 'random') {
-        const subjectId = subjectsElements[0].getAttribute('data-value');
-        const subject = EXAM_CONFIG.subjects.find(s => s.id === subjectId);
-        if (subject && subject.years && subject.years.length > 0) {
-          const randomIndex = Math.floor(Math.random() * subject.years.length);
-          year = subject.years[randomIndex];
-        } else {
-          year = "2024"; // fallback
-        }
+        const allYears = new Set();
+        uniqueSubjects.forEach(id => {
+          const subj = EXAM_CONFIG.subjects.find(s => s.id === id);
+          if (subj && subj.years) subj.years.forEach(y => allYears.add(String(y)));
+        });
+        const yearList = Array.from(allYears);
+        year = yearList.length > 0
+          ? yearList[Math.floor(Math.random() * yearList.length)]
+          : '2024';
       }
       
       // Navigate to instruction page

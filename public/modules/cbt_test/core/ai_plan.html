@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Agent — My Exam Companion</title>
+    <meta name="description" content="Your AI-powered study tutor for JAMB, WAEC, and NECO prep.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../../../components/topbar.css">
+    <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+    <style>
+        /* ------------------------------------------
+           DESIGN TOKENS
+        ------------------------------------------ */
+        :root {
+            --bg: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-muted: #64748b;
+            --accent: #b70c01;
+            --border: #e2e8f0;
+            --input-bg: #ffffff;
+            --chip-bg: #ffffff;
+            --chip-border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius-xl: 20px;
+            --radius-lg: 14px;
+            --radius-full: 999px;
+        }
+
+        /* ------------------------------------------
+           RESET & BASE
+        ------------------------------------------ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            display: flex;
+            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ------------------------------------------
+           LAYOUT — sidebar offset
+        ------------------------------------------ */
+        .app-container {
+            margin-left: 90px;
+            flex: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        /* ------------------------------------------
+           TOP BAR
+        ------------------------------------------ */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 28px;
+            flex-shrink: 0;
+            background: var(--bg);
+        }
+
+        .topbar__logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar__brand {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .topbar__plan {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--chip-bg);
+            border: 1px solid var(--chip-border);
+            border-radius: var(--radius-full);
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: box-shadow 0.15s;
+        }
+
+        .topbar__plan:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topbar__plan-sep {
+            width: 1px;
+            height: 14px;
+            background: var(--chip-border);
+        }
+
+        .topbar__plan-upgrade {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .topbar__icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 20px;
+            transition: background 0.15s;
+        }
+
+        .topbar__icon-btn:hover {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        /* ------------------------------------------
+           MAIN — scrollable content area
+        ------------------------------------------ */
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ------------------------------------------
+           HERO SECTION
+        ------------------------------------------ */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px 32px;
+            text-align: center;
+        }
+
+        .hero__icon {
+            font-size: 52px;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: spin-star 12s linear infinite;
+            display: inline-block;
+            color: var(--accent);
+        }
+
+        @keyframes spin-star {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Star SVG icon */
+        .hero__star {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 20px;
+            animation: spin-star 14s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .hero__title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.12;
+            letter-spacing: -0.5px;
+            max-width: 520px;
+        }
+
+        .hero__title em {
+            font-style: italic;
+            color: #4a4a44;
+        }
+
+        /* ------------------------------------------
+           INPUT AREA
+        ------------------------------------------ */
+        .input-section {
+            padding: 0 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            position: sticky;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 10;
+        }
+
+        .input-card {
+            width: 100%;
+            max-width: 680px;
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .input-textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-primary);
+            resize: none;
+            padding: 20px 22px 8px;
+            min-height: 64px;
+            max-height: 200px;
+            line-height: 1.5;
+        }
+
+        .input-textarea::placeholder {
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        .input-toolbar {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px 14px;
+            gap: 6px;
+        }
+
+        .toolbar-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 8px 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+
+        .toolbar-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        .toolbar-btn i {
+            font-size: 18px;
+        }
+
+        .toolbar-sep {
+            width: 1px;
+            height: 20px;
+            background: var(--border);
+            flex-shrink: 0;
+        }
+
+        .toolbar-spacer {
+            flex: 1;
+        }
+
+        .toolbar-icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 20px;
+            transition: background 0.15s, color 0.15s;
+            flex-shrink: 0;
+        }
+
+        .toolbar-icon-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        .submit-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 17px;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* ------------------------------------------
+           QUICK-ACTION CHIPS
+        ------------------------------------------ */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 680px;
+        }
+
+        .chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--chip-bg);
+            border: 1px solid var(--chip-border);
+            border-radius: var(--radius-full);
+            padding: 9px 18px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: box-shadow 0.15s, background 0.15s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chip:hover {
+            box-shadow: var(--shadow-md);
+            background: #f8f8f5;
+        }
+
+        .chip i {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        /* ------------------------------------------
+           CHAT UI
+        ------------------------------------------ */
+        .chat-container {
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+            padding: 20px 40px;
+            flex: 1;
+            overflow-y: auto;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-msg {
+            display: flex;
+            gap: 16px;
+            max-width: 100%;
+        }
+
+        .chat-msg.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chat-msg.user .chat-avatar {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .chat-bubble {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chat-msg.user .chat-bubble {
+            background: #fafafa;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-msg.ai .chat-bubble {
+            border-bottom-left-radius: 4px;
+        }
+
+        /* Markdown elements */
+        .chat-bubble strong { font-weight: 600; }
+        .chat-bubble ul, .chat-bubble ol { padding-left: 20px; margin: 12px 0; }
+        .chat-bubble li { margin-bottom: 6px; }
+        
+        /* Markdown Tables */
+        .chat-bubble table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .chat-bubble th, .chat-bubble td {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .chat-bubble th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+
+        /* Typing indicator */
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 8px 4px;
+        }
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        
+        .quiz-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 16px;
+            margin: 8px 0;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .quiz-btn:hover {
+            border-color: var(--accent);
+            background: #fff5f5;
+        }
+        .quiz-btn.correct { background: #ecfdf5; border-color: #10b981; color: #065f46; }
+        .quiz-btn.wrong { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
+
+        /* ------------------------------------------
+           RESPONSIVE — Tablet = 768px
+        ------------------------------------------ */
+        @media (max-width: 768px) {
+            .app-container {
+                margin-left: 80px;
+            }
+        }
+
+        /* ------------------------------------------
+           RESPONSIVE — Mobile = 600px
+        ------------------------------------------ */
+        @media (max-width: 600px) {
+            .app-container {
+                margin-left: 0;
+            }
+
+            .topbar {
+                padding: 12px 16px;
+            }
+
+            .topbar__plan-sep,
+            .topbar__plan-upgrade {
+                display: none;
+            }
+
+            .hero {
+                padding: 32px 20px 20px;
+            }
+
+            .hero__star {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 16px;
+            }
+
+            .hero__title {
+                font-size: clamp(28px, 8vw, 38px);
+            }
+
+            .input-section {
+                padding: 0 14px 20px;
+                gap: 12px;
+            }
+
+            /* Hide model selector text on very small screens */
+            .toolbar-btn .toolbar-model-name {
+                display: none;
+            }
+
+            .chips {
+                gap: 8px;
+            }
+
+            .chip {
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+        }
+
+        /* ------------------------------------------
+           RESPONSIVE — Very small = 360px
+        ------------------------------------------ */
+        @media (max-width: 360px) {
+            .hero__title {
+                font-size: 26px;
+            }
+
+            .toolbar-sep {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <app-sidebar data-base="/"></app-sidebar>
+
+    <div class="app-container">
+
+        <!-- Top Bar -->
+        <app-topbar data-base="/"></app-topbar>
+
+        <!-- Scrollable body -->
+        <main class="main">
+            <!-- Hero greeting -->
+            <section class="hero">
+                <!-- Animated asterisk star -->
+                <svg class="hero__star" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path
+                        d="M28 4 L30.5 24.5 L50 22 L32 30 L50 38 L30.5 35.5 L28 56 L25.5 35.5 L6 38 L24 30 L6 22 L25.5 24.5 Z"
+                        fill="#c0392b" opacity="0.92" />
+                </svg>
+
+                <h1 class="hero__title">
+                    Ready to ace<br>
+                    <em>your exams today?</em>
+                </h1>
+            </section>
+
+            <!-- Chat Container -->
+            <section class="chat-container" id="chat-container">
+                <!-- Messages injected here -->
+            </section>
+
+            <!-- Input + chips -->
+            <section class="input-section" id="input-section">
+
+                <!-- Chat input card -->
+                <div class="input-card">
+                    <textarea id="chat-input" class="input-textarea" placeholder="Message AI Tutor..." rows="1"
+                        aria-label="Chat with AI tutor"></textarea>
+
+                    <div class="input-toolbar">
+                        <!-- Attach -->
+                        <button class="toolbar-btn" aria-label="Attach file">
+                            <i class="ph ph-plus"></i>
+                        </button>
+
+                        <span class="toolbar-sep"></span>
+
+                        <!-- Model selector -->
+                        <button class="toolbar-btn" aria-label="Select AI model" id="model-selector-btn">
+                            <span class="toolbar-model-name">MyExam AI Tutor</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+
+                        <div class="toolbar-spacer"></div>
+
+                        <!-- Mic / Voice -->
+                        <button class="toolbar-icon-btn" id="mic-btn" aria-label="Voice input">
+                            <i class="ph ph-microphone"></i>
+                        </button>
+
+                        <!-- Send Button -->
+                        <button class="toolbar-icon-btn" id="send-btn" aria-label="Send message">
+                            <i class="ph ph-paper-plane-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick-action chips -->
+                <div class="chips" role="list" id="quick-chips">
+                    <!-- Injected dynamically based on performance -->
+                </div>
+
+            </section>
+        </main>
+    </div><!-- /.app-container -->
+
+    <script defer src="../../../components/topbar.js"></script>
+    <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=6"></script>
+    <script>
+        const textarea = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatContainer = document.getElementById('chat-container');
+        const heroSection = document.querySelector('.hero');
+        const quickChips = document.getElementById('quick-chips');
+
+        // State parsing
+        let examState = null;
+        let weakTopics = [];
+        let failedQuestions = [];
+        try { 
+            examState = JSON.parse(localStorage.getItem('cbt_exam_state')); 
+            if (examState && examState.questions) {
+                const topicScores = {};
+                examState.questions.forEach((q, i) => {
+                    const t = q.topic || 'General Concepts';
+                    if (!topicScores[t]) topicScores[t] = { correct: 0, total: 0 };
+                    topicScores[t].total++;
+                    let isCorrect = false;
+                    if (q.isGridIn) {
+                        const ua = (examState.answers[i]||'').toString().trim().toLowerCase();
+                        const ca = (q.correctAnswer||'').toString().trim().toLowerCase();
+                        if (ua === ca && ua !== '') isCorrect = true;
+                    } else {
+                        if (examState.answers[i] === q.correct) isCorrect = true;
+                    }
+                    if (isCorrect) topicScores[t].correct++;
+                    else failedQuestions.push(q);
+                });
+                for (let t in topicScores) {
+                    weakTopics.push({ topic: t, score: (topicScores[t].correct / topicScores[t].total)*100 });
+                }
+                weakTopics.sort((a,b) => a.score - b.score);
+            }
+        } catch(e) {}
+
+        // 1. Dynamic Greeting & Gamification
+        const h = new Date().getHours();
+        let phrase = 'Ready to ace';
+        if (h >= 5 && h < 12) phrase = "Good morning! Let's study";
+        if (h >= 12 && h < 17) phrase = "Good afternoon. Time to study";
+        if (h >= 17 && h < 21) phrase = "Clocking in for the evening shift.";
+        if (h >= 21 || h < 5) phrase = "Burning the midnight oil?";
+        
+        let subText = 'your exams today.';
+        if (weakTopics.length > 0 && weakTopics[0].score < 50) {
+            subText = `Let's tackle your weakest spot: <strong>${weakTopics[0].topic}</strong>.`;
+            // Proactive active recall
+            setTimeout(() => {
+                const promptMsg = `Welcome back! I noticed you struggled with **${weakTopics[0].topic}** in your recent exam.\n\nBefore we dive into anything else, can you briefly explain the core concept behind it in your own words?`;
+                addMessage(promptMsg, 'ai', true);
+            }, 600);
+        } else if (weakTopics.length > 0) {
+            subText = `You're doing great! Let's aim for 100% next time.`;
+        }
+        document.querySelector('.hero__title').innerHTML = phrase + '<br><em>' + subText + '</em>';
+
+        // 2. Dynamic Chips
+        if (weakTopics.length > 0) {
+            const worst = weakTopics[0].topic;
+            quickChips.innerHTML = `
+                <button class="chip" onclick="setPrompt('Generate a 3-day study plan targeting ${worst}')"><i class="ph ph-calendar-check"></i> Study Plan for ${worst}</button>
+                <button class="chip" onclick="setPrompt('Quiz me on ${worst}')"><i class="ph ph-graduation-cap"></i> Quiz: ${worst}</button>
+                <button class="chip" onclick="setPrompt('Explain ${worst} with a simple analogy')"><i class="ph ph-lightbulb"></i> Explain Concept</button>
+                <button class="chip" onclick="setPrompt('Socratic Review: Pick a question I failed')"><i class="ph ph-brain"></i> Socratic Review</button>
+            `;
+        } else {
+            quickChips.innerHTML = `
+                <button class="chip" onclick="setPrompt('Generate a general study plan')"><i class="ph ph-calendar"></i> Study Plan</button>
+                <button class="chip" onclick="setPrompt('Quiz me randomly')"><i class="ph ph-graduation-cap"></i> Random Quiz</button>
+                <button class="chip" onclick="setPrompt('Give me exam tips')"><i class="ph ph-lightbulb"></i> Exam Tips</button>
+            `;
+        }
+
+        /* -- Auto-grow & Send -- */
+        textarea.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+        });
+
+        textarea.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+            }
+        });
+        sendBtn.addEventListener('click', handleSend);
+
+        function setPrompt(text) {
+            textarea.value = text;
+            textarea.focus();
+            handleSend();
+        }
+
+        const initialPrompt = localStorage.getItem('ai_initial_prompt');
+        if (initialPrompt) {
+            setPrompt(initialPrompt);
+            localStorage.removeItem('ai_initial_prompt');
+        }
+
+        let isTyping = false;
+
+        function handleSend() {
+            const text = textarea.value.trim();
+            if (!text || isTyping) return;
+            
+            textarea.value = '';
+            textarea.style.height = 'auto';
+            
+            heroSection.style.display = 'none';
+            quickChips.style.display = 'none'; // Hide the hints when chat starts
+            chatContainer.classList.add('active');
+            
+            addMessage(text, 'user');
+            isTyping = true;
+            
+            const typingId = showTyping();
+            
+            setTimeout(() => {
+                document.getElementById(typingId).remove();
+                generateAIResponse(text);
+                isTyping = false;
+            }, 1500 + Math.random() * 1000); // Simulate network latency
+        }
+
+        function addMessage(text, sender, parseMarkdown = false) {
+            heroSection.style.display = 'none';
+            chatContainer.classList.add('active');
+            const msg = document.createElement('div');
+            msg.className = `chat-msg ${sender}`;
+            
+            let content = text;
+            if (parseMarkdown) {
+                // simple markdown parsing for mock
+                content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                content = content.replace(/\n\n/g, '<br><br>');
+                content = content.replace(/\n- (.*?)(?=\n|$)/g, '<li>$1</li>');
+                if (content.includes('<li>')) content = content.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
+            }
+
+            msg.innerHTML = `
+                <div class="chat-avatar">${sender === 'user' ? 'U' : '<i class="ph ph-robot"></i>'}</div>
+                <div class="chat-bubble">${content}</div>
+            `;
+            chatContainer.appendChild(msg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function showTyping() {
+            const id = 'typing-' + Date.now();
+            const msg = document.createElement('div');
+            msg.className = `chat-msg ai`;
+            msg.id = id;
+            msg.innerHTML = `
+                <div class="chat-avatar"><i class="ph ph-robot"></i></div>
+                <div class="chat-bubble">
+                    <div class="typing">
+                        <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            chatContainer.appendChild(msg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return id;
+        }
+
+        // Quiz State
+        let isQuizMode = false;
+        let currentQuizQuestions = [];
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let selectedQuizOption = null;
+        let waitingForConfirmation = false;
+
+        /* -- MOCK AI ENGINE -- */
+        async function generateAIResponse(prompt) {
+            const p = prompt.toLowerCase();
+            let responseHtml = "";
+
+            if (isQuizMode) {
+                handleQuizInteraction(p);
+                return;
+            }
+
+            if (p.includes("study plan")) {
+                const topic = weakTopics.length > 0 ? weakTopics[0].topic : "General Topics";
+                responseHtml = `Here is a highly targeted 3-day action plan to master **${topic}**, since our analytics show you scored lower in this area recently:\n\n
+                <table>
+                    <tr><th>Day</th><th>Focus Area</th><th>Actionable Step</th></tr>
+                    <tr><td>Day 1</td><td>Core Concepts</td><td>Read the summary notes and watch the recommended video on ${topic}.</td></tr>
+                    <tr><td>Day 2</td><td>Practice Questions</td><td>Take a 10-question custom quiz focusing strictly on ${topic}.</td></tr>
+                    <tr><td>Day 3</td><td>Mock Test Integration</td><td>Take a full mock exam to see if your score improves.</td></tr>
+                </table>\n\nAre you ready to commit to Day 1 today?`;
+                addMessage(responseHtml, 'ai', true);
+            } 
+            else if (p.includes("quiz me")) {
+                const topic = weakTopics.length > 0 ? weakTopics[0].topic : "General Topics";
+                addMessage(`Alright, let's fetch some questions on **${topic}** from the database...`, 'ai', true);
+                await startQuizMode(topic);
+            }
+            else if (p.includes("socratic") || p.includes("failed")) {
+                if (failedQuestions.length > 0) {
+                    const q = failedQuestions[Math.floor(Math.random() * failedQuestions.length)];
+                    responseHtml = `Let's review this question you got wrong in the exam:\n\n**Question:** ${q.text}\n\nInstead of me just giving you the answer, tell me what your thought process was when you picked your option. What made it seem correct at the time?`;
+                } else {
+                    responseHtml = `You actually didn't fail any questions in your last logged exam! Great job. Is there anything else you want to review?`;
+                }
+            }
+            else if (p.includes("explain")) {
+                responseHtml = `Imagine it like building a house. The foundational concepts are your concrete base. Without a solid base, the walls (advanced topics) will eventually crack under pressure.\n\nDoes that analogy help clarify it for you?`;
+            }
+            else {
+                responseHtml = `I'm an AI study agent tailored to your exam profile! I can generate personalized **Study Plans**, run **Remedial Quizzes**, or do a **Socratic Review** of questions you failed. How can I help you today?`;
+            }
+
+            addMessage(responseHtml, 'ai', true);
+        }
+
+        async function startQuizMode(topic) {
+            try {
+                // Determine subject and year from recent exam state, or fallback
+                let subjectStr = "english_language";
+                let yearStr = "1979";
+                if (examState && examState.questions && examState.questions.length > 0) {
+                    const q0 = examState.questions[0];
+                    if (q0.subject) {
+                        subjectStr = q0.subject.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                    }
+                    if (q0.exam_year) {
+                        yearStr = q0.exam_year;
+                    }
+                }
+
+                const contentPath = `content/exams/nigeria/jamb/${subjectStr}/objective/${yearStr}.json`;
+                const fallbackPaths = [
+                    `/new_staging_area/${contentPath}`,
+                    `/public/new_staging_area/${contentPath}`,
+                    `../../../new_staging_area/${contentPath}`
+                ];
+                
+                let data = null;
+                for (const path of fallbackPaths) {
+                    try {
+                        const res = await fetch(path);
+                        if (res.ok) {
+                            data = await res.json();
+                            break;
+                        }
+                    } catch(e) {}
+                }
+                
+                if (!data) throw new Error("Database not found");
+                
+                // Filter questions matching the topic
+                const allQuestions = Object.values(data);
+                let matched = allQuestions.filter(q => (q.topic || '').toLowerCase() === topic.toLowerCase());
+                
+                // If not enough, fallback to any question in that subject
+                if (matched.length < 10) {
+                    matched = allQuestions;
+                }
+                
+                // Shuffle and pick 10
+                matched.sort(() => 0.5 - Math.random());
+                currentQuizQuestions = matched.slice(0, 10);
+                
+                if (currentQuizQuestions.length === 0) {
+                    addMessage("Sorry, I couldn't find any questions in the database right now.", 'ai', false);
+                    isQuizMode = false;
+                    return;
+                }
+
+                isQuizMode = true;
+                currentQuizIndex = 0;
+                currentQuizScore = 0;
+                waitingForConfirmation = false;
+                
+                addMessage(`I found ${currentQuizQuestions.length} questions. Let's begin!`, 'ai', false);
+                setTimeout(() => renderQuizQuestion(), 800);
+
+            } catch(e) {
+                addMessage(`Error fetching from database. Let's try something else.`, 'ai', false);
+                isQuizMode = false;
+            }
+        }
+
+        function renderQuizQuestion() {
+            waitingForConfirmation = false;
+            selectedQuizOption = null;
+            const q = currentQuizQuestions[currentQuizIndex];
+            
+            let html = `**Question ${currentQuizIndex + 1} of ${currentQuizQuestions.length}:**<br>${q.question_text || q.text}<br><br>`;
+            
+            q.options.forEach((opt, idx) => {
+                // Using onclick to set global selected option and visually highlight
+                html += `<button class="quiz-btn" id="opt-${idx}" onclick="window.selectQuizOption(${idx})">${opt.tag.toUpperCase()}) ${opt.text}</button>`;
+            });
+
+            addMessage(html, 'ai', true);
+        }
+
+        // Exposed globally for the inline onclick handler
+        window.selectQuizOption = function(idx) {
+            if (!isQuizMode) return;
+            
+            // Remove previous selection highlight
+            document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected', 'active'));
+            const btn = document.getElementById(`opt-${idx}`);
+            if (btn) btn.classList.add('selected');
+            
+            selectedQuizOption = idx;
+            
+            if (!waitingForConfirmation) {
+                waitingForConfirmation = true;
+                // Add a confirmation prompt in a new bubble
+                addMessage(`You selected option ${currentQuizQuestions[currentQuizIndex].options[idx].tag.toUpperCase()}. Are you sure you want to confirm your answer? <br><br>
+                <button class="quiz-btn" style="border-color:var(--accent); color:var(--accent);" onclick="window.confirmQuizAnswer()">Yes, Confirm</button>`, 'ai', true);
+            }
+        };
+
+        window.confirmQuizAnswer = function() {
+            if (!waitingForConfirmation || selectedQuizOption === null) return;
+            waitingForConfirmation = false;
+
+            const q = currentQuizQuestions[currentQuizIndex];
+            const isCorrect = q.options[selectedQuizOption].is_correct;
+            const correctOpt = q.options.find(o => o.is_correct);
+            
+            if (isCorrect) currentQuizScore++;
+
+            let feedback = isCorrect ? `<span style="color:green; font-weight:bold;">? Correct!</span><br><br>` : `<span style="color:red; font-weight:bold;">? Incorrect.</span> The correct answer was ${correctOpt.tag.toUpperCase()}.<br><br>`;
+            
+            if (q.explanation && q.explanation.trim() !== '') {
+                feedback += `**Explanation:**<br>${q.explanation}<br><br>`;
+            } else {
+                feedback += `**Explanation:**<br>No detailed explanation available for this question.<br><br>`;
+            }
+
+            // 5 second timer to auto-advance
+            feedback += `<br><em style="color:var(--text-muted); font-size: 13px;"><i class="ph ph-hourglass-high spin"></i> Loading next question in 5 seconds...</em>`;
+            
+            addMessage(feedback, 'ai', true);
+            
+            // Auto advance
+            setTimeout(() => {
+                // Check if user hasn't explicitly exited quiz mode during the wait
+                if (isQuizMode) {
+                    window.nextQuizQuestion();
+                }
+            }, 5000);
+        };
+
+        window.nextQuizQuestion = function() {
+            currentQuizIndex++;
+            if (currentQuizIndex < currentQuizQuestions.length) {
+                renderQuizQuestion();
+            } else {
+                // End Quiz
+                addMessage(`**Quiz Complete!** ??<br><br>You scored ${currentQuizScore} out of ${currentQuizQuestions.length}.<br><br>Type anything to continue chatting, or ask for another quiz!`, 'ai', true);
+                isQuizMode = false;
+            }
+        };
+
+        function handleQuizInteraction(text) {
+            // If they type something while in quiz mode
+            if (text.includes("exit") || text.includes("stop")) {
+                isQuizMode = false;
+                addMessage("Quiz ended early. What would you like to do next?", 'ai', false);
+                return;
+            }
+            if (waitingForConfirmation) {
+                if (text === "yes" || text === "confirm") {
+                    window.confirmQuizAnswer();
+                } else {
+                    addMessage("Please select an option and click Confirm, or type 'exit' to quit.", 'ai', false);
+                }
+            } else {
+                addMessage("Please select an option from the choices above.", 'ai', false);
+            }
+        }
+
+        /* -- Mic toggle -- */
+        document.getElementById('mic-btn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.className = 'ph-fill ph-microphone';
+                this.style.color = 'var(--accent)';
+            } else {
+                icon.className = 'ph ph-microphone';
+                this.style.color = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=2">
   <style>
     /* ===========================
        RESET & BASE
@@ -174,11 +174,11 @@
 <body>
   <div class="app">
     <!-- SIDEBAR -->
-    <app-sidebar data-base="../../"></app-sidebar>
+    <app-sidebar data-base="/"></app-sidebar>
 
     <div class="main-wrapper">
       <!-- TOPBAR -->
-      <app-topbar data-base="../../"></app-topbar>
+      <app-topbar data-base="/"></app-topbar>
 
       <!-- CONTENT -->
       <div class="content-area">
@@ -207,7 +207,7 @@
             <!-- Card 1 -->
             <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
               <div class="card-top">
-                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
                 <div class="card-actions">
                   <button class="action-btn" aria-label="Share">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -246,7 +246,7 @@
             <!-- Card 2 -->
             <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
               <div class="card-top">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
                 <div class="card-actions">
                   <button class="action-btn" aria-label="Share">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -287,7 +287,7 @@
               <div class="card-actions" style="position: absolute; right: 16px; top: 16px;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
               </div>
-              <img src="https://img.icons8.com/color/96/000000/university.png" alt="UK University" class="promo-icon">
+              <img loading="lazy" src="https://img.icons8.com/color/96/000000/university.png" alt="UK University" class="promo-icon">
               <div class="promo-title">UK University<br>Scholarships</div>
               <p style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Premium opportunities curated for you</p>
               <button style="background: #111827; color: #fff; border-radius: 8px; padding: 10px 20px; font-weight: 600; font-size: 14px;">View Premium list</button>
@@ -296,7 +296,7 @@
             <!-- Card 3 -->
             <div class="scholarship-card" onclick="window.location.href='scholarship_blog.html'">
               <div class="card-top">
-                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="University" class="card-logo">
                 <div class="card-actions">
                   <button class="action-btn" aria-label="Share">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -340,7 +340,8 @@
     </div>
   </div>
 
-  <script src="../../../components/topbar.js"></script>
-  <script src="../../../components/sidebar.js?v=6"></script>
+  <script defer src="/components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js?v=6"></script>
 </body>
 </html>

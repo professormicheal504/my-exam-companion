@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Relative path for local testing -->
-    <link rel="stylesheet" href="../../../components/topbar.css">
-    <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+    <link rel="stylesheet" href="/components/topbar.css">
+    <link rel="stylesheet" href="/components/sidebar.css?v=2">
     <style>
         /* ---- Reset & Global ---- */
         *,
@@ -645,7 +645,7 @@
        LEFT SIDEBAR (Web Component)
   ============================ -->
         <!-- Note: sidebar.js has been updated to use absolute paths, data-base is optional but left for completeness -->
-        <app-sidebar data-base="../../"></app-sidebar>
+        <app-sidebar data-base="/"></app-sidebar>
 
         <!-- ============================
        MAIN WRAPPER
@@ -653,7 +653,7 @@
         <div class="main-wrapper">
 
             <!-- TOP BAR -->
-            <app-topbar data-base="../../"></app-topbar>
+            <app-topbar data-base="/"></app-topbar>
 
             <!-- CONTENT AREA -->
             <main class="content-area">
@@ -824,8 +824,9 @@
     </div><!-- end app -->
 
     <!-- Relative path for sidebar.js for local testing -->
-    <script src="../../../components/topbar.js"></script>
-    <script src="../../../components/sidebar.js?v=6"></script>
+    <script defer src="/components/topbar.js"></script>
+    <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js?v=6"></script>
 </body>
 
 </html>

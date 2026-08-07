@@ -8,6 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
     :root {
@@ -156,6 +157,17 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .topic-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(183,12,1,0.08);
+      transform: translateY(-2px);
     }
 
     .topic-header {
@@ -237,6 +249,26 @@
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(255,255,255,0.1);
     }
+    
+    .practice-btn {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--primary);
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 8px;
+      transition: all 0.2s;
+      vertical-align: middle;
+    }
+    .practice-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -263,143 +295,20 @@
       <p class="summary-desc">A comprehensive breakdown of your subject proficiency. Identify and target critical knowledge gaps to optimize your study plan.</p>
     </div>
 
+    <!-- Chart -->
+    <div id="chart-container" style="max-width: 500px; margin: 0 auto 48px; background: var(--surface); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
+      <canvas id="radarChart"></canvas>
+    </div>
+
     <!-- Grid -->
-    <div class="subject-grid">
-      
-      <!-- English -->
-      <div class="subject-card">
-        <div class="sc-header">
-          <h3 class="sc-title">Use of English</h3>
-          <div class="sc-score">46%</div>
-        </div>
-        <div class="topic-list">
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Lexis and Structure</span>
-              <span class="topic-score danger">20%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 20%;"></div></div>
-            <span class="insight-text">Critical Gap</span>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Comprehension</span>
-              <span class="topic-score warning">55%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-warning" style="width: 55%;"></div></div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Oral English</span>
-              <span class="topic-score success">85%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-success" style="width: 85%;"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mathematics -->
-      <div class="subject-card">
-        <div class="sc-header">
-          <h3 class="sc-title">Mathematics</h3>
-          <div class="sc-score">38%</div>
-        </div>
-        <div class="topic-list">
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Calculus</span>
-              <span class="topic-score danger">15%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 15%;"></div></div>
-            <span class="insight-text">Critical Gap</span>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Geometry and Trig</span>
-              <span class="topic-score danger">30%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 30%;"></div></div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Algebra</span>
-              <span class="topic-score success">75%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-success" style="width: 75%;"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Physics -->
-      <div class="subject-card">
-        <div class="sc-header">
-          <h3 class="sc-title">Physics</h3>
-          <div class="sc-score">35%</div>
-        </div>
-        <div class="topic-list">
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Electricity & Magnetism</span>
-              <span class="topic-score danger">25%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 25%;"></div></div>
-            <span class="insight-text">Critical Gap</span>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Mechanics</span>
-              <span class="topic-score warning">45%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-warning" style="width: 45%;"></div></div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Waves & Optics</span>
-              <span class="topic-score success">80%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-success" style="width: 80%;"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chemistry -->
-      <div class="subject-card">
-        <div class="sc-header">
-          <h3 class="sc-title">Chemistry</h3>
-          <div class="sc-score">32%</div>
-        </div>
-        <div class="topic-list">
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Organic Chemistry</span>
-              <span class="topic-score danger">10%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 10%;"></div></div>
-            <span class="insight-text">Critical Gap</span>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Physical Chemistry</span>
-              <span class="topic-score danger">35%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-danger" style="width: 35%;"></div></div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-header">
-              <span class="topic-name">Inorganic Chemistry</span>
-              <span class="topic-score warning">50%</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill fill-warning" style="width: 50%;"></div></div>
-          </div>
-        </div>
-      </div>
-
+    <div class="subject-grid" id="subject-grid">
+      <!-- Dynamically injected -->
     </div>
   </div>
 
   <!-- Action Footer -->
   <div class="action-panel">
-    <a href="../../AI_study_agent/ai_study_agent.html" class="btn-ai-agent">
+    <a href="ai_plan.html" class="btn-ai-agent">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
       </svg>
@@ -407,5 +316,263 @@
     </a>
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawState = localStorage.getItem('cbt_exam_state');
+      let examState = null;
+      try { examState = JSON.parse(rawState); } catch(e){}
+
+      const grid = document.getElementById('subject-grid');
+      
+      if (!examState || !examState.questions || examState.questions.length === 0) {
+        grid.innerHTML = '<div style="padding:24px; color:var(--text-muted); grid-column: 1 / -1;">No recent exam data found. Please take an exam first.</div>';
+        return;
+      }
+
+      const { questions, answers, timeSpentPerQuestion } = examState;
+      const subjectData = {};
+
+      let history = [];
+      try { history = JSON.parse(localStorage.getItem('cbt_exam_history') || '[]'); } catch(e){}
+      
+      // Calculate historical averages
+      let historicalTopicScores = {};
+      for (let i = 0; i < history.length - 1; i++) {
+         const pastState = history[i].state;
+         if (!pastState || !pastState.questions) continue;
+         pastState.questions.forEach((q, idx) => {
+             let t = q.topic;
+             if (!t) {
+                const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
+                const words = text.split(/\s+/).filter(w => w.length > 4);
+                t = "Fundamentals";
+                for (let w of words) {
+                    const lw = w.toLowerCase();
+                    if (!['which','what','where','when','choose','select','following','statement','correct','incorrect','calculate','determine','about','these','those','their','there','would','could','should'].includes(lw)) {
+                        t = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
+                        break;
+                    }
+                }
+             } else {
+                t = t.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+             }
+             const s = q.subject || 'General';
+             const key = s + '::' + t;
+             if (!historicalTopicScores[key]) historicalTopicScores[key] = { total: 0, correct: 0 };
+             historicalTopicScores[key].total++;
+             
+             const uAnsIdx = (pastState.answers && pastState.answers[idx] !== undefined) ? parseInt(pastState.answers[idx], 10) : -1;
+             const cAnsIdx = q.isGridIn ? -1 : parseInt(q.correct, 10);
+             let isC = false;
+             if (q.isGridIn) {
+                 const u = (pastState.answers && pastState.answers[idx]) ? pastState.answers[idx].toString().trim().toLowerCase() : '';
+                 const c = (q.correctAnswer || '').toString().trim().toLowerCase();
+                 isC = (u !== '' && u === c);
+             } else {
+                 isC = (uAnsIdx !== -1 && uAnsIdx === cAnsIdx);
+             }
+             if (isC) historicalTopicScores[key].correct++;
+         });
+      }
+
+      questions.forEach((q, i) => {
+        const subj = q.subject || 'General';
+        const userAnsIndex = (answers && answers[i] !== undefined) ? parseInt(answers[i], 10) : -1;
+        const correctAnsIndex = q.isGridIn ? -1 : parseInt(q.correct, 10);
+        let isCorrect = false;
+        
+        if (q.isGridIn) {
+           const uAns = (answers && answers[i]) ? answers[i].toString().trim().toLowerCase() : '';
+           const cAns = (q.correctAnswer || '').toString().trim().toLowerCase();
+           isCorrect = (uAns !== '' && uAns === cAns);
+        } else {
+           isCorrect = (userAnsIndex !== -1 && userAnsIndex === correctAnsIndex);
+        }
+        
+        let topic = q.topic;
+        if (topic) {
+           topic = topic.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        } else {
+           const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
+           const words = text.split(/\s+/).filter(w => w.length > 4);
+           topic = "Fundamentals";
+           for (let w of words) {
+               const lw = w.toLowerCase();
+               if (!['which','what','where','when','choose','select','following','statement','correct','incorrect','calculate','determine','about','these','those','their','there','would','could','should'].includes(lw)) {
+                   topic = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
+                   break;
+               }
+           }
+        }
+
+        const tSpent = (timeSpentPerQuestion && timeSpentPerQuestion[i]) ? timeSpentPerQuestion[i] : 0;
+
+        if (!subjectData[subj]) subjectData[subj] = { total: 0, correct: 0, topics: {} };
+        subjectData[subj].total++;
+        if (isCorrect) subjectData[subj].correct++;
+        
+        if (!subjectData[subj].topics[topic]) {
+            subjectData[subj].topics[topic] = { total: 0, correct: 0, time: 0 };
+        }
+        subjectData[subj].topics[topic].total++;
+        subjectData[subj].topics[topic].time += tSpent;
+        if (isCorrect) subjectData[subj].topics[topic].correct++;
+      });
+
+      let html = '';
+
+      for (const subj in subjectData) {
+        const sData = subjectData[subj];
+        const sPct = Math.round((sData.correct / sData.total) * 100) || 0;
+        
+        let topicsHtml = '';
+        const sortedTopics = Object.keys(sData.topics).sort((a,b) => sData.topics[b].total - sData.topics[a].total).slice(0, 5);
+        
+        sortedTopics.forEach(tName => {
+           const tData = sData.topics[tName];
+           const tPct = Math.round((tData.correct / tData.total) * 100) || 0;
+           
+           const avgTime = Math.round(tData.time / tData.total);
+           const avgTimeStr = avgTime < 60 ? avgTime + 's' : Math.floor(avgTime/60) + 'm ' + (avgTime%60) + 's';
+           
+           let statusClass = 'success';
+           let insight = '';
+           let practiceBtn = '';
+           
+           if (tPct < 40) { 
+              statusClass = 'danger'; 
+              insight = '<span class="insight-text">Critical Gap</span>'; 
+              practiceBtn = `<a href="../../AI_study_agent/ai_study_agent.html?prompt=Create%20a%2010-question%20practice%20quiz%20focusing%20specifically%20on%20the%20topic%20of%20${encodeURIComponent(tName)}%20in%20${encodeURIComponent(subj)}." class="practice-btn">Targeted Practice</a>`;
+           }
+           else if (tPct < 70) { statusClass = 'warning'; }
+           
+           const key = subj + '::' + tName;
+           let trendHtml = '';
+           if (historicalTopicScores[key] && historicalTopicScores[key].total > 0) {
+               const histPct = Math.round((historicalTopicScores[key].correct / historicalTopicScores[key].total) * 100);
+               const diff = tPct - histPct;
+               if (diff > 0) trendHtml = `<span style="color:var(--success); font-size:11px; margin-left:8px; font-weight:700;">▲ +${diff}%</span>`;
+               else if (diff < 0) trendHtml = `<span style="color:var(--danger); font-size:11px; margin-left:8px; font-weight:700;">▼ ${diff}%</span>`;
+               else trendHtml = `<span style="color:var(--text-muted); font-size:11px; margin-left:8px; font-weight:700;">- 0%</span>`;
+           }
+           
+           topicsHtml += `
+             <div class="topic-item" onclick="window.location.href='./cbt_player.html?reviewTopic=${encodeURIComponent(tName)}'">
+               <div class="topic-header">
+                 <div>
+                   <span class="topic-name">${tName}</span>
+                   ${trendHtml}
+                   <span style="display:block; color:var(--text-muted); font-size: 11.5px; font-weight:normal; margin-top:2px;">(${tData.total} questions, avg ${avgTimeStr}/q)</span>
+                 </div>
+                 <div style="text-align:right;">
+                   <span class="topic-score ${statusClass}">${tData.correct}/${tData.total} (${tPct}%)</span>
+                   <div style="margin-top: 4px;" onclick="event.stopPropagation()">${practiceBtn}</div>
+                 </div>
+               </div>
+               <div class="progress-track"><div class="progress-fill fill-${statusClass}" style="width: ${tPct}%;"></div></div>
+               ${insight}
+             </div>
+           `;
+        });
+
+        html += `
+          <div class="subject-card">
+            <div class="sc-header">
+              <h3 class="sc-title">${subj}</h3>
+              <div class="sc-score">${sPct}%</div>
+            </div>
+            <div class="topic-list">
+              ${topicsHtml}
+            </div>
+          </div>
+        `;
+      }
+      
+      grid.innerHTML = html;
+
+      // Prepare Data for Chart
+      const chartLabels = [];
+      const chartData = [];
+      const chartColors = [];
+      let chartTitle = 'Subject Performance (%)';
+
+      const subjectsArr = Object.keys(subjectData);
+      
+      if (subjectsArr.length > 1) {
+         // Chart subjects
+         subjectsArr.forEach(subj => {
+            const sPct = Math.round((subjectData[subj].correct / subjectData[subj].total) * 100) || 0;
+            chartLabels.push(subj);
+            chartData.push(sPct);
+            chartColors.push(sPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (sPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
+         });
+      } else if (subjectsArr.length === 1) {
+         // Chart top 10 weakest topics
+         chartTitle = 'Topic Proficiency (%)';
+         const subj = subjectsArr[0];
+         const sData = subjectData[subj];
+         const topics = Object.keys(sData.topics).sort((a,b) => {
+             const aPct = sData.topics[a].correct / sData.topics[a].total;
+             const bPct = sData.topics[b].correct / sData.topics[b].total;
+             return aPct - bPct;
+         }).slice(0, 10);
+         
+         topics.forEach(tName => {
+             const tPct = Math.round((sData.topics[tName].correct / sData.topics[tName].total) * 100) || 0;
+             chartLabels.push(tName.length > 25 ? tName.substring(0, 25) + '...' : tName);
+             chartData.push(tPct);
+             chartColors.push(tPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (tPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
+         });
+      }
+
+      // Render Bar Chart
+      if (chartLabels.length > 0) {
+         const ctx = document.getElementById('radarChart').getContext('2d');
+         new Chart(ctx, {
+            type: 'bar',
+            data: {
+               labels: chartLabels,
+               datasets: [{
+                  label: chartTitle,
+                  data: chartData,
+                  backgroundColor: chartColors,
+                  borderRadius: 4
+               }]
+            },
+            options: {
+               indexAxis: subjectsArr.length === 1 ? 'y' : 'x', // Horizontal for topics, Vertical for subjects
+               responsive: true,
+               maintainAspectRatio: false,
+               scales: {
+                  x: { 
+                     grid: { display: false },
+                     min: 0, 
+                     max: 100 
+                  },
+                  y: { 
+                     grid: { display: false },
+                     min: 0, 
+                     max: 100,
+                     ticks: {
+                        font: { family: 'Inter', size: 12 }
+                     }
+                  }
+               },
+               plugins: { 
+                   legend: { display: false },
+                   title: {
+                       display: true,
+                       text: chartTitle,
+                       font: { family: 'Inter', size: 14, weight: '600' }
+                   }
+               }
+            }
+         });
+         document.getElementById('chart-container').style.height = subjectsArr.length === 1 ? '350px' : '300px';
+      } else {
+         document.getElementById('chart-container').style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,1852 @@
+[
+    {
+        "order_id": "1",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "The distribution formed by all possible values of a computed statistic from independent random samples of a definite size is called the:",
+        "explanation": "If we calculate some statistic from independent random samples, the frequency distribution formed of all possible values of that statistic is called the sampling distribution of that statistic.",
+        "options": [
+            {
+                "option_id": "234653",
+                "tag": "a",
+                "text": "Normal Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "327696",
+                "tag": "b",
+                "text": "Population Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "155046",
+                "tag": "c",
+                "text": "Sampling Distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "139790",
+                "tag": "d",
+                "text": "Cumulative Distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 5
+    },
+    {
+        "order_id": "2",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A complete enumeration of a population, rather than taking a representative sample, is known as a:",
+        "explanation": "In Statistics, conducting a complete enumeration of the entire population is known as a Census.",
+        "options": [
+            {
+                "option_id": "311279",
+                "tag": "a",
+                "text": "Statistic",
+                "is_correct": false
+            },
+            {
+                "option_id": "125118",
+                "tag": "b",
+                "text": "Census",
+                "is_correct": true
+            },
+            {
+                "option_id": "234686",
+                "tag": "c",
+                "text": "Parameter",
+                "is_correct": false
+            },
+            {
+                "option_id": "252140",
+                "tag": "d",
+                "text": "Frame",
+                "is_correct": false
+            }
+        ],
+        "question_number": 10
+    },
+    {
+        "order_id": "3",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which broad category of sampling involves selecting samples where every member of the population has a known, non-zero chance of being included?",
+        "explanation": "Probability sampling involves selecting samples where every member of the population has a known, non-zero chance of being included, enabling statistical inference.",
+        "options": [
+            {
+                "option_id": "191061",
+                "tag": "a",
+                "text": "Probability Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "288399",
+                "tag": "b",
+                "text": "Non-Probability Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "133378",
+                "tag": "c",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "317411",
+                "tag": "d",
+                "text": "Snowball Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 16
+    },
+    {
+        "order_id": "4",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which sampling method ensures that every single member of the population has an equal chance of being selected, often using random number generators?",
+        "explanation": "In Simple Random Sampling, every member of the population has an equal chance of being selected, which reduces selection bias.",
+        "options": [
+            {
+                "option_id": "661879",
+                "tag": "a",
+                "text": "Stratified Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "292053",
+                "tag": "b",
+                "text": "Simple Random Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "116337",
+                "tag": "c",
+                "text": "Systematic Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "151194",
+                "tag": "d",
+                "text": "Cluster Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 22
+    },
+    {
+        "order_id": "5",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A major demerit of simple random sampling is that it:",
+        "explanation": "Simple random sampling requires a complete list of all population members (sampling frame), which can be highly impractical or impossible for large populations.",
+        "options": [
+            {
+                "option_id": "251280",
+                "tag": "a",
+                "text": "Leads to biased results.",
+                "is_correct": false
+            },
+            {
+                "option_id": "272269",
+                "tag": "b",
+                "text": "Is completely subjective.",
+                "is_correct": false
+            },
+            {
+                "option_id": "131055",
+                "tag": "c",
+                "text": "Can be impractical for large populations due to the need for a complete list.",
+                "is_correct": true
+            },
+            {
+                "option_id": "170864",
+                "tag": "d",
+                "text": "Is very difficult to understand.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 28
+    },
+    {
+        "order_id": "6",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which sampling method involves selecting every $k^{th}$ member from a list starting from a randomly chosen point?",
+        "explanation": "Systematic Sampling involves selecting every $k^{th}$ member from a list. It is easy to implement once the starting point and interval are determined.",
+        "options": [
+            {
+                "option_id": "120834",
+                "tag": "a",
+                "text": "Systematic Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "696683",
+                "tag": "b",
+                "text": "Multistage Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "290946",
+                "tag": "c",
+                "text": "Stratified Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "103914",
+                "tag": "d",
+                "text": "Purposive Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 34
+    },
+    {
+        "order_id": "7",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is a known risk associated with systematic sampling if the population list is not randomly ordered?",
+        "explanation": "A demerit of systematic sampling is the risk of periodicity bias if the list has a hidden pattern that coincides with the sampling interval.",
+        "options": [
+            {
+                "option_id": "103488",
+                "tag": "a",
+                "text": "Intra-cluster correlation",
+                "is_correct": false
+            },
+            {
+                "option_id": "152860",
+                "tag": "b",
+                "text": "Periodicity bias",
+                "is_correct": true
+            },
+            {
+                "option_id": "234022",
+                "tag": "c",
+                "text": "Subjective bias",
+                "is_correct": false
+            },
+            {
+                "option_id": "312879",
+                "tag": "d",
+                "text": "Non-response bias",
+                "is_correct": false
+            }
+        ],
+        "question_number": 40
+    },
+    {
+        "order_id": "8",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Dividing a population into geographic groups, randomly selecting some of these groups, and surveying members within them is characteristic of:",
+        "explanation": "Cluster sampling involves dividing the population into clusters (often geographically), randomly selecting clusters, and then surveying members within them.",
+        "options": [
+            {
+                "option_id": "307346",
+                "tag": "a",
+                "text": "Stratified Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "998342",
+                "tag": "b",
+                "text": "Cluster Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "177657",
+                "tag": "c",
+                "text": "Quota Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "114333",
+                "tag": "d",
+                "text": "Consecutive Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 46
+    },
+    {
+        "order_id": "9",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is a major demerit of cluster sampling compared to other probability sampling methods?",
+        "explanation": "Cluster sampling increases sampling error due to homogeneity within clusters (intra-cluster correlation) and is less precise if clusters aren't diverse.",
+        "options": [
+            {
+                "option_id": "278930",
+                "tag": "a",
+                "text": "It is highly expensive and time-consuming.",
+                "is_correct": false
+            },
+            {
+                "option_id": "251962",
+                "tag": "b",
+                "text": "It increases sampling error due to homogeneity within clusters (intra-cluster correlation).",
+                "is_correct": true
+            },
+            {
+                "option_id": "171955",
+                "tag": "c",
+                "text": "It requires a complete list of the entire population.",
+                "is_correct": false
+            },
+            {
+                "option_id": "471982",
+                "tag": "d",
+                "text": "It requires detailed demographic information for all individuals.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 52
+    },
+    {
+        "order_id": "10",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which sampling method divides the population into subgroups based on specific characteristics (e.g., age, gender) and takes a random sample from each?",
+        "explanation": "Stratified Sampling divides the population into strata (subgroups) based on specific characteristics, ensuring adequate representation of all subgroups.",
+        "options": [
+            {
+                "option_id": "105773",
+                "tag": "a",
+                "text": "Cluster Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "287897",
+                "tag": "b",
+                "text": "Stratified Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "156821",
+                "tag": "c",
+                "text": "Systematic Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "304709",
+                "tag": "d",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 58
+    },
+    {
+        "order_id": "11",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is a key merit of Stratified Sampling?",
+        "explanation": "Stratified sampling ensures representation of all key subgroups, which improves precision and reduces sampling error.",
+        "options": [
+            {
+                "option_id": "111640",
+                "tag": "a",
+                "text": "It requires no prior knowledge of the population.",
+                "is_correct": false
+            },
+            {
+                "option_id": "225885",
+                "tag": "b",
+                "text": "It is the fastest sampling method available.",
+                "is_correct": false
+            },
+            {
+                "option_id": "411089",
+                "tag": "c",
+                "text": "It improves precision and reduces sampling error compared to simple random sampling.",
+                "is_correct": true
+            },
+            {
+                "option_id": "135524",
+                "tag": "d",
+                "text": "It focuses only on hard-to-reach populations.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 64
+    },
+    {
+        "order_id": "12",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which sampling method is highly flexible by combining several other sampling methods (e.g., cluster followed by random sampling)?",
+        "explanation": "Multistage Sampling combines several sampling methods and is highly flexible, making it efficient for large populations spread across wide areas.",
+        "options": [
+            {
+                "option_id": "196736",
+                "tag": "a",
+                "text": "Multistage Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "176314",
+                "tag": "b",
+                "text": "PPS Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "212130",
+                "tag": "c",
+                "text": "Stratified Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "287634",
+                "tag": "d",
+                "text": "Snowball Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 70
+    },
+    {
+        "order_id": "13",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In Probability Proportional to Size (PPS) Sampling, how are clusters selected?",
+        "explanation": "In PPS Sampling, clusters are selected based on their size relative to the entire population, giving larger clusters a higher chance of selection.",
+        "options": [
+            {
+                "option_id": "223855",
+                "tag": "a",
+                "text": "Equally across all clusters.",
+                "is_correct": false
+            },
+            {
+                "option_id": "284942",
+                "tag": "b",
+                "text": "Larger clusters have a higher probability of selection.",
+                "is_correct": true
+            },
+            {
+                "option_id": "963117",
+                "tag": "c",
+                "text": "Smaller clusters have a higher probability of selection.",
+                "is_correct": false
+            },
+            {
+                "option_id": "618678",
+                "tag": "d",
+                "text": "Based strictly on geographic location.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 76
+    },
+    {
+        "order_id": "14",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Non-Probability Sampling methods rely primarily on what for participant selection?",
+        "explanation": "Non-probability sampling involves selecting samples based on subjective judgment rather than random selection.",
+        "options": [
+            {
+                "option_id": "329370",
+                "tag": "a",
+                "text": "Random number generators",
+                "is_correct": false
+            },
+            {
+                "option_id": "259501",
+                "tag": "b",
+                "text": "Subjective judgment",
+                "is_correct": true
+            },
+            {
+                "option_id": "150163",
+                "tag": "c",
+                "text": "Strata characteristics",
+                "is_correct": false
+            },
+            {
+                "option_id": "227120",
+                "tag": "d",
+                "text": "Fixed sampling intervals",
+                "is_correct": false
+            }
+        ],
+        "question_number": 82
+    },
+    {
+        "order_id": "15",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which non-probability sampling method is similar to stratified sampling but lacks the element of random selection within its subgroups?",
+        "explanation": "Quota sampling ensures representation of specific subgroups (like stratified) but samples are collected to meet predetermined quotas without random selection.",
+        "options": [
+            {
+                "option_id": "304608",
+                "tag": "a",
+                "text": "Purposive Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "529601",
+                "tag": "b",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "112810",
+                "tag": "c",
+                "text": "Quota Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "279162",
+                "tag": "d",
+                "text": "Consecutive Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 88
+    },
+    {
+        "order_id": "16",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A researcher conducts a survey by asking people passing by on a street corner. What type of sampling is this?",
+        "explanation": "Convenience sampling selects samples based on ease of access or proximity to the researcher. It is quick but highly prone to bias.",
+        "options": [
+            {
+                "option_id": "265759",
+                "tag": "a",
+                "text": "Convenience Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "274870",
+                "tag": "b",
+                "text": "Systematic Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "337771",
+                "tag": "c",
+                "text": "Stratified Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "211561",
+                "tag": "d",
+                "text": "Purposive Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 94
+    },
+    {
+        "order_id": "17",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which sampling method involves a researcher choosing samples based on specific characteristics or expertise deemed relevant to the study's purpose?",
+        "explanation": "In purposive or judgmental sampling, samples are chosen based on specific characteristics or purpose, relying on the researcher's judgment.",
+        "options": [
+            {
+                "option_id": "110366",
+                "tag": "a",
+                "text": "Purposive (Judgmental) Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "100473",
+                "tag": "b",
+                "text": "Snowball Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "120174",
+                "tag": "c",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "323462",
+                "tag": "d",
+                "text": "Cluster Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 100
+    },
+    {
+        "order_id": "18",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A researcher is studying a hidden population (e.g., cultists or drug addicts) and asks initial subjects to recruit other acquaintances. This is known as:",
+        "explanation": "Snowball sampling relies on social networks, where current participants recruit future participants from their acquaintances. It is ideal for hidden populations.",
+        "options": [
+            {
+                "option_id": "258326",
+                "tag": "a",
+                "text": "Quota Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "129683",
+                "tag": "b",
+                "text": "Snowball Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "220011",
+                "tag": "c",
+                "text": "Consecutive Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "289319",
+                "tag": "d",
+                "text": "Multistage Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 106
+    },
+    {
+        "order_id": "19",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which non-probability sampling method involves taking samples from a particular group continuously until a specific objective is met sequentially?",
+        "explanation": "Consecutive sampling provides a sequential collection of data by taking samples from a group until a specific objective is met.",
+        "options": [
+            {
+                "option_id": "258838",
+                "tag": "a",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "107475",
+                "tag": "b",
+                "text": "Purposive Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "969269",
+                "tag": "c",
+                "text": "Snowball Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "713456",
+                "tag": "d",
+                "text": "Consecutive Sampling",
+                "is_correct": true
+            }
+        ],
+        "question_number": 112
+    },
+    {
+        "order_id": "20",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "For quantitative research requiring highly generalizable results, which sampling approach is heavily preferred?",
+        "explanation": "Probability sampling is preferred in quantitative research for generalizable results and representativeness.",
+        "options": [
+            {
+                "option_id": "297248",
+                "tag": "a",
+                "text": "Probability Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "231329",
+                "tag": "b",
+                "text": "Non-Probability Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "315031",
+                "tag": "c",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "657428",
+                "tag": "d",
+                "text": "Snowball Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 118
+    },
+    {
+        "order_id": "21",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is fundamentally required before creating a random sample from a defined population?",
+        "explanation": "A researcher must determine their sampling frame, which is simply a list of all population members and is essential in creating a random sample.",
+        "options": [
+            {
+                "option_id": "339048",
+                "tag": "a",
+                "text": "A quota",
+                "is_correct": false
+            },
+            {
+                "option_id": "174751",
+                "tag": "b",
+                "text": "A sampling frame",
+                "is_correct": true
+            },
+            {
+                "option_id": "276445",
+                "tag": "c",
+                "text": "A test hypothesis",
+                "is_correct": false
+            },
+            {
+                "option_id": "233740",
+                "tag": "d",
+                "text": "A significance level",
+                "is_correct": false
+            }
+        ],
+        "question_number": 124
+    },
+    {
+        "order_id": "22",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a sample of size $N$ is drawn from an infinite population with standard deviation $\\sigma$, the standard deviation of the sampling distribution of means $\\sigma_{\\bar{x}}$ is:",
+        "explanation": "For an infinite population, or sampling with replacement, the standard deviation of the sampling distribution of means is $\\sigma_{\\bar{x}} = \\sigma / \\sqrt{N}$.",
+        "options": [
+            {
+                "option_id": "206366",
+                "tag": "a",
+                "text": "$\\sigma \\sqrt{N}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "683997",
+                "tag": "b",
+                "text": "$\\sigma / \\sqrt{N}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "311556",
+                "tag": "c",
+                "text": "$\\sigma / N$",
+                "is_correct": false
+            },
+            {
+                "option_id": "520479",
+                "tag": "d",
+                "text": "$\\sigma^2 / N$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 130
+    },
+    {
+        "order_id": "23",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "When sampling WITHOUT replacement from a finite population of size $NP$, the standard deviation of the sample mean is multiplied by the factor:",
+        "explanation": "When drawing from a finite population without replacement, the finite population correction factor $\\sqrt{\\frac{NP - N}{NP - 1}}$ is applied to the standard deviation.",
+        "options": [
+            {
+                "option_id": "230281",
+                "tag": "a",
+                "text": "$\\sqrt{\\frac{NP - N}{NP - 1}}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "241446",
+                "tag": "b",
+                "text": "$\\frac{NP - 1}{NP - N}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "265765",
+                "tag": "c",
+                "text": "$\\sqrt{\\frac{N}{NP}}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "225390",
+                "tag": "d",
+                "text": "$\\frac{N}{NP - 1}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 136
+    },
+    {
+        "order_id": "24",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "For the sampling distribution of means to be approximately normally distributed regardless of the population distribution, what is the required threshold for sample size $N$?",
+        "explanation": "For large samples ($N \\ge 30$), the sampling distribution of means is approximately a normal distribution, irrespective of the underlying population.",
+        "options": [
+            {
+                "option_id": "193075",
+                "tag": "a",
+                "text": "$N \\ge 10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "157981",
+                "tag": "b",
+                "text": "$N \\ge 30$",
+                "is_correct": true
+            },
+            {
+                "option_id": "286195",
+                "tag": "c",
+                "text": "$N \\le 30$",
+                "is_correct": false
+            },
+            {
+                "option_id": "128615",
+                "tag": "d",
+                "text": "$N = 100$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 142
+    },
+    {
+        "order_id": "25",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Given a sample of size $N=100$, from a population with mean $\\mu=58000$ and standard deviation $\\sigma=18000$. Find the standard score (Z-score) for a sample mean $\\bar{x}=55000$.",
+        "explanation": "$Z = \\frac{\\bar{x} - \\mu}{\\sigma / \\sqrt{N}} = \\frac{55000 - 58000}{18000 / \\sqrt{100}} = \\frac{-3000}{1800} = -1.67$.",
+        "options": [
+            {
+                "option_id": "148855",
+                "tag": "a",
+                "text": "$-1.00$",
+                "is_correct": false
+            },
+            {
+                "option_id": "263927",
+                "tag": "b",
+                "text": "$-1.67$",
+                "is_correct": true
+            },
+            {
+                "option_id": "216255",
+                "tag": "c",
+                "text": "$-0.16$",
+                "is_correct": false
+            },
+            {
+                "option_id": "682879",
+                "tag": "d",
+                "text": "$-3.00$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 148
+    },
+    {
+        "order_id": "26",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "For two independent populations with means $\\mu_1$ and $\\mu_2$, what is the mean of the sampling distribution of the difference in sample means $(\\bar{x}_1 - \\bar{x}_2)$?",
+        "explanation": "The mean of the sampling distribution of differences between two independent sample means is $\\mu_{\\bar{x}_1 - \\bar{x}_2} = \\mu_1 - \\mu_2$.",
+        "options": [
+            {
+                "option_id": "144412",
+                "tag": "a",
+                "text": "$\\mu_1 + \\mu_2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "333568",
+                "tag": "b",
+                "text": "$\\mu_1 - \\mu_2$",
+                "is_correct": true
+            },
+            {
+                "option_id": "198500",
+                "tag": "c",
+                "text": "$\\frac{\\mu_1 - \\mu_2}{2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "153937",
+                "tag": "d",
+                "text": "$\\mu_1 / \\mu_2$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 154
+    },
+    {
+        "order_id": "27",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the formula for the standard score ($Z$) for the difference between two sample means $\\bar{x}_1$ and $\\bar{x}_2$?",
+        "explanation": "The standard score for the difference in means is $Z = \\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2}}}$.",
+        "options": [
+            {
+                "option_id": "161253",
+                "tag": "a",
+                "text": "$\\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\sigma_1^2 / n_1 + \\sigma_2^2 / n_2}}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "185525",
+                "tag": "b",
+                "text": "$\\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{\\sigma_1 / n_1 + \\sigma_2 / n_2}}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "266706",
+                "tag": "c",
+                "text": "$\\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sigma_1^2 + \\sigma_2^2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "230395",
+                "tag": "d",
+                "text": "$\\frac{(\\mu_1 - \\mu_2) - (\\bar{x}_1 - \\bar{x}_2)}{\\sigma / \\sqrt{n_1 + n_2}}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 160
+    },
+    {
+        "order_id": "28",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "When the population standard deviation is unknown and the sample size is small, which probability distribution should be used for the sampling distribution of the mean?",
+        "explanation": "When population standard deviation is unknown and sample size is small, the use of the standard normal table is not justified; the appropriate distribution is the t-distribution.",
+        "options": [
+            {
+                "option_id": "108255",
+                "tag": "a",
+                "text": "Standard Normal (Z) Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "100715",
+                "tag": "b",
+                "text": "Chi-Square Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "116061",
+                "tag": "c",
+                "text": "Student's t-Distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "131556",
+                "tag": "d",
+                "text": "F-Distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 166
+    },
+    {
+        "order_id": "29",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the formula for calculating the $t$-statistic for a single sample mean when the population standard deviation is unknown?",
+        "explanation": "The $t$-statistic is given by $t = \\frac{\\bar{x} - \\mu}{S / \\sqrt{n}}$, where $S$ is the sample standard deviation.",
+        "options": [
+            {
+                "option_id": "307272",
+                "tag": "a",
+                "text": "$t = \\frac{\\bar{x} - \\mu}{S / \\sqrt{n}}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "212425",
+                "tag": "b",
+                "text": "$t = \\frac{\\bar{x} - \\mu}{\\sigma / \\sqrt{n}}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "126411",
+                "tag": "c",
+                "text": "$t = \\frac{\\bar{x} - \\mu}{S}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "318485",
+                "tag": "d",
+                "text": "$t = \\frac{\\bar{x} - S}{\\mu / \\sqrt{n}}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 172
+    },
+    {
+        "order_id": "30",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "For a $t$-distribution applied to a single sample of size $n$, what is the degrees of freedom ($df$)?",
+        "explanation": "The appropriate t-distribution depends on the sample size or on the degree of freedom, which is the sample size minus 1 ($n-1$).",
+        "options": [
+            {
+                "option_id": "288373",
+                "tag": "a",
+                "text": "$n$",
+                "is_correct": false
+            },
+            {
+                "option_id": "415932",
+                "tag": "b",
+                "text": "$n - 1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "118972",
+                "tag": "c",
+                "text": "$n - 2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "192260",
+                "tag": "d",
+                "text": "$2n - 1$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 178
+    },
+    {
+        "order_id": "31",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A sample size of 9 is taken. What is the degrees of freedom for the corresponding $t$-test?",
+        "explanation": "The degrees of freedom is $n - 1$. For $n = 9$, $df = 9 - 1 = 8$.",
+        "options": [
+            {
+                "option_id": "210715",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "135350",
+                "tag": "b",
+                "text": "$9$",
+                "is_correct": false
+            },
+            {
+                "option_id": "117921",
+                "tag": "c",
+                "text": "$8$",
+                "is_correct": true
+            },
+            {
+                "option_id": "155623",
+                "tag": "d",
+                "text": "$3$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 184
+    },
+    {
+        "order_id": "32",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a sample has a sample variance of 36, what is its sample standard deviation ($S$)?",
+        "explanation": "Standard deviation is the square root of the variance. $\\sqrt{36} = 6$.",
+        "options": [
+            {
+                "option_id": "171674",
+                "tag": "a",
+                "text": "$1296$",
+                "is_correct": false
+            },
+            {
+                "option_id": "328929",
+                "tag": "b",
+                "text": "$36$",
+                "is_correct": false
+            },
+            {
+                "option_id": "475944",
+                "tag": "c",
+                "text": "$6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "329407",
+                "tag": "d",
+                "text": "$18$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 190
+    },
+    {
+        "order_id": "33",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "According to the Central Limit Theorem, as the sample size $n$ becomes sufficiently large, the sampling distribution of the sample mean can be approximated by a:",
+        "explanation": "The Central Limit Theorem states that as $n$ becomes large, the sampling distribution of the sample mean approximates a normal distribution.",
+        "options": [
+            {
+                "option_id": "331516",
+                "tag": "a",
+                "text": "Uniform Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "382245",
+                "tag": "b",
+                "text": "Binomial Distribution",
+                "is_correct": false
+            },
+            {
+                "option_id": "323344",
+                "tag": "c",
+                "text": "Normal Distribution",
+                "is_correct": true
+            },
+            {
+                "option_id": "308267",
+                "tag": "d",
+                "text": "Poisson Distribution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 196
+    },
+    {
+        "order_id": "34",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "An important implication of the Central Limit Theorem is that it applies:",
+        "explanation": "The Central Limit Theorem is true whether or not the population is normally distributed. It applies to skewed, uniform, or other distributions as long as $n$ is large.",
+        "options": [
+            {
+                "option_id": "813338",
+                "tag": "a",
+                "text": "Only if the population is normally distributed.",
+                "is_correct": false
+            },
+            {
+                "option_id": "227163",
+                "tag": "b",
+                "text": "Whether or not the population is normally distributed.",
+                "is_correct": true
+            },
+            {
+                "option_id": "127618",
+                "tag": "c",
+                "text": "Only for discrete populations.",
+                "is_correct": false
+            },
+            {
+                "option_id": "151610",
+                "tag": "d",
+                "text": "Only when the population standard deviation is known.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 202
+    },
+    {
+        "order_id": "35",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "According to the Central Limit Theorem, what is the mean of all possible sample means $\\mu_{\\bar{x}}$ equal to?",
+        "explanation": "The theorem states that the mean of the population $\\mu$ and the mean of all possible sample means are exactly equal.",
+        "options": [
+            {
+                "option_id": "328070",
+                "tag": "a",
+                "text": "The population mean $\\mu$",
+                "is_correct": true
+            },
+            {
+                "option_id": "158683",
+                "tag": "b",
+                "text": "The population standard deviation $\\sigma$",
+                "is_correct": false
+            },
+            {
+                "option_id": "129634",
+                "tag": "c",
+                "text": "Zero",
+                "is_correct": false
+            },
+            {
+                "option_id": "305713",
+                "tag": "d",
+                "text": "$\\mu / n$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 209
+    },
+    {
+        "order_id": "36",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "According to the Central Limit Theorem, what is the variance of the distribution of sample means?",
+        "explanation": "The variance of the distribution of sample means is determined by $\\sigma^2 / n$.",
+        "options": [
+            {
+                "option_id": "278609",
+                "tag": "a",
+                "text": "$\\sigma$",
+                "is_correct": false
+            },
+            {
+                "option_id": "202640",
+                "tag": "b",
+                "text": "$\\sigma^2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "588653",
+                "tag": "c",
+                "text": "$\\sigma^2 / n$",
+                "is_correct": true
+            },
+            {
+                "option_id": "256343",
+                "tag": "d",
+                "text": "$\\sigma / \\sqrt{n}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 214
+    },
+    {
+        "order_id": "37",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In Exploratory Data Analysis (EDA), which of the following is classified as a measure of dispersion?",
+        "explanation": "Measures of dispersion in EDA include range, variance, standard deviation, and interquartile range (IQR).",
+        "options": [
+            {
+                "option_id": "244625",
+                "tag": "a",
+                "text": "Median",
+                "is_correct": false
+            },
+            {
+                "option_id": "299039",
+                "tag": "b",
+                "text": "Harmonic Mean",
+                "is_correct": false
+            },
+            {
+                "option_id": "314823",
+                "tag": "c",
+                "text": "Variance",
+                "is_correct": true
+            },
+            {
+                "option_id": "153930",
+                "tag": "d",
+                "text": "Skewness",
+                "is_correct": false
+            }
+        ],
+        "question_number": 220
+    },
+    {
+        "order_id": "38",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In Exploratory Data Analysis (EDA), Skewness and Kurtosis are classified as measures of:",
+        "explanation": "Skewness and kurtosis are categorized as measures of shape.",
+        "options": [
+            {
+                "option_id": "257600",
+                "tag": "a",
+                "text": "Central Tendency",
+                "is_correct": false
+            },
+            {
+                "option_id": "319209",
+                "tag": "b",
+                "text": "Dispersion",
+                "is_correct": false
+            },
+            {
+                "option_id": "174133",
+                "tag": "c",
+                "text": "Partition",
+                "is_correct": false
+            },
+            {
+                "option_id": "447288",
+                "tag": "d",
+                "text": "Shape",
+                "is_correct": true
+            }
+        ],
+        "question_number": 223
+    },
+    {
+        "order_id": "39",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which univariate data visualization tool displays the distribution of data based on a five-number summary (minimum, first quartile, median, third quartile, maximum)?",
+        "explanation": "Box Plots are univariate tools that show the distribution of data strictly based on a five-number summary.",
+        "options": [
+            {
+                "option_id": "328564",
+                "tag": "a",
+                "text": "Histogram",
+                "is_correct": false
+            },
+            {
+                "option_id": "113365",
+                "tag": "b",
+                "text": "Density Plot",
+                "is_correct": false
+            },
+            {
+                "option_id": "493819",
+                "tag": "c",
+                "text": "Box Plot",
+                "is_correct": true
+            },
+            {
+                "option_id": "903991",
+                "tag": "d",
+                "text": "Scatter Plot",
+                "is_correct": false
+            }
+        ],
+        "question_number": 232
+    },
+    {
+        "order_id": "40",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which univariate visualization tool is used to estimate the probability density function of a continuous variable?",
+        "explanation": "Density Plots estimate the probability density function of a continuous variable.",
+        "options": [
+            {
+                "option_id": "849702",
+                "tag": "a",
+                "text": "Density Plot",
+                "is_correct": true
+            },
+            {
+                "option_id": "269338",
+                "tag": "b",
+                "text": "Box Plot",
+                "is_correct": false
+            },
+            {
+                "option_id": "104162",
+                "tag": "c",
+                "text": "Heatmap",
+                "is_correct": false
+            },
+            {
+                "option_id": "797976",
+                "tag": "d",
+                "text": "Pair Plot",
+                "is_correct": false
+            }
+        ],
+        "question_number": 238
+    },
+    {
+        "order_id": "41",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which bivariate analysis visualization tool is best suited to show the relationship between two continuous variables?",
+        "explanation": "Scatter Plots examine the relationship between two variables, specifically showing the relationship between two continuous variables.",
+        "options": [
+            {
+                "option_id": "315012",
+                "tag": "a",
+                "text": "Histogram",
+                "is_correct": false
+            },
+            {
+                "option_id": "534324",
+                "tag": "b",
+                "text": "Scatter Plot",
+                "is_correct": true
+            },
+            {
+                "option_id": "269298",
+                "tag": "c",
+                "text": "Density Plot",
+                "is_correct": false
+            },
+            {
+                "option_id": "227896",
+                "tag": "d",
+                "text": "Box Plot",
+                "is_correct": false
+            }
+        ],
+        "question_number": 244
+    },
+    {
+        "order_id": "42",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which multivariate visualization tool represents data in a matrix format and is often used to show correlations or frequencies?",
+        "explanation": "Heatmaps are visual representations of data in a matrix format, widely used in multivariate analysis to show correlations.",
+        "options": [
+            {
+                "option_id": "594349",
+                "tag": "a",
+                "text": "Correlation Matrix",
+                "is_correct": false
+            },
+            {
+                "option_id": "340176",
+                "tag": "b",
+                "text": "Pair Plot",
+                "is_correct": false
+            },
+            {
+                "option_id": "221498",
+                "tag": "c",
+                "text": "Heatmap",
+                "is_correct": true
+            },
+            {
+                "option_id": "231057",
+                "tag": "d",
+                "text": "Histogram",
+                "is_correct": false
+            }
+        ],
+        "question_number": 250
+    },
+    {
+        "order_id": "43",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In Example 4.4, conducting a hypothesis test, the computed $t$-statistic is $1.375$ and the critical value is $t_{0.05}(24) = 1.711$. What is the correct statistical decision?",
+        "explanation": "Since the computed test statistic ($1.375$) is less than the critical value ($1.711$), we fall in the acceptance region. Therefore, we accept the null hypothesis $H_0$.",
+        "options": [
+            {
+                "option_id": "664276",
+                "tag": "a",
+                "text": "Reject the null hypothesis $H_0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "312971",
+                "tag": "b",
+                "text": "Accept the null hypothesis $H_0$",
+                "is_correct": true
+            },
+            {
+                "option_id": "521976",
+                "tag": "c",
+                "text": "Increase the sample size",
+                "is_correct": false
+            },
+            {
+                "option_id": "419953",
+                "tag": "d",
+                "text": "Change the significance level",
+                "is_correct": false
+            }
+        ],
+        "question_number": 256
+    },
+    {
+        "order_id": "44",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Two independent samples of sizes $n_1=25$ and $n_2=36$ have population standard deviations $\\sigma_1=5$ and $\\sigma_2=3$. What is the standard error of the difference in means?",
+        "explanation": "Standard error = $\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2} = \\sqrt{25/25 + 9/36} = \\sqrt{1 + 0.25} = \\sqrt{1.25}$.",
+        "options": [
+            {
+                "option_id": "111373",
+                "tag": "a",
+                "text": "$\\sqrt{1.25}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "333566",
+                "tag": "b",
+                "text": "$\\sqrt{2.5}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "134521",
+                "tag": "c",
+                "text": "$1.25$",
+                "is_correct": false
+            },
+            {
+                "option_id": "285806",
+                "tag": "d",
+                "text": "$2.0$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 262
+    },
+    {
+        "order_id": "45",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Sampling is defined as the selection of a part of a population so that judgments about the population can be made. This process relies on the sample being:",
+        "explanation": "Sampling is defined as selecting a part of a population such that the sample is representative of the population.",
+        "options": [
+            {
+                "option_id": "235491",
+                "tag": "a",
+                "text": "As large as the population.",
+                "is_correct": false
+            },
+            {
+                "option_id": "175926",
+                "tag": "b",
+                "text": "Representative of the population.",
+                "is_correct": true
+            },
+            {
+                "option_id": "337732",
+                "tag": "c",
+                "text": "Perfectly ordered.",
+                "is_correct": false
+            },
+            {
+                "option_id": "186703",
+                "tag": "d",
+                "text": "Subjectively chosen.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 268
+    },
+    {
+        "order_id": "46",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A business person deciding to generalize findings from sample data to a larger population is relying on the basis of:",
+        "explanation": "Generalizing from sample data to a larger population is the fundamental basis of statistical inference.",
+        "options": [
+            {
+                "option_id": "335099",
+                "tag": "a",
+                "text": "Descriptive statistics",
+                "is_correct": false
+            },
+            {
+                "option_id": "176215",
+                "tag": "b",
+                "text": "Statistical inference",
+                "is_correct": true
+            },
+            {
+                "option_id": "188239",
+                "tag": "c",
+                "text": "Exploratory Data Analysis",
+                "is_correct": false
+            },
+            {
+                "option_id": "242441",
+                "tag": "d",
+                "text": "Census",
+                "is_correct": false
+            }
+        ],
+        "question_number": 274
+    },
+    {
+        "order_id": "47",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Because any statistic computed from a sample varies from sample to sample, the statistic itself is considered to be a:",
+        "explanation": "Since any statistic computed from a sample varies, it itself is a variable, and hence has a probability distribution.",
+        "options": [
+            {
+                "option_id": "382942",
+                "tag": "a",
+                "text": "Constant",
+                "is_correct": false
+            },
+            {
+                "option_id": "671044",
+                "tag": "b",
+                "text": "Parameter",
+                "is_correct": false
+            },
+            {
+                "option_id": "218504",
+                "tag": "c",
+                "text": "Variable",
+                "is_correct": true
+            },
+            {
+                "option_id": "378165",
+                "tag": "d",
+                "text": "Population",
+                "is_correct": false
+            }
+        ],
+        "question_number": 280
+    },
+    {
+        "order_id": "48",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which specific non-probability sampling method is generally used by researchers aiming to investigate hidden or hard-to-reach groups like rapists or cultists?",
+        "explanation": "Snowball sampling is noted as highly effective for reaching hard-to-access or hidden populations, such as cultists, by relying on social network referrals.",
+        "options": [
+            {
+                "option_id": "765866",
+                "tag": "a",
+                "text": "Convenience Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "883008",
+                "tag": "b",
+                "text": "Purposive Sampling",
+                "is_correct": false
+            },
+            {
+                "option_id": "109504",
+                "tag": "c",
+                "text": "Snowball Sampling",
+                "is_correct": true
+            },
+            {
+                "option_id": "827315",
+                "tag": "d",
+                "text": "Quota Sampling",
+                "is_correct": false
+            }
+        ],
+        "question_number": 286
+    },
+    {
+        "order_id": "49",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In hypothesis testing for Example 4.4, checking if a population mean age is greater than 17 years, what is the appropriate null hypothesis $H_0$?",
+        "explanation": "The null hypothesis represents the baseline status quo or equality. In this case, $H_0: \\mu = 17$.",
+        "options": [
+            {
+                "option_id": "305165",
+                "tag": "a",
+                "text": "$H_0: \\mu > 17$",
+                "is_correct": false
+            },
+            {
+                "option_id": "101477",
+                "tag": "b",
+                "text": "$H_0: \\mu = 17$",
+                "is_correct": true
+            },
+            {
+                "option_id": "243849",
+                "tag": "c",
+                "text": "$H_0: \\mu < 17$",
+                "is_correct": false
+            },
+            {
+                "option_id": "651561",
+                "tag": "d",
+                "text": "$H_0: \\bar{x} = 17$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 292
+    },
+    {
+        "order_id": "50",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: SAMPLING DISTRIBUTIONS",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is a prominent demerit of Purposive (Judgmental) Sampling?",
+        "explanation": "Purposive sampling is highly subjective and prone to researcher bias in participant selection, limiting generalizability.",
+        "options": [
+            {
+                "option_id": "338051",
+                "tag": "a",
+                "text": "It requires a full census.",
+                "is_correct": false
+            },
+            {
+                "option_id": "337595",
+                "tag": "b",
+                "text": "It is completely random and unpredictable.",
+                "is_correct": false
+            },
+            {
+                "option_id": "181077",
+                "tag": "c",
+                "text": "It is highly subjective and prone to researcher bias.",
+                "is_correct": true
+            },
+            {
+                "option_id": "133368",
+                "tag": "d",
+                "text": "It takes an excessively long time to execute.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 298
+    }
+]

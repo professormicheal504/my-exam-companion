@@ -12,8 +12,73 @@
  */
 
 /* ═══════════════════════════════════════════════════
+   CONFIG — Same R2 source as the dashboard
+═══════════════════════════════════════════════════ */
+const MEC_R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+
+// Resolve the path to new_staging_area relative to sidebar.js location
+function _mecR2LocalPath(country) {
+  // sidebar.js lives at /components/sidebar.js, staging is at /new_staging_area
+  return `/new_staging_area/configs/${country}.json`;
+}
+
+async function _loadTestSectionsFromConfig() {
+  const country = localStorage.getItem('mec_country') || 'ng';
+  let config;
+  try {
+    const local = await fetch(_mecR2LocalPath(country));
+    if (!local.ok) throw new Error('local miss');
+    config = await local.json();
+  } catch {
+    const remote = await fetch(`${MEC_R2_BASE}/configs/${country}.json`);
+    if (!remote.ok) return null;
+    config = await remote.json();
+  }
+  return config;
+}
+
+/* ═══════════════════════════════════════════════════
    DATA — Flyout menu definitions
 ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   FLYOUT ICONS — Lucide SVGs, stroke="currentColor"
+   All icons inherit colour from the flyout item CSS.
+═══════════════════════════════════════════════════ */
+const _svg = (d) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+
+const FLYOUT_IC = {
+  // ── Study
+  classroom: _svg('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'),
+  study_pq: _svg('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
+  novel: _svg('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
+  syllabus: _svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>'),
+  jamb_brochure: _svg('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
+  topic_video: _svg('<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>'),
+  past_q_video: _svg('<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'),
+  scholarships: _svg('<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>'),
+  // ── Test
+  live_arena: _svg('<path d="m14.5 12.5-5-3v6l5-3z"/><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.81-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>'),
+  jamb_mock: _svg('<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>'),
+  secondary: _svg('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'),
+  cbt_exam: _svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'),
+  post_utme: _svg('<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/>'),
+  university: _svg('<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>'),
+  // ── Exam Studio
+  tutor: _svg('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'),
+  student: _svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
+  // ── More
+  chat: _svg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),
+  rank: _svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>'),
+  friend_score: _svg('<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+  history: _svg('<polyline points="12 8 12 12 14 14"/><path d="M3.05 11a9 9 0 1 0 .5-3m-.5 3V8m0 3H6"/>'),
+  earnings: _svg('<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'),
+  task: _svg('<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
+  referrals: _svg('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>'),
+  news: _svg('<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/>'),
+  admission: _svg('<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>'),
+};
+
 const MEC_MENUS = {
   study: {
     label: 'Study',
@@ -21,66 +86,33 @@ const MEC_MENUS = {
       {
         title: 'Study Materials',
         items: [
-          { id: 'classroom', icon: '🏫', label: 'Enter Classroom', hl: true },
-          { id: 'study_pq', icon: '📚', label: 'Study Past Questions' },
-          { id: 'novel', icon: '📖', label: 'Novel' },
-          { id: 'syllabus', icon: '📑', label: 'JAMB Syllabus' },
-          { id: 'jamb_brochure', icon: '📋', label: 'JAMB Brochure' },
+          { id: 'classroom', icon: FLYOUT_IC.classroom, label: 'Enter Classroom', hl: true },
+          { id: 'study_pq', icon: FLYOUT_IC.study_pq, label: 'Study Past Questions' },
+          { id: 'novel', icon: FLYOUT_IC.novel, label: 'Novel' },
+          { id: 'syllabus', icon: FLYOUT_IC.syllabus, label: 'JAMB Syllabus' },
+          { id: 'jamb_brochure', icon: FLYOUT_IC.jamb_brochure, label: 'JAMB Brochure' },
         ]
       },
       { divider: true },
       {
         title: 'Video Lessons',
         items: [
-          { id: 'topic_video', icon: '🎥', label: 'Topic Video Lessons' },
-          { id: 'past_q_video', icon: '▶️', label: 'Past Questions Videos' },
+          { id: 'topic_video', icon: FLYOUT_IC.topic_video, label: 'Topic Video Lessons' },
+          { id: 'past_q_video', icon: FLYOUT_IC.past_q_video, label: 'Past Questions Videos' },
         ]
       },
       { divider: true },
       {
         title: 'Opportunities',
         items: [
-          { id: 'scholarships', icon: '🎓', label: 'Scholarships' },
+          { id: 'scholarships', icon: FLYOUT_IC.scholarships, label: 'Scholarships' },
         ]
       }
     ]
   },
   test: {
     label: 'Test',
-    sections: [
-      {
-        title: 'Live Challenges',
-        items: [
-          { id: 'live_arena', icon: '⚔️', label: 'Live Arena', hl: true },
-        ]
-      },
-      { divider: true },
-      {
-        title: 'JAMB',
-        items: [
-          { id: 'jamb_cbt', icon: '⏱️', label: 'JAMB CBT Exam' },
-          { id: 'jamb_mock', icon: '💰', label: 'JAMB Mock', badge: 'EARNING' },
-          { id: 'jamb_trivia', icon: '🎮', label: 'JAMB Trivia', badge: 'EARNING' },
-          { id: 'jamb_predicted', icon: '🎯', label: 'JAMB Predicted Questions' },
-        ]
-      },
-      { divider: true },
-      {
-        title: 'WAEC',
-        items: [
-          { id: 'waec_cbt', icon: '📝', label: 'WAEC CBT', dim: true, badge: 'SOON' },
-          { id: 'waec_trivia', icon: '🧠', label: 'WAEC Trivia', dim: true, badge: 'SOON' },
-        ]
-      },
-      { divider: true },
-      {
-        title: 'NECO',
-        items: [
-          { id: 'neco_cbt', icon: '📝', label: 'NECO CBT', dim: true, badge: 'SOON' },
-          { id: 'neco_trivia', icon: '🧠', label: 'NECO Trivia', dim: true, badge: 'SOON' },
-        ]
-      }
-    ]
+    sections: []
   },
   exam_studio: {
     label: 'Exam Studio',
@@ -88,8 +120,8 @@ const MEC_MENUS = {
       {
         title: 'Community',
         items: [
-          { id: 'tutor', icon: '👩‍🏫', label: 'Tutor' },
-          { id: 'student', icon: '👨‍🎓', label: 'Student' },
+          { id: 'tutor', icon: FLYOUT_IC.tutor, label: 'Tutor' },
+          { id: 'student', icon: FLYOUT_IC.student, label: 'Student' },
         ]
       }
     ]
@@ -100,95 +132,43 @@ const MEC_MENUS = {
       {
         title: 'Community',
         items: [
-          { id: 'chat', icon: '💬', label: 'Chat' },
-          { id: 'rank', icon: '🏆', label: 'Global Rank' },
-          { id: 'friend_score', icon: '👀', label: 'Check Friend Score' },
+          { id: 'chat', icon: FLYOUT_IC.chat, label: 'Chat' },
+          { id: 'rank', icon: FLYOUT_IC.rank, label: 'Global Rank' },
+          { id: 'friend_score', icon: FLYOUT_IC.friend_score, label: 'Check Friend Score' },
         ]
       },
       { divider: true },
       {
         title: 'Activity',
         items: [
-          { id: 'history', icon: '🕒', label: 'History' },
+          { id: 'history', icon: FLYOUT_IC.history, label: 'History' },
         ]
       },
       { divider: true },
       {
         title: 'Rewards & Earnings',
         items: [
-          { id: 'reward_earnings', icon: '💰', label: 'Earnings', hl: true },
-          { id: 'reward_task', icon: '📋', label: 'Task' },
-          { id: 'reward_referrals', icon: '🤝', label: 'Referrals' },
+          { id: 'reward_earnings', icon: FLYOUT_IC.earnings, label: 'Earnings', hl: true },
+          { id: 'reward_task', icon: FLYOUT_IC.task, label: 'Task' },
+          { id: 'reward_referrals', icon: FLYOUT_IC.referrals, label: 'Referrals' },
         ]
       },
-      { divider: true },
-      {
-        title: 'News & Updates',
-        items: [
-          { id: 'news_latest', icon: '📰', label: 'Latest Updates', hl: true },
-          { id: 'news_admission', icon: '🎓', label: 'Admission News' },
-        ]
-      }
     ]
   }
 };
 
 /* ═══════════════════════════════════════════════════
-   HELPERS — Build page href from item id + base path
+   HELPERS — Delegated to MEC_NAV (nav.js)
+   mecHref and getModulesBasePath are kept as shims
+   for backwards compatibility with any legacy code.
+   All new code should use MEC_NAV.href(id, params).
 ═══════════════════════════════════════════════════ */
-function getModulesBasePath() {
-  const path = window.location.pathname;
-  if (path.includes('/public/modules/')) {
-    return '/public/modules/';
-  }
-  return '/modules/';
-}
-
-function mecHref(base, id) {
-  const map = {
-    // Core pages
-    home: 'index.html',
-    exam_hub: 'exam_hub/exam_hub.html',
-    ai_tutor: 'AI_study_agent/ai_study_agent.html',
-    chat: 'chat/admin_list.html',
-    rank: 'rank/rank.html',
-    // Study flyout
-    classroom: 'study/classroom/classroom_subject.html',
-    study_pq: 'study/study_past_questions/study_subject.html',
-    novel: 'study/novel/novel.html',
-    syllabus: 'study/syllabus/syllabus.html',
-    jamb_brochure: 'study/jamb_brochure/jamb_brochure.html',
-    topic_video: 'study/topic_video/topic_video.html',
-    past_q_video: 'study/past_question_video/past_question_video.html',
-    scholarships: 'study/scholarship/list_of_scholarship.html',
-    // Test flyout
-    live_arena: 'cbt_test/live_quiz_arena/all_subject.html',
-    jamb_cbt: 'cbt_test/core/setup.html?exam_id=jamb',
-    jamb_mock: 'cbt_test/jamb_mock_exam/mock_date_and_point.html',
-    jamb_trivia: 'cbt_test/jamb_triva/jamb_triva_subject.html',
-    jamb_predicted: 'cbt_test/jamb_predicted/jamb_predicted.html',
-    waec_cbt: 'cbt_test/waec_cbt/waec_cbt.html',
-    waec_trivia: 'cbt_test/waec_trivia/waec_trivia.html',
-    neco_cbt: 'cbt_test/neco_cbt/neco_cbt.html',
-    neco_trivia: 'cbt_test/neco_trivia/neco_trivia.html',
-    // Tutor and Student
-    tutor: 'exam_hub/tutor/teacher_entry.html',
-    student: 'exam_hub/student/all_rooms.html',
-    // Reward flyout
-    reward_earnings: 'earnings/earnings.html',
-    reward_task: 'task/task.html',
-    reward_referrals: 'referrals/referrals.html',
-    // News flyout
-    news_latest: 'news/latest.html',
-    news_admission: 'news/admission.html',
-    chat_admin: 'chat/chat_admin.html',
-    // Activity / New features
-    history: '#history',
-    friend_score: '#friend_score',
-  };
-  const rel = map[id];
-  if (!rel) return '#';
-  return getModulesBasePath() + rel;
+function _mecHrefSafe(id, params) {
+  // MEC_NAV is loaded before sidebar.js via <script> order.
+  // This guard makes the sidebar safe even if nav.js is missing.
+  if (window.MEC_NAV) return window.MEC_NAV.href(id, params);
+  console.warn('[sidebar] MEC_NAV not loaded — href() fell back to #');
+  return '#';
 }
 
 /* ═══════════════════════════════════════════════════
@@ -218,7 +198,27 @@ class AppSidebar extends HTMLElement {
 
   connectedCallback() {
     this.base = this.getAttribute('data-base') || './';
-    this.activeId = this.getAttribute('data-active') || 'home';
+    
+    // Auto-fix this.base if it is absolute '/' but we are inside '/public/' (e.g., Live Server or file://)
+    if (this.base === '/') {
+      const path = window.location.pathname;
+      const publicIdx = path.indexOf('/public/');
+      if (publicIdx !== -1) {
+        if (window.location.protocol === 'file:') {
+          this.base = 'file://' + path.substring(0, publicIdx + 8);
+        } else {
+          this.base = path.substring(0, publicIdx + 8);
+        }
+      }
+    }
+
+    // Auto-detect the active section from the current URL via MEC_NAV.
+    // Falls back to the data-active attribute, then to 'home'.
+    if (window.MEC_NAV) {
+      this.activeId = window.MEC_NAV.getActiveSection();
+    } else {
+      this.activeId = this.getAttribute('data-active') || 'home';
+    }
 
     // Register this instance globally so topbar toggle can reach it
     _sidebarInstance = this;
@@ -230,6 +230,13 @@ class AppSidebar extends HTMLElement {
     this._initState();
 
     document.addEventListener('click', this._docClick);
+
+    // Listen for nav.js close-sidebar events (triggered by link interceptor)
+    document.addEventListener('mec-close-sidebar', () => {
+      if (document.body.classList.contains('sidebar-mobile-open')) {
+        this._closeMobile();
+      }
+    });
   }
 
   disconnectedCallback() {
@@ -304,72 +311,95 @@ class AppSidebar extends HTMLElement {
   }
 
   _render() {
+    const _h = (id, params) => _mecHrefSafe(id, params);
+    const _active = (id) => this.activeId === id ? 'active' : '';
+
+    /* ── Lucide SVG icons (stroke="currentColor" — inherits CSS color) ── */
+    const IC = {
+      home: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+      study: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+      test: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>`,
+      exam_studio: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>`,
+      blog: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/></svg>`,
+      more: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>`,
+      ai_tutor: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="2" y="8" width="20" height="12" rx="2"/><path d="M6 8v4"/><path d="M18 8v4"/><path d="M8 16h8"/></svg>`,
+      topup: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>`,
+    };
+
     this.innerHTML = `
       <aside class="mec-sidebar" role="navigation" aria-label="Main navigation">
         <div class="mec-sidebar__nav">
 
           <!-- Home -->
-          <a href="${mecHref(this.base, 'home')}"
-             class="mec-sb-item ${this.activeId === 'home' ? 'active' : ''}"
+          <a href="${_h('home')}"
+             class="mec-sb-item ${_active('home')}"
              data-id="home">
-            <div class="mec-sb-icon">🏠</div>
+            <div class="mec-sb-icon">${IC.home}</div>
             <span class="mec-sb-label">Home</span>
           </a>
 
           <div class="mec-sb-sep"></div>
 
           <!-- Study (flyout) -->
-          <div class="mec-sb-item ${this.activeId === 'study' ? 'active' : ''}"
+          <div class="mec-sb-item ${_active('study')}"
                data-flyout="study"
                role="button"
                tabindex="0"
                aria-haspopup="true"
                aria-expanded="false">
-            <div class="mec-sb-icon">📚</div>
+            <div class="mec-sb-icon">${IC.study}</div>
             <span class="mec-sb-label">Study</span>
             <span class="mec-sb-new">NEW</span>
           </div>
 
           <!-- Test (flyout) -->
-          <div class="mec-sb-item ${this.activeId === 'test' ? 'active' : ''}"
+          <div class="mec-sb-item ${_active('test')}"
                data-flyout="test"
                role="button"
                tabindex="0"
                aria-haspopup="true"
                aria-expanded="false">
-            <div class="mec-sb-icon">📝</div>
+            <div class="mec-sb-icon">${IC.test}</div>
             <span class="mec-sb-label">Test</span>
           </div>
 
           <!-- Exam Studio (flyout) -->
-          <div class="mec-sb-item ${this.activeId === 'exam_studio' ? 'active' : ''}"
+          <div class="mec-sb-item ${_active('exam_studio')}"
                data-flyout="exam_studio"
                role="button"
                tabindex="0"
                aria-haspopup="true"
                aria-expanded="false">
-            <div class="mec-sb-icon">🏛️</div>
+            <div class="mec-sb-icon">${IC.exam_studio}</div>
             <span class="mec-sb-label">Exam Studio</span>
           </div>
 
+          <!-- Blog (direct link) -->
+          <a href="${_h('blog')}"
+             class="mec-sb-item ${_active('blog')}"
+             data-id="blog">
+            <div class="mec-sb-icon">${IC.blog}</div>
+            <span class="mec-sb-label">Blog</span>
+          </a>
+
           <!-- More (flyout) -->
-          <div class="mec-sb-item ${this.activeId === 'more' ? 'active' : ''}"
+          <div class="mec-sb-item ${_active('more')}"
                data-flyout="more"
                role="button"
                tabindex="0"
                aria-haspopup="true"
                aria-expanded="false">
-            <div class="mec-sb-icon">•••</div>
+            <div class="mec-sb-icon">${IC.more}</div>
             <span class="mec-sb-label">More</span>
           </div>
 
           <div class="mec-sb-sep"></div>
 
           <!-- AI Tutor (direct link) -->
-          <a href="${mecHref(this.base, 'ai_tutor')}"
-             class="mec-sb-item mec-sb-item--accent ${this.activeId === 'ai_tutor' ? 'active' : ''}"
+          <a href="${_h('ai_tutor')}"
+             class="mec-sb-item mec-sb-item--accent ${_active('ai_tutor')}"
              data-id="ai_tutor">
-            <div class="mec-sb-icon">🤖</div>
+            <div class="mec-sb-icon">${IC.ai_tutor}</div>
             <span class="mec-sb-label">AI Tutor</span>
           </a>
 
@@ -377,9 +407,9 @@ class AppSidebar extends HTMLElement {
 
         <!-- Bottom items -->
         <div class="mec-sidebar__bottom">
-          <div class="mec-sb-item mec-sb-item--premium" title="Go Premium">
-            <div class="mec-sb-icon">👑</div>
-            <span class="mec-sb-label">Premium</span>
+          <div class="mec-sb-item mec-sb-item--topup" title="Topup">
+            <div class="mec-sb-icon">${IC.topup}</div>
+            <span class="mec-sb-label">Topup</span>
           </div>
         </div>
       </aside>
@@ -436,6 +466,13 @@ class AppSidebar extends HTMLElement {
         this.overlay.classList.remove('active');
       }
     });
+
+    // Re-render menu when country changes
+    document.addEventListener('country-changed', () => {
+      if (this.openMenuId === 'test') {
+        this._closeFlyout();
+      }
+    });
   }
 
   _docClick(e) {
@@ -456,7 +493,68 @@ class AppSidebar extends HTMLElement {
       el.classList.toggle('active', el.getAttribute('data-flyout') === menuId);
     });
 
-    // Build HTML
+    // Position flyout (show immediately)
+    const rect = anchorEl.getBoundingClientRect();
+    const LEFT = 72 + 8;
+    this.flyout.style.left = LEFT + 'px';
+    this.flyout.style.top = '0px';
+    this.flyout.style.display = 'flex';
+
+    if (menuId === 'test') {
+      this.flyout.innerHTML = `<div style="padding:20px 16px;color:#9ca3af;font-size:13px;">Loading exams...</div>`;
+      this.flyout.classList.add('open');
+
+      _loadTestSectionsFromConfig().then(config => {
+        let html = `<div class="mec-flyout-title">Live Challenges</div>`;
+        html += `<a href="${_mecHrefSafe('live_arena')}" class="mec-flyout-item mec-flyout-item--hl">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.live_arena}</div><span>Live Arena</span></a>`;
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('jamb_mock')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.jamb_mock}</div><span>JAMB Mock Exam</span></a>`;
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('secondary_school')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.secondary}</div><span>Secondary School (All Class)</span></a>`;
+
+        if (config && config.dashboard_modules && config.dashboard_modules.length) {
+          config.dashboard_modules.forEach((mod, i) => {
+            if (i === 0) html += `<div class="mec-flyout-div"></div>`;
+            html += `<a href="${_mecHrefSafe('cbt_setup', { exam_id: mod.id })}" class="mec-flyout-item">`;
+            html += `<div class="mec-flyout-icon">${FLYOUT_IC.cbt_exam}</div>`;
+            html += `<span>${mod.display_name} CBT Exam</span>`;
+            html += `</a>`;
+            if (i < config.dashboard_modules.length - 1) html += `<div class="mec-flyout-div"></div>`;
+          });
+        }
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('post_utme')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.post_utme}</div><span>Post UTME CBT Exam</span></a>`;
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('university_exam')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.university}</div><span>University CBT/Theory Exam</span></a>`;
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('leaderboard')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.rank}</div><span>Leaderboard</span></a>`;
+
+        this.flyout.innerHTML = html;
+        requestAnimationFrame(() => {
+          const panelH = this.flyout.offsetHeight;
+          let top = rect.top;
+          if (top + panelH > window.innerHeight - 16) top = window.innerHeight - panelH - 16;
+          if (top < 64) top = 64;
+          this.flyout.style.top = top + 'px';
+        });
+      }).catch(() => {
+        this.flyout.innerHTML = `<div style="padding:16px;color:#ef4444;font-size:12px;">Failed to load exams</div>`;
+      });
+      return;
+    }
+
+    // Build HTML for non-test menus
     let html = '';
     menu.sections.forEach(section => {
       if (section.divider) {
@@ -472,11 +570,9 @@ class AppSidebar extends HTMLElement {
           item.hl ? 'mec-flyout-item--hl' : '',
           item.dim ? 'mec-flyout-item--dim' : '',
         ].filter(Boolean).join(' ');
-
         const href = item.dim ? '#' : mecHref(this.base, item.id);
         const tag = item.dim ? 'div' : 'a';
         const hrefAttr = item.dim ? '' : `href="${href}"`;
-
         html += `
           <${tag} ${hrefAttr} class="${cls}">
             <div class="mec-flyout-icon">${item.icon}</div>
@@ -486,30 +582,13 @@ class AppSidebar extends HTMLElement {
         `;
       });
     });
-
     this.flyout.innerHTML = html;
 
-    // Position flyout
-    const rect = anchorEl.getBoundingClientRect();
-    const SIDEBAR_W = 72;
-    const GAP = 8;
-    const LEFT = SIDEBAR_W + GAP;
-
-    this.flyout.style.left = LEFT + 'px';
-    this.flyout.style.top = '0px'; // reset before measuring
-    this.flyout.style.display = 'flex';
-
-    // Use rAF to get the real height after render
     requestAnimationFrame(() => {
       const panelH = this.flyout.offsetHeight;
       let top = rect.top;
-
-      // Keep within viewport
-      if (top + panelH > window.innerHeight - 16) {
-        top = window.innerHeight - panelH - 16;
-      }
+      if (top + panelH > window.innerHeight - 16) top = window.innerHeight - panelH - 16;
       if (top < 64) top = 64;
-
       this.flyout.style.top = top + 'px';
       this.flyout.classList.add('open');
     });
@@ -532,39 +611,7 @@ class AppSidebar extends HTMLElement {
 ═══════════════════════════════════════════════════ */
 customElements.define('app-sidebar', AppSidebar);
 
-/* ═══════════════════════════════════════════════════
-   SIMPLE & PROFESSIONAL NAVIGATION ALGORITHM
-═══════════════════════════════════════════════════ */
-(function() {
-  document.addEventListener('DOMContentLoaded', () => {
-    // We use native browser navigation for reliability in this multi-page architecture,
-    // while adding a professional fade-out transition.
-    document.body.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if (!a) return;
-
-      const href = a.getAttribute('href');
-      
-      // Ignore empty, anchor links, external links, or auth links
-      if (!href || href === '#' || href.startsWith('http') || a.target === '_blank') {
-        return;
-      }
-
-      // Allow native navigation but add a smooth UI transition
-      const main = document.querySelector('.main-content');
-      if (main) {
-        main.style.transition = 'opacity 0.2s ease-out';
-        main.style.opacity = '0.5';
-      }
-
-      // Auto-close sidebar on mobile to prevent it from covering the new page
-      if (window.innerWidth <= 600 && _sidebarInstance) {
-        // Only close if it's currently open
-        if (document.body.classList.contains('sidebar-mobile-open')) {
-          _sidebarInstance.toggle();
-        }
-      }
-    });
-    
-  });
-})();
+/*
+  Navigation (link interception, transitions, guards) is now
+  handled entirely by nav.js (MEC_NAV). No duplicate logic here.
+*/

@@ -1,0 +1,2208 @@
+{
+    "26617": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>1. Evaluate \\( 202^2_{three} - 112^2_{three}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(202^2_{three}\\)when converted to base ten \\(=(202_3)^2\\)<br />\r\n202_3 = 2 \\(\\times 3^2 + 0 \\times 3^1 + 2\\times 3^0 = 18 + 0 + 2\\)<br />\r\n=20\\(_{ten}; (202_3)^2 = (20)^2_{ten} = 400\\)<br />\r\n112\\(^2_{three}\\)when converted to base ten \\(= (112_3)^2\\)<br />\r\n112_3 = 1 \\(\\times 3^2 + 1 \\times 3^1 + 2\\times 3^0 = 9+3+2=14_{ten}\\)<br />\r\n(112_3)\\(^2 = (14)^2_{ten} = 196_{ten}\\)<br />\r\nEvaluate \\(\\Longrightarrow 400-196 = 204\\)<br />\r\nReconvert to base three</p>\r\n\r\n<p>204 &divide; 3 = 68 remainder 0</p>\r\n\r\n<p>68 &divide; 3 = 22 remainder 2</p>\r\n\r\n<p>22 &divide; 3 = 7 remainder 1</p>\r\n\r\n<p>7 &divide; 3 = 2 remainder 1</p>\r\n\r\n<p>2 &divide; 3 = 0 remainder 2</p>\r\n\r\n<p>=&nbsp;21120\\(_3\\)</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111321",
+                "tag": "a",
+                "text": "21120",
+                "is_correct": true
+            },
+            {
+                "option_id": "111322",
+                "tag": "b",
+                "text": "21121",
+                "is_correct": false
+            },
+            {
+                "option_id": "111323",
+                "tag": "c",
+                "text": "21112",
+                "is_correct": false
+            },
+            {
+                "option_id": "111324",
+                "tag": "d",
+                "text": "21011",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26618": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>If \\(y = 23_{five} + 101_{three}\\), find y, leaving your answer in base two</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(23_{five} = X_{ten}; X_{ten}\\) = 2\\(\\times 5^1 + 3\\times 5^0 = 10 + 3 = 13\\)<br />\r\n101\\(_{three}\\) = P\\(_{ten}\\); P\\(_{ten}\\) = 1\\(\\times 3^2 + 0\\times 3^1 + 1\\times 3^0 = 9 + 0 + 1 = 10_{ten}\\)<br />\r\nY = 13+10=23\\(_{ten}\\);<br />\r\nConverting to base two<br />\r\n\\(\\begin{matrix}<br />\r\n2 &amp; 23\\\\<br />\r\n2 &amp; 11 &amp;R1\\\\<br />\r\n2 &amp; 5 &amp; R1\\\\<br />\r\n2 &amp; 2 &amp; R1\\\\<br />\r\n2 &amp; 1 &amp; R0\\\\<br />\r\n&amp; 0&amp; R1 \\uparrow\\\\<br />\r\n\\end{matrix}\\)<br />\r\n= y = 10111\\(_2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "111325",
+                "tag": "a",
+                "text": "1110",
+                "is_correct": false
+            },
+            {
+                "option_id": "111326",
+                "tag": "b",
+                "text": "10111",
+                "is_correct": true
+            },
+            {
+                "option_id": "111327",
+                "tag": "c",
+                "text": "11101",
+                "is_correct": false
+            },
+            {
+                "option_id": "111328",
+                "tag": "d",
+                "text": "111100",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26619": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "trigonometric-ratios",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Given that sin (5x - 28)<sup>o</sup> = cos (3x - 50)<sup>o</sup>,0 < x < 90<sup>o</sup>, find the value of x",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Sin (5x \u2013 28)<sup>o</sup> = cos (3x - 50)<sup>o</sup><br>\r\nSince by the trigonometry relation <br>\r\nSin(5x \u2013 28)<sup>o</sup> = cos[90 \u2013 (5x \u2013 28)]<sup>o</sup><br>\r\nHence cos(3x \u2013 50)<sup>o</sup> = cos[90 \u2013 (5x \u2013 28)]<sup>o</sup><br>\r\n3x \u2013 50 = 90 - (5x-28)<br>\r\n3x \u2013 50 = 90 \u2013 5x + 28<br>\r\n3x + 5x = 90 + 28 + 50<br>\r\n8x = 168<br>\r\n\\(x = \\frac{168}{8}=21^{\\circ}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111329",
+                "tag": "a",
+                "text": "14<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111330",
+                "tag": "b",
+                "text": "21<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111331",
+                "tag": "c",
+                "text": "32<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111332",
+                "tag": "d",
+                "text": "39<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26620": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "solution-of-linear-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Solve for t in the equation \\(\\frac{3}{4}t+\\frac{1}{3}(21-t)\\) = 11,",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "\\(\\frac{3}{4}t+\\frac{1}{3}(21-t) = 11; \\frac{3t}{4} + \\frac{7}{1} - \\frac{t}{3} = \\frac{11}{1}\\\\<br>\r\n\\frac{3 \\times 3t + 7\\times 12 \u2013 4 \\times t = 11 \\times 12}{12}\\\\<br>\r\n9t + 84 \u2013 4t = 132; 5t = 132 \u2013 84\\\\<br>\r\n5t = 48; t = \\frac{48}{5} = 9\\frac{3}{5}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "111333",
+                "tag": "a",
+                "text": "\\(\\frac{9}{13}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111334",
+                "tag": "b",
+                "text": "\\(\\frac{9}{5}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111335",
+                "tag": "c",
+                "text": "5",
+                "is_correct": false
+            },
+            {
+                "option_id": "111336",
+                "tag": "d",
+                "text": "\\(9\\frac{3}{5}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26621": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "fractions-decimals-percentages-and-approximation",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "A school girl spends \\(\\frac{1}{4}\\) of her pocket money on books and \\(\\frac{1}{3}\\) on dress. What fraction remains?",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Let the girls pocket money be rep. by x. The amount spent on books = \\(\\frac{1}{4}of\\hspace{1mm}x = \\frac{x}{4}\\)<br>\r\nThe amount spent on dress \\(=\\frac{1}{3} of \\hspace{1mm}x=\\frac{x}{3}\\)<br>\r\n\u2234The fraction that remains = \\(\\frac{x}{1}-\\left(\\frac{x}{4}+\\frac{x}{3}\\right)\\\\<br>\r\n\\frac{3x+4x}{12}; = \\frac{12x-7x}{12} = \\frac{5x}{12} = \\frac{5}{12}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111337",
+                "tag": "a",
+                "text": "\\(\\frac{5}{6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111338",
+                "tag": "b",
+                "text": "\\(\\frac{7}{12}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111339",
+                "tag": "c",
+                "text": "\\(\\frac{5}{12}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "111340",
+                "tag": "d",
+                "text": "\\(\\frac{1}{6}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26622": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "geometry-and-trigonometry",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, R\\(\\hat{P}\\)Q = Q\\(\\hat{R}\\)Y, P\\(\\hat{Q}\\)R = R\\(\\hat{Y}\\)Q, |QP| = 8 cm, |QY| = 4 cm, and |RY| = 5 cm. Find |QR|.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26622.jpg",
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{PR}{QR} = \\frac{QR}{QY} = \\frac{QP}{YR}\\) (SSS Congruence)</p>\r\n\r\n<p>\\(\\frac{QR}{4} = \\frac{8}{5}\\)</p>\r\n\r\n<p>\\(QR = \\frac{4 \\times 8}{5}\\)</p>\r\n\r\n<p>= 6.4 cm</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "111341",
+                "tag": "a",
+                "text": "2.0cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "111342",
+                "tag": "b",
+                "text": "2.5cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "111343",
+                "tag": "c",
+                "text": "6.4cm",
+                "is_correct": true
+            },
+            {
+                "option_id": "111344",
+                "tag": "d",
+                "text": "10.0cm",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26623": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Find the value of x in the diagram</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26623.png",
+        "answer_image": null,
+        "explanation": "<p>The sum of angles at point = 360o<br />\r\n(x+10)o + (4x+50)o + 20o + 3xo + 2xo = 360o<br />\r\n10x + 80o = 360o<br />\r\n10x = 360o - 80o = 280o<br />\r\n\\(\\frac{280}{10}=28^{\\circ}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "111345",
+                "tag": "a",
+                "text": "10<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111346",
+                "tag": "b",
+                "text": "28<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111347",
+                "tag": "c",
+                "text": "36<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111348",
+                "tag": "d",
+                "text": "44<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26624": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "probability",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>There are m boys and 12 girls in a class. What is the probability of selecting at random a girl from the class?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>- Number of favourable outcomes = number of girls = 12<br />\r\n- Total number of possible outcomes = total students = m boys + 12 girls&nbsp;&nbsp;= m + 12</p>\r\n\r\n<p>Therefore, &nbsp;<br />\r\nProbability of selecting a girl = \\(\\dfrac{\\text{Number of girls}}{\\text{Total number of students}} = \\dfrac{12}{m + 12}\\).</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111349",
+                "tag": "a",
+                "text": "\\(\\frac{m}{12}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111350",
+                "tag": "b",
+                "text": "\\(\\frac{12}{m}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111351",
+                "tag": "c",
+                "text": "\\(\\frac{12}{m+12}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "111352",
+                "tag": "d",
+                "text": "\\(\\frac{12}{m-12}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26625": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "fractions-decimals-percentages-and-approximation",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Simplify \\(7\\frac{1}{2}-\\left(2\\frac{1}{2}+3\\right)\\div16\\frac{1}{2}\\)and correct your answer to the nearest whole number</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(7\\frac{1}{2}-\\left(2\\frac{1}{2}+3\\right)\\div16\\frac{1}{2}; \\frac{15}{2} - \\left(\\frac{5}{2}+\\frac{3}{1}\\right)\\div \\frac{33}{2}\\\\<br />\r\n\\frac{15}{2} - \\left(\\frac{5+6}{2}\\right)\\div \\frac{33}{2}; \\frac{15}{2} - \\frac{11}{2} \\div \\frac{33}{2}\\\\</p>\r\n\r\n<p><br />\r\n\\(\\frac{11}{2}\\)&nbsp;&divide;&nbsp;\\(\\frac{33}{2}\\) =&nbsp;\\(\\frac{11}{2}\\) *&nbsp;\\(\\frac{2}{33}\\)</p>\r\n\r\n<p>&nbsp; = \\(\\frac{11}{33}\\) or&nbsp;\\(\\frac{1}{3}\\) (when simplified)</p>\r\n\r\n<p>\\(\\frac{15}{2}\\) -&nbsp;\\(\\frac{1}{3}\\) =&nbsp;\\(\\frac{43}{6}\\)</p>\r\n\r\n<p>7.166</p>\r\n\r\n<p>The nearest whole number is 7</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "111353",
+                "tag": "a",
+                "text": "33",
+                "is_correct": false
+            },
+            {
+                "option_id": "111354",
+                "tag": "b",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "111355",
+                "tag": "c",
+                "text": "7",
+                "is_correct": true
+            },
+            {
+                "option_id": "111356",
+                "tag": "d",
+                "text": "0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26626": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "angles-of-elevation-and-depression",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "The angle of elevation of the top of a tower from a point on the ground which is 36m away from the foot of the tower is 30<sup>o</sup>. Calculate the height of the tower.",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/13999826510_wamath0410ans.jpg",
+        "explanation": "Where H is the height of the tower H  = ?<br>\r\n\\(Tan 30^{\\circ} = \\frac{H}{36} \\Rightarrow H = 36 \\times tan30^{\\circ}\\\\<br>\r\nH = 36 \\times 0.5774 = 20.79\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111357",
+                "tag": "a",
+                "text": "62.35m",
+                "is_correct": false
+            },
+            {
+                "option_id": "111358",
+                "tag": "b",
+                "text": "20.78m",
+                "is_correct": true
+            },
+            {
+                "option_id": "111359",
+                "tag": "c",
+                "text": "18.00m",
+                "is_correct": false
+            },
+            {
+                "option_id": "111360",
+                "tag": "d",
+                "text": "10.39m",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26627": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "lengths-and-perimeters",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Find the area of a rectangle of length 4cm and whose diagonal is 8cm, (Leave your answer in surd form)</p>",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/5599931076_wamath0411ans.jpg",
+        "explanation": "<p>|AB| = 4cm<br />\r\n|BC| = 8cm<br />\r\nIn right-angled BAC;</p>\r\n\r\n<p>8\\(^2\\) = 4\\(^2\\) + |AC|\\(^2\\)</p>\r\n\r\n<p>|AC|\\(^2\\) = 8\\(^2\\) - 4\\(^2\\)</p>\r\n\r\n<p>|AC\\\\(^2\\) = 64 - 16&nbsp;&rarr; 48</p>\r\n\r\n<p>|AC| = \\(\\sqrt{48}\\)cm &rarr;&nbsp;\\(4\\sqrt{3}cm\\)</p>\r\n\r\n<p>The area of rectangle = L x B</p>\r\n\r\n<p>= |AB| x |AC|<br />\r\n= \\((4 \\times 4\\sqrt{3}cm^2\\)<br />\r\n=\\(16\\sqrt{3}cm^2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "111361",
+                "tag": "a",
+                "text": "8\u221a3cm<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111362",
+                "tag": "b",
+                "text": "12\u221a3cm<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111363",
+                "tag": "c",
+                "text": "16\u221a2cm<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111364",
+                "tag": "d",
+                "text": "16\u221a3cm<sup>2</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26628": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "simple-operations-on-algebraic-expression",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Given that x + y = 7 and 3x-y = 5, evaluate \\(\\frac{y}{2}-3\\).",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "\\(x + y = 7 ------ I\\\\<br>\r\n3x \u2013 y = 5 ------ II\\)<br>\r\nAdd I and II; <br>\r\n\\(4x = 12 => x = \\frac{12}{4} = 3\\\\<br>\r\nY = 7 \u2013 3 = 4, evaluate \\hspace{1mm} \\frac{y}{2} \u2013 3\\\\<br>\r\n\\frac{4}{2} \u2013 3 => 2-3 = -1\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111365",
+                "tag": "a",
+                "text": "-1",
+                "is_correct": true
+            },
+            {
+                "option_id": "111366",
+                "tag": "b",
+                "text": "1",
+                "is_correct": false
+            },
+            {
+                "option_id": "111367",
+                "tag": "c",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "111368",
+                "tag": "d",
+                "text": "4",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26629": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, POQ is the diameter of the circle centre O. Calculate &ang;QRS</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26629.jpg",
+        "answer_image": null,
+        "explanation": "<p>&ang;PSQ = 90&deg;&nbsp;(angle in a semi-circle)<br />\r\n(when SR is joined to SP)<br />\r\n&ang;SPQ = 180 &ndash; (90+35) = 180 &ndash; 125 = 55&deg;<br />\r\n&ang;QRS + &ang;SPQ = 180&deg; (opposite angles in a cyclic quad is supplementary)<br />\r\n&ang;QRS = 180&deg; - 55&deg;<br />\r\n= 125&deg;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 10,
+        "options": [
+            {
+                "option_id": "111369",
+                "tag": "a",
+                "text": "35<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111370",
+                "tag": "b",
+                "text": "70<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111371",
+                "tag": "c",
+                "text": "100<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111372",
+                "tag": "d",
+                "text": "125<sup>o</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26630": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "logarithms",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>If \\(\\left(\\frac{1}{4}\\right)^{(2-y)} = 1\\), find y.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2^{-2(2-y)}-x=2^{0}; -4 + 2y = 0\\\\<br />\r\n2y = 4; y = 2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111373",
+                "tag": "a",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "111374",
+                "tag": "b",
+                "text": "\\(-\\frac{1}{2}\\).",
+                "is_correct": false
+            },
+            {
+                "option_id": "111375",
+                "tag": "c",
+                "text": "\\(\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111376",
+                "tag": "d",
+                "text": "2",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26631": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "lengths-and-perimeters",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Calculate the total surface area of a cupboard which measures 12cm by 10cm by 8cm</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Total surfaced area of a cupboard = 2(lb + lh + bh)<br />\r\nl = length h = height b = base<br />\r\nl = 12cm h = 10cm b = 8cm<br />\r\nT.S.A &nbsp;= 2(\\(12 \\times 8 \\times + 12 \\times 10 + 8 \\times 10\\))<br />\r\n= 2\\((96 + 120 + 80)cm^2 = 592cm^2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "111377",
+                "tag": "a",
+                "text": "1920cm<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111378",
+                "tag": "b",
+                "text": "592cm<sup>2</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111379",
+                "tag": "c",
+                "text": "296cm<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111380",
+                "tag": "d",
+                "text": "148cm<sup>2</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26634": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "algebraic-fractions",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "If \\(\\frac{x}{a+1}+\\frac{y}{b}\\) 1. Make y the subject of the relation",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "If \\(\\frac{bx+y(a+1)}{b(a+1)}=1\\\\<br>\r\nbx + ya + y = ba + b; y(a+1) = ba+b-bx\\\\<br>\r\ny(a+1)=b(a+1-x); y = \\frac{b(1+a-x}{a+1}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111381",
+                "tag": "a",
+                "text": "\\(\\frac{b(a-x+1)}{a+1}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "111382",
+                "tag": "b",
+                "text": "\\(\\frac{a+1}{b(a-x+1)}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111383",
+                "tag": "c",
+                "text": "\\(\\frac{a(b-x+1)}{b+1}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111384",
+                "tag": "d",
+                "text": "\\(\\frac{b}{a(b-x+1)}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26635": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "logarithms",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>lf \\(log_q p= r\\), express p in terms of q and r</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>If \\(log_q p\\) = r convert from logarithm to indices<br />\r\nP = q\\(^r\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111385",
+                "tag": "a",
+                "text": "p =qr",
+                "is_correct": false
+            },
+            {
+                "option_id": "111386",
+                "tag": "b",
+                "text": "p =r<sup>q</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111387",
+                "tag": "c",
+                "text": "\\(p = \\frac{r}{q}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111388",
+                "tag": "d",
+                "text": "p=q<sup>r</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26636": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "progressions",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Find the next two terms of the sequence<br />\r\n1, 5, 14, 30, 55,&nbsp;...</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(1 + 2^2 = 5 + 3^2 = 14 + 4^2 = 30 + 5^2 = 55\\)</p>\r\n\r\n<p>\\(55 + 6^2 = 91 + 7^2 = 140\\).</p>\r\n\r\n<p>91, 140 are the next two terms.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111389",
+                "tag": "a",
+                "text": "61,110",
+                "is_correct": false
+            },
+            {
+                "option_id": "111390",
+                "tag": "b",
+                "text": "67,116",
+                "is_correct": false
+            },
+            {
+                "option_id": "111391",
+                "tag": "c",
+                "text": "81,140",
+                "is_correct": false
+            },
+            {
+                "option_id": "111392",
+                "tag": "d",
+                "text": "91, 140",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26637": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "triangles-and-polygons",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Each interior angle of a regular polygon is 108&deg;. How many sides has it?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The exterior angle of the polygon = 180 &ndash; 108 = 72&deg;. The sum of exterior angle of the regular polygon = 360&deg;<br />\r\nThe number of sides \\(=\\frac{360}{72}=5\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111393",
+                "tag": "a",
+                "text": "5",
+                "is_correct": true
+            },
+            {
+                "option_id": "111394",
+                "tag": "b",
+                "text": "7",
+                "is_correct": false
+            },
+            {
+                "option_id": "111395",
+                "tag": "c",
+                "text": "9",
+                "is_correct": false
+            },
+            {
+                "option_id": "111396",
+                "tag": "d",
+                "text": "14",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26638": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Solve the equation 10-3x-x<sup>2</sup> = 0",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "10 \u2013 3x - x<sup>2</sup> = 0; 10 \u2013 5x + 2x - x<sup>2</sup> = 0<br>\r\n5(2 \u2013 x) + x(2 \u2013 x) = 0; (2 \u2013 x)(5 + x) = 0<br>\r\n2 \u2013 x = 0 or 5 + x = 0; x = 2 or x = -5",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111397",
+                "tag": "a",
+                "text": "x=2 or-5",
+                "is_correct": true
+            },
+            {
+                "option_id": "111398",
+                "tag": "b",
+                "text": "x= -2 or 5",
+                "is_correct": false
+            },
+            {
+                "option_id": "111399",
+                "tag": "c",
+                "text": "x = 1 or 10",
+                "is_correct": false
+            },
+            {
+                "option_id": "111400",
+                "tag": "d",
+                "text": "x = 2 or 5",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26639": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Find, correct to two decimal places, the mean of 9, 13, 16, 17, 19, 23, 24.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Mean \\(= \\frac{sum\\hspace{1mm}of\\hspace{1mm}all\\hspace{1mm}the\\hspace{1mm}numbers}{Total\\hspace{1mm}Number}\\\\<br />\r\n\\frac{9+13+16+17+19+23+24}{7}\\\\<br />\r\n\\frac{121}{7}=17.2857=17.29\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111401",
+                "tag": "a",
+                "text": "23.00",
+                "is_correct": false
+            },
+            {
+                "option_id": "111402",
+                "tag": "b",
+                "text": "17.29",
+                "is_correct": true
+            },
+            {
+                "option_id": "111403",
+                "tag": "c",
+                "text": "16.50",
+                "is_correct": false
+            },
+            {
+                "option_id": "111404",
+                "tag": "d",
+                "text": "16.33",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26640": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "triangles-and-polygons",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, \u2206XYZ is similar to \u2206PRQ, |XY| = 5cm, |XZ| =3.5cm and |PR| = 8cm. Find |PQ|</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26640.png",
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{PQ}{PR}=\\frac{XZ}{XY}; \\frac{PQ}{8}=\\frac{3.5}{5}\\\\<br />\r\nPQ=\\frac{8\\times 3.5}{5}=\\frac{28}{5}=5.6cm\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "111405",
+                "tag": "a",
+                "text": "5.6 cm",
+                "is_correct": true
+            },
+            {
+                "option_id": "111406",
+                "tag": "b",
+                "text": "11.2cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "111407",
+                "tag": "c",
+                "text": "11.4cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "111408",
+                "tag": "d",
+                "text": "28.0cm",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26641": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "positive-and-negative-integers",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Factorise 27p<sup>2</sup>x<sup>2</sup> - 48y<sup>2</sup>.",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "27p<sup>2</sup>x<sup>2</sup> - 48y<sup>2</sup>; 3(3<sup>2</sup> p<sup>2</sup>x<sup>2</sup>-4<sup>2</sup>y<sup>2</sup>)<br>\r\n3[(3px) <sup>2</sup> - (4y) <sup>2</sup>]; 3[(3px-4y)(3px+4y)]",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111409",
+                "tag": "a",
+                "text": "9(3px - 4y)<sup>2</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111410",
+                "tag": "b",
+                "text": "3(3px - 4y)(3px - 4y)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111411",
+                "tag": "c",
+                "text": "9(px - 4y)(3p x + 4y)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111412",
+                "tag": "d",
+                "text": "3(3px -4y)(3px +4y)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26642": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "volumes",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>What is the volume of a solid cylinder of diameter 7cm and height 7cm? (Take \\(\\pi = \\frac{22}{7}\\))</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Volume of a solid cylinder = Base area x height<br />\r\nBase area \\(=\\pi r^2\\) =\\(\\frac{22}{7} \\times \\frac{7}{2}\\times \\frac{7}{2}\\) = \\(\\frac{77}{2}\\)<br />\r\nVolume of a solid cylinder = \\(\\frac{77}{2}\\times \\frac{7}{1}\\) = \\(\\frac{539}{2}cm^3\\)<br />\r\n=269.5cm\\(^3\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111413",
+                "tag": "a",
+                "text": "38.5cm<sup>3</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111414",
+                "tag": "b",
+                "text": "77cm<sup>3</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111415",
+                "tag": "c",
+                "text": "269.5cm<sup>3</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111416",
+                "tag": "d",
+                "text": "1078cm<sup>3</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26643": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Find the sum of the roots of the equation 2x<sup>2</sup> + 3x - 9 = 0",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "The general quadratic equation <br>\r\nx<sup>2</sup> - (sum of roots) x + (product of root) = 0<br>\r\nComparing with the given equation <br>\r\n2x<sup>2</sup> +3x<sup>2</sup> - 9 = 0; \\(x^2 + \\frac{3}{2}x - \\frac{9}{2} = 0\\\\<br>\r\nSum \\hspace{1mm} of \\hspace{1mm}roots = -\\frac{3}{2}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "111417",
+                "tag": "a",
+                "text": "-18",
+                "is_correct": false
+            },
+            {
+                "option_id": "111418",
+                "tag": "b",
+                "text": "-6",
+                "is_correct": false
+            },
+            {
+                "option_id": "111419",
+                "tag": "c",
+                "text": "\\(-\\frac{9}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111420",
+                "tag": "d",
+                "text": "\\(-\\frac{3}{2}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26644": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "rational-numbers",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Given that &xi; = {1, 2, 3, . . . . . . ,10}, P= (x : x is prime) and Q = {y : y is odd}, find P&#39;&cap;Q</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>&xi; = {1, 2, 3, . . . . . . ,10}, P = (2, 3, 5, 7) and Q = {1, 3, 5, 7, 9},<br />\r\nP&#39;&cap;Q = {1, 4, 6, 8, 9, 10}&cap;{1, 3, 5, 7, 9} = {1, 9}</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "111421",
+                "tag": "a",
+                "text": "{2}",
+                "is_correct": false
+            },
+            {
+                "option_id": "111422",
+                "tag": "b",
+                "text": "{1,9}",
+                "is_correct": true
+            },
+            {
+                "option_id": "111423",
+                "tag": "c",
+                "text": "{315.7}",
+                "is_correct": false
+            },
+            {
+                "option_id": "111424",
+                "tag": "d",
+                "text": "{4, 6, 8, 10}",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26645": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, KS is a tangent to the circle centre O at R and &ang;ROQ = 80&ordm;. Find &ang;QRS.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26645.jpg",
+        "answer_image": null,
+        "explanation": "<p>QOP = 180 - 100(straight line angle)&nbsp;&rarr; 80&deg;<br />\r\nOPQ and OQP are isosceles of 40&deg; each.</p>\r\n\r\n<p>&ang;QRS = &ang;RPQ (theorem: angle in the alternate segment are equal)<br />\r\n&ang;RPQ = 40&ordm;<br />\r\n&ang;QRS = 40&ordm;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 12,
+        "options": [
+            {
+                "option_id": "111425",
+                "tag": "a",
+                "text": "90<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111426",
+                "tag": "b",
+                "text": "80<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111427",
+                "tag": "c",
+                "text": "50<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111428",
+                "tag": "d",
+                "text": "40<sup>o</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26646": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "statistics",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Find the mean deviation of 6, 7, 8, 9, 10",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "\\(\\begin{matrix}<br>\r\nx  & x-m & |x-m| \\\\<br>\r\n6  & -2  & 2     \\\\<br>\r\n7  & -1  & 1     \\\\<br>\r\n8  & 0   & 0     \\\\<br>\r\n9  & 1   & 1     \\\\<br>\r\n10 & 2   & 2     \\\\<br>\r\n   &     & 6     <br>\r\n\\end{matrix}<br>\r\n\\)<br>\r\nMean deviation\\(=\\frac{\\sum|x-m|}{n}=\\frac{6}{5} = 1.2\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "111429",
+                "tag": "a",
+                "text": "1.2",
+                "is_correct": true
+            },
+            {
+                "option_id": "111430",
+                "tag": "b",
+                "text": "1.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "111431",
+                "tag": "c",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "111432",
+                "tag": "d",
+                "text": "8",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26647": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "bearings-and-distances",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "A point X is on the bearing 342<sup>o</sup> from a point Y. What is the bearing of Y from X?",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "If x is the bearing 342<sup>o</sup>from a point y<br>\r\n= 360<sup>o</sup> - 342<sup>o</sup> = 18<sup>o</sup>;<br>\r\nThe bearing of y from x = 180<sup>o</sup> - 18<sup>o</sup> = 162<sup>o</sup>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111433",
+                "tag": "a",
+                "text": "342<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111434",
+                "tag": "b",
+                "text": "252<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111435",
+                "tag": "c",
+                "text": "198<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111436",
+                "tag": "d",
+                "text": "162<sup>o</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26648": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, O is the centre of the circle where OS//QR and &ang;SOR = 35&ordm;. Find the value of&nbsp; &ang;QPR.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26648.jpg",
+        "answer_image": null,
+        "explanation": "<p>&ang;SOR = &ang;ORQ alternate angle.<br />\r\nAlso &ang;OQR = &ang;OQR (Base angle of isosceles)<br />\r\n&ang;QOR = 180 &ndash; 2(35&ordm;) = 180 - 70&ordm;&nbsp;=&nbsp;110&ordm;,&nbsp;&ang;QPR = 1/2QOR = 1/2(110&ordm;) &ang;QPR =&nbsp;55&ordm;&nbsp;(theorem angle at center is twice angle at circumference)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 11,
+        "options": [
+            {
+                "option_id": "111437",
+                "tag": "a",
+                "text": "35<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111438",
+                "tag": "b",
+                "text": "45<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111439",
+                "tag": "c",
+                "text": "55<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111440",
+                "tag": "d",
+                "text": "70<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26649": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "number-and-numeration",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Find the average of the first four prime numbers greater than10",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "First four prime numbers greater than 10 are 11, 13, 17, 19<br>\r\nThe average \\(= \\frac{11+13+17+19}{4}=15\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111441",
+                "tag": "a",
+                "text": "20",
+                "is_correct": false
+            },
+            {
+                "option_id": "111442",
+                "tag": "b",
+                "text": "19",
+                "is_correct": false
+            },
+            {
+                "option_id": "111443",
+                "tag": "c",
+                "text": "17",
+                "is_correct": false
+            },
+            {
+                "option_id": "111444",
+                "tag": "d",
+                "text": "15",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26650": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Given that \\(\\sqrt{128}+\\sqrt{18}-\\sqrt{K} = 7\\sqrt{2}\\), find K,</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\sqrt{128} +\\sqrt{18}-\\sqrt{k}=7\\sqrt{2}\\\\<br />\r\n\\sqrt{2\\times 64}+\\sqrt{9\\times 2} - \\sqrt{k} = 7\\sqrt{2}\\\\<br />\r\n8\\sqrt{2} + 3\\sqrt{2} - \\sqrt{k} = 7\\sqrt{2}; 11\\sqrt{2} - \\sqrt{k} = 7\\sqrt{2}\\\\<br />\r\n-\\sqrt{k}=7\\sqrt{2}-11\\sqrt{2}; -\\sqrt{k} = -4\\sqrt{2}; \\sqrt{k}=4\\sqrt{2}\\\\<br />\r\n=\\sqrt{4^2\\times 2} = \\sqrt{16\\times 2}; \\sqrt{k}=\\sqrt{32}; k = 32\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "111445",
+                "tag": "a",
+                "text": "8",
+                "is_correct": false
+            },
+            {
+                "option_id": "111446",
+                "tag": "b",
+                "text": "16",
+                "is_correct": false
+            },
+            {
+                "option_id": "111447",
+                "tag": "c",
+                "text": "32",
+                "is_correct": true
+            },
+            {
+                "option_id": "111448",
+                "tag": "d",
+                "text": "48",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26651": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>In the diagram, PQRW is a circle. Line PW&nbsp;and QR are produced to meet at M, where &ang;WMR = 30o and |WM| = |MR| Find the value of x</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26651.jpg",
+        "answer_image": null,
+        "explanation": "<p>MPQ = PQM = 3x; \u2206MPQ<br />\r\nMPQ + PQM + PMQ = 180o; 3x + 3x + 30o = 180o<br />\r\n6x \\times 30o = 180o; 6x + 180o - 30o; 6x + 150o<br />\r\n\\(x = \\frac{150}{6} = 25^{\\circ}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111449",
+                "tag": "a",
+                "text": "10<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111450",
+                "tag": "b",
+                "text": "25<sup>o</sup>",
+                "is_correct": true
+            },
+            {
+                "option_id": "111451",
+                "tag": "c",
+                "text": "35<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111452",
+                "tag": "d",
+                "text": "60<sup>o</sup>",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26653": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "statistics",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>The table above gives the marks scored by a group of students in a test. Use the table to answer the Question below<br />\r\nWhat is the median mark?</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26653.png",
+        "answer_image": null,
+        "explanation": "<p>Median = 0, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5<br />\r\nMedian mark = \\(\\frac{3+3}{2} = \\frac{6}{2} = 3\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111457",
+                "tag": "a",
+                "text": "1",
+                "is_correct": false
+            },
+            {
+                "option_id": "111458",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "111459",
+                "tag": "c",
+                "text": "3",
+                "is_correct": true
+            },
+            {
+                "option_id": "111460",
+                "tag": "d",
+                "text": "4",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26654": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "probability",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<i>The table above gives the marks scored by a group of students in a test Use the table to answer the Question below</i><br>\r\nWhat is the probability of selecting a student from the group that scored 2 or 3?",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26654.jpg",
+        "answer_image": null,
+        "explanation": "Prob (2 or 3) = prob(2) + prob(3)<br>\r\nProb (mark 2) \\(=\\frac{7}{22}\\) + Prob(mark 3) = \\(\\frac{5}{22}\\)<br>\r\nProb(2 or 3) \\(=\\frac{7}{22}+\\frac{5}{22}=\\frac{12}{22}=\\frac{6}{11}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111461",
+                "tag": "a",
+                "text": "\\(\\frac{1}{11}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111462",
+                "tag": "b",
+                "text": "\\(\\frac{5}{22}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111463",
+                "tag": "c",
+                "text": "\\(\\frac{7}{22}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111464",
+                "tag": "d",
+                "text": "\\(\\frac{6}{11}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26655": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "linear-inequalities",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Find the range of values of x for which\\(\\frac{x+2}{4}-\\frac{x+1}{3}&gt;\\frac{1}{2}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{x+2}{4}-\\frac{x+1}{3}&gt;\\frac{1}{2}\\)<br />\r\n\\(\\frac{3(x+2)-4(x+1)&gt;6}{12}\\); 3x + 6 &ndash; 4x &ndash; 4 &gt; 6<br />\r\n- x +&nbsp;2 &gt; 6; - x &gt; 4; x &lt; -4</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111465",
+                "tag": "a",
+                "text": "x > 4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111466",
+                "tag": "b",
+                "text": "x > -4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111467",
+                "tag": "c",
+                "text": "x < 4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111468",
+                "tag": "d",
+                "text": "x < -4",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26656": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>A boy walks 800m in 20 minutes. Calculate his average speed in km per hour</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(Average \\hspace{1mm}speed = \\frac{Distance}{Time\\hspace{1mm} taken}\\)<br />\r\nDistance = 800m = \\(\\frac{800}{1000}\\)km = 0.8km&nbsp;<br />\r\nTime\\(\\hspace{1mm}taken = 20\\hspace{1mm}minutes = \\frac{20}{60}\\)hr</p>\r\n\r\n<p>= \\(\\frac{1}{3}hr\\\\Average \\hspace{1mm} speed = \\left(0.8\\div \\frac{1}{3}\\right)\\)km/hr</p>\r\n\r\n<p>= (0.8\\(\\times\\)3)km/hr =2.4km/hr</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111469",
+                "tag": "a",
+                "text": "2.4",
+                "is_correct": true
+            },
+            {
+                "option_id": "111470",
+                "tag": "b",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111471",
+                "tag": "c",
+                "text": "16",
+                "is_correct": false
+            },
+            {
+                "option_id": "111472",
+                "tag": "d",
+                "text": "24",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26657": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "algebraic-fractions",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Simplify \\(\\frac{2}{a+b}-\\frac{1}{a-b}\\)",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Simplify \\(\\frac{2}{a+b}-\\frac{1}{a-b}; \\frac{2(a-b)-1(a+b)}{(a+b)(a-b)}\\)<br>\r\n<br>\r\n= \\(\\frac{2a-2b-a-b}{(a+b)(a-b)}\\)<br>\r\n<br>\r\n= \\(\\frac{a-3b}{a^2 - ab + ab - b^2}\\)<br>\r\n<br>\r\n= \\(\\frac{a-3b}{a^2-b^2}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "111473",
+                "tag": "a",
+                "text": "\\(\\frac{3}{a+b}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111474",
+                "tag": "b",
+                "text": "\\(\\frac{a-3b}{a^2-b^2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "111475",
+                "tag": "c",
+                "text": "\\(\\frac{3a-b}{a^2 \u2013 b^2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111476",
+                "tag": "d",
+                "text": "\\(\\frac{a-3b}{a^2+b^2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26658": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>The diagram is a circle centre O. Find the value of x</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26658.jpg",
+        "answer_image": null,
+        "explanation": "<p>&ang;PQR (Reflex) = 360&deg;&nbsp;&ndash; 68&deg;&nbsp;= 292&deg;<br />\r\n&ang;PQR = 2&ang;PQR<br />\r\n292&deg;&nbsp;= 4x + 30&deg;<br />\r\n4x = 292&nbsp;&ndash; 30 = 262<br />\r\n\\(x = \\frac{262}{4}=65.5&deg;\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111477",
+                "tag": "a",
+                "text": "30<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111478",
+                "tag": "b",
+                "text": "50<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111479",
+                "tag": "c",
+                "text": "61<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111480",
+                "tag": "d",
+                "text": "78<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "212133",
+                "tag": "e",
+                "text": "65.5\\(^{\\circ}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26659": {
+        "order_id": 40,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "graph-of-linear-and-quadratic-functions",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<i>Use the graph to answer the Question below</i><br>\r\nWhat are the roots of the equation x<sup>2</sup> + 3x - 4 = 0?",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26659.jpg",
+        "answer_image": null,
+        "explanation": "x<sup>2</sup> + 3x \u2013 4 = 0 has roots value at the curve makes touches with the x \u2013 axis. The curve contact is at x = -4 and +1.",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111481",
+                "tag": "a",
+                "text": "1, 4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111482",
+                "tag": "b",
+                "text": "-1, -4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111483",
+                "tag": "c",
+                "text": "-1, 4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111484",
+                "tag": "d",
+                "text": "-4, 1",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26660": {
+        "order_id": 41,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "calculus",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "The values of x when y = 3 are approximately",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Mathematics/year/Objective/2004/img_26660.jpg",
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111485",
+                "tag": "a",
+                "text": "-4.7 and 1.4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111486",
+                "tag": "b",
+                "text": "-4.6 and 1.5",
+                "is_correct": true
+            },
+            {
+                "option_id": "111487",
+                "tag": "c",
+                "text": "-3.6 and 0.4",
+                "is_correct": false
+            },
+            {
+                "option_id": "111488",
+                "tag": "d",
+                "text": "-3.6 and 1.5",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26661": {
+        "order_id": 42,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Which of the following quadratic equations has \\(-\\frac{1}{2}\\) and \\(\\frac{3}{4}\\)  as its roots?",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "X<sup>2</sup> - (sum of the roots)x + (product of the roots) = 0<br>\r\nSum of the roots \\(= -\\frac{1}{2}+\\frac{3}{4} = \\frac{-2+3}{2}=\\frac{1}{4}\\)<br>\r\nProduct of the roots = \\(-\\frac{1}{2}\\times \\frac{3}{4}=\\frac{-3}{8}\\\\<br>\r\nX^2-\\left(\\frac{1}{4}\\right)x-\\frac{3}{8} = 0. Taking \\hspace{1mm}the\\hspace{1mm} common\\) <br>\r\n\\(8x^2-2x-3=0\\);",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111489",
+                "tag": "a",
+                "text": "8x<sup>2</sup> + 11x - 3 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "111490",
+                "tag": "b",
+                "text": "8x<sup>2</sup> -11x \u2013 3 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "111491",
+                "tag": "c",
+                "text": "8x<sup>2</sup> + 2x -3 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "111492",
+                "tag": "d",
+                "text": "8x<sup>2</sup> - 2x \u2013 3 = 0",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26662": {
+        "order_id": 43,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "coordinate-geometry-of-straight-lines",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "The locus of a point which moves in a plane such that it is equidistant from two fixed points X and Y is",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111493",
+                "tag": "a",
+                "text": "the perpendicular bisector of the line segment X Y",
+                "is_correct": true
+            },
+            {
+                "option_id": "111494",
+                "tag": "b",
+                "text": "a line parallel to the line segment XY",
+                "is_correct": false
+            },
+            {
+                "option_id": "111495",
+                "tag": "c",
+                "text": "a circle with XY as diameter",
+                "is_correct": false
+            },
+            {
+                "option_id": "111496",
+                "tag": "d",
+                "text": "the line perpendicular to the line segment XY",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26663": {
+        "order_id": 44,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>Given that \\(P\\propto \\frac{1}{\\sqrt{r}}\\) and p = 3 when r = 16, find the value of r when p = \\(\\frac{3}{2}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Given that \\( P \\propto \\frac{1}{\\sqrt{r}} \\), we can express this relationship as:</p>\r\n\r\n<p>\\(P = k \\cdot \\frac{1}{\\sqrt{r}}\\)</p>\r\n\r\n<p>for some constant \\( k \\).</p>\r\n\r\n<p>From the information provided, when \\( P = 3 \\) and \\( r = 16 \\):</p>\r\n\r\n<p>\\(3 = k \\cdot \\frac{1}{\\sqrt{16}}\\)</p>\r\n\r\n<p>Since \\( \\sqrt{16} = 4 \\), we have: \\(3 = k \\cdot \\frac{1}{4}\\)</p>\r\n\r\n<p>Thus, \\(k = 3 \\cdot 4 = 12\\)</p>\r\n\r\n<p>Now we can write the equation as: \\(P = \\frac{12}{\\sqrt{r}}\\)</p>\r\n\r\n<p>Next, we need to find \\( r \\) when \\( P = \\frac{3}{2} \\):</p>\r\n\r\n<p>\\(\\frac{3}{2} = \\frac{12}{\\sqrt{r}}\\)</p>\r\n\r\n<p>Cross-multiplying gives:</p>\r\n\r\n<p>\\(3\\sqrt{r} = 24\\)</p>\r\n\r\n<p>Dividing both sides by 3:</p>\r\n\r\n<p>\\(\\sqrt{r} = 8\\)</p>\r\n\r\n<p>Squaring both sides:</p>\r\n\r\n<p>\\(r = 64\\). Thus, r = 64</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 12,
+        "options": [
+            {
+                "option_id": "111497",
+                "tag": "a",
+                "text": "48",
+                "is_correct": false
+            },
+            {
+                "option_id": "111498",
+                "tag": "b",
+                "text": "64",
+                "is_correct": true
+            },
+            {
+                "option_id": "111499",
+                "tag": "c",
+                "text": "72",
+                "is_correct": false
+            },
+            {
+                "option_id": "111500",
+                "tag": "d",
+                "text": "324",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26664": {
+        "order_id": 45,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "circles",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Which of the following is/are true?  In a plane, the locus of points I. Equidistant from a straight line is a circle radius d where d is the distance between the point and the straight line.<br>\r\nII Equidistant from two given points P and Q is a circle of radius |PQ|. III Equidistant from two points is the perpendicular bisector of the line joining the two points.",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "111501",
+                "tag": "a",
+                "text": "I only",
+                "is_correct": false
+            },
+            {
+                "option_id": "111502",
+                "tag": "b",
+                "text": "II only",
+                "is_correct": false
+            },
+            {
+                "option_id": "111503",
+                "tag": "c",
+                "text": "III only",
+                "is_correct": true
+            },
+            {
+                "option_id": "111504",
+                "tag": "d",
+                "text": "I, II and III",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 9,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "26665": {
+        "order_id": 46,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "ratios-proportions-and-rates",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>The sides of two cubes are in the ratio 2:5. What is the ratio of their volumes?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The ratio of the two cubes = 2:5<br />\r\nVolume of the two cubes = 2\\(^3\\) : 5\\(^3\\) = 8 : 125</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111505",
+                "tag": "a",
+                "text": "4:5",
+                "is_correct": false
+            },
+            {
+                "option_id": "111506",
+                "tag": "b",
+                "text": "8: 15",
+                "is_correct": false
+            },
+            {
+                "option_id": "111507",
+                "tag": "c",
+                "text": "6:125",
+                "is_correct": false
+            },
+            {
+                "option_id": "111508",
+                "tag": "d",
+                "text": "8:125",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "26666": {
+        "order_id": 47,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "quadratic-equations",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "Given that p = 2, q = -5 and r = - 4, evaluate 3p<sup>2</sup> - q<sup>2</sup> - r<sup>3</sup>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "3(2)<sup>2</sup> - (-5)<sup>2</sup> - (-4)<sup>3</sup><br>\r\n3(4) \u2013 (25) \u2013 (-64); 12 \u2013 25 + 64 = 51",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 12,
+        "options": [
+            {
+                "option_id": "111509",
+                "tag": "a",
+                "text": "101",
+                "is_correct": false
+            },
+            {
+                "option_id": "111510",
+                "tag": "b",
+                "text": "77",
+                "is_correct": false
+            },
+            {
+                "option_id": "111511",
+                "tag": "c",
+                "text": "51",
+                "is_correct": true
+            },
+            {
+                "option_id": "111512",
+                "tag": "d",
+                "text": "-27",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "26667": {
+        "order_id": 48,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "financial-arithmetic",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "<p>A Cooperative Society charges an interest of 5\\(\\frac{1}{2}\\)% per annum on any amount borrowed by its members. If a member borrows N125,000, how much does he pay back after one year?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The rate of interest charge = 5\\(\\frac{1}{2}\\)% p.a<br />\r\nThe amount borrowed = N125, 000:00<br />\r\nInterest charge \\(=\\frac{11}{200} of N125,000\\)<br />\r\n= 11 \\(\\times N625.00 = N6,875.00\\)<br />\r\nThe amount refunded by the member, with interest charged by the cooperative society<br />\r\nN125,000 + N6,875.00 = N131,875.00</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "111513",
+                "tag": "a",
+                "text": "N136875",
+                "is_correct": false
+            },
+            {
+                "option_id": "111514",
+                "tag": "b",
+                "text": "N131,875",
+                "is_correct": true
+            },
+            {
+                "option_id": "111515",
+                "tag": "c",
+                "text": "N126750",
+                "is_correct": false
+            },
+            {
+                "option_id": "111516",
+                "tag": "d",
+                "text": "N126250",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "26668": {
+        "order_id": 49,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "probability",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "A bag contains 3 red and 2 white identical balls. lf 2 balls are picked at random from the bag, one after the other and with replacement, find the probability that they are of different colours",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "Prob(RW or WR) = Prob(RW) + Prob(WR)<br>\r\n\\(Prob(R) = \\frac{3}{5}:Prob(W) = \\frac{2}{5}\\\\<br>\r\nProb(RW\\hspace{1mm}or\\hspace{1mm}WR)=\\frac{3}{5}\\times\\frac{2}{5}+\\frac{2}{5}\\times \\frac{3}{5}\\\\<br>\r\n\\frac{6}{25}+\\frac{6}{25}=\\frac{12}{25}\\)",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111517",
+                "tag": "a",
+                "text": "\\(\\frac{36}{625}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111518",
+                "tag": "b",
+                "text": "\\(\\frac{16}{625}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "111519",
+                "tag": "c",
+                "text": "\\(\\frac{12}{25}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "111520",
+                "tag": "d",
+                "text": "\\(\\frac{13}{25}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "26669": {
+        "order_id": 50,
+        "exam_type": "WAEC",
+        "subject": "Mathematics",
+        "topic": "angles-of-elevation-and-depression",
+        "question_type": "Objective",
+        "exam_year": "2004",
+        "question_text": "A point on the ground is 5m away from the foot of a vertical wall 7 m high, Calculate, correct to the nearest degree, the angle of depression of the point from the top of the wall",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/28005376780_wamath0450ans.jpg",
+        "explanation": "\u03b8= angle of depression of the point from the top of the wall<br>\r\n\\(tan\\theta = \\frac{7}{5}=1.4; \\theta = tan^{-1}(1.400)\\<br>\r\n\\theta = 54.4^{\\circ}; \\theta = 54^{\\circ}\\) to the nearest degree",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "111521",
+                "tag": "a",
+                "text": "36<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111522",
+                "tag": "b",
+                "text": "44<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111523",
+                "tag": "c",
+                "text": "46<sup>o</sup>",
+                "is_correct": false
+            },
+            {
+                "option_id": "111524",
+                "tag": "d",
+                "text": "54<sup>o</sup>",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 10,
+        "_page_idx": 4,
+        "editor_images": null
+    }
+}

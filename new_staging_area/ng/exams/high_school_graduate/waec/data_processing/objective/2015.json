@@ -1,0 +1,1762 @@
+{
+    "57159": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following persons invented the punch card machine?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Dr. Herman Hollerith developed the punch card system for data processing in the late 19th century, which was widely used for the 1890 U.S. Census. His system used punched cards to store data, which could be processed using electric machines to count and analyze the information much more efficiently than manual methods.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "219242",
+                "tag": "a",
+                "text": "Blaise Pascal",
+                "is_correct": false
+            },
+            {
+                "option_id": "219243",
+                "tag": "b",
+                "text": "Gottfried Leibniz",
+                "is_correct": false
+            },
+            {
+                "option_id": "219244",
+                "tag": "c",
+                "text": "J. Prosper Eckert",
+                "is_correct": false
+            },
+            {
+                "option_id": "219245",
+                "tag": "d",
+                "text": "Dr. Herman Hollerith",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57190": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Convert \\(47_8\\)<small>&nbsp;to its binary equivalent.</small></p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Convert to base 10 first.</p>\r\n\r\n<p>\\(47_8\\) = 4 x \\(8^1\\) + 7 x \\(8^0\\) = \\(39_{10}\\)</p>\r\n\r\n<p>Then convert \\(39_{10}\\) to base 2 as follows</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:100px\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>39</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>19 R 1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>9 R 1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>4 R 1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>2 R 0</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>1 R 0</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>0 R 1</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Therefore&nbsp;\\(47_8\\) is equivalent to \\(100111_2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 14,
+        "options": [
+            {
+                "option_id": "219366",
+                "tag": "a",
+                "text": "100111\\(_2\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "219367",
+                "tag": "b",
+                "text": "110011\\(_2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "219368",
+                "tag": "c",
+                "text": "10001\\(_2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "219369",
+                "tag": "d",
+                "text": "1111011\\(_2\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57195": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The operation of checking input data against specified criteria is referred to as.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "219386",
+                "tag": "a",
+                "text": "data verification",
+                "is_correct": false
+            },
+            {
+                "option_id": "219387",
+                "tag": "b",
+                "text": "data validation",
+                "is_correct": true
+            },
+            {
+                "option_id": "219388",
+                "tag": "c",
+                "text": "data cross check",
+                "is_correct": false
+            },
+            {
+                "option_id": "219389",
+                "tag": "d",
+                "text": "data control",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57212": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not a source of data collection.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Data collection is defined as the procedure of collecting, measuring and analyzing accurate insights for research using standard validated techniques. All the other processes help to achieve this apart from option D.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "219454",
+                "tag": "a",
+                "text": "observation",
+                "is_correct": false
+            },
+            {
+                "option_id": "219455",
+                "tag": "b",
+                "text": "interview",
+                "is_correct": false
+            },
+            {
+                "option_id": "219456",
+                "tag": "c",
+                "text": "questionnaire",
+                "is_correct": false
+            },
+            {
+                "option_id": "219457",
+                "tag": "d",
+                "text": "classification",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57227": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is true about digital computers.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "219514",
+                "tag": "a",
+                "text": "They consist of magnetic core memory.",
+                "is_correct": false
+            },
+            {
+                "option_id": "219515",
+                "tag": "b",
+                "text": "they understand data as a continuous measurement of a physical quantity.",
+                "is_correct": false
+            },
+            {
+                "option_id": "219516",
+                "tag": "c",
+                "text": "they represent numbers through a string of binary digits.",
+                "is_correct": true
+            },
+            {
+                "option_id": "219517",
+                "tag": "d",
+                "text": "they are mainly used for scientific purposes.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57231": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Facebook, Twitter and WhatsApp are examples of</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Facebook, Twitter, and WhatsApp are examples of social media/app platforms.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 5,
+        "options": [
+            {
+                "option_id": "219530",
+                "tag": "a",
+                "text": "social media",
+                "is_correct": true
+            },
+            {
+                "option_id": "219531",
+                "tag": "b",
+                "text": "social communication",
+                "is_correct": false
+            },
+            {
+                "option_id": "219532",
+                "tag": "c",
+                "text": "networking media",
+                "is_correct": false
+            },
+            {
+                "option_id": "219533",
+                "tag": "d",
+                "text": "search engines",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57234": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not an application of computers?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 11,
+        "options": [
+            {
+                "option_id": "219542",
+                "tag": "a",
+                "text": "bank notes counter",
+                "is_correct": true
+            },
+            {
+                "option_id": "219543",
+                "tag": "b",
+                "text": "point of sales terminal",
+                "is_correct": false
+            },
+            {
+                "option_id": "219544",
+                "tag": "c",
+                "text": "Automated Teller Machine",
+                "is_correct": false
+            },
+            {
+                "option_id": "219545",
+                "tag": "d",
+                "text": "traffic lights control",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57239": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is secondary storage device.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "219562",
+                "tag": "a",
+                "text": "RAM",
+                "is_correct": false
+            },
+            {
+                "option_id": "219563",
+                "tag": "b",
+                "text": "bubble memory",
+                "is_correct": false
+            },
+            {
+                "option_id": "219564",
+                "tag": "c",
+                "text": "floppy disk",
+                "is_correct": true
+            },
+            {
+                "option_id": "219565",
+                "tag": "d",
+                "text": "EPROM",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57243": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Information analysis procedures includes the following except</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Information analysis procedures involve the following i. skim and scan ii.recognize omission and faulty logic iii. determine accuracy, relevance and reliability of information iv. differentiate, identify propaganda/bias vi. recognize interrelationships.Therefore OPTION C is Correct.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "219578",
+                "tag": "a",
+                "text": "skim and scan",
+                "is_correct": false
+            },
+            {
+                "option_id": "219579",
+                "tag": "b",
+                "text": "recognizing interrelationships",
+                "is_correct": false
+            },
+            {
+                "option_id": "219580",
+                "tag": "c",
+                "text": "interpret and conclude",
+                "is_correct": true
+            },
+            {
+                "option_id": "219581",
+                "tag": "d",
+                "text": "identifying propaganda and bias",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57245": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The advantages of electronic data processing includes the following except</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "219586",
+                "tag": "a",
+                "text": "automatic processing",
+                "is_correct": false
+            },
+            {
+                "option_id": "219587",
+                "tag": "b",
+                "text": "hacking",
+                "is_correct": true
+            },
+            {
+                "option_id": "219588",
+                "tag": "c",
+                "text": "fast and reliable processing",
+                "is_correct": false
+            },
+            {
+                "option_id": "219589",
+                "tag": "d",
+                "text": "storage capacity",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57270": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not a transmission medium?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A transmission medium is something that can mediate the propagation of signals for the purposes of telecommunication.&nbsp;A&nbsp;<em>modem</em>&nbsp;is a device or program that enables a computer to transmit data and so cannot be regarded as a transmission medium.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "219674",
+                "tag": "a",
+                "text": "twisted pair cables",
+                "is_correct": false
+            },
+            {
+                "option_id": "219675",
+                "tag": "b",
+                "text": "coaxial cables",
+                "is_correct": false
+            },
+            {
+                "option_id": "219676",
+                "tag": "c",
+                "text": "wireless",
+                "is_correct": false
+            },
+            {
+                "option_id": "219677",
+                "tag": "d",
+                "text": "modem",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57279": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Information transmission by television is classified as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 6,
+        "options": [
+            {
+                "option_id": "219706",
+                "tag": "a",
+                "text": "multimedia transmission",
+                "is_correct": true
+            },
+            {
+                "option_id": "219707",
+                "tag": "b",
+                "text": "polymedia transmission",
+                "is_correct": false
+            },
+            {
+                "option_id": "219708",
+                "tag": "c",
+                "text": "unimedia transmission",
+                "is_correct": false
+            },
+            {
+                "option_id": "219709",
+                "tag": "d",
+                "text": "monomedia transmission",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57282": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following are the basic components of a computer network? I. A minimum of two computers II. Printers III. Network interface card.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The key parts required to set up&nbsp;a computer network are called Basic Computer Network.&nbsp;The components&nbsp;of a Computer Network: are a Network Interface Card(NIC), HUB, Switch, Repeater, Router, Modem, Server, Bridge.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 10,
+        "options": [
+            {
+                "option_id": "219718",
+                "tag": "a",
+                "text": "I and II",
+                "is_correct": false
+            },
+            {
+                "option_id": "219719",
+                "tag": "b",
+                "text": "I and III",
+                "is_correct": true
+            },
+            {
+                "option_id": "219720",
+                "tag": "c",
+                "text": "II and III",
+                "is_correct": false
+            },
+            {
+                "option_id": "219721",
+                "tag": "d",
+                "text": "I, II and III",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57285": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Social networking does not promote.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 6,
+        "options": [
+            {
+                "option_id": "219726",
+                "tag": "a",
+                "text": "personal publicity",
+                "is_correct": false
+            },
+            {
+                "option_id": "219727",
+                "tag": "b",
+                "text": "business expansion",
+                "is_correct": false
+            },
+            {
+                "option_id": "219728",
+                "tag": "c",
+                "text": "e-commerce",
+                "is_correct": false
+            },
+            {
+                "option_id": "219729",
+                "tag": "d",
+                "text": "e-payment",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57287": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Companies that provide internet access are referred to as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "219734",
+                "tag": "a",
+                "text": "fixed network operators",
+                "is_correct": false
+            },
+            {
+                "option_id": "219735",
+                "tag": "b",
+                "text": "network service providers",
+                "is_correct": false
+            },
+            {
+                "option_id": "219736",
+                "tag": "c",
+                "text": "internet service providers",
+                "is_correct": true
+            },
+            {
+                "option_id": "219737",
+                "tag": "d",
+                "text": "internet network operators",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57292": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>While typing a MS word document, Akin inserted footer in the document in order to&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Footers are primarily used to add page numbers to documents, aiding in navigation for both printed and digital formats.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 13,
+        "options": [
+            {
+                "option_id": "219750",
+                "tag": "a",
+                "text": "enhance the overall appearance of the document.",
+                "is_correct": false
+            },
+            {
+                "option_id": "219751",
+                "tag": "b",
+                "text": "make the document more readable",
+                "is_correct": false
+            },
+            {
+                "option_id": "219752",
+                "tag": "c",
+                "text": "insert page numbers",
+                "is_correct": true
+            },
+            {
+                "option_id": "219753",
+                "tag": "d",
+                "text": "make it appear on the document when printed.",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57296": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The spreadsheet symbol used to convert a&nbsp;number to a label is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>An apostrophe&nbsp;before a cell value forces Excel to interpret the value as label. This is mostly useful for values that look like a number or date.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "219762",
+                "tag": "a",
+                "text": "quotation mark (\u201c \u201c)",
+                "is_correct": false
+            },
+            {
+                "option_id": "219763",
+                "tag": "b",
+                "text": "equality sign (=)",
+                "is_correct": false
+            },
+            {
+                "option_id": "219764",
+                "tag": "c",
+                "text": "underscore (_)",
+                "is_correct": false
+            },
+            {
+                "option_id": "219765",
+                "tag": "d",
+                "text": "apostrophe sign (')",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57297": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>In spreadsheets, data would not be accepted into a cell by pressing the.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p><strong>Entering Data in MS Excel</strong></p>\r\n\r\n<ol>\r\n\t<li>A cell is selected in which a particular text is to be written and then&nbsp;enter is pressed.</li>\r\n\t<li>The tab key is used to feed the same data in different cells of Excel.</li>\r\n\t<li>Arrow keys are used to jump from one cell to another and then feed data accordingly to a particular cell.</li>\r\n\t<li>Esc cancels an entry in the cell or Formula Bar.</li>\r\n</ol>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "219766",
+                "tag": "a",
+                "text": "Enter key",
+                "is_correct": false
+            },
+            {
+                "option_id": "219767",
+                "tag": "b",
+                "text": "Arrow key",
+                "is_correct": false
+            },
+            {
+                "option_id": "219768",
+                "tag": "c",
+                "text": "Esc key",
+                "is_correct": true
+            },
+            {
+                "option_id": "219769",
+                "tag": "d",
+                "text": "Tab key",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57301": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>A field in a database table is also known as&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A field, also known as a column or attribute, represents a single piece of data within a database table. It corresponds to a specific characteristic or property of the entities being stored in the table.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 15,
+        "options": [
+            {
+                "option_id": "219778",
+                "tag": "a",
+                "text": "index",
+                "is_correct": false
+            },
+            {
+                "option_id": "219779",
+                "tag": "b",
+                "text": "relation",
+                "is_correct": false
+            },
+            {
+                "option_id": "219780",
+                "tag": "c",
+                "text": "attribute",
+                "is_correct": true
+            },
+            {
+                "option_id": "219781",
+                "tag": "d",
+                "text": "key",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57305": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The property of a system software that enables it to execute more than one program at a time is referred to as&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "219794",
+                "tag": "a",
+                "text": "compiling",
+                "is_correct": false
+            },
+            {
+                "option_id": "219795",
+                "tag": "b",
+                "text": "virtual memory",
+                "is_correct": false
+            },
+            {
+                "option_id": "219796",
+                "tag": "c",
+                "text": "multitasking",
+                "is_correct": true
+            },
+            {
+                "option_id": "219797",
+                "tag": "d",
+                "text": "load modules",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57315": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of these operations would not close MS word application?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "219834",
+                "tag": "a",
+                "text": "Pressing the Alt + F4 keys",
+                "is_correct": false
+            },
+            {
+                "option_id": "219835",
+                "tag": "b",
+                "text": "clicking the X button on the title bar",
+                "is_correct": false
+            },
+            {
+                "option_id": "219836",
+                "tag": "c",
+                "text": "choosing exit from the file menu drop down box",
+                "is_correct": false
+            },
+            {
+                "option_id": "219837",
+                "tag": "d",
+                "text": "selecting the close from the file menu drop down dialogue box",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57326": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The feature in a database application that acts as an interface between the user and the database is called a?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Forms are database objects that provide a user-friendly interface for entering, editing, and viewing data in an organized manner. They act as the main point of interaction, simplifying the process by hiding the complexity of the underlying database structure.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "219874",
+                "tag": "a",
+                "text": "query",
+                "is_correct": false
+            },
+            {
+                "option_id": "219875",
+                "tag": "b",
+                "text": "report",
+                "is_correct": false
+            },
+            {
+                "option_id": "219876",
+                "tag": "c",
+                "text": "form",
+                "is_correct": true
+            },
+            {
+                "option_id": "219877",
+                "tag": "d",
+                "text": "table",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57327": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Planning and creating websites are stages in?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "219878",
+                "tag": "a",
+                "text": "web analysis",
+                "is_correct": false
+            },
+            {
+                "option_id": "219879",
+                "tag": "b",
+                "text": "web maintenance",
+                "is_correct": false
+            },
+            {
+                "option_id": "219880",
+                "tag": "c",
+                "text": "web design",
+                "is_correct": true
+            },
+            {
+                "option_id": "219881",
+                "tag": "d",
+                "text": "web publishing",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57330": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The type of data entered into a table in database follow a set of rules known as?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 23,
+        "options": [
+            {
+                "option_id": "219890",
+                "tag": "a",
+                "text": "protocols",
+                "is_correct": false
+            },
+            {
+                "option_id": "219891",
+                "tag": "b",
+                "text": "regulators",
+                "is_correct": false
+            },
+            {
+                "option_id": "219892",
+                "tag": "c",
+                "text": "algorithms",
+                "is_correct": true
+            },
+            {
+                "option_id": "219893",
+                "tag": "d",
+                "text": "constraints",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57335": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following drawing tools would create special effects for texts?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "219910",
+                "tag": "a",
+                "text": "Smart Art",
+                "is_correct": false
+            },
+            {
+                "option_id": "219911",
+                "tag": "b",
+                "text": "Shape tool",
+                "is_correct": false
+            },
+            {
+                "option_id": "219912",
+                "tag": "c",
+                "text": "Textbox",
+                "is_correct": false
+            },
+            {
+                "option_id": "219913",
+                "tag": "d",
+                "text": "Word Art",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57336": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The study of the effect of interaction between the computer and human users is referred to as computer</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "219914",
+                "tag": "a",
+                "text": "ergonomy",
+                "is_correct": true
+            },
+            {
+                "option_id": "219915",
+                "tag": "b",
+                "text": "economy",
+                "is_correct": false
+            },
+            {
+                "option_id": "219916",
+                "tag": "c",
+                "text": "ergophobia",
+                "is_correct": false
+            },
+            {
+                "option_id": "219917",
+                "tag": "d",
+                "text": "biomechanics",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57353": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>In MS Powerpoint, the action of holding down the left mouse key and moving the mouse around the slide would</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Dragging is the term used when we press and hold the left mouse key and move the mouse around the slide. As we drag, a shadow object shows us where the object will land when we release the mouse button.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 12,
+        "options": [
+            {
+                "option_id": "219953",
+                "tag": "a",
+                "text": "highlight an item",
+                "is_correct": false
+            },
+            {
+                "option_id": "219954",
+                "tag": "b",
+                "text": "drag an item",
+                "is_correct": true
+            },
+            {
+                "option_id": "219955",
+                "tag": "c",
+                "text": "select an item",
+                "is_correct": false
+            },
+            {
+                "option_id": "219956",
+                "tag": "d",
+                "text": "move an item",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57358": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>A file kept in case of an accident or natural disaster is called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "219965",
+                "tag": "a",
+                "text": "master",
+                "is_correct": false
+            },
+            {
+                "option_id": "219966",
+                "tag": "b",
+                "text": "transition",
+                "is_correct": false
+            },
+            {
+                "option_id": "219967",
+                "tag": "c",
+                "text": "back-up",
+                "is_correct": true
+            },
+            {
+                "option_id": "219968",
+                "tag": "d",
+                "text": "reference",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57360": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not a preventive maintenance measure?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "219973",
+                "tag": "a",
+                "text": "Regular update of the operating system",
+                "is_correct": false
+            },
+            {
+                "option_id": "219974",
+                "tag": "b",
+                "text": "Proper shut down of the system",
+                "is_correct": false
+            },
+            {
+                "option_id": "219975",
+                "tag": "c",
+                "text": "use of uninterrupted power supply",
+                "is_correct": false
+            },
+            {
+                "option_id": "219976",
+                "tag": "d",
+                "text": "data recovery",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57362": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not a safety equipment in a computer laboratory?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "219981",
+                "tag": "a",
+                "text": "surge protector",
+                "is_correct": false
+            },
+            {
+                "option_id": "219982",
+                "tag": "b",
+                "text": "metal detector",
+                "is_correct": true
+            },
+            {
+                "option_id": "219983",
+                "tag": "c",
+                "text": "smoke detector",
+                "is_correct": false
+            },
+            {
+                "option_id": "219984",
+                "tag": "d",
+                "text": "fore extinguisher",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57366": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of the following is not a computer professional?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Computer professionals are individuals employed in the field of information technology, for example, hardware or software engineers, web designers, network or database administrators, computer science instructors, computer repair technicians, etc.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 12,
+        "options": [
+            {
+                "option_id": "219997",
+                "tag": "a",
+                "text": "Network Administrator",
+                "is_correct": false
+            },
+            {
+                "option_id": "219998",
+                "tag": "b",
+                "text": "Web Master",
+                "is_correct": false
+            },
+            {
+                "option_id": "219999",
+                "tag": "c",
+                "text": "System Analyst",
+                "is_correct": false
+            },
+            {
+                "option_id": "220000",
+                "tag": "d",
+                "text": "File Manager",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57368": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The following are desturctive software except&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "220005",
+                "tag": "a",
+                "text": "drivers",
+                "is_correct": true
+            },
+            {
+                "option_id": "220006",
+                "tag": "b",
+                "text": "worms",
+                "is_correct": false
+            },
+            {
+                "option_id": "220007",
+                "tag": "c",
+                "text": "trojan horses",
+                "is_correct": false
+            },
+            {
+                "option_id": "220008",
+                "tag": "d",
+                "text": "logic bomb",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57370": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The type of file organisation in a DVD-ROM is?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 4,
+        "options": [
+            {
+                "option_id": "220013",
+                "tag": "a",
+                "text": "direct access",
+                "is_correct": true
+            },
+            {
+                "option_id": "220014",
+                "tag": "b",
+                "text": "sequential",
+                "is_correct": false
+            },
+            {
+                "option_id": "220015",
+                "tag": "c",
+                "text": "serial",
+                "is_correct": false
+            },
+            {
+                "option_id": "220016",
+                "tag": "d",
+                "text": "hierarchical",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57373": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>Which of these measures would not secure data in database?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "220025",
+                "tag": "a",
+                "text": "Encryption",
+                "is_correct": false
+            },
+            {
+                "option_id": "220026",
+                "tag": "b",
+                "text": "Data integration",
+                "is_correct": true
+            },
+            {
+                "option_id": "220027",
+                "tag": "c",
+                "text": "Personal Identification Number",
+                "is_correct": false
+            },
+            {
+                "option_id": "220028",
+                "tag": "d",
+                "text": "Username and passwords",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57426": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The diagram illustrates the relationship between two tables in a database.</p>\r\n\r\n<p>The student ID in Tables II is referred to as&nbsp;</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Data_Processing/year/Objective/2015/img_57426.jpeg",
+        "answer_image": null,
+        "explanation": "<p>B. foreign key</p>\r\n\r\n<p>This is because it links to the primary key (student ID) in Table I, establishing a relationship between the two tables.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "220237",
+                "tag": "a",
+                "text": "primary key",
+                "is_correct": false
+            },
+            {
+                "option_id": "220238",
+                "tag": "b",
+                "text": "foriegn key",
+                "is_correct": true
+            },
+            {
+                "option_id": "220239",
+                "tag": "c",
+                "text": "normal key",
+                "is_correct": false
+            },
+            {
+                "option_id": "220240",
+                "tag": "d",
+                "text": "composite key",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "57430": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The diagram illustrates the relationship between two tables in a database.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>What type of relationship exists between Tables I and II?</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Data_Processing/year/Objective/2015/img_57430.jpeg",
+        "answer_image": null,
+        "explanation": "<p>A one-to-many relationship is the most common kind of relationship. In this kind of relationship, a row in table A can have many matching rows in table B. But a row in table B can have only one matching row in table A.&nbsp; A one-to-many relationship is created if only one of the related columns is a primary key or has a unique constraint.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 8,
+        "options": [
+            {
+                "option_id": "220253",
+                "tag": "a",
+                "text": "one to one",
+                "is_correct": false
+            },
+            {
+                "option_id": "220254",
+                "tag": "b",
+                "text": "three to four",
+                "is_correct": false
+            },
+            {
+                "option_id": "220255",
+                "tag": "c",
+                "text": "four to three",
+                "is_correct": false
+            },
+            {
+                "option_id": "220256",
+                "tag": "d",
+                "text": "one to many",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "57433": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>A program developed to protect the computer from malicious software is referred to as</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Antivirus software, or anti-virus software, also known as anti-malware, is a computer program used to prevent, detect, and remove malware.&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "220265",
+                "tag": "a",
+                "text": "trojan",
+                "is_correct": false
+            },
+            {
+                "option_id": "220266",
+                "tag": "b",
+                "text": "driver",
+                "is_correct": false
+            },
+            {
+                "option_id": "220267",
+                "tag": "c",
+                "text": "antivirus",
+                "is_correct": true
+            },
+            {
+                "option_id": "220268",
+                "tag": "d",
+                "text": "spyware",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "57438": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>One of the advantages of a parallel database is</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A parallel database is designed to operate across multiple processors or nodes simultaneously. Its key advantage is parallel query execution, which breaks large tasks&mdash;such as complex queries or data analysis&mdash;into smaller parts that run concurrently on multiple CPUs, disks, or servers. This approach significantly speeds up data processing, making it especially effective for large-scale and big data workloads.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 6,
+        "options": [
+            {
+                "option_id": "220285",
+                "tag": "a",
+                "text": "data sharing",
+                "is_correct": false
+            },
+            {
+                "option_id": "220286",
+                "tag": "b",
+                "text": "data security",
+                "is_correct": false
+            },
+            {
+                "option_id": "220287",
+                "tag": "c",
+                "text": "faster processing of data",
+                "is_correct": true
+            },
+            {
+                "option_id": "220288",
+                "tag": "d",
+                "text": "uniform memory access",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "57443": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>In a relational database management system, files are organized as relations and</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>A tuple, also known as a record or row, is a basic unit of data in a relational database management system (DBMS). A tuple represents a single instance of a relation, or table, in the database. Each tuple contains a set of values, or attributes, that correspond to the columns, or fields, of the relation.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 7,
+        "options": [
+            {
+                "option_id": "220305",
+                "tag": "a",
+                "text": "tuple",
+                "is_correct": true
+            },
+            {
+                "option_id": "220306",
+                "tag": "b",
+                "text": "modules",
+                "is_correct": false
+            },
+            {
+                "option_id": "220307",
+                "tag": "c",
+                "text": "tables",
+                "is_correct": false
+            },
+            {
+                "option_id": "220308",
+                "tag": "d",
+                "text": "forms",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "57450": {
+        "order_id": 40,
+        "exam_type": "WAEC",
+        "subject": "Data Processing",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2015",
+        "question_text": "<p>The exchange of information over a network follows a set of rules called</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Protocol, in computer science,&nbsp;a set of rules or procedures for transmitting data between electronic devices, such as computers.</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "220333",
+                "tag": "a",
+                "text": "transmission rules",
+                "is_correct": false
+            },
+            {
+                "option_id": "220334",
+                "tag": "b",
+                "text": "transfer rules",
+                "is_correct": false
+            },
+            {
+                "option_id": "220335",
+                "tag": "c",
+                "text": "channels rules",
+                "is_correct": false
+            },
+            {
+                "option_id": "220336",
+                "tag": "d",
+                "text": "protocols",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    }
+}

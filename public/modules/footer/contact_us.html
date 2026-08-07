@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../components/footer.css">
+  <script src="../../components/topbar.js" defer></script>
+  <script src="../../components/nav.js" defer></script>
+<script src="../../components/sidebar.js?v=10" defer></script>
+  <script src="../../components/footer.js" defer></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; }
+    body { background: #f7f7f8; color: #131212; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; }
+    .content-area { max-width: 900px; margin: 0 auto; padding: 60px 20px; width: 100%; flex: 1; }
+    .page-card { background: #fff; padding: 48px; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+    h1 { font-size: 36px; font-weight: 800; margin-bottom: 32px; color: #111827; letter-spacing: -0.02em; }
+    h2 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: #111827; }
+    h3 { font-size: 18px; font-weight: 600; margin: 24px 0 16px; color: #1f2937; }
+    p { font-size: 16px; line-height: 1.8; color: #4b5563; margin-bottom: 20px; }
+    ul, ol { margin-bottom: 20px; padding-left: 24px; color: #4b5563; font-size: 16px; line-height: 1.8; }
+    li { margin-bottom: 12px; }
+    a { color: #b70c01; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .contact-box { background: #f9fafb; padding: 24px; border-radius: 12px; border: 1px solid #f3f4f6; }
+    .contact-box h3 { margin-top: 0; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 0; } .page-card { padding: 32px 24px; } .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../" data-active=""></app-sidebar>
+    <div class="main-wrapper">
+      <app-topbar data-base="../../"></app-topbar>
+      <main class="content-area">
+        <div class="page-card">
+          <h1>Contact Us</h1>
+<p>At <strong>My Exam Companion</strong>, we pride ourselves on delivering exceptional customer service. Whether you are a student facing a technical glitch, a parent seeking guidance, or an educational institution looking to partner with us, our team is always ready and eager to assist you.</p>
+<h2>How Can We Help You Today?</h2>
+<p>To ensure your inquiry is routed to the correct department and handled as swiftly as possible, please utilize the specific contact methods detailed below.</p>
+<div class="contact-grid">
+  <div class="contact-box">
+    <h3>Student & Technical Support</h3>
+    <p>Having trouble logging in? Found an error in a question? Experiencing issues with the CBT simulator?</p>
+    <p><strong>Email:</strong> <a href="mailto:support@myexamcompanion.com">support@myexamcompanion.com</a></p>
+    <p><strong>Response Time:</strong> 12 - 24 Hours</p>
+  </div>
+  <div class="contact-box">
+    <h3>Partnerships & Business</h3>
+    <p>For advertising inquiries, bulk school registrations, API access, or media relations.</p>
+    <p><strong>Email:</strong> <a href="mailto:business@myexamcompanion.com">business@myexamcompanion.com</a></p>
+    <p><strong>Response Time:</strong> 24 - 48 Hours</p>
+  </div>
+</div>
+<h2>Our Corporate Headquarters</h2>
+<p>While we operate primarily as a digital platform accessible worldwide, our core operational team is based at:</p>
+<p><strong>My Exam Companion Ltd.</strong><br>
+EdTech Innovation Hub<br>
+Lagos, Nigeria</p>
+<h2>Connect With Us on Social Media</h2>
+<p>Stay up to date with the latest scholarship announcements, syllabus changes, and platform updates by following us across our social media channels:</p>
+<ul>
+  <li><strong>Twitter / X:</strong> @MyExamCompanion</li>
+  <li><strong>Facebook:</strong> My Exam Companion Official</li>
+  <li><strong>Instagram:</strong> @MyExamCompanion</li>
+</ul>
+<p><em>*When contacting technical support, please ensure you include details such as your registered email address, the specific subject/year you were practicing, and any relevant screenshots of the issue.</em></p>
+        </div>
+      </main>
+      <app-footer data-base="../../"></app-footer>
+    </div>
+  </div>
+</body>
+</html>

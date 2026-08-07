@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hub Manager – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    body { min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; overflow-y: auto; }
+
+    /* ==============================
+       BREADCRUMB & HEADER
+    ============================== */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #6b7280; margin-bottom: 16px; }
+    .breadcrumb a { color: #b70c01; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .page-header {
+      display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; gap: 16px;
+    }
+    .page-header__title { font-size: 26px; font-weight: 800; color: #131212; margin-bottom: 6px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 12px; }
+    .page-header__desc { font-size: 14.5px; color: #6b7280; max-width: 600px; line-height: 1.5; }
+    
+    .hub-badge { font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 6px; background: #ecfdf5; color: #059669; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid #d1fae5; }
+
+    /* THEME BUTTON (#b70c01) */
+    .btn-primary {
+      background: #b70c01; color: white; font-size: 15px; font-weight: 700;
+      padding: 12px 24px; border-radius: 12px; display: inline-flex; align-items: center; gap: 10px;
+      transition: all 0.2s ease; border: none; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2); flex-shrink: 0;
+    }
+    .btn-primary:hover { background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3); }
+
+    .btn-outline {
+      padding: 10px 16px; border-radius: 10px; font-size: 13.5px; font-weight: 600;
+      border: 1px solid #e5e7eb; background: white; color: #374151; cursor: pointer; transition: all 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-outline:hover { background: #f9fafb; border-color: #d1d5db; color: #111827; }
+
+    /* ==============================
+       TABS NAVIGATION
+    ============================== */
+    .tabs-container { border-bottom: 1px solid #e5e7eb; margin-bottom: 24px; display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none; }
+    .tabs-container::-webkit-scrollbar { display: none; }
+    
+    .tab-btn {
+      padding: 12px 0; font-size: 15px; font-weight: 600; color: #6b7280;
+      border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+    }
+    .tab-btn:hover { color: #111827; }
+    .tab-btn.active { color: #b70c01; border-bottom-color: #b70c01; }
+    .tab-badge { background: #f3f4f6; color: #4b5563; font-size: 11px; padding: 2px 6px; border-radius: 99px; }
+    .tab-btn.active .tab-badge { background: #fef2f2; color: #b70c01; }
+
+    /* ==============================
+       TAB PANELS
+    ============================== */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* TABLE STYLES */
+    .data-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+    .data-table th, .data-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .data-table th { font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; }
+    .data-table td { font-size: 14.5px; color: #1f2937; font-weight: 500; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: #f9fafb; }
+
+    .status-pill { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; }
+    .status-pill.active { background: #ecfdf5; color: #059669; }
+    .status-pill.draft { background: #f3f4f6; color: #4b5563; }
+    .status-pill.private { background: #fffbeb; color: #d97706; }
+
+    .action-links { display: flex; gap: 12px; }
+    .action-links a { color: #b70c01; font-weight: 600; font-size: 13.5px; }
+    .action-links a:hover { text-decoration: underline; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .header-actions { width: 100%; display: flex; gap: 8px; }
+      .btn-primary, .btn-outline { flex: 1; justify-content: center; }
+      .data-table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="exam_studio"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        
+        <div class="breadcrumb">
+          <a href="teacher_entry.html">Your Hubs</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <span>Mr. Johnson's Science Hub</span>
+        </div>
+
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">
+              Mr. Johnson's Science Hub
+              <span class="hub-badge">Active</span>
+            </h1>
+            <p class="page-header__desc">Manage exams, view students, and add other tutors as administrators to this hub.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn-outline" onclick="copyInvite()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+              Invite Students
+            </button>
+            <button class="btn-primary" onclick="window.location.href='create_exam.html'">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Create Exam
+            </button>
+          </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs-container">
+          <button class="tab-btn active" onclick="switchTab('exams')">
+            Exams <span class="tab-badge">3</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab('students')">
+            Enrolled Students <span class="tab-badge">328</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab('admins')">
+            Admins / Tutors <span class="tab-badge">2</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab('settings')">
+            Settings
+          </button>
+        </div>
+
+        <!-- EXAMS PANEL -->
+        <div id="tab-exams" class="tab-panel active">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Exam Title</th>
+                <th>Access</th>
+                <th>Status</th>
+                <th>Submissions</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="font-weight: 700; color: #111827;">JAMB Physics Mock 2026</div>
+                  <div style="font-size: 13px; color: #6b7280; margin-top: 4px;">40 Questions • 45 mins</div>
+                </td>
+                <td><span class="status-pill active">Public</span></td>
+                <td><span style="color: #059669; font-weight: 600;">Published</span></td>
+                <td>142</td>
+                <td>
+                  <div class="action-links">
+                    <a href="analysis.html">Analysis</a>
+                    <a href="question_editor.html">Edit Questions</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="font-weight: 700; color: #111827;">Chemistry practicals Prep</div>
+                  <div style="font-size: 13px; color: #6b7280; margin-top: 4px;">20 Questions • 30 mins</div>
+                </td>
+                <td><span class="status-pill private">Password</span></td>
+                <td><span style="color: #059669; font-weight: 600;">Published</span></td>
+                <td>85</td>
+                <td>
+                  <div class="action-links">
+                    <a href="analysis.html">Analysis</a>
+                    <a href="question_editor.html">Edit Questions</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="font-weight: 700; color: #111827;">Weekly Calculus Check</div>
+                  <div style="font-size: 13px; color: #6b7280; margin-top: 4px;">0 Questions • 60 mins</div>
+                </td>
+                <td><span class="status-pill private">Private</span></td>
+                <td><span class="status-pill draft">Draft</span></td>
+                <td>0</td>
+                <td>
+                  <div class="action-links">
+                    <a href="question_editor.html">Add Questions</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- STUDENTS PANEL -->
+        <div id="tab-students" class="tab-panel">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Joined</th>
+                <th>Exams Taken</th>
+                <th>Avg. Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <img loading="lazy" src="../../../assets/avatars/user1.png" style="width: 32px; height: 32px; border-radius: 50%; background: #f3f4f6;" alt="User" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%239ca3af\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'%3E%3C/path%3E%3Ccircle cx=\'12\' cy=\'7\' r=\'4\'%3E%3C/circle%3E%3C/svg%3E'">
+                    <span style="font-weight: 600;">Ojehomon Ohiozoeje</span>
+                  </div>
+                </td>
+                <td>Oct 12, 2025</td>
+                <td>14</td>
+                <td>82%</td>
+                <td>
+                  <div class="action-links"><a href="#" style="color: #6b7280;">Remove</a></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #fee2e2; color: #b70c01; display: flex; align-items: center; justify-content: center; font-weight: 700;">SA</div>
+                    <span style="font-weight: 600;">Sarah Adeyemi</span>
+                  </div>
+                </td>
+                <td>Oct 14, 2025</td>
+                <td>12</td>
+                <td>76%</td>
+                <td>
+                  <div class="action-links"><a href="#" style="color: #6b7280;">Remove</a></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ADMINS PANEL -->
+        <div id="tab-admins" class="tab-panel">
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 16px;">
+            <button class="btn-outline" onclick="promptAddAdmin()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add Admin
+            </button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Tutor Name</th>
+                <th>Role</th>
+                <th>Added On</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #dbeafe; color: #1d4ed8; display: flex; align-items: center; justify-content: center; font-weight: 700;">MJ</div>
+                    <span style="font-weight: 600;">Mr. Johnson (You)</span>
+                  </div>
+                </td>
+                <td><span class="status-pill active">Owner</span></td>
+                <td>Oct 10, 2025</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #f3e8ff; color: #7e22ce; display: flex; align-items: center; justify-content: center; font-weight: 700;">TO</div>
+                    <span style="font-weight: 600;">Tunde Okafor</span>
+                  </div>
+                </td>
+                <td><span class="status-pill private" style="background: #f3f4f6; color: #4b5563;">Co-Tutor</span></td>
+                <td>Oct 15, 2025</td>
+                <td>
+                  <div class="action-links"><a href="#" style="color: #ef4444;">Revoke Access</a></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SETTINGS PANEL -->
+        <div id="tab-settings" class="tab-panel">
+          <div style="background: white; border-radius: 12px; border: 1px solid #e5e7eb; padding: 24px; max-width: 600px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Danger Zone</h3>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Deleting this hub will remove all associated exams, student records, and analytics. This action cannot be undone.</p>
+            <button class="btn-outline" style="color: #ef4444; border-color: #fecaca; background: #fef2f2;">Delete Hub</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  
+  <script>
+    function copyInvite() {
+      alert("Invite link copied to clipboard: https://myexam.ng/hub/johnson-science");
+    }
+
+    function promptAddAdmin() {
+      const email = prompt("Enter the email address of the tutor you want to make an Admin:");
+      if (email) {
+        alert("Invitation sent to " + email);
+      }
+    }
+
+    function switchTab(tabId) {
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+      // Remove active from all buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected panel
+      document.getElementById('tab-' + tabId).classList.add('active');
+      // Add active to clicked button
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
+</body>
+</html>

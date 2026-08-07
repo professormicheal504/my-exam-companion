@@ -32,7 +32,7 @@ app-topbar {
   padding: 0 12px 0 8px;
   background: #ffffff;
   border-bottom: 1.5px solid #ededed;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   gap: 8px;
   font-family: 'Outfit', 'Inter', sans-serif;
 }
@@ -81,13 +81,14 @@ app-topbar {
   padding: 4px 12px 5px 10px;
   box-shadow:
     0 2px 0 #8a0000,
-    0 3px 8px rgba(183,12,1,0.28);
+    0 3px 8px rgba(183, 12, 1, 0.28);
 }
 
 .mec-logo-line1,
 .mec-logo-line2 {
   font-family: 'Fredoka One', 'Outfit', cursive;
-  font-weight: 400; /* Fredoka One only has one weight */
+  font-weight: 400;
+  /* Fredoka One only has one weight */
   color: #ffffff;
   display: block;
   letter-spacing: 0.02em;
@@ -95,7 +96,7 @@ app-topbar {
   -webkit-text-stroke: 2px #8a0000;
   paint-order: stroke fill;
   text-shadow:
-    1px 1px 0 rgba(0,0,0,0.15);
+    1px 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .mec-logo-line1 {
@@ -109,12 +110,23 @@ app-topbar {
 
 /* Responsive sizing */
 @media (min-width: 400px) {
-  .mec-logo-line1 { font-size: 16px; }
-  .mec-logo-line2 { font-size: 15px; }
+  .mec-logo-line1 {
+    font-size: 16px;
+  }
+
+  .mec-logo-line2 {
+    font-size: 15px;
+  }
 }
+
 @media (min-width: 520px) {
-  .mec-logo-line1 { font-size: 18px; }
-  .mec-logo-line2 { font-size: 17px; }
+  .mec-logo-line1 {
+    font-size: 18px;
+  }
+
+  .mec-logo-line2 {
+    font-size: 17px;
+  }
 }
 
 /* Hamburger / menu toggle */
@@ -133,10 +145,12 @@ app-topbar {
   transition: background 0.15s, color 0.15s;
   padding: 0;
 }
+
 .mec-sb-toggle:hover {
   background: #f3f4f6;
   color: #b70c01;
 }
+
 .mec-sb-toggle svg {
   width: 22px;
   height: 22px;
@@ -160,29 +174,24 @@ app-topbar {
   text-decoration: none;
   flex-shrink: 0;
 }
+
 .mec-tb-btn:hover {
   background: #f3f4f6;
   color: #111827;
 }
+
 .mec-tb-btn svg {
   width: 21px;
   height: 21px;
 }
-/* Nigeria flag — use SVG strips instead of emoji (emoji unreliable on Android) */
+
+/* Country switcher flag button */
 .mec-tb-btn--flag {
-  padding: 0;
-  overflow: hidden;
-  border-radius: 6px;
-  width: 36px;
-  height: 36px;
-}
-.mec-flag-svg {
-  display: block;
-  width: 28px;
-  height: 18px;
-  border-radius: 3px;
-  overflow: hidden;
-  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  border-radius: 9999px !important;
+  padding: 4px 10px !important;
+  overflow: visible;
 }
 
 /* Notification badge */
@@ -220,10 +229,12 @@ app-topbar {
   margin-left: 2px;
   flex-shrink: 0;
 }
+
 .mec-tb-profile:hover {
   border-color: #b70c01;
-  box-shadow: 0 0 0 3px rgba(183,12,1,0.08);
+  box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.08);
 }
+
 .mec-tb-profile svg {
   width: 18px;
   height: 18px;
@@ -232,14 +243,37 @@ app-topbar {
 
 /* Mobile tweaks */
 @media (max-width: 600px) {
-  .mec-topbar { padding: 0 8px 0 6px; }
-  .mec-topbar__logo img { min-width: 110px; height: 34px; }
-  .mec-tb-btn { width: 36px; height: 36px; }
-  .mec-tb-btn svg { width: 19px; height: 19px; }
-  .mec-sb-toggle { width: 36px; height: 36px; }
-  .mec-tb-btn--flag { font-size: 20px; }
+  .mec-topbar {
+    padding: 0 8px 0 6px;
+  }
+
+  .mec-topbar__logo img {
+    min-width: 110px;
+    height: 34px;
+  }
+
+  .mec-tb-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mec-tb-btn svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .mec-sb-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mec-tb-btn--flag {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 380px) {
-  .mec-topbar__logo img { min-width: 95px; }
+  .mec-topbar__logo img {
+    min-width: 95px;
+  }
 }

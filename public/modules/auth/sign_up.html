@@ -176,6 +176,7 @@
       text-decoration: underline;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="modal-overlay">
@@ -194,14 +195,14 @@
       <form id="signupForm" onsubmit="event.preventDefault(); handleSignUp();">
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" placeholder="Enter your email" required>
+          <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input type="password" class="form-input" placeholder="Create a password" required>
+          <input type="password" id="password-input" class="form-input" placeholder="Choose a secure password" required minlength="6">
         </div>
         
-        <button type="submit" class="btn-primary">Sign Up</button>
+        <button type="submit" id="submit-btn" class="btn-primary">Sign Up</button>
       </form>
 
       <div class="divider">or</div>
@@ -223,15 +224,47 @@
   </div>
 
   <script>
-    function handleSignUp() {
-      // Directs to OTP verification after email signup
-      window.location.href = 'otp.html';
+    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function handleSignUp() {
+      const email = document.getElementById('email-input').value;
+      const password = document.getElementById('password-input').value;
+      const btn = document.getElementById('submit-btn');
+      
+      try {
+        btn.disabled = true;
+        btn.innerText = 'Creating Account...';
+
+        const { error } = await supabaseClient.auth.signUp({ email, password });
+        
+        if (error) throw error;
+        
+        localStorage.setItem('authEmail', email);
+        alert('Account created! Please check your email for the verification code.');
+        window.location.href = 'otp.html';
+      } catch (error) {
+        alert('Error: ' + error.message);
+        console.error(error);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Sign Up';
+      }
     }
 
-    function handleGoogleSignUp() {
-      // Directs to fill form after successful Google signup
-      window.location.href = 'fill_form.html';
+    async function handleGoogleSignUp() {
+      const { data, error } = await supabaseClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: new URL('fill_form.html', window.location.href).href
+        }
+      });
+      if (error) {
+        alert('Error with Google Signup: ' + error.message);
+      }
     }
   </script>
+  <script src="../../components/toast.js"></script>
 </body>
 </html>

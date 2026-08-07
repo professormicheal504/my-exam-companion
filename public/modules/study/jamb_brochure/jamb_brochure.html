@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=2">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -215,11 +215,11 @@
 </head>
 <body>
   <div class="app">
-    <app-sidebar data-base="../../"></app-sidebar>
+    <app-sidebar data-base="/"></app-sidebar>
     <div class="main-wrapper">
 
       <!-- TOPBAR -->
-      <app-topbar data-base="../../"></app-topbar>
+      <app-topbar data-base="/"></app-topbar>
 
       <!-- CONTENT -->
       <div class="content-area">
@@ -580,8 +580,9 @@
     </div>
   </div>
 
-  <script src="../../../components/topbar.js"></script>
-  <script src="../../../components/sidebar.js?v=6"></script>
+  <script defer src="/components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js?v=6"></script>
   <script>
     function switchTab(btn, tabId) {
       // Deactivate all tabs and hide all content

@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>University Entrance Exams – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* Reset & Global */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
+    body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+    /* App Shell */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* Header Section */
+    .page-header {
+      margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+    }
+    .page-title {
+      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .page-desc {
+      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+    }
+
+    /* Actions */
+    .header-actions { display: flex; gap: 12px; }
+    .btn-primary {
+      background: #b70c01; color: white; padding: 12px 24px; border-radius: 12px;
+      font-size: 14.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+    .btn-primary:hover {
+      background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white; color: #374151; padding: 12px 24px; border-radius: 12px;
+      font-size: 14.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid #d1d5db; transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: #f9fafb; border-color: #9ca3af; }
+
+    /* Search Bar */
+    .search-container {
+      background: white; padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid #e5e7eb;
+      display: flex; gap: 12px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .search-container svg { color: #9ca3af; margin-left: 8px; }
+    .search-container input {
+      flex: 1; border: none; outline: none; font-size: 15px; padding: 8px; font-family: inherit; color: #131212;
+    }
+    .search-container input::placeholder { color: #9ca3af; }
+
+    /* Grid */
+    .uni-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+    }
+
+    /* Cards */
+    .uni-card {
+      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
+      display: flex; flex-direction: column; transition: all 0.2s; position: relative; overflow: hidden;
+    }
+    .uni-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #e5e7eb;
+    }
+    
+    .uni-icon {
+      width: 56px; height: 56px; border-radius: 14px; background: #fef2f2; border: 1px solid #fecaca;
+      display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px;
+    }
+    .uni-name {
+      font-size: 18px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .uni-meta {
+      font-size: 13.5px; color: #6b7280; display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+    .uni-meta span { display: flex; align-items: center; gap: 4px; }
+    
+    /* Price Tag */
+    .price-tag {
+      position: absolute; top: 24px; right: 24px; background: #ecfdf5; color: #059669;
+      padding: 6px 12px; border-radius: 99px; font-size: 13px; font-weight: 800;
+      display: flex; align-items: center; gap: 4px; letter-spacing: 0.02em; border: 1px solid #a7f3d0;
+    }
+
+    .card-footer {
+      margin-top: auto; border-top: 1px solid #f3f4f6; padding-top: 20px;
+    }
+    .card-footer .btn-primary { width: 100%; justify-content: center; }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999;
+      display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;
+    }
+    .modal-overlay.show { display: flex; opacity: 1; }
+    
+    .modal-box {
+      background: white; width: 100%; max-width: 500px; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15); transform: translateY(20px); transition: transform 0.3s;
+    }
+    .modal-overlay.show .modal-box { transform: translateY(0); }
+    
+    .modal-header {
+      padding: 24px; border-bottom: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center;
+    }
+    .modal-header h3 { font-size: 20px; font-weight: 800; color: #111827; }
+    .btn-close { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #f3f4f6; color: #4b5563; border: none; }
+    .btn-close:hover { background: #e5e7eb; color: #111827; }
+    
+    .modal-body { padding: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 13.5px; font-weight: 700; color: #374151; margin-bottom: 8px; }
+    .form-control {
+      width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid #d1d5db; font-size: 14.5px;
+      outline: none; transition: border-color 0.2s; font-family: inherit; background: #f9fafb;
+    }
+    .form-control:focus { border-color: #b70c01; background: white; }
+    
+    .modal-footer {
+      padding: 20px 24px; background: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .page-header { flex-direction: column; }
+      .header-actions { width: 100%; flex-direction: column; }
+      .header-actions button { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Request Modal -->
+  <div id="requestModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Request a University</h3>
+        <button class="btn-close" onclick="closeRequestModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="background: #eff6ff; padding: 16px; border-radius: 12px; margin-bottom: 20px; display: flex; gap: 12px; border: 1px solid #bfdbfe;">
+          <div style="color: #1d4ed8; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
+          <div>
+            <h4 style="color: #1e3a8a; font-size: 14px; font-weight: 700; margin-bottom: 4px;">Request Processing Fee</h4>
+            <p style="color: #2563eb; font-size: 13px; line-height: 1.5;">To prioritize and compile high-quality Post-UTME questions for your requested university, a small processing fee of $1 (₦1,000) applies.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Name of University / Polytechnic</label>
+          <input type="text" class="form-control" placeholder="e.g. University of Lagos (UNILAG)">
+        </div>
+        <div class="form-group">
+          <label>Course of Study (Optional)</label>
+          <input type="text" class="form-control" placeholder="e.g. Computer Science, Medicine">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeRequestModal()">Cancel</button>
+        <button class="btn-primary" onclick="processPayment('request')">
+          Pay $1 / ₦1,000
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="university_exam"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">University Post-UTME Exams</h1>
+            <p class="page-desc">Practice with past questions tailored specifically for your target university. Unlock access to premium Post-UTME mock exams.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn-primary" onclick="openRequestModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Request a University ($1)
+            </button>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="uniSearch" placeholder="Search for a university (e.g. UNILAG, OAU, ABU)..." oninput="filterUniversities()">
+        </div>
+
+        <div class="uni-grid" id="uniGrid">
+          <!-- University Cards generated by JS -->
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script>
+    const universities = [
+      { id: 'southern_delta', name: 'Southern Delta University', short: 'SDU', icon: '🌴', questions: 1200, years: '2015 - 2023' },
+      { id: 'uniben', name: 'University of Benin (UNIBEN)', short: 'UNIBEN', icon: '🌿', questions: 2900, years: '2010 - 2023' },
+      { id: 'unilag', name: 'University of Lagos (UNILAG)', short: 'UNILAG', icon: '🏛️', questions: 3500, years: '2008 - 2023' },
+      { id: 'delsu', name: 'Delta State University (DELSU)', short: 'DELSU', icon: '🎓', questions: 2100, years: '2012 - 2023' },
+      { id: 'oau', name: 'Obafemi Awolowo University (OAU)', short: 'OAU', icon: '🏫', questions: 3100, years: '2005 - 2023' },
+      { id: 'unn', name: 'University of Nigeria Nsukka (UNN)', short: 'UNN', icon: '🦁', questions: 3800, years: '2010 - 2023' },
+      { id: 'abu', name: 'Ahmadu Bello University (ABU)', short: 'ABU', icon: '🕌', questions: 2800, years: '2011 - 2023' },
+      { id: 'uniport', name: 'University of Port Harcourt (UNIPORT)', short: 'UNIPORT', icon: '⚓', questions: 2400, years: '2013 - 2023' }
+    ];
+
+    function renderUniversities(list) {
+      const grid = document.getElementById('uniGrid');
+      grid.innerHTML = '';
+      
+      if (list.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #6b7280; background: white; border-radius: 16px; border: 1px dashed #d1d5db;">
+          <h3 style="color: #111827; font-size: 18px; margin-bottom: 8px;">University Not Found</h3>
+          <p>We don't have past questions for this university yet.</p>
+          <button class="btn-primary" style="margin-top: 16px;" onclick="openRequestModal()">Request it for $1</button>
+        </div>`;
+        return;
+      }
+
+      list.forEach(uni => {
+        const card = document.createElement('div');
+        card.className = 'uni-card';
+        card.innerHTML = `
+          <div class="price-tag">
+            $1 (₦1K)
+          </div>
+          <div class="uni-icon">${uni.icon}</div>
+          <h3 class="uni-name">${uni.name}</h3>
+          <div class="uni-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> ${uni.questions} Qs</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ${uni.years}</span>
+          </div>
+          <div class="card-footer">
+            <button class="btn-primary" onclick="processPayment('${uni.short}')">Unlock Access ($1)</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterUniversities() {
+      const q = document.getElementById('uniSearch').value.toLowerCase();
+      const filtered = universities.filter(u => u.name.toLowerCase().includes(q) || u.short.toLowerCase().includes(q));
+      renderUniversities(filtered);
+    }
+
+    function openRequestModal() {
+      document.getElementById('requestModal').classList.add('show');
+    }
+
+    function closeRequestModal() {
+      document.getElementById('requestModal').classList.remove('show');
+    }
+
+    function processPayment(item) {
+      if (item === 'request') {
+        alert('Initializing payment gateway for $1 (₦1,000)...\nItem: University Request');
+      } else {
+        // For the sake of the UI flow, we navigate directly to the subjects page
+        window.location.href = 'available_subjects.html?uni=' + encodeURIComponent(item);
+      }
+    }
+
+    // Initialize
+    renderUniversities(universities);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1852 @@
+[
+    {
+        "order_id": "1",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Which of the following physical quantities is a scalar?",
+        "explanation": "A scalar is a quantity having magnitude but no direction. Density is a scalar, while velocity, acceleration, and force are vectors.",
+        "options": [
+            {
+                "option_id": "153360",
+                "tag": "a",
+                "text": "Velocity",
+                "is_correct": false
+            },
+            {
+                "option_id": "505576",
+                "tag": "b",
+                "text": "Acceleration",
+                "is_correct": false
+            },
+            {
+                "option_id": "230493",
+                "tag": "c",
+                "text": "Force",
+                "is_correct": false
+            },
+            {
+                "option_id": "251178",
+                "tag": "d",
+                "text": "Density",
+                "is_correct": true
+            }
+        ],
+        "question_number": 1
+    },
+    {
+        "order_id": "2",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "A vector that has a magnitude and direction but has no fixed position in space is called a ________.",
+        "explanation": "A free vector is a vector which has magnitude and direction but no fixed position in space, such as the displacement of a particle $10\\text{km}$ east.",
+        "options": [
+            {
+                "option_id": "723352",
+                "tag": "a",
+                "text": "Free Vector",
+                "is_correct": true
+            },
+            {
+                "option_id": "211972",
+                "tag": "b",
+                "text": "Localised Vector",
+                "is_correct": false
+            },
+            {
+                "option_id": "892404",
+                "tag": "c",
+                "text": "Co-initial Vector",
+                "is_correct": false
+            },
+            {
+                "option_id": "279972",
+                "tag": "d",
+                "text": "Zero Vector",
+                "is_correct": false
+            }
+        ],
+        "question_number": 2
+    },
+    {
+        "order_id": "3",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Vectors which have a common initial point are known as:",
+        "explanation": "Co-initial vectors are vectors which share a common initial point (origin).",
+        "options": [
+            {
+                "option_id": "652802",
+                "tag": "a",
+                "text": "Equal Vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "103212",
+                "tag": "b",
+                "text": "Co-initial Vectors",
+                "is_correct": true
+            },
+            {
+                "option_id": "274850",
+                "tag": "c",
+                "text": "Unit Vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "139228",
+                "tag": "d",
+                "text": "Unlike Vectors",
+                "is_correct": false
+            }
+        ],
+        "question_number": 3
+    },
+    {
+        "order_id": "4",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the modulus of the vector $\\vec{r} = 2\\hat{i} + 2\\hat{j} - \\hat{k}$?",
+        "explanation": "The modulus of a vector $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ is given by $|\\vec{r}| = \\sqrt{x^2 + y^2 + z^2}$. Therefore, $|\\vec{r}| = \\sqrt{2^2 + 2^2 + (-1)^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$.",
+        "options": [
+            {
+                "option_id": "247335",
+                "tag": "a",
+                "text": "$3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "189254",
+                "tag": "b",
+                "text": "$9$",
+                "is_correct": false
+            },
+            {
+                "option_id": "169281",
+                "tag": "c",
+                "text": "$4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "152834",
+                "tag": "d",
+                "text": "$5$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 4
+    },
+    {
+        "order_id": "5",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If the coordinates of point $P$ are $(3, 4, 12)$, what is the magnitude of the position vector $\\vec{OP}$?",
+        "explanation": "The position vector $\\vec{OP} = 3\\hat{i} + 4\\hat{j} + 12\\hat{k}$. Its magnitude is $|\\vec{OP}| = \\sqrt{3^2 + 4^2 + 12^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$.",
+        "options": [
+            {
+                "option_id": "681604",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "291754",
+                "tag": "b",
+                "text": "$13$",
+                "is_correct": true
+            },
+            {
+                "option_id": "146030",
+                "tag": "c",
+                "text": "$15$",
+                "is_correct": false
+            },
+            {
+                "option_id": "336015",
+                "tag": "d",
+                "text": "$17$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 5
+    },
+    {
+        "order_id": "6",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Which of the following represents the commutative law of vector addition?",
+        "explanation": "The commutative law of vector addition states that the order of addition does not matter: $\\vec{a} + \\vec{b} = \\vec{b} + \\vec{a}$.",
+        "options": [
+            {
+                "option_id": "290733",
+                "tag": "a",
+                "text": "$\\vec{a} + (\\vec{b} + \\vec{c}) = (\\vec{a} + \\vec{b}) + \\vec{c}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "280585",
+                "tag": "b",
+                "text": "$\\vec{a} + \\vec{b} = \\vec{b} + \\vec{a}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "267688",
+                "tag": "c",
+                "text": "$\\vec{a} - \\vec{b} = \\vec{a} + (-\\vec{b})$",
+                "is_correct": false
+            },
+            {
+                "option_id": "779993",
+                "tag": "d",
+                "text": "$m(\\vec{a} + \\vec{b}) = m\\vec{a} + m\\vec{b}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 6
+    },
+    {
+        "order_id": "7",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Which law of vector addition is represented by $\\vec{a} + (\\vec{b} + \\vec{c}) = (\\vec{a} + \\vec{b}) + \\vec{c}$?",
+        "explanation": "The associative law of vector addition indicates that when adding three or more vectors, the grouping of the vectors does not affect the sum.",
+        "options": [
+            {
+                "option_id": "411221",
+                "tag": "a",
+                "text": "Associative law",
+                "is_correct": true
+            },
+            {
+                "option_id": "223061",
+                "tag": "b",
+                "text": "Commutative law",
+                "is_correct": false
+            },
+            {
+                "option_id": "109830",
+                "tag": "c",
+                "text": "Distributive law",
+                "is_correct": false
+            },
+            {
+                "option_id": "261145",
+                "tag": "d",
+                "text": "Triangle law",
+                "is_correct": false
+            }
+        ],
+        "question_number": 7
+    },
+    {
+        "order_id": "8",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Find the sum of the vectors $\\vec{a} = 3\\hat{i} + 2\\hat{j} + 5\\hat{k}$ and $\\vec{b} = 2\\hat{i} + \\hat{j} + 6\\hat{k}$.",
+        "explanation": "To add vectors, simply add their corresponding components: $(3+2)\\hat{i} + (2+1)\\hat{j} + (5+6)\\hat{k} = 5\\hat{i} + 3\\hat{j} + 11\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "299895",
+                "tag": "a",
+                "text": "$5\\hat{i} + 3\\hat{j} + 11\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "184701",
+                "tag": "b",
+                "text": "$5\\hat{i} + 2\\hat{j} + 11\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "314731",
+                "tag": "c",
+                "text": "$\\hat{i} + \\hat{j} - \\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "303132",
+                "tag": "d",
+                "text": "$6\\hat{i} + 3\\hat{j} + 30\\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 8
+    },
+    {
+        "order_id": "9",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If the position vectors of points $A$ and $B$ are $\\vec{a}$ and $\\vec{b}$ respectively, what is the vector $\\vec{AB}$?",
+        "explanation": "The vector joining point $A$ to point $B$ is found by subtracting the position vector of $A$ from the position vector of $B$: $\\vec{AB} = \\vec{OB} - \\vec{OA} = \\vec{b} - \\vec{a}$.",
+        "options": [
+            {
+                "option_id": "290598",
+                "tag": "a",
+                "text": "$\\vec{a} + \\vec{b}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "233541",
+                "tag": "b",
+                "text": "$\\vec{a} - \\vec{b}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "251259",
+                "tag": "c",
+                "text": "$\\vec{b} - \\vec{a}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "326742",
+                "tag": "d",
+                "text": "$\\vec{a} \\cdot \\vec{b}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 9
+    },
+    {
+        "order_id": "10",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Find the vector $\\vec{AB}$ if the position vectors of $A$ and $B$ are $3\\hat{i} + 4\\hat{j} + 5\\hat{k}$ and $6\\hat{i} + 8\\hat{j} + 9\\hat{k}$ respectively.",
+        "explanation": "$\\vec{AB} = \\vec{OB} - \\vec{OA} = (6 - 3)\\hat{i} + (8 - 4)\\hat{j} + (9 - 5)\\hat{k} = 3\\hat{i} + 4\\hat{j} + 4\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "195201",
+                "tag": "a",
+                "text": "$3\\hat{i} + 4\\hat{j} + 4\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "266351",
+                "tag": "b",
+                "text": "$9\\hat{i} + 12\\hat{j} + 14\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "789041",
+                "tag": "c",
+                "text": "$-3\\hat{i} - 4\\hat{j} - 4\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "116193",
+                "tag": "d",
+                "text": "$3\\hat{i} - 4\\hat{j} + 4\\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 10
+    },
+    {
+        "order_id": "11",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If point $C$ divides the line joining $A$ and $B$ in the ratio $m:n$, what is the position vector $\\vec{c}$ of $C$ in terms of position vectors $\\vec{a}$ and $\\vec{b}$?",
+        "explanation": "According to the ratio formula, the position vector $\\vec{c}$ that divides $A(\\vec{a})$ and $B(\\vec{b})$ in ratio $m:n$ is $\\vec{c} = \\frac{m\\vec{b} + n\\vec{a}}{m+n}$.",
+        "options": [
+            {
+                "option_id": "188951",
+                "tag": "a",
+                "text": "$\\frac{m\\vec{a} + n\\vec{b}}{m+n}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "187126",
+                "tag": "b",
+                "text": "$\\frac{m\\vec{b} + n\\vec{a}}{m+n}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "119615",
+                "tag": "c",
+                "text": "$\\frac{m\\vec{b} - n\\vec{a}}{m+n}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "318796",
+                "tag": "d",
+                "text": "$\\frac{n\\vec{b} + m\\vec{a}}{m-n}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 11
+    },
+    {
+        "order_id": "12",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the formula for the dot product (scalar product) of two vectors $\\vec{a}$ and $\\vec{b}$?",
+        "explanation": "The dot product is defined as $\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}| \\cos\\theta$, where $\\theta$ is the angle between the two vectors.",
+        "options": [
+            {
+                "option_id": "162088",
+                "tag": "a",
+                "text": "$|\\vec{a}||\\vec{b}| \\sin\\theta$",
+                "is_correct": false
+            },
+            {
+                "option_id": "828442",
+                "tag": "b",
+                "text": "$|\\vec{a}||\\vec{b}| \\cos\\theta$",
+                "is_correct": true
+            },
+            {
+                "option_id": "998730",
+                "tag": "c",
+                "text": "$|\\vec{a}||\\vec{b}| \\tan\\theta$",
+                "is_correct": false
+            },
+            {
+                "option_id": "187945",
+                "tag": "d",
+                "text": "$|\\vec{a}| + |\\vec{b}| \\cos\\theta$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 12
+    },
+    {
+        "order_id": "13",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the value of $\\hat{i} \\cdot \\hat{i}$?",
+        "explanation": "Since $\\hat{i}$ is a unit vector and the angle between $\\hat{i}$ and itself is $0^\\circ$, $\\hat{i} \\cdot \\hat{i} = (1)(1)\\cos(0^\\circ) = 1$.",
+        "options": [
+            {
+                "option_id": "183698",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "676581",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "210826",
+                "tag": "c",
+                "text": "$-1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "270351",
+                "tag": "d",
+                "text": "$\\hat{i}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 13
+    },
+    {
+        "order_id": "14",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the value of $\\hat{i} \\cdot \\hat{j}$?",
+        "explanation": "The dot product of two orthogonal (perpendicular) vectors is zero. Since $\\hat{i}$ and $\\hat{j}$ are perpendicular, the angle between them is $90^\\circ$, so $\\hat{i} \\cdot \\hat{j} = (1)(1)\\cos(90^\\circ) = 0$.",
+        "options": [
+            {
+                "option_id": "360336",
+                "tag": "a",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "131411",
+                "tag": "b",
+                "text": "$-1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "310710",
+                "tag": "c",
+                "text": "$0$",
+                "is_correct": true
+            },
+            {
+                "option_id": "218209",
+                "tag": "d",
+                "text": "$\\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 14
+    },
+    {
+        "order_id": "15",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Two vectors $\\vec{a}$ and $\\vec{b}$ are perpendicular to each other if and only if:",
+        "explanation": "If two vectors are perpendicular, the angle $\\theta$ between them is $90^\\circ$. Therefore, their dot product $\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}| \\cos(90^\\circ) = 0$.",
+        "options": [
+            {
+                "option_id": "214109",
+                "tag": "a",
+                "text": "$\\vec{a} \\cdot \\vec{b} = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "125946",
+                "tag": "b",
+                "text": "$\\vec{a} \\times \\vec{b} = 0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "339949",
+                "tag": "c",
+                "text": "$\\vec{a} \\cdot \\vec{b} = 0$",
+                "is_correct": true
+            },
+            {
+                "option_id": "165082",
+                "tag": "d",
+                "text": "$\\vec{a} + \\vec{b} = 0$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 15
+    },
+    {
+        "order_id": "16",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Calculate the dot product of $\\vec{a} = 2\\hat{i} + 3\\hat{j} + 4\\hat{k}$ and $\\vec{b} = \\hat{i} + \\hat{j} + \\hat{k}$.",
+        "explanation": "$\\vec{a} \\cdot \\vec{b} = (2)(1) + (3)(1) + (4)(1) = 2 + 3 + 4 = 9$.",
+        "options": [
+            {
+                "option_id": "618567",
+                "tag": "a",
+                "text": "$9$",
+                "is_correct": true
+            },
+            {
+                "option_id": "198259",
+                "tag": "b",
+                "text": "$24$",
+                "is_correct": false
+            },
+            {
+                "option_id": "268367",
+                "tag": "c",
+                "text": "$6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "272889",
+                "tag": "d",
+                "text": "$10$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 16
+    },
+    {
+        "order_id": "17",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Find the projection of vector $\\vec{a}$ on vector $\\vec{b}$.",
+        "explanation": "The scalar projection of $\\vec{a}$ onto $\\vec{b}$ is given by $\\vec{a} \\cdot \\hat{b}$, which equals $\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|}$.",
+        "options": [
+            {
+                "option_id": "168277",
+                "tag": "a",
+                "text": "$\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}|}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "475996",
+                "tag": "b",
+                "text": "$\\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "308374",
+                "tag": "c",
+                "text": "$\\frac{\\vec{a} \\times \\vec{b}}{|\\vec{b}|}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "244057",
+                "tag": "d",
+                "text": "$\\vec{a} \\cdot \\vec{b}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 17
+    },
+    {
+        "order_id": "18",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "How is work done ($W$) by a constant force $\\vec{F}$ over a displacement $\\vec{d}$ calculated using vectors?",
+        "explanation": "Work done is a scalar quantity defined as the dot product (scalar product) of the force vector and the displacement vector: $W = \\vec{F} \\cdot \\vec{d}$.",
+        "options": [
+            {
+                "option_id": "444657",
+                "tag": "a",
+                "text": "$W = \\vec{F} \\times \\vec{d}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "917911",
+                "tag": "b",
+                "text": "$W = \\vec{F} + \\vec{d}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "307764",
+                "tag": "c",
+                "text": "$W = \\vec{F} \\cdot \\vec{d}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "208244",
+                "tag": "d",
+                "text": "$W = \\frac{\\vec{F}}{\\vec{d}}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 18
+    },
+    {
+        "order_id": "19",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "A particle is displaced from $A(2, 2, -1)$ to $B(4, 3, 1)$. What is the displacement vector $\\vec{AB}$?",
+        "explanation": "$\\vec{AB} = (4 - 2)\\hat{i} + (3 - 2)\\hat{j} + (1 - (-1))\\hat{k} = 2\\hat{i} + \\hat{j} + 2\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "257499",
+                "tag": "a",
+                "text": "$6\\hat{i} + 5\\hat{j} + 0\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "506760",
+                "tag": "b",
+                "text": "$2\\hat{i} + \\hat{j} + 2\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "100016",
+                "tag": "c",
+                "text": "$-2\\hat{i} - \\hat{j} - 2\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "654811",
+                "tag": "d",
+                "text": "$2\\hat{i} + \\hat{j} - \\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 19
+    },
+    {
+        "order_id": "20",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the cross product (vector product) $\\hat{i} \\times \\hat{j}$?",
+        "explanation": "According to the right-hand rule for orthonormal basis vectors, $\\hat{i} \\times \\hat{j} = \\hat{k}$.",
+        "options": [
+            {
+                "option_id": "190530",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "272987",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "820266",
+                "tag": "c",
+                "text": "$\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "225573",
+                "tag": "d",
+                "text": "$-\\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 20
+    },
+    {
+        "order_id": "21",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the cross product $\\hat{j} \\times \\hat{i}$?",
+        "explanation": "The cross product is anti-commutative, meaning $\\vec{a} \\times \\vec{b} = -(\\vec{b} \\times \\vec{a})$. Thus, $\\hat{j} \\times \\hat{i} = -\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "508595",
+                "tag": "a",
+                "text": "$\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "128774",
+                "tag": "b",
+                "text": "$-\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "183735",
+                "tag": "c",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "163255",
+                "tag": "d",
+                "text": "$1$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 21
+    },
+    {
+        "order_id": "22",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If $\\vec{a}$ and $\\vec{b}$ are two non-zero parallel vectors, what is their cross product $\\vec{a} \\times \\vec{b}$?",
+        "explanation": "The cross product of two parallel vectors is the zero vector, because the angle $\\theta$ between them is $0^\\circ$ or $180^\\circ$, and $\\sin(0^\\circ) = 0$.",
+        "options": [
+            {
+                "option_id": "320228",
+                "tag": "a",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "714979",
+                "tag": "b",
+                "text": "$\\vec{0}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "191562",
+                "tag": "c",
+                "text": "$|\\vec{a}||\\vec{b}|$",
+                "is_correct": false
+            },
+            {
+                "option_id": "229459",
+                "tag": "d",
+                "text": "$\\vec{a} \\cdot \\vec{b}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 22
+    },
+    {
+        "order_id": "23",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The magnitude of the cross product $|\\vec{a} \\times \\vec{b}|$ geometrically represents:",
+        "explanation": "The magnitude $|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$ gives the area of a parallelogram having $\\vec{a}$ and $\\vec{b}$ as adjacent sides.",
+        "options": [
+            {
+                "option_id": "248747",
+                "tag": "a",
+                "text": "The perimeter of the parallelogram formed by $\\vec{a}$ and $\\vec{b}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "243760",
+                "tag": "b",
+                "text": "The volume of the parallelepiped formed by $\\vec{a}$ and $\\vec{b}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "120993",
+                "tag": "c",
+                "text": "The area of the parallelogram with adjacent sides $\\vec{a}$ and $\\vec{b}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "122696",
+                "tag": "d",
+                "text": "The area of the triangle with sides $\\vec{a}$ and $\\vec{b}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 23
+    },
+    {
+        "order_id": "24",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "How is the area of a triangle with adjacent sides represented by vectors $\\vec{a}$ and $\\vec{b}$ calculated?",
+        "explanation": "The area of a triangle is half the area of a parallelogram formed by the same vectors, so it is $\\frac{1}{2} |\\vec{a} \\times \\vec{b}|$.",
+        "options": [
+            {
+                "option_id": "100645",
+                "tag": "a",
+                "text": "$|\\vec{a} \\times \\vec{b}|$",
+                "is_correct": false
+            },
+            {
+                "option_id": "292859",
+                "tag": "b",
+                "text": "$\\frac{1}{2} |\\vec{a} \\times \\vec{b}|$",
+                "is_correct": true
+            },
+            {
+                "option_id": "324958",
+                "tag": "c",
+                "text": "$\\frac{1}{2} (\\vec{a} \\cdot \\vec{b})$",
+                "is_correct": false
+            },
+            {
+                "option_id": "215284",
+                "tag": "d",
+                "text": "$|\\vec{a} \\cdot \\vec{b}|$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 24
+    },
+    {
+        "order_id": "25",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "How is the moment (torque) of a force $\\vec{F}$ acting at a point $P$ about the origin $O$ calculated, where $\\vec{r}$ is the position vector $\\vec{OP}$?",
+        "explanation": "The moment of a force or torque is defined as the cross product of the position vector $\\vec{r}$ and the force vector $\\vec{F}$: $\\vec{M} = \\vec{r} \\times \\vec{F}$.",
+        "options": [
+            {
+                "option_id": "224843",
+                "tag": "a",
+                "text": "$\\vec{M} = \\vec{F} \\times \\vec{r}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "176201",
+                "tag": "b",
+                "text": "$\\vec{M} = \\vec{r} \\cdot \\vec{F}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "874565",
+                "tag": "c",
+                "text": "$\\vec{M} = \\vec{r} \\times \\vec{F}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "120147",
+                "tag": "d",
+                "text": "$\\vec{M} = \\vec{F} \\cdot \\vec{r}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 25
+    },
+    {
+        "order_id": "26",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If $\\vec{r} = t^3\\hat{i} + t^2\\hat{j} + (2t+5)\\hat{k}$ is the position of a particle at time $t$, what is its velocity $\\vec{v}$?",
+        "explanation": "Velocity is the first derivative of the position vector with respect to time: $\\vec{v} = \\frac{d\\vec{r}}{dt} = 3t^2\\hat{i} + 2t\\hat{j} + 2\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "258715",
+                "tag": "a",
+                "text": "$3t^2\\hat{i} + 2t\\hat{j} + 2\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "332852",
+                "tag": "b",
+                "text": "$3t^2\\hat{i} + 2t\\hat{j} + 5\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "255898",
+                "tag": "c",
+                "text": "$t^4/4\\hat{i} + t^3/3\\hat{j} + (t^2+5t)\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "300348",
+                "tag": "d",
+                "text": "$6t\\hat{i} + 2\\hat{j}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 26
+    },
+    {
+        "order_id": "27",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Given the velocity $\\vec{v} = 3t^2\\hat{i} + 2t\\hat{j} + 2\\hat{k}$, what is the acceleration $\\vec{a}$ of the particle?",
+        "explanation": "Acceleration is the derivative of velocity with respect to time: $\\vec{a} = \\frac{d\\vec{v}}{dt} = 6t\\hat{i} + 2\\hat{j}$.",
+        "options": [
+            {
+                "option_id": "212964",
+                "tag": "a",
+                "text": "$6t\\hat{i} + 2\\hat{j}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "160684",
+                "tag": "b",
+                "text": "$6t\\hat{i} + 2\\hat{j} + 2\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "214720",
+                "tag": "c",
+                "text": "$3t\\hat{i} + 2\\hat{j}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "326497",
+                "tag": "d",
+                "text": "$t^3\\hat{i} + t^2\\hat{j}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 27
+    },
+    {
+        "order_id": "28",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The vector differential operator Del (or Nabla) $\\nabla$ is defined as:",
+        "explanation": "The Del operator $\\nabla$ is a vector differential operator defined as $\\hat{i}\\frac{\\partial}{\\partial x} + \\hat{j}\\frac{\\partial}{\\partial y} + \\hat{k}\\frac{\\partial}{\\partial z}$.",
+        "options": [
+            {
+                "option_id": "153633",
+                "tag": "a",
+                "text": "$\\hat{i}\\frac{\\partial}{\\partial x} + \\hat{j}\\frac{\\partial}{\\partial y} + \\hat{k}\\frac{\\partial}{\\partial z}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "179082",
+                "tag": "b",
+                "text": "$\\frac{\\partial^2}{\\partial x^2} + \\frac{\\partial^2}{\\partial y^2} + \\frac{\\partial^2}{\\partial z^2}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "121210",
+                "tag": "c",
+                "text": "$x\\hat{i} + y\\hat{j} + z\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "105074",
+                "tag": "d",
+                "text": "$\\frac{\\partial}{\\partial x} + \\frac{\\partial}{\\partial y} + \\frac{\\partial}{\\partial z}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 28
+    },
+    {
+        "order_id": "29",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The gradient of a scalar point function $\\phi(x,y,z)$ is denoted by $\\nabla \\phi$ and is a:",
+        "explanation": "The gradient of a scalar field $\\phi$ produces a vector field. Thus, $\\text{grad } \\phi$ or $\\nabla \\phi$ is a vector quantity.",
+        "options": [
+            {
+                "option_id": "898573",
+                "tag": "a",
+                "text": "Scalar quantity",
+                "is_correct": false
+            },
+            {
+                "option_id": "308078",
+                "tag": "b",
+                "text": "Vector quantity",
+                "is_correct": true
+            },
+            {
+                "option_id": "319102",
+                "tag": "c",
+                "text": "Constant",
+                "is_correct": false
+            },
+            {
+                "option_id": "186691",
+                "tag": "d",
+                "text": "Zero vector",
+                "is_correct": false
+            }
+        ],
+        "question_number": 29
+    },
+    {
+        "order_id": "30",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the physical interpretation of the gradient of a scalar function $\\phi$?",
+        "explanation": "The gradient of a scalar function, $\\nabla \\phi$, is geometrically a vector that is normal (perpendicular) to the level surface defined by $\\phi(x,y,z) = c$ at any given point.",
+        "options": [
+            {
+                "option_id": "107853",
+                "tag": "a",
+                "text": "It gives the volume of the scalar field.",
+                "is_correct": false
+            },
+            {
+                "option_id": "328094",
+                "tag": "b",
+                "text": "It is a vector normal to the surface $\\phi(x,y,z) = c$.",
+                "is_correct": true
+            },
+            {
+                "option_id": "797239",
+                "tag": "c",
+                "text": "It is the tangent to the curve.",
+                "is_correct": false
+            },
+            {
+                "option_id": "220543",
+                "tag": "d",
+                "text": "It represents the work done by the field.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 30
+    },
+    {
+        "order_id": "31",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The directional derivative of a scalar function $\\phi$ in the direction of a vector $\\vec{a}$ is given by:",
+        "explanation": "The directional derivative is the component of $\\nabla \\phi$ in the direction of $\\vec{a}$, calculated as the dot product $\\nabla \\phi \\cdot \\hat{a}$, where $\\hat{a}$ is the unit vector in the direction of $\\vec{a}$.",
+        "options": [
+            {
+                "option_id": "115516",
+                "tag": "a",
+                "text": "$\\nabla \\phi \\times \\hat{a}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "143664",
+                "tag": "b",
+                "text": "$\\nabla \\phi + \\vec{a}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "707689",
+                "tag": "c",
+                "text": "$\\nabla \\phi \\cdot \\hat{a}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "359644",
+                "tag": "d",
+                "text": "$\\nabla \\cdot \\vec{a}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 31
+    },
+    {
+        "order_id": "32",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Find the gradient of $\\phi = 2x^2 + 3y^2 + z^2$ at the point $(1, 1, 1)$.",
+        "explanation": "$\\nabla \\phi = \\frac{\\partial \\phi}{\\partial x}\\hat{i} + \\frac{\\partial \\phi}{\\partial y}\\hat{j} + \\frac{\\partial \\phi}{\\partial z}\\hat{k} = 4x\\hat{i} + 6y\\hat{j} + 2z\\hat{k}$. At $(1,1,1)$, this evaluates to $4(1)\\hat{i} + 6(1)\\hat{j} + 2(1)\\hat{k} = 4\\hat{i} + 6\\hat{j} + 2\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "203037",
+                "tag": "a",
+                "text": "$4\\hat{i} + 6\\hat{j} + 2\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "280550",
+                "tag": "b",
+                "text": "$2\\hat{i} + 3\\hat{j} + \\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "239829",
+                "tag": "c",
+                "text": "$4x\\hat{i} + 6y\\hat{j} + 2z\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "833999",
+                "tag": "d",
+                "text": "$12$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 32
+    },
+    {
+        "order_id": "33",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The divergence of a vector function $\\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}$ is defined as:",
+        "explanation": "The divergence of a vector field $\\vec{F}$ is defined as the dot product of the del operator and the vector, i.e., $\\nabla \\cdot \\vec{F} = \\frac{\\partial F_x}{\\partial x} + \\frac{\\partial F_y}{\\partial y} + \\frac{\\partial F_z}{\\partial z}$.",
+        "options": [
+            {
+                "option_id": "138720",
+                "tag": "a",
+                "text": "$\\nabla \\times \\vec{F}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "186242",
+                "tag": "b",
+                "text": "$\\nabla \\cdot \\vec{F}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "312128",
+                "tag": "c",
+                "text": "$\\nabla \\vec{F}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "138375",
+                "tag": "d",
+                "text": "$\\vec{F} \\cdot \\nabla$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 33
+    },
+    {
+        "order_id": "34",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What kind of quantity is the divergence of a vector field?",
+        "explanation": "The divergence is the result of a dot product between the del operator and a vector, yielding a scalar quantity.",
+        "options": [
+            {
+                "option_id": "198597",
+                "tag": "a",
+                "text": "Vector",
+                "is_correct": false
+            },
+            {
+                "option_id": "327785",
+                "tag": "b",
+                "text": "Scalar",
+                "is_correct": true
+            },
+            {
+                "option_id": "141287",
+                "tag": "c",
+                "text": "Tensor",
+                "is_correct": false
+            },
+            {
+                "option_id": "209902",
+                "tag": "d",
+                "text": "Matrix",
+                "is_correct": false
+            }
+        ],
+        "question_number": 34
+    },
+    {
+        "order_id": "35",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Calculate the divergence of the position vector $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$.",
+        "explanation": "$\\nabla \\cdot \\vec{r} = \\frac{\\partial x}{\\partial x} + \\frac{\\partial y}{\\partial y} + \\frac{\\partial z}{\\partial z} = 1 + 1 + 1 = 3$.",
+        "options": [
+            {
+                "option_id": "332874",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "180060",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "263663",
+                "tag": "c",
+                "text": "$3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "230656",
+                "tag": "d",
+                "text": "$x+y+z$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 35
+    },
+    {
+        "order_id": "36",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "The curl of a vector function $\\vec{F}$ is defined as:",
+        "explanation": "The curl of a vector field is the cross product of the del operator and the vector field: $\\nabla \\times \\vec{F}$.",
+        "options": [
+            {
+                "option_id": "320420",
+                "tag": "a",
+                "text": "$\\nabla \\cdot \\vec{F}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "177767",
+                "tag": "b",
+                "text": "$\\nabla \\times \\vec{F}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "107036",
+                "tag": "c",
+                "text": "$\\nabla \\vec{F}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "127459",
+                "tag": "d",
+                "text": "$\\vec{F} \\times \\nabla$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 36
+    },
+    {
+        "order_id": "37",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What kind of quantity is the curl of a vector field?",
+        "explanation": "The curl involves a cross product, which results in a vector quantity.",
+        "options": [
+            {
+                "option_id": "258617",
+                "tag": "a",
+                "text": "Scalar",
+                "is_correct": false
+            },
+            {
+                "option_id": "145137",
+                "tag": "b",
+                "text": "Vector",
+                "is_correct": true
+            },
+            {
+                "option_id": "224048",
+                "tag": "c",
+                "text": "Constant",
+                "is_correct": false
+            },
+            {
+                "option_id": "187315",
+                "tag": "d",
+                "text": "Zero",
+                "is_correct": false
+            }
+        ],
+        "question_number": 37
+    },
+    {
+        "order_id": "38",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If $\\vec{a} = \\hat{i} + 2\\hat{j} - \\hat{k}$ and $\\vec{b} = 2\\hat{i} - \\hat{j} + 3\\hat{k}$, what is $\\vec{a} \\cdot \\vec{b}$?",
+        "explanation": "$\\vec{a} \\cdot \\vec{b} = (1)(2) + (2)(-1) + (-1)(3) = 2 - 2 - 3 = -3$.",
+        "options": [
+            {
+                "option_id": "151394",
+                "tag": "a",
+                "text": "$2 - 2 - 3 = -3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "256691",
+                "tag": "b",
+                "text": "$2 + 2 - 3 = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "161116",
+                "tag": "c",
+                "text": "$-3\\hat{i}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "336613",
+                "tag": "d",
+                "text": "$3$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 38
+    },
+    {
+        "order_id": "39",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the unit vector parallel to $\\vec{a} = 3\\hat{i} + 4\\hat{j}$?",
+        "explanation": "The unit vector is $\\frac{\\vec{a}}{|\\vec{a}|}$. Since $|\\vec{a}| = \\sqrt{3^2 + 4^2} = 5$, the unit vector is $\\frac{3}{5}\\hat{i} + \\frac{4}{5}\\hat{j}$.",
+        "options": [
+            {
+                "option_id": "246956",
+                "tag": "a",
+                "text": "$\\frac{3}{5}\\hat{i} + \\frac{4}{5}\\hat{j}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "319381",
+                "tag": "b",
+                "text": "$3\\hat{i} + 4\\hat{j}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "278823",
+                "tag": "c",
+                "text": "$\\frac{3}{25}\\hat{i} + \\frac{4}{25}\\hat{j}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "154315",
+                "tag": "d",
+                "text": "$\\frac{4}{5}\\hat{i} + \\frac{3}{5}\\hat{j}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 39
+    },
+    {
+        "order_id": "40",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Which vectors have the same direction (parallel) and same sense but may have different magnitudes?",
+        "explanation": "Like vectors are those which have the same direction (parallel) and same sense (arrow), though their magnitudes may differ.",
+        "options": [
+            {
+                "option_id": "992278",
+                "tag": "a",
+                "text": "Equal vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "993530",
+                "tag": "b",
+                "text": "Like vectors",
+                "is_correct": true
+            },
+            {
+                "option_id": "386364",
+                "tag": "c",
+                "text": "Unlike vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "810130",
+                "tag": "d",
+                "text": "Zero vectors",
+                "is_correct": false
+            }
+        ],
+        "question_number": 40
+    },
+    {
+        "order_id": "41",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Which vectors have the same direction (parallel) but opposite sense?",
+        "explanation": "Unlike vectors are those which are parallel but have an opposite sense.",
+        "options": [
+            {
+                "option_id": "143435",
+                "tag": "a",
+                "text": "Negative vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "229571",
+                "tag": "b",
+                "text": "Like vectors",
+                "is_correct": false
+            },
+            {
+                "option_id": "141802",
+                "tag": "c",
+                "text": "Unlike vectors",
+                "is_correct": true
+            },
+            {
+                "option_id": "943164",
+                "tag": "d",
+                "text": "Equal vectors",
+                "is_correct": false
+            }
+        ],
+        "question_number": 41
+    },
+    {
+        "order_id": "42",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "A vector which has equal magnitude and is parallel to a given vector but has the opposite direction is known as:",
+        "explanation": "A negative vector is exactly equal in magnitude to a given vector but points in the direct opposite direction.",
+        "options": [
+            {
+                "option_id": "172090",
+                "tag": "a",
+                "text": "Negative vector",
+                "is_correct": true
+            },
+            {
+                "option_id": "193418",
+                "tag": "b",
+                "text": "Unlike vector",
+                "is_correct": false
+            },
+            {
+                "option_id": "149244",
+                "tag": "c",
+                "text": "Zero vector",
+                "is_correct": false
+            },
+            {
+                "option_id": "969898",
+                "tag": "d",
+                "text": "Unit vector",
+                "is_correct": false
+            }
+        ],
+        "question_number": 42
+    },
+    {
+        "order_id": "43",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Evaluate the cross product of $\\vec{a} = 2\\hat{i}$ and $\\vec{b} = 3\\hat{j}$.",
+        "explanation": "$\\vec{a} \\times \\vec{b} = (2\\hat{i}) \\times (3\\hat{j}) = 6(\\hat{i} \\times \\hat{j}) = 6\\hat{k}$.",
+        "options": [
+            {
+                "option_id": "246778",
+                "tag": "a",
+                "text": "$6\\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "341997",
+                "tag": "b",
+                "text": "$-6\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "287117",
+                "tag": "c",
+                "text": "$5\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "182484",
+                "tag": "d",
+                "text": "$6$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 43
+    },
+    {
+        "order_id": "44",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the angle $\\theta$ between two vectors $\\vec{a}$ and $\\vec{b}$ if $\\vec{a} \\cdot \\vec{b} = 0$ and both are non-zero vectors?",
+        "explanation": "Since $\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}| \\cos\\theta = 0$, and neither magnitude is zero, $\\cos\\theta = 0$, meaning $\\theta = 90^\\circ$.",
+        "options": [
+            {
+                "option_id": "575068",
+                "tag": "a",
+                "text": "$0^\\circ$",
+                "is_correct": false
+            },
+            {
+                "option_id": "954347",
+                "tag": "b",
+                "text": "$45^\\circ$",
+                "is_correct": false
+            },
+            {
+                "option_id": "252318",
+                "tag": "c",
+                "text": "$90^\\circ$",
+                "is_correct": true
+            },
+            {
+                "option_id": "269312",
+                "tag": "d",
+                "text": "$180^\\circ$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 44
+    },
+    {
+        "order_id": "45",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "A constant force $\\vec{F} = 2\\hat{i} + 3\\hat{j} + 5\\hat{k}$ moves a particle from origin to point $P(2, 1, 3)$. What is the work done?",
+        "explanation": "Work done $W = \\vec{F} \\cdot \\vec{r} = (2)(2) + (3)(1) + (5)(3) = 4 + 3 + 15 = 22$ units.",
+        "options": [
+            {
+                "option_id": "220508",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "224141",
+                "tag": "b",
+                "text": "$22$",
+                "is_correct": true
+            },
+            {
+                "option_id": "301603",
+                "tag": "c",
+                "text": "$4 + 3 + 15 = 22$",
+                "is_correct": false
+            },
+            {
+                "option_id": "715298",
+                "tag": "d",
+                "text": "$22$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 45
+    },
+    {
+        "order_id": "46",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If $\\vec{a} = \\hat{i} + \\hat{j} + \\hat{k}$, what is its magnitude?",
+        "explanation": "$|\\vec{a}| = \\sqrt{1^2 + 1^2 + 1^2} = \\sqrt{3}$.",
+        "options": [
+            {
+                "option_id": "159233",
+                "tag": "a",
+                "text": "$3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "364883",
+                "tag": "b",
+                "text": "$\\sqrt{3}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "878959",
+                "tag": "c",
+                "text": "$1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "116678",
+                "tag": "d",
+                "text": "$0$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 46
+    },
+    {
+        "order_id": "47",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If the dot product of two vectors is equal to the product of their magnitudes, what is the angle between them?",
+        "explanation": "If $\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}|$, then $\\cos\\theta = 1$, which implies $\\theta = 0^\\circ$. The vectors are parallel and in the same direction.",
+        "options": [
+            {
+                "option_id": "334794",
+                "tag": "a",
+                "text": "$0^\\circ$",
+                "is_correct": true
+            },
+            {
+                "option_id": "320847",
+                "tag": "b",
+                "text": "$90^\\circ$",
+                "is_correct": false
+            },
+            {
+                "option_id": "149138",
+                "tag": "c",
+                "text": "$180^\\circ$",
+                "is_correct": false
+            },
+            {
+                "option_id": "524250",
+                "tag": "d",
+                "text": "$45^\\circ$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 47
+    },
+    {
+        "order_id": "48",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "Find the moment of the force $\\vec{F} = \\hat{i} + \\hat{j} + \\hat{k}$ applied at the point $(1, 0, 0)$ about the origin.",
+        "explanation": "$\\vec{M} = \\vec{r} \\times \\vec{F}$. Here $\\vec{r} = \\hat{i}$. $\\vec{M} = \\hat{i} \\times (\\hat{i} + \\hat{j} + \\hat{k}) = \\hat{i} \\times \\hat{i} + \\hat{i} \\times \\hat{j} + \\hat{i} \\times \\hat{k} = 0 + \\hat{k} - \\hat{j} = -\\hat{j} + \\hat{k}$.",
+        "options": [
+            {
+                "option_id": "146118",
+                "tag": "a",
+                "text": "$\\hat{j} - \\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "313592",
+                "tag": "b",
+                "text": "$-\\hat{j} + \\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "309096",
+                "tag": "c",
+                "text": "$\\hat{i} - \\hat{j}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "227936",
+                "tag": "d",
+                "text": "$\\hat{i} + \\hat{j}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 48
+    },
+    {
+        "order_id": "49",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "What is the direction cosine of a vector $\\vec{a} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ with respect to the x-axis?",
+        "explanation": "The direction cosine with respect to the x-axis is given by the x-component divided by the magnitude of the vector: $\\frac{x}{|\\vec{a}|}$.",
+        "options": [
+            {
+                "option_id": "164608",
+                "tag": "a",
+                "text": "$\\frac{x}{\\sqrt{x^2+y^2+z^2}}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "209099",
+                "tag": "b",
+                "text": "$\\frac{y}{\\sqrt{x^2+y^2+z^2}}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "255847",
+                "tag": "c",
+                "text": "$\\frac{z}{\\sqrt{x^2+y^2+z^2}}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "171782",
+                "tag": "d",
+                "text": "$\\frac{1}{\\sqrt{x^2+y^2+z^2}}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 49
+    },
+    {
+        "order_id": "50",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 4: VECTOR",
+        "course_code": "MTH 123",
+        "course_title": "Elementary Mathematics III (Vectors and Geometry )",
+        "question_type": "CBT",
+        "question_text": "If $\\vec{a} = 2\\hat{i} - 3\\hat{j} + \\hat{k}$ and $\\vec{b} = -\\hat{i} + 2\\hat{j} - 2\\hat{k}$, find $\\vec{a} + \\vec{b}$.",
+        "explanation": "Adding corresponding components: $(2 - 1)\\hat{i} + (-3 + 2)\\hat{j} + (1 - 2)\\hat{k} = \\hat{i} - \\hat{j} - \\hat{k}$.",
+        "options": [
+            {
+                "option_id": "281427",
+                "tag": "a",
+                "text": "$\\hat{i} - \\hat{j} - \\hat{k}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "255308",
+                "tag": "b",
+                "text": "$3\\hat{i} - 5\\hat{j} + 3\\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "231188",
+                "tag": "c",
+                "text": "$\\hat{i} + \\hat{j} + \\hat{k}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "111840",
+                "tag": "d",
+                "text": "$-\\hat{i} - \\hat{j} - \\hat{k}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 50
+    }
+]

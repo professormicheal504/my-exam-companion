@@ -11,7 +11,7 @@ R2_SECRET_ACCESS_KEY = "1e90a1557f265cc583c94d5fd5aa5f7a82af9c6d15f48b313a7b90ce
 R2_ENDPOINT_URL = "https://9b1a87526cb70ec5c728ba8761685a37.r2.cloudflarestorage.com"
 R2_BUCKET_NAME = "my-exam-companion-data"
 
-STAGING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "r2_staging_area")
+STAGING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public", "r2_staging_area")
 
 def get_s3_client():
     return boto3.client(

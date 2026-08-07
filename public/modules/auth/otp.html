@@ -149,6 +149,7 @@
       text-decoration: underline;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="modal-overlay">
@@ -210,10 +211,51 @@
       });
     });
 
-    function handleVerify() {
-      // Simulate successful verification
-      window.location.href = 'fill_form.html';
+    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function handleVerify() {
+      const email = localStorage.getItem('authEmail');
+      if (!email) {
+        alert('No email found. Please go back and try logging in again.');
+        return;
+      }
+
+      // Combine the 6 input fields into one token
+      let token = '';
+      inputs.forEach(input => token += input.value);
+      
+      if (token.length !== 6) {
+        alert('Please enter all 6 digits.');
+        return;
+      }
+
+      try {
+        const btn = document.querySelector('.btn-primary');
+        btn.disabled = true;
+        btn.innerText = 'Verifying...';
+
+        const { data: { session }, error } = await supabaseClient.auth.verifyOtp({
+          email: email,
+          token: token,
+          type: 'signup' // Must use 'signup' for email confirmation codes
+        });
+
+        if (error) throw error;
+
+        alert('Verification Successful! Please complete your profile.');
+        window.location.href = 'fill_form.html';
+      } catch (error) {
+        alert('Invalid OTP: ' + error.message);
+        console.error(error);
+      } finally {
+        const btn = document.querySelector('.btn-primary');
+        btn.disabled = false;
+        btn.innerText = 'Verify Code';
+      }
     }
   </script>
+  <script src="../../components/toast.js"></script>
 </body>
 </html>

@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mr. Johnson's Courses – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    body { min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    
+    /* ==============================
+       APP SHELL — Sidebar Layout
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; overflow-y: auto; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* ==============================
+       PAGE HEADER & SEARCH
+    ============================== */
+    .page-header { margin-bottom: 24px; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .page-header__desc { font-size: 15px; color: #6b7280; line-height: 1.5; max-width: 600px; margin-bottom: 24px; }
+
+    .filters-container {
+      display: flex; gap: 16px; margin-bottom: 32px; align-items: stretch;
+    }
+    
+    .search-bar {
+      display: flex; flex: 1; align-items: center; background: white; border: 1px solid #e5e7eb;
+      border-radius: 12px; padding: 12px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s ease;
+    }
+    .search-bar:focus-within { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1); }
+    .search-bar svg { color: #9ca3af; margin-right: 12px; flex-shrink: 0; }
+    .search-bar input { flex: 1; border: none; outline: none; font-size: 16px; color: #111827; background: transparent; }
+    .search-bar input::placeholder { color: #9ca3af; }
+
+    .filter-dropdowns {
+      display: flex; gap: 12px; flex-shrink: 0;
+    }
+    .filter-select {
+      background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 0 16px; font-size: 14px; color: #374151; font-weight: 500; cursor: pointer; outline: none; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;
+    }
+    .filter-select:focus, .filter-select:hover { border-color: #b70c01; }
+
+    /* ==============================
+       ROOM CARDS GRID
+    ============================== */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .room-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .room-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      border-color: #b70c01;
+    }
+
+    .room-card__header {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+    }
+    .room-card__title {
+      font-size: 18px; font-weight: 700; color: #111827; line-height: 1.3;
+    }
+    .room-card__badge {
+      background: #fff0f0; color: #b70c01; font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    .room-card__tutor {
+      display: flex; align-items: center; gap: 6px; font-size: 14px; color: #4b5563; margin-bottom: 20px; font-weight: 500;
+    }
+    .room-card__tutor svg { color: #6b7280; }
+
+    /* Metadata List */
+    .room-card__meta-list {
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #374151;
+    }
+    .meta-item svg { color: #9ca3af; flex-shrink: 0; }
+    .meta-item strong { font-weight: 600; color: #111827; }
+
+    /* Subjects Breakdown */
+    .room-card__subjects {
+      background: #f9fafb; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;
+    }
+    .room-card__subjects-title {
+      font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .subject-pill-list {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .subject-pill {
+      background: white; border: 1px solid #e5e7eb; font-size: 12.5px; color: #374151;
+      padding: 4px 10px; border-radius: 6px; display: flex; align-items: center; gap: 6px;
+      font-weight: 500;
+    }
+    .subject-pill span { color: #b70c01; font-weight: 700; background: #fff0f0; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+
+    /* Reward Alert */
+    .room-card__reward {
+      background: #fffbeb; border: 1px solid #fde68a; color: #b45309; border-radius: 8px;
+      padding: 10px 12px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px;
+      margin-bottom: 20px;
+    }
+    .room-card__reward svg { color: #d97706; }
+
+    .room-card__actions { margin-top: auto; }
+    
+    .btn-primary {
+      width: 100%; background: #b70c01; color: white; font-size: 15px; font-weight: 700;
+      padding: 12px 24px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.2s ease; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #9a0a01; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2); }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .filters-container { flex-direction: column; gap: 12px; }
+      .filter-dropdowns { display: grid; grid-template-columns: 1fr 1fr; }
+      .filter-select { padding: 12px 16px; }
+    }
+    @media (max-width: 600px) {
+      .content-area { padding: 20px 16px; }
+      .room-grid { grid-template-columns: 1fr; }
+      .filter-dropdowns { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="/" data-active="exam_studio"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
+
+      <main class="content-area">
+        <div class="page-header">
+          <h1 class="page-header__title">Mr. Johnson's Hub</h1>
+          <p class="page-header__desc">Browse and take courses specifically created by Mr. Johnson.</p>
+        </div>
+        
+        <!-- Search and Filters -->
+        <div class="filters-container">
+          <div class="search-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" placeholder="Search for a room by name, tutor, subject or ID...">
+          </div>
+          
+          <div class="filter-dropdowns">
+            <select class="filter-select">
+              <option value="" disabled selected>Filter by Country</option>
+              <option value="all">All Countries</option>
+              <option value="nigeria">???? Nigeria</option>
+              <option value="ghana">???? Ghana</option>
+              <option value="sierra_leone">???? Sierra Leone</option>
+              <option value="gambia">???? The Gambia</option>
+              <option value="liberia">???? Liberia</option>
+            </select>
+            
+            <select class="filter-select">
+              <option value="" disabled selected>Filter by Exam Body</option>
+              <option value="all">All Exam Bodies</option>
+              <option value="jamb">JAMB</option>
+              <option value="waec">WAEC</option>
+              <option value="neco">NECO</option>
+              <option value="gce">GCE</option>
+              <option value="nabteb">NABTEB</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="room-grid">
+          
+          <!-- Card 1 -->
+          <div class="room-card">
+            <div class="room-card__header">
+              <h3 class="room-card__title">Weekly Assessment: Calculus & Mechanics</h3>
+              <span class="room-card__badge">Mock Exam</span>
+            </div>
+            
+            <div class="room-card__tutor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              By Mr. Johnson
+            </div>
+
+            <div class="room-card__meta-list">
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span><strong>???? Nigeria</strong> | <strong>JAMB</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Time: <strong>60 Mins</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <span>Total Questions: <strong>100</strong></span>
+              </div>
+            </div>
+
+            <div class="room-card__subjects">
+              <div class="room-card__subjects-title">Subjects & Allocations</div>
+              <div class="subject-pill-list">
+                <div class="subject-pill">Mathematics <span>40 Qs</span></div>
+                <div class="subject-pill">Physics <span>60 Qs</span></div>
+              </div>
+            </div>
+
+            <div class="room-card__reward">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              Best Student Reward: ?5,000
+            </div>
+
+            <div class="room-card__actions">
+              <button class="btn-primary" onclick="window.location.href='instruction.html'">
+                Start Exam
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="room-card">
+            <div class="room-card__header">
+              <h3 class="room-card__title">Organic Chemistry Challenge</h3>
+              <span class="room-card__badge" style="background: #e0e7ff; color: #4338ca;">Scholarship</span>
+            </div>
+            
+            <div class="room-card__tutor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              By Dr. Smith
+            </div>
+
+            <div class="room-card__meta-list">
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span><strong>???? Ghana</strong> | <strong>WAEC</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Time: <strong>45 Mins</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <span>Total Questions: <strong>50</strong></span>
+              </div>
+            </div>
+
+            <div class="room-card__subjects">
+              <div class="room-card__subjects-title">Subjects & Allocations</div>
+              <div class="subject-pill-list">
+                <div class="subject-pill">Chemistry <span>50 Qs</span></div>
+              </div>
+            </div>
+
+            <div class="room-card__reward">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              Best Student Reward: Full Scholarship
+            </div>
+
+            <div class="room-card__actions">
+              <button class="btn-primary" onclick="window.location.href='instruction.html'">
+                Start Exam
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="room-card">
+            <div class="room-card__header">
+              <h3 class="room-card__title">English Comprehension Sprint</h3>
+              <span class="room-card__badge" style="background: #ecfdf5; color: #059669;">Daily Sprint</span>
+            </div>
+            
+            <div class="room-card__tutor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              By Mrs. Akpan
+            </div>
+
+            <div class="room-card__meta-list">
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span><strong>???? Nigeria</strong> | <strong>NECO</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Time: <strong>15 Mins</strong></span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <span>Total Questions: <strong>20</strong></span>
+              </div>
+            </div>
+
+            <div class="room-card__subjects">
+              <div class="room-card__subjects-title">Subjects & Allocations</div>
+              <div class="subject-pill-list">
+                <div class="subject-pill">Use of English <span>20 Qs</span></div>
+              </div>
+            </div>
+
+            <div class="room-card__reward" style="background: #f3f4f6; border-color: #d1d5db; color: #4b5563;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #6b7280;"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              Best Student Reward: No Monetary Award
+            </div>
+
+            <div class="room-card__actions">
+              <button class="btn-primary" onclick="window.location.href='instruction.html'">
+                Start Exam
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+        
+      </main>
+    </div>
+  </div>
+  
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
+</body>
+</html>
+
+

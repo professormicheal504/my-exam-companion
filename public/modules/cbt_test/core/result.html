@@ -35,14 +35,14 @@
 
     /* Info */
     .slip-info { display: grid; grid-template-columns: 140px 1fr; row-gap: 7px; margin-bottom: 24px; font-size: 13.5px; }
-    .slip-info .lbl { color: #222; font-weight: 400; }
+    .slip-info .lbl { color: #4b5563; font-weight: 400; }
     .slip-info .val { font-weight: 700; color: #000; word-break: break-word; }
 
     /* Table */
     .slip-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 13.5px; }
     .slip-table thead tr { background: #c6d9f0; }
-    .slip-table th { text-align: left; padding: 10px 14px; font-weight: 700; border: 1px solid #9eb8d8; color: #000; }
-    .slip-table td { padding: 9px 14px; border: 1px solid #ccc; color: #000; }
+    .slip-table th { text-align: left; padding: 10px 14px; font-weight: 700; border: 1px solid #e5e7eb; color: #000; }
+    .slip-table td { padding: 9px 14px; border: 1px solid #e5e7eb; color: #000; }
     .slip-table tbody tr:nth-child(even) td { background: #e8f5e9; }
     .slip-table .score-col { font-weight: 700; }
 
@@ -56,13 +56,14 @@
     .badge-poor      { background: #7f1d1d; color: white; }
 
     /* Footer */
-    .slip-credit { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #333; border-top: 1px solid #ccc; margin-top: 14px; padding-top: 10px; }
+    .slip-credit { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #333; border-top: 1px solid #e5e7eb; margin-top: 30px; padding-top: 20px; }
 
     /* Print */
     @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       body { background: white; padding: 0; }
       .action-bar, .fixed-review-bar { display: none !important; }
-      .slip { border: none; box-shadow: none; padding: 20px 30px; }
+      .slip { border: none; box-shadow: none; padding: 20px 30px; margin: 0 auto; max-width: 100%; }
     }
 
     /* Fixed Review Bar */
@@ -150,7 +151,7 @@
   <div class="slip-wrapper">
     <div class="slip">
       <div class="slip-header">
-        <img src="../../../assets/images/jamb_logo.webp" alt="JAMB Logo" class="slip-logo" style="display:none;">
+        <img loading="lazy" src="../../../assets/images/jamb_logo.webp" alt="JAMB Logo" class="slip-logo" style="display:none;">
         <h1 id="slip-title">JAMB 2025 UTME Results Notification</h1>
       </div>
 
@@ -160,7 +161,8 @@
         <span class="lbl">Date of Birth:</span><span class="val">—</span>
         <span class="lbl">Exam Mode:</span> <span class="val" id="info-mode">Full Exam Mode</span>
         <span class="lbl">Exam No:</span>   <span class="val" id="info-examno">—</span>
-        <span class="lbl">Centre Name:</span><span class="val">My Exam Companion – Online CBT Simulator</span>
+        <span class="lbl">Centre Name:</span><span class="val">www.myexamcompanion.com</span>
+        <span class="lbl">Avg Time/Q:</span><span class="val" id="info-avg-time">—</span>
       </div>
 
       <table class="slip-table">
@@ -226,11 +228,26 @@
     document.getElementById('info-examno').textContent = result.examNo || '—';
     document.getElementById('info-mode').textContent   = result.mode   || 'Full Exam Mode';
 
+    const totalQ = result.totalQuestions || 1;
+    const timeSpent = result.timeSpentSecs || 0;
+    const avgSecs = timeSpent / totalQ;
+    let avgStr = "—";
+    if (timeSpent > 0) {
+      if (avgSecs < 60) {
+        avgStr = Math.round(avgSecs) + " sec";
+      } else {
+        const m = Math.floor(avgSecs / 60);
+        const s = Math.round(avgSecs % 60);
+        avgStr = m + "m " + s + "s";
+      }
+    }
+    const avgEl = document.getElementById('info-avg-time');
+    if (avgEl) avgEl.textContent = avgStr;
+
     const tbody = document.getElementById('score-tbody');
     result.subjects.forEach(sub => {
       const tr = document.createElement('tr');
-      // If scaled, we might just show score. Otherwise show score / total
-      const scoreDisplay = result.isScaled ? sub.score : `${sub.score} / ${sub.total || '-'}`;
+      const scoreDisplay = `${sub.score} / ${sub.total || '-'}`;
       tr.innerHTML = `<td>${sub.name}</td><td class="score-col">${scoreDisplay}</td>`;
       tbody.appendChild(tr);
     });
@@ -238,7 +255,7 @@
     const total = result.totalScore;
     const max = result.maxScore || 100;
     const pct   = Math.round((total / max) * 100);
-    document.getElementById('total-score').textContent = result.isScaled ? total : `${total} / ${max}`;
+    document.getElementById('total-score').textContent = `${total} / ${max}`;
 
     const badge = document.getElementById('perf-badge');
     if      (pct >= 75) { badge.textContent = 'Excellent'; badge.className = 'perf-badge badge-excellent'; }

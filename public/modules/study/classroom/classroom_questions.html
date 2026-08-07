@@ -5,244 +5,258 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classroom Questions | My Exam Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- MathJax for LaTeX rendering (full TeX + MML support) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        processEscapes: true,
+        packages: {'[+]': ['ams', 'boldsymbol']}
+      },
+      options: {
+        skipHtmlTags: ['script','noscript','style','textarea','pre']
+      },
+      startup: { typeset: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
   <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/footer.css">
   <style>
-    /* ===========================
-       RESET & BASE
-    =========================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
-    img { display: block; max-width: 100%; }
 
-    /* ===========================
-       APP SHELL
-    =========================== */
+    /* -- App Shell -- */
     .app { display: flex; min-height: 100vh; overflow-x: hidden; }
-    .main-wrapper {
-      margin-left: 90px;
-      flex: 1; display: flex; flex-direction: column; min-height: 100vh;
-      min-width: 0; max-width: calc(100% - 90px); transition: margin-left 0.2s; overflow-x: hidden;
-    }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; max-width: calc(100% - 90px); overflow-x: hidden; }
 
-    /* ===========================
-       TOPBAR
-    =========================== */
-    .topbar {
-      height: 56px; background: #fff; border-bottom: 1px solid #f0f0f0;
-      display: flex; align-items: center; padding: 0 16px; position: sticky; top: 0; z-index: 40; gap: 12px;
-    }
-    .topbar__logo { display: flex; align-items: center; flex-shrink: 0; }
-    .topbar__logo img { height: 40px; width: auto; object-fit: contain; }
-    .topbar__search {
-      flex: 1; display: flex; align-items: center; gap: 8px; max-width: 400px;
-      background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 9999px; padding: 7px 14px;
-      transition: border-color 0.15s;
-    }
-    .topbar__search:focus-within { border-color: #b70c01; background: #fff; }
-    .topbar__search svg { color: #9ca3af; flex-shrink: 0; }
-    .topbar__search input { flex: 1; border: none; background: transparent; outline: none; font-size: 13px; color: #131212; font-family: inherit; min-width: 0; }
-    .topbar__search input::placeholder { color: #b0b0b0; }
-    .topbar__actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
-    .btn-login  { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #131212; border: 1px solid #ddd; background: #fff; transition: background 0.15s; white-space: nowrap; }
-    .btn-login:hover { background: #f5f5f5; }
-    .btn-register { padding: 7px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #fff; background: #131212; border: 1px solid #131212; transition: background 0.15s; white-space: nowrap; }
-    .btn-register:hover { background: #2d2d2d; }
-
-    /* ===========================
-       CONTENT AREA
-    =========================== */
+    /* -- Content -- */
     .content-area { display: flex; flex: 1; overflow-x: hidden; }
     .main-content { flex: 1; padding: 20px 16px; min-width: 0; width: 100%; overflow-x: hidden; }
-
-    /* ===========================
-       PAGE LAYOUT â€” 2 COLUMN
-    =========================== */
     .page-layout { display: flex; gap: 20px; max-width: 1280px; margin: 0 auto; align-items: flex-start; width: 100%; }
     .questions-col { flex: 1; min-width: 0; width: 0; display: flex; flex-direction: column; gap: 14px; }
+
+    /* -- Right subject sidebar -- */
     .subject-col {
       width: 260px; flex-shrink: 0; background: #fff; border-radius: 12px; padding: 20px;
       border: 1px solid #f0f0f0; position: sticky; top: 70px;
-      max-height: calc(100vh - 86px); overflow-y: auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      max-height: calc(100vh - 86px); overflow-y: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
     .subject-col::-webkit-scrollbar { width: 4px; }
     .subject-col::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
 
-    /* ===========================
-       CARD BASE
-    =========================== */
-    .card { background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); width: 100%; overflow: hidden; }
+    /* -- Card -- */
+    .card { background: #fff; border: 1px solid #ebebeb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); width: 100%; overflow: hidden; }
 
-    /* ===========================
-       SUBJECT HEADING CARD
-    =========================== */
-    .subject-heading { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
-
-    /* ===========================
-       FILTER BAR
-    =========================== */
+    /* -- Subject heading / filter bar -- */
+    .subject-heading { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
     .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
     .filter-select {
       flex: 1 1 calc(50% - 4px); min-width: 120px; padding: 9px 32px 9px 14px; border-radius: 99px;
       border: 1px solid #e5e7eb; background: #fff; font-size: 12px; font-weight: 500; color: #374151;
-      outline: none; cursor: pointer; appearance: none;
+      outline: none; cursor: pointer; appearance: none; font-family: inherit;
       background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.2s; font-family: inherit;
+      background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.2s;
     }
     .filter-select:focus { border-color: #b70c01; }
     .btn-get { width: 100%; padding: 10px; border-radius: 99px; background: #111827; color: #fff; font-size: 13px; font-weight: 700; transition: background 0.15s; }
-    .btn-get:hover { background: #000; }
+    .btn-get:hover { background: #b70c01; }
 
-    /* ===========================
-       ACTION CHIPS
-    =========================== */
+    /* -- Topic filter row -- */
+    .topic-filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .topic-filter-row label { font-size: 12px; font-weight: 700; color: #374151; white-space: nowrap; }
+    .topic-select {
+      flex: 1; min-width: 160px; max-width: 100%; padding: 9px 32px 9px 14px; border-radius: 99px;
+      border: 1.5px solid #e5e7eb; background: #fff; font-size: 12px; font-weight: 500; color: #374151;
+      outline: none; cursor: pointer; appearance: none; font-family: inherit;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23b70c01' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .topic-select:focus { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183,12,1,0.08); }
+    .topic-count-badge { font-size: 11px; font-weight: 700; color: #b70c01; background: #fef2f2; padding: 4px 10px; border-radius: 99px; white-space: nowrap; flex-shrink: 0; }
+    .topic-count-badge { font-size: 11px; font-weight: 700; color: #b70c01; background: #fef2f2; padding: 4px 10px; border-radius: 99px; white-space: nowrap; flex-shrink: 0; }
+    #topicFilterCard { display: none; }
+
+    /* -- Mastery Rings (Custom Topic List) -- */
+    .topic-list-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #fff; border: 1.5px solid #e5e7eb; cursor: pointer; transition: all 0.2s; }
+    .topic-list-item:hover { border-color: #d1d5db; background: #f9fafb; }
+    .topic-list-item.active { border-color: #b70c01; background: #fef2f2; }
+    .topic-list-item .t-name { font-size: 12.5px; font-weight: 600; color: #374151; }
+    .topic-list-item.active .t-name { color: #b70c01; }
+    .mastery-ring { position: relative; width: 28px; height: 28px; }
+    .mastery-ring svg { transform: rotate(-90deg); width: 28px; height: 28px; }
+    .mastery-ring circle { fill: none; stroke-width: 2.5; }
+    .mastery-ring .bg { stroke: #f0f0f0; }
+    .mastery-ring .progress { stroke: #10b981; stroke-dasharray: 75; stroke-linecap: round; transition: stroke-dashoffset 1s ease-out; }
+    .mastery-ring .val { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; color: #10b981; }
+
+    /* -- Action chips -- */
     .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
     .chips::-webkit-scrollbar { display: none; }
-    .chip {
-      display: flex; align-items: center; gap: 5px; padding: 7px 14px; white-space: nowrap;
-      border: 1px solid #e5e7eb; border-radius: 99px; background: #fff;
-      font-size: 11.5px; font-weight: 600; color: #374151; flex-shrink: 0; transition: all 0.2s;
-    }
+    .chip { display: flex; align-items: center; gap: 5px; padding: 7px 14px; white-space: nowrap; border: 1px solid #e5e7eb; border-radius: 99px; background: #fff; font-size: 11.5px; font-weight: 600; color: #374151; flex-shrink: 0; transition: all 0.2s; }
     .chip:hover { background: #f9fafb; border-color: #d1d5db; }
     .chip.red { color: #b70c01; border-color: #fecaca; }
     .chip.red:hover { background: #fef2f2; }
 
-    /* ===========================
-       QUICK LINKS GRID
-    =========================== */
+    /* -- Section label -- */
+    .section-label { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 14px; }
+
+    /* -- Quick links -- */
     .ql-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; }
     .ql-scroll::-webkit-scrollbar { height: 4px; }
     .ql-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
-    .ql-tile {
-      flex: 0 0 108px; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px;
-      padding: 14px 10px; text-align: center; display: flex; flex-direction: column;
-      align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s;
-    }
+    .ql-tile { flex: 0 0 108px; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px; padding: 14px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s; }
     .ql-tile:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
     .ql-icon { width: 34px; height: 34px; background: #fef2f2; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b70c01; }
     .ql-label { font-size: 11px; font-weight: 600; color: #374151; line-height: 1.4; }
 
-    /* ===========================
-       QUESTION CARD
-    =========================== */
-    .q-label { font-size: 12px; font-weight: 600; color: #b70c01; background: #fef2f2; padding: 4px 12px; border-radius: 99px; display: inline-flex; }
+    /* -- Question cards -- */
+    .q-label { font-size: 12px; font-weight: 700; color: #b70c01; background: #fff0f0; padding: 5px 14px; border-radius: 8px; display: inline-flex; }
     .q-tags { display: flex; gap: 6px; }
     .q-tag { padding: 4px 9px; border-radius: 6px; font-size: 11px; font-weight: 700; }
     .q-tag-exam { background: #e0f2fe; color: #0369a1; }
     .q-tag-year { background: #f3f4f6; color: #4b5563; }
-    .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
-    .q-text { font-size: 14.5px; color: #111827; line-height: 1.7; margin-bottom: 20px; font-weight: 500; }
-    .q-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+
+    /* -- Question card body (CBT-style) -- */
+    .q-text { font-size: 17px; color: #111827; line-height: 1.65; margin-bottom: 24px; font-weight: 500; }
+    .q-text p { margin-bottom: 8px; }
+    .q-text table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+    .q-text td, .q-text th { border: 1px solid #e5e7eb; padding: 8px 12px; }
+
+    /* -- Options (CBT-style) -- */
+    .q-options { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
     .q-option {
-      display: flex; align-items: center; gap: 14px; padding: 13px 16px;
-      border: 1.5px solid #f0f0f0; border-radius: 10px; cursor: pointer; transition: all 0.18s;
-      min-height: 48px; /* touch-friendly */
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      border: 1.5px solid #ebebeb;
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 56px;
     }
-    .q-option:hover { border-color: #b70c01; background: #fffbfb; }
-    .q-opt-letter { font-size: 12px; font-weight: 800; color: #b70c01; width: 20px; flex-shrink: 0; }
-    .q-opt-text { font-size: 13.5px; color: #374151; font-weight: 500; line-height: 1.4; }
-    .q-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 14px; gap: 8px; flex-wrap: wrap; }
-    .btn-explain { font-size: 12px; font-weight: 600; color: #b70c01; padding: 8px 16px; border: 1px solid #fecaca; border-radius: 99px; background: #fff; transition: all 0.2s; white-space: nowrap; }
+    .q-option:hover { border-color: #d1d5db; background: #f9fafb; }
+    .q-option.correct { border-color: #10b981; background: #f0fdf4; }
+    .q-opt-letter {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: #f3f4f6;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #6b7280;
+      flex-shrink: 0; transition: all 0.2s;
+    }
+    .q-option.correct .q-opt-letter { background: #10b981; color: #fff; }
+    .q-opt-text { font-size: 15px; color: #374151; font-weight: 500; line-height: 1.45; flex: 1; }
+    .q-opt-text p { margin: 0; }
+
+    /* -- Question card footer -- */
+    .q-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 16px; gap: 8px; flex-wrap: wrap; }
+    .btn-explain { font-size: 12.5px; font-weight: 600; color: #b70c01; padding: 9px 18px; border: 1px solid #fecaca; border-radius: 99px; background: #fff; transition: all 0.2s; white-space: nowrap; }
     .btn-explain:hover { background: #fef2f2; }
-    .btn-bookmark { color: #9ca3af; width: 36px; height: 36px; border: 1px solid #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+    .btn-bookmark { color: #9ca3af; width: 36px; height: 36px; border: 1px solid #ebebeb; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
     .btn-bookmark:hover { color: #111827; border-color: #d1d5db; background: #f9fafb; }
 
-    /* ===========================
-       SUBJECT SIDEBAR (desktop)
-    =========================== */
+    /* -- Math overflow wrapper -- */
+    .math-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+    .math-scroll::-webkit-scrollbar { height: 4px; }
+    .math-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+    /* Rendered MathJax display blocks */
+    mjx-container[display="true"] { overflow-x: auto; max-width: 100%; }
+    /* Question image */
+    .q-img-wrap { margin: 12px 0 20px; text-align: center; }
+    .q-img-wrap img { max-width: 100%; border-radius: 8px; border: 1px solid #ebebeb; background: #f9fafb; }
+    /* HTML tables inside questions */
+    .q-text table, .q-opt-text table { border-collapse: collapse; width: 100%; max-width: 100%; margin: 10px 0; font-size: 13px; }
+    .q-text td, .q-text th, .q-opt-text td, .q-opt-text th { border: 1px solid #d1d5db; padding: 7px 10px; text-align: left; vertical-align: top; }
+    .q-text tr:nth-child(even), .q-opt-text tr:nth-child(even) { background: #f9fafb; }
     .qs-label { font-size: 10px; font-weight: 800; color: #9ca3af; letter-spacing: 0.07em; display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
     .qs-search { position: relative; margin-bottom: 14px; }
     .qs-search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; pointer-events: none; }
-    .qs-search input {
-      width: 100%; padding: 9px 14px 9px 36px; border: 1px solid #e5e7eb; border-radius: 99px;
-      font-size: 12px; outline: none; background: #f9fafb; font-family: inherit; transition: all 0.2s;
-    }
+    .qs-search input { width: 100%; padding: 9px 14px 9px 36px; border: 1px solid #e5e7eb; border-radius: 99px; font-size: 12px; outline: none; background: #f9fafb; font-family: inherit; transition: all 0.2s; }
     .qs-search input:focus { border-color: #b70c01; background: #fff; }
     .qs-list { display: flex; flex-direction: column; }
-    .qs-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 13px; font-weight: 500; color: #4b5563; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: color 0.15s; }
+    .qs-item { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; font-size: 13px; font-weight: 500; color: #4b5563; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: color 0.15s; text-decoration: none; }
     .qs-item:last-child { border-bottom: none; }
     .qs-item:hover, .qs-item.active { color: #b70c01; font-weight: 600; }
-    .qs-item svg { color: #e5e7eb; transition: all 0.15s; }
+    .qs-item svg { color: #e5e7eb; transition: all 0.15s; flex-shrink: 0; }
     .qs-item:hover svg, .qs-item.active svg { transform: translateX(3px); color: #b70c01; }
 
-    /* ===========================
-       MOBILE SUBJECT TOGGLE
-    =========================== */
+    /* -- Mobile subject toggle -- */
     .mobile-subj-toggle { display: none; width: 100%; padding: 11px 16px; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px; font-size: 13px; font-weight: 600; color: #374151; align-items: center; gap: 8px; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.03); transition: background 0.15s; }
     .mobile-subj-toggle:hover { background: #f9fafb; }
     .mobile-subj-toggle .toggle-icon { transition: transform 0.25s; }
     .mobile-subj-toggle.open .toggle-icon { transform: rotate(180deg); }
-    .mobile-subj-panel { display: none; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px; padding: 16px; overflow: hidden; }
+    .mobile-subj-panel { display: none; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px; padding: 16px; }
     .mobile-subj-panel.open { display: block; animation: slideDown 0.2s ease-out; }
+
+    /* -- Loading / state -- */
+    .state-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 50px 24px; text-align: center; }
+    .state-box .spinner { width: 32px; height: 32px; border: 3px solid #f0f0f0; border-top-color: #b70c01; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    .state-box p { font-size: 14px; color: #9ca3af; font-weight: 500; }
+    /* -- Skeletons -- */
+    .skeleton-q { background: #fff; border: 1px solid #ebebeb; border-radius: 16px; padding: 28px; margin-bottom: 20px; animation: pulse 1.5s infinite ease-in-out; }
+    .skeleton-q-head { width: 30%; height: 20px; background: #f0f0f0; border-radius: 4px; margin-bottom: 16px; }
+    .skeleton-q-line { width: 100%; height: 14px; background: #f0f0f0; border-radius: 4px; margin-bottom: 8px; }
+    .skeleton-q-line.short { width: 70%; margin-bottom: 24px; }
+    .skeleton-q-opt { width: 50%; height: 36px; background: #f9fafb; border-radius: 8px; margin-bottom: 10px; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+    /* -- Pagination -- */
+    .pagination { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; padding: 8px 0 4px; }
+    .pg-btn {
+      min-width: 38px; height: 38px; padding: 0 10px; border-radius: 10px;
+      border: 1.5px solid #e5e7eb; background: white; font-size: 13px; font-weight: 600;
+      color: #4b5563; cursor: pointer; transition: all 0.18s; display: flex; align-items: center; justify-content: center;
+    }
+    .pg-btn:hover { border-color: #b70c01; color: #b70c01; background: #fef2f2; }
+    .pg-btn.active { background: #b70c01; color: white; border-color: #b70c01; }
+    .pg-btn:disabled { opacity: 0.35; cursor: not-allowed; border-color: #f0f0f0; }
+    .pg-btn:disabled:hover { background: white; color: #4b5563; border-color: #f0f0f0; }
+    .pg-dots { font-size: 13px; color: #9ca3af; padding: 0 2px; line-height: 38px; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ===========================
-       SECTION LABEL
-    =========================== */
-    .section-label { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 14px; }
+    /* -- Scratchpad -- */
+    #scratchpadFAB { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #b70c01; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(183,12,1,0.4); cursor: pointer; z-index: 900; transition: transform 0.2s; }
+    #scratchpadFAB:hover { transform: scale(1.05); }
+    #scratchpadOverlay { position: fixed; inset: 0; background: rgba(255,255,255,0.9); z-index: 1000; display: none; flex-direction: column; }
+    #scratchpadHeader { padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #ebebeb; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    #scratchpadHeader h3 { font-size: 16px; font-weight: 700; color: #111827; }
+    .sp-actions { display: flex; gap: 12px; }
+    .sp-btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; }
+    .sp-btn-clear { background: #fef2f2; color: #b70c01; }
+    .sp-btn-close { background: #f3f4f6; color: #374151; }
+    #scratchpadCanvas { flex: 1; cursor: crosshair; }
 
-    /* ===========================
-       RESPONSIVE
-    =========================== */
-    @media (max-width: 1024px) {
-      .subject-col { display: none; }
-      .mobile-subj-toggle { display: flex; }
-    }
-    @media (max-width: 768px) {
-      .topbar__actions { display: none; }
-      .main-content { padding: 14px 12px; }
-      .topbar { padding: 0 12px; }
-      .filter-select { flex: 1 1 calc(50% - 4px); min-width: 0; font-size: 12px; padding: 9px 28px 9px 12px; }
-      .btn-get { margin-top: 0; }
-    }
-    @media (max-width: 600px) {
-      .main-wrapper { margin-left: 0; max-width: 100%; }
-      .main-content { padding: 12px 10px; }
-      .topbar { height: 52px; padding: 0 10px; gap: 8px; }
-      .topbar__logo img { height: 34px; min-width: 0 !important; }
-      .topbar__search { flex: 1; max-width: none; padding: 6px 12px; font-size: 12px; }
-      .topbar__search input { font-size: 12px; }
-      .card { padding: 14px; }
-      .subject-heading { font-size: 17px; }
-      .filter-bar { gap: 7px; }
-      .filter-select { flex: 1 1 calc(50% - 3.5px); font-size: 11px; padding: 8px 24px 8px 10px; }
-      .q-option { padding: 11px 12px; }
-      .q-text { font-size: 13.5px; }
-      .chips { gap: 6px; }
-      .chip { font-size: 11px; padding: 6px 12px; }
-      .ql-tile { flex: 0 0 96px; padding: 12px 8px; }
-      .ql-label { font-size: 10.5px; }
-      .ql-icon { width: 30px; height: 30px; }
-      .page-layout { gap: 0; }
-      .q-footer { padding-top: 12px; }
-    }
-    @media (max-width: 380px) {
-      .filter-select { flex: 1 1 100%; }
-    }
+    /* -- Lightbox -- */
+    #lightboxOverlay { position: fixed; inset: 0; background: rgba(17,24,39,0.95); z-index: 2000; display: none; align-items: center; justify-content: center; cursor: zoom-out; }
+    #lightboxOverlay img { max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; cursor: default; }
+
+    @media (max-width: 1024px) { .subject-col { display: none; } .mobile-subj-toggle { display: flex; } }
+    @media (max-width: 768px) { .main-content { padding: 14px 12px; } .filter-select { flex: 1 1 calc(50% - 4px); min-width: 0; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; max-width: 100%; } .main-content { padding: 12px 10px; } .card { padding: 14px; } .q-option { padding: 11px 12px; } }
+    @media (max-width: 380px) { .filter-select { flex: 1 1 100%; } }
   </style>
 </head>
 <body>
   <div class="app">
-    <app-sidebar data-base="../../"></app-sidebar>
+    <app-sidebar data-base="/" data-active="classroom"></app-sidebar>
     <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
 
-      <!-- TOPBAR -->
-      <app-topbar data-base="../../"></app-topbar>
-
-      <!-- CONTENT -->
       <div class="content-area">
         <main class="main-content">
           <div class="page-layout">
 
-            <!-- ========================
-                 LEFT / MAIN COLUMN
-            ======================== -->
+            <!-- -- Main Questions Column -- -->
             <div class="questions-col">
 
               <!-- Mobile subject toggle -->
@@ -260,28 +274,39 @@
                 </div>
                 <div class="qs-search">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                  <input type="text" placeholder="Search Subject">
+                  <input type="text" placeholder="Search Subject" oninput="filterSubjects(this.value, 'mobile-subj-list')">
                 </div>
-                <div class="qs-list">
-                  <a href="#" class="qs-item">Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item">English Language <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item">Chemistry <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item">Physics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item">Biology <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item">Economics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  <a href="#" class="qs-item active">Further Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
+                <div class="qs-list" id="mobile-subj-list"></div>
               </div>
 
               <!-- Filter Card -->
               <div class="card">
-                <div class="subject-heading">Further Mathematics</div>
+                <div class="subject-heading" id="subjectHeading">Loading...</div>
                 <div class="filter-bar">
-                  <select class="filter-select"><option>Exam Type</option><option>WAEC</option><option>JAMB</option><option>NECO</option></select>
-                  <select class="filter-select"><option>Year</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option></select>
-                  <select class="filter-select"><option>Question Type</option><option>Objective</option><option>Theory</option></select>
-                  <select class="filter-select"><option>Topic</option><option>All Topics</option><option>Logarithms</option><option>Algebra</option></select>
-                  <button class="btn-get">Get Questions</button>
+                  <select class="filter-select" id="yearSelect">
+                    <option value="">Year</option>
+                  </select>
+                  <select class="filter-select" id="typeSelect">
+                    <option value="objective">Objective</option>
+                    <option value="theory">Theory</option>
+                  </select>
+                  <button class="btn-get" onclick="loadQuestions()">Get Questions</button>
+                </div>
+              </div>
+
+              <!-- Topic Filter (shown after questions load) -->
+              <div class="card" id="topicFilterCard" style="display: none; flex-direction: column; gap: 0; padding: 0;">
+                <button id="topicDropdownToggle" style="display:flex; justify-content:space-between; align-items:center; padding:18px 22px; width:100%; background:none; border:none; cursor:pointer; border-bottom:1px solid transparent;" onclick="toggleTopicDropdown()">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <span class="section-label" style="margin:0;">??? Mastery Tracker</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="topic-count-badge" id="topicCountBadge">0 questions</span>
+                    <svg id="topicDropdownIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.2s; color:#9ca3af;"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </button>
+                <div class="topic-list" id="topicListContainer" style="display:none; flex-direction:column; gap:8px; padding: 0 22px 22px 22px; border-top:1px solid #f0f0f0;">
+                  <!-- dynamically injected topics with mastery rings -->
                 </div>
               </div>
 
@@ -302,85 +327,24 @@
               <div>
                 <div class="section-label">Quick Links</div>
                 <div class="ql-scroll">
-                  <div class="ql-tile">
-                    <div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-                    <div class="ql-label">Offline App</div>
-                  </div>
-                  <div class="ql-tile">
-                    <div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.38 8.38 0 0 1 11.5 3h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-                    <div class="ql-label">Ask a Question</div>
-                  </div>
-                  <div class="ql-tile">
-                    <div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-                    <div class="ql-label">Check Syllabus</div>
-                  </div>
-                  <div class="ql-tile">
-                    <div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-                    <div class="ql-label">Past Question Videos</div>
-                  </div>
-                  <div class="ql-tile">
-                    <div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
-                    <div class="ql-label">Topic Videos</div>
-                  </div>
+                  <div class="ql-tile"><div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.38 8.38 0 0 1 11.5 3h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div class="ql-label">Ask a Question</div></div>
+                  <div class="ql-tile"><div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="ql-label">Check Syllabus</div></div>
+                  <div class="ql-tile"><div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><div class="ql-label">Past Question Videos</div></div>
+                  <div class="ql-tile"><div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div><div class="ql-label">Topic Videos</div></div>
                 </div>
               </div>
 
-              <!-- Past Questions -->
-              <div class="section-label" style="margin-bottom:0;">Past Questions</div>
-
-              <!-- Q1 -->
-              <div class="card">
-                <div class="q-header">
-                  <span class="q-label">Question 1</span>
-                  <div class="q-tags">
-                    <span class="q-tag q-tag-exam">WAEC</span>
-                    <span class="q-tag q-tag-year">2017</span>
-                  </div>
-                </div>
-                <div class="q-text">
-                  If <i>log</i><sub>y</sub>&thinsp;<sup>1</sup>&frasl;<sub>8</sub> = 3, find the value of y.
-                </div>
-                <div class="q-options">
-                  <div class="q-option"><span class="q-opt-letter">A</span><span class="q-opt-text">-2</span></div>
-                  <div class="q-option"><span class="q-opt-letter">B</span><span class="q-opt-text">-&thinsp;<sup>1</sup>&frasl;<sub>2</sub></span></div>
-                  <div class="q-option"><span class="q-opt-letter">C</span><span class="q-opt-text"><sup>1</sup>&frasl;<sub>2</sub></span></div>
-                  <div class="q-option"><span class="q-opt-letter">D</span><span class="q-opt-text">2</span></div>
-                </div>
-                <div class="q-footer">
-                  <button class="btn-explain" onclick="window.location.href='classroom_explanation.html'">View Explanation &amp; Discuss (10)</button>
-                  <button class="btn-bookmark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
-                </div>
+              <!-- Questions Area -->
+              <div class="section-label" id="questionsLabel" style="margin-bottom:0;">Past Questions</div>
+              <div id="questionsContainer">
+                <div class="state-box"><div class="spinner"></div><p>Loading questions...</p></div>
               </div>
-
-              <!-- Q2 -->
-              <div class="card">
-                <div class="q-header">
-                  <span class="q-label">Question 2</span>
-                  <div class="q-tags">
-                    <span class="q-tag q-tag-exam">WAEC</span>
-                    <span class="q-tag q-tag-year">2017</span>
-                  </div>
-                </div>
-                <div class="q-text">
-                  A binary operation &Delta; is defined on the set of real numbers, R, by a&Delta;b = <sup>a+b</sup>&frasl;<sub>&radic;ab</sub>, where a &ne; 0, b &ne; 0. Evaluate -3&Delta;-1.
-                </div>
-                <div class="q-options">
-                  <div class="q-option"><span class="q-opt-letter">A</span><span class="q-opt-text">-4&radic;3</span></div>
-                  <div class="q-option"><span class="q-opt-letter">B</span><span class="q-opt-text">-&thinsp;<sup>4&radic;3</sup>&frasl;<sub>3</sub></span></div>
-                  <div class="q-option"><span class="q-opt-letter">C</span><span class="q-opt-text"><sup>4&radic;3</sup>&frasl;<sub>3</sub></span></div>
-                  <div class="q-option"><span class="q-opt-letter">D</span><span class="q-opt-text">4&radic;3</span></div>
-                </div>
-                <div class="q-footer">
-                  <button class="btn-explain" onclick="window.location.href='classroom_explanation.html'">View Explanation &amp; Discuss (5)</button>
-                  <button class="btn-bookmark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
-                </div>
-              </div>
+              <!-- Pagination -->
+              <div class="pagination" id="paginationBar" style="display:none;"></div>
 
             </div><!-- end questions-col -->
 
-            <!-- ========================
-                 RIGHT SUBJECT COLUMN
-            ======================== -->
+            <!-- -- Right Subject Sidebar -- -->
             <aside class="subject-col">
               <div class="qs-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -388,47 +352,611 @@
               </div>
               <div class="qs-search">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" placeholder="Search Subject" id="subj-search" oninput="filterSubjects(this.value)">
+                <input type="text" placeholder="Search Subject" id="subj-search" oninput="filterSubjects(this.value, 'subj-list')">
               </div>
-              <div class="qs-list" id="subj-list">
-                <a href="#" class="qs-item">Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">English Language <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Chemistry <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Physics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Biology <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Geography <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Literature in English <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Economics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Commerce <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">Government <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item">CRK <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                <a href="#" class="qs-item active">Further Mathematics <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
+              <div class="qs-list" id="subj-list"></div>
             </aside>
 
-          </div><!-- end page-layout -->
+          </div>
         </main>
       </div>
+      <app-footer data-base="../../../"></app-footer>
     </div>
   </div>
 
-  <script src="../../../components/topbar.js"></script>
-  <script src="../../../components/sidebar.js?v=6"></script>
+  <!-- Scratchpad UI -->
+  <div id="scratchpadFAB" title="Open Scratchpad">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+  </div>
+  <div id="scratchpadOverlay">
+    <div id="scratchpadHeader">
+      <h3>Quick Scratchpad</h3>
+      <div class="sp-actions">
+        <button class="sp-btn sp-btn-clear" id="spClear">Clear</button>
+        <button class="sp-btn sp-btn-close" id="spClose">Close</button>
+      </div>
+    </div>
+    <canvas id="scratchpadCanvas"></canvas>
+  </div>
+
+  <!-- Lightbox UI -->
+  <div id="lightboxOverlay">
+    <img loading="lazy" id="lightboxImg" src="" alt="Zoomed Image">
+  </div>
+
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=10"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/footer.js"></script>
   <script>
-    function toggleSubjPanel() {
-      const toggle = document.getElementById('subjToggle');
-      const panel  = document.getElementById('subjPanel');
-      toggle.classList.toggle('open');
-      panel.classList.toggle('open');
+    const R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+
+    // -- Parse URL params --
+    const params   = new URLSearchParams(window.location.search);
+    const EXAM_ID  = params.get('exam_id') || 'nigeria/jamb';
+    const SUBJECT  = params.get('subject') || 'english_language';
+    const EXAM_NAME = EXAM_ID.split('/').pop().toUpperCase();
+
+    // -- State --
+    let allSubjects = [];
+    let allQuestions = [];
+    const PAGE_SIZE = 5;
+
+    function getBase() {
+      return window.location.pathname.includes('/public/') ? '/public' : '';
     }
-    function filterSubjects(val) {
-      const items = document.querySelectorAll('#subj-list .qs-item');
+
+    // -- High-speed caching for JSON --
+    const jsonCache = new Map();
+
+    async function fetchJSON(localPath, r2Path) {
+      const cacheKey = r2Path;
+      if (jsonCache.has(cacheKey)) return jsonCache.get(cacheKey);
+      
+      try {
+        const sessionData = sessionStorage.getItem(cacheKey);
+        if (sessionData) {
+          const parsed = JSON.parse(sessionData);
+          jsonCache.set(cacheKey, parsed);
+          return parsed;
+        }
+      } catch(e) {}
+
+      let data = null;
+      try {
+        const res = await fetch(localPath);
+        if (res.ok) data = await res.json();
+      } catch(e) {}
+      
+      if (!data) {
+        try {
+          const res = await fetch(`${R2_BASE}/${r2Path}`);
+          if (res.ok) data = await res.json();
+        } catch(e) {}
+      }
+
+      if (data) {
+        jsonCache.set(cacheKey, data);
+        try {
+          sessionStorage.setItem(cacheKey, JSON.stringify(data));
+        } catch(e) {} // Ignore quota exceeded
+      }
+      return data;
+    }
+
+    // -- Format subject name --
+    function fmtSubject(id) {
+      return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).replace(/  +/g, ' ').trim();
+    }
+
+    // -- Arrow SVG --
+    const arrowSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+
+    // -- Populate subject sidebars --
+    function populateSubjectList(containerId) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      el.innerHTML = allSubjects.map(s => {
+        const isActive = s.id === SUBJECT;
+        const url = `classroom_questions.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(s.id)}`;
+        return `<a href="${url}" class="qs-item${isActive ? ' active' : ''}">${fmtSubject(s.id)} ${arrowSVG}</a>`;
+      }).join('');
+    }
+
+    function filterSubjects(val, containerId) {
       const q = val.toLowerCase();
-      items.forEach(item => {
+      document.querySelectorAll(`#${containerId} .qs-item`).forEach(item => {
         item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
       });
     }
+
+    // -- Clean raw HTML from DB: strip &nbsp;, collapse whitespace, remove broken inline styles --
+    function cleanHtml(raw) {
+      if (!raw) return '';
+      return raw
+        // decode &nbsp; and similar to real spaces
+        .replace(/&amp;nbsp;|&nbsp;/g, ' ')
+        .replace(/&amp;amp;/g, '&')
+        .replace(/&amp;lt;/g, '<')
+        .replace(/&amp;gt;/g, '>')
+        // strip empty style attributes that clutter layout (keep meaningful ones)
+        .replace(/ style="[^"]*"/g, (m) => {
+          // keep if it has something meaningful (width, color, etc.)
+          if (/width|color|background|text-align|font-weight|font-size/i.test(m)) return m;
+          return '';
+        })
+        // collapse sequences of whitespace/newlines inside tags to single space
+        .replace(/[ \t]+/g, ' ')
+        // remove repeated <br> sequences (more than 2 in a row)
+        .replace(/(<br\s*\/?>[\s]*){3,}/gi, '<br><br>')
+        // wrap standalone block LaTeX (\[ ... \]) in a scroll div
+        .replace(/(\\\[.*?\\\])/gs, '<div class="math-scroll">$1</div>')
+        .trim();
+    }
+
+    // -- Render question image: local-first, R2 CDN fallback --
+    const R2_IMG = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+    function renderImage(qData) {
+      if (!qData.question_image) return '';
+      const imgPath = qData.question_image; // e.g. "nigeria/exam_image/..."
+      // Local path: relative from public/modules/study/classroom/ to public/new_staging_area/
+      const localSrc = `../../../new_staging_area/${imgPath}`;
+      const r2Src    = `${R2_IMG}/${imgPath}`;
+      return `<div class="q-img-wrap">
+        <img
+          src="${localSrc}"
+          alt="Question diagram"
+          loading="lazy"
+          onerror="this.onerror=function(){this.style.display='none';}; this.src='${r2Src}';"
+        >
+      </div>`;
+    }
+
+    // -- Format math: CBT player pattern (typesetClear + retry until ready) --
+    async function formatMath() {
+      if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+        MathJax.typesetClear();
+        try {
+          // Only typeset the newly injected questions for extreme high speed
+          const container = document.getElementById('questionsContainer');
+          await MathJax.typesetPromise(container ? [container] : undefined);
+        } catch (err) {
+          console.warn('MathJax typeset error:', err);
+        }
+      } else {
+        // MathJax not ready yet — wait 100ms and retry
+        await new Promise(resolve => setTimeout(resolve, 100));
+        await formatMath();
+      }
+    }
+
+    // -- Render a single question card --
+    function renderQuestion(qData, index, startIndex) {
+      const options = (qData.options || []).map(opt => `
+        <div class="q-option">
+          <span class="q-opt-letter">${opt.tag ? opt.tag.toUpperCase() : ''}</span>
+          <span class="q-opt-text">${cleanHtml(opt.text || '')}</span>
+        </div>`).join('');
+
+      const qKey = Object.keys(allQuestionsMap)[index] || '';
+      const explUrl = `classroom_explanation.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}&year=${encodeURIComponent(qData.exam_year || '')}&q=${encodeURIComponent(qKey)}`;
+      const topicTag = qData.topic
+        ? `<span class="q-tag" style="background:#f3e8ff;color:#7c3aed;">${qData.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</span>`
+        : '';
+      const wordCount = (qData.question_text || '').split(/\s+/).length + (qData.options || []).reduce((acc, o) => acc + (o.text||'').split(/\s+/).length, 0);
+      const readTime = Math.max(1, Math.ceil(wordCount / 150)); // Assume 150 wpm for technical questions
+
+      return `
+        <div class="card" style="animation:fadeIn 0.25s ease ${(index - (startIndex||0)) * 40}ms both;">
+          <div class="q-header">
+            <span class="q-label">Question ${index + 1}</span>
+            <div class="q-tags">
+              <span class="q-tag q-tag-exam">${qData.exam_type || EXAM_NAME}</span>
+              <span class="q-tag q-tag-year">${qData.exam_year || ''}</span>
+              ${topicTag}
+              <span class="q-tag" style="background:#fff7ed;color:#ea580c;">?? ${readTime} min read</span>
+            </div>
+          </div>
+          <div class="q-text">${cleanHtml(qData.question_text || '')}</div>
+          ${renderImage(qData)}
+          <div class="q-options">${options}</div>
+          <div class="q-footer">
+            <button class="btn-explain" onclick="window.location.href='${explUrl}'">
+              View Explanation &amp; Discuss ${qData.comments_count ? `(${qData.comments_count})` : ''}
+            </button>
+            <button class="btn-bookmark">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+        </div>`;
+    }
+
+    let allQuestionsMap = {};
+    let filteredQuestionsMap = {}; // subset after topic filter
+    let currentPage = 1;
+    let activeTopic = ''; // '' means all topics
+
+    // -- Build numbered pagination bar --
+    function buildPagination(totalPages) {
+      const bar = document.getElementById('paginationBar');
+      if (totalPages <= 1) { bar.style.display = 'none'; return; }
+      bar.style.display = 'flex';
+
+      const makeBtn = (label, page, isActive, isDisabled, isDot) => {
+        if (isDot) return `<span class="pg-dots">…</span>`;
+        return `<button class="pg-btn${isActive ? ' active' : ''}" ${isDisabled ? 'disabled' : ''}
+          onclick="goToPage(${page})">${label}</button>`;
+      };
+
+      let html = makeBtn('‹', currentPage - 1, false, currentPage === 1);
+
+      // Show: first, ...window..., last
+      const WINDOW = 2;
+      let pages = new Set([1, totalPages]);
+      for (let p = Math.max(1, currentPage - WINDOW); p <= Math.min(totalPages, currentPage + WINDOW); p++) pages.add(p);
+      const sorted = [...pages].sort((a,b) => a-b);
+
+      let prev = 0;
+      sorted.forEach(p => {
+        if (p - prev > 1) html += makeBtn('', 0, false, true, true);
+        html += makeBtn(p, p, p === currentPage, false);
+        prev = p;
+      });
+
+      html += makeBtn('›', currentPage + 1, false, currentPage === totalPages);
+      bar.innerHTML = html;
+    }
+
+    // -- Render a specific page + push URL state --
+    function goToPage(page, replaceState = false) {
+      const entries = Object.values(filteredQuestionsMap);
+      const totalPages = Math.ceil(entries.length / PAGE_SIZE);
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const slice = entries.slice(startIndex, startIndex + PAGE_SIZE);
+      slice.forEach((q, i) => {
+        // Use original global index for question numbering
+        const allEntries = Object.values(allQuestionsMap);
+        const globalIdx = allEntries.indexOf(q);
+        container.insertAdjacentHTML('beforeend', renderQuestion(q, globalIdx >= 0 ? globalIdx : startIndex + i, startIndex));
+      });
+
+      // Hide container, typeset math, then fade in (CBT player pattern)
+      container.style.opacity = '0';
+      container.style.transition = 'opacity 0.2s ease-in-out';
+      formatMath().then(() => {
+        container.style.opacity = '1';
+      });
+
+      buildPagination(totalPages);
+
+      // -- Update the browser URL with the current page number --
+      const url = new URL(window.location.href);
+      url.searchParams.set('page', page);
+      if (replaceState) {
+        history.replaceState({ page }, '', url.toString());
+      } else {
+        history.pushState({ page }, '', url.toString());
+      }
+
+      // Scroll to top of questions
+      document.getElementById('questionsLabel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // -- Populate topic list with Mastery Rings --
+    function populateTopicFilter() {
+      const topicCard = document.getElementById('topicFilterCard');
+
+      // Collect unique non-null topics
+      const topicSet = new Set();
+      Object.values(allQuestionsMap).forEach(q => {
+        if (q.topic) topicSet.add(q.topic);
+      });
+
+      const topics = [...topicSet].sort();
+
+      if (topics.length === 0) {
+        topicCard.style.display = 'none';
+        return;
+      }
+
+      // Format slug ? Title Case
+      const fmtTopic = t => t.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      const getMastery = (topic) => {
+        // Gamification mock: derive pseudo-random progress based on topic string
+        let m = localStorage.getItem(`mastery_${EXAM_ID}_${topic}`);
+        if(!m) {
+          m = (topic.charCodeAt(0) + topic.length) % 80 + 10; // random 10-90%
+          localStorage.setItem(`mastery_${EXAM_ID}_${topic}`, m);
+        }
+        return parseInt(m);
+      };
+
+      let html = `<div class="topic-list-item ${!activeTopic ? 'active' : ''}" onclick="applyTopicFilter('')">
+        <span class="t-name">All Topics</span>
+      </div>`;
+      
+      topics.forEach(t => {
+        const mastery = getMastery(t);
+        const dashOffset = 75 - (75 * (mastery / 100)); // circumference of r=12 is ~75.4
+        html += `<div class="topic-list-item ${activeTopic === t ? 'active' : ''}" onclick="applyTopicFilter('${t}')">
+          <span class="t-name">${fmtTopic(t)}</span>
+          <div class="mastery-ring">
+            <svg><circle class="bg" cx="14" cy="14" r="12"/><circle class="progress" cx="14" cy="14" r="12" style="stroke-dashoffset: ${dashOffset};"/></svg>
+            <span class="val">${mastery}%</span>
+          </div>
+        </div>`;
+      });
+      document.getElementById('topicListContainer').innerHTML = html;
+
+      topicCard.style.display = 'flex';
+      updateTopicBadge();
+    }
+
+    // -- Update question count badge --
+    function updateTopicBadge() {
+      const count = Object.keys(filteredQuestionsMap).length;
+      const el = document.getElementById('topicCountBadge');
+      if (el) el.textContent = count === 1 ? '1 question' : `${count} questions`;
+    }
+
+    // -- Apply topic filter & re-render from page 1 --
+    function applyTopicFilter(topicVal) {
+      activeTopic = topicVal !== undefined ? topicVal : (activeTopic || '');
+
+      if (!activeTopic) {
+        filteredQuestionsMap = { ...allQuestionsMap };
+      } else {
+        filteredQuestionsMap = {};
+        Object.entries(allQuestionsMap).forEach(([k, v]) => {
+          if (v.topic === activeTopic) filteredQuestionsMap[k] = v;
+        });
+      }
+
+      // re-render the list to update active state
+      populateTopicFilter();
+      
+      const container = document.getElementById('topicListContainer');
+      if (container && container.style.display !== 'none') {
+        toggleTopicDropdown();
+      }
+
+      currentPage = 1;
+      goToPage(1, true);
+    }
+
+    // -- Handle browser back / forward buttons --
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.page && Object.keys(allQuestionsMap).length) {
+        goToPage(e.state.page, true);
+      }
+    });
+
+    // -- Load questions for selected year --
+    async function loadQuestions(isInitialLoad = false) {
+      const year = document.getElementById('yearSelect').value;
+      const type = document.getElementById('typeSelect').value || 'objective';
+
+      if (!year) {
+        alert('Please select a year first.');
+        return;
+      }
+
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = Array(3).fill(`
+        <div class="skeleton-q">
+          <div class="skeleton-q-head"></div>
+          <div class="skeleton-q-line"></div>
+          <div class="skeleton-q-line short"></div>
+          <div class="skeleton-q-opt"></div>
+          <div class="skeleton-q-opt"></div>
+          <div class="skeleton-q-opt"></div>
+          <div class="skeleton-q-opt"></div>
+        </div>
+      `).join('');
+      document.getElementById('paginationBar').style.display = 'none';
+      allQuestionsMap = {};
+      currentPage = 1;
+
+      let targetPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+
+      // Also update the year in the URL
+      const url = new URL(window.location.href);
+      url.searchParams.set('year', year);
+      url.searchParams.set('type', type);
+      
+      if (isInitialLoad === true) {
+        url.searchParams.set('page', targetPage);
+      } else {
+        url.searchParams.delete('page'); // reset page when changing year
+        targetPage = 1;
+      }
+      history.replaceState(null, '', url.toString());
+
+      const localPath = `${getBase()}/new_staging_area/content/exams/${EXAM_ID}/${SUBJECT}/${type}/${year}.json`;
+      const r2Path = `content/exams/${EXAM_ID}/${SUBJECT}/${type}/${year}.json`;
+
+      const data = await fetchJSON(localPath, r2Path);
+      container.innerHTML = '';
+
+      if (!data || Object.keys(data).length === 0) {
+        container.innerHTML = `<div class="state-box"><p>?? No questions found for ${fmtSubject(SUBJECT)} ${year}.<br>Try a different year.</p></div>`;
+        return;
+      }
+
+      allQuestionsMap = data;
+      filteredQuestionsMap = { ...data }; // start with all questions
+      activeTopic = ''; // reset topic filter on each new load
+      document.getElementById('questionsLabel').textContent = `Past Questions — ${fmtSubject(SUBJECT)} ${year} (${Object.keys(data).length} questions)`;
+      populateTopicFilter();
+
+      const totalPages = Math.ceil(Object.keys(data).length / PAGE_SIZE);
+      const startPage = (targetPage >= 1 && targetPage <= totalPages) ? targetPage : 1;
+      goToPage(startPage, true); // replaceState so it doesn't add duplicate history entry
+    }
+
+    // -- Bootstrap on load --
+    async function init() {
+      // Update page heading
+      document.getElementById('subjectHeading').textContent = `${fmtSubject(SUBJECT)} (${EXAM_NAME})`;
+      document.title = `${fmtSubject(SUBJECT)} | Classroom | MEC`;
+
+      // Fetch exam index for subjects + years
+      const localIdx = `${getBase()}/new_staging_area/content/exams/${EXAM_ID}/index.json`;
+      const r2Idx    = `content/exams/${EXAM_ID}/index.json`;
+      const examIndex = await fetchJSON(localIdx, r2Idx);
+
+      if (examIndex && examIndex.subjects) {
+        allSubjects = examIndex.subjects;
+        populateSubjectList('subj-list');
+        populateSubjectList('mobile-subj-list');
+
+        // Populate years for this specific subject
+        const subjData = examIndex.subjects.find(s => s.id === SUBJECT);
+        const yearSelect = document.getElementById('yearSelect');
+
+        if (subjData && subjData.years && subjData.years.length) {
+          yearSelect.innerHTML = '<option value="">— Select Year —</option>';
+          subjData.years.forEach(yr => {
+            const opt = document.createElement('option');
+            opt.value = yr;
+            opt.textContent = yr;
+            yearSelect.appendChild(opt);
+          });
+
+          // Use year and type from URL param if present, otherwise default to most recent
+          const urlParams = new URLSearchParams(window.location.search);
+          const urlYear = urlParams.get('year');
+          const urlType = urlParams.get('type');
+          
+          const defaultYear = (urlYear && subjData.years.includes(urlYear)) ? urlYear : subjData.years[0];
+          yearSelect.value = defaultYear;
+          
+          if (urlType) {
+            const typeSelect = document.getElementById('typeSelect');
+            if ([...typeSelect.options].some(opt => opt.value === urlType)) {
+              typeSelect.value = urlType;
+            }
+          }
+          
+          await loadQuestions(true);
+        } else {
+          yearSelect.innerHTML = '<option value="">No years available</option>';
+          document.getElementById('questionsContainer').innerHTML = `<div class="state-box"><p>No questions available for this subject yet.</p></div>`;
+        }
+      } else {
+        document.getElementById('questionsContainer').innerHTML = `<div class="state-box"><p>?? Could not load exam data. Please check your connection.</p></div>`;
+      }
+    }
+
+    function toggleSubjPanel() {
+      document.getElementById('subjToggle').classList.toggle('open');
+      document.getElementById('subjPanel').classList.toggle('open');
+      loadQuestions();
+    }
+
+    // -- Topic Dropdown Toggle --
+    function toggleTopicDropdown() {
+      const container = document.getElementById('topicListContainer');
+      const icon = document.getElementById('topicDropdownIcon');
+      const toggle = document.getElementById('topicDropdownToggle');
+      if (container.style.display === 'none') {
+        container.style.display = 'flex';
+        icon.style.transform = 'rotate(180deg)';
+        toggle.style.background = '#f9fafb';
+      } else {
+        container.style.display = 'none';
+        icon.style.transform = 'rotate(0deg)';
+        toggle.style.background = 'none';
+      }
+    }
+
+    // -- Scratchpad Logic --
+    const spFAB = document.getElementById('scratchpadFAB');
+    const spOverlay = document.getElementById('scratchpadOverlay');
+    const spClear = document.getElementById('spClear');
+    const spClose = document.getElementById('spClose');
+    const canvas = document.getElementById('scratchpadCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 60; // subtract header
+      ctx.lineCap = 'round';
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#b70c01';
+    }
+
+    spFAB.onclick = () => {
+      spOverlay.style.display = 'flex';
+      resizeCanvas();
+    };
+
+    spClose.onclick = () => spOverlay.style.display = 'none';
+    spClear.onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    function getMousePos(evt) {
+      const rect = canvas.getBoundingClientRect();
+      if(evt.touches) {
+        return { x: evt.touches[0].clientX - rect.left, y: evt.touches[0].clientY - rect.top };
+      }
+      return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+    }
+
+    function startDraw(e) {
+      isDrawing = true;
+      const pos = getMousePos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      e.preventDefault();
+    }
+    
+    function draw(e) {
+      if (!isDrawing) return;
+      const pos = getMousePos(e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      e.preventDefault();
+    }
+
+    function stopDraw() {
+      isDrawing = false;
+      ctx.closePath();
+    }
+
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDraw);
+    canvas.addEventListener('mouseout', stopDraw);
+
+    canvas.addEventListener('touchstart', startDraw, {passive: false});
+    canvas.addEventListener('touchmove', draw, {passive: false});
+    canvas.addEventListener('touchend', stopDraw);
+
+    window.addEventListener('resize', () => { if(spOverlay.style.display === 'flex') resizeCanvas(); });
+
+    // -- Lightbox Logic --
+    const lbOverlay = document.getElementById('lightboxOverlay');
+    const lbImg = document.getElementById('lightboxImg');
+    
+    document.body.addEventListener('click', (e) => {
+      if (e.target.tagName === 'IMG' && e.target.closest('.q-img-wrap')) {
+        lbImg.src = e.target.src;
+        lbOverlay.style.display = 'flex';
+        // Add zoom-in animation
+        lbImg.style.animation = 'fadeIn 0.2s ease';
+      } else if (e.target.id === 'lightboxOverlay') {
+        lbOverlay.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
-

@@ -1,0 +1,1852 @@
+[
+    {
+        "order_id": "1",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the correct mathematical definition of the factorial of a non-negative integer $n$, denoted as $n!$?",
+        "explanation": "The factorial of a non-negative integer $n$, denoted by $n!$, is defined as the product of all positive integers from $1$ to $n$.",
+        "options": [
+            {
+                "option_id": "320514",
+                "tag": "a",
+                "text": "The sum of all positive integers up to $n$.",
+                "is_correct": false
+            },
+            {
+                "option_id": "312328",
+                "tag": "b",
+                "text": "The product of all positive integers from $1$ to $n$.",
+                "is_correct": true
+            },
+            {
+                "option_id": "315544",
+                "tag": "c",
+                "text": "The product of all non-negative integers up to $n$.",
+                "is_correct": false
+            },
+            {
+                "option_id": "130870",
+                "tag": "d",
+                "text": "The square of all positive integers from $1$ to $n$.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 2
+    },
+    {
+        "order_id": "2",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "By mathematical convention, what is the value of $0!$?",
+        "explanation": "The factorial of $0$ is defined as $0! = 1$ by convention. This ensures that factorial formulas, like combinations and permutations, remain valid when zero is involved.",
+        "options": [
+            {
+                "option_id": "513246",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "270812",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "787884",
+                "tag": "c",
+                "text": "Undefined",
+                "is_correct": false
+            },
+            {
+                "option_id": "271122",
+                "tag": "d",
+                "text": "Infinity",
+                "is_correct": false
+            }
+        ],
+        "question_number": 7
+    },
+    {
+        "order_id": "3",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following equations correctly relates $n!$ to $(n-1)!$?",
+        "explanation": "Since $n! = n \\times (n-1) \\times (n-2) \\dots 1$ and $(n-1)! = (n-1) \\times (n-2) \\dots 1$, it follows that $n! = n(n-1)!$.",
+        "options": [
+            {
+                "option_id": "230399",
+                "tag": "a",
+                "text": "$n! = (n-1)! + n$",
+                "is_correct": false
+            },
+            {
+                "option_id": "274734",
+                "tag": "b",
+                "text": "$n! = n \\times (n-1)!$",
+                "is_correct": true
+            },
+            {
+                "option_id": "618788",
+                "tag": "c",
+                "text": "$n! = (n+1)! / n$",
+                "is_correct": false
+            },
+            {
+                "option_id": "998023",
+                "tag": "d",
+                "text": "$n! = (n-1)! / n$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 13
+    },
+    {
+        "order_id": "4",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Simplify the factorial expression $\\frac{(n+3)!}{(n+1)!}$.",
+        "explanation": "Expanding the numerator, $(n+3)! = (n+3)(n+2)(n+1)!$. Dividing by $(n+1)!$ gives $(n+3)(n+2) = n^2 + 5n + 6$.",
+        "options": [
+            {
+                "option_id": "103742",
+                "tag": "a",
+                "text": "$n+3$",
+                "is_correct": false
+            },
+            {
+                "option_id": "253553",
+                "tag": "b",
+                "text": "$n^2 + 5n + 6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "252628",
+                "tag": "c",
+                "text": "$(n+3)!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "278559",
+                "tag": "d",
+                "text": "$n+2$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 19
+    },
+    {
+        "order_id": "5",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Simplify the factorial expression $\\frac{n!}{(n-2)!}$.",
+        "explanation": "Expanding $n! = n(n-1)(n-2)!$. When divided by $(n-2)!$, the terms cancel out, leaving $n(n-1)$.",
+        "options": [
+            {
+                "option_id": "302145",
+                "tag": "a",
+                "text": "$n(n-1)$",
+                "is_correct": true
+            },
+            {
+                "option_id": "222628",
+                "tag": "b",
+                "text": "$n^2 - 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "467041",
+                "tag": "c",
+                "text": "$n$",
+                "is_correct": false
+            },
+            {
+                "option_id": "295461",
+                "tag": "d",
+                "text": "$n-1$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 25
+    },
+    {
+        "order_id": "6",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "When selecting distinct items where the order of arrangement does NOT matter, which mathematical concept is used?",
+        "explanation": "In situations where the identity of the components counts rather than the order in which they are arranged, we speak of combination.",
+        "options": [
+            {
+                "option_id": "245403",
+                "tag": "a",
+                "text": "Permutation",
+                "is_correct": false
+            },
+            {
+                "option_id": "335203",
+                "tag": "b",
+                "text": "Combination",
+                "is_correct": true
+            },
+            {
+                "option_id": "155147",
+                "tag": "c",
+                "text": "Factorial",
+                "is_correct": false
+            },
+            {
+                "option_id": "795295",
+                "tag": "d",
+                "text": "Probability",
+                "is_correct": false
+            }
+        ],
+        "question_number": 31
+    },
+    {
+        "order_id": "7",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the formula for calculating the number of combinations of $r$ items from $n$ distinct items, denoted as $^nC_r$?",
+        "explanation": "The formula for a combination is $^nC_r = \\frac{n!}{r!(n-r)!}$.",
+        "options": [
+            {
+                "option_id": "241571",
+                "tag": "a",
+                "text": "$\\frac{n!}{(n-r)!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "331857",
+                "tag": "b",
+                "text": "$\\frac{n!}{r!(n-r)!}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "864006",
+                "tag": "c",
+                "text": "$\\frac{n!}{r!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "112299",
+                "tag": "d",
+                "text": "$\\frac{r!(n-r)!}{n!}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 37
+    },
+    {
+        "order_id": "8",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following identities represents the symmetric property of combinations?",
+        "explanation": "The symmetric property states that selecting $r$ items to keep is the same as selecting $n-r$ items to leave behind, hence $^nC_r = ^nC_{n-r}$.",
+        "options": [
+            {
+                "option_id": "219668",
+                "tag": "a",
+                "text": "$^nC_r = ^nC_{r-1}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "409416",
+                "tag": "b",
+                "text": "$^nC_r = ^{n-1}C_r$",
+                "is_correct": false
+            },
+            {
+                "option_id": "661197",
+                "tag": "c",
+                "text": "$^nC_r = ^nC_{n-r}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "130899",
+                "tag": "d",
+                "text": "$^nC_r = ^rC_n$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 44
+    },
+    {
+        "order_id": "9",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If $^nC_x = ^nC_y$, which of the following MUST be true?",
+        "explanation": "From the symmetric property of combinations, if $^nC_x = ^nC_y$, then either the chosen amounts are the same ($x = y$) or they are complements ($x + y = n$).",
+        "options": [
+            {
+                "option_id": "151678",
+                "tag": "a",
+                "text": "$x = y$ only",
+                "is_correct": false
+            },
+            {
+                "option_id": "163627",
+                "tag": "b",
+                "text": "$x + y = n$ only",
+                "is_correct": false
+            },
+            {
+                "option_id": "131543",
+                "tag": "c",
+                "text": "Either $x = y$ or $x + y = n$",
+                "is_correct": true
+            },
+            {
+                "option_id": "234073",
+                "tag": "d",
+                "text": "$x - y = n$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 50
+    },
+    {
+        "order_id": "10",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A permutation is defined as an arrangement of items where:",
+        "explanation": "A permutation is an ordered arrangement of items. The arrangements 'ab' and 'ba' are different permutations.",
+        "options": [
+            {
+                "option_id": "220211",
+                "tag": "a",
+                "text": "The order of arrangement is not important.",
+                "is_correct": false
+            },
+            {
+                "option_id": "314634",
+                "tag": "b",
+                "text": "The items are always identical.",
+                "is_correct": false
+            },
+            {
+                "option_id": "338396",
+                "tag": "c",
+                "text": "The order of arrangement is very important.",
+                "is_correct": true
+            },
+            {
+                "option_id": "142148",
+                "tag": "d",
+                "text": "The items cannot be numbers.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 55
+    },
+    {
+        "order_id": "11",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the formula for the number of permutations of $r$ items from $n$ distinct items, denoted as $^nP_r$?",
+        "explanation": "The formula for permutation is $^nP_r = \\frac{n!}{(n-r)!}$, which accounts for the order of arrangement.",
+        "options": [
+            {
+                "option_id": "178706",
+                "tag": "a",
+                "text": "$\\frac{n!}{r!(n-r)!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "582648",
+                "tag": "b",
+                "text": "$\\frac{n!}{(n-r)!}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "299932",
+                "tag": "c",
+                "text": "$\\frac{n!}{r!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "213077",
+                "tag": "d",
+                "text": "$n! \\times (n-r)!$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 61
+    },
+    {
+        "order_id": "12",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "How do you calculate the permutations of $n$ objects where some objects are not distinct (e.g., $p_1$ of one kind, $p_2$ of another)?",
+        "explanation": "The number of permutations of $n$ objects with identical items of kinds $p_1, p_2, \\dots, p_k$ is calculated by dividing the total permutations $n!$ by the permutations of identical objects: $\\frac{n!}{p_1! \\times p_2! \\dots p_k!}$.",
+        "options": [
+            {
+                "option_id": "314741",
+                "tag": "a",
+                "text": "$n! - (p_1! + p_2!)$",
+                "is_correct": false
+            },
+            {
+                "option_id": "296934",
+                "tag": "b",
+                "text": "$\\frac{n!}{p_1! \\times p_2! \\dots p_k!}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "174176",
+                "tag": "c",
+                "text": "$n! \\times p_1! \\times p_2!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "317297",
+                "tag": "d",
+                "text": "$\\frac{n!}{(n - p_1 - p_2)!}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 67
+    },
+    {
+        "order_id": "13",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can 5 Statistics textbooks, 3 Mathematics textbooks, and 4 Chemistry textbooks be arranged on a shelf so that textbooks of the same subject are kept together?",
+        "explanation": "First, arrange the 3 subjects (units) in $3!$ ways. Within each unit, Statistics books can be arranged in $5!$ ways, Mathematics in $3!$ ways, and Chemistry in $4!$ ways. Total = $3! \\times 5! \\times 3! \\times 4! = 103,680$ ways.",
+        "options": [
+            {
+                "option_id": "198952",
+                "tag": "a",
+                "text": "$12!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "109440",
+                "tag": "b",
+                "text": "$5! \\times 3! \\times 4!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "709645",
+                "tag": "c",
+                "text": "$3! \\times 5! \\times 3! \\times 4!$",
+                "is_correct": true
+            },
+            {
+                "option_id": "142384",
+                "tag": "d",
+                "text": "$3 \\times 12!$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 73
+    },
+    {
+        "order_id": "14",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Suppose there are 8 chairs but only 3 spaces in a classroom. In how many different ways can the 8 chairs be arranged in the 3 available spaces?",
+        "explanation": "Since arrangement order matters in spaces, this is a permutation. $^8P_3 = \\frac{8!}{(8-3)!} = 8 \\times 7 \\times 6 = 336$ permutations.",
+        "options": [
+            {
+                "option_id": "290900",
+                "tag": "a",
+                "text": "$336$",
+                "is_correct": true
+            },
+            {
+                "option_id": "155870",
+                "tag": "b",
+                "text": "$56$",
+                "is_correct": false
+            },
+            {
+                "option_id": "179782",
+                "tag": "c",
+                "text": "$24$",
+                "is_correct": false
+            },
+            {
+                "option_id": "259310",
+                "tag": "d",
+                "text": "$512$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 79
+    },
+    {
+        "order_id": "15",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "An association wishes to appoint a Chairman, Vice-Chairman, Secretary, and Treasurer from a committee of 10. Calculate the number of ways the 4 positions can be filled.",
+        "explanation": "The positions are distinct, so order matters. Using permutations, $^{10}P_4 = \\frac{10!}{(10-4)!} = 10 \\times 9 \\times 8 \\times 7 = 5040$ ways.",
+        "options": [
+            {
+                "option_id": "274729",
+                "tag": "a",
+                "text": "$210$",
+                "is_correct": false
+            },
+            {
+                "option_id": "114050",
+                "tag": "b",
+                "text": "$5040$",
+                "is_correct": true
+            },
+            {
+                "option_id": "132243",
+                "tag": "c",
+                "text": "$10000$",
+                "is_correct": false
+            },
+            {
+                "option_id": "325248",
+                "tag": "d",
+                "text": "$40$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 85
+    },
+    {
+        "order_id": "16",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Solve for $n$ if $^nP_4 = 12 \\times ^nP_2$.",
+        "explanation": "$\\frac{n!}{(n-4)!} = 12 \\frac{n!}{(n-2)!}$. Expanding $(n-2)!$, we get $1 = \\frac{12}{(n-2)(n-3)}$. This gives $(n-2)(n-3) = 12 \\implies n^2 - 5n - 6 = 0$. Solving gives $n=6$ or $n=-1$. Since $n$ must be positive, $n=6$.",
+        "options": [
+            {
+                "option_id": "325458",
+                "tag": "a",
+                "text": "$n=4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "694448",
+                "tag": "b",
+                "text": "$n=5$",
+                "is_correct": false
+            },
+            {
+                "option_id": "138318",
+                "tag": "c",
+                "text": "$n=6$",
+                "is_correct": true
+            },
+            {
+                "option_id": "252830",
+                "tag": "d",
+                "text": "$n=7$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 91
+    },
+    {
+        "order_id": "17",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A Ministry of Finance has 8 field workers from which a 5-member task force will be formed. How many different task forces can be formed?",
+        "explanation": "Order doesn't matter for a task force, so we use combination: $^8C_5 = \\frac{8!}{5!(8-5)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$ combinations.",
+        "options": [
+            {
+                "option_id": "287225",
+                "tag": "a",
+                "text": "$56$",
+                "is_correct": true
+            },
+            {
+                "option_id": "244168",
+                "tag": "b",
+                "text": "$336$",
+                "is_correct": false
+            },
+            {
+                "option_id": "247129",
+                "tag": "c",
+                "text": "$40$",
+                "is_correct": false
+            },
+            {
+                "option_id": "171200",
+                "tag": "d",
+                "text": "$6720$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 97
+    },
+    {
+        "order_id": "18",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A company employing 14 women and 10 men is forming a 6-person safety committee. How many different combinations of people are possible overall?",
+        "explanation": "Total number of persons = $14 + 10 = 24$. We need a combination of 6 people: $^{24}C_6 = \\frac{24!}{6!18!} = 134,596$ combinations.",
+        "options": [
+            {
+                "option_id": "257006",
+                "tag": "a",
+                "text": "$134,596$",
+                "is_correct": true
+            },
+            {
+                "option_id": "113430",
+                "tag": "b",
+                "text": "$134,509$",
+                "is_correct": false
+            },
+            {
+                "option_id": "305034",
+                "tag": "c",
+                "text": "$24,000$",
+                "is_correct": false
+            },
+            {
+                "option_id": "101011",
+                "tag": "d",
+                "text": "$96,000$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 103
+    },
+    {
+        "order_id": "19",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A student must answer 10 questions, choosing at least 4 from Part A and at least 4 from Part B. If Part A has 6 questions and Part B has 7, in how many ways can the student choose 10 questions?",
+        "explanation": "Possibilities: (4 from A, 6 from B) + (5 from A, 5 from B) + (6 from A, 4 from B). Calculations: $(^6C_4 \\times ^7C_6) + (^6C_5 \\times ^7C_5) + (^6C_6 \\times ^7C_4) = (15 \\times 7) + (6 \\times 21) + (1 \\times 35) = 105 + 126 + 35 = 266$ ways.",
+        "options": [
+            {
+                "option_id": "206648",
+                "tag": "a",
+                "text": "$266$",
+                "is_correct": true
+            },
+            {
+                "option_id": "161956",
+                "tag": "b",
+                "text": "$300$",
+                "is_correct": false
+            },
+            {
+                "option_id": "132539",
+                "tag": "c",
+                "text": "$105$",
+                "is_correct": false
+            },
+            {
+                "option_id": "159861",
+                "tag": "d",
+                "text": "$126$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 109
+    },
+    {
+        "order_id": "20",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can we choose a committee from 4 men and 6 women such that it includes at least 2 men and exactly twice as many women as men?",
+        "explanation": "The options are: (2 men, 4 women) or (3 men, 6 women). Number of ways = $(^4C_2 \\times ^6C_4) + (^4C_3 \\times ^6C_6) = (6 \\times 15) + (4 \\times 1) = 90 + 4 = 94$ ways.",
+        "options": [
+            {
+                "option_id": "860591",
+                "tag": "a",
+                "text": "$90$",
+                "is_correct": false
+            },
+            {
+                "option_id": "249440",
+                "tag": "b",
+                "text": "$94$",
+                "is_correct": true
+            },
+            {
+                "option_id": "332240",
+                "tag": "c",
+                "text": "$74$",
+                "is_correct": false
+            },
+            {
+                "option_id": "183748",
+                "tag": "d",
+                "text": "$100$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 115
+    },
+    {
+        "order_id": "21",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "How many committees of 5 persons including a chairperson can be selected from 12 persons?",
+        "explanation": "The chairperson can be selected in $12$ ways. The remaining 4 members are selected from the remaining 11 persons in $^{11}C_4$ ways ($330$). Total ways = $12 \\times 330 = 3960$ ways.",
+        "options": [
+            {
+                "option_id": "286596",
+                "tag": "a",
+                "text": "$792$",
+                "is_correct": false
+            },
+            {
+                "option_id": "506485",
+                "tag": "b",
+                "text": "$3960$",
+                "is_correct": true
+            },
+            {
+                "option_id": "693049",
+                "tag": "c",
+                "text": "$95040$",
+                "is_correct": false
+            },
+            {
+                "option_id": "304384",
+                "tag": "d",
+                "text": "$330$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 121
+    },
+    {
+        "order_id": "22",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A group consists of 4 girls and 7 boys. In how many ways can a team of 5 members be selected if the team has NO girls?",
+        "explanation": "If the team has no girls, all 5 members must be chosen from the 7 boys. The number of ways is $^7C_5 = \\frac{7!}{5!2!} = 21$ ways.",
+        "options": [
+            {
+                "option_id": "106537",
+                "tag": "a",
+                "text": "$21$",
+                "is_correct": true
+            },
+            {
+                "option_id": "128487",
+                "tag": "b",
+                "text": "$35$",
+                "is_correct": false
+            },
+            {
+                "option_id": "155580",
+                "tag": "c",
+                "text": "$42$",
+                "is_correct": false
+            },
+            {
+                "option_id": "950027",
+                "tag": "d",
+                "text": "$7$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 127
+    },
+    {
+        "order_id": "23",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A group consists of 4 girls and 7 boys. In how many ways can a team of 5 members be selected if the team has at least 3 girls?",
+        "explanation": "The possibilities are (3 girls, 2 boys) and (4 girls, 1 boy). Total ways = $(^4C_3 \\times ^7C_2) + (^4C_4 \\times ^7C_1) = (4 \\times 21) + (1 \\times 7) = 84 + 7 = 91$ ways.",
+        "options": [
+            {
+                "option_id": "143345",
+                "tag": "a",
+                "text": "$91$",
+                "is_correct": true
+            },
+            {
+                "option_id": "397977",
+                "tag": "b",
+                "text": "$84$",
+                "is_correct": false
+            },
+            {
+                "option_id": "151617",
+                "tag": "c",
+                "text": "$7$",
+                "is_correct": false
+            },
+            {
+                "option_id": "135017",
+                "tag": "d",
+                "text": "$105$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 133
+    },
+    {
+        "order_id": "24",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A committee of 4 is to be chosen from 3 women and 4 men. What is the total number of ways the committee can be chosen?",
+        "explanation": "The total number of people is $3 + 4 = 7$. To choose 4 people from 7 where order doesn't matter, we use $^7C_4 = \\frac{7!}{4!3!} = 35$ ways.",
+        "options": [
+            {
+                "option_id": "244298",
+                "tag": "a",
+                "text": "$12$",
+                "is_correct": false
+            },
+            {
+                "option_id": "363786",
+                "tag": "b",
+                "text": "$35$",
+                "is_correct": true
+            },
+            {
+                "option_id": "199215",
+                "tag": "c",
+                "text": "$70$",
+                "is_correct": false
+            },
+            {
+                "option_id": "419154",
+                "tag": "d",
+                "text": "$18$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 139
+    },
+    {
+        "order_id": "25",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee consists of exactly 2 men and 2 women?",
+        "explanation": "Total possible combinations = $^7C_4 = 35$. Favorable combinations (2 men, 2 women) = $^4C_2 \\times ^3C_2 = 6 \\times 3 = 18$. Probability = $18/35 \\approx 0.514$.",
+        "options": [
+            {
+                "option_id": "294816",
+                "tag": "a",
+                "text": "$0.630$",
+                "is_correct": false
+            },
+            {
+                "option_id": "104648",
+                "tag": "b",
+                "text": "$0.514$",
+                "is_correct": true
+            },
+            {
+                "option_id": "191829",
+                "tag": "c",
+                "text": "$0.486$",
+                "is_correct": false
+            },
+            {
+                "option_id": "991527",
+                "tag": "d",
+                "text": "$0.343$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 145
+    },
+    {
+        "order_id": "26",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee includes at least 2 women?",
+        "explanation": "P(at least 2 women) = P(2 women, 2 men) + P(3 women, 1 man). Favorable outcomes = $(^3C_2 \\times ^4C_2) + (^3C_3 \\times ^4C_1) = 18 + 4 = 22$. Probability = $22/35 \\approx 0.629$.",
+        "options": [
+            {
+                "option_id": "243654",
+                "tag": "a",
+                "text": "$0.514$",
+                "is_correct": false
+            },
+            {
+                "option_id": "278067",
+                "tag": "b",
+                "text": "$0.629$",
+                "is_correct": true
+            },
+            {
+                "option_id": "153087",
+                "tag": "c",
+                "text": "$0.114$",
+                "is_correct": false
+            },
+            {
+                "option_id": "154168",
+                "tag": "d",
+                "text": "$0.886$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 151
+    },
+    {
+        "order_id": "27",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Evaluate the factorial expression: $6! / 4!$",
+        "explanation": "Using factorial expansion, $6! = 6 \\times 5 \\times 4!$. Therefore, $6! / 4! = 6 \\times 5 = 30$.",
+        "options": [
+            {
+                "option_id": "992440",
+                "tag": "a",
+                "text": "$30$",
+                "is_correct": true
+            },
+            {
+                "option_id": "307445",
+                "tag": "b",
+                "text": "$1.5$",
+                "is_correct": false
+            },
+            {
+                "option_id": "187295",
+                "tag": "c",
+                "text": "$24$",
+                "is_correct": false
+            },
+            {
+                "option_id": "105604",
+                "tag": "d",
+                "text": "$12$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 157
+    },
+    {
+        "order_id": "28",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the value of $^5P_5$?",
+        "explanation": "$^nP_n$ is the number of ways to arrange $n$ distinct objects in $n$ spaces, which is $n!$. Thus, $^5P_5 = 5! = 120$.",
+        "options": [
+            {
+                "option_id": "465661",
+                "tag": "a",
+                "text": "$5$",
+                "is_correct": false
+            },
+            {
+                "option_id": "155474",
+                "tag": "b",
+                "text": "$25$",
+                "is_correct": false
+            },
+            {
+                "option_id": "299590",
+                "tag": "c",
+                "text": "$120$",
+                "is_correct": true
+            },
+            {
+                "option_id": "804061",
+                "tag": "d",
+                "text": "$1$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 164
+    },
+    {
+        "order_id": "29",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Calculate the value of $^8C_3$.",
+        "explanation": "$^8C_3 = \\frac{8!}{3!(8-3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
+        "options": [
+            {
+                "option_id": "273422",
+                "tag": "a",
+                "text": "$336$",
+                "is_correct": false
+            },
+            {
+                "option_id": "290173",
+                "tag": "b",
+                "text": "$56$",
+                "is_correct": true
+            },
+            {
+                "option_id": "647865",
+                "tag": "c",
+                "text": "$24$",
+                "is_correct": false
+            },
+            {
+                "option_id": "195928",
+                "tag": "d",
+                "text": "$8$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 169
+    },
+    {
+        "order_id": "30",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If you have the word 'MATHEMATICS', how many unique permutations can be made from its letters?",
+        "explanation": "The word has 11 letters, with repetitions: 'M' appears twice, 'A' twice, and 'T' twice. Using permutations for non-distinct objects gives $\\frac{11!}{2!2!2!}$.",
+        "options": [
+            {
+                "option_id": "139852",
+                "tag": "a",
+                "text": "$\\frac{11!}{2! \\times 2! \\times 2!}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "352152",
+                "tag": "b",
+                "text": "$\\frac{11!}{2!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "715748",
+                "tag": "c",
+                "text": "$11!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "201388",
+                "tag": "d",
+                "text": "$\\frac{11!}{3! \\times 2!}$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 175
+    },
+    {
+        "order_id": "31",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Solve for $n$ in the equation $^nC_2 = 10$.",
+        "explanation": "$^nC_2 = \\frac{n(n-1)}{2} = 10$. This simplifies to $n^2 - n - 20 = 0$. Factoring gives $(n-5)(n+4) = 0$. Since $n$ must be positive, $n = 5$.",
+        "options": [
+            {
+                "option_id": "983313",
+                "tag": "a",
+                "text": "$n=4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "293396",
+                "tag": "b",
+                "text": "$n=5$",
+                "is_correct": true
+            },
+            {
+                "option_id": "325563",
+                "tag": "c",
+                "text": "$n=6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "199535",
+                "tag": "d",
+                "text": "$n=10$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 181
+    },
+    {
+        "order_id": "32",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Evaluate $^7P_0$.",
+        "explanation": "By definition, $^nP_0 = \\frac{n!}{(n-0)!} = \\frac{n!}{n!} = 1$.",
+        "options": [
+            {
+                "option_id": "230067",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "216643",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "285540",
+                "tag": "c",
+                "text": "$7$",
+                "is_correct": false
+            },
+            {
+                "option_id": "672462",
+                "tag": "d",
+                "text": "$5040$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 187
+    },
+    {
+        "order_id": "33",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following describes the fundamental difference between Permutation and Combination?",
+        "explanation": "In permutation, the arrangement 'ab' and 'ba' are different (order matters). In combination, selecting 'ab' is the same as 'ba' (identity counts, not order).",
+        "options": [
+            {
+                "option_id": "668043",
+                "tag": "a",
+                "text": "Permutation deals with summing objects, combination deals with multiplying.",
+                "is_correct": false
+            },
+            {
+                "option_id": "143051",
+                "tag": "b",
+                "text": "Permutation is used when order does not matter; Combination is used when order matters.",
+                "is_correct": false
+            },
+            {
+                "option_id": "303268",
+                "tag": "c",
+                "text": "Permutation is used when order matters; Combination is used when order does not matter.",
+                "is_correct": true
+            },
+            {
+                "option_id": "188835",
+                "tag": "d",
+                "text": "Permutation allows repetition, Combination does not.",
+                "is_correct": false
+            }
+        ],
+        "question_number": 193
+    },
+    {
+        "order_id": "34",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Find the value of $r$ if $^5P_r = 60$.",
+        "explanation": "$^5P_r = \\frac{5!}{(5-r)!} = 60$. Since $5! = 120$, we have $\\frac{120}{(5-r)!} = 60$, which means $(5-r)! = 2$. Since $2! = 2$, $5-r = 2 \\implies r = 3$.",
+        "options": [
+            {
+                "option_id": "161370",
+                "tag": "a",
+                "text": "$r=2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "221566",
+                "tag": "b",
+                "text": "$r=3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "321590",
+                "tag": "c",
+                "text": "$r=4$",
+                "is_correct": false
+            },
+            {
+                "option_id": "130918",
+                "tag": "d",
+                "text": "$r=5$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 199
+    },
+    {
+        "order_id": "35",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Simplify the expression $\\frac{n(n-1)!}{(n-1)}$.",
+        "explanation": "Since $n(n-1)! = n!$, this does not simplify well directly. But observing $(n-1)! = (n-1)(n-2)!$, the expression becomes $\\frac{n(n-1)(n-2)!}{(n-1)}$. The $(n-1)$ cancels out, leaving $n(n-2)!$.",
+        "options": [
+            {
+                "option_id": "306307",
+                "tag": "a",
+                "text": "$n!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "209744",
+                "tag": "b",
+                "text": "$n(n-2)!$",
+                "is_correct": true
+            },
+            {
+                "option_id": "223904",
+                "tag": "c",
+                "text": "$(n-1)!$",
+                "is_correct": false
+            },
+            {
+                "option_id": "574526",
+                "tag": "d",
+                "text": "$(n-2)!$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 206
+    },
+    {
+        "order_id": "36",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Which of the following is equivalent to $^9C_6$?",
+        "explanation": "Using the symmetric property of combinations, $^nC_r = ^nC_{n-r}$. Thus, $^9C_6 = ^9C_{9-6} = ^9C_3$.",
+        "options": [
+            {
+                "option_id": "237806",
+                "tag": "a",
+                "text": "$^9C_3$",
+                "is_correct": true
+            },
+            {
+                "option_id": "320018",
+                "tag": "b",
+                "text": "$^9P_6$",
+                "is_correct": false
+            },
+            {
+                "option_id": "264524",
+                "tag": "c",
+                "text": "$^9C_2$",
+                "is_correct": false
+            },
+            {
+                "option_id": "719365",
+                "tag": "d",
+                "text": "$^6C_9$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 211
+    },
+    {
+        "order_id": "37",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "In how many ways can 4 distinct letters be arranged to form a password without repetition from the set 'ABCDEF'?",
+        "explanation": "The set has 6 letters. Choosing and arranging 4 distinct letters is a permutation: $^6P_4 = 6 \\times 5 \\times 4 \\times 3 = 360$ ways.",
+        "options": [
+            {
+                "option_id": "212729",
+                "tag": "a",
+                "text": "$360$",
+                "is_correct": true
+            },
+            {
+                "option_id": "258523",
+                "tag": "b",
+                "text": "$15$",
+                "is_correct": false
+            },
+            {
+                "option_id": "212163",
+                "tag": "c",
+                "text": "$720$",
+                "is_correct": false
+            },
+            {
+                "option_id": "240148",
+                "tag": "d",
+                "text": "$24$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 217
+    },
+    {
+        "order_id": "38",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Evaluate $^7C_7$.",
+        "explanation": "Selecting all 7 items from a set of 7 can only be done in 1 way. By formula: $^7C_7 = \\frac{7!}{7!(7-7)!} = \\frac{1}{0!} = 1$.",
+        "options": [
+            {
+                "option_id": "216237",
+                "tag": "a",
+                "text": "$0$",
+                "is_correct": false
+            },
+            {
+                "option_id": "171658",
+                "tag": "b",
+                "text": "$1$",
+                "is_correct": true
+            },
+            {
+                "option_id": "209399",
+                "tag": "c",
+                "text": "$7$",
+                "is_correct": false
+            },
+            {
+                "option_id": "299439",
+                "tag": "d",
+                "text": "$5040$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 224
+    },
+    {
+        "order_id": "39",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a team of 4 is to be selected from 6 boys and 5 girls, how many teams can be formed if there are no restrictions?",
+        "explanation": "Total number of people = $11$. We need to select 4 people. Using combinations, $^{11}C_4 = \\frac{11!}{4!7!} = \\frac{11 \\times 10 \\times 9 \\times 8}{24} = 330$.",
+        "options": [
+            {
+                "option_id": "185068",
+                "tag": "a",
+                "text": "$330$",
+                "is_correct": true
+            },
+            {
+                "option_id": "904429",
+                "tag": "b",
+                "text": "$120$",
+                "is_correct": false
+            },
+            {
+                "option_id": "208768",
+                "tag": "c",
+                "text": "$7920$",
+                "is_correct": false
+            },
+            {
+                "option_id": "162027",
+                "tag": "d",
+                "text": "$66$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 229
+    },
+    {
+        "order_id": "40",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If you are to determine the number of unique sequences that can be generated from the word 'STATISTICS', what kind of mathematical problem is this?",
+        "explanation": "Because the letters are being arranged into a sequence, it is a permutation. Because some letters repeat ('S', 'T', 'I'), it involves non-distinct objects.",
+        "options": [
+            {
+                "option_id": "281613",
+                "tag": "a",
+                "text": "Combination",
+                "is_correct": false
+            },
+            {
+                "option_id": "142925",
+                "tag": "b",
+                "text": "Permutation with non-distinct objects",
+                "is_correct": true
+            },
+            {
+                "option_id": "107635",
+                "tag": "c",
+                "text": "Probability",
+                "is_correct": false
+            },
+            {
+                "option_id": "265388",
+                "tag": "d",
+                "text": "Basic Factorial",
+                "is_correct": false
+            }
+        ],
+        "question_number": 235
+    },
+    {
+        "order_id": "41",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Find the value of $x$ if $10! = 10 \\times 9 \\times x!$.",
+        "explanation": "Since $10! = 10 \\times 9 \\times 8!$, matching terms gives $x! = 8!$, meaning $x = 8$.",
+        "options": [
+            {
+                "option_id": "859409",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "307829",
+                "tag": "b",
+                "text": "$9$",
+                "is_correct": false
+            },
+            {
+                "option_id": "137261",
+                "tag": "c",
+                "text": "$8$",
+                "is_correct": true
+            },
+            {
+                "option_id": "226078",
+                "tag": "d",
+                "text": "$7$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 241
+    },
+    {
+        "order_id": "42",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "How many ways can 3 letters be chosen from 'ALGEBRA' if order doesn't matter?",
+        "explanation": "There are 7 letters in 'ALGEBRA'. Choosing 3 letters without regard to order is a combination problem: $^7C_3 = \\frac{7!}{3!4!} = 35$.",
+        "options": [
+            {
+                "option_id": "335630",
+                "tag": "a",
+                "text": "$35$",
+                "is_correct": true
+            },
+            {
+                "option_id": "340185",
+                "tag": "b",
+                "text": "$210$",
+                "is_correct": false
+            },
+            {
+                "option_id": "133112",
+                "tag": "c",
+                "text": "$21$",
+                "is_correct": false
+            },
+            {
+                "option_id": "679863",
+                "tag": "d",
+                "text": "$7$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 247
+    },
+    {
+        "order_id": "43",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "A coach needs to select a captain and a vice-captain from a team of 11 players. How many ways can this be done?",
+        "explanation": "Since the positions are distinct, order matters. We use permutations: $^{11}P_2 = 11 \\times 10 = 110$ ways.",
+        "options": [
+            {
+                "option_id": "104050",
+                "tag": "a",
+                "text": "$110$",
+                "is_correct": true
+            },
+            {
+                "option_id": "477115",
+                "tag": "b",
+                "text": "$55$",
+                "is_correct": false
+            },
+            {
+                "option_id": "212981",
+                "tag": "c",
+                "text": "$22$",
+                "is_correct": false
+            },
+            {
+                "option_id": "531501",
+                "tag": "d",
+                "text": "$121$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 253
+    },
+    {
+        "order_id": "44",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "What is the probability of selecting a combination of 3 girls from a group of 3 girls and 2 boys?",
+        "explanation": "Total ways to choose 3 people from 5 = $^5C_3 = 10$. Ways to choose 3 girls from 3 = $^3C_3 = 1$. Probability = $1 / 10 = 0.10$.",
+        "options": [
+            {
+                "option_id": "314898",
+                "tag": "a",
+                "text": "$0.10$",
+                "is_correct": true
+            },
+            {
+                "option_id": "140385",
+                "tag": "b",
+                "text": "$0.30$",
+                "is_correct": false
+            },
+            {
+                "option_id": "337164",
+                "tag": "c",
+                "text": "$0.60$",
+                "is_correct": false
+            },
+            {
+                "option_id": "324790",
+                "tag": "d",
+                "text": "$0.05$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 259
+    },
+    {
+        "order_id": "45",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "How many 3-digit numbers can be formed using the digits 1, 2, 3, 4, 5 without repetition?",
+        "explanation": "Arranging 3 distinct digits out of 5 is a permutation: $^5P_3 = 5 \\times 4 \\times 3 = 60$.",
+        "options": [
+            {
+                "option_id": "266041",
+                "tag": "a",
+                "text": "$60$",
+                "is_correct": true
+            },
+            {
+                "option_id": "858267",
+                "tag": "b",
+                "text": "$10$",
+                "is_correct": false
+            },
+            {
+                "option_id": "185986",
+                "tag": "c",
+                "text": "$125$",
+                "is_correct": false
+            },
+            {
+                "option_id": "207113",
+                "tag": "d",
+                "text": "$20$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 265
+    },
+    {
+        "order_id": "46",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a group of 7 people is to be seated in a row of 7 chairs, how many arrangements are possible?",
+        "explanation": "Arranging 7 people in 7 chairs is a permutation $^7P_7$, which is $7! = 5040$.",
+        "options": [
+            {
+                "option_id": "229431",
+                "tag": "a",
+                "text": "$49$",
+                "is_correct": false
+            },
+            {
+                "option_id": "128550",
+                "tag": "b",
+                "text": "$5040$",
+                "is_correct": true
+            },
+            {
+                "option_id": "314012",
+                "tag": "c",
+                "text": "$720$",
+                "is_correct": false
+            },
+            {
+                "option_id": "241415",
+                "tag": "d",
+                "text": "$1$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 271
+    },
+    {
+        "order_id": "47",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Simplify $\\frac{10!}{8!2!}$.",
+        "explanation": "This is equivalent to $^{10}C_2 = \\frac{10 \\times 9 \\times 8!}{8! \\times 2 \\times 1} = \\frac{90}{2} = 45$.",
+        "options": [
+            {
+                "option_id": "169795",
+                "tag": "a",
+                "text": "$45$",
+                "is_correct": true
+            },
+            {
+                "option_id": "149926",
+                "tag": "b",
+                "text": "$90$",
+                "is_correct": false
+            },
+            {
+                "option_id": "517529",
+                "tag": "c",
+                "text": "$5$",
+                "is_correct": false
+            },
+            {
+                "option_id": "211199",
+                "tag": "d",
+                "text": "$20$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 277
+    },
+    {
+        "order_id": "48",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "Solve the equation $^xP_1 = 15$.",
+        "explanation": "$^xP_1$ is the number of ways to choose and arrange 1 item from $x$ items, which is simply $x$. Therefore, $x = 15$.",
+        "options": [
+            {
+                "option_id": "781600",
+                "tag": "a",
+                "text": "$x = 1$",
+                "is_correct": false
+            },
+            {
+                "option_id": "231576",
+                "tag": "b",
+                "text": "$x = 15$",
+                "is_correct": true
+            },
+            {
+                "option_id": "277447",
+                "tag": "c",
+                "text": "$x = 14$",
+                "is_correct": false
+            },
+            {
+                "option_id": "213122",
+                "tag": "d",
+                "text": "$x = 0$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 283
+    },
+    {
+        "order_id": "49",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If 4 books are selected from 10 different books, what formula gives the number of selections?",
+        "explanation": "Since the order of the books does not matter in a selection, this is a combination. The formula is $^{10}C_4 = \\frac{10!}{4!(10-4)!} = \\frac{10!}{4!6!}$.",
+        "options": [
+            {
+                "option_id": "224121",
+                "tag": "a",
+                "text": "$\\frac{10!}{4!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "602736",
+                "tag": "b",
+                "text": "$\\frac{10!}{6!}$",
+                "is_correct": false
+            },
+            {
+                "option_id": "489063",
+                "tag": "c",
+                "text": "$\\frac{10!}{4!6!}$",
+                "is_correct": true
+            },
+            {
+                "option_id": "123506",
+                "tag": "d",
+                "text": "$10! - 4!$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 289
+    },
+    {
+        "order_id": "50",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 1: PERMUTATION AND COMBINATION",
+        "course_code": "STA 122",
+        "course_title": "PROBABILTY",
+        "question_type": "CBT",
+        "question_text": "If a student can choose exactly 2 questions to answer out of 5, what is the maximum number of different question pairs they can select?",
+        "explanation": "The order of answering doesn't matter, so it's a combination: $^5C_2 = \\frac{5!}{2!3!} = 10$.",
+        "options": [
+            {
+                "option_id": "100034",
+                "tag": "a",
+                "text": "$10$",
+                "is_correct": true
+            },
+            {
+                "option_id": "173972",
+                "tag": "b",
+                "text": "$20$",
+                "is_correct": false
+            },
+            {
+                "option_id": "145978",
+                "tag": "c",
+                "text": "$5$",
+                "is_correct": false
+            },
+            {
+                "option_id": "112703",
+                "tag": "d",
+                "text": "$25$",
+                "is_correct": false
+            }
+        ],
+        "question_number": 295
+    }
+]

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>University Courses – My Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../../components/footer.css">
+  <style>
+    /* Reset & Global */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
+    body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+    /* App Shell */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .content-area { padding: 32px 24px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: #4b5563; margin-bottom: 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: #b70c01; }
+
+    /* Header Section */
+    .page-header {
+      margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+    }
+    .page-title {
+      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+    }
+    .page-desc {
+      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+    }
+
+    /* Actions */
+    .btn-primary {
+      background: #b70c01; color: white; padding: 12px 24px; border-radius: 12px;
+      font-size: 14.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.2s; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+    .btn-primary:hover {
+      background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+    }
+    .btn-secondary {
+      background: #f3f4f6; color: #374151; padding: 12px 24px; border-radius: 12px;
+      font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background: #e5e7eb; color: #111827;
+    }
+    .btn-secondary.active {
+      background: #fff0f0; color: #b70c01; border-color: #fecaca; box-shadow: inset 0 0 0 1px #fecaca;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: white; padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid #e5e7eb;
+      display: flex; gap: 16px; flex-wrap: wrap; box-shadow: 0 4px 20px rgba(0,0,0,0.03); align-items: center;
+    }
+    
+    .search-input-wrapper {
+      flex: 2; min-width: 200px; display: flex; align-items: center; gap: 8px; background: #f9fafb;
+      padding: 10px 16px; border-radius: 12px; border: 1px solid #e5e7eb; transition: all 0.2s;
+    }
+    .search-input-wrapper:focus-within { border-color: #b70c01; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .search-input-wrapper svg { color: #9ca3af; }
+    .search-input-wrapper input {
+      flex: 1; border: none; outline: none; background: transparent; font-size: 14.5px; font-family: inherit;
+    }
+    
+    .select-wrapper {
+      flex: 1; min-width: 140px; position: relative;
+    }
+    .select-wrapper select {
+      width: 100%; appearance: none; background: #f9fafb; border: 1px solid #e5e7eb; padding: 10px 36px 10px 16px;
+      border-radius: 12px; font-size: 14.5px; font-family: inherit; color: #374151; font-weight: 500;
+      cursor: pointer; outline: none; transition: all 0.2s;
+    }
+    .select-wrapper select:focus { border-color: #b70c01; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .select-wrapper::after {
+      content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #6b7280; pointer-events: none;
+    }
+
+    /* Grid */
+    .course-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
+    }
+
+    /* Course Card */
+    .course-card {
+      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
+      display: flex; flex-direction: column; transition: all 0.2s; position: relative; overflow: hidden;
+    }
+    .course-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #d1d5db;
+    }
+    
+    .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .course-code { font-size: 20px; font-weight: 800; color: #111827; letter-spacing: -0.01em; }
+    
+    .format-tag {
+      padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800;
+      display: inline-flex; align-items: center; gap: 4px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .format-tag.cbt { background: #fef2f2; color: #b70c01; border: 1px solid #fecaca; }
+    .format-tag.theory { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+    .course-name { font-size: 15px; color: #4b5563; margin-bottom: 20px; line-height: 1.4; font-weight: 500; }
+    
+    .course-meta { font-size: 13.5px; color: #6b7280; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .course-meta span { display: flex; align-items: center; gap: 8px; }
+
+    .card-footer { margin-top: auto; border-top: 1px solid #f3f4f6; padding-top: 20px; }
+    .card-footer .btn-primary { width: 100%; }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center;
+      z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.2s; padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    
+    .modal-content {
+      background: white; border-radius: 20px; padding: 32px; width: 100%; max-width: 480px;
+      transform: translateY(20px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 20px;
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+    
+    .modal-header { display: flex; justify-content: space-between; align-items: center; }
+    .modal-title { font-size: 20px; font-weight: 800; color: #111827; }
+    .modal-close { background: none; border: none; color: #9ca3af; cursor: pointer; padding: 4px; border-radius: 8px; transition: all 0.2s; }
+    .modal-close:hover { background: #f3f4f6; color: #111827; }
+    
+    .modal-body p { color: #4b5563; font-size: 14px; margin-bottom: 12px; }
+    .topic-select { width: 100%; margin-bottom: 24px; }
+    
+    .modal-actions { display: flex; gap: 12px; }
+    .modal-actions button { flex: 1; }
+
+    /* Exam Viewer (Load Inside) */
+    #examViewerOverlay { padding: 0; background: white; flex-direction: column; z-index: 2000; align-items: stretch; }
+    #examViewerOverlay .viewer-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; border-bottom: 1px solid #ebebeb; background: white; flex: 0 0 auto; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    #examViewerOverlay .viewer-title { font-size: 18px; font-weight: 800; color: #111827; }
+    #viewerContent { flex: 1 1 auto; overflow: auto; background: #f3f4f6; position: relative; display: flex; flex-direction: column; }
+    #viewerIframe { width: 100%; height: 100%; border: none; flex: 1; }
+    #viewerImage { max-width: 100%; margin: 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; display: none; }
+
+    .loader { display: none; margin: 20px auto; border: 3px solid #f3f3f3; border-top: 3px solid #b70c01; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    @media (max-width: 600px) {
+      .filter-bar { flex-direction: column; align-items: stretch; }
+      .search-input-wrapper { flex: none; width: 100%; }
+      .select-wrapper { flex: none; width: 100%; }
+      .modal-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="../../../" data-active="university_exam"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <main class="content-area">
+        
+        <a href="university_exam.html" class="back-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Universities
+        </a>
+
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">
+              <span id="uni_display_name">Target University</span>
+              <span style="font-size: 14px; padding: 4px 10px; background: #fef2f2; color: #b70c01; border-radius: 99px; border: 1px solid #fecaca; text-transform: uppercase; font-weight: 800;">Internal Exams</span>
+            </h1>
+            <p class="page-desc">Search and filter for your specific course. Select a topic and practice past questions in exact exam format (CBT) or view theory papers.</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-input-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="courseSearch" placeholder="Search course code or title (e.g. MTH101)..." oninput="filterCourses()">
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="facultyFilter" onchange="filterCourses()">
+              <option value="all">All Faculties</option>
+            </select>
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="departmentFilter" onchange="filterCourses()">
+              <option value="all">All Departments</option>
+            </select>
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="levelFilter" onchange="filterCourses()">
+              <option value="all">All Levels</option>
+            </select>
+          </div>
+          
+          <div class="select-wrapper">
+            <select id="semesterFilter" onchange="filterCourses()">
+              <option value="all">All Semesters</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="course-grid" id="courseGrid">
+          <!-- Course Cards generated by JS -->
+        </div>
+
+        <div id="pagination" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 32px;">
+          <!-- Pagination buttons generated by JS -->
+        </div>
+
+      </main>
+      
+      <!-- FOOTER -->
+      <app-footer data-base="../../../"></app-footer>
+    </div>
+  </div>
+
+  <!-- Topic Selection Modal -->
+  <div class="modal-overlay" id="topicModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalCourseCode">Select Topic</h2>
+        <button class="modal-close" onclick="closeModal()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div id="modeSelection" style="display: flex; gap: 12px; margin-bottom: 20px;">
+          <button class="btn-secondary" id="btnModeCbt" onclick="selectMode('CBT')" style="flex:1;">Interactive CBT</button>
+          <button class="btn-secondary" id="btnModeTheory" onclick="selectMode('Theory')" style="flex:1;">Theory Papers</button>
+        </div>
+
+        <p id="modalDesc">Choose a specific topic or paper.</p>
+        <div class="loader" id="modalLoader"></div>
+        <div class="select-wrapper topic-select" id="topicSelectWrapper" style="display: none;">
+          <select id="topicDropdown">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" id="btnProceed" onclick="proceedToExam()">Open Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam Viewer Overlay (Load Inside) -->
+  <div class="modal-overlay" id="examViewerOverlay">
+    <div class="viewer-header">
+      <h2 class="viewer-title" id="viewerTitle">Exam Viewer</h2>
+      <button class="btn-secondary" onclick="closeViewer()" style="padding: 8px 16px; font-size: 13px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close
+      </button>
+    </div>
+    <div id="viewerContent">
+      <iframe id="viewerIframe" src=""></iframe>
+      <img id="viewerImage" src="" alt="Theory Paper" />
+    </div>
+  </div>
+
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/footer.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const uniId = urlParams.get('uni') || 'southern_delta_university_sdu';
+    const activeCountry = localStorage.getItem('mec_country') || 'ng';
+    
+    const niceName = uniId.replace(/_/g, ' ').replace(' sdu', ' (SDU)');
+    document.getElementById('uni_display_name').innerText = niceName.toUpperCase() + " Courses";
+
+    let allCourses = [];
+    let filteredCourses = [];
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    let currentCoursePath = '';
+    let currentCourseFormats = [];
+    let currentMode = '';
+    let currentBaseContentPath = ''; // 'cbt', 'theory', or '' (for old root format)
+
+    function populateFilters(list) {
+      const faculties = [...new Set(list.map(c => c.faculty))].filter(Boolean).sort();
+      const departments = [...new Set(list.map(c => c.dept))].filter(Boolean).sort();
+      const levels = [...new Set(list.map(c => c.level))].filter(Boolean).sort();
+      const semesters = [...new Set(list.map(c => c.semester))].filter(Boolean).sort();
+
+      document.getElementById('facultyFilter').innerHTML = '<option value="all">All Faculties</option>' + faculties.map(f => `<option value="${f}">${f}</option>`).join('');
+      document.getElementById('departmentFilter').innerHTML = '<option value="all">All Departments</option>' + departments.map(d => `<option value="${d}">${d}</option>`).join('');
+      document.getElementById('levelFilter').innerHTML = '<option value="all">All Levels</option>' + levels.map(l => `<option value="${l}">${l} Level</option>`).join('');
+      document.getElementById('semesterFilter').innerHTML = '<option value="all">All Semesters</option>' + semesters.map(s => `<option value="${s}">${s === '1' ? '1st' : s === '2' ? '2nd' : s} Semester</option>`).join('');
+    }
+
+    function formatIcons(formats) {
+       let html = '';
+       if (!formats || formats.length === 0) formats = ['CBT'];
+       if (formats.includes('CBT')) {
+          html += '<span class="format-tag cbt"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg> CBT</span>';
+       }
+       if (formats.includes('Theory')) {
+          html += '<span class="format-tag theory" style="margin-left: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Theory</span>';
+       }
+       return html;
+    }
+
+    function renderCourses() {
+      const grid = document.getElementById('courseGrid');
+      const pagination = document.getElementById('pagination');
+      grid.innerHTML = '';
+      pagination.innerHTML = '';
+
+      if (filteredCourses.length === 0) {
+        grid.innerHTML = `
+        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #6b7280; background: white; border-radius: 16px; border: 1px dashed #d1d5db;">
+          <h3 style="color: #111827; font-size: 18px; margin-bottom: 8px;">No Courses Found</h3>
+          <p>We couldn't find any courses matching your filters.</p>
+        </div>`;
+        return;
+      }
+
+      const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const paginatedList = filteredCourses.slice(startIndex, endIndex);
+
+      paginatedList.forEach(course => {
+        const card = document.createElement('div');
+        card.className = 'course-card';
+        const formatsList = course.formats || [course.format];
+        
+        card.innerHTML = `
+          <div class="course-header">
+            <h3 class="course-code">${course.code}</h3>
+            <div>${formatIcons(formatsList)}</div>
+          </div>
+          <p class="course-name">${course.name}</p>
+          <div class="course-meta">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> 
+              Faculty of ${course.faculty} — Dept. of ${course.dept}
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> 
+              ${course.level} Level | ${course.semester === '1' ? '1st' : '2nd'} Semester
+            </span>
+          </div>
+          <div class="card-footer">
+            <button class="btn-primary" onclick="openTopicModal('${course.code}', '${course.file_path}', '${encodeURIComponent(JSON.stringify(formatsList))}')">Access Past Questions</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Render Pagination Controls
+      if (totalPages > 1) {
+        let btnPrev = document.createElement('button');
+        btnPrev.className = 'btn-secondary';
+        btnPrev.style.padding = '8px 16px';
+        btnPrev.innerText = 'Prev';
+        btnPrev.disabled = currentPage === 1;
+        if (currentPage === 1) btnPrev.style.opacity = '0.5';
+        btnPrev.onclick = () => { currentPage--; renderCourses(); window.scrollTo(0, 0); };
+        pagination.appendChild(btnPrev);
+
+        // Calculate page numbers with ellipses
+        const delta = 1;
+        const left = currentPage - delta;
+        const right = currentPage + delta;
+        const range = [];
+        const rangeWithDots = [];
+        let l;
+
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === 1 || i === totalPages || (i >= left && i <= right)) {
+            range.push(i);
+          }
+        }
+
+        for (let i of range) {
+          if (l) {
+            if (i - l === 2) {
+              rangeWithDots.push(l + 1);
+            } else if (i - l !== 1) {
+              rangeWithDots.push('...');
+            }
+          }
+          rangeWithDots.push(i);
+          l = i;
+        }
+
+        // Render page buttons
+        for (let i of rangeWithDots) {
+          if (i === '...') {
+            let dots = document.createElement('span');
+            dots.style.fontWeight = '600';
+            dots.style.fontSize = '14.5px';
+            dots.style.padding = '8px 12px';
+            dots.style.color = '#6b7280';
+            dots.innerText = '...';
+            pagination.appendChild(dots);
+          } else {
+            let pageBtn = document.createElement('button');
+            pageBtn.className = i === currentPage ? 'btn-primary' : 'btn-secondary';
+            pageBtn.style.padding = '8px 14px';
+            if (i === currentPage) {
+               pageBtn.style.boxShadow = 'none'; // remove extra shadow from btn-primary for pagination
+            } else {
+               pageBtn.style.background = '#f3f4f6';
+               pageBtn.style.borderColor = '#e5e7eb';
+               pageBtn.style.color = '#4b5563';
+            }
+            pageBtn.innerText = i;
+            pageBtn.onclick = () => { currentPage = i; renderCourses(); window.scrollTo(0, 0); };
+            pagination.appendChild(pageBtn);
+          }
+        }
+
+        let btnNext = document.createElement('button');
+        btnNext.className = 'btn-secondary';
+        btnNext.style.padding = '8px 16px';
+        btnNext.innerText = 'Next';
+        btnNext.disabled = currentPage === totalPages;
+        if (currentPage === totalPages) btnNext.style.opacity = '0.5';
+        btnNext.onclick = () => { currentPage++; renderCourses(); window.scrollTo(0, 0); };
+        pagination.appendChild(btnNext);
+      }
+    }
+
+    function filterCourses() {
+      const query = document.getElementById('courseSearch').value.toLowerCase();
+      const fac = document.getElementById('facultyFilter').value;
+      const dept = document.getElementById('departmentFilter').value;
+      const lvl = document.getElementById('levelFilter').value;
+      const sem = document.getElementById('semesterFilter').value;
+
+      filteredCourses = allCourses.filter(c => {
+        const matchesQuery = c.code.toLowerCase().includes(query) || c.name.toLowerCase().includes(query);
+        const matchesFac = fac === 'all' || c.faculty === fac;
+        const matchesDept = dept === 'all' || c.dept === dept;
+        const matchesLvl = lvl === 'all' || c.level === lvl;
+        const matchesSem = sem === 'all' || String(c.semester) === sem;
+        return matchesQuery && matchesFac && matchesDept && matchesLvl && matchesSem;
+      });
+      currentPage = 1;
+      renderCourses();
+    }
+    function getBasePath() {
+      const path = window.location.pathname;
+      const publicIndex = path.indexOf('/public/');
+      const rootPath = publicIndex !== -1 ? path.substring(0, publicIndex) : '';
+      return window.location.origin + rootPath;
+    }
+
+    async function loadCourses() {
+      try {
+        let fetchUrl = `${getBasePath()}/new_staging_area/${activeCountry}/exams/university/${uniId}/index.json?t=${Date.now()}`;
+        console.log(`[Cache-Bust] Fetching courses from: ${fetchUrl}`);
+        let res = await fetch(fetchUrl);
+        
+        // Dynamically find country if first fetch fails
+        if (!res.ok) {
+           console.warn(`[Warning] 404 for ${activeCountry}, attempting dynamic resolution...`);
+           const otherCountries = ['ng', 'us', 'uk', 'gh', 'za'].filter(c => c !== activeCountry);
+           for (let c of otherCountries) {
+               fetchUrl = `${getBasePath()}/new_staging_area/${c}/exams/university/${uniId}/index.json?t=${Date.now()}`;
+               console.log(`[Cache-Bust] Trying country ${c}: ${fetchUrl}`);
+               res = await fetch(fetchUrl);
+               if (res.ok) {
+                   console.log(`Dynamically resolved university country to: ${c}`);
+                   activeCountry = c; // Update activeCountry so subsequent fetches use the correct country
+                   break;
+               }
+           }
+        }
+        
+        if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
+        
+        allCourses = await res.json();
+        
+        // --- ADDED ERROR CHECK FOR EMPTY INDEX.JSON ---
+        if (allCourses.length === 0) {
+            console.error("[Error] The index.json file was found, but it is empty []. The migration script may have failed to populate it.");
+            document.getElementById('courseGrid').innerHTML = `
+            <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #b70c01; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
+              <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px;">Missing University Folders in Index</h3>
+              <p>The system successfully fetched the university data, but <strong>index.json is empty</strong>.<br>This means your migration script (migrate_to_cbt_theory.py) likely created the folders but forgot to write the courses into index.json.</p>
+            </div>`;
+            return;
+        }
+
+        filteredCourses = allCourses;
+        populateFilters(allCourses);
+        renderCourses();
+      } catch (err) {
+        console.error("[Error] Failed to fetch or parse courses:", err);
+        document.getElementById('courseGrid').innerHTML = `
+        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #b70c01; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
+          <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px;">Network Error</h3>
+          <p>Failed to load courses. Check the console for details.<br>Error: ${err.message}</p>
+        </div>`;
+      }
+    }
+
+    // Modal Logic
+    const modal = document.getElementById('topicModal');
+    const loader = document.getElementById('modalLoader');
+    const selectWrapper = document.getElementById('topicSelectWrapper');
+    const dropdown = document.getElementById('topicDropdown');
+    const btnProceed = document.getElementById('btnProceed');
+    const btnCbt = document.getElementById('btnModeCbt');
+    const btnTheory = document.getElementById('btnModeTheory');
+
+    function openTopicModal(courseCode, filePath, formatsStr) {
+      document.getElementById('modalCourseCode').innerText = `Select Topic - ${courseCode}`;
+      modal.classList.add('active');
+      currentCoursePath = filePath.replace('.json', '');
+      currentCourseFormats = JSON.parse(decodeURIComponent(formatsStr));
+
+      // Show/hide mode buttons based on availability
+      btnCbt.style.display = currentCourseFormats.includes('CBT') ? 'block' : 'none';
+      btnTheory.style.display = currentCourseFormats.includes('Theory') ? 'block' : 'none';
+      document.getElementById('modeSelection').style.display = currentCourseFormats.length > 1 ? 'flex' : 'none';
+
+      // Auto select the first available format
+      selectMode(currentCourseFormats[0] || 'CBT');
+    }
+
+    async function selectMode(mode) {
+      currentMode = mode;
+      btnCbt.classList.toggle('active', mode === 'CBT');
+      btnTheory.classList.toggle('active', mode === 'Theory');
+
+      loader.style.display = 'block';
+      selectWrapper.style.display = 'none';
+      btnProceed.disabled = true;
+      dropdown.innerHTML = '';
+      currentBaseContentPath = ''; // reset
+
+      const folder = mode.toLowerCase();
+      const jsonFile = mode === 'CBT' ? 'topics.json' : 'manifest.json';
+      
+      let items = [];
+      try {
+        let fetchPath = `${getBasePath()}/new_staging_area/${activeCountry}/exams/university/${uniId}/${currentCoursePath}/${folder}/${jsonFile}?t=${Date.now()}`;
+        console.log(`[Cache-Bust] Fetching mode data from: ${fetchPath}`);
+        let res = await fetch(fetchPath);
+        if (!res.ok) {
+           console.warn(`[Warning] Failed to fetch mode data for ${activeCountry}. Trying ng fallback...`);
+           fetchPath = `${getBasePath()}/new_staging_area/ng/exams/university/${uniId}/${currentCoursePath}/${folder}/${jsonFile}?t=${Date.now()}`;
+           res = await fetch(fetchPath);
+        }
+        
+        if (res.ok) {
+           console.log(`[Success] Successfully loaded mode data.`);
+           currentBaseContentPath = folder; // it exists in 'cbt' or 'theory' folder
+        } else if (mode === 'CBT') {
+           // Fallback to root directory for older unmigrated CBT structures
+           fetchPath = `${getBasePath()}/new_staging_area/${activeCountry}/exams/university/${uniId}/${currentCoursePath}/topics.json?t=${Date.now()}`;
+           console.log(`[Fallback] Fetching older topics structure from: ${fetchPath}`);
+           res = await fetch(fetchPath);
+           if (!res.ok) {
+              fetchPath = `${getBasePath()}/new_staging_area/ng/exams/university/${uniId}/${currentCoursePath}/topics.json?t=${Date.now()}`;
+              res = await fetch(fetchPath);
+           }
+           if (res.ok) currentBaseContentPath = ''; // empty means root
+        }
+        
+        if (!res.ok) throw new Error(`Items list not found. Failed to fetch from: ${fetchPath} (Status: ${res.status})`);
+        items = await res.json();
+      } catch (err) {
+        console.error("Exact fetch error:", err);
+      }
+      
+      if (mode === 'CBT') {
+        dropdown.innerHTML = '<option value="all">Real CBT question across all topic</option>';
+      } else {
+        dropdown.innerHTML = '<option value="" disabled selected>Select a paper...</option>';
+      }
+
+      if (items.length > 0) {
+        items.forEach(t => { dropdown.innerHTML += `<option value="${t}">${t}</option>`; });
+      } else {
+        if (mode === 'CBT') dropdown.innerHTML = '<option value="all">Real CBT question across all topic (Default)</option>';
+      }
+      
+      selectWrapper.style.display = 'block';
+      btnProceed.disabled = (mode === 'Theory' && items.length === 0);
+      loader.style.display = 'none';
+    }
+
+    function closeModal() { modal.classList.remove('active'); }
+
+    // Load Inside Viewer Logic
+    const viewerOverlay = document.getElementById('examViewerOverlay');
+    const viewerIframe = document.getElementById('viewerIframe');
+    const viewerImage = document.getElementById('viewerImage');
+    const viewerTitle = document.getElementById('viewerTitle');
+
+    function proceedToExam() {
+      const selected = dropdown.value;
+      if (!selected) return;
+
+      closeModal();
+      viewerTitle.innerText = `${document.getElementById('modalCourseCode').innerText} - ${selected}`;
+      
+      let finalFile = '';
+      let basePath = currentBaseContentPath ? `${currentCoursePath}/${currentBaseContentPath}` : currentCoursePath;
+
+      if (currentMode === 'CBT') {
+        if (selected === 'all') {
+          let options = Array.from(dropdown.options).map(opt => opt.value);
+          if (options.includes('COMPUTER BASED TEST (CBT) QUESTIONS')) {
+             finalFile = `${basePath}/COMPUTER BASED TEST (CBT) QUESTIONS.json`;
+          } else if (options.includes('GENERAL 70 QUESTIONS (ALL TOPICS)')) {
+             finalFile = `${basePath}/GENERAL 70 QUESTIONS (ALL TOPICS).json`;
+          } else {
+             finalFile = options.length > 1 ? `${basePath}/${options[1]}.json` : `${basePath}/all.json`;
+          }
+        } else {
+          finalFile = `${basePath}/${selected}.json`;
+        }
+        
+        // Load CBT instruction inside iframe
+        viewerImage.style.display = 'none';
+        viewerIframe.style.display = 'block';
+        viewerIframe.src = `../core/instruction.html?uni=${encodeURIComponent(uniId)}&file=${encodeURIComponent(finalFile)}`;
+        viewerOverlay.classList.add('active');
+        
+      } else if (currentMode === 'Theory') {
+        // Load Image directly
+        viewerIframe.style.display = 'none';
+        viewerImage.style.display = 'block';
+        
+        // Construct path to image
+        // First try activeCountry, but we know fallback exists in 'ng'
+        // For simplicity, just point to the 'ng' fallback directly if it's there, or relative.
+        // The most robust way is to use the activeCountry, and if the image breaks, oh well. Let's just point to activeCountry.
+        let imgPath = `../../../../new_staging_area/${activeCountry}/exams/university/${uniId}/${basePath}/${selected}`;
+        viewerImage.src = imgPath;
+        // Add error fallback on image
+        viewerImage.onerror = function() {
+           if (this.src.includes(`/${activeCountry}/`)) {
+              this.src = this.src.replace(`/${activeCountry}/`, '/ng/');
+           }
+        };
+        viewerOverlay.classList.add('active');
+      }
+    }
+
+    function closeViewer() {
+      viewerOverlay.classList.remove('active');
+      viewerIframe.src = '';
+      viewerImage.src = '';
+    }
+
+    loadCourses();
+  </script>
+</body>
+</html>

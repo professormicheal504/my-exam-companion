@@ -1,0 +1,1926 @@
+[
+    {
+        "order_id": "1",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following best defines an algorithm?",
+        "explanation": "An algorithm is defined as a step-by-step procedure designed to perform an operation which will lead to the desired result.",
+        "options": [
+            {
+                "option_id": "235186",
+                "tag": "a",
+                "text": "A programming language used to write code",
+                "is_correct": false
+            },
+            {
+                "option_id": "301951",
+                "tag": "b",
+                "text": "A step-by-step procedure designed to perform an operation and lead to a desired result",
+                "is_correct": true
+            },
+            {
+                "option_id": "286401",
+                "tag": "c",
+                "text": "A graphical representation of a program",
+                "is_correct": false
+            },
+            {
+                "option_id": "904459",
+                "tag": "d",
+                "text": "A table used for decision making",
+                "is_correct": false
+            }
+        ],
+        "question_number": 2
+    },
+    {
+        "order_id": "2",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following represents the correct order of the IPO cycle?",
+        "explanation": "The IPO cycle stands for Input-Process-Output. First, data is provided (Input), then the computer processes it (Process), and finally the result is displayed (Output).",
+        "options": [
+            {
+                "option_id": "233573",
+                "tag": "a",
+                "text": "Output \u2192 Process \u2192 Input",
+                "is_correct": false
+            },
+            {
+                "option_id": "631329",
+                "tag": "b",
+                "text": "Process \u2192 Input \u2192 Output",
+                "is_correct": false
+            },
+            {
+                "option_id": "202290",
+                "tag": "c",
+                "text": "Input \u2192 Process \u2192 Output",
+                "is_correct": true
+            },
+            {
+                "option_id": "322101",
+                "tag": "d",
+                "text": "Input \u2192 Output \u2192 Process",
+                "is_correct": false
+            }
+        ],
+        "question_number": 4
+    },
+    {
+        "order_id": "3",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the algorithm to find the square of a number, which step correctly represents the process phase?",
+        "explanation": "The process phase involves computation. Multiplying `num \u00d7 num` to get `square` is the processing step. Input is the first step, and printing is the output step.",
+        "options": [
+            {
+                "option_id": "232605",
+                "tag": "a",
+                "text": "Input a number and store it in `num`",
+                "is_correct": false
+            },
+            {
+                "option_id": "112147",
+                "tag": "b",
+                "text": "Print `square`",
+                "is_correct": false
+            },
+            {
+                "option_id": "311166",
+                "tag": "c",
+                "text": "Compute `num \u00d7 num` and store it in `square`",
+                "is_correct": true
+            },
+            {
+                "option_id": "125824",
+                "tag": "d",
+                "text": "Display the number on screen",
+                "is_correct": false
+            }
+        ],
+        "question_number": 6
+    },
+    {
+        "order_id": "4",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which property of an algorithm states that each step must lead to only one meaning?",
+        "explanation": "Definiteness means each step in an algorithm should be clear in all aspects and must lead to only one meaning \u2014 it must be unambiguous.",
+        "options": [
+            {
+                "option_id": "281106",
+                "tag": "a",
+                "text": "Finiteness",
+                "is_correct": false
+            },
+            {
+                "option_id": "585629",
+                "tag": "b",
+                "text": "Generality",
+                "is_correct": false
+            },
+            {
+                "option_id": "474333",
+                "tag": "c",
+                "text": "Definiteness",
+                "is_correct": true
+            },
+            {
+                "option_id": "260376",
+                "tag": "d",
+                "text": "Language Independence",
+                "is_correct": false
+            }
+        ],
+        "question_number": 8
+    },
+    {
+        "order_id": "5",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which property of an algorithm ensures it must terminate after a finite number of steps?",
+        "explanation": "Finiteness means the algorithm must terminate in a finite number of steps. An algorithm that runs forever is not a valid algorithm.",
+        "options": [
+            {
+                "option_id": "111132",
+                "tag": "a",
+                "text": "Definiteness",
+                "is_correct": false
+            },
+            {
+                "option_id": "779947",
+                "tag": "b",
+                "text": "Finiteness",
+                "is_correct": true
+            },
+            {
+                "option_id": "226955",
+                "tag": "c",
+                "text": "Generality",
+                "is_correct": false
+            },
+            {
+                "option_id": "117912",
+                "tag": "d",
+                "text": "Well-Defined Outputs",
+                "is_correct": false
+            }
+        ],
+        "question_number": 10
+    },
+    {
+        "order_id": "6",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which property of an algorithm means it can be implemented in any programming language and still produce the same output?",
+        "explanation": "Language Independence means the algorithm consists of plain instructions that can be implemented in any language, and the output will be the same as expected.",
+        "options": [
+            {
+                "option_id": "233017",
+                "tag": "a",
+                "text": "Generality",
+                "is_correct": false
+            },
+            {
+                "option_id": "751396",
+                "tag": "b",
+                "text": "Definiteness",
+                "is_correct": false
+            },
+            {
+                "option_id": "263035",
+                "tag": "c",
+                "text": "Finiteness",
+                "is_correct": false
+            },
+            {
+                "option_id": "191418",
+                "tag": "d",
+                "text": "Language Independence",
+                "is_correct": true
+            }
+        ],
+        "question_number": 12
+    },
+    {
+        "order_id": "7",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which property of an algorithm states that it must be complete in itself so that it can be used to solve problems of a specific type for any input data?",
+        "explanation": "Generality means the algorithm must be complete in itself so that it can be used to solve problems of a specific type for any input data.",
+        "options": [
+            {
+                "option_id": "135306",
+                "tag": "a",
+                "text": "Finiteness",
+                "is_correct": false
+            },
+            {
+                "option_id": "233037",
+                "tag": "b",
+                "text": "Well-Defined Inputs",
+                "is_correct": false
+            },
+            {
+                "option_id": "178277",
+                "tag": "c",
+                "text": "Language Independence",
+                "is_correct": false
+            },
+            {
+                "option_id": "156236",
+                "tag": "d",
+                "text": "Generality",
+                "is_correct": true
+            }
+        ],
+        "question_number": 14
+    },
+    {
+        "order_id": "8",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is listed as a DISADVANTAGE of using algorithms?",
+        "explanation": "A key disadvantage of algorithms is that writing one takes a long time, making it time-consuming. Also, branching and looping statements are difficult to show in algorithms.",
+        "options": [
+            {
+                "option_id": "102489",
+                "tag": "a",
+                "text": "It is easy to understand",
+                "is_correct": false
+            },
+            {
+                "option_id": "379271",
+                "tag": "b",
+                "text": "The problem is broken down into smaller pieces",
+                "is_correct": false
+            },
+            {
+                "option_id": "756517",
+                "tag": "c",
+                "text": "Writing an algorithm takes a long time and is time-consuming",
+                "is_correct": true
+            },
+            {
+                "option_id": "194753",
+                "tag": "d",
+                "text": "It provides a step-wise representation of a solution",
+                "is_correct": false
+            }
+        ],
+        "question_number": 16
+    },
+    {
+        "order_id": "9",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the top-down approach to algorithm design, a complex algorithm is broken down into smaller units called:",
+        "explanation": "In the top-down approach, a complex algorithm is broken down into smaller fragments known as 'modules'. The process of breaking it down is called 'modularization'.",
+        "options": [
+            {
+                "option_id": "167840",
+                "tag": "a",
+                "text": "Objects",
+                "is_correct": false
+            },
+            {
+                "option_id": "513602",
+                "tag": "b",
+                "text": "Modules",
+                "is_correct": true
+            },
+            {
+                "option_id": "492781",
+                "tag": "c",
+                "text": "Tables",
+                "is_correct": false
+            },
+            {
+                "option_id": "136736",
+                "tag": "d",
+                "text": "Flowcharts",
+                "is_correct": false
+            }
+        ],
+        "question_number": 18
+    },
+    {
+        "order_id": "10",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "What is the process of breaking a complex algorithm into smaller and smaller modules in the top-down approach called?",
+        "explanation": "The process of breaking down a complex algorithm into smaller fragments (modules) until they can no longer be fragmented is called 'modularization'.",
+        "options": [
+            {
+                "option_id": "114496",
+                "tag": "a",
+                "text": "Decomposition",
+                "is_correct": false
+            },
+            {
+                "option_id": "170565",
+                "tag": "b",
+                "text": "Abstraction",
+                "is_correct": false
+            },
+            {
+                "option_id": "227529",
+                "tag": "c",
+                "text": "Modularization",
+                "is_correct": true
+            },
+            {
+                "option_id": "175485",
+                "tag": "d",
+                "text": "Encapsulation",
+                "is_correct": false
+            }
+        ],
+        "question_number": 20
+    },
+    {
+        "order_id": "11",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The top-down approach produces which type of output structure?",
+        "explanation": "The output of the top-down design approach is a tree-like structure chart, representing the hierarchy of modules.",
+        "options": [
+            {
+                "option_id": "213371",
+                "tag": "a",
+                "text": "A circular linked list",
+                "is_correct": false
+            },
+            {
+                "option_id": "118421",
+                "tag": "b",
+                "text": "A decision table",
+                "is_correct": false
+            },
+            {
+                "option_id": "181949",
+                "tag": "c",
+                "text": "A tree-like structure chart",
+                "is_correct": true
+            },
+            {
+                "option_id": "181308",
+                "tag": "d",
+                "text": "A pseudocode document",
+                "is_correct": false
+            }
+        ],
+        "question_number": 22
+    },
+    {
+        "order_id": "12",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which approach to algorithm design is more suitable when a system needs to be designed from scratch and very specific details are unknown?",
+        "explanation": "The top-down approach is more suitable when the software needs to be designed from scratch and very specific details are unknown.",
+        "options": [
+            {
+                "option_id": "145887",
+                "tag": "a",
+                "text": "Bottom-Up Approach",
+                "is_correct": false
+            },
+            {
+                "option_id": "324477",
+                "tag": "b",
+                "text": "Top-Down Approach",
+                "is_correct": true
+            },
+            {
+                "option_id": "293412",
+                "tag": "c",
+                "text": "Divide and Conquer",
+                "is_correct": false
+            },
+            {
+                "option_id": "295203",
+                "tag": "d",
+                "text": "Object-Oriented Approach",
+                "is_correct": false
+            }
+        ],
+        "question_number": 24
+    },
+    {
+        "order_id": "13",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the bottom-up approach, smaller problems are solved individually at the basic level and then integrated together. What is this process of building up called?",
+        "explanation": "In the bottom-up approach, large programs are built up from smaller programs, which is known as composition.",
+        "options": [
+            {
+                "option_id": "113701",
+                "tag": "a",
+                "text": "Decomposition",
+                "is_correct": false
+            },
+            {
+                "option_id": "334486",
+                "tag": "b",
+                "text": "Modularization",
+                "is_correct": false
+            },
+            {
+                "option_id": "237271",
+                "tag": "c",
+                "text": "Composition",
+                "is_correct": true
+            },
+            {
+                "option_id": "291126",
+                "tag": "d",
+                "text": "Encapsulation",
+                "is_correct": false
+            }
+        ],
+        "question_number": 26
+    },
+    {
+        "order_id": "14",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which type of programming languages primarily use the bottom-up approach?",
+        "explanation": "The bottom-up approach is used by Object-Oriented programming languages like C++, C#, Java, etc., while the top-down approach is mainly used by Structured programming languages like C and Fortran.",
+        "options": [
+            {
+                "option_id": "207613",
+                "tag": "a",
+                "text": "Structured programming languages like C and Fortran",
+                "is_correct": false
+            },
+            {
+                "option_id": "171585",
+                "tag": "b",
+                "text": "Assembly languages",
+                "is_correct": false
+            },
+            {
+                "option_id": "260958",
+                "tag": "c",
+                "text": "Object-Oriented programming languages like C++, C#, and Java",
+                "is_correct": true
+            },
+            {
+                "option_id": "316930",
+                "tag": "d",
+                "text": "Scripting languages like HTML",
+                "is_correct": false
+            }
+        ],
+        "question_number": 28
+    },
+    {
+        "order_id": "15",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is an advantage of the BOTTOM-UP approach?",
+        "explanation": "In the bottom-up approach, each module is built and tested at an individual level (unit testing) prior to integrating them, making test conditions easier to create and results easier to observe.",
+        "options": [
+            {
+                "option_id": "292517",
+                "tag": "a",
+                "text": "It is widely used in debugging and module documentation",
+                "is_correct": false
+            },
+            {
+                "option_id": "107207",
+                "tag": "b",
+                "text": "Each module is tested at an individual level prior to integration",
+                "is_correct": true
+            },
+            {
+                "option_id": "479167",
+                "tag": "c",
+                "text": "The output is a tree-like structure chart",
+                "is_correct": false
+            },
+            {
+                "option_id": "181478",
+                "tag": "d",
+                "text": "It is suitable when designing from scratch",
+                "is_correct": false
+            }
+        ],
+        "question_number": 30
+    },
+    {
+        "order_id": "16",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which approach may contain more redundancy as it breaks a problem into smaller fragments and builds those sections separately?",
+        "explanation": "The top-down approach may contain redundancy as we break up the problem into smaller fragments and then build each section separately.",
+        "options": [
+            {
+                "option_id": "276213",
+                "tag": "a",
+                "text": "Bottom-Up Approach",
+                "is_correct": false
+            },
+            {
+                "option_id": "290651",
+                "tag": "b",
+                "text": "Top-Down Approach",
+                "is_correct": true
+            },
+            {
+                "option_id": "128348",
+                "tag": "c",
+                "text": "Both approaches equally",
+                "is_correct": false
+            },
+            {
+                "option_id": "526735",
+                "tag": "d",
+                "text": "Neither approach",
+                "is_correct": false
+            }
+        ],
+        "question_number": 32
+    },
+    {
+        "order_id": "17",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The efficiency of an algorithm is defined as the number of ________ used by the algorithm.",
+        "explanation": "The efficiency of an algorithm is defined as the number of computational resources used by the algorithm, measured primarily by time and space.",
+        "options": [
+            {
+                "option_id": "154727",
+                "tag": "a",
+                "text": "Lines of code",
+                "is_correct": false
+            },
+            {
+                "option_id": "103325",
+                "tag": "b",
+                "text": "Comments",
+                "is_correct": false
+            },
+            {
+                "option_id": "302902",
+                "tag": "c",
+                "text": "Computational resources",
+                "is_correct": true
+            },
+            {
+                "option_id": "174647",
+                "tag": "d",
+                "text": "Programming languages",
+                "is_correct": false
+            }
+        ],
+        "question_number": 34
+    },
+    {
+        "order_id": "18",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The two main measures of efficiency for an algorithm are:",
+        "explanation": "The two main measures of algorithm efficiency are Time Complexity (the amount of time required to complete execution) and Space Complexity (the amount of memory space required).",
+        "options": [
+            {
+                "option_id": "859002",
+                "tag": "a",
+                "text": "Speed and Accuracy",
+                "is_correct": false
+            },
+            {
+                "option_id": "296616",
+                "tag": "b",
+                "text": "Time Complexity and Space Complexity",
+                "is_correct": true
+            },
+            {
+                "option_id": "194445",
+                "tag": "c",
+                "text": "Input size and Output size",
+                "is_correct": false
+            },
+            {
+                "option_id": "339935",
+                "tag": "d",
+                "text": "Readability and Portability",
+                "is_correct": false
+            }
+        ],
+        "question_number": 36
+    },
+    {
+        "order_id": "19",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Time complexity of an algorithm represents:",
+        "explanation": "Time complexity represents the amount of time required to complete the execution of an algorithm, defined as a numerical function T(n).",
+        "options": [
+            {
+                "option_id": "208353",
+                "tag": "a",
+                "text": "The amount of memory space required by the algorithm",
+                "is_correct": false
+            },
+            {
+                "option_id": "730078",
+                "tag": "b",
+                "text": "The number of lines of code in the algorithm",
+                "is_correct": false
+            },
+            {
+                "option_id": "269834",
+                "tag": "c",
+                "text": "The amount of time required to complete the execution of the algorithm",
+                "is_correct": true
+            },
+            {
+                "option_id": "151182",
+                "tag": "d",
+                "text": "The number of programmers needed to implement the algorithm",
+                "is_correct": false
+            }
+        ],
+        "question_number": 38
+    },
+    {
+        "order_id": "20",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Space complexity S(P) of any algorithm P is expressed as S(P) = C + S(I). What does 'C' represent?",
+        "explanation": "In S(P) = C + S(I), 'C' is the fixed part \u2014 the space required to store variables whose size is independent of the problem size (e.g., simple variables, constants, program size).",
+        "options": [
+            {
+                "option_id": "277621",
+                "tag": "a",
+                "text": "The variable part of space, depending on input size",
+                "is_correct": false
+            },
+            {
+                "option_id": "129111",
+                "tag": "b",
+                "text": "The fixed part \u2014 space required for variables whose size is independent of the problem size",
+                "is_correct": true
+            },
+            {
+                "option_id": "542933",
+                "tag": "c",
+                "text": "The total number of computations",
+                "is_correct": false
+            },
+            {
+                "option_id": "357281",
+                "tag": "d",
+                "text": "The number of recursive calls",
+                "is_correct": false
+            }
+        ],
+        "question_number": 40
+    },
+    {
+        "order_id": "21",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which part of space complexity includes dynamic memory allocation and recursion stack space?",
+        "explanation": "The variable part S(I) is the space required to store variables whose size depends on the size of the problem, such as dynamic memory allocation and recursion stack space.",
+        "options": [
+            {
+                "option_id": "720692",
+                "tag": "a",
+                "text": "Fixed part (C)",
+                "is_correct": false
+            },
+            {
+                "option_id": "958983",
+                "tag": "b",
+                "text": "Constant part",
+                "is_correct": false
+            },
+            {
+                "option_id": "317268",
+                "tag": "c",
+                "text": "Variable part S(I)",
+                "is_correct": true
+            },
+            {
+                "option_id": "196084",
+                "tag": "d",
+                "text": "Neither part",
+                "is_correct": false
+            }
+        ],
+        "question_number": 42
+    },
+    {
+        "order_id": "22",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The best case analysis of an algorithm refers to the scenario in which:",
+        "explanation": "The best case refers to the scenario where an algorithm takes the least amount of time to execute, which occurs when the input is already in an optimal state.",
+        "options": [
+            {
+                "option_id": "323416",
+                "tag": "a",
+                "text": "The algorithm takes the maximum amount of time to execute",
+                "is_correct": false
+            },
+            {
+                "option_id": "105262",
+                "tag": "b",
+                "text": "The algorithm takes the least amount of time to execute for a given input",
+                "is_correct": true
+            },
+            {
+                "option_id": "176306",
+                "tag": "c",
+                "text": "The algorithm takes the expected (average) amount of time to execute",
+                "is_correct": false
+            },
+            {
+                "option_id": "103807",
+                "tag": "d",
+                "text": "The input is in the least favorable condition",
+                "is_correct": false
+            }
+        ],
+        "question_number": 44
+    },
+    {
+        "order_id": "23",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The worst case analysis measures:",
+        "explanation": "Worst case analysis measures the maximum execution time required for a specific input. This occurs when the input is in the least favorable condition, causing the highest number of operations.",
+        "options": [
+            {
+                "option_id": "147734",
+                "tag": "a",
+                "text": "The minimum execution time of an algorithm",
+                "is_correct": false
+            },
+            {
+                "option_id": "230776",
+                "tag": "b",
+                "text": "The expected execution time for randomly chosen input",
+                "is_correct": false
+            },
+            {
+                "option_id": "162886",
+                "tag": "c",
+                "text": "The maximum execution time required for a specific (least favorable) input",
+                "is_correct": true
+            },
+            {
+                "option_id": "323653",
+                "tag": "d",
+                "text": "The space used by the algorithm",
+                "is_correct": false
+            }
+        ],
+        "question_number": 46
+    },
+    {
+        "order_id": "24",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which type of algorithm analysis measures the expected execution time for a randomly chosen input and provides a balanced perspective?",
+        "explanation": "Average case analysis measures the expected execution time for a randomly chosen input, providing a balanced perspective between best case and worst case.",
+        "options": [
+            {
+                "option_id": "427016",
+                "tag": "a",
+                "text": "Best Case Analysis",
+                "is_correct": false
+            },
+            {
+                "option_id": "296223",
+                "tag": "b",
+                "text": "Worst Case Analysis",
+                "is_correct": false
+            },
+            {
+                "option_id": "224484",
+                "tag": "c",
+                "text": "Average Case Analysis",
+                "is_correct": true
+            },
+            {
+                "option_id": "106000",
+                "tag": "d",
+                "text": "Space Complexity Analysis",
+                "is_correct": false
+            }
+        ],
+        "question_number": 48
+    },
+    {
+        "order_id": "25",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following are the three ways algorithms can be represented?",
+        "explanation": "According to the text, algorithms can be represented using Flowcharts, Pseudocode, and Decision Tables.",
+        "options": [
+            {
+                "option_id": "192294",
+                "tag": "a",
+                "text": "Pseudocode, Spreadsheet, and Database",
+                "is_correct": false
+            },
+            {
+                "option_id": "121363",
+                "tag": "b",
+                "text": "Flowchart, Pseudocode, and Decision Tables",
+                "is_correct": true
+            },
+            {
+                "option_id": "136482",
+                "tag": "c",
+                "text": "Flowchart, Binary Code, and Assembly Code",
+                "is_correct": false
+            },
+            {
+                "option_id": "145681",
+                "tag": "d",
+                "text": "Decision Tables, HTML, and CSS",
+                "is_correct": false
+            }
+        ],
+        "question_number": 50
+    },
+    {
+        "order_id": "26",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "A flowchart is best described as:",
+        "explanation": "Flowcharts are the graphical representation of algorithms \u2014 a visual picture which gives the steps of an algorithm and the flow of control between the various steps.",
+        "options": [
+            {
+                "option_id": "290571",
+                "tag": "a",
+                "text": "A plain English description of algorithm steps",
+                "is_correct": false
+            },
+            {
+                "option_id": "223251",
+                "tag": "b",
+                "text": "A tabular representation of decision conditions",
+                "is_correct": false
+            },
+            {
+                "option_id": "365863",
+                "tag": "c",
+                "text": "A graphical/visual representation of an algorithm showing steps and flow of control",
+                "is_correct": true
+            },
+            {
+                "option_id": "229108",
+                "tag": "d",
+                "text": "A formal programming language",
+                "is_correct": false
+            }
+        ],
+        "question_number": 52
+    },
+    {
+        "order_id": "27",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "According to ANSI rules for flowcharting, a flowchart can have:",
+        "explanation": "One of the ANSI rules for flowcharting states that a flowchart can have only one start point and one end point.",
+        "options": [
+            {
+                "option_id": "486250",
+                "tag": "a",
+                "text": "Multiple start points and multiple end points",
+                "is_correct": false
+            },
+            {
+                "option_id": "208147",
+                "tag": "b",
+                "text": "Only one start point and one end point",
+                "is_correct": true
+            },
+            {
+                "option_id": "469247",
+                "tag": "c",
+                "text": "Multiple start points but only one end point",
+                "is_correct": false
+            },
+            {
+                "option_id": "140654",
+                "tag": "d",
+                "text": "Only one start point but multiple end points",
+                "is_correct": false
+            }
+        ],
+        "question_number": 54
+    },
+    {
+        "order_id": "28",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In a flowchart, the steps should follow which direction?",
+        "explanation": "According to ANSI flowcharting rules, the steps in a flowchart should follow top-to-bottom.",
+        "options": [
+            {
+                "option_id": "278533",
+                "tag": "a",
+                "text": "Bottom-to-top",
+                "is_correct": false
+            },
+            {
+                "option_id": "828184",
+                "tag": "b",
+                "text": "Left-to-right",
+                "is_correct": false
+            },
+            {
+                "option_id": "153314",
+                "tag": "c",
+                "text": "Top-to-bottom",
+                "is_correct": true
+            },
+            {
+                "option_id": "135237",
+                "tag": "d",
+                "text": "Right-to-left",
+                "is_correct": false
+            }
+        ],
+        "question_number": 56
+    },
+    {
+        "order_id": "29",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In a flowchart, the decision symbol should have:",
+        "explanation": "The decision symbol should have one flow line connecting to the previous symbol but two flow lines connecting to the next symbol for each possible solution (e.g., Yes/No, True/False).",
+        "options": [
+            {
+                "option_id": "203806",
+                "tag": "a",
+                "text": "One flow line in and one flow line out",
+                "is_correct": false
+            },
+            {
+                "option_id": "101152",
+                "tag": "b",
+                "text": "Two flow lines in and one flow line out",
+                "is_correct": false
+            },
+            {
+                "option_id": "189506",
+                "tag": "c",
+                "text": "One flow line connecting to the previous symbol and two flow lines to the next symbol",
+                "is_correct": true
+            },
+            {
+                "option_id": "115338",
+                "tag": "d",
+                "text": "Three flow lines out",
+                "is_correct": false
+            }
+        ],
+        "question_number": 58
+    },
+    {
+        "order_id": "30",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is a DISADVANTAGE of flowcharts?",
+        "explanation": "A key disadvantage is that if alterations are required, the flowchart may require re-drawing completely. Also, complex logic makes flowcharts complex and clumsy.",
+        "options": [
+            {
+                "option_id": "553821",
+                "tag": "a",
+                "text": "Flowcharts are a good way of communicating logic to all concerned",
+                "is_correct": false
+            },
+            {
+                "option_id": "710334",
+                "tag": "b",
+                "text": "Alterations may require the entire flowchart to be redrawn",
+                "is_correct": true
+            },
+            {
+                "option_id": "100364",
+                "tag": "c",
+                "text": "They enable effective analysis of problems",
+                "is_correct": false
+            },
+            {
+                "option_id": "239946",
+                "tag": "d",
+                "text": "They serve as good program documentation",
+                "is_correct": false
+            }
+        ],
+        "question_number": 60
+    },
+    {
+        "order_id": "31",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Pseudocode is described as representing an algorithm in:",
+        "explanation": "Pseudocode represents an algorithm in English-language statements. It is intended for human reading and cannot be executed directly by the computer.",
+        "options": [
+            {
+                "option_id": "476772",
+                "tag": "a",
+                "text": "Binary format",
+                "is_correct": false
+            },
+            {
+                "option_id": "318412",
+                "tag": "b",
+                "text": "Graphical format using symbols",
+                "is_correct": false
+            },
+            {
+                "option_id": "231393",
+                "tag": "c",
+                "text": "English-language statements intended for human reading",
+                "is_correct": true
+            },
+            {
+                "option_id": "748922",
+                "tag": "d",
+                "text": "Machine code that can be directly executed by a computer",
+                "is_correct": false
+            }
+        ],
+        "question_number": 62
+    },
+    {
+        "order_id": "32",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "The word 'pseudo' in pseudocode means:",
+        "explanation": "The word 'pseudo' means 'not real,' so 'pseudocode' means 'not real code'. It is not actual executable code but a description of what the code should do.",
+        "options": [
+            {
+                "option_id": "319782",
+                "tag": "a",
+                "text": "Real",
+                "is_correct": false
+            },
+            {
+                "option_id": "206184",
+                "tag": "b",
+                "text": "Complex",
+                "is_correct": false
+            },
+            {
+                "option_id": "310192",
+                "tag": "c",
+                "text": "Not real",
+                "is_correct": true
+            },
+            {
+                "option_id": "323587",
+                "tag": "d",
+                "text": "Graphical",
+                "is_correct": false
+            }
+        ],
+        "question_number": 64
+    },
+    {
+        "order_id": "33",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In pseudocode, which keyword is used to obtain input from a user?",
+        "explanation": "The keyword INPUT is used in pseudocode to obtain an input from a user.",
+        "options": [
+            {
+                "option_id": "144704",
+                "tag": "a",
+                "text": "COMPUTE",
+                "is_correct": false
+            },
+            {
+                "option_id": "678441",
+                "tag": "b",
+                "text": "PRINT",
+                "is_correct": false
+            },
+            {
+                "option_id": "151822",
+                "tag": "c",
+                "text": "BEGIN",
+                "is_correct": false
+            },
+            {
+                "option_id": "129181",
+                "tag": "d",
+                "text": "INPUT",
+                "is_correct": true
+            }
+        ],
+        "question_number": 66
+    },
+    {
+        "order_id": "34",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In pseudocode, which keyword is used to present a result or output?",
+        "explanation": "The keyword PRINT is used in pseudocode to present a result or an output to the user.",
+        "options": [
+            {
+                "option_id": "251599",
+                "tag": "a",
+                "text": "INPUT",
+                "is_correct": false
+            },
+            {
+                "option_id": "256581",
+                "tag": "b",
+                "text": "COMPUTE",
+                "is_correct": false
+            },
+            {
+                "option_id": "891266",
+                "tag": "c",
+                "text": "PRINT",
+                "is_correct": true
+            },
+            {
+                "option_id": "951102",
+                "tag": "d",
+                "text": "BEGIN",
+                "is_correct": false
+            }
+        ],
+        "question_number": 68
+    },
+    {
+        "order_id": "35",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In pseudocode, which keyword is used to process instructions entered by a user?",
+        "explanation": "The keyword COMPUTE is used in pseudocode to process an instruction entered by a user.",
+        "options": [
+            {
+                "option_id": "238657",
+                "tag": "a",
+                "text": "INPUT",
+                "is_correct": false
+            },
+            {
+                "option_id": "320693",
+                "tag": "b",
+                "text": "PRINT",
+                "is_correct": false
+            },
+            {
+                "option_id": "223084",
+                "tag": "c",
+                "text": "COMPUTE",
+                "is_correct": true
+            },
+            {
+                "option_id": "488815",
+                "tag": "d",
+                "text": "IF",
+                "is_correct": false
+            }
+        ],
+        "question_number": 70
+    },
+    {
+        "order_id": "36",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Consider the pseudocode: `IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'`. What will this print if number = 7?",
+        "explanation": "7 MOD 2 = 1 (not 0), so the condition is False. The ELSE branch executes, printing 'Odd'.",
+        "options": [
+            {
+                "option_id": "326847",
+                "tag": "a",
+                "text": "Even",
+                "is_correct": false
+            },
+            {
+                "option_id": "335204",
+                "tag": "b",
+                "text": "Odd",
+                "is_correct": true
+            },
+            {
+                "option_id": "234365",
+                "tag": "c",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "866347",
+                "tag": "d",
+                "text": "Nothing",
+                "is_correct": false
+            }
+        ],
+        "question_number": 72
+    },
+    {
+        "order_id": "37",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Consider the pseudocode: `IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'`. What will this print if number = 10?",
+        "explanation": "10 MOD 2 = 0, so the condition is True. The IF branch executes, printing 'Even'.",
+        "options": [
+            {
+                "option_id": "321793",
+                "tag": "a",
+                "text": "Odd",
+                "is_correct": false
+            },
+            {
+                "option_id": "162638",
+                "tag": "b",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "114468",
+                "tag": "c",
+                "text": "10",
+                "is_correct": false
+            },
+            {
+                "option_id": "293664",
+                "tag": "d",
+                "text": "Even",
+                "is_correct": true
+            }
+        ],
+        "question_number": 74
+    },
+    {
+        "order_id": "38",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In a loop-based pseudocode that accepts 5 numbers and finds their average, the loop continues WHILE count < 5. What does the variable 'count' track?",
+        "explanation": "The variable `count` is incremented by 1 each time a number is entered (count = count + 1), tracking how many numbers have been inputted so far.",
+        "options": [
+            {
+                "option_id": "518462",
+                "tag": "a",
+                "text": "The sum of the numbers",
+                "is_correct": false
+            },
+            {
+                "option_id": "288514",
+                "tag": "b",
+                "text": "The average",
+                "is_correct": false
+            },
+            {
+                "option_id": "266128",
+                "tag": "c",
+                "text": "The number of inputs entered so far",
+                "is_correct": true
+            },
+            {
+                "option_id": "233653",
+                "tag": "d",
+                "text": "The current input number",
+                "is_correct": false
+            }
+        ],
+        "question_number": 76
+    },
+    {
+        "order_id": "39",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the pseudocode for finding the average of 5 numbers, the average is computed as:",
+        "explanation": "After 5 numbers have been summed up, the average is computed as sum / 5.",
+        "options": [
+            {
+                "option_id": "303596",
+                "tag": "a",
+                "text": "sum \u00d7 5",
+                "is_correct": false
+            },
+            {
+                "option_id": "812598",
+                "tag": "b",
+                "text": "sum / count",
+                "is_correct": false
+            },
+            {
+                "option_id": "538075",
+                "tag": "c",
+                "text": "sum / 5",
+                "is_correct": true
+            },
+            {
+                "option_id": "257044",
+                "tag": "d",
+                "text": "count / 5",
+                "is_correct": false
+            }
+        ],
+        "question_number": 78
+    },
+    {
+        "order_id": "40",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the algorithm that categorizes a person based on age, what category is assigned if Age < 13?",
+        "explanation": "In the age categorization algorithm: If Age < 13, the person is categorized as a 'Child'.",
+        "options": [
+            {
+                "option_id": "282781",
+                "tag": "a",
+                "text": "Teenager",
+                "is_correct": false
+            },
+            {
+                "option_id": "318967",
+                "tag": "b",
+                "text": "Adult",
+                "is_correct": false
+            },
+            {
+                "option_id": "205875",
+                "tag": "c",
+                "text": "Child",
+                "is_correct": true
+            },
+            {
+                "option_id": "294442",
+                "tag": "d",
+                "text": "Senior",
+                "is_correct": false
+            }
+        ],
+        "question_number": 80
+    },
+    {
+        "order_id": "41",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the age categorization algorithm, what category is assigned if Age >= 13 but Age < 20?",
+        "explanation": "If Age >= 13 but Age < 20, the person is a 'Teenager'. This is checked in the ELSE IF branch of the algorithm.",
+        "options": [
+            {
+                "option_id": "758673",
+                "tag": "a",
+                "text": "Child",
+                "is_correct": false
+            },
+            {
+                "option_id": "245731",
+                "tag": "b",
+                "text": "Adult",
+                "is_correct": false
+            },
+            {
+                "option_id": "728152",
+                "tag": "c",
+                "text": "Senior",
+                "is_correct": false
+            },
+            {
+                "option_id": "261192",
+                "tag": "d",
+                "text": "Teenager",
+                "is_correct": true
+            }
+        ],
+        "question_number": 82
+    },
+    {
+        "order_id": "42",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the Dragons and Wizards card game algorithm, if the card drawn is a HEART with a NUMBER value, which team gets a point?",
+        "explanation": "According to the rules: 'If the card drawn is a heart which is a number, Team WIZARDS gets a point.'",
+        "options": [
+            {
+                "option_id": "235320",
+                "tag": "a",
+                "text": "DRAGONS",
+                "is_correct": false
+            },
+            {
+                "option_id": "294074",
+                "tag": "b",
+                "text": "WIZARDS",
+                "is_correct": true
+            },
+            {
+                "option_id": "659086",
+                "tag": "c",
+                "text": "Both teams",
+                "is_correct": false
+            },
+            {
+                "option_id": "125863",
+                "tag": "d",
+                "text": "Neither team",
+                "is_correct": false
+            }
+        ],
+        "question_number": 84
+    },
+    {
+        "order_id": "43",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In the Dragons and Wizards card game algorithm, if the card drawn is a DIAMOND, which team gets a point?",
+        "explanation": "According to the rules: 'If the card drawn is a diamond or a club, Team DRAGONS gets a point.'",
+        "options": [
+            {
+                "option_id": "100286",
+                "tag": "a",
+                "text": "WIZARDS",
+                "is_correct": false
+            },
+            {
+                "option_id": "716189",
+                "tag": "b",
+                "text": "Neither team",
+                "is_correct": false
+            },
+            {
+                "option_id": "250143",
+                "tag": "c",
+                "text": "Both teams",
+                "is_correct": false
+            },
+            {
+                "option_id": "156132",
+                "tag": "d",
+                "text": "DRAGONS",
+                "is_correct": true
+            }
+        ],
+        "question_number": 86
+    },
+    {
+        "order_id": "44",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is an ADVANTAGE of using pseudocode over flowcharts?",
+        "explanation": "A key advantage of pseudocode is that it can be converted to a program using any programming language, unlike flowcharts and decision tables.",
+        "options": [
+            {
+                "option_id": "134313",
+                "tag": "a",
+                "text": "Pseudocode provides a graphical representation",
+                "is_correct": false
+            },
+            {
+                "option_id": "229569",
+                "tag": "b",
+                "text": "Pseudocode can be converted to a program using any programming language",
+                "is_correct": true
+            },
+            {
+                "option_id": "243224",
+                "tag": "c",
+                "text": "Pseudocode is more difficult to write than a flowchart",
+                "is_correct": false
+            },
+            {
+                "option_id": "143241",
+                "tag": "d",
+                "text": "Pseudocode uses standard symbols",
+                "is_correct": false
+            }
+        ],
+        "question_number": 88
+    },
+    {
+        "order_id": "45",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is a DISADVANTAGE of pseudocode?",
+        "explanation": "A disadvantage of pseudocode is that it does not provide a graphical representation of an algorithm; therefore, it might be difficult to understand complex logic in a pseudocode.",
+        "options": [
+            {
+                "option_id": "113062",
+                "tag": "a",
+                "text": "It is easy and fast to write",
+                "is_correct": false
+            },
+            {
+                "option_id": "202574",
+                "tag": "b",
+                "text": "Errors can be detected easily",
+                "is_correct": false
+            },
+            {
+                "option_id": "185957",
+                "tag": "c",
+                "text": "It does not provide a graphical representation, making complex logic hard to understand",
+                "is_correct": true
+            },
+            {
+                "option_id": "303344",
+                "tag": "d",
+                "text": "Changes can be made easily without rewriting other steps",
+                "is_correct": false
+            }
+        ],
+        "question_number": 90
+    },
+    {
+        "order_id": "46",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Decision Tables are used as an alternative tool to simplify which type of tasks?",
+        "explanation": "Decision Tables are used as an alternative tool to simplify decision-making tasks (tasks involving lots of branching) that are involved in a process.",
+        "options": [
+            {
+                "option_id": "194754",
+                "tag": "a",
+                "text": "Tasks involving arithmetic operations only",
+                "is_correct": false
+            },
+            {
+                "option_id": "265942",
+                "tag": "b",
+                "text": "Tasks involving lots of branching/decision-making",
+                "is_correct": true
+            },
+            {
+                "option_id": "146433",
+                "tag": "c",
+                "text": "Tasks involving only sequential steps",
+                "is_correct": false
+            },
+            {
+                "option_id": "260483",
+                "tag": "d",
+                "text": "Tasks involving graphical user interfaces",
+                "is_correct": false
+            }
+        ],
+        "question_number": 92
+    },
+    {
+        "order_id": "47",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "A Decision Table consists of four components. Which component lists the conditions based on which a decision is made?",
+        "explanation": "The Condition Stub component consists of the conditions based on which a decision is made.",
+        "options": [
+            {
+                "option_id": "224072",
+                "tag": "a",
+                "text": "Action Stub",
+                "is_correct": false
+            },
+            {
+                "option_id": "100199",
+                "tag": "b",
+                "text": "Action Taken",
+                "is_correct": false
+            },
+            {
+                "option_id": "275814",
+                "tag": "c",
+                "text": "Condition Applied",
+                "is_correct": false
+            },
+            {
+                "option_id": "154935",
+                "tag": "d",
+                "text": "Condition Stub",
+                "is_correct": true
+            }
+        ],
+        "question_number": 94
+    },
+    {
+        "order_id": "48",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "In a Decision Table, the Condition Applied component uses which symbols to indicate whether a condition is satisfied or not?",
+        "explanation": "The Condition Applied component contains the condition alternatives: Y for the satisfied condition and N for the unsatisfied condition.",
+        "options": [
+            {
+                "option_id": "103397",
+                "tag": "a",
+                "text": "0 and 1",
+                "is_correct": false
+            },
+            {
+                "option_id": "119341",
+                "tag": "b",
+                "text": "Y and N",
+                "is_correct": true
+            },
+            {
+                "option_id": "340116",
+                "tag": "c",
+                "text": "True and False",
+                "is_correct": false
+            },
+            {
+                "option_id": "167010",
+                "tag": "d",
+                "text": "Pass and Fail",
+                "is_correct": false
+            }
+        ],
+        "question_number": 96
+    },
+    {
+        "order_id": "49",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "Which of the following is an ADVANTAGE of using Decision Tables?",
+        "explanation": "Decision tables are easier to document than flowcharts. A decision table for a complex condition can be represented on a single page, whereas a flowchart for the same problem could extend over multiple pages.",
+        "options": [
+            {
+                "option_id": "179365",
+                "tag": "a",
+                "text": "They can show the complete sequence of steps to accomplish a task",
+                "is_correct": false
+            },
+            {
+                "option_id": "997208",
+                "tag": "b",
+                "text": "Beginners prefer them to flowcharts",
+                "is_correct": false
+            },
+            {
+                "option_id": "131702",
+                "tag": "c",
+                "text": "A complex condition can be represented on a single page, which could take multiple pages as a flowchart",
+                "is_correct": true
+            },
+            {
+                "option_id": "940500",
+                "tag": "d",
+                "text": "They provide a graphical representation",
+                "is_correct": false
+            }
+        ],
+        "question_number": 98
+    },
+    {
+        "order_id": "50",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "What does the 'running time of an operation' refer to in algorithm analysis?",
+        "explanation": "The running time of an operation can be defined as the number of computer instructions executed per operation.",
+        "options": [
+            {
+                "option_id": "704711",
+                "tag": "a",
+                "text": "The physical speed of the computer processor",
+                "is_correct": false
+            },
+            {
+                "option_id": "305437",
+                "tag": "b",
+                "text": "The number of computer instructions executed per operation",
+                "is_correct": true
+            },
+            {
+                "option_id": "224849",
+                "tag": "c",
+                "text": "The time it takes a programmer to write the algorithm",
+                "is_correct": false
+            },
+            {
+                "option_id": "718297",
+                "tag": "d",
+                "text": "The size of the input data",
+                "is_correct": false
+            }
+        ],
+        "question_number": 100
+    },
+    {
+        "order_id": "51",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "A programmer writes a pseudocode where a WHILE loop runs as long as `num != 0`. The user enters numbers, summing them, and stops when they enter 0. This type of loop is best described as a:",
+        "explanation": "A loop that continues until a specific 'sentinel' value (in this case 0) is entered is known as a sentinel-controlled loop. The value 0 signals the end of input.",
+        "options": [
+            {
+                "option_id": "157584",
+                "tag": "a",
+                "text": "Count-controlled loop",
+                "is_correct": false
+            },
+            {
+                "option_id": "156854",
+                "tag": "b",
+                "text": "Sentinel-controlled loop (loops until a specific 'stop' value is entered)",
+                "is_correct": true
+            },
+            {
+                "option_id": "707619",
+                "tag": "c",
+                "text": "Infinite loop",
+                "is_correct": false
+            },
+            {
+                "option_id": "162725",
+                "tag": "d",
+                "text": "Fixed-iteration loop",
+                "is_correct": false
+            }
+        ],
+        "question_number": 101
+    },
+    {
+        "order_id": "52",
+        "exam_type": "100 level CBT",
+        "topic": "CHAPTER 2:  CONCEPTS AND PROPERTIES OF ALGORITHM",
+        "course_code": "COS 122",
+        "course_title": "INTRODUCTION TO PROBLEM SOLVING",
+        "question_type": "CBT",
+        "question_text": "An algorithm is being analyzed and is found to take the same amount of time regardless of whether the input is sorted, partially sorted, or randomly arranged. This algorithm's best case, average case, and worst case are all the same. This type of complexity is called:",
+        "explanation": "When an algorithm takes the same amount of time regardless of the input (all three cases are equal), it runs in constant time, denoted O(1) in Big-O notation.",
+        "options": [
+            {
+                "option_id": "290808",
+                "tag": "a",
+                "text": "Linear time",
+                "is_correct": false
+            },
+            {
+                "option_id": "196747",
+                "tag": "b",
+                "text": "Quadratic time",
+                "is_correct": false
+            },
+            {
+                "option_id": "107592",
+                "tag": "c",
+                "text": "Constant time \u2014 O(1)",
+                "is_correct": true
+            },
+            {
+                "option_id": "161419",
+                "tag": "d",
+                "text": "Exponential time",
+                "is_correct": false
+            }
+        ],
+        "question_number": 102
+    }
+]

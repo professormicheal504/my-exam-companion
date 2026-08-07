@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMB Raises Minimum Score Benchmark — What Every 2026 Candidate Must Know | Education News</title>
+  <meta name="description" content="Read the full article on the latest JAMB policy updates and what it means for 2026 admission seekers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- App Shell -->
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../components/footer.css">
+
+  <style>
+    /* == Reset ================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body { background: #ffffff; color: #111111; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { background: none; border: none; cursor: pointer; font-family: inherit; }
+
+    /* == App Shell =============================================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 72px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* == Reading Progress Bar ==================================== */
+    .progress-bar-container { position: sticky; top: 56px; width: 100%; height: 3px; background: transparent; z-index: 50; }
+    .progress-bar { height: 100%; background: #e52828; width: 0%; transition: width 0.1s ease; }
+
+    /* == Article Header Navigation ============================== */
+    .article-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      position: sticky;
+      top: 59px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 40;
+    }
+    .article-nav__back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #e52828;
+      transition: opacity 0.2s;
+    }
+    .article-nav__back:hover { opacity: 0.7; }
+    .article-nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .icon-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      color: #666;
+      transition: all 0.2s;
+      background: #f8f8f8;
+    }
+    .icon-btn:hover { background: #eee; color: #111; }
+    
+    /* The Flip Button */
+    .flip-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #e52828;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .flip-btn:hover { background: #c51b1b; }
+    .flip-btn:active { transform: scale(0.96); }
+    .flip-btn svg { width: 14px; height: 14px; }
+
+    /* == Article Container ====================================== */
+    .article-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    @media (max-width: 600px) {
+      .article-container { padding: 32px 20px 60px; }
+    }
+
+    /* == Article Header ========================================= */
+    .article-header { margin-bottom: 32px; text-align: center; }
+    .article-tag {
+      display: inline-block;
+      color: #e52828;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 900;
+      color: #000;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: #777;
+    }
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #111;
+      font-weight: 600;
+    }
+    .author-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .meta-divider {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: #ccc;
+    }
+
+    /* == Hero Image ============================================= */
+    .article-hero {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    /* Breaking the container for a full-bleed effect on desktop */
+    @media (min-width: 900px) {
+      .article-hero {
+        width: 100vw;
+        max-width: 1000px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .article-hero img {
+      width: 100%;
+      max-height: 550px;
+      object-fit: cover;
+    }
+    .article-hero-caption {
+      font-size: 12.5px;
+      color: #777;
+      text-align: right;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* == Article Body =========================================== */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 19px;
+      line-height: 1.65;
+      color: #1a1a1a;
+    }
+    @media (max-width: 600px) {
+      .article-body { font-size: 17px; line-height: 1.6; }
+    }
+    
+    /* Drop Cap */
+    .article-body > p:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      line-height: 56px;
+      float: left;
+      margin: 8px 12px 0 0;
+      color: #000;
+      font-weight: 900;
+    }
+
+    .article-body p { margin-bottom: 28px; }
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #000;
+      margin: 48px 0 20px;
+      line-height: 1.25;
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 32px 0 16px;
+    }
+    .article-body a {
+      color: #e52828;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    .article-body a:hover { color: #b70c01; }
+    .article-body ul, .article-body ol { margin-bottom: 28px; padding-left: 24px; }
+    .article-body li { margin-bottom: 12px; }
+
+    /* Pull Quote */
+    .pull-quote {
+      margin: 48px -24px;
+      padding: 32px 48px;
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .pull-quote { margin: 40px 0; padding: 24px 0; }
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #000;
+      margin: 0;
+    }
+    
+    /* Inline Image */
+    .article-body figure {
+      margin: 40px 0;
+    }
+    .article-body figure img {
+      width: 100%;
+      background: #f8f8f8;
+    }
+    .article-body figcaption {
+      font-size: 13px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    /* == Engagement Footer ====================================== */
+    .article-footer {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e5e5;
+    }
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .tag-pill {
+      padding: 8px 16px;
+      background: #f5f5f5;
+      color: #333;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .tag-pill:hover { background: #e0e0e0; }
+
+    /* == Interaction Bar ========================================= */
+    .interaction-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .interaction-group {
+      display: flex;
+      gap: 8px;
+    }
+    .interaction-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 99px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #4b5563;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s;
+    }
+    .interaction-btn:hover { background: #f3f4f6; color: #111827; }
+    .like-btn:hover { color: #e52828; border-color: #fca5a5; background: #fef2f2; }
+    .like-btn:hover svg { fill: #e52828; }
+    
+    .interaction-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .stat-link { color: #4b5563; transition: color 0.2s; }
+    .stat-link:hover { color: #e52828; text-decoration: underline; }
+    .stat-divider { color: #d1d5db; }
+
+    @media (max-width: 600px) {
+      .interaction-bar { flex-direction: column; align-items: flex-start; }
+      .interaction-group { width: 100%; justify-content: space-between; }
+      .interaction-btn { flex: 1; justify-content: center; padding: 10px 0; }
+    }
+
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px;
+      background: #f9f9f9;
+      border-radius: 12px;
+    }
+    .author-box__img {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-box__info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #000;
+    }
+    .author-box__info p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* == Comments Section ====================================== */
+    .comments-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e5e5;
+    }
+    .comments-header {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .comments-count {
+      background: #f1f1f1;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 14px;
+      color: #555;
+    }
+    .comment-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .comment-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #777;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .comment-content {
+      flex: 1;
+    }
+    .comment-author {
+      font-weight: 700;
+      font-size: 14.5px;
+      color: #111;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .comment-time {
+      font-weight: 400;
+      font-size: 12px;
+      color: #888;
+    }
+    .comment-text {
+      font-size: 14.5px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .comment-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .comment-action {
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      background: none; border: none; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .comment-action:hover { color: #e52828; }
+
+    /* == Up Next / Related (Flipboard feed style) =============== */
+    .related-section {
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      padding: 60px 24px;
+    }
+    .related-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .related-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #000;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .related-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+    
+    /* Re-using Flipboard feed styles from categories.html */
+    .fb-list-item { display: flex; gap: 16px; padding: 0; margin-bottom: 24px; text-decoration: none; color: inherit; }
+    .fb-list-item__img-wrap { width: 110px; aspect-ratio: 1/1; flex-shrink: 0; overflow: hidden; }
+    .fb-list-item__img { width: 100%; height: 100%; object-fit: cover; }
+    .fb-list-item__body { flex: 1; position: relative; padding-right: 24px; }
+    .fb-tag { color: #e52828; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .fb-list-item__title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 800; color: #000; line-height: 1.25; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .fb-source { font-size: 13.5px; font-weight: 500; color: #777; }
+    .fb-menu-btn { position: absolute; top: 0; right: -8px; color: #999; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+    .fb-menu-btn:hover { color: #000; }
+
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Include Sidebar -->
+  <app-sidebar data-base="../../"></app-sidebar>
+
+  <div class="main-wrapper">
+    <!-- Include Topbar -->
+    <app-topbar data-base="../../"></app-topbar>
+
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
+
+    <!-- Article Secondary Nav -->
+    <nav class="article-nav">
+      <a href="categories.html" class="article-nav__back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Education
+      </a>
+      
+      <div class="article-nav__actions">
+        <button class="icon-btn" aria-label="Like this article" title="Like">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Share this article" title="Share">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <!-- The signature Flipboard action -->
+        <button class="flip-btn" aria-label="Flip into magazine">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Flip
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+      <div class="article-container">
+        
+        <!-- Article Header -->
+        <header class="article-header">
+          <span class="article-tag">#JAMB UPDATE</span>
+          <h1 class="article-title">JAMB Raises Minimum Score Benchmark — What Every 2026 Candidate Must Know</h1>
+          
+          <div class="article-meta">
+            <div class="article-author">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80&auto=format&fit=crop" alt="Sarah Johnson" class="author-avatar">
+              Sarah Johnson
+            </div>
+            <span class="meta-divider"></span>
+            <span>Aug 4, 2026</span>
+            <span class="meta-divider"></span>
+            <span>4 min read</span>
+          </div>
+        </header>
+
+      </div> <!-- /End narrow container, hero breaks out -->
+
+      <div class="article-hero">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&q=80&auto=format&fit=crop" alt="Students studying in a modern library">
+        <div class="article-container" style="padding-top:0; padding-bottom: 0;">
+          <div class="article-hero-caption">Photo via Unsplash. Students preparing for the upcoming exams.</div>
+        </div>
+      </div>
+
+      <div class="article-container" style="padding-top: 32px;">
+        <!-- Article Body -->
+        <article class="article-body">
+          <p>
+            The Joint Admissions and Matriculation Board (JAMB) has officially announced a significant adjustment to the minimum cut-off marks for the 2026 Unified Tertiary Matriculation Examination (UTME). In a major policy shift aimed at elevating academic standards, the new benchmark for university admissions has been raised across the board.
+          </p>
+          <p>
+            Following a consultative policy meeting with vice-chancellors, rectors, and provosts of tertiary institutions in Abuja, the board ratified the new baseline. For candidates targeting federal and state universities, the minimum acceptable score has jumped from 140 to 160.
+          </p>
+
+          <h2>Why The Sudden Increase?</h2>
+          <p>
+            According to the JAMB Registrar, the decision was not made arbitrarily. Data from the previous three years showed a concerning trend: candidates admitted with lower scores struggled significantly in their first year of study, leading to higher dropout rates in STEM and professional courses.
+          </p>
+          <p>
+            "We are not trying to deny anyone admission," the Registrar clarified during the press briefing. "We are simply ensuring that those who enter the university system are adequately prepared for the rigorous academic demands ahead. It's about quality assurance, not exclusion."
+          </p>
+
+          <div class="pull-quote">
+            <p>"We are simply ensuring that those who enter the university system are adequately prepared for the rigorous academic demands ahead."</p>
+          </div>
+
+          <h2>What This Means for 2026 Candidates</h2>
+          <p>
+            If you are preparing for the 2026 UTME, the margin for error has effectively shrunk. Here is a breakdown of what the new policy entails:
+          </p>
+          <ul>
+            <li><strong>Federal Universities:</strong> Minimum score of 160 (Note: Highly competitive courses like Medicine and Law will still require 250+).</li>
+            <li><strong>Polytechnics:</strong> The benchmark has been raised from 100 to 120.</li>
+            <li><strong>Colleges of Education:</strong> Maintained at 100 to encourage enrollment in the teaching profession.</li>
+          </ul>
+
+          <figure>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80&auto=format&fit=crop" alt="Exam preparation books">
+            <figcaption>Candidates are advised to begin preparations early using the updated syllabus.</figcaption>
+          </figure>
+
+          <h2>Expert Advice: How to Adapt</h2>
+          <p>
+            Education consultants recommend a proactive approach. Dr. Emmanuel Olatunji, a senior academic advisor, suggests that candidates should pivot away from rote memorization and focus on deep conceptual understanding.
+          </p>
+          <p>
+            "The exam structure is also evolving. JAMB is integrating more critical thinking questions into subjects like Use of English and Physics," Dr. Olatunji noted. "Students must utilize modern tools. Taking <a href="../../cbt_test/index.html">simulated CBT tests</a> is no longer optional—it is a necessity to build speed and accuracy."
+          </p>
+          <p>
+            With the exams just a few months away, the countdown has officially begun. The raised benchmark serves as a wake-up call: the era of minimal effort yielding university admission is effectively over. It is time to hit the books harder and smarter.
+          </p>
+        </article>
+
+        <!-- Article Footer -->
+        <footer class="article-footer">
+          <div class="tags-container">
+            <a href="#" class="tag-pill">JAMB 2026</a>
+            <a href="#" class="tag-pill">Admission Policy</a>
+            <a href="#" class="tag-pill">Education News</a>
+            <a href="#" class="tag-pill">Nigeria</a>
+          </div>
+
+          <!-- Interaction Bar -->
+          <div class="interaction-bar">
+            <div class="interaction-group">
+              <button class="interaction-btn like-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Like 1.2k</span>
+              </button>
+              <button class="interaction-btn comment-btn" onclick="document.getElementById('comments-section').scrollIntoView({behavior: 'smooth'})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>Comment 342</span>
+              </button>
+              <button class="interaction-btn share-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="author-box">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80&auto=format&fit=crop" alt="Sarah Johnson" class="author-box__img">
+            <div class="author-box__info">
+              <h4>Sarah Johnson</h4>
+              <p>Senior Education Correspondent covering tertiary admissions, educational technology, and student lifestyle across West Africa.</p>
+            </div>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="comments-section" id="comments-section">
+            <div class="comments-header">
+              Comments <span class="comments-count">342</span>
+            </div>
+            
+            <div class="comment-list">
+              <!-- Comment 1 -->
+              <div class="comment-item">
+                <div class="comment-avatar">CE</div>
+                <div class="comment-content">
+                  <div class="comment-author">Chukwudi Eze <span class="comment-time">2 hours ago</span></div>
+                  <div class="comment-text">This is a very good move by JAMB. The quality of students entering universities has been dropping steadily. Raising the bar will force everyone to sit up.</div>
+                  <div class="comment-actions">
+                    <button class="comment-action">Like (24)</button>
+                    <button class="comment-action">Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment 2 -->
+              <div class="comment-item">
+                <div class="comment-avatar">FA</div>
+                <div class="comment-content">
+                  <div class="comment-author">Fatima Abubakar <span class="comment-time">5 hours ago</span></div>
+                  <div class="comment-text">I think this is unfair to students in rural areas who don't have access to good CBT centers or modern learning tools. They are the ones who will suffer most from this 160 cut-off mark.</div>
+                  <div class="comment-actions">
+                    <button class="comment-action">Like (89)</button>
+                    <button class="comment-action">Reply (12)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment 3 -->
+              <div class="comment-item">
+                <div class="comment-avatar" style="background: #e0f2fe; color: #0284c7;">TO</div>
+                <div class="comment-content">
+                  <div class="comment-author">Tunde O. <span class="comment-time">1 day ago</span></div>
+                  <div class="comment-text">Does anyone know if this affects those writing the mock exams in February? Or is it strictly for the main UTME?</div>
+                  <div class="comment-actions">
+                    <button class="comment-action">Like (5)</button>
+                    <button class="comment-action">Reply (1)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment 4 -->
+              <div class="comment-item">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&auto=format&fit=crop" alt="User" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-author">Samuel Peters <span class="comment-time">1 day ago</span></div>
+                  <div class="comment-text">I've been using My Exam Companion CBT app to practice and honestly, scoring above 200 is very possible if you study the past questions well and understand the patterns.</div>
+                  <div class="comment-actions">
+                    <button class="comment-action">Like (156)</button>
+                    <button class="comment-action">Reply (3)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment 5 -->
+              <div class="comment-item">
+                <div class="comment-avatar" style="background: #fce7f3; color: #db2777;">AM</div>
+                <div class="comment-content">
+                  <div class="comment-author">Aisha Mohammed <span class="comment-time">2 days ago</span></div>
+                  <div class="comment-text">Is the cut off for state universities also going to be 160 or just federal? The article wasn't entirely clear on the difference between the two tiers for this year.</div>
+                  <div class="comment-actions">
+                    <button class="comment-action">Like (11)</button>
+                    <button class="comment-action">Reply (2)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button style="width: 100%; padding: 12px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; font-weight: 600; color: #444; margin-top: 16px; cursor: pointer;">Load More Comments</button>
+          </div>
+        </footer>
+
+      </div> <!-- /article-container -->
+    </main>
+
+    <!-- Up Next / Related Content -->
+    <section class="related-section">
+      <div class="related-inner">
+        <h3 class="related-title">More from Education</h3>
+        
+        <!-- Re-using Flipboard feed styling -->
+        <article class="fb-list-item">
+          <a href="#">
+            <div class="fb-list-item__img-wrap">
+              <img loading="lazy" class="fb-list-item__img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&q=80&auto=format&fit=crop" alt="Registration documents">
+            </div>
+          </a>
+          <div class="fb-list-item__body">
+            <div class="fb-tag">#ADMISSION</div>
+            <a href="#">
+              <h2 class="fb-list-item__title">A Changing Policy Threatens University Admission Quotas for Arts Students</h2>
+            </a>
+            <div class="fb-source">Education Times</div>
+            <button class="fb-menu-btn" aria-label="More options">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="fb-list-item">
+          <a href="#">
+            <div class="fb-list-item__img-wrap">
+              <img loading="lazy" class="fb-list-item__img" src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=300&q=80&auto=format&fit=crop" alt="CBT Interface">
+            </div>
+          </a>
+          <div class="fb-list-item__body">
+            <div class="fb-tag">#CBT PREP</div>
+            <a href="#">
+              <h2 class="fb-list-item__title">The Interactive Simulator That Will Help You Smash CBT Exams Without Anxiety</h2>
+            </a>
+            <div class="fb-source">MEC Tech</div>
+            <button class="fb-menu-btn" aria-label="More options">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- App Footer -->
+    <app-footer data-base="../../"></app-footer>
+
+  </div><!-- /main-wrapper -->
+</div><!-- /app -->
+
+<!-- Scripts -->
+<script src="../../components/nav.js" defer></script>
+<script src="../../components/topbar.js" defer></script>
+<script src="../../components/sidebar.js?v=12" defer></script>
+<script src="../../components/footer.js" defer></script>
+
+<script>
+  // Reading Progress Bar Logic
+  document.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight;
+    const winHeight = window.innerHeight;
+    const scrollPercent = scrollTop / (docHeight - winHeight);
+    const progressPercent = Math.min(100, Math.max(0, scrollPercent * 100));
+    
+    document.getElementById('reading-progress').style.width = progressPercent + '%';
+  });
+
+  // Flip Button Interaction
+  document.querySelector('.flip-btn').addEventListener('click', function() {
+    const originalText = this.innerHTML;
+    this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Flipped`;
+    this.style.background = '#000'; // Darken to show success state
+    
+    setTimeout(() => {
+      this.innerHTML = originalText;
+      this.style.background = ''; // Reset
+    }, 2000);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+    "country_code": "ng",
+    "dashboard_modules": [
+        {
+            "id": "nigeria/jamb",
+            "display_name": "JAMB CBT",
+            "renderer": "cbt_engine",
+            "icon": "\ud83d\udcdd",
+            "data_source": "ng/exams/university_entrance/jamb/index.json"
+        },
+        {
+            "id": "nigeria/waec",
+            "display_name": "WAEC SSCE",
+            "renderer": "cbt_engine",
+            "icon": "\ud83c\udfeb",
+            "data_source": "ng/exams/high_school_graduate/waec/index.json"
+        },
+        {
+            "id": "nigeria/neco",
+            "display_name": "NECO",
+            "renderer": "cbt_engine",
+            "icon": "\ud83c\udfe2",
+            "data_source": "ng/exams/high_school_graduate/neco/index.json"
+        },
+        {
+            "id": "nigeria/university",
+            "display_name": "University Semester Exams",
+            "renderer": "university_portal",
+            "icon": "\ud83c\udf93",
+            "data_source": "ng/exams/university/index.json"
+        }
+    ]
+}

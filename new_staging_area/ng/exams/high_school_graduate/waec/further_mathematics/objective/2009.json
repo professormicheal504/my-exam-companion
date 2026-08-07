@@ -1,0 +1,1762 @@
+{
+    "51302": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Solve \\(x^{2} - 2x - 8 &gt; 0\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "211493",
+                "tag": "a",
+                "text": "x < -4 or x > 2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211494",
+                "tag": "b",
+                "text": "x < -2 or x > 4",
+                "is_correct": true
+            },
+            {
+                "option_id": "211495",
+                "tag": "c",
+                "text": "-2 < x < 4",
+                "is_correct": false
+            },
+            {
+                "option_id": "211496",
+                "tag": "d",
+                "text": "-4 < x < 2",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51314": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>If (x + 3) is a factor of the polynomial \\(x^{3} + 3x^{2} + nx - 12\\), where n is a constant, find the value of n.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(x + 3 = 0 \\implies x = -3\\)</p>\r\n\r\n<p>Using remainder theorem, if x + 3 is a factor, f(-3) = 0.</p>\r\n\r\n<p>\\(f(-3) = (-3)^{3} + 3(-3)^{2} + n(-3) - 12 = 0\\)</p>\r\n\r\n<p>\\(-27 + 27 - 3n - 12 = 0 \\implies -3n = 12\\)</p>\r\n\r\n<p>\\(n = -4\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211497",
+                "tag": "a",
+                "text": "-1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211498",
+                "tag": "b",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211499",
+                "tag": "c",
+                "text": "-3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211500",
+                "tag": "d",
+                "text": "-4",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51318": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The line \\(y = mx - 3\\) is a tangent to the curve \\(y = 1 - 3x + 2x^{3}\\) at (1, 0). Find the value of the constant m.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y = 1 - 3x + 2x^{3}\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d y}{\\mathrm d x} = -3 + 6x^{2}\\)</p>\r\n\r\n<p>At (1, 0), \\(\\frac{\\mathrm d y}{\\mathrm d x} = -3 + 6(1^{2}) = -3 + 6 = 3\\)</p>\r\n\r\n<p>\\(y = mx - 3 \\implies \\frac{\\mathrm d y}{\\mathrm d x} = m = 3\\) (Tangent with equal gradient)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "211501",
+                "tag": "a",
+                "text": "-4",
+                "is_correct": false
+            },
+            {
+                "option_id": "211502",
+                "tag": "b",
+                "text": "-1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211503",
+                "tag": "c",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211504",
+                "tag": "d",
+                "text": "4",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51321": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The coordinates of the centre of a circle is (-2, 3). If its area is \\(25\\pi cm^{2}\\), find its equation.&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Equation of a circle with centre coordinates (a, b) : \\((x - a)^{2} + (y - b)^{2} = r^{2}\\)</p>\r\n\r\n<p>Area of circle = \\(\\pi r^{2} = 25\\pi cm^{2} \\implies r^{2} = 25 \\)</p>\r\n\r\n<p>\\(\\therefore r = 5cm\\)</p>\r\n\r\n<p>(a, b) = (-2, 3)</p>\r\n\r\n<p>Equation: \\((x - (-2))^{2} + (y - 3)^{2} = 5^{2}\\)</p>\r\n\r\n<p>\\(x^{2} + 4x + 4 + y^{2} - 6y + 9 = 25 \\implies x^{2} + y^{2} + 4x - 6y + 13 - 25 = 0\\)</p>\r\n\r\n<p>= \\(x^{2} + y^{2} + 4x - 6y - 12 = 0\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211505",
+                "tag": "a",
+                "text": "\\(x^{2} + y^{2} - 4x - 6y - 12 = 0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211506",
+                "tag": "b",
+                "text": "\\(x^{2} + y^{2} - 4x + 6y - 12 = 0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211507",
+                "tag": "c",
+                "text": "\\(x^{2} + y^{2} + 4x + 6y - 12 = 0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211508",
+                "tag": "d",
+                "text": "\\(x^{2} + y^{2} + 4x - 6y - 12 = 0\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51327": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Given \\(\\sin \\theta =&nbsp; \\frac{\\sqrt{3}}{2}, 0&deg; \\leq \\theta \\leq 90&deg;\\), find \\(\\tan 2\\theta\\) in surd form.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\sin \\theta = \\frac{\\sqrt{3}}{2} \\implies opp = \\sqrt{3}; hyp&nbsp;= 2\\)</p>\r\n\r\n<p>\\(adj^{2} = 2^{2} - (\\sqrt{3})^{2} = 1 \\implies adj = 1\\)</p>\r\n\r\n<p>\\(\\cos \\theta = \\frac{1}{2}\\)</p>\r\n\r\n<p>\\(\\sin 2\\theta = \\sin (180 - \\theta) = \\sin \\theta = \\frac{\\sqrt{3}}{2}\\)</p>\r\n\r\n<p>\\(\\cos 2\\theta = \\cos (180 - \\theta) = -\\cos \\theta = -\\frac{1}{2}\\)</p>\r\n\r\n<p>\\(\\tan 2\\theta = \\frac{\\sin 2\\theta}{\\cos 2\\theta} = \\frac{\\frac{\\sqrt{3}}{2}}{-\\frac{1}{2}}\\)</p>\r\n\r\n<p>= \\(- \\sqrt{3}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211509",
+                "tag": "a",
+                "text": "\\(- \\sqrt{3}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211510",
+                "tag": "b",
+                "text": "\\(-\\frac{\\sqrt{3}}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211511",
+                "tag": "c",
+                "text": "\\(\\frac{\\sqrt{3}}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211512",
+                "tag": "d",
+                "text": "\\(\\sqrt{3}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51329": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Find the coefficient of \\(x^{4}\\) in the binomial expansion of \\((2 + x)^{6}\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\((2 + x)^{6} \\)</p>\r\n\r\n<p>\\(x^{4} = ^{6}C_{2}(2^{2})(x^{4}) = 15 \\times 4 = 60\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211513",
+                "tag": "a",
+                "text": "120",
+                "is_correct": false
+            },
+            {
+                "option_id": "211514",
+                "tag": "b",
+                "text": "80",
+                "is_correct": false
+            },
+            {
+                "option_id": "211515",
+                "tag": "c",
+                "text": "60",
+                "is_correct": true
+            },
+            {
+                "option_id": "211516",
+                "tag": "d",
+                "text": "15",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51331": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Which of the following binary operations is not commutative?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>All other options given are commutative i.e. \\(a * b = b * a\\), except option D.</p>\r\n\r\n<p>\\(a * b = a - b + ab\\)</p>\r\n\r\n<p>\\(b * a = b - a + ba\\)</p>\r\n\r\n<p>\\(a - b = -(b - a) \\neq b - a\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211517",
+                "tag": "a",
+                "text": "\\(a * b = \\frac{1}{a} + \\frac{1}{b}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211518",
+                "tag": "b",
+                "text": "\\(a * b = a + b - ab\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211519",
+                "tag": "c",
+                "text": "\\(a * b = 2a + 2b + ab\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211520",
+                "tag": "d",
+                "text": "\\(a * b = a - b + ab\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51333": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Express \\(\\frac{2}{3 - \\sqrt{7}} \\text{ in the form} a + \\sqrt{b}\\), where a and b are integers.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Rationalizing \\(\\frac{2}{3 - \\sqrt{7}}\\) by multiplying through with \\(3 + \\sqrt{7}\\),</p>\r\n\r\n<p>\\(\\frac{2}{3 - \\sqrt{7}} \\frac{(3 + \\sqrt{7})}{(3 + \\sqrt{7})} = \\frac{6 + 2\\sqrt{7}}{9 - 7}\\)</p>\r\n\r\n<p>= \\(\\frac{6 + 2\\sqrt{7}}{2} = 3 + \\sqrt{7}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211521",
+                "tag": "a",
+                "text": "\\(6 + \\sqrt{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211522",
+                "tag": "b",
+                "text": "\\(3 + \\sqrt{7}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211523",
+                "tag": "c",
+                "text": "\\(3 - \\sqrt{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211524",
+                "tag": "d",
+                "text": "\\(6 - \\sqrt{7}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51334": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The roots of the quadratic equation \\(2x^{2} - 5x + m = 0\\) are \\(\\alpha\\) and \\(\\beta\\), where m is a constant. Find \\(\\alpha^{2} + \\beta^{2}\\) in terms of m.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2x^{2} - 5x + m = 0\\)</p>\r\n\r\n<p>\\(a = 2, b = -5, c = m\\)</p>\r\n\r\n<p>\\(\\alpha + \\beta = \\frac{-b}{a} = \\frac{5}{2}\\)</p>\r\n\r\n<p>\\(\\alpha \\beta = \\frac{c}{a} = \\frac{m}{2}\\)</p>\r\n\r\n<p>\\(\\alpha^{2} + \\beta^{2} = (\\alpha + \\beta)^{2} - 2\\alpha\\beta\\)</p>\r\n\r\n<p>= \\((\\frac{5}{2})^{2} - 2(\\frac{m}{2}) \\)</p>\r\n\r\n<p>= \\(\\frac{25}{4} - m\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211525",
+                "tag": "a",
+                "text": "\\(\\frac{25}{4} - m\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211526",
+                "tag": "b",
+                "text": "\\(\\frac{25}{4} - 2m\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211527",
+                "tag": "c",
+                "text": "\\(\\frac{25}{4} + m\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211528",
+                "tag": "d",
+                "text": "\\(\\frac{25}{4} + 2m\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51335": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Given that \\(2^{x} = 0.125\\), find the value of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2^{x} = 0.125 = \\frac{125}{1000}\\)</p>\r\n\r\n<p>\\(2^{x} = \\frac{1}{8} = 8^{-1}\\)</p>\r\n\r\n<p>\\(2^{x} = 2^{-3}\\)</p>\r\n\r\n<p>\\(x = -3\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211529",
+                "tag": "a",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211530",
+                "tag": "b",
+                "text": "-1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211531",
+                "tag": "c",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211532",
+                "tag": "d",
+                "text": "-3",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51336": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The gradient of point P on the curve \\(y = 3x^{2} - x + 3\\) is 5. Find the coordinates of P.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y = 3x^{2} - x + 3\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d y}{\\mathrm d x} = 6x - 1 = 5\\)</p>\r\n\r\n<p>\\(6x = 5 + 1 = 6 \\implies x = 1\\)</p>\r\n\r\n<p>\\(y = 3(1^{2}) - 1 + 3 = 3 - 1 + 3 = 5\\)</p>\r\n\r\n<p>\\(P = (1, 5)\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211533",
+                "tag": "a",
+                "text": "(1, 5)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211534",
+                "tag": "b",
+                "text": "(1, 7)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211535",
+                "tag": "c",
+                "text": "(1, 13)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211536",
+                "tag": "d",
+                "text": "(1, 17)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51337": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>An arc of length 10.8 cm subtends an angle of 1.2 radians at the centre of a circle. Calculate the radius of the circle.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Length of arc (in radians) = \\(r \\theta\\)</p>\r\n\r\n<p>\\(10.8 = 1.2r\\)</p>\r\n\r\n<p>\\(r = \\frac{10.8}{1.2} = 9.0 cm\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211537",
+                "tag": "a",
+                "text": "12.6 cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "211538",
+                "tag": "b",
+                "text": "12.0 cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "211539",
+                "tag": "c",
+                "text": "9.6 cm",
+                "is_correct": false
+            },
+            {
+                "option_id": "211540",
+                "tag": "d",
+                "text": "9.0 cm",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51338": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The first term of a geometric progression is 350. If the sum to infinity is 250, find the common ratio.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(S_{\\infty} = \\frac{a}{1 - r}\\) (Sum to infinity of a GP)</p>\r\n\r\n<p>\\(250 = \\frac{350}{1 - r} \\implies 250(1 - r) = 350\\)</p>\r\n\r\n<p>\\(350 = 250 - 250r \\implies 350 - 250 = -250r\\)</p>\r\n\r\n<p>\\(250r = -100 \\implies r = \\frac{-100}{250} = -\\frac{2}{5}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211541",
+                "tag": "a",
+                "text": "\\(\\frac{-5}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211542",
+                "tag": "b",
+                "text": "\\(-\\frac{2}{5}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211543",
+                "tag": "c",
+                "text": "\\(\\frac{2}{5}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211544",
+                "tag": "d",
+                "text": "\\(\\frac{5}{7}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51340": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>p and q are statements such that \\(p \\implies q\\). Which of the following is a valid conclusion from the implication?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211545",
+                "tag": "a",
+                "text": "\\(q \\implies p\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211546",
+                "tag": "b",
+                "text": "\\(\\sim q \\implies p\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211547",
+                "tag": "c",
+                "text": "\\(\\sim q \\implies \\sim p\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211548",
+                "tag": "d",
+                "text": "\\(\\sim p \\implies \\sim q\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51342": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The roots of a quadratic equation are -3 and 1. Find its equation.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Given the roots of an equation such that you can find the sum and product of the roots, the equation can be given as:</p>\r\n\r\n<p>\\(x^{2} - (\\alpha + \\beta)x + (\\alpha \\beta) = 0 \\)</p>\r\n\r\n<p>\\(\\alpha + \\beta = -3 + 1 = -2\\)</p>\r\n\r\n<p>\\(\\alpha \\beta = -3 \\times 1 = -3\\)</p>\r\n\r\n<p>Equation: \\(x^{2} - (-2)x + (-3) = 0 \\implies x^{2} + 2x - 3 = 0\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211549",
+                "tag": "a",
+                "text": "\\(x^{2} - 3x + 1 = 0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211550",
+                "tag": "b",
+                "text": "\\(x^{2} - 2x + 1 = 0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211551",
+                "tag": "c",
+                "text": "\\(x^{2} + 2x - 3 = 0\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211552",
+                "tag": "d",
+                "text": "\\(x^{2} + x - 3 = 0\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51345": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The derivative of a function f with respect to x is given by \\(f&#39;(x) = 3x^{2} - \\frac{4}{x^{5}}\\). If \\(f(1) = 4\\), find f(x).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{\\mathrm d y}{\\mathrm d x} = 3x^{2} - \\frac{4}{x^5} = 3x^{2} - 4x^{-5}\\)</p>\r\n\r\n<p>\\(y = \\int (3x^{2} - 4x^{-5}) \\mathrm {d} x \\)</p>\r\n\r\n<p>\\(y = x^{3} + \\frac{1}{x^{4}} + c\\)</p>\r\n\r\n<p>f(1) = 4; \\(4 = 1^{3} + \\frac{1}{1^{4}} + c \\implies 4 = 2 + c\\)</p>\r\n\r\n<p>\\(c = 2\\)</p>\r\n\r\n<p>\\(f(x) = x^{3} + \\frac{1}{x^{4}} + 2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211553",
+                "tag": "a",
+                "text": "\\(f(x) = x^{3} - \\frac{1}{x^{4}} + 2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211554",
+                "tag": "b",
+                "text": "\\(f(x) = x^{3} + \\frac{1}{x^{4}} + 2\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211555",
+                "tag": "c",
+                "text": "\\(f(x) = x^{3} - \\frac{1}{x^{4}} - 2 \\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211556",
+                "tag": "d",
+                "text": "\\(f(x) = x^{3} + \\frac{1}{x^{4}} - 2\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51351": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Simplify \\((216)^{-\\frac{2}{3}} \\times (0.16)^{-\\frac{3}{2}}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\((216)^{-\\frac{2}{3}} = (\\frac{1}{216})^{\\frac{2}{3}} = (\\sqrt[3]{\\frac{1}{216}})^{2} = (\\frac{1}{6})^{2} = \\frac{1}{36}\\)</p>\r\n\r\n<p>\\((0.16)^{-\\frac{3}{2}} = (\\frac{100}{16})^{\\frac{3}{2}} = (\\sqrt{100}{16})^{3} = \\frac{1000}{64}\\)</p>\r\n\r\n<p>\\(\\frac{1}{36} \\times \\frac{1000}{64} = \\frac{125}{288}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211557",
+                "tag": "a",
+                "text": "\\(\\frac{125}{288}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211558",
+                "tag": "b",
+                "text": "\\(\\frac{2}{125}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211559",
+                "tag": "c",
+                "text": "\\(\\frac{4}{225}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211560",
+                "tag": "d",
+                "text": "\\(\\frac{2}{225}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51361": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Given that \\(\\log_{3}(x - y) = 1\\) and \\(\\log_{3}(2x + y) = 2\\), find the value of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\log_{3}(x - y) = 1 \\implies x - y = 3^{1} = 3 .... (1)\\)</p>\r\n\r\n<p>\\(\\log_{3}(2x + y) = 2 \\implies 2x + y = 3^{2} = 9 ..... (2)\\)</p>\r\n\r\n<p>From (1), y = x - 3</p>\r\n\r\n<p>From (2), y = 9 - 2x</p>\r\n\r\n<p>\\(\\implies 9 - 2x = x - 3\\)</p>\r\n\r\n<p>\\(9 + 3 = x + 2x = 3x\\)</p>\r\n\r\n<p>\\(x = 4\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211561",
+                "tag": "a",
+                "text": "1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211562",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211563",
+                "tag": "c",
+                "text": "3",
+                "is_correct": false
+            },
+            {
+                "option_id": "211564",
+                "tag": "d",
+                "text": "4",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51367": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>If \\(\\frac{^{8}P_{x}}{^{8}C_{x}} = 6\\), find the value of x.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{^{8}P_{x}}{^{8}C_{x}} = \\frac{8!}{(8 - x)!}&nbsp;&divide; \\frac{8!}{(8 - x)! x!} = 6\\)</p>\r\n\r\n<p>\\(\\frac{8!}{(8 - x)!} \\times \\frac{(8 - x)! x!}{8!} = x! = 6\\)</p>\r\n\r\n<p>\\(x = 3\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "211565",
+                "tag": "a",
+                "text": "1",
+                "is_correct": false
+            },
+            {
+                "option_id": "211566",
+                "tag": "b",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "211567",
+                "tag": "c",
+                "text": "3",
+                "is_correct": true
+            },
+            {
+                "option_id": "211568",
+                "tag": "d",
+                "text": "6",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51375": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Evaluate \\(\\int_{1}^{2} [\\frac{x^{3} - 1}{x^{2}}] \\mathrm {d} x\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{x^{3} - 1}{x^{2}} \\equiv x - \\frac{1}{x^{2}} = x - x^{-2}\\)</p>\r\n\r\n<p>\\(\\int_{1}^{2} (x - x^{-2}) \\mathrm {d} x = (\\frac{x^{2}}{2} + \\frac{1}{x})|_{1}^{2}\\)</p>\r\n\r\n<p>= \\((\\frac{2^{2}}{2} + \\frac{1}{2}) - (\\frac{1^{2}}{2} + \\frac{1}{1})\\)</p>\r\n\r\n<p>= \\((2 + \\frac{1}{2}) - (\\frac{1}{2} + 1)\\)</p>\r\n\r\n<p>= \\(2\\frac{1}{2} - 1\\frac{1}{2}\\)</p>\r\n\r\n<p>= \\(1.0\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211569",
+                "tag": "a",
+                "text": "0.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211570",
+                "tag": "b",
+                "text": "1.0",
+                "is_correct": true
+            },
+            {
+                "option_id": "211571",
+                "tag": "c",
+                "text": "1.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "211572",
+                "tag": "d",
+                "text": "2.0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51385": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>If \\(P = \\begin{vmatrix} 1 &amp; 1 \\\\ 2 &amp; 1 \\end{vmatrix}\\), find \\((P^{2} + P)\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\( P^{2} = \\begin{vmatrix} 1&nbsp;&amp; 1&nbsp;\\\\ 2&nbsp;&amp; 1 \\end{vmatrix} \\begin{vmatrix} 1&nbsp;&amp; 1&nbsp;\\\\ 2&nbsp;&amp; 1 \\end{vmatrix}\\)</p>\r\n\r\n<p>\\(\\begin{vmatrix} 1 \\times 1 + 1 \\times 2&nbsp;&amp; 1 \\times 1 + 1 \\times 1&nbsp;\\\\ 2 \\times 1 + 1 \\times 2&nbsp;&amp; 2 \\times 1 + 1 \\times 1&nbsp;\\end{vmatrix}\\)</p>\r\n\r\n<p>=&nbsp;\\(\\begin{vmatrix} 3&nbsp;&amp; 2&nbsp;\\\\ 4&nbsp;&amp; 3&nbsp;\\end{vmatrix} + \\begin{vmatrix} 1&nbsp;&amp; 1&nbsp;\\\\ 2&nbsp;&amp; 1 \\end{vmatrix}\\)</p>\r\n\r\n<p>=&nbsp;\\(\\begin{vmatrix} 4 &amp; 3 \\\\ 6 &amp; 4&nbsp;\\end{vmatrix}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211573",
+                "tag": "a",
+                "text": "\\(\\begin{vmatrix} 4 & 3 \\\\ 6 & 1 \\end{vmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211574",
+                "tag": "b",
+                "text": "\\(\\begin{vmatrix} 4 & 3 \\\\ 6 & 4 \\end{vmatrix}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211575",
+                "tag": "c",
+                "text": "\\(\\begin{vmatrix} 2 & 2 \\\\ 6 & 2 \\end{vmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211576",
+                "tag": "d",
+                "text": "\\(\\begin{vmatrix} 3 & 2 \\\\ 6 & 4 \\end{vmatrix}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51389": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Which of the following is the semi- interquartile range of a distribution?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211577",
+                "tag": "a",
+                "text": "\\(Mode - Median\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211578",
+                "tag": "b",
+                "text": "\\(\\text{Highest score - Lowest score}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211579",
+                "tag": "c",
+                "text": "\\(\\frac{1}{2}(\\text{Upper quartile - Median})\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211580",
+                "tag": "d",
+                "text": "\\(\\frac{1}{2}(\\text{Upper quartile - Lower quartile})\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51391": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>A stone is projected vertically with a speed of 10 m/s from a point 8 metres above the ground. Find the maximum height reached. \\([g = 10 ms^{-2}]\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(v^{2} = u^{2} + 2as\\)</p>\r\n\r\n<p>\\(v^{2} = u^{2} - 2gs\\)</p>\r\n\r\n<p>\\(0 = 10^{2} - 2(10)s \\implies -100 = -20s\\)</p>\r\n\r\n<p>\\(s = 5 m + 8 m = 13m\\) (8m is the height from where it was thrown)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211581",
+                "tag": "a",
+                "text": "13 metres",
+                "is_correct": true
+            },
+            {
+                "option_id": "211582",
+                "tag": "b",
+                "text": "15 metres",
+                "is_correct": false
+            },
+            {
+                "option_id": "211583",
+                "tag": "c",
+                "text": "18 metres",
+                "is_correct": false
+            },
+            {
+                "option_id": "211584",
+                "tag": "d",
+                "text": "23 metres",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51393": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The velocity \\(v ms^{-1}\\) of a particle moving in a straight line is given by \\(v = 3t^{2} - 2t + 1\\) at time t secs. Find the acceleration of the particle after 3 seconds.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(v(t) = 3t^{2} - 2t + 1\\)</p>\r\n\r\n<p>\\(\\frac{\\mathrm d v}{\\mathrm d t} = a(t) = 6t - 2\\)</p>\r\n\r\n<p>\\(a(3) = 6(3) - 2 = 18 - 2 = 16 ms^{-2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211585",
+                "tag": "a",
+                "text": "\\(26 ms^{-2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211586",
+                "tag": "b",
+                "text": "\\(18 ms^{-2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211587",
+                "tag": "c",
+                "text": "\\(17 ms^{-2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211588",
+                "tag": "d",
+                "text": "\\(16 ms^{-2}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51403": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Three men, P, Q and R aim at a target, the probabilities that P, Q and R hit the target are \\(\\frac{1}{2}\\), \\(\\frac{1}{3}\\) and \\(\\frac{3}{4}\\) respectively. Find the probability that exactly 2 of them hit the target.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(p(P) = \\frac{1}{2}, p(P&#39;) = \\frac{1}{2}\\)</p>\r\n\r\n<p>\\(p(Q) = \\frac{1}{3}, p(Q&#39;) = \\frac{2}{3}\\)</p>\r\n\r\n<p>\\(p(R) = \\frac{3}{4}, p(R&#39;) = \\frac{1}{4}\\)</p>\r\n\r\n<p>p(exactly two hit the target) = p(P and Q and R&#39;) + p(P and R and Q&#39;) + p(Q and R and P&#39;)</p>\r\n\r\n<p>= \\((\\frac{1}{2} \\times \\frac{1}{3} \\times \\frac{1}{4}) + (\\frac{1}{2} \\times \\frac{3}{4} \\times \\frac{2}{3}) + (\\frac{1}{3} \\times \\frac{3}{4} \\times \\frac{1}{2})\\)</p>\r\n\r\n<p>= \\(\\frac{1}{24} + \\frac{6}{24} + \\frac{3}{24}\\)</p>\r\n\r\n<p>= \\(\\frac{5}{12}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211589",
+                "tag": "a",
+                "text": "\\(1\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211590",
+                "tag": "b",
+                "text": "\\(\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211591",
+                "tag": "c",
+                "text": "\\(\\frac{5}{12}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211592",
+                "tag": "d",
+                "text": "\\(\\frac{1}{12}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51406": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The position vectors of A and B are (2i + j) and (-i + 4j) respectively; find |AB|.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211593",
+                "tag": "a",
+                "text": "\\(3\\sqrt{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211594",
+                "tag": "b",
+                "text": "\\(\\sqrt{34}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211595",
+                "tag": "c",
+                "text": "\\(\\sqrt{34}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211596",
+                "tag": "d",
+                "text": "\\(9\\sqrt{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51410": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Two fair dices, each numbered 1, 2, ..., 6, are tossed together. Find the probability that they both show even numbers.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>P(even in 1 dice) = \\(\\frac{3}{6} = \\frac{1}{2}\\)</p>\r\n\r\n<p>P(even in 2 fair die) = \\(\\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "211597",
+                "tag": "a",
+                "text": "\\(\\frac{1}{3}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211598",
+                "tag": "b",
+                "text": "\\(\\frac{1}{4}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211599",
+                "tag": "c",
+                "text": "\\(\\frac{1}{6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211600",
+                "tag": "d",
+                "text": "\\(\\frac{1}{12}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51415": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Calculate, correct to the nearest degree, the angle between the vectors \\(\\begin{pmatrix} 13 \\\\ 1 \\end{pmatrix}\\) and \\(\\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(a . b = |a||b| \\cos \\theta\\)</p>\r\n\r\n<p>\\(\\begin{pmatrix} 13 \\\\ 1 \\end{pmatrix}.&nbsp;\\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix} = 13 \\times 1 + 1 \\times 4 = 13 + 4 = 17\\)</p>\r\n\r\n<p>\\(17 = (\\sqrt{13^{2} + 1^{2}})(\\sqrt{1^{2} + 4^{2}}) \\cos \\theta\\)</p>\r\n\r\n<p>\\(17 = (\\sqrt{170})(\\sqrt{17}) \\cos \\theta\\)</p>\r\n\r\n<p>\\(\\cos \\theta = \\frac{17}{17\\sqrt{10}} = \\frac{\\sqrt{10}}{10} = 0.3162\\)</p>\r\n\r\n<p>\\(\\theta = \\cos^{-1} 0.3162 = 72&deg;\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211601",
+                "tag": "a",
+                "text": "58\u00b0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211602",
+                "tag": "b",
+                "text": "72\u00b0",
+                "is_correct": true
+            },
+            {
+                "option_id": "211603",
+                "tag": "c",
+                "text": "74\u00b0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211604",
+                "tag": "d",
+                "text": "87\u00b0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51422": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Simplify \\(2\\log_{3} 8 - 3\\log_{3} 2\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(2\\log_{3} 8 - 3\\log_{3} 2 = \\log_{3} 8^{2} - \\log_{3} 2^{3}\\)</p>\r\n\r\n<p>= \\(\\log_{3}(\\frac{64}{8}) \\)</p>\r\n\r\n<p>= \\(\\log_{3} 8 = \\log_{3} 2^{3}\\)</p>\r\n\r\n<p>= \\(3 \\log_{3} 2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211605",
+                "tag": "a",
+                "text": "\\(-\\log_{3} 4\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211606",
+                "tag": "b",
+                "text": "\\(-\\log_{3} 2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211607",
+                "tag": "c",
+                "text": "\\(3\\log_{3} 2\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211608",
+                "tag": "d",
+                "text": "\\(3\\log_{3} 4\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51424": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Evaluate \\(\\begin{pmatrix} 2 &amp; 3 \\\\ 4 &amp; 1 \\end{pmatrix} \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}\\).&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\begin{pmatrix} 2 &amp; 3 \\\\ 4 &amp; 1 \\end{pmatrix} \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}\\)</p>\r\n\r\n<p>= \\(\\begin{pmatrix} 2 \\times 2 + 3 \\times 3 \\\\ 4 \\times 2 + 1 \\times 3 \\end{pmatrix}\\)</p>\r\n\r\n<p>= \\(\\begin{pmatrix} 13 \\\\ 11 \\end{pmatrix}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211609",
+                "tag": "a",
+                "text": "(13, 11)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211610",
+                "tag": "b",
+                "text": "(11, 13)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211611",
+                "tag": "c",
+                "text": "\\(\\begin{pmatrix} 13 \\\\ 11 \\end{pmatrix}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211612",
+                "tag": "d",
+                "text": "\\(\\begin{pmatrix} 11 \\\\ 13 \\end{pmatrix}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51425": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>If the mean of -1, 0, 9, 3, k, 5 is 2, where k is a constant, find the median of the set of numbers.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{-1 + 0 + 9 + 3 + k + 5}{6} = 2 \\implies 16 + k = 12\\)</p>\r\n\r\n<p>\\(k = -4\\)</p>\r\n\r\n<p>Arranging -1, 0, 9, 3, -4, 5 in order: -4, -1, 0, 3, 5, 9</p>\r\n\r\n<p>Median = \\(\\frac{0 + 3}{2} = \\frac{3}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211613",
+                "tag": "a",
+                "text": "\\(\\frac{3}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211614",
+                "tag": "b",
+                "text": "0",
+                "is_correct": false
+            },
+            {
+                "option_id": "211615",
+                "tag": "c",
+                "text": "\\(\\frac{7}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211616",
+                "tag": "d",
+                "text": "6",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51439": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Eight football clubs are to play in a league on home and away basis. How many matches are possible?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Number of matches possible = \\(2 \\times ^{8}C_{2}\\) (Home and away repitition of the matches)</p>\r\n\r\n<p>= \\(2 \\times \\frac{8!}{(8 - 2)! 2!}\\)</p>\r\n\r\n<p>= \\(2 \\times 28\\)</p>\r\n\r\n<p>= 56</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211617",
+                "tag": "a",
+                "text": "14",
+                "is_correct": false
+            },
+            {
+                "option_id": "211618",
+                "tag": "b",
+                "text": "28",
+                "is_correct": false
+            },
+            {
+                "option_id": "211619",
+                "tag": "c",
+                "text": "56",
+                "is_correct": true
+            },
+            {
+                "option_id": "211620",
+                "tag": "d",
+                "text": "128",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51443": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Two balls are drawn, from a bag containing 3 red, 4 white and 5 black identical balls. Find the probability that they are all of the same colour.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(\\text{two same color balls}) = P(\\text{2 red}) + P(\\text{2 white}) + P(\\text{2 black})\\)</p>\r\n\r\n<p>\\(P(\\text{2 red}) = \\frac{3}{12} \\times \\frac{2}{11} = \\frac{1}{22}\\)</p>\r\n\r\n<p>\\(P(\\text{2 white}) = \\frac{4}{12} \\times \\frac{3}{11} = \\frac{1}{11}\\)</p>\r\n\r\n<p>\\(P(\\text{2 black}) = \\frac{5}{12} \\times \\frac{4}{11} = \\frac{5}{33}\\)</p>\r\n\r\n<p>\\(P(\\text{2 same color balls}) = \\frac{1}{22} + \\frac{1}{11} + \\frac{5}{33} = \\frac{19}{66}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "211621",
+                "tag": "a",
+                "text": "\\(\\frac{5}{33}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211622",
+                "tag": "b",
+                "text": "\\(\\frac{13}{66}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211623",
+                "tag": "c",
+                "text": "\\(\\frac{8}{53}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211624",
+                "tag": "d",
+                "text": "\\(\\frac{19}{66}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51445": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>A force F acts on a body of mass 12kg increases its speed from 5 m/s to 35 m/s in 5 seconds. Find the value of F.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(F = ma \\)</p>\r\n\r\n<p>\\(a = \\frac{v - u}{t}\\)</p>\r\n\r\n<p>\\(\\therefore F = m(\\frac{v - u}{t})\\)</p>\r\n\r\n<p>\\(F = 12(\\frac{35 - 5}{5}) = 12 \\times 6 = 72 N\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211625",
+                "tag": "a",
+                "text": "36 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "211626",
+                "tag": "b",
+                "text": "48 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "211627",
+                "tag": "c",
+                "text": "72 N",
+                "is_correct": true
+            },
+            {
+                "option_id": "211628",
+                "tag": "d",
+                "text": "108 N",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51449": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Express the force F = (8 N, 150&deg;) in the form (a i + b j) where a and b are constants.&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(F = F\\cos \\theta i + F \\sin \\theta j\\)</p>\r\n\r\n<p>\\((8 N, 150&deg;) = 8 \\cos 150 i + 8 \\sin 150 j\\)</p>\r\n\r\n<p>= \\(- 8 \\cos 30 i + 8 \\sin 30 j\\)</p>\r\n\r\n<p>= \\(-8(\\frac{\\sqrt{3}}{2}) i + 8(\\frac{1}{2} j\\)</p>\r\n\r\n<p>= \\(-4\\sqrt{3} i + 4 j\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211629",
+                "tag": "a",
+                "text": "\\(4\\sqrt{3} i - 4j\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211630",
+                "tag": "b",
+                "text": "\\(4 i - 4\\sqrt{3} j\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211631",
+                "tag": "c",
+                "text": "\\(- 4 i + 4\\sqrt{3} j\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211632",
+                "tag": "d",
+                "text": "\\(- 4\\sqrt{3} i + 4j\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "51452": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>Three defective bulbs got mixed up with seven good ones. If two bulbs are selected at random, what is the probability that both are good?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(\\text{both bulbs are good}) = \\frac{7}{10} \\times \\frac{6}{9}\\)</p>\r\n\r\n<p>= \\(\\frac{7}{15}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211633",
+                "tag": "a",
+                "text": "\\(\\frac{3}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211634",
+                "tag": "b",
+                "text": "\\(\\frac{21}{50}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211635",
+                "tag": "c",
+                "text": "\\(\\frac{7}{15}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211636",
+                "tag": "d",
+                "text": "\\(\\frac{49}{100}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "51455": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>The ages, in years, of 5 boys are 5, 6, 6, 8 and 10. Calculate, correct to one decimal place, the standard deviation of their ages.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:80%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\\(x\\)</td>\r\n\t\t\t<td>5</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>8</td>\r\n\t\t\t<td>10</td>\r\n\t\t\t<td>Total</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\\(x - \\bar{x}\\)</td>\r\n\t\t\t<td>-2</td>\r\n\t\t\t<td>-1</td>\r\n\t\t\t<td>-1</td>\r\n\t\t\t<td>1</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\\((x - \\bar{x})^{2}\\)</td>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>1</td>\r\n\t\t\t<td>1</td>\r\n\t\t\t<td>1</td>\r\n\t\t\t<td>9</td>\r\n\t\t\t<td>16</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Mean (\\(\\bar{x}\\)) = \\(\\frac{5 + 6 + 6 + 8 + 10}{5} \\)</p>\r\n\r\n<p>= \\(\\frac{35}{5} = 7\\)</p>\r\n\r\n<p>\\(SD = \\sqrt{\\frac{\\sum (x - \\bar{x})^{2}}{n}}\\)</p>\r\n\r\n<p>= \\(\\sqrt{\\frac{16}{5}} \\)</p>\r\n\r\n<p>= \\(\\sqrt{3.2}\\)</p>\r\n\r\n<p>\\(\\approxeq 1.8 years\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211637",
+                "tag": "a",
+                "text": "3.2 years",
+                "is_correct": false
+            },
+            {
+                "option_id": "211638",
+                "tag": "b",
+                "text": "2.6 years",
+                "is_correct": false
+            },
+            {
+                "option_id": "211639",
+                "tag": "c",
+                "text": "1.9 years",
+                "is_correct": false
+            },
+            {
+                "option_id": "211640",
+                "tag": "d",
+                "text": "1.8 years",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "51460": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>A body is acted upon by forces \\(F_{1} = (10 N, 090&deg;)\\) and \\(F_{2} = (6 N, 180&deg;)\\). Find the magnitude of the resultant force.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(F = F \\cos \\theta i + F \\sin \\theta j\\) (Resolving F into its components)</p>\r\n\r\n<p>\\(F_{1} = (10 N, 090&deg;) = 10 \\cos 90 i + 10 \\sin 90 j\\)</p>\r\n\r\n<p>= \\(10 j\\)</p>\r\n\r\n<p>\\(F_{2} = (6 N, 180&deg;) = 6 \\cos 180 i + 6 \\sin 180 j\\)</p>\r\n\r\n<p>= \\(-6 i\\)</p>\r\n\r\n<p>\\(R&nbsp;= - 6 i + 10 j\\)</p>\r\n\r\n<p>\\(|R| = \\sqrt{(-6)^{2} + (10)^{2}}\\)</p>\r\n\r\n<p>= \\(\\sqrt{136}\\)</p>\r\n\r\n<p>= 11.7 N</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211641",
+                "tag": "a",
+                "text": "11.6 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "211642",
+                "tag": "b",
+                "text": "11.7 N",
+                "is_correct": true
+            },
+            {
+                "option_id": "211643",
+                "tag": "c",
+                "text": "11.8 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "211644",
+                "tag": "d",
+                "text": "11.9 N",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "51466": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>In the diagram, a ladder PS leaning against a vertical wall PR makes angle x&deg; with the horizontal floor. The ladder slides down to a point QT such that angle QTR = 30&deg; and SNT = y&deg;. Find the relation between x and y.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Further_Mathematics/year/Objective/2009/img_51466.jpeg",
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211645",
+                "tag": "a",
+                "text": "\\(y = \\frac{1}{2}x + 30\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211646",
+                "tag": "b",
+                "text": "\\(y = \\frac{1}{2}x + 30\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211647",
+                "tag": "c",
+                "text": "\\(y = x + 30\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211648",
+                "tag": "d",
+                "text": "\\(y = x - 30\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "51467": {
+        "order_id": 40,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2009",
+        "question_text": "<p>In the diagram, a ladder PS leaning against a vertical wall PR makes angle x&deg; with the horizontal floor. The ladder slides down to a point QT such that angle QTR = 30&deg; and SNT = y&deg;. Find an expression for tan y.</p>",
+        "question_image": "nigeria/exam_image/question_image/WAEC/Further_Mathematics/year/Objective/2009/img_51467.jpeg",
+        "answer_image": null,
+        "explanation": "",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "211649",
+                "tag": "a",
+                "text": "\\(\\frac{\\sqrt{3} \\tan x - 1}{\\sqrt{3} + \\tan x}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "211650",
+                "tag": "b",
+                "text": "\\(\\frac{\\sqrt{3} \\tan x}{\\sqrt{3} + \\tan x}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211651",
+                "tag": "c",
+                "text": "\\(\\frac{\\sqrt{3} \\tan x + 1}{\\sqrt{3} - \\tan x}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "211652",
+                "tag": "d",
+                "text": "\\(\\frac{3 \\tan x - 1}{\\sqrt{3} - \\tan x}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    }
+}

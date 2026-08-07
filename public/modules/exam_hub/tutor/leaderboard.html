@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Leaderboard – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=4">
   <style>
     /* ---- Reset & Global ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -132,11 +132,11 @@
 <body>
   <div class="app">
     <!-- LEFT SIDEBAR -->
-    <app-sidebar data-base="../../../" data-active="exam_studio"></app-sidebar>
+    <app-sidebar data-base="/" data-active="exam_studio"></app-sidebar>
 
     <!-- MAIN WRAPPER -->
     <div class="main-wrapper">
-      <app-topbar data-base="../../../"></app-topbar>
+      <app-topbar data-base="/"></app-topbar>
 
       <main class="content-area">
         <a href="teacher_entry.html" class="back-btn">
@@ -243,7 +243,8 @@
     }
   </script>
 
-  <script src="../../../components/sidebar.js"></script>
-  <script src="../../../components/topbar.js"></script>
+  <script defer src="/components/nav.js"></script>
+<script defer src="/components/sidebar.js"></script>
+  <script defer src="/components/topbar.js"></script>
 </body>
 </html>

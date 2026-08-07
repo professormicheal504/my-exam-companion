@@ -823,45 +823,82 @@
 
     <!-- Relative path for sidebar.js for local testing -->
     <script src="../../../components/topbar.js"></script>
+    <script src="../../../components/nav.js"></script>
     <script src="../../../components/sidebar.js?v=6"></script>
     <script>
       // Make instructions page dynamic based on URL params
       const params = new URLSearchParams(window.location.search);
-      const examId = params.get('exam_id') || 'Exam';
-      const year = params.get('year') || '2025';
-      const subjectParam = params.get('subject') || 'Subject';
-      const subjectsArray = subjectParam.split(',').map(s => s.trim().replace(/_/g, ' '));
-      
-      const examName = examId.split('/').pop().toUpperCase();
-      
-      // Update Headers
-      document.querySelector('.instruction-banner h1').textContent = `${examName} CBT Examination Instructions`;
-      
-      // Update Subjects List
-      const subjectsList = document.querySelector('.info-card__list');
-      subjectsList.innerHTML = '';
-      subjectsArray.forEach(subj => {
-          const li = document.createElement('li');
-          li.textContent = subj.replace(/\b\w/g, l => l.toUpperCase()); // title case
-          subjectsList.appendChild(li);
-      });
-      
-      // Update Year
-      const yearElements = document.querySelectorAll('.info-card__value');
-      yearElements[1].textContent = year;
-      
-      // Update specific text blocks
-      const instrTexts = document.querySelectorAll('.instruction-text');
-      instrTexts[0].textContent = `This simulator gives you the same experience you will encounter in the actual ${examName} CBT platform. You will be presented with questions from your selected subjects.`;
-      
-      const instrList1 = document.querySelectorAll('.instruction-list')[0];
-      instrList1.style.display = 'none'; // Hide the specific question count list
+      const uni = params.get('uni');
+      const file = params.get('file');
+
+      if (uni && file) {
+          // University Course Logic
+          const uniName = uni.replace(/_/g, ' ').toUpperCase();
+          const courseCode = file.split('/').pop().replace('.json', '');
+          
+          document.querySelector('.instruction-banner h1').textContent = `${uniName} - ${courseCode} CBT Instructions`;
+          
+          const subjectsList = document.querySelector('.info-card__list');
+          subjectsList.innerHTML = `<li>${courseCode}</li>`;
+          
+          const yearElements = document.querySelectorAll('.info-card__value');
+          if (yearElements.length > 1) {
+              yearElements[1].textContent = "N/A"; 
+          }
+          
+          const instrTexts = document.querySelectorAll('.instruction-text');
+          if (instrTexts.length > 0) {
+              instrTexts[0].textContent = `This simulator gives you the exact experience you will encounter in the actual ${uniName} CBT platform for ${courseCode}.`;
+          }
+          
+          const instrList1 = document.querySelectorAll('.instruction-list')[0];
+          if (instrList1) instrList1.style.display = 'none'; 
+      } else {
+          // Standard Exam Logic
+          const examId = params.get('exam_id') || 'Exam';
+          const year = params.get('year') || '2025';
+          const subjectParam = params.get('subject') || 'Subject';
+          const subjectsArray = subjectParam.split(',').map(s => s.trim().replace(/_/g, ' '));
+          
+          const examName = examId.split('/').pop().toUpperCase();
+          
+          // Update Headers
+          document.querySelector('.instruction-banner h1').textContent = `${examName} CBT Examination Instructions`;
+          
+          // Update Subjects List
+          const subjectsList = document.querySelector('.info-card__list');
+          if (subjectsList) {
+              subjectsList.innerHTML = '';
+              subjectsArray.forEach(subj => {
+                  const li = document.createElement('li');
+                  li.textContent = subj.replace(/\b\w/g, l => l.toUpperCase()); // title case
+                  subjectsList.appendChild(li);
+              });
+          }
+          
+          // Update Year
+          const yearElements = document.querySelectorAll('.info-card__value');
+          if (yearElements.length > 1) {
+              yearElements[1].textContent = year;
+          }
+          
+          // Update specific text blocks
+          const instrTexts = document.querySelectorAll('.instruction-text');
+          if (instrTexts.length > 0) {
+              instrTexts[0].textContent = `This simulator gives you the same experience you will encounter in the actual ${examName} CBT platform. You will be presented with questions from your selected subjects.`;
+          }
+          
+          const instrList1 = document.querySelectorAll('.instruction-list')[0];
+          if (instrList1) instrList1.style.display = 'none'; // Hide the specific question count list
+      }
       
       // Ensure "Start Test" passes along the query string
       const startBtn = document.querySelector('.btn-start');
-      startBtn.onclick = function() {
-          window.location.href = 'cbt_player.html' + window.location.search;
-      };
+      if (startBtn) {
+          startBtn.onclick = function() {
+              window.location.href = 'cbt_player.html' + window.location.search;
+          };
+      }
     </script>
 </body>
 

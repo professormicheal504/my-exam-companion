@@ -1,0 +1,1762 @@
+{
+    "68814": {
+        "order_id": 1,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Calculate, correct to one decimal place, the angle between 5 i + 12 j and -2 i + 3 j</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Using the dot product:<br />\r\n<br />\r\na.b = |a||b|cos &theta;<br />\r\n<br />\r\na.b = 5(-2) + 12(3) = -10 + 36 = 26<br />\r\n<br />\r\n|a| = &radic;(52 + 122) = &radic;(25 + 144)<br />\r\n<br />\r\n|a| = &radic;169 = 13<br />\r\n<br />\r\n|b| = \\(&radic;((-2)^2 + 3^2)\\) = &radic;(4 + 9)<br />\r\n<br />\r\n|b| = &radic;13<br />\r\n<br />\r\n= 26 = 13&radic;13 x cos &theta;</p>\r\n\r\n<p>= \\(\\frac{26}{13\\sqrt13}\\) =&nbsp;cos &theta;</p>\r\n\r\n<p>=\\(\\frac{2}{\\sqrt13}\\) =&nbsp;cos &theta;</p>\r\n\r\n<p>=&nbsp;&theta; = \\(cos^{-1} (\\frac{2}{\\sqrt13})\\)</p>\r\n\r\n<p>&there4; &theta; = 56.3&ordm;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "260206",
+                "tag": "a",
+                "text": "56.3\u00ba",
+                "is_correct": true
+            },
+            {
+                "option_id": "260207",
+                "tag": "b",
+                "text": "76.3\u00ba",
+                "is_correct": false
+            },
+            {
+                "option_id": "260208",
+                "tag": "c",
+                "text": "66.4\u00ba",
+                "is_correct": false
+            },
+            {
+                "option_id": "260209",
+                "tag": "d",
+                "text": "54.8\u00ba",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "68855": {
+        "order_id": 2,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Find the equation of the normal to the curve y = \\(3x^2 + 2\\) at point (1, 5).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>y = \\(3x^2 + 2\\)</p>\r\n\r\n<p>\\(y^1 = \\frac{dy}{dx} = 6x\\)</p>\r\n\r\n<p>Evaluating this derivative at x = 1 (since the point of interest is (1, 5)) gives us the slope of the tangent line at that point:<br />\r\n\\(^mtangent&nbsp;= y^1(1) = 6 (1) = 6\\)<br />\r\nSlope of the Normal Line \\( ^mnorma l= - \\frac{1}{^mtangent}\\)</p>\r\n\r\n<p>\\(^mnormal = - \\frac{1}{6}\\)</p>\r\n\r\n<p>\\(y&minus;y_1\u200b= ^mnormal&sdot;(x&minus;x_1)\\)</p>\r\n\r\n<p>=y-5=-\\(\\frac{1}{6}(x-1)\\)</p>\r\n\r\n<p>=y-5=-\\(\\frac{1}{6}x+\\frac{1}{6}\\)</p>\r\n\r\n<p>=y=-\\(\\frac{1}{6}x+\\frac{1}{6}+5\\)</p>\r\n\r\n<p>Multiply through by 6</p>\r\n\r\n<p>=6y=-x+1+30</p>\r\n\r\n<p>&there4;6y+ x - 31=0</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "260346",
+                "tag": "a",
+                "text": "6y - x - 29 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "260347",
+                "tag": "b",
+                "text": "6y + x - 31 = 0",
+                "is_correct": true
+            },
+            {
+                "option_id": "260348",
+                "tag": "c",
+                "text": "y - 6x - 1 = 0",
+                "is_correct": false
+            },
+            {
+                "option_id": "260349",
+                "tag": "d",
+                "text": "y - 6x + 1 = 0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "68866": {
+        "order_id": 3,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The distance S metres moved by a body in t seconds is given by \\(S = 5t^3 - \\frac{19}{2} t^2 + 6t - 4\\). Calculate the acceleration of the body after 2 seconds</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(S = 5t^3 - \\frac{19}{2} t^2 + 6t - 4\\)</p>\r\n\r\n<p>\\(v(t)=\\frac{dS}{dt}=15t^2-19t+6\\)</p>\r\n\r\n<p>\\(a(t)=\\frac{dv}{dt}=30t-19\\)</p>\r\n\r\n<p>&there4;a(2)=30(2)-19=60-19=41 \\(ms ^{-2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "260374",
+                "tag": "a",
+                "text": "19 \\(ms ^{-2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260375",
+                "tag": "b",
+                "text": "21 \\(ms ^{-2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260376",
+                "tag": "c",
+                "text": "41 \\(ms ^{-2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "260377",
+                "tag": "d",
+                "text": "31 \\(ms ^{-2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "68887": {
+        "order_id": 4,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Evaluate \\(\\int^1_0 x(x^2-2)^2 dx\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\int^1_0 x(x^2-2)^2 dx\\)</p>\r\n\r\n<p>\\((x^2-2)^2=x^4-2x^2-2x^2+4\\)</p>\r\n\r\n<p>=\\(x^4-4x^2+4\\)</p>\r\n\r\n<p>\\(x(x^2-2)^2=x(x^4-4x^2+4)\\)</p>\r\n\r\n<p>=\\(x^5-4x^3+4x\\)</p>\r\n\r\n<p>\\(\\int^1_0 x(x^2-2)^2 dx = \\int^1_0 x^5 - 4x^3 + 4x dx\\)</p>\r\n\r\n<p>=\\((\\frac{x^6}{6} - x^4+2x^2)^1_0\\)</p>\r\n\r\n<p>= \\((\\frac{(1)^6}{6} - (1)^4 +2(1)^2)-(\\frac{(0)^6}{6} - (0)^4+2(0)^2)\\)</p>\r\n\r\n<p>=\\(\\frac{7}{6} - 0 =\\frac{7}{6}\\)</p>\r\n\r\n<p>\\(\\therefore 1\\frac{1}{6}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "260398",
+                "tag": "a",
+                "text": "\\(\\frac{6}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260399",
+                "tag": "b",
+                "text": "\\(1\\frac{1}{6}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "260400",
+                "tag": "c",
+                "text": "\\(\\frac{1}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260401",
+                "tag": "d",
+                "text": "\\(3\\frac{1}{6}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "68890": {
+        "order_id": 5,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that \\(sin x = \\frac{4}{5}\\) and \\(cos y = \\frac{12}{13}\\), where x is an obtuse angle and y is an acute angle, find the value of sin (x - y).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(sin x = \\frac{4}{5}\\) and \\(cos y = \\frac{12}{13}\\)</p>\r\n\r\n<p>x is obtuse i.e sin x = + ve while cos x&nbsp;= + ve</p>\r\n\r\n<p><img alt=\"Open photo\" src=\"https://scontent.xx.fbcdn.net/v/t1.15752-9/416365669_1343935309649777_3283472292693923672_n.jpg?stp=dst-jpg_p206x206&amp;_nc_cat=109&amp;ccb=1-7&amp;_nc_sid=510075&amp;_nc_eui2=AeEqxTtv6tJTEG2bWGJ5IADzdpny4cLW40l2mfLhwtbjSTnG0KPaappVL15RZqjlsklq4Oatk_nqGTh2ez5k4jyy&amp;_nc_ohc=emzmohOOVX0AX-dhjXe&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;cb_e2o_trans=q&amp;oh=03_AdTXs9VATuILcNUbFnINz3KjGpJ3_IQtgeN5kEQasIyLnQ&amp;oe=65E86B74\" /></p>\r\n\r\n<p>\\(cos x=\\frac{3}{5}==&gt;cos x=-\\frac {3}{5}(obtuse)\\)</p>\r\n\r\n<p>\\(sin y= \\frac{5}{13}\\)</p>\r\n\r\n<p>\\(sin (x-y) = sin x\\)&nbsp;\\(cos y - cos x\\)&nbsp;\\(sin y\\)</p>\r\n\r\n<p>\\(sin(x-y) = \\frac{4}{5}\\times\\frac{12}{13}-(-\\frac{3}{5})\\times\\frac{5}{13}\\)</p>\r\n\r\n<p>\\(sin(x-y) = \\frac{48}{65}-(-\\frac{3}{13})\\)</p>\r\n\r\n<p>\\(\\therefore sin (x-y) = \\frac{48}{65} + \\frac{3}{13} = \\frac{63}{65}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "260410",
+                "tag": "a",
+                "text": "\\(\\frac{63}{65}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "260411",
+                "tag": "b",
+                "text": "\\(\\frac{48}{65}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260412",
+                "tag": "c",
+                "text": "\\(\\frac{56}{65}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260413",
+                "tag": "d",
+                "text": "\\(\\frac{16}{65}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 1,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69039": {
+        "order_id": 6,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If\\((\\frac{1}{9})^{2x-1} = (\\frac{1}{81})^{2-3x}\\)find the value of x</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\((\\frac{1}{9})^{2x-1} = (\\frac{1}{81})^{2-3x}\\)</p>\r\n\r\n<p>\\((\\frac{1}{9})^{2x-1} = (\\frac{1}{9})^{2(2-3x)}\\)</p>\r\n\r\n<p>\\((\\frac{1}{9})^{2x-1} = (\\frac{1}{9})^{4-6x}\\)</p>\r\n\r\n<p>Since the bases are equal, powers can be equated</p>\r\n\r\n<p>= 2x - 1 = 4 - 6x</p>\r\n\r\n<p>= 2x + 6x = 4 + 1</p>\r\n\r\n<p>= 8x = 5</p>\r\n\r\n<p>\\(\\therefore x = \\frac{5}{8}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 3,
+        "options": [
+            {
+                "option_id": "260990",
+                "tag": "a",
+                "text": "\\(-\\frac{5}{8}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260991",
+                "tag": "b",
+                "text": "\\(-\\frac{3}{4}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260992",
+                "tag": "c",
+                "text": "\\(\\frac{3}{4}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "260993",
+                "tag": "d",
+                "text": "\\(\\frac{5}{8}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69046": {
+        "order_id": 7,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The table shows the operation * on the set {x, y, z, w}.</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:200px\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><strong>*</strong></td>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t\t<td><strong>Y</strong></td>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t\t<td><strong>Y</strong></td>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Y</strong></td>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t\t<td><strong>Y</strong></td>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t\t<td><strong>Y</strong></td>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t\t<td><strong>X</strong></td>\r\n\t\t\t<td><strong>W</strong></td>\r\n\t\t\t<td><strong>Z</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Find the identity of the element.</p>\r\n\r\n<p>&nbsp;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>From the table, x * z = x, y * z = y, z * z = z and w * z = w<br />\r\n<br />\r\n&there4; z is the identity element</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261018",
+                "tag": "a",
+                "text": "W",
+                "is_correct": false
+            },
+            {
+                "option_id": "261019",
+                "tag": "b",
+                "text": "Y",
+                "is_correct": false
+            },
+            {
+                "option_id": "261020",
+                "tag": "c",
+                "text": "Z",
+                "is_correct": true
+            },
+            {
+                "option_id": "261021",
+                "tag": "d",
+                "text": "X",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69072": {
+        "order_id": 8,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Find the radius of the circle \\(2x^2 + 2y^2 - 4x + 5y + 1 = 0\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Standard Form equation of a circle (Center-Radius Form): \\((x &minus; a)^2 + (y &minus; b)^2 = r^2\\)<br />\r\n<br />\r\nWhere &quot;a&quot; and &quot;b&quot; are the coordinates of the center and &quot;r&quot; is the radius of the circle</p>\r\n\r\n<p>\\(2x^2+2y^2-4x+5y+1=0\\)</p>\r\n\r\n<p>Divide through by 2</p>\r\n\r\n<p>= \\(x^2+y^2-2x+\\frac{5}{2}y+\\frac{1}{2}= 0\\)</p>\r\n\r\n<p>=\\(x^2-2x+y^2+\\frac{5}{ 2}y=-\\frac{1}{ 2}\\)</p>\r\n\r\n<p>=\\(x^2-2x+1^2+y^2+\\frac{5}{ 2}y+(\\frac{5}{ 4})^2-1-\\frac{25}{16}=-\\frac{1}{2}\\)</p>\r\n\r\n<p>=\\((x-1)^2+(y+\\frac{5}{4})^2=-\\frac{1}{2}+1+\\frac{25}{16}\\)</p>\r\n\r\n<p>=\\((x-1)^2+(y-(-\\frac{5}{4}))^2=\\frac{33}{16}\\)</p>\r\n\r\n<p>=\\((x-1)^2+(y-(-\\frac{5}{4}))^2=(\\frac{\\sqrt33}{4})^2\\)</p>\r\n\r\n<p>\\(\\therefore a = 1, b = - \\frac{5}{4} and\\)&nbsp;\\(r \\frac{\\sqrt33}{4} (answer)\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261118",
+                "tag": "a",
+                "text": "\\(\\frac{\\sqrt33}{4}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261119",
+                "tag": "b",
+                "text": "\\(\\frac{\\sqrt5}{6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261120",
+                "tag": "c",
+                "text": "\\(\\frac{5}{6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261121",
+                "tag": "d",
+                "text": "\\(\\frac{33}{4}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69073": {
+        "order_id": 9,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that M is the midpoint of T (2, 4) and Q (-8, 6), find the length of MQ .</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(|MQ| = \\frac{1}{2} |TQ|\\)<br />\r\n<br />\r\n\\(|TQ| = &radic;((y2 - y1)^2 + (x2 - x1)^2)\\)<br />\r\n<br />\r\n\\(|TQ| = &radic;((6 - 4)^2 + (-8 - 2)^2)\\)<br />\r\n<br />\r\n\\(|TQ| = &radic;(2^2 + (-10)^2)\\)<br />\r\n<br />\r\n\\(|TQ| = &radic;(4 + 100) = &radic;104\\)<br />\r\n<br />\r\n\\(|TQ| = 2&radic;26 units\\)<br />\r\n<br />\r\n\\(|MQ| = \\frac{1}{2} |TQ| = 2 \\times&nbsp;2&radic;26\\)<br />\r\n<br />\r\n&there4; \\(|MQ| = &radic;26 units\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261126",
+                "tag": "a",
+                "text": "\\(\u221a26 units\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261127",
+                "tag": "b",
+                "text": "\\(\u221a28 units\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261128",
+                "tag": "c",
+                "text": "\\(\u221a24 units\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261129",
+                "tag": "d",
+                "text": "\\(\u221a30 units\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69075": {
+        "order_id": 10,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A particle began to move at \\(27 ms^{-1}\\) along a straight line with constant retardation of \\(9 ms^{-2}\\). Calculate the time it took the particle to come to a stop.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(u = 27 ms^{-1}; a = -9 ms^{-2}; v = 0; t = ?\\)</p>\r\n\r\n<p>\\(v = u + at; t = \\frac{v - u}{a}\\)</p>\r\n\r\n<p>\\(t = \\frac{0 - 27}{-9} = \\frac{-27}{-9}\\)</p>\r\n\r\n<p>\\(\\therefore t = 3 sec\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261134",
+                "tag": "a",
+                "text": "3 sec",
+                "is_correct": true
+            },
+            {
+                "option_id": "261135",
+                "tag": "b",
+                "text": "2 sec",
+                "is_correct": false
+            },
+            {
+                "option_id": "261136",
+                "tag": "c",
+                "text": "4 sec",
+                "is_correct": false
+            },
+            {
+                "option_id": "261137",
+                "tag": "d",
+                "text": "1 sec",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 2,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69095": {
+        "order_id": 11,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Find the <strong>fifth term</strong> in the binomial expansion of \\((q + x)^7\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>rth term of a binomial expansion = \\(^nC_r - _1a^{n - (r - 1)} b^{r - 1}\\)<br />\r\n<br />\r\nn = 7, r = 5 &there4; r - 1 = 4<br />\r\n<br />\r\n5th term = \\(^7C_4 q^{7 - 4} x^4\\)<br />\r\n<br />\r\n= \\(^7C_4 q^3x^4\\)<br />\r\n<br />\r\n\\(\\therefore 35q^3x^4\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261182",
+                "tag": "a",
+                "text": "\\(21q^2x^5\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261183",
+                "tag": "b",
+                "text": "\\(21q^4x^3\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261184",
+                "tag": "c",
+                "text": "\\(35q^3x^4\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261185",
+                "tag": "d",
+                "text": "\\(35q^5x^2\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69096": {
+        "order_id": 12,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that P = {x : 2 &le; x &le; 8} and Q = {x : 4 &lt; x &le; 12} are subsets of the universal set &mu; = {x : x &isin; R}, find (P \u22c2 Q\\(^1\\)).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>P = {x : 2 &le; x &le; 8} = {2, 3, 4, 5, 6, 7, 8}<br />\r\n<br />\r\nQ = {x : 4 &lt; x &le; 12} = {5, 6, 7, 8, 9, 10, 11, 12}<br />\r\n<br />\r\nQ1 = R - {5, 6, 7, 8, 9, 10, 11, 12} = {..., 2, 3, 4, 13, 14, 15, ...}<br />\r\n<br />\r\n&there4; P \u22c2 Q\\(^1\\) = {2, 3, 4} = {x : 2 &le; x &le; 4}</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261186",
+                "tag": "a",
+                "text": "{x : 4 < x < 8}",
+                "is_correct": false
+            },
+            {
+                "option_id": "261187",
+                "tag": "b",
+                "text": "{x : 2 < x \u2264 4}",
+                "is_correct": false
+            },
+            {
+                "option_id": "261188",
+                "tag": "c",
+                "text": "{x : 2 \u2264 x \u2264 4}",
+                "is_correct": true
+            },
+            {
+                "option_id": "261189",
+                "tag": "d",
+                "text": "{x : 4 \u2264 x \u2264 8}",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69097": {
+        "order_id": 13,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Consider the statements:<br />\r\nx: The school bus arrived late<br />\r\ny: The student walked down to school<br />\r\nWhich of the following can be represented by y &rArr; x?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The statement &quot;y &rArr; x&quot; represents a logical implication, where y implies x. This means that if y is true, then x must also be true. In other words, if the condition represented by y is satisfied, the condition represented by x must also be satisfied.<br />\r\n<br />\r\nOut of the provided options:<br />\r\n<br />\r\n&quot;Emmanuella did not go to school because the school bus arrived late.&quot;<br />\r\nIn this case, &quot;Emmanuella did not go to school&quot; (not y) is the outcome of the late school bus (x). However, the implication y &rArr; x would mean that if the student walked down to school (y), then the school bus arrived late (x). So this case does not match the y &rArr; x structure.<br />\r\n<br />\r\n&quot;The school bus arrived early and Kate ran to school&quot; does not match the y &rArr; x structure, as there&#39;s no clear implication between the two events.<br />\r\n<br />\r\n&quot;Mary walked to school because the school bus arrived late&quot; can be represented by y &rArr; x because if Mary walked to school (y), it implies that the school bus arrived late (x).<br />\r\n<br />\r\n&quot;Either the school bus arrived late or Maryam walked to school&quot; does not match the y &rArr; x structure, as it represents a logical OR relationship rather than an implication.<br />\r\n<br />\r\nSo, the correct statement that can be represented by y &rArr; x is:<br />\r\n<br />\r\nMary walked to school because the school bus arrived late</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261190",
+                "tag": "a",
+                "text": "The school bus arrived early and Kate ran to school",
+                "is_correct": false
+            },
+            {
+                "option_id": "261191",
+                "tag": "b",
+                "text": "Mary walked to school because the school bus arrived late",
+                "is_correct": true
+            },
+            {
+                "option_id": "261192",
+                "tag": "c",
+                "text": "Either the school bus arrived late or Maryam walked to school",
+                "is_correct": false
+            },
+            {
+                "option_id": "261193",
+                "tag": "d",
+                "text": "Emmanuella did not go to school because the school bus arrived late",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69098": {
+        "order_id": 14,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>\\(Differentiate f (x) = \\frac{1}{(1 - x^2)^5}\\) with respect to \\(x\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y = \\frac{1}&nbsp;{(1 - x^2)^5} = (1-x^2)^{-5}\\)</p>\r\n\r\n<p>Let u = \\(1 - x^2; y = u ^{-5}\\)</p>\r\n\r\n<p>\\(\\frac{du}{ dx}=-2x;\\frac{dy}{ du}=-5u^{-6}\\)</p>\r\n\r\n<p>Using chain rule:</p>\r\n\r\n<p>\\(\\frac{dy}{dx}=\\frac{dy}{du}\\times\\frac{du}{ dx}\\)</p>\r\n\r\n<p>\\(\\frac{dy}{dx}=-2x\\times-5u^{-6}\\)</p>\r\n\r\n<p>\\(\\frac{dy}{dx}=-2x\\times-5(1 - x^2)^{-6}\\)</p>\r\n\r\n<p>\\(\\therefore\\frac{dy}{dx} = 10x(1-x^2)^{-6}=\\frac{10x}{(1-x^2)^6}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261194",
+                "tag": "a",
+                "text": "\\(\\frac{-5x}{(1-x^2)^6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261195",
+                "tag": "b",
+                "text": "\\(\\frac{-10x}{(1-x^2)^6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261196",
+                "tag": "c",
+                "text": "\\(\\frac{5x}{(1-x^2)^6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261197",
+                "tag": "d",
+                "text": "\\(\\frac{10x}{(1-x^2)^6}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69100": {
+        "order_id": 15,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Express \\(\\frac{3}{3 - &radic;6}\\) in the form \\(x + m&radic;y\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{3}{3 - &radic;3}\\)</p>\r\n\r\n<p>Rationalize</p>\r\n\r\n<p>\\(= \\frac{3}{3 - &radic;6} \\times \\frac{3&nbsp;+ &radic;6}{3 + &radic;6}\\)</p>\r\n\r\n<p>\\(=\\frac{3(3 + &radic;6)}{(3 - &radic;6)(3 + &radic;6)}\\)</p>\r\n\r\n<p>\\(=\\frac{3(3 + &radic;6)}{9 - 6}=\\frac{3(3 + &radic;6)}{3}\\)</p>\r\n\r\n<p>&there4; 3 + &radic;6</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261198",
+                "tag": "a",
+                "text": "3 - 3 \u221a6",
+                "is_correct": false
+            },
+            {
+                "option_id": "261199",
+                "tag": "b",
+                "text": "3 + 3\u221a6",
+                "is_correct": false
+            },
+            {
+                "option_id": "261200",
+                "tag": "c",
+                "text": "3 + \u221a6",
+                "is_correct": true
+            },
+            {
+                "option_id": "261201",
+                "tag": "d",
+                "text": "3 - \u221a6",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 3,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69102": {
+        "order_id": 16,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The table shows the mark obtained by students in a test.</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:100px\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Marks</strong></td>\r\n\t\t\t<td><strong>1</strong></td>\r\n\t\t\t<td><strong>2</strong></td>\r\n\t\t\t<td><strong>3</strong></td>\r\n\t\t\t<td><strong>4</strong></td>\r\n\t\t\t<td><strong>5</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Frequency</strong></td>\r\n\t\t\t<td><strong>2</strong></td>\r\n\t\t\t<td><strong>k</strong></td>\r\n\t\t\t<td><strong>1</strong></td>\r\n\t\t\t<td><strong>1</strong></td>\r\n\t\t\t<td><strong>2</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>If the mean mark is 3, find the value of k.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>&nbsp;x\u0304&nbsp;\\(=\\frac{&sum;fx}{&sum;f}= 3\\)</p>\r\n\r\n<p>\\(=\\frac{(1 \\times&nbsp;2)+(2 \\times&nbsp;k)+(3 \\times&nbsp;1)+(4 \\times&nbsp;1)+(5 \\times&nbsp;2)}{2 + k + 1 + 1 + 2}= 3\\)</p>\r\n\r\n<p>\\(=\\frac{2 + 2k + 3 + 4 + 10}{6 + k} = 3\\)</p>\r\n\r\n<p>\\(=\\frac{19 + 2k}{6 + k} = 3\\)</p>\r\n\r\n<p>\\(=\\frac{19 + 2k}{6 + k} = \\frac{3}{1}\\)</p>\r\n\r\n<p>=19+2k=3(6+k)</p>\r\n\r\n<p>=19+2k=18+3k</p>\r\n\r\n<p>=2k-3k=18-19</p>\r\n\r\n<p>=-k=-1</p>\r\n\r\n<p>&there4;k=1</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261202",
+                "tag": "a",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "261203",
+                "tag": "b",
+                "text": "1",
+                "is_correct": true
+            },
+            {
+                "option_id": "261204",
+                "tag": "c",
+                "text": "2",
+                "is_correct": false
+            },
+            {
+                "option_id": "261205",
+                "tag": "d",
+                "text": "3",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69105": {
+        "order_id": 17,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>\\(Simplify: \\frac{log &radic;27 - log &radic;8}{log 3 - log 2}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{log &radic;27 - log &radic;8}{log 3 - log 2}\\)</p>\r\n\r\n<p>= \\(\\frac{log &radic;3^3 - log &radic;2^3}{log 3 - log 2}\\)</p>\r\n\r\n<p>= \\(\\frac{log3^{3/2} - log2^{3/2}}{log3}\\)</p>\r\n\r\n<p>=\\(\\frac{^3/_2(log 3 - log 2)}{log 3 - log 2}\\)</p>\r\n\r\n<p>\\(\\therefore\\frac{3}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261210",
+                "tag": "a",
+                "text": "\\(\\frac{3}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261211",
+                "tag": "b",
+                "text": "-\\(\\frac{1}{4}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261212",
+                "tag": "c",
+                "text": "-\\(\\frac{3}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261213",
+                "tag": "d",
+                "text": "\\(\\frac{1}{4}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69107": {
+        "order_id": 18,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that r = (10 N , 200&ordm;) and n = (16 N , 020&ordm;), find (3r - 2n).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>r = (10 N, 200&ordm;) and n = (16 N, 020&ordm;)<br />\r\n<br />\r\nIn rectangular form:<br />\r\n<br />\r\nr = 10cos 200&ordm;i + 10sin 200&ordm;j = -9.397i - 3.420j<br />\r\n<br />\r\nn = 16cos 20&ordm;i + 16sin 20&ordm;j = 15.035i + 5.472j<br />\r\n<br />\r\n3r = -28.191i - 10.260j<br />\r\n<br />\r\n2n = 30.070i + 10.945j<br />\r\n<br />\r\n3r - 2n = (-28.191i - 10.260j) - (30.070i + 10.945j)<br />\r\n<br />\r\n3r - 2n = -58.261i - 21.205j<br />\r\n<br />\r\n|3r - 2n| = &radic;((-58.261)\\(^2\\) + (-21.205)\\(^2\\)) = 62 N</p>\r\n\r\n<p>\\(tan &theta; =\\frac{-21.205}{-58.261} = 0.3640\\)</p>\r\n\r\n<p>\\(&theta; = tan^{-1} (0.3640) = 20^o\\)<br />\r\n<br />\r\n&there4; (62 N , 020&ordm;)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261218",
+                "tag": "a",
+                "text": "(62 N , 240\u00ba)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261219",
+                "tag": "b",
+                "text": "(62 N , 200\u00ba)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261220",
+                "tag": "c",
+                "text": "(62 N , 280\u00ba)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261221",
+                "tag": "d",
+                "text": "(62 N , 020\u00ba)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69109": {
+        "order_id": 19,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Solve 6 sin 2&theta; tan &theta; = 4, where 0&ordm;&nbsp;&lt; &theta; &lt; 90&ordm;</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>6 sin 2&theta; tan &theta; = 4, where 0&ordm;&nbsp;&lt; &theta; &lt; 90&ordm;</p>\r\n\r\n<p>sin 2&theta; = 2sin &theta; cos &theta; and tan&theta; = \\(\\frac{sin&theta;}{cos&theta;}\\)</p>\r\n\r\n<p>= 6 x 2sin &theta; cos &theta; x \\(\\frac{sin &theta;}{cos &theta;} = 4\\)</p>\r\n\r\n<p>= \\(sin^2 &theta; = 4\\)</p>\r\n\r\n<p>= \\(sin^2 &theta; = \\frac{4}{12}=\\frac{1}{3}\\)</p>\r\n\r\n<p>=\\(sin &theta; = \\frac{\\sqrt1}{3}=\\frac{1}{\\sqrt3}\\)</p>\r\n\r\n<p>= \\(&theta; = sin^{-1}(\\frac{1}{\\sqrt3})\\)</p>\r\n\r\n<p>&there4; &theta; = 35.26&ordm;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261222",
+                "tag": "a",
+                "text": "18.43\u00ba",
+                "is_correct": false
+            },
+            {
+                "option_id": "261223",
+                "tag": "b",
+                "text": "30.00\u00ba",
+                "is_correct": false
+            },
+            {
+                "option_id": "261224",
+                "tag": "c",
+                "text": "35.26\u00ba",
+                "is_correct": true
+            },
+            {
+                "option_id": "261225",
+                "tag": "d",
+                "text": "19.47\u00ba",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69112": {
+        "order_id": 20,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>An exponential sequence (G.P.) is given by 8&radic;2, 16&radic;2, 32&radic;2, ... . Find the n\\(^{th}\\) term of the sequence</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>8&radic;2, 16&radic;2, 32&radic;2, ..</p>\r\n\r\n<p>\\(a = 8\\sqrt2; r =\\frac{T_2}{T_1}=\\frac{16\\sqrt2}{8\\sqrt2}=2\\)</p>\r\n\r\n<p>\\(T_n=ar^{n-1}\\)</p>\r\n\r\n<p>\\(T_n=8\\sqrt2 \\times 2^{n-1}\\)</p>\r\n\r\n<p>\\(T_n=2^3\\times2^{n-1}\\times\\sqrt2\\)</p>\r\n\r\n<p>\\(T_n=2^{3+n-1}\\times\\sqrt2\\)</p>\r\n\r\n<p>\\(\\therefore T_n= 2^{(n+2)}\\sqrt2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261234",
+                "tag": "a",
+                "text": "\\(8\\sqrt2^n\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261235",
+                "tag": "b",
+                "text": "\\(2^{(n+2)}\\sqrt2\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261236",
+                "tag": "c",
+                "text": "\\(\\sqrt2^{(n+3)}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261237",
+                "tag": "d",
+                "text": "\\(8n\\sqrt2\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 4,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69113": {
+        "order_id": 21,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If \\(f : x &rarr; 2 tan x\\) and \\(g : x &rarr; &radic;(x^2 + 8), find ( g o f )(45^o)\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(f : x &rarr; 2 tan x\\)<br />\r\n<br />\r\n\\(g : x &rarr; &radic;(x^2 + 8)\\)<br />\r\n<br />\r\n\\(( g o f ) = &radic;((2 tan x)^2 + 8)\\)<br />\r\n<br />\r\n\\(( g o f )(45&ordm;) = &radic;((2 tan 45&ordm;)^2 + 8)\\)<br />\r\n<br />\r\n= &radic;(4 + 8) = &radic;12<br />\r\n<br />\r\n= &radic;(4 x 3)<br />\r\n<br />\r\n&there4; 2&radic;3</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261242",
+                "tag": "a",
+                "text": "4",
+                "is_correct": false
+            },
+            {
+                "option_id": "261243",
+                "tag": "b",
+                "text": "2\u221a3",
+                "is_correct": true
+            },
+            {
+                "option_id": "261244",
+                "tag": "c",
+                "text": "6",
+                "is_correct": false
+            },
+            {
+                "option_id": "261245",
+                "tag": "d",
+                "text": "3\u221a2",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69118": {
+        "order_id": 22,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A uniform beam PQ of length 80 cm and weight 60 N rests on a support at X where | PX | = 30 cm. If the body is kept in equilibrium by a mass m kg which is placed at P , calculate the value of m<br />\r\n[Take g = 10 ms\\(^{-2}\\)]</p>",
+        "question_image": null,
+        "answer_image": "https://myschool.ng/storage/classroom/fV1nSiiWhS6BPgSqJHtfIjNrvqBqfqBsK0XvRZ6Y.jpeg",
+        "explanation": "<p>&sum; clock wise moments =&sum; anti clock wise moments</p>\r\n\r\n<p>= 60 x 10 = 30 x m</p>\r\n\r\n<p>= 600 = 30 m</p>\r\n\r\n<p>m = \\(\\frac{600}{30} = 20 N\\)</p>\r\n\r\n<p>W = mg ==&gt; m = \\(\\frac{W}{g}\\)</p>\r\n\r\n<p>&there4; m = \\(\\frac{20}{10} = 2kg\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261258",
+                "tag": "a",
+                "text": "2.0",
+                "is_correct": true
+            },
+            {
+                "option_id": "261259",
+                "tag": "b",
+                "text": "3.0",
+                "is_correct": false
+            },
+            {
+                "option_id": "261260",
+                "tag": "c",
+                "text": "2.5",
+                "is_correct": false
+            },
+            {
+                "option_id": "261261",
+                "tag": "d",
+                "text": "4.0",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69127": {
+        "order_id": 23,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>An exponential sequence (G.P.) is given by \\(\\frac{9}{2},\\frac{3}{4},\\frac{1}{8},\\)....Find its sum to infinity.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>Sum to infinity of a G.P when /r/ &lt; 1 = \\(\\frac{a}{1 - r}\\)</p>\r\n\r\n<p>a = \\(\\frac{9}{2},r = \\frac{T_2}{T_1} = \\frac{3}{4} + \\frac{9}{2}\\)</p>\r\n\r\n<p>r = \\(\\frac{3}{4} \\times \\frac{2}{9} = \\frac{1}{6}\\)</p>\r\n\r\n<p>\\(S_&infin; = \\frac{\\frac{9}{2}}{1-\\frac{1}{6}} = \\frac{\\frac{9}{2}}{\\frac{5}{6}} = \\frac{27}{5}\\)</p>\r\n\r\n<p>\\(\\therefore&nbsp;S_&infin; = 5\\frac{2}{5}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261290",
+                "tag": "a",
+                "text": "\\(5\\frac{2}{5}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261291",
+                "tag": "b",
+                "text": "\\(4\\frac{1}{5}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261292",
+                "tag": "c",
+                "text": "\\(13\\frac{1}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261293",
+                "tag": "d",
+                "text": "\\(6\\frac{3}{4}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69132": {
+        "order_id": 24,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Adu&#39;s scores in <strong>five</strong> subjects in an examination are <strong>85</strong>, <strong>84</strong>, <strong>83</strong>, <strong>86</strong> and <strong>87</strong>. Calculate the standard deviation.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>n = 5</p>\r\n\r\n<p>x\u0304 = \\(\\frac{&sum;x}{n} = \\frac{85 + 84 + 83 + 86 + 87}{5} = \\frac{425}{5} = 85\\)</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:200px\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\\(x\\)&nbsp; &nbsp;</td>\r\n\t\t\t<td>\\(x -&nbsp;x\u0304\\)&nbsp; &nbsp;</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp;\\((x - x\u0304)^2\\)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>85</td>\r\n\t\t\t<td>&nbsp; 0</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>84</td>\r\n\t\t\t<td>&nbsp;-1</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>83</td>\r\n\t\t\t<td>&nbsp;-2</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>86</td>\r\n\t\t\t<td>&nbsp; 1</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>87</td>\r\n\t\t\t<td>&nbsp; 2</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t<td>\\(\\Sigma(x - x\u0304)^2 = 10\\)</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>\\S.D = \\(\\sqrt{\\frac{&sum;(x - x\u0304 )}{n}}\\) = \\(\\sqrt{\\frac{10}{5}}\\)</p>\r\n\r\n<p>&there4; S.D = \\(\\sqrt{2}\\) =1.4</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 2,
+        "options": [
+            {
+                "option_id": "261314",
+                "tag": "a",
+                "text": "2.0",
+                "is_correct": false
+            },
+            {
+                "option_id": "261315",
+                "tag": "b",
+                "text": "1.4",
+                "is_correct": true
+            },
+            {
+                "option_id": "261316",
+                "tag": "c",
+                "text": "1.8",
+                "is_correct": false
+            },
+            {
+                "option_id": "261317",
+                "tag": "d",
+                "text": "1.6",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69151": {
+        "order_id": 25,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>In how many ways can a committee of 3 women and 2 men be chosen from a group of 7 men and 5 women?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>For choosing, its different &#39;combinations&#39;<br />\r\n<br />\r\nOptions - 7 men, 5 women<br />\r\nTo pick - 2 men, 3 women<br />\r\n<br />\r\n&there4; The number of ways to choose a committee of 3 women and 2 men from a group of 7 men and 5 women is:<br />\r\n=\\(^5C_3 \\times ^7C_2\\)</p>\r\n\r\n<p>=\\(\\frac{5\\times4\\times3}{3\\times2}\\times\\frac{7\\times6}{2\\times1}\\)</p>\r\n\r\n<p>=\\(10\\times21\\)</p>\r\n\r\n<p>=210</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261362",
+                "tag": "a",
+                "text": "500",
+                "is_correct": false
+            },
+            {
+                "option_id": "261363",
+                "tag": "b",
+                "text": "350",
+                "is_correct": false
+            },
+            {
+                "option_id": "261364",
+                "tag": "c",
+                "text": "720",
+                "is_correct": false
+            },
+            {
+                "option_id": "261365",
+                "tag": "d",
+                "text": "210",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 5,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69157": {
+        "order_id": 26,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Evaluate: \\(\\int(2x + 1)^3 dx\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\int(2x + 1)^3 dx\\)</p>\r\n\r\n<p>Using substitution method, Let \\(u = 2x + 1\\)</p>\r\n\r\n<p>\\(\\frac{du}{dx}=2==&gt;du=2dx==&gt;dx=\\frac{du}{2}\\)</p>\r\n\r\n<p>=\\(\\int\\frac{u^3}{2} du = \\frac{1}{2}\\int u^3 du\\)</p>\r\n\r\n<p>=\\(\\frac{1}{2}(\\frac{u^4}{4})=\\frac{u^4}{8}\\)</p>\r\n\r\n<p>\\(\\therefore\\frac{1}{8} (2x + 1)^4 + k\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261386",
+                "tag": "a",
+                "text": "\\(8(2x + 1)^2 + k\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261387",
+                "tag": "b",
+                "text": "\\(6(2x + 1)^2 + k\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261388",
+                "tag": "c",
+                "text": "\\(\\frac{1}{8} (2x + 1)^4 + k\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261389",
+                "tag": "d",
+                "text": "\\(\\frac{1}{6} (2x + 1)^4 + k\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69162": {
+        "order_id": 27,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If &alpha; and &beta; are the roots of \\(7x2 +12x - 4 = 0\\),find the value of \\(\\frac{&alpha;&beta;}{(&alpha; + &beta;)^2}\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The general form of a quadratic equation is:</p>\r\n\r\n<p>\\(x^2\\) -(sum of roots)\\(x\\) +(product of roots) = 0</p>\r\n\r\n<p>\\(7x^2+12x-4=0\\)</p>\r\n\r\n<p>Divide through by 7</p>\r\n\r\n<p>=\\(x^2+\\frac{12}{7}x-\\frac{4}{7}=0\\)</p>\r\n\r\n<p>=\\(x^2-(-\\frac{12}{7})x+(-\\frac{4}{7})=0\\)</p>\r\n\r\n<p>\\(\\therefore\\) sum of roots = \\(-\\frac{12}{7}\\), and products of roots =\\(-\\frac{4}{7}\\)</p>\r\n\r\n<p>&alpha; + &beta; = \\(-\\frac{12}{7},&nbsp;&alpha;&beta; = -\\frac{4}{7}\\)</p>\r\n\r\n<p>\\(\\frac{&alpha;&beta;}{(&alpha; + &beta;)^2} = \\frac{\\frac{-4}{7}}{(\\frac{-12}{7})^2}\\)</p>\r\n\r\n<p>=\\(\\frac{\\frac{-4}{7}}{\\frac{144}{49}}=-\\frac{4}{7}\\times\\frac{49}{144}\\)</p>\r\n\r\n<p>\\(\\therefore - \\frac{7}{36}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261406",
+                "tag": "a",
+                "text": "\\( \\frac{7}{36}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261407",
+                "tag": "b",
+                "text": "-\\( \\frac{36}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261408",
+                "tag": "c",
+                "text": "\\(\\frac{36}{7}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261409",
+                "tag": "d",
+                "text": "-\\( \\frac{7}{36}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69164": {
+        "order_id": 28,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If \\(3x^2 + p x + 12 = 0\\) has equal roots, find the values of p .</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>The general form of a quadratic&nbsp;equation is:</p>\r\n\r\n<p>\\(x^2\\)-(sum of roots) = 0</p>\r\n\r\n<p>For equal roots it&#39;s:\\(x^2 - 2(&alpha;)+(&alpha;)^2=0\\)</p>\r\n\r\n<p>\\(3x^2+px+12=0\\)</p>\r\n\r\n<p>Divide through by 3</p>\r\n\r\n<p>= \\(x^2+\\frac{p}{3}x+4=0\\)</p>\r\n\r\n<p>=\\(x^2-(-\\frac{p}{3})x+4=0\\)</p>\r\n\r\n<p>\\(So,&alpha;^2=4\\)</p>\r\n\r\n<p>= &alpha; = &radic;4 = &plusmn;2</p>\r\n\r\n<p>Also,-\\(\\frac{p}{3}= 2&alpha;\\)</p>\r\n\r\n<p>When &alpha; = 2</p>\r\n\r\n<p>-\\(\\frac{p}{3} = 2(2)=4\\)</p>\r\n\r\n<p>=p=-12</p>\r\n\r\n<p>When &alpha; =-2</p>\r\n\r\n<p>-\\(\\frac{p}{3}=2(-2)=-4\\)</p>\r\n\r\n<p>= p = 12</p>\r\n\r\n<p>&there4; values of p = &plusmn;12</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261414",
+                "tag": "a",
+                "text": "\u00b112",
+                "is_correct": true
+            },
+            {
+                "option_id": "261415",
+                "tag": "b",
+                "text": "\u00b13",
+                "is_correct": false
+            },
+            {
+                "option_id": "261416",
+                "tag": "c",
+                "text": "\u00b14",
+                "is_correct": false
+            },
+            {
+                "option_id": "261417",
+                "tag": "d",
+                "text": "\u00b16",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69165": {
+        "order_id": 29,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that \\(\\frac{3x + 4}{(x - 2)(x + 3)}&equiv;\\frac{P}{x + 3}+\\frac{Q}{x - 2}\\),find the value of Q.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(\\frac{3x + 4}{(x - 2)(x + 3)}&equiv;\\frac{P}{x + 3}+\\frac{Q}{x - 2}\\)</p>\r\n\r\n<p>\\(\\frac{3x + 4}{(x - 2)(x + 3)}=\\frac{P(x-2)+Q(x+3)}{(x-2)(x+3)}\\)</p>\r\n\r\n<p>=\\(3x+4=P(x-2)+Q(x+3)\\)</p>\r\n\r\n<p>=\\(3x+4=Px-2P+Qx+3Q\\)</p>\r\n\r\n<p>=\\(3x+4=Px+Qx-2P+3Q\\)</p>\r\n\r\n<p>=\\(3x+4=(P+Q)x-2P+3Q\\)</p>\r\n\r\n<p>Equating x and the constants</p>\r\n\r\n<p>P+Q=3------(i)</p>\r\n\r\n<p>2P+3Q=4-------(ii)</p>\r\n\r\n<p>From equation (i)</p>\r\n\r\n<p>P=3-Q------(iii)</p>\r\n\r\n<p>Substitute (3-Q) for P inequation (ii)</p>\r\n\r\n<p>=-2(3-Q)+3Q=4</p>\r\n\r\n<p>=-6+2Q+3Q=4</p>\r\n\r\n<p>=-6+5Q=4</p>\r\n\r\n<p>=5Q=4+6</p>\r\n\r\n<p>=5Q=10</p>\r\n\r\n<p>&there4;Q=\\(\\frac{10}{5}=2\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261418",
+                "tag": "a",
+                "text": "2",
+                "is_correct": true
+            },
+            {
+                "option_id": "261419",
+                "tag": "b",
+                "text": "-2",
+                "is_correct": false
+            },
+            {
+                "option_id": "261420",
+                "tag": "c",
+                "text": "1",
+                "is_correct": false
+            },
+            {
+                "option_id": "261421",
+                "tag": "d",
+                "text": "-1",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69177": {
+        "order_id": 30,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The velocity of a body of mass 4.56 kg increases from \\((10 ms^{-1}, 060^o) to (50 ms ^{-1}, 060^o)\\) in 16 seconds . Calculate the magnitude of force acting on it.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(m=4.56kg;t=16s;v_1=(10ms^{-1},060^o);v_2=(50ms^{-1},060^o)\\)</p>\r\n\r\n<p>Notice that there is no change in the direction of the velocity</p>\r\n\r\n<p>So,we don&#39;t need to write it&nbsp;in a vector form</p>\r\n\r\n<p>\\(a=\\frac{\u2206v}{t}=\\frac{50 - 10}{16}\\)</p>\r\n\r\n<p>\\(a=\\frac{40}{16}=2.5ms^{-2}\\)</p>\r\n\r\n<p>F = ma = 4.56 x 2.5</p>\r\n\r\n<p>&there4; F = 11.4 N</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261462",
+                "tag": "a",
+                "text": "17.1 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "261463",
+                "tag": "b",
+                "text": "11.4 N",
+                "is_correct": true
+            },
+            {
+                "option_id": "261464",
+                "tag": "c",
+                "text": "36.5 N",
+                "is_correct": false
+            },
+            {
+                "option_id": "261465",
+                "tag": "d",
+                "text": "5.7 N",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 6,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69179": {
+        "order_id": 31,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A linear transformation on the oxy plane is defined by \\(P : (x, y) &rarr; (2x + y, -2y)\\). Find \\(P^2\\)</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P : (x, y) &rarr; (2x + y, -2y)\\)</p>\r\n\r\n<p>\\(p\\begin{bmatrix}&nbsp;x\\\\y\\end{bmatrix}=\\begin{bmatrix} 2x &amp; y\\\\0 &amp;-2y\\end{bmatrix}\\)</p>\r\n\r\n<p>\\(\\therefore p = \\begin{bmatrix} 2 &amp; 1\\\\0 &amp;-2\\end{bmatrix}\\)</p>\r\n\r\n<p>\\(\\therefore p^2 = \\begin{bmatrix} 2&amp;1\\\\0&amp;-2\\end{bmatrix}\\) \\(\\begin{bmatrix} 2&amp;1\\\\0&amp;-2\\end{bmatrix}\\) = \\(\\begin{bmatrix} 4&amp;0\\\\0&amp;4\\end{bmatrix}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 1,
+        "options": [
+            {
+                "option_id": "261470",
+                "tag": "a",
+                "text": "\\(\\begin{bmatrix} 4&0\\\\1&4\\end{bmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261471",
+                "tag": "b",
+                "text": "\\(\\begin{bmatrix} 4&4\\\\0&0\\end{bmatrix}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261472",
+                "tag": "c",
+                "text": "\\(\\begin{bmatrix} 4&0\\\\0&4\\end{bmatrix}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261473",
+                "tag": "d",
+                "text": "\\(\\begin{bmatrix} 4&1\\\\0&4\\end{bmatrix}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69195": {
+        "order_id": 32,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that \\(y^2 + xy = 5,find \\frac{dy}{dx}\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(y^2 + xy = 5\\)</p>\r\n\r\n<p>By implicit differentiation</p>\r\n\r\n<p>\\(=2y\\frac{dy}{dx}+y+x\\frac{dy}{dx}=0\\)</p>\r\n\r\n<p>\\(=2y\\frac{dy}{dx}+x\\frac{dy}{dx}=-y\\)</p>\r\n\r\n<p>Factor out \\(\\frac{dy}{dx}\\)</p>\r\n\r\n<p>\\(=\\frac{dy}{dx}(2y+x)=-y\\)</p>\r\n\r\n<p>\\(&there4;\\frac{dy}{dx}=\\frac{-y}{2y&nbsp;+ x}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261534",
+                "tag": "a",
+                "text": "\\(\\frac{y}{2y\u00a0+ x}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261535",
+                "tag": "b",
+                "text": "\\(\\frac{-y}{2y\u00a0+ x}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261536",
+                "tag": "c",
+                "text": "\\(\\frac{-y}{2y\u00a0- x}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261537",
+                "tag": "d",
+                "text": "\\(\\frac{y}{2y\u00a0+ x}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69200": {
+        "order_id": 33,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If \\(X\\) and \\(Y\\) are <strong>two</strong> independent events such that \\(P (X) = \\frac{1}{8}\\) and \\(P (X \u22c3 Y) = \\frac{5}{8}\\), find \\(P (Y)\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(X\u22c3Y)=\\frac{5}{8}\\)</p>\r\n\r\n<p>\\(P(X\u22c2Y)=P(X)\\times P(Y)\\)</p>\r\n\r\n<p>Since X and Y are independent events, the probability of their union (X \u22c3 Y) can be calculated as:</p>\r\n\r\n<p>\\(P(X\u22c3Y)=P(X)+P(Y)-P(X\u22c2Y)\\)</p>\r\n\r\n<p>\\(=\\frac{5}{8}=\\frac{1}{8}+P(Y)-\\frac{1}{8}\\times P(Y)\\)</p>\r\n\r\n<p>\\(=\\frac{5}{8}-\\frac{1}{8}=P(Y)-\\frac{1}{8}\\times P(Y)\\)</p>\r\n\r\n<p>\\(=\\frac{1}{2}=P(Y)(1-\\frac{1}{8})\\)</p>\r\n\r\n<p>\\(=\\frac{1}{2}=P(Y)(\\frac{7}{8})\\)</p>\r\n\r\n<p>\\(=P(Y)=\\frac{1}{2}&divide;\\frac{7}{8}\\)</p>\r\n\r\n<p>\\(&there4;P(Y)=\\frac{1}{2}x\\frac{8}{7}=\\frac{4}{7}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261554",
+                "tag": "a",
+                "text": "\\(\\frac{1}{6}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261555",
+                "tag": "b",
+                "text": "\\(\\frac{4}{7}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261556",
+                "tag": "c",
+                "text": "\\(\\frac{4}{21}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261557",
+                "tag": "d",
+                "text": "\\(\\frac{3}{7}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69224": {
+        "order_id": 34,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>A function \\(f\\) is defined by \\(f :x&rarr;\\frac{x + 2}{x - 3},x &ne; 3\\).Find the inverse of \\(f\\)&nbsp;.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(f :x&rarr;\\frac{x + 2}{x - 3},x &ne; 3, f = ?\\)</p>\r\n\r\n<p>Let \\(f&nbsp;:x=y\\)</p>\r\n\r\n<p>\\(y=\\frac{x + 2}{x - 3}\\)</p>\r\n\r\n<p>\\(=x+2=y(x-3)\\)</p>\r\n\r\n<p>\\(=x-xy=-3y-2\\)</p>\r\n\r\n<p>\\(=x(1-y)=-3y-2\\)</p>\r\n\r\n<p>\\(=x=\\frac{-3y - 2}{1 - y}=\\frac{-(3y + 2)}{- (y - 1)}\\)</p>\r\n\r\n<p>\\(=x=\\frac{3y + 2}{y - 1}\\)</p>\r\n\r\n<p>\\(&there4;f ^{-1} : x=\\frac{3x + 2}{x - 1},x &ne; 1\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261650",
+                "tag": "a",
+                "text": "\\(\\frac{x + 3}{x - 2},x \u2260 2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261651",
+                "tag": "b",
+                "text": "\\(\\frac{x - 3}{x + 2},x \u2260 -2\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261652",
+                "tag": "c",
+                "text": "\\(\\frac{3x - 2}{x+1},x \u2260 -1\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261653",
+                "tag": "d",
+                "text": "\\(\\frac{3x + 2}{x - 1},x \u2260 1\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69251": {
+        "order_id": 35,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>The probabilities that Atta and Tunde will hit a target in a shooting contest are \\(\\frac{1}{6}\\) and \\({1}{9}\\) respectively. Find the probability that only one of them will hit the target.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(P(A)=\\frac{1}{6},P(T)=\\frac{1}{9}\\)</p>\r\n\r\n<p>Probability that only one of them will hit the target = \\(P(A)\\times P( \\bar T ) + P( \\bar A )\\times P(T)\\)</p>\r\n\r\n<p>Where \\(P( \\bar T )\\) is the probability that Tunde will not hit the target and \\(P( \\bar A )\\) is the probability that Atta will not hit the target</p>\r\n\r\n<p>\\(P( \\bar T&nbsp;)=1-\\frac{1}{9}=\\frac{8}{9}\\)</p>\r\n\r\n<p>\\(P( \\bar A&nbsp;)=1-\\frac{1}{6}=\\frac{5}{6}\\)</p>\r\n\r\n<p>Pr(only one) =\\((\\frac{1}{6}\\times\\frac{8}{9}) + (\\frac{5}{6} \\times \\frac{1}{9}) =\\frac{4}{27} + \\frac{5}{54}\\)</p>\r\n\r\n<p>\\(\\therefore\\) pr (only one) = \\(\\frac{13}{54}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261718",
+                "tag": "a",
+                "text": "\\(\\frac{1}{54}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261719",
+                "tag": "b",
+                "text": "\\(\\frac{41}{54}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261720",
+                "tag": "c",
+                "text": "\\(\\frac{20}{27}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261721",
+                "tag": "d",
+                "text": "\\(\\frac{13}{54}\\)",
+                "is_correct": true
+            }
+        ],
+        "_page_num": 7,
+        "_page_idx": 4,
+        "editor_images": null
+    },
+    "69270": {
+        "order_id": 36,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Given that \\(p = \\begin{bmatrix} x&amp;4\\\\3&amp;7\\end{bmatrix} Q =\\begin{bmatrix} x&amp;3\\\\1&amp;2x\\end{bmatrix}\\) and the determinant of \\(Q\\) is <strong>three</strong> more than that of \\(P\\) , find the values of \\(x\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(p = \\begin{bmatrix} x&amp;4\\\\3&amp;7\\end{bmatrix}, Q =\\begin{bmatrix} x&amp;3\\\\1&amp;2x\\end{bmatrix}\\)</p>\r\n\r\n<p>\\(p = \\begin{bmatrix} x&amp;4\\\\3&amp;7\\end{bmatrix}=7x-12, Q =\\begin{bmatrix} x&amp;3\\\\1&amp;2x\\end{bmatrix}=2x^2-3\\)</p>\r\n\r\n<p>|Q| = |P| + 3 (Given)<br />\r\n<br />\r\n\\(= 2\\times2 - 3 = 7x - 12 + 3\\)<br />\r\n<br />\r\n\\(= 2\\times2 - 3 - 7x + 12 - 3 = 0\\)<br />\r\n<br />\r\n\\(= 2\\times2 - 7x + 6 = 0\\)<br />\r\n<br />\r\n\\(= 2\\times2 - 4x - 3x + 6 = 0\\)<br />\r\n<br />\r\n\\(= 2x(x - 2) - 3(x - 2) = 0\\)<br />\r\n<br />\r\n\\(= (x - 2)(2x - 3) = 0\\)</p>\r\n\r\n<p>\\(\\therefore x=2,\\frac{3}{2}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261746",
+                "tag": "a",
+                "text": "\\(-2,\\frac{3}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261747",
+                "tag": "b",
+                "text": "\\(2,\\frac{3}{2}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261748",
+                "tag": "c",
+                "text": "\\(-2,-\\frac{3}{2}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261749",
+                "tag": "d",
+                "text": "\\(2-,\\frac{3}{2}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 0,
+        "editor_images": null
+    },
+    "69274": {
+        "order_id": 37,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If m and ( m + 4) are the roots of \\(4x^2 - 4x - 15 = 0\\), find the equation whose roots are 2 m and (2 m + 8).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(x^2-\\)(sum of roots)\\(x+\\)(product of roots) = \\(0\\)</p>\r\n\r\n<p>\\(4x^2-4x-15=0\\)</p>\r\n\r\n<p>Divide through by 4</p>\r\n\r\n<p>\\(=x^2-x-\\frac{15}{4}=0\\)</p>\r\n\r\n<p>\\(=x^2-x+(-\\frac{15}{4})=0\\)</p>\r\n\r\n<p>\\(=x^2-(1)x+(-\\frac{15}{4})=0\\)</p>\r\n\r\n<p>sum of roots =1</p>\r\n\r\n<p>= m + (m + 4) = 1<br />\r\n=2m+4=1</p>\r\n\r\n<p>=2m=-3</p>\r\n\r\n<p>=m=-\\(\\frac{3}{2}\\)</p>\r\n\r\n<p>The equation whose roots are 2m and 2m+8</p>\r\n\r\n<p>2m=2&times;-\\(\\frac{3}{2}=-3\\)and \\(2m+8=2&times;-\\frac{3}{2}+8=5\\)</p>\r\n\r\n<p>\\(=x^2-(-3+5)x+(-3)(5)=0\\)</p>\r\n\r\n<p>\\(=x^2-2x+(-15)=0\\)</p>\r\n\r\n<p>\\(&there4;x^2-2x-15=0\\)</p>\r\n\r\n<p>&nbsp;</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261758",
+                "tag": "a",
+                "text": "\\(x^2+8x-15=0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261759",
+                "tag": "b",
+                "text": "\\(x^2-2x-15=0\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261760",
+                "tag": "c",
+                "text": "\\(x^2-8x-15=0\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261761",
+                "tag": "d",
+                "text": "\\(x^2+2x+15=0\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 1,
+        "editor_images": null
+    },
+    "69285": {
+        "order_id": 38,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>Find the coefficient of the \\(6^{th}term\\)&nbsp;in the binomial expansion of \\((1 - \\frac{2x}{3})10\\) in ascending powers of \\(x\\).</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>rth term of a binomial expansion =\\(^nC_r-1 a^{n-(r-1)}b^{r-1}\\)</p>\r\n\r\n<p>\\(n = 10,r = 6 \\therefore r-1=5\\)</p>\r\n\r\n<p>6th term =\\(^{10}C_5 1^{10} - 5 (-\\frac{2}{3}x)^5\\)</p>\r\n\r\n<p>\\(=252*1*-\\frac{32x^5}{243}=-\\frac{896x^5}{27}\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261798",
+                "tag": "a",
+                "text": "\\(-\\frac{896x^6}{9}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261799",
+                "tag": "b",
+                "text": "\\(-\\frac{896x^5}{9}\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261800",
+                "tag": "c",
+                "text": "\\(-\\frac{896x^5}{27}\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261801",
+                "tag": "d",
+                "text": "\\(-\\frac{896x^6}{27}\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 2,
+        "editor_images": null
+    },
+    "69290": {
+        "order_id": 39,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>In how many ways can four Mathematicians be selected from six ?</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>\\(=^6C_4\\)</p>\r\n\r\n<p>\\(=\\frac{6!}{(4!\\times2!)}\\)</p>\r\n\r\n<p>\\(=\\frac{6\\times5}{2\\times1}\\)</p>\r\n\r\n<p>= 15</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261818",
+                "tag": "a",
+                "text": "90",
+                "is_correct": false
+            },
+            {
+                "option_id": "261819",
+                "tag": "b",
+                "text": "60",
+                "is_correct": false
+            },
+            {
+                "option_id": "261820",
+                "tag": "c",
+                "text": "15",
+                "is_correct": true
+            },
+            {
+                "option_id": "261821",
+                "tag": "d",
+                "text": "360",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 3,
+        "editor_images": null
+    },
+    "69294": {
+        "order_id": 40,
+        "exam_type": "WAEC",
+        "subject": "Further Mathematics",
+        "topic": null,
+        "question_type": "Objective",
+        "exam_year": "2023",
+        "question_text": "<p>If \\((x - 5)\\) is a factor of \\(x^3 - 4x^2 - 11x + 30\\), find the remaining factors.</p>",
+        "question_image": null,
+        "answer_image": null,
+        "explanation": "<p>(x - 5) is a factor of \\(x^3 - 4x^2 - 11x + 30\\). To find the remaining factors, let&#39;s draw out \\((x - 5)\\) from the parent expression.<br />\r\n<br />\r\n\\(x^3 - 4x^2 - 11x + 30 = x^3 - 5x^2 + x^2 - 5x - 6x + 30\\)<br />\r\n<br />\r\n\\(= x^2(x - 5) + x(x - 5) - 6(x - 5) = (x - 5)(x^2 + x - 6)\\)<br />\r\n<br />\r\n&there4; To find the remaining factors, we factorize \\((x2 + x - 6)\\)<br />\r\n<br />\r\n\\(x^2 + x - 6 = x^2 + 3x - 2x - 6\\)<br />\r\n<br />\r\n\\(= x(x + 3) - 2(x + 3) = (x + 3)(x - 2)\\)<br />\r\n<br />\r\n&there4; The other two factors are \\((x + 3) and (x - 2)\\)<br />\r\n<br />\r\nALTERNATIVELY<br />\r\n<img alt=\"Open photo\" src=\"https://scontent.xx.fbcdn.net/v/t1.15752-9/426113468_922914339014687_7865335266867725591_n.jpg?stp=dst-jpg_p206x206&amp;_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=510075&amp;_nc_eui2=AeETrUJHwE5X60MqBpc7iSY52ostP5rZxiXaiy0_mtnGJQkyQ5PNd90u7UhV_DDrKDUyYm136d7y5k12xOzni5Cd&amp;_nc_ohc=pEU_wERZe3UAX8PQGyJ&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;cb_e2o_trans=q&amp;oh=03_AdRENlIFheFZjjDvV72Jn0SzT1TBypevso281U3UkHFpkQ&amp;oe=65EC8087\" /></p>\r\n\r\n<p>\\(&there4; x^2 + x - 6 = (x + 3) and (x - 2)\\)</p>",
+        "reference_passage": null,
+        "novel": null,
+        "comments_count": 0,
+        "options": [
+            {
+                "option_id": "261834",
+                "tag": "a",
+                "text": "\\((x + 3) and (x - 2)\\)",
+                "is_correct": true
+            },
+            {
+                "option_id": "261835",
+                "tag": "b",
+                "text": "\\((x - 3) and (x + 2)\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261836",
+                "tag": "c",
+                "text": "\\((x - 3) and (x - 2)\\)",
+                "is_correct": false
+            },
+            {
+                "option_id": "261837",
+                "tag": "d",
+                "text": "\\((x + 3) and (x + 2)\\)",
+                "is_correct": false
+            }
+        ],
+        "_page_num": 8,
+        "_page_idx": 4,
+        "editor_images": null
+    }
+}
