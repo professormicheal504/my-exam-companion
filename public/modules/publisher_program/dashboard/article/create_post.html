@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #fff;
+            color: #111;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        /* ── Header ── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            flex-shrink: 0;
+        }
+        .back-btn {
+            color: #555;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .back-btn svg { width: 24px; height: 24px; fill: currentColor; }
+        .next-btn {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ── Title ── */
+        .title-area {
+            padding: 14px 16px 8px;
+            flex-shrink: 0;
+        }
+        .title-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111;
+            font-family: inherit;
+            line-height: 1.35;
+            min-height: 28px;
+        }
+        .title-input:empty::before {
+            content: attr(data-placeholder);
+            color: #d0d0d0;
+        }
+        .char-count {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.7rem;
+            color: #c0c0c0;
+            margin-top: 6px;
+        }
+
+        /* ── Toolbar ── */
+        .toolbar-wrap {
+            position: relative;
+            flex-shrink: 0;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+            background: #fafafa;
+        }
+
+        /* URL Input Popup */
+        .url-popup {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 8px 12px;
+            gap: 8px;
+            align-items: center;
+            z-index: 20;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .url-popup.open { display: flex; }
+        .url-popup input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 7px 10px;
+            font-size: 0.85rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .url-popup input:focus { border-color: #2563eb; }
+        .url-popup-btn {
+            padding: 7px 14px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .url-popup-cancel {
+            padding: 7px 10px;
+            background: #f0f0f0;
+            color: #666;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* Single Toolbar Row — scrollable, never wraps */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+            gap: 2px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .toolbar::-webkit-scrollbar { display: none; }
+        .toolbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .t-divider {
+            width: 1px;
+            height: 20px;
+            background: #ddd;
+            margin: 0 6px;
+            flex-shrink: 0;
+        }
+
+        .t-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #888;
+            flex-shrink: 0;
+            transition: background 0.15s, color 0.15s;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .t-btn:hover { background: #ebebeb; color: #222; }
+        .t-btn:active { background: #e0e0e0; }
+        .t-btn.is-active { background: #dbeafe; color: #2563eb; }
+
+        .t-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            pointer-events: none;
+        }
+
+        /* Text-based buttons (H1, H2, B, I, U) */
+        .t-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+        .t-text sup { font-size: 0.6em; vertical-align: super; }
+
+        .t-bold { font-family: sans-serif; font-size: 0.95rem; font-weight: 900; }
+        .t-italic { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 1.1rem; font-weight: 700; }
+        .t-underline { text-decoration: underline; font-family: sans-serif; font-size: 0.9rem; font-weight: 700; }
+
+        /* ── Editor ── */
+        .editor-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .editor {
+            min-height: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #111;
+            line-height: 1.7;
+            font-family: inherit;
+        }
+        .editor:empty::before {
+            content: attr(data-placeholder);
+            color: #c8c8c8;
+            pointer-events: none;
+        }
+        /* Article-like styles inside the editor */
+        .editor h1 { font-size: 1.5rem; font-weight: 800; margin: 16px 0 8px; line-height: 1.25; }
+        .editor h2 { font-size: 1.2rem; font-weight: 700; margin: 12px 0 6px; line-height: 1.3; }
+        .editor h3 { font-size: 1.05rem; font-weight: 700; margin: 10px 0 5px; }
+        .editor blockquote {
+            margin: 24px 0;
+            padding: 16px 24px;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #000;
+        }
+        .editor ul { padding-left: 22px; margin: 8px 0; }
+        .editor ol { padding-left: 22px; margin: 8px 0; }
+        .editor li { margin-bottom: 5px; }
+        .editor a { color: #e52828; text-decoration: underline; }
+        .editor figure { margin: 14px 0; }
+        .editor figure img { max-width: 100%; border-radius: 6px; }
+        .editor figcaption { font-size: 0.78rem; color: #888; margin-top: 6px; }
+        .editor p { margin-bottom: 10px; }
+
+        /* ── Footer ── */
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            padding: 10px 16px;
+            font-size: 0.72rem;
+            color: #bbb;
+            font-weight: 500;
+            border-top: 1px solid #f5f5f5;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <a href="../dashboard.html" class="back-btn" title="Go back">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        </a>
+        <a href="#" class="next-btn" onclick="handleNext(event)">Next</a>
+    </div>
+
+    <!-- Title -->
+    <div class="title-area">
+        <div id="titleInput" class="title-input" contenteditable="true" data-placeholder="Title..."></div>
+        <div class="char-count"><span id="charCount">0</span>/100</div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar-wrap">
+
+        <!-- URL Popup -->
+        <div class="url-popup" id="urlPopup">
+            <input type="url" id="urlInput" placeholder="Paste URL here...">
+            <button class="url-popup-btn" id="urlConfirmBtn">Insert</button>
+            <button class="url-popup-cancel" onclick="closePopup()">Cancel</button>
+        </div>
+
+        <!-- Single Row Toolbar -->
+        <div class="toolbar" id="mainToolbar">
+
+            <!-- Text Formatting -->
+            <div class="t-btn t-text" id="btn-h1" title="Heading 1" onclick="applyFormat('h1')">H<sup>1</sup></div>
+            <div class="t-btn t-text" id="btn-h2" title="Heading 2" onclick="applyFormat('h2')">H<sup>2</sup></div>
+
+            <div class="t-divider"></div>
+
+            <div class="t-btn t-bold" id="btn-bold" title="Bold (Ctrl+B)" onclick="execCmd('bold')">B</div>
+            <div class="t-btn t-italic" id="btn-italic" title="Italic (Ctrl+I)" onclick="execCmd('italic')">I</div>
+            <div class="t-btn t-underline" id="btn-underline" title="Underline (Ctrl+U)" onclick="execCmd('underline')">U</div>
+
+            <div class="t-divider"></div>
+
+            <!-- Block formats -->
+            <div class="t-btn" id="btn-quote" title="Blockquote" onclick="applyFormat('blockquote')">
+                <!-- quote icon -->
+                <svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+            </div>
+            <div class="t-btn" id="btn-ul" title="Bullet List" onclick="execCmd('insertUnorderedList')">
+                <!-- unordered list -->
+                <svg viewBox="0 0 24 24"><path d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5zM7 19h14v-2H7v2zm0-6h14v-2H7v2zm0-8v2h14V5H7z"/></svg>
+            </div>
+            <div class="t-btn" id="btn-ol" title="Numbered List" onclick="execCmd('insertOrderedList')">
+                <!-- ordered list -->
+                <svg viewBox="0 0 24 24"><path d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"/></svg>
+            </div>
+
+            <div class="t-divider"></div>
+
+            <!-- Insert tools -->
+            <input type="file" id="imageFileInput" accept="image/*" style="display: none;" onchange="handleImageFile(event)">
+            <div class="t-btn" id="btn-img" title="Insert Image" onclick="document.getElementById('imageFileInput').click()">
+                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            </div>
+            <div class="t-btn" id="btn-link" title="Insert Link" onclick="openPopup('link')">
+                <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+            </div>
+            <div class="t-btn" id="btn-video" title="Embed Video" onclick="openPopup('video')">
+                <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            </div>
+
+            <div class="t-divider"></div>
+
+            <!-- Utilities -->
+            <div class="t-btn" title="Clear Formatting" onclick="execCmd('removeFormat')">
+                <svg viewBox="0 0 24 24"><path d="M6 5v.18L8.82 8h2.4l-.72 1.68 2.1 2.1L14.21 8H20V5H6zm14 13.59L5.41 4 4 5.41l6.62 6.63-3.12 7.33-.01.03H9v.01h10v-3h-2.59L20 19.41 18.59 18.59z"/></svg>
+            </div>
+            <div class="t-btn" title="Undo (Ctrl+Z)" onclick="execCmd('undo')">
+                <svg viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
+            </div>
+            <div class="t-btn" title="Redo (Ctrl+Y)" onclick="execCmd('redo')">
+                <svg viewBox="0 0 24 24"><path d="M18.4 10.6C16.55 9 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22l2.37.78c1.05-3.19 4.06-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Editor -->
+    <div class="editor-area">
+        <div id="editor" class="editor" contenteditable="true" data-placeholder="Add content..."></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <span><span id="wordCount">0</span> Words</span>
+        <span><span id="charCountBody">0</span> Characters</span>
+    </div>
+
+</div>
+
+<script>
+    const editor   = document.getElementById('editor');
+    const titleEl  = document.getElementById('titleInput');
+    const charCount    = document.getElementById('charCount');
+    const wordCount    = document.getElementById('wordCount');
+    const charCountBody = document.getElementById('charCountBody');
+
+    /* ── Title counter ── */
+    titleEl.addEventListener('input', () => {
+        const len = (titleEl.innerText || '').length;
+        charCount.textContent = len;
+        charCount.style.color = len > 90 ? '#e52828' : '#c0c0c0';
+    });
+
+    /* ── Body stats ── */
+    editor.addEventListener('input', updateStats);
+    function updateStats() {
+        const text = editor.innerText || '';
+        const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).filter(Boolean).length;
+        wordCount.textContent    = words;
+        charCountBody.textContent = text.length;
+        updateActiveStates();
+    }
+
+    /* ── Toolbar active states ── */
+    editor.addEventListener('keyup', updateActiveStates);
+    editor.addEventListener('mouseup', updateActiveStates);
+    document.addEventListener('selectionchange', updateActiveStates);
+
+    function updateActiveStates() {
+        document.getElementById('btn-bold').classList.toggle('is-active', document.queryCommandState('bold'));
+        document.getElementById('btn-italic').classList.toggle('is-active', document.queryCommandState('italic'));
+        document.getElementById('btn-underline').classList.toggle('is-active', document.queryCommandState('underline'));
+        document.getElementById('btn-ul').classList.toggle('is-active', document.queryCommandState('insertUnorderedList'));
+        document.getElementById('btn-ol').classList.toggle('is-active', document.queryCommandState('insertOrderedList'));
+
+        const block = document.queryCommandValue('formatBlock').toLowerCase();
+        document.getElementById('btn-h1').classList.toggle('is-active', block === 'h1');
+        document.getElementById('btn-h2').classList.toggle('is-active', block === 'h2');
+        document.getElementById('btn-quote').classList.toggle('is-active', block === 'blockquote');
+    }
+
+    /* ── Core command ── */
+    function execCmd(cmd, value = null) {
+        editor.focus();
+        document.execCommand(cmd, false, value);
+        updateActiveStates();
+    }
+
+    /* ── Heading & block format ── */
+    function applyFormat(tag) {
+        editor.focus();
+        // Toggle off if already active
+        const current = document.queryCommandValue('formatBlock').toLowerCase();
+        if (current === tag) {
+            document.execCommand('formatBlock', false, '<p>');
+        } else {
+            document.execCommand('formatBlock', false, '<' + tag + '>');
+        }
+        updateActiveStates();
+    }
+
+    /* ── URL Popup ── */
+    let insertType = null;
+    let savedRange = null;
+
+    function openPopup(type) {
+        insertType = type;
+        const inp = document.getElementById('urlInput');
+        const btn = document.getElementById('urlConfirmBtn');
+
+        // Save selection
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount) savedRange = sel.getRangeAt(0).cloneRange();
+
+        const labels = {
+            link:  ['Paste link URL...',  'Insert Link'],
+            video: ['Paste YouTube / video URL...', 'Embed Video']
+        };
+        inp.placeholder  = labels[type][0];
+        btn.textContent  = labels[type][1];
+        inp.value = '';
+
+        document.getElementById('urlPopup').classList.add('open');
+        inp.focus();
+    }
+
+    function closePopup() {
+        document.getElementById('urlPopup').classList.remove('open');
+        insertType = null;
+    }
+
+    /* ── Handle Image File Selection ── */
+    function handleImageFile(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            editor.focus();
+            document.execCommand('insertHTML', false,
+                `<figure><img src="${ev.target.result}" alt="Inserted image"><figcaption contenteditable="true">Add caption...</figcaption></figure><p><br></p>`
+            );
+            updateStats();
+        };
+        reader.readAsDataURL(file);
+        // Reset input so the same file can be selected again if needed
+        e.target.value = '';
+    }
+
+    document.getElementById('urlConfirmBtn').addEventListener('click', () => {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) return;
+
+        editor.focus();
+        if (savedRange) {
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(savedRange);
+        }
+
+        if (insertType === 'link') {
+            const sel = window.getSelection();
+            const text = sel.toString() || url;
+            document.execCommand('insertHTML', false,
+                `<a href="${url}" target="_blank" rel="noopener">${text}</a>`
+            );
+        } else if (insertType === 'video') {
+            const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([-\w]+)/);
+            let html;
+            if (ytMatch) {
+                html = `<figure><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000"><iframe src="https://www.youtube.com/embed/${ytMatch[1]}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe></div></figure><p><br></p>`;
+            } else {
+                html = `<figure><video controls style="max-width:100%;border-radius:8px"><source src="${url}"></video></figure><p><br></p>`;
+            }
+            document.execCommand('insertHTML', false, html);
+        }
+
+        closePopup();
+        updateStats();
+    });
+
+    /* Allow pressing Enter in URL popup to confirm */
+    document.getElementById('urlInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') document.getElementById('urlConfirmBtn').click();
+        if (e.key === 'Escape') closePopup();
+    });
+
+    /* ── Handle Next button ── */
+    function handleNext(e) {
+        e.preventDefault();
+        const title   = titleEl.innerText.trim();
+        const content = editor.innerHTML.trim();
+        if (!title) {
+            titleEl.focus();
+            titleEl.style.outline = '2px solid #e52828';
+            setTimeout(() => titleEl.style.outline = '', 1500);
+            return;
+        }
+        if (!content || content === '<br>') {
+            editor.focus();
+            return;
+        }
+        // Save to sessionStorage so post_review can read it
+        sessionStorage.setItem('post_title', title);
+        sessionStorage.setItem('post_content', editor.innerHTML);
+        window.location.href = 'post_review.html';
+    }
+
+    /* ── Keyboard shortcuts ── */
+    editor.addEventListener('keydown', e => {
+        if (e.ctrlKey || e.metaKey) {
+            if (e.key === 'b') { e.preventDefault(); execCmd('bold'); }
+            if (e.key === 'i') { e.preventDefault(); execCmd('italic'); }
+            if (e.key === 'u') { e.preventDefault(); execCmd('underline'); }
+        }
+    });
+</script>
+
+<script>
+    /* Auto-fill from sessionStorage (if navigating back) or from URL params */
+    (function () {
+        const savedTitle = sessionStorage.getItem('post_title');
+        const savedContent = sessionStorage.getItem('post_content');
+        
+        if (savedTitle) {
+            titleEl.innerText = savedTitle;
+        } else {
+            const params = new URLSearchParams(window.location.search);
+            const topic = params.get('topic');
+            if (topic) {
+                titleEl.innerText = topic;
+            }
+        }
+        
+        if (savedContent) {
+            editor.innerHTML = savedContent;
+            updateStats();
+        }
+        
+        // Update character count if title is present
+        if (titleEl.innerText) {
+            charCount.textContent = titleEl.innerText.length;
+        }
+
+        // Move cursor to end of title if it was populated
+        if (titleEl.innerText) {
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.selectNodeContents(titleEl);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+        // Focus the editor if title already provided
+        if (topic) {
+            setTimeout(() => editor.focus(), 100);
+        } else {
+            titleEl.focus();
+        }
+    })();
+</script>
+</body>
+</html>

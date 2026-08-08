@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #999999;
+            --accent-blue: #0066ff;
+            --accent-red: #ff3b30;
+            --border-color: #ebebeb;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--surface-color);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .logo-text { margin-left: 6px; }
+        .logo-text span { color: var(--accent-red); }
+        .avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background-color: #e2e5e9;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar svg { width: 20px; height: 20px; fill: #a0aab5; }
+
+        /* --- Sections --- */
+        .section-box {
+            background-color: var(--surface-color);
+            margin-bottom: 8px;
+        }
+
+        /* --- Premium Banner --- */
+        .banner-wrap {
+            padding: 16px;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .banner-card {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ffeaea;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.1);
+        }
+        .banner-left {
+            padding: 16px;
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .banner-title {
+            color: #d32f2f;
+            font-weight: 800;
+            font-size: 1.1rem;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+        .banner-desc {
+            color: #111;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+        .banner-right {
+            flex: 1;
+            background: linear-gradient(135deg, #ff4b4b, #d32f2f);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 12px;
+            position: relative;
+        }
+        .banner-right::before {
+            content: 'UPDATING...';
+            position: absolute;
+            bottom: 8px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        .banner-dots {
+            display: flex; justify-content: center; gap: 6px; margin-top: 12px; padding-bottom: 4px;
+        }
+        .dot { width: 6px; height: 6px; border-radius: 50%; background: #e0e0e0; }
+        .dot.active { background: var(--accent-blue); width: 6px; border-radius: 50%; }
+
+        /* --- Actions --- */
+        .actions-wrap {
+            background-color: var(--surface-color);
+            padding: 16px 16px 20px;
+            margin-bottom: 8px;
+        }
+        .actions-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+        }
+        .action-btn {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-decoration: none;
+        }
+        .action-icon {
+            width: 40px; height: 40px; margin-bottom: 6px;
+            display: flex; align-items: center; justify-content: center;
+            color: #ff5252;
+        }
+        .action-btn span { font-size: 0.75rem; font-weight: 500; color: #aaaaaa; }
+
+        /* --- Announcement --- */
+        .ticker {
+            display: flex; align-items: center; background-color: var(--surface-color);
+            padding: 12px 16px; margin-bottom: 8px;
+        }
+        .ticker-icon { color: #ff5252; margin-right: 12px; display: flex; align-items: center; }
+        .ticker-text {
+            flex-grow: 1; font-size: 0.9rem; font-weight: 500; color: #333;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .ticker-arrow { color: #bbbbbb; margin-left: 8px; display: flex; align-items: center; }
+
+        /* --- Trending --- */
+        .trending-box { padding: 16px 16px; }
+        .trending-header { display: flex; align-items: center; margin-bottom: 12px; padding: 0 4px;}
+        .trending-header h2 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; color: var(--text-primary); }
+        .trend-icon { color: #ff5252; margin-right: 8px; display: flex; align-items: center; }
+        
+        .t-card {
+            background: var(--surface-color); border-radius: 8px;
+            padding: 16px; margin-bottom: 12px;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);
+        }
+        .t-card-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .t-card-meta {
+            display: flex; align-items: center; color: var(--text-secondary); font-size: 0.8rem; font-weight: 500; margin-bottom: 12px;
+        }
+        .t-card-meta svg { width: 14px; height: 14px; margin-right: 4px; fill: currentColor; }
+        .t-card-desc { font-size: 0.95rem; color: #444; line-height: 1.4; margin-bottom: 16px; }
+        .t-card-bot { display: flex; justify-content: flex-end; }
+        .btn-create {
+            background-color: var(--accent-blue); color: #fff; border: none;
+            padding: 8px 24px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-create:hover { background-color: #0055dd; }
+
+        /* ── Create Bottom Sheet Modal ── */
+        .sheet-overlay {
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(0,0,0,0.45);
+            display: none; align-items: flex-end; justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+        .sheet-overlay.open { display: flex; }
+        .sheet {
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            width: 100%; max-width: 600px;
+            padding: 0 0 32px;
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.12);
+            animation: slideUp 0.28s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+        .sheet-handle {
+            width: 40px; height: 4px; background: #e0e0e0;
+            border-radius: 2px; margin: 12px auto 20px;
+        }
+        .sheet-title {
+            font-size: 1.05rem; font-weight: 700;
+            text-align: center; margin-bottom: 20px; color: #111;
+        }
+        .sheet-options { display: flex; flex-direction: column; gap: 12px; padding: 0 20px; }
+        .sheet-option {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px 18px; border-radius: 12px;
+            border: 1.5px solid #eee; background: #fafafa;
+            cursor: pointer; text-align: left;
+            transition: all 0.18s;
+            text-decoration: none; color: inherit;
+        }
+        .sheet-option:hover { border-color: #2563eb; background: #f0f6ff; }
+        .sheet-option:hover .sheet-opt-title { color: #2563eb; }
+        .sheet-opt-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .sheet-opt-icon svg { width: 26px; height: 26px; fill: #fff; }
+        .icon-blog { background: linear-gradient(135deg, #e52828, #ff6b6b); }
+        .icon-exam { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+        .sheet-opt-body { flex: 1; }
+        .sheet-opt-title { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+        .sheet-opt-desc { font-size: 0.82rem; color: #888; }
+
+        .svg-ic { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Articles Tab */
+        .articles-box {
+            background-color: var(--surface-color);
+            padding: 0 0 80px 0;
+            margin-top: 8px;
+        }
+        .articles-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px; border-bottom: 1px solid var(--border-color);
+        }
+        .articles-tab {
+            font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+            position: relative; padding-bottom: 10px; margin-bottom: -17px;
+        }
+        .articles-tab::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%;
+            height: 2px; background-color: var(--accent-red);
+        }
+        .articles-filter {
+            color: #999; font-size: 0.9rem; font-weight: 500;
+            display: flex; align-items: center;
+        }
+        .articles-filter svg { width: 16px; height: 16px; margin-left: 2px; fill: currentColor; }
+        .article-item { padding: 16px; border-bottom: 1px solid var(--border-color); }
+        .article-content-row { display: flex; gap: 12px; margin-bottom: 12px; }
+        .article-img {
+            width: 80px; height: 80px; flex-shrink: 0; background-color: #fff; border-radius: 4px;
+            object-fit: cover; border: 1px solid #e0e0e0; padding: 4px; display: flex; flex-direction: column;
+        }
+        .article-img-text { font-family: sans-serif; font-size: 10px; line-height: 1.2; color: #333; font-weight: 600; }
+        .article-img-text-sub { font-family: sans-serif; font-size: 10px; line-height: 1.2; color: #555; }
+        .article-info { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+        .article-title { font-size: 1rem; font-weight: 600; color: #222; line-height: 1.3; margin-bottom: 8px; }
+        .article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #999; font-weight: 500; }
+        .status-badge { padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 500; border: 1px solid; }
+        .status-pending { color: #f29d38; border-color: #f29d38; }
+        .status-published { color: var(--accent-blue); border-color: var(--accent-blue); }
+        .article-stats { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; color: #aaa; font-weight: 500; }
+        .article-stats .divider { color: #eaeaea; }
+
+        .fab-container { position: sticky; bottom: 0; height: 0; display: flex; justify-content: flex-end; padding-right: 20px; }
+        .fab {
+            transform: translateY(-80px); width: 56px; height: 56px; border-radius: 50%;
+            background-color: var(--accent-red); color: white; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4); cursor: pointer; text-decoration: none;
+        }
+        .fab svg { width: 28px; height: 28px; fill: currentColor; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--accent-red)">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5V11H9.5V9.5h3v7h-1.5zM12 8c-.69 0-1.25-.56-1.25-1.25S11.31 5.5 12 5.5s1.25.56 1.25 1.25S12.69 8 12 8z"/>
+                </svg>
+                <div class="logo-text">MyExam<span>Hub</span></div>
+            </div>
+            <div class="avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+        </header>
+
+        <!-- Banner -->
+        <div class="banner-wrap">
+            <div class="banner-card">
+                <div class="banner-left">
+                    <div class="banner-title">Monetization Calculator</div>
+                    <div class="banner-desc">to be taken down for maintenance and feature improvement</div>
+                </div>
+                <div class="banner-right">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </div>
+            </div>
+            <div class="banner-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions-wrap">
+             <div class="actions-grid">
+                <a href="article/create_post.html" class="action-btn">
+                    <div class="action-icon">
+                        <svg class="svg-ic" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                    </div>
+                    <span>Create</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <div class="action-icon">
+                        <svg class="svg-ic" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                    </div>
+                    <span>Library</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <div class="action-icon">
+                        <svg class="svg-ic" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                    </div>
+                    <span>Monetization</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <div class="action-icon">
+                        <svg class="svg-ic" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <span>Academy</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Ticker -->
+        <div class="ticker">
+            <div class="ticker-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </div>
+            <div class="ticker-text">Releases List of Winners For October Most F...</div>
+            <div class="ticker-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </div>
+        </div>
+
+        <!-- Trending -->
+        <div class="trending-box">
+            <div class="trending-header">
+                <span class="trend-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                </span>
+                <h2>Trending Topic</h2>
+            </div>
+            
+            <div class="t-card">
+                <div class="t-card-title">Isreal, Gaza War</div>
+                <div class="t-card-meta">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    194 Participants
+                </div>
+                <div class="t-card-desc">
+                    Israeli soldiers blast Benjamin Netanyahu's son Yair, 32, for 'abandoning' them by staying in Miami while 360,000 reservists are called up to fight against Hamas
+                </div>
+                <div class="t-card-bot">
+                    <button class="btn-create" onclick="openCreate('Isreal, Gaza War')">Create</button>
+                </div>
+            </div>
+
+            <div class="t-card">
+                <div class="t-card-title">Russia, Ukraine WAR</div>
+                <div class="t-card-meta">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    4950 Participants
+                </div>
+                <div class="t-card-desc">
+                    Russian forces invade Ukraine after Putin TV declaration
+                </div>
+                <div class="t-card-bot">
+                    <button class="btn-create" onclick="openCreate('Russia, Ukraine WAR')">Create</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Section -->
+        <div class="articles-box">
+            <div class="articles-header">
+                <div class="articles-tab">Article</div>
+                <div class="articles-filter">
+                    Status 
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-content-row">
+                    <div class="article-img">
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
+                    </div>
+                    <div class="article-info">
+                        <div class="article-title">Send your lover a beautiful good night message</div>
+                        <div class="article-meta"><span class="status-badge status-pending">Pending</span><span>1s</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-content-row">
+                    <div class="article-img">
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
+                    </div>
+                    <div class="article-info">
+                        <div class="article-title">Make your lover feel overwhelmed 🤗</div>
+                        <div class="article-meta"><span class="status-badge status-published">Published</span><span>3h</span></div>
+                    </div>
+                </div>
+                <div class="article-stats">
+                    <span>Reach 10.3k</span><span class="divider">|</span><span>Clicks 220</span><span class="divider">|</span><span>Shares 2</span><span class="divider">|</span><span>Comments 0</span>
+                </div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-content-row">
+                    <div class="article-img">
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
+                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
+                    </div>
+                    <div class="article-info">
+                        <div class="article-title">Need to make her blush? Why not send her this? 👇</div>
+                        <div class="article-meta"><span class="status-badge status-published">Published</span><span>3h</span></div>
+                    </div>
+                </div>
+                <div class="article-stats">
+                    <span>Reach 13.8k</span><span class="divider">|</span><span>Clicks 260</span><span class="divider">|</span><span>Shares 0</span><span class="divider">|</span><span>Comments 0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="fab-container">
+            <button class="fab" title="Create new post" onclick="openCreate('')">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Create Type Bottom Sheet -->
+    <div class="sheet-overlay" id="createSheet" onclick="handleSheetOverlayClick(event)">
+        <div class="sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-title">What would you like to create?</div>
+            <div class="sheet-options">
+                <!-- Blog -->
+                <div class="sheet-option" onclick="goCreate('blog')">
+                    <div class="sheet-opt-icon icon-blog">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <div class="sheet-opt-body">
+                        <div class="sheet-opt-title">Create a Blog</div>
+                        <div class="sheet-opt-desc">Write an article, news or opinion piece</div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+                <!-- Exam Question -->
+                <div class="sheet-option" onclick="goCreate('exam')">
+                    <div class="sheet-opt-icon icon-exam">
+                        <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <div class="sheet-opt-body">
+                        <div class="sheet-opt-title">Create an Exam Question</div>
+                        <div class="sheet-opt-desc">Add past questions, quizzes or practice tests</div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let _pendingTopic = '';
+
+    function openCreate(topic) {
+        _pendingTopic = topic || '';
+        document.getElementById('createSheet').classList.add('open');
+    }
+
+    function closeCreate() {
+        document.getElementById('createSheet').classList.remove('open');
+    }
+
+    function handleSheetOverlayClick(e) {
+        // Close only if clicking the dark overlay, not the sheet itself
+        if (e.target === document.getElementById('createSheet')) closeCreate();
+    }
+
+    function goCreate(type) {
+        closeCreate();
+        if (type === 'exam') {
+            // Navigate to future exam question editor
+            window.location.href = 'create_exam.html';
+        } else {
+            // Blog — pass topic if available
+            const url = _pendingTopic
+                ? 'article/create_post.html?topic=' + encodeURIComponent(_pendingTopic)
+                : 'article/create_post.html';
+            window.location.href = url;
+        }
+    }
+</script>
+</body>
+</html>

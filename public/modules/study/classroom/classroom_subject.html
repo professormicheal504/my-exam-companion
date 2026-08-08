@@ -45,7 +45,7 @@
       color: #4b5563; font-size: 13px; font-weight: 700; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
     }
     .exam-tab:hover { border-color: #d1d5db; background: #f9fafb; }
-    .exam-tab.active { background: #b70c01; color: white; border-color: #b70c01; }
+    .exam-tab.active { background: #2563eb; color: white; border-color: #2563eb; }
 
     /* -- Search & Filters -- */
     .filters-container { display: flex; gap: 12px; margin-bottom: 28px; align-items: center; flex-wrap: wrap; }
@@ -54,7 +54,7 @@
       border: 1px solid #e5e7eb; border-radius: 12px; padding: 11px 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s;
     }
-    .search-bar:focus-within { border-color: #b70c01; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .search-bar:focus-within { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
     .search-bar svg { color: #9ca3af; margin-right: 10px; flex-shrink: 0; }
     .search-bar input { flex: 1; border: none; outline: none; font-size: 14px; color: #111827; background: transparent; }
     .search-bar input::placeholder { color: #9ca3af; }
@@ -73,7 +73,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease;
     }
     .subject-card:hover {
-      border-color: #b70c01; transform: translateY(-3px);
+      border-color: #2563eb; transform: translateY(-3px);
       box-shadow: 0 10px 25px -5px rgba(183,12,1,0.12);
     }
 
@@ -86,11 +86,11 @@
 
     .subject-info { flex: 1; min-width: 0; }
     .subject-info h4 { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 3px; transition: color 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .subject-card:hover .subject-info h4 { color: #b70c01; }
+    .subject-card:hover .subject-info h4 { color: #2563eb; }
     .subject-info p { font-size: 12px; color: #6b7280; font-weight: 500; }
     .subject-badge {
       font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px;
-      background: #fff0f0; color: #b70c01; white-space: nowrap; text-transform: uppercase;
+      background: #fff0f0; color: #2563eb; white-space: nowrap; text-transform: uppercase;
     }
 
     /* -- Loading / Empty States -- */
@@ -101,7 +101,7 @@
     }
     .state-box .spinner {
       width: 36px; height: 36px; border: 3px solid #f0f0f0;
-      border-top-color: #b70c01; border-radius: 50%; animation: spin 0.7s linear infinite;
+      border-top-color: #2563eb; border-radius: 50%; animation: spin 0.7s linear infinite;
     }
     .state-box p { font-size: 14px; color: #9ca3af; font-weight: 500; }
 
@@ -141,15 +141,15 @@
         <!-- Page Header + Country Picker -->
         <div class="page-header">
           <div class="page-header__left">
-            <h1>?? Classroom</h1>
+            <h1>🏫 Classroom</h1>
             <p>Select a subject from any exam body to study topic materials and past questions.</p>
           </div>
           <div class="country-picker">
-            <label>?? Country</label>
+            <label>🌍 Country</label>
             <select id="countrySelect">
-              <option value="ng">???? Nigeria</option>
-              <option value="gh">???? Ghana</option>
-              <option value="us">???? United States</option>
+              <option value="ng">🇳🇬 Nigeria</option>
+              <option value="gh">🇬🇭 Ghana</option>
+              <option value="us">🇺🇸 United States</option>
             </select>
           </div>
         </div>
@@ -192,13 +192,13 @@
 
     // -- Subject icons by keyword --
     const SUBJECT_ICONS = {
-      english: '??', mathematics: '??', maths: '??', physics: '??',
-      chemistry: '??', biology: '??', economics: '??', government: '???',
-      history: '??', geography: '???', commerce: '??', accounts: '??',
-      literature: '??', french: '????', arabic: '??', hausa: '??',
-      yoruba: '??', igbo: '??', music: '??', christian: '??',
-      islamic: '??', computer: '??', agricultural: '??', arts: '??',
-      physical: '??', home: '??', default: '??'
+      english: '📚', mathematics: '📐', maths: '📐', physics: '⚛️',
+      chemistry: '🧪', biology: '🧬', economics: '📈', government: '🏛️',
+      history: '📜', geography: '🗺️', commerce: '🏪', accounts: '📊',
+      literature: '📖', french: '🇫🇷', arabic: '🇸🇦', hausa: '🕌',
+      yoruba: '🎭', igbo: '🎭', music: '🎵', christian: '✝️',
+      islamic: '☪️', computer: '💻', agricultural: '🌾', arts: '🎨',
+      physical: '🏃‍♂️', home: '🏠', default: '📘'
     };
 
     function getIcon(name) {
@@ -215,7 +215,7 @@
     }
 
     function getBasePath() {
-      return window.location.pathname.includes('/public/') ? '/public' : '';
+      return '';
     }
 
     // -- State --
@@ -243,31 +243,48 @@
 
       // 1. Fetch country config
       let config;
+      const configUrlLocal = `${getBasePath()}/new_staging_area/configs/${countryCode}.json`;
+      const configUrlR2 = `${R2_BASE}/configs/${countryCode}.json`;
       try {
-        const localRes = await fetch(`${getBasePath()}/new_staging_area/configs/${countryCode}.json`);
+        const localRes = await fetch(configUrlLocal);
         config = localRes.ok ? await localRes.json() : null;
+        if (!localRes.ok) console.warn(`Local config fetch failed (${localRes.status}): ${configUrlLocal}`);
+        
         if (!config) {
-          const r2Res = await fetch(`${R2_BASE}/configs/${countryCode}.json`);
+          const r2Res = await fetch(configUrlR2);
           config = r2Res.ok ? await r2Res.json() : null;
+          if (!r2Res.ok) console.error(`R2 config fetch failed (${r2Res.status}): ${configUrlR2}`);
         }
-      } catch(e) { config = null; }
+      } catch(e) {
+        console.error(`Exception loading config (Local: ${configUrlLocal} | R2: ${configUrlR2}):`, e);
+        config = null;
+      }
 
       if (!config || !config.dashboard_modules || !config.dashboard_modules.length) {
-        grid.innerHTML = `<div class="state-box"><p>?? No exam bodies found for this country.</p></div>`;
+        grid.innerHTML = `<div class="state-box"><p>😢 No exam bodies found for this country.</p></div>`;
         return;
       }
 
       // 2. Fetch each exam body's index.json in parallel
       const fetches = config.dashboard_modules.map(async (mod) => {
         let examData;
+        const examUrlLocal = `${getBasePath()}/new_staging_area/${mod.data_source}`;
+        const examUrlR2 = `${R2_BASE}/${mod.data_source}`;
+        
         try {
-          const localRes = await fetch(`${getBasePath()}/new_staging_area/${mod.data_source}`);
+          const localRes = await fetch(examUrlLocal);
           examData = localRes.ok ? await localRes.json() : null;
+          if (!localRes.ok) console.warn(`Local exam fetch failed (${localRes.status}): ${examUrlLocal}`);
+          
           if (!examData) {
-            const r2Res = await fetch(`${R2_BASE}/${mod.data_source}`);
+            const r2Res = await fetch(examUrlR2);
             examData = r2Res.ok ? await r2Res.json() : null;
+            if (!r2Res.ok) console.error(`R2 exam fetch failed (${r2Res.status}): ${examUrlR2}`);
           }
-        } catch(e) { examData = null; }
+        } catch(e) {
+          console.error(`Exception loading exam data for ${mod.id} (Local: ${examUrlLocal} | R2: ${examUrlR2}):`, e);
+          examData = null;
+        }
 
         if (examData && examData.subjects) {
           return { mod, subjects: examData.subjects };
@@ -285,14 +302,14 @@
         const btn = document.createElement('button');
         btn.className = 'exam-tab';
         btn.dataset.exam = mod.id;
-        btn.textContent = `${mod.icon || '??'} ${mod.display_name}`;
+        btn.textContent = `${mod.icon || '📘'} ${mod.display_name}`;
         tabs.appendChild(btn);
 
         subjects.forEach(subj => {
           allSubjects.push({
             examId: mod.id,
             examName: mod.display_name,
-            examIcon: mod.icon || '??',
+            examIcon: mod.icon || '📘',
             id: subj.id,
             name: subj.name || formatSubjectName(subj.id),
             yearsCount: subj.years ? subj.years.length : 0,
@@ -325,7 +342,7 @@
       });
 
       if (!filtered.length) {
-        grid.innerHTML = `<div class="state-box"><p>?? No subjects found. Try a different search or filter.</p></div>`;
+        grid.innerHTML = `<div class="state-box"><p>🔍 No subjects found. Try a different search or filter.</p></div>`;
         return;
       }
 

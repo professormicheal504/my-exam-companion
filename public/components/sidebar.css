@@ -161,12 +161,12 @@ body.sidebar-closed .mec-sidebar {
 
 .mec-sb-item.active {
   background: #fff0ef;
-  color: #b70c01;
+  color: #2563eb;
 }
 
 /* Left active indicator — uses box-shadow so it never clips */
 .mec-sb-item.active {
-  box-shadow: -3px 0 0 0 #b70c01;
+  box-shadow: -3px 0 0 0 #2563eb;
 }
 
 /* Icon container */
@@ -219,7 +219,7 @@ body.sidebar-closed .mec-sidebar {
   font-weight: 800;
   padding: 1px 3px;
   border-radius: 3px;
-  background: #b70c01;
+  background: #2563eb;
   color: #fff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -342,7 +342,7 @@ body.sidebar-closed .mec-sidebar {
 }
 
 .mec-flyout-item--hl {
-  color: #b70c01;
+  color: #2563eb;
   background: #fff3f2;
   font-weight: 600;
 }

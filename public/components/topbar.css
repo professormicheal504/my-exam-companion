@@ -76,12 +76,12 @@ app-topbar {
   justify-content: center;
   line-height: 1;
   gap: 0;
-  background: #c0120a;
+  background: #2563eb;
   border-radius: 10px;
   padding: 4px 12px 5px 10px;
   box-shadow:
-    0 2px 0 #8a0000,
-    0 3px 8px rgba(183, 12, 1, 0.28);
+    0 2px 0 #1e3a8a,
+    0 3px 8px rgba(37, 99, 235, 0.28);
 }
 
 .mec-logo-line1,
@@ -92,8 +92,8 @@ app-topbar {
   color: #ffffff;
   display: block;
   letter-spacing: 0.02em;
-  /* Red stroke outline to mimic the logo */
-  -webkit-text-stroke: 2px #8a0000;
+  /* Blue stroke outline to mimic the logo */
+  -webkit-text-stroke: 2px #1e3a8a;
   paint-order: stroke fill;
   text-shadow:
     1px 1px 0 rgba(0, 0, 0, 0.15);
@@ -148,7 +148,7 @@ app-topbar {
 
 .mec-sb-toggle:hover {
   background: #f3f4f6;
-  color: #b70c01;
+  color: #2563eb;
 }
 
 .mec-sb-toggle svg {
@@ -231,7 +231,7 @@ app-topbar {
 }
 
 .mec-tb-profile:hover {
-  border-color: #b70c01;
+  border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.08);
 }
 

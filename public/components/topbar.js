@@ -222,7 +222,7 @@ class AppTopbar extends HTMLElement {
                   </div>
                 </div>
                 <hr style="border: none; border-top: 1px solid #f3f4f6; margin: 0 -16px 12px -16px;">
-                <button onclick="window.handleMecLogout()" style="width: 100%; padding: 10px; border-radius: 8px; border: none; background: #fef2f2; color: #b70c01; font-weight: 600; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='#fee2e2'" onmouseout="this.style.background='#fef2f2'">
+                <button onclick="window.handleMecLogout()" style="width: 100%; padding: 10px; border-radius: 8px; border: none; background: #fef2f2; color: #2563eb; font-weight: 600; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='#fee2e2'" onmouseout="this.style.background='#fef2f2'">
                   Log Out
                 </button>
               </div>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Hub - Profile Setup</title>
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-dark: #1d1d1f;
+            --text-gray: #757575;
+            --primary-blue: #3b82f6; /* Modern blue */
+            --border-color: #d1d5db;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 4px;
+            background-color: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 33.33%; /* Step 1 of 3 */
+            height: 100%;
+            background-color: var(--primary-blue);
+        }
+
+        /* Header Texts */
+        .header-content {
+            padding: 0 24px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: #111;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        /* Form Area */
+        .form-container {
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 28px;
+            margin-top: 8px; /* Space for the label to float */
+        }
+
+        .input-group label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: white;
+            padding: 0 6px;
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 400;
+            z-index: 10;
+        }
+
+        .input-control {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 14px;
+            font-size: 16px;
+            color: #111;
+            outline: none;
+            transition: border-color 0.2s ease;
+            background-color: transparent;
+            appearance: none; /* Removes default styles for select */
+        }
+
+        .input-control:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .char-count {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #d1d5db;
+            pointer-events: none;
+        }
+
+        /* Textarea specific */
+        textarea.input-control {
+            resize: none;
+            height: 120px;
+            padding-bottom: 32px; /* Space for the character count */
+        }
+
+        .textarea-count {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            top: auto;
+            transform: none;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        /* Select arrow */
+        .select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #9ca3af;
+        }
+
+        /* Photo Upload */
+        .photo-upload {
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-bottom: 28px;
+            margin-top: 8px;
+            background-color: #f9fafb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-upload:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .photo-upload label {
+            position: absolute;
+            top: -24px;
+            left: 0;
+            font-size: 13px;
+            color: #9ca3af;
+            background: transparent;
+            padding: 0;
+        }
+
+        .photo-icon {
+            color: #9ca3af;
+        }
+
+        /* Footer Button */
+        .footer-controls {
+            padding: 24px;
+            margin-top: auto;
+        }
+
+        .btn-next {
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-next:hover {
+            background-color: #2563eb;
+        }
+        
+        .btn-next:active {
+            transform: scale(0.99);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar with Back Arrow -->
+    <div class="top-bar">
+        <button class="back-btn" onclick="window.location.href='../onboarding/onboarding_screen.html'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-track">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- Headers -->
+    <div class="header-content">
+        <h1>Refine and optimize your profile</h1>
+        <p class="subtitle">A great chance to distinguish yourself from other creators</p>
+    </div>
+
+    <!-- Form Area -->
+    <div class="form-container">
+        
+        <!-- Wemedia Name -->
+        <div class="input-group">
+            <label>Publisher Name</label>
+            <input type="text" class="input-control" placeholder="Enter your publisher name" maxlength="30" id="nameInput">
+            <span class="char-count" id="nameCount">0/30</span>
+        </div>
+
+        <!-- Category -->
+        <div class="input-group">
+            <label>Category</label>
+            <select class="input-control">
+                <option value="" disabled selected>Select a category</option>
+                <option value="education">Education</option>
+                <option value="technology">Technology</option>
+                <option value="science">Science</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="languages">Languages</option>
+            </select>
+            <div class="select-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Photo -->
+        <div style="position: relative;">
+            <label style="position: absolute; top: -14px; left: 0; font-size: 13px; color: #9ca3af; z-index: 10;">Photo</label>
+            <div class="photo-upload">
+                <div class="photo-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="input-group">
+            <label>Description</label>
+            <textarea class="input-control" placeholder="Tell students about yourself and your expertise..." maxlength="150" id="descInput"></textarea>
+            <span class="textarea-count" id="descCount">0/150</span>
+        </div>
+
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="footer-controls">
+        <button class="btn-next" onclick="window.location.href='identiry.html'">Next</button>
+    </div>
+
+    <script>
+        // Character count logic for Name
+        const nameInput = document.getElementById('nameInput');
+        const nameCount = document.getElementById('nameCount');
+        
+        nameInput.addEventListener('input', function() {
+            nameCount.textContent = `${this.value.length}/30`;
+            if (this.value.length > 0) {
+                nameCount.style.color = '#9ca3af'; // Darken slightly when typing
+            } else {
+                nameCount.style.color = '#d1d5db';
+            }
+        });
+
+        // Character count logic for Description
+        const descInput = document.getElementById('descInput');
+        const descCount = document.getElementById('descCount');
+
+        descInput.addEventListener('input', function() {
+            descCount.textContent = `${this.value.length}/150`;
+            if (this.value.length > 0) {
+                descCount.style.color = '#9ca3af'; 
+            } else {
+                descCount.style.color = '#d1d5db';
+            }
+        });
+    </script>
+</body>
+</html>

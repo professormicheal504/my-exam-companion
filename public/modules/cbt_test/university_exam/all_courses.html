@@ -28,7 +28,7 @@
     .back-link {
       display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: #4b5563; margin-bottom: 24px; transition: color 0.2s;
     }
-    .back-link:hover { color: #b70c01; }
+    .back-link:hover { color: #2563eb; }
 
     /* Header Section */
     .page-header {
@@ -43,12 +43,12 @@
 
     /* Actions */
     .btn-primary {
-      background: #b70c01; color: white; padding: 12px 24px; border-radius: 12px;
+      background: #2563eb; color: white; padding: 12px 24px; border-radius: 12px;
       font-size: 14.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       transition: all 0.2s; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
     }
     .btn-primary:hover {
-      background: #9a0a01; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+      background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
     }
     .btn-secondary {
       background: #f3f4f6; color: #374151; padding: 12px 24px; border-radius: 12px;
@@ -59,7 +59,7 @@
       background: #e5e7eb; color: #111827;
     }
     .btn-secondary.active {
-      background: #fff0f0; color: #b70c01; border-color: #fecaca; box-shadow: inset 0 0 0 1px #fecaca;
+      background: #fff0f0; color: #2563eb; border-color: #fecaca; box-shadow: inset 0 0 0 1px #fecaca;
     }
 
     /* Filter Bar */
@@ -72,7 +72,7 @@
       flex: 2; min-width: 200px; display: flex; align-items: center; gap: 8px; background: #f9fafb;
       padding: 10px 16px; border-radius: 12px; border: 1px solid #e5e7eb; transition: all 0.2s;
     }
-    .search-input-wrapper:focus-within { border-color: #b70c01; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .search-input-wrapper:focus-within { border-color: #2563eb; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
     .search-input-wrapper svg { color: #9ca3af; }
     .search-input-wrapper input {
       flex: 1; border: none; outline: none; background: transparent; font-size: 14.5px; font-family: inherit;
@@ -86,7 +86,7 @@
       border-radius: 12px; font-size: 14.5px; font-family: inherit; color: #374151; font-weight: 500;
       cursor: pointer; outline: none; transition: all 0.2s;
     }
-    .select-wrapper select:focus { border-color: #b70c01; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
+    .select-wrapper select:focus { border-color: #2563eb; background: white; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
     .select-wrapper::after {
       content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
       width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #6b7280; pointer-events: none;
@@ -113,7 +113,7 @@
       padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800;
       display: inline-flex; align-items: center; gap: 4px; letter-spacing: 0.05em; text-transform: uppercase;
     }
-    .format-tag.cbt { background: #fef2f2; color: #b70c01; border: 1px solid #fecaca; }
+    .format-tag.cbt { background: #fef2f2; color: #2563eb; border: 1px solid #fecaca; }
     .format-tag.theory { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
 
     .course-name { font-size: 15px; color: #4b5563; margin-bottom: 20px; line-height: 1.4; font-weight: 500; }
@@ -158,7 +158,7 @@
     #viewerIframe { width: 100%; height: 100%; border: none; flex: 1; }
     #viewerImage { max-width: 100%; margin: 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; display: none; }
 
-    .loader { display: none; margin: 20px auto; border: 3px solid #f3f3f3; border-top: 3px solid #b70c01; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+    .loader { display: none; margin: 20px auto; border: 3px solid #f3f3f3; border-top: 3px solid #2563eb; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     @media (max-width: 600px) {
@@ -190,7 +190,7 @@
           <div>
             <h1 class="page-title">
               <span id="uni_display_name">Target University</span>
-              <span style="font-size: 14px; padding: 4px 10px; background: #fef2f2; color: #b70c01; border-radius: 99px; border: 1px solid #fecaca; text-transform: uppercase; font-weight: 800;">Internal Exams</span>
+              <span style="font-size: 14px; padding: 4px 10px; background: #fef2f2; color: #2563eb; border-radius: 99px; border: 1px solid #fecaca; text-transform: uppercase; font-weight: 800;">Internal Exams</span>
             </h1>
             <p class="page-desc">Search and filter for your specific course. Select a topic and practice past questions in exact exam format (CBT) or view theory papers.</p>
           </div>
@@ -514,7 +514,7 @@
         if (allCourses.length === 0) {
             console.error("[Error] The index.json file was found, but it is empty []. The migration script may have failed to populate it.");
             document.getElementById('courseGrid').innerHTML = `
-            <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #b70c01; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
+            <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #2563eb; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
               <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px;">Missing University Folders in Index</h3>
               <p>The system successfully fetched the university data, but <strong>index.json is empty</strong>.<br>This means your migration script (migrate_to_cbt_theory.py) likely created the folders but forgot to write the courses into index.json.</p>
             </div>`;
@@ -527,7 +527,7 @@
       } catch (err) {
         console.error("[Error] Failed to fetch or parse courses:", err);
         document.getElementById('courseGrid').innerHTML = `
-        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #b70c01; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
+        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #2563eb; background: #fef2f2; border-radius: 16px; border: 1px solid #fecaca;">
           <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px;">Network Error</h3>
           <p>Failed to load courses. Check the console for details.<br>Error: ${err.message}</p>
         </div>`;

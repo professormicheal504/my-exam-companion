@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>JAMB CBT Simulator Setup – Myschool.ng</title>
+  <title>JAMB CBT Simulator Setup  Myschool.ng</title>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
@@ -60,7 +60,7 @@
     }
 
     /* ==============================
-       APP SHELL — Sidebar Layout
+       APP SHELL  Sidebar Layout
     ============================== */
     .app {
       display: flex;
@@ -87,7 +87,7 @@
       }
     }
 
-    /* Mobile: full-screen — sidebar is off-canvas */
+    /* Mobile: full-screen  sidebar is off-canvas */
     @media (max-width: 600px) {
       .main-wrapper {
         margin-left: 0;
@@ -153,7 +153,7 @@
     .topbar__logo-myschool {
       font-size: 22px;
       font-weight: 800;
-      color: #b70c01;
+      color: #2563eb;
       letter-spacing: -0.04em;
     }
 
@@ -177,7 +177,7 @@
     }
 
     .topbar__search:focus-within {
-      border-color: #b70c01;
+      border-color: #2563eb;
       background: white;
     }
 
@@ -313,7 +313,7 @@
 
     .setup-section__title span {
       background: #fff0f0;
-      color: #b70c01;
+      color: #2563eb;
       width: 24px;
       height: 24px;
       display: flex;
@@ -360,7 +360,7 @@
     }
 
     .form-select:focus {
-      border-color: #b70c01;
+      border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
       background-color: white;
     }
@@ -395,7 +395,7 @@
     }
 
     .mode-card.selected {
-      border-color: #b70c01;
+      border-color: #2563eb;
       background: #fff0f0;
     }
 
@@ -410,7 +410,7 @@
     }
 
     .mode-card.selected .mode-card__radio {
-      border-color: #b70c01;
+      border-color: #2563eb;
     }
 
     .mode-card.selected .mode-card__radio::after {
@@ -418,7 +418,7 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background: #b70c01;
+      background: #2563eb;
       border-radius: 50%;
       top: 50%;
       left: 50%;
@@ -433,7 +433,7 @@
     }
 
     .mode-card.selected .mode-card__content h4 {
-      color: #b70c01;
+      color: #2563eb;
     }
 
     .mode-card__content p {
@@ -452,7 +452,7 @@
     }
 
     .btn-start {
-      background: #b70c01;
+      background: #2563eb;
       color: white;
       font-size: 16px;
       font-weight: 700;
@@ -466,7 +466,7 @@
     }
 
     .btn-start:hover {
-      background: #9a0a01;
+      background: #1d4ed8;
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
     }
@@ -894,7 +894,7 @@
         return alert("Please select a valid year.");
       }
       
-      // Random year logic — pick from the union of all selected subjects' years
+      // Random year logic  pick from the union of all selected subjects' years
       if (year === 'random') {
         const allYears = new Set();
         uniqueSubjects.forEach(id => {

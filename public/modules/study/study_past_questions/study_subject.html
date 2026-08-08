@@ -17,7 +17,7 @@
       --text-primary: #111827;
       --text-secondary: #4b5563;
       --text-tertiary: #9ca3af;
-      --accent: #b70c01;
+      --accent: #2563eb;
       --accent-hover: #9b0a01;
 
       --border-color: #e5e7eb;
@@ -134,7 +134,7 @@
     }
 
     .topbar__search:focus-within {
-      border-color: #b70c01;
+      border-color: #2563eb;
       background: white;
     }
 
@@ -584,7 +584,7 @@
                 <div class="filter-chips" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;"
                   id="filterChips">
                   <button class="filter-chip active" data-filter="all"
-                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #b70c01; background: #b70c01; color: white; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">All</button>
+                    style="padding: 8px 16px; border-radius: 99px; border: 1px solid #2563eb; background: #2563eb; color: white; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">All</button>
                   <button class="filter-chip" data-filter="science"
                     style="padding: 8px 16px; border-radius: 99px; border: 1px solid #e5e7eb; background: white; color: #4b5563; cursor: pointer; font-size: 13px; font-weight: 600; flex-shrink: 0; transition: all 0.2s;">Science</button>
                   <button class="filter-chip" data-filter="commercial"
@@ -786,9 +786,9 @@
           });
           const target = e.currentTarget;
           target.classList.add('active');
-          target.style.background = '#b70c01';
+          target.style.background = '#2563eb';
           target.style.color = 'white';
-          target.style.borderColor = '#b70c01';
+          target.style.borderColor = '#2563eb';
 
           currentFilter = target.getAttribute('data-filter');
           filterSubjects();

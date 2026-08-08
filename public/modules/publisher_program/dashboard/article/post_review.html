@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Post</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #fff;
+            color: #111;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        /* ── Header ── */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            flex-shrink: 0;
+        }
+        .back-btn {
+            color: #444;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .back-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* ── Page Content ── */
+        .content {
+            flex: 1;
+            padding: 8px 20px 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* ── Thumbnail ── */
+        .thumbnail-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #f2f2f2;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.2s;
+        }
+        .thumbnail-box:hover { background: #eaeaea; }
+        .thumbnail-box input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        .thumbnail-box img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: none;
+        }
+        .thumbnail-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            pointer-events: none;
+        }
+        /* ── Image Selector Modal ── */
+        .modal {
+            position: fixed; inset: 0; z-index: 1000;
+            display: none; align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        .modal.open { display: flex; }
+        .modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+        .modal-content {
+            position: relative; background: #fff; border-radius: 12px;
+            width: 100%; max-width: 400px; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .modal-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 20px; border-bottom: 1px solid #eee;
+        }
+        .modal-header h3 { font-size: 1.1rem; font-weight: 700; margin: 0; }
+        .modal-close {
+            font-size: 1.5rem; cursor: pointer; color: #888; line-height: 1;
+        }
+        .modal-body { padding: 20px; }
+        
+        .selector-title {
+            font-size: 0.9rem; color: #555; margin-bottom: 12px; font-weight: 600;
+        }
+        .selector-gallery {
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;
+            max-height: 200px; overflow-y: auto;
+        }
+        .selector-thumb {
+            width: calc(33.333% - 7px); aspect-ratio: 16/9;
+            object-fit: cover; border-radius: 6px; cursor: pointer;
+            border: 2px solid transparent; transition: all 0.2s; background: #eee;
+        }
+        .selector-thumb:hover { transform: scale(1.05); }
+        .selector-thumb.selected { border-color: #e52828; }
+
+        .btn-upload {
+            width: 100%; padding: 12px; border: 2px dashed #ccc; border-radius: 8px;
+            background: #fafafa; color: #555; font-size: 0.95rem; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .btn-upload:hover { border-color: #2563eb; color: #2563eb; background: #f0f7ff; }
+
+        .thumb-plus {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+        .thumb-plus svg { width: 32px; height: 32px; fill: currentColor; }
+        .thumb-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+        .thumbnail-box.has-image .thumbnail-placeholder { display: none; }
+        .thumbnail-box.has-image img { display: block; }
+
+        /* ── Field ── */
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+        .field-label {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 500;
+        }
+        .field-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .field-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+
+        /* ── Topic input ── */
+        .topic-input {
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #111;
+            font-family: inherit;
+            width: 100%;
+            padding: 0;
+            background: transparent;
+        }
+        .topic-input::placeholder { color: #c0c0c0; font-weight: 400; }
+
+        /* Tags row */
+        .tags-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: #f5f5f5;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #444;
+            cursor: default;
+        }
+        .tag-remove {
+            width: 14px;
+            height: 14px;
+            color: #999;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .tag-remove svg { width: 14px; height: 14px; fill: currentColor; }
+
+        /* Category chips */
+        .category-section { display: flex; flex-direction: column; gap: 10px; }
+        .category-label { font-size: 0.85rem; color: #888; font-weight: 500; }
+        .chips-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: #fff;
+        }
+        .chip:hover { border-color: #2563eb; color: #2563eb; }
+        .chip.selected { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: #f0f0f0;
+        }
+
+        /* ── Footer Buttons ── */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            padding: 14px 20px;
+            display: flex;
+            gap: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .btn-draft {
+            flex: 1;
+            padding: 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            background: #fff;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-draft:hover { border-color: #aaa; color: #111; }
+        .btn-submit {
+            flex: 1.5;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background: #2563eb;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-submit:hover { background: #1d4ed8; }
+        .btn-submit:active { transform: scale(0.97); }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #111;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            white-space: nowrap;
+            z-index: 999;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <a href="create_post.html" class="back-btn" title="Go back">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Thumbnail -->
+        <div class="field">
+            <div class="field-label">Thumbnail</div>
+            <div class="thumbnail-box" id="thumbnailBox" onclick="openThumbModal()">
+                <img id="thumbnailPreview" alt="Thumbnail preview">
+                <div class="thumbnail-placeholder">
+                    <div class="thumb-plus">
+                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </div>
+                    <div class="thumb-label">Select thumbnail</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Title -->
+        <div class="field">
+            <div class="field-label">Title</div>
+            <div class="field-row">
+                <div class="field-value" id="titleDisplay"></div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Topic tags -->
+        <div class="field">
+            <div class="field-label">Topic</div>
+            <div class="tags-wrap" id="tagsWrap"></div>
+            <input
+                class="topic-input"
+                id="topicInput"
+                type="text"
+                placeholder="Add Topic..."
+                onkeydown="handleTopicKey(event)"
+            >
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Category -->
+        <div class="category-section">
+            <div class="category-label">Category</div>
+            <div class="chips-wrap" id="chipsWrap">
+                <!-- Categories rendered dynamically via JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <button class="btn-draft" onclick="saveDraft()">Draft</button>
+        <button class="btn-submit" onclick="goToPreview()">Preview</button>
+    </div>
+
+</div>
+
+<!-- Thumbnail Modal -->
+<div class="modal" id="thumbModal">
+    <div class="modal-overlay" onclick="closeThumbModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Select Thumbnail</h3>
+            <div class="modal-close" onclick="closeThumbModal()">&times;</div>
+        </div>
+        <div class="modal-body">
+            <div class="selector-title" id="galleryTitle" style="display:none;">From your article:</div>
+            <div class="selector-gallery" id="selectorGallery"></div>
+            
+            <input type="file" accept="image/*" id="thumbnailInput" onchange="handleThumbnail(event)" style="display:none;">
+            <button class="btn-upload" onclick="document.getElementById('thumbnailInput').click()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 8px;"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                Upload from device
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+    /* ── Restore title from sessionStorage (no hardcoded fallback) ── */
+    const titleDisplay = document.getElementById('titleDisplay');
+    const savedTitle = sessionStorage.getItem('post_title');
+    if (savedTitle) {
+        titleDisplay.textContent = savedTitle;
+    }
+
+    /* Read from URL param as additional fallback */
+    const params = new URLSearchParams(window.location.search);
+    const topicParam = params.get('topic');
+    if (topicParam && !savedTitle) {
+        titleDisplay.textContent = topicParam;
+    }
+
+    /* ── Thumbnail Modal ── */
+    function openThumbModal() {
+        document.getElementById('thumbModal').classList.add('open');
+    }
+    function closeThumbModal() {
+        document.getElementById('thumbModal').classList.remove('open');
+    }
+
+    /* ── Auto-fill / Select Thumbnail from Content ── */
+    const postContent = sessionStorage.getItem('post_content');
+    if (postContent) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = postContent;
+        const images = tempDiv.querySelectorAll('img');
+        
+        if (images.length > 0) {
+            const gallery = document.getElementById('selectorGallery');
+            document.getElementById('galleryTitle').style.display = 'block';
+
+            // By default, set the first image as the main thumbnail if none is selected
+            if (!document.getElementById('thumbnailBox').classList.contains('has-image')) {
+                setMainThumbnail(images[0].src);
+            }
+
+            // Populate the gallery
+            Array.from(images).forEach((img, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = img.src;
+                thumb.className = 'selector-thumb';
+                if (document.getElementById('thumbnailPreview').src === img.src) {
+                    thumb.classList.add('selected');
+                }
+                thumb.onclick = () => {
+                    document.querySelectorAll('.selector-thumb').forEach(t => t.classList.remove('selected'));
+                    thumb.classList.add('selected');
+                    setMainThumbnail(img.src);
+                    closeThumbModal();
+                };
+                gallery.appendChild(thumb);
+            });
+        }
+    }
+
+    function setMainThumbnail(src) {
+        const imgEl = document.getElementById('thumbnailPreview');
+        imgEl.src = src;
+        document.getElementById('thumbnailBox').classList.add('has-image');
+    }
+
+    /* ── Custom Upload Thumbnail ── */
+    function handleThumbnail(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+            setMainThumbnail(ev.target.result);
+            // Remove selection from gallery images if a custom one is uploaded
+            document.querySelectorAll('.selector-thumb').forEach(t => t.classList.remove('selected'));
+            closeThumbModal();
+        };
+        reader.readAsDataURL(file);
+    }
+
+    /* ── Topic Tags (read-only once entered — only cancel allowed) ── */
+    const topics = [];
+    function handleTopicKey(e) {
+        const input = document.getElementById('topicInput');
+        const val = input.value.trim();
+        if ((e.key === 'Enter' || e.key === ',') && val) {
+            e.preventDefault();
+            if (!topics.includes(val)) {
+                topics.push(val);
+                renderTags();
+                input.value = '';
+                // Hide the input once a topic is confirmed
+                input.style.display = 'none';
+            }
+        }
+        // No backspace deletion — user must click × to cancel
+    }
+    function renderTags() {
+        const wrap = document.getElementById('tagsWrap');
+        wrap.innerHTML = topics.map((t, i) => `
+            <div class="tag-pill">
+                <span class="tag-text">${t}</span>
+                <span class="tag-remove" onclick="removeTag(${i})" title="Cancel">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </span>
+            </div>
+        `).join('');
+    }
+    function removeTag(i) {
+        topics.splice(i, 1);
+        renderTags();
+        // Show input again if no topics remain
+        if (topics.length === 0) {
+            document.getElementById('topicInput').style.display = '';
+            document.getElementById('topicInput').focus();
+        }
+    }
+
+    /* ── Category chips ── */
+    function selectChip(el) {
+        // Single selection
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    /* ── Draft ── */
+    function saveDraft() {
+        const title = titleDisplay.textContent;
+        sessionStorage.setItem('post_title', title);
+        sessionStorage.setItem('post_topics', JSON.stringify(topics));
+        showToast('Saved as draft ✓');
+    }
+
+    /* ── Preview ── */
+    function goToPreview() {
+        const title = titleDisplay.textContent.trim();
+        if (!title) {
+            showToast('No title found. Please go back and add a title.');
+            return;
+        }
+        const thumb = document.getElementById('thumbnailPreview').src;
+        if (!thumb || !document.getElementById('thumbnailBox').classList.contains('has-image')) {
+            showToast('Please add a thumbnail image');
+            return;
+        }
+        
+        // Save thumbnail data so preview can use it
+        sessionStorage.setItem('post_thumbnail', thumb);
+        window.location.href = 'preview.html';
+    }
+
+    /* ── Toast helper ── */
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2800);
+    }
+</script>
+</body>
+</html>
