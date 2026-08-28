@@ -1,0 +1,37 @@
+name: Fetch & Cache Educational News
+
+on:
+  schedule:
+    # Runs every 12 hours (cron job)
+    - cron: '0 */12 * * *'
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch educational news from NewsData.io
+        env:
+          NEWSDATA_API_KEY: pub_9394b07b965547f9a4e6e4c58a8ffc33
+        run: node scripts/fetch_news.js
+
+      - name: Commit and push updated news.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-refresh educational news feed [skip ci]"
+          file_pattern: public/data/news.json
+          commit_user_name: "news-bot"
+          commit_user_email: "news-bot@myexamcompanion.com"
