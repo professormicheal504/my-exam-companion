@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Complete Profile – My Exam Companion</title>
@@ -14,7 +23,7 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: #f9fafb;
+      background: var(--bg-base);
       background-image: 
         radial-gradient(at 0% 0%, rgba(183, 12, 1, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(183, 12, 1, 0.15) 0px, transparent 50%);
@@ -76,13 +85,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7280;
+      color: var(--text-muted);
       text-decoration: none;
       transition: background 0.15s;
     }
     .btn-close:hover {
       background: #e5e7eb;
-      color: #131212;
+      color: var(--text-primary);
     }
     .modal-header {
       text-align: center;
@@ -91,12 +100,12 @@
     .modal-title {
       font-size: 24px;
       font-weight: 800;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
     .modal-subtitle {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
       line-height: 1.5;
     }
     .profile-upload {
@@ -109,12 +118,12 @@
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: #f3f4f6;
+      background: var(--bg-base);
       border: 2px dashed #d1d5db;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #9ca3af;
+      color: var(--text-muted);
       margin-bottom: 8px;
       overflow: hidden;
       cursor: pointer;
@@ -150,24 +159,24 @@
     .form-input {
       width: 100%;
       padding: 12px 16px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 12px;
       font-size: 14px;
       outline: none;
       transition: all 0.2s ease;
-      background: #f9fafb;
-      color: #131212;
+      background: var(--bg-base);
+      color: var(--text-primary);
     }
     .form-input:focus {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
-      background-color: white;
+      background-color: var(--bg-card);
     }
     .form-select {
       width: 100%;
       appearance: none;
-      background: #f9fafb url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
-      border: 1px solid #e5e7eb;
+      background: var(--bg-base) url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 12px 40px 12px 16px;
       font-size: 14px;
@@ -175,7 +184,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-family: inherit;
-      color: #131212;
+      color: var(--text-primary);
       outline: none;
       transition: all 0.2s ease;
       cursor: pointer;
@@ -184,12 +193,12 @@
     .form-select:focus {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
-      background-color: white;
+      background-color: var(--bg-card);
     }
 
     .form-select:disabled {
-      background-color: #f3f4f6;
-      color: #9ca3af;
+      background-color: var(--bg-base);
+      color: var(--text-muted);
       cursor: not-allowed;
     }
     .btn-primary {
@@ -210,6 +219,7 @@
       transform: translateY(-1px);
     }
   </style>
+  <link rel="stylesheet" href="../../components/dark-mode.css">
 </head>
 <body>
   <div class="modal-overlay">
@@ -237,7 +247,7 @@
             <img id="avatarImg" src="" alt="Avatar Preview">
           </label>
           <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
-          <span style="font-size: 12px; color: #6b7280; font-weight: 500;">Upload Profile Picture</span>
+          <span style="font-size: 12px; color: var(--text-muted); font-weight: 500;">Upload Profile Picture</span>
         </div>
 
         <div class="form-row">
@@ -556,31 +566,35 @@
   </div>
 
   <!-- Success & Referral Modal -->
-  <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
-    <div style="background: white; border-radius: 12px; padding: 30px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-      <h2 style="color: #131212; margin-top: 0;">Profile Saved!</h2>
-      <p style="color: #6b7280; font-size: 14px;">Your Matric Number is:</p>
-      <div id="modalMatricNumber" style="font-size: 24px; font-weight: 800; color: #2563eb; letter-spacing: 2px; margin: 10px 0 20px;">MEC/...</div>
+  <div id="successModal" class="modal-overlay" style="display: none;">
+    <div class="modal-box" style="text-align: center; max-width: 420px; padding: 32px;">
+      <h2 class="modal-title">Profile Saved!</h2>
+      <p class="modal-subtitle">Your Matric Number is:</p>
+      <div id="modalMatricNumber" style="font-size: 28px; font-weight: 800; color: #2563eb; letter-spacing: 2px; margin: 16px 0 24px;">MEC/...</div>
       
-      <div style="text-align: left; margin-bottom: 15px;">
-        <label class="form-label" style="font-size: 13px;">My Referral Code <span style="color:#2563eb;">(Recommended: Update this to a catchy custom code!)</span></label>
-        <input type="text" id="myReferralCode" class="form-input" style="padding: 10px; font-weight: bold;" placeholder="e.g. OJEHOMON2026" />
+      <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+        <label class="form-label">Full Name <span style="color:#ef4444;">*</span></label>
+        <input type="text" id="inputFullName" class="form-input" placeholder="e.g. John Doe" required />
+      </div>
+
+      <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+        <label class="form-label">My Referral Code <span style="color:#2563eb; font-weight:normal; font-size:12px; margin-left: 4px;">(Recommended: Update to a catchy code!)</span></label>
+        <input type="text" id="myReferralCode" class="form-input" style="font-weight: 700; color: #2563eb; letter-spacing: 1px;" placeholder="e.g. OJEHOMON2026" />
       </div>
       
-      <div style="text-align: left; margin-bottom: 25px;">
-        <label class="form-label" style="font-size: 13px;">Referred By (Optional)</label>
-        <input type="text" id="referredByCode" class="form-input" style="padding: 10px;" placeholder="Enter friend's code" />
+      <div class="form-group" style="text-align: left; margin-bottom: 32px;">
+        <label class="form-label">Referred By (Optional)</label>
+        <input type="text" id="referredByCode" class="form-input" placeholder="Enter friend's code" />
       </div>
       
-      <button onclick="finishOnboarding()" class="btn-primary" id="finishBtn">Complete Registration</button>
+      <button onclick="finishOnboarding()" class="btn-primary" id="finishBtn" style="margin-top: 0;">Complete Registration</button>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../components/supabase.js"></script>
   <script>
-    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = window.MECSupabase.getSupabase();
 
     function previewImage(event) {
       const input = event.target;
@@ -817,7 +831,7 @@
       const btn = document.querySelector('.btn-primary');
       
       if (!avatarInput.files || !avatarInput.files[0]) {
-        alert("Please upload a profile picture before continuing.");
+        showToast("Please upload a profile picture before continuing.", 'error');
         return;
       }
       
@@ -826,7 +840,7 @@
       // Get the current logged-in user from local storage
       const sbTokenStr = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
       if (!sbTokenStr) {
-        alert("You are not logged in! Please sign in first.");
+        showToast("You are not logged in! Please sign in first.", 'error');
         window.location.href = 'login.html';
         return;
       }
@@ -883,6 +897,11 @@
         const { error: insertError } = await supabaseClient.from('profiles').upsert(profileData);
         if (insertError) throw insertError;
 
+        // 4. Update the user metadata in the active session so the UI syncs immediately
+        await supabaseClient.auth.updateUser({
+          data: { avatar_url: avatarUrl }
+        });
+
         btn.innerText = 'Success!';
         document.getElementById('modalMatricNumber').innerText = examId;
         
@@ -894,12 +913,12 @@
       } catch (error) {
         console.error(error);
         if (error.code === '23503') {
-           alert("Your account no longer exists in the database. Please sign up or log in again.");
+           showToast("Your account no longer exists in the database. Please sign up or log in again.", 'error');
            localStorage.removeItem('sb-alwplfsqzrijxqujrpyu-auth-token');
            window.location.href = 'login.html';
            return;
         }
-        alert('Error: ' + error.message);
+        showToast('Error: ' + error.message, 'error');
         btn.disabled = false;
         btn.innerText = 'Save Profile & Continue';
       }
@@ -910,11 +929,19 @@
       btn.disabled = true;
       btn.innerText = 'Finishing...';
       
+      let fullName = document.getElementById('inputFullName').value.trim();
       let refCode = document.getElementById('myReferralCode').value.trim();
       let referredBy = document.getElementById('referredByCode').value.trim();
       
+      if (!fullName) {
+        showToast("Please enter your full name.", 'error');
+        btn.disabled = false;
+        btn.innerText = 'Complete Registration';
+        return;
+      }
+
       if (refCode.length < 6) {
-        alert("Your referral code must be at least 6 characters long.");
+        showToast("Your referral code must be at least 6 characters long.", 'error');
         btn.disabled = false;
         btn.innerText = 'Complete Registration';
         return;
@@ -934,21 +961,28 @@
               .single();
               
            if (refError || !refData) {
-               alert("The 'Referred By' code you entered is invalid. Please check and try again, or leave it blank.");
+               showToast("The 'Referred By' code you entered is invalid. Please check and try again, or leave it blank.", 'error');
                btn.disabled = false;
                btn.innerText = 'Complete Registration';
                return;
            }
         }
 
+        // Update auth user metadata
+        await supabaseClient.auth.updateUser({
+          data: { full_name: fullName, display_name: fullName }
+        });
+
+        // Update profiles table
         const { error } = await supabaseClient.from('profiles').update({
+          full_name: fullName,
           referral_code: refCode,
           referred_by: referredBy || null
         }).eq('id', user.id);
         
         if (error) {
            if (error.code === '23505') { // Unique constraint code
-               alert("That Referral Code is already taken! Please choose another one.");
+               showToast("That Referral Code is already taken! Please choose another one.", 'error');
                btn.disabled = false;
                btn.innerText = 'Complete Registration';
                return;
@@ -959,7 +993,7 @@
         window.location.href = '../index.html';
       } catch (err) {
         console.error(err);
-        alert("Error saving referral: " + err.message);
+        showToast("Error saving referral: " + err.message, 'error');
         btn.disabled = false;
         btn.innerText = 'Complete Registration';
       }

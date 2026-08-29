@@ -53,7 +53,7 @@ const FLYOUT_IC = {
   study_pq: _svg('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
   novel: _svg('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
   syllabus: _svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>'),
-  jamb_brochure: _svg('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
+  brochure: _svg('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
   topic_video: _svg('<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>'),
   past_q_video: _svg('<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'),
   scholarships: _svg('<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>'),
@@ -87,10 +87,9 @@ const MEC_MENUS = {
         title: 'Study Materials',
         items: [
           { id: 'classroom', icon: FLYOUT_IC.classroom, label: 'Enter Classroom', hl: true },
-          { id: 'study_pq', icon: FLYOUT_IC.study_pq, label: 'Study Past Questions' },
           { id: 'novel', icon: FLYOUT_IC.novel, label: 'Novel' },
           { id: 'syllabus', icon: FLYOUT_IC.syllabus, label: 'JAMB Syllabus' },
-          { id: 'jamb_brochure', icon: FLYOUT_IC.jamb_brochure, label: 'JAMB Brochure' },
+          { id: 'brochure', icon: FLYOUT_IC.brochure, label: 'Brochure' },
         ]
       },
       { divider: true },
@@ -98,14 +97,6 @@ const MEC_MENUS = {
         title: 'Video Lessons',
         items: [
           { id: 'topic_video', icon: FLYOUT_IC.topic_video, label: 'Topic Video Lessons' },
-          { id: 'past_q_video', icon: FLYOUT_IC.past_q_video, label: 'Past Questions Videos' },
-        ]
-      },
-      { divider: true },
-      {
-        title: 'Opportunities',
-        items: [
-          { id: 'scholarships', icon: FLYOUT_IC.scholarships, label: 'Scholarships' },
         ]
       }
     ]
@@ -120,8 +111,8 @@ const MEC_MENUS = {
       {
         title: 'Community',
         items: [
-          { id: 'tutor', icon: FLYOUT_IC.tutor, label: 'Tutor' },
-          { id: 'student', icon: FLYOUT_IC.student, label: 'Student' },
+          { id: 'tutor', icon: FLYOUT_IC.tutor, label: 'Tutor', dim: true },
+          { id: 'student', icon: FLYOUT_IC.student, label: 'Student', dim: true },
         ]
       }
     ]
@@ -132,16 +123,8 @@ const MEC_MENUS = {
       {
         title: 'Community',
         items: [
-          { id: 'chat', icon: FLYOUT_IC.chat, label: 'Chat' },
+          { id: 'chat', icon: FLYOUT_IC.chat, label: 'Chat', dim: true },
           { id: 'rank', icon: FLYOUT_IC.rank, label: 'Global Rank' },
-          { id: 'friend_score', icon: FLYOUT_IC.friend_score, label: 'Check Friend Score' },
-        ]
-      },
-      { divider: true },
-      {
-        title: 'Activity',
-        items: [
-          { id: 'history', icon: FLYOUT_IC.history, label: 'History' },
         ]
       },
       { divider: true },
@@ -266,8 +249,14 @@ class AppSidebar extends HTMLElement {
         this._openMobile();
       }
     } else {
-      document.body.classList.toggle('sidebar-closed');
-      this._closeFlyout();
+      // On desktop and tablet, sidebar is fixed. 
+      // Clicking the logo (which acts as the toggle) navigates home instead.
+      if (window.MEC_NAV && typeof window.MEC_NAV.href === 'function') {
+        window.location.href = window.MEC_NAV.href('home');
+      } else {
+        // Fallback to home
+        window.location.href = this.base + 'modules/index.html';
+      }
     }
   }
 
@@ -504,41 +493,52 @@ class AppSidebar extends HTMLElement {
       this.flyout.innerHTML = `<div style="padding:20px 16px;color:#9ca3af;font-size:13px;">Loading exams...</div>`;
       this.flyout.classList.add('open');
 
+      const _country = localStorage.getItem('mec_country') || 'ng';
+      const _isNg = _country === 'ng';
+
       _loadTestSectionsFromConfig().then(config => {
         let html = `<div class="mec-flyout-title">Live Challenges</div>`;
-        html += `<a href="${_mecHrefSafe('live_arena')}" class="mec-flyout-item mec-flyout-item--hl">`;
-        html += `<div class="mec-flyout-icon">${FLYOUT_IC.live_arena}</div><span>Live Arena</span></a>`;
+        // Live Arena — Coming Soon for everyone
+        html += `<div class="mec-flyout-item mec-flyout-item--dim" style="cursor:default;">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.live_arena}</div><span>Live Arena</span>`;
+        html += `<span class="mec-flyout-soon">COMING SOON</span></div>`;
 
-        html += `<div class="mec-flyout-div"></div>`;
-        html += `<a href="${_mecHrefSafe('jamb_mock')}" class="mec-flyout-item">`;
-        html += `<div class="mec-flyout-icon">${FLYOUT_IC.jamb_mock}</div><span>JAMB Mock Exam</span></a>`;
-
-        html += `<div class="mec-flyout-div"></div>`;
-        html += `<a href="${_mecHrefSafe('secondary_school')}" class="mec-flyout-item">`;
-        html += `<div class="mec-flyout-icon">${FLYOUT_IC.secondary}</div><span>Secondary School (All Class)</span></a>`;
+        // JAMB Mock — Nigeria only
+        if (_isNg) {
+          html += `<div class="mec-flyout-div"></div>`;
+          html += `<a href="${_mecHrefSafe('jamb_mock')}" class="mec-flyout-item">`;
+          html += `<div class="mec-flyout-icon">${FLYOUT_IC.jamb_mock}</div><span>JAMB Mock Exam</span></a>`;
+        }
 
         if (config && config.dashboard_modules && config.dashboard_modules.length) {
-          config.dashboard_modules.forEach((mod, i) => {
+          const filteredModules = config.dashboard_modules.filter(m => m.category !== 'university');
+          filteredModules.forEach((mod, i) => {
             if (i === 0) html += `<div class="mec-flyout-div"></div>`;
-            html += `<a href="${_mecHrefSafe('cbt_setup', { exam_id: mod.id })}" class="mec-flyout-item">`;
+            const params = { exam_id: mod.id };
+            if (mod.data_source) params.data_source = mod.data_source;
+            if (mod.logo) params.logo = mod.logo;
+            html += `<a href="${_mecHrefSafe('cbt_setup', params)}" class="mec-flyout-item">`;
             html += `<div class="mec-flyout-icon">${FLYOUT_IC.cbt_exam}</div>`;
             html += `<span>${mod.display_name} CBT Exam</span>`;
             html += `</a>`;
-            if (i < config.dashboard_modules.length - 1) html += `<div class="mec-flyout-div"></div>`;
+            if (i < filteredModules.length - 1) html += `<div class="mec-flyout-div"></div>`;
           });
         }
 
-        html += `<div class="mec-flyout-div"></div>`;
-        html += `<a href="${_mecHrefSafe('post_utme')}" class="mec-flyout-item">`;
-        html += `<div class="mec-flyout-icon">${FLYOUT_IC.post_utme}</div><span>Post UTME CBT Exam</span></a>`;
-
-        html += `<div class="mec-flyout-div"></div>`;
-        html += `<a href="${_mecHrefSafe('university_exam')}" class="mec-flyout-item">`;
-        html += `<div class="mec-flyout-icon">${FLYOUT_IC.university}</div><span>University CBT/Theory Exam</span></a>`;
+        // University Exam — Nigeria only
+        if (_isNg) {
+          html += `<div class="mec-flyout-div"></div>`;
+          html += `<a href="${_mecHrefSafe('university_exam')}" class="mec-flyout-item">`;
+          html += `<div class="mec-flyout-icon">${FLYOUT_IC.university}</div><span>University CBT/Theory Exam</span></a>`;
+        }
 
         html += `<div class="mec-flyout-div"></div>`;
         html += `<a href="${_mecHrefSafe('leaderboard')}" class="mec-flyout-item">`;
         html += `<div class="mec-flyout-icon">${FLYOUT_IC.rank}</div><span>Leaderboard</span></a>`;
+
+        html += `<div class="mec-flyout-div"></div>`;
+        html += `<a href="${_mecHrefSafe('history')}" class="mec-flyout-item">`;
+        html += `<div class="mec-flyout-icon">${FLYOUT_IC.history}</div><span>History</span></a>`;
 
         this.flyout.innerHTML = html;
         requestAnimationFrame(() => {
@@ -565,12 +565,17 @@ class AppSidebar extends HTMLElement {
         html += `<div class="mec-flyout-title">${section.title}</div>`;
       }
       section.items.forEach(item => {
+        const currentCountry = localStorage.getItem('mec_country') || 'ng';
+        if (currentCountry !== 'ng' && (item.id === 'syllabus' || item.id === 'brochure' || item.id === 'novel')) {
+          return;
+        }
+
         const cls = [
           'mec-flyout-item',
           item.hl ? 'mec-flyout-item--hl' : '',
           item.dim ? 'mec-flyout-item--dim' : '',
         ].filter(Boolean).join(' ');
-        const href = item.dim ? '#' : mecHref(this.base, item.id);
+        const href = item.dim ? '#' : _mecHrefSafe(item.id);
         const tag = item.dim ? 'div' : 'a';
         const hrefAttr = item.dim ? '' : `href="${href}"`;
         html += `

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    /* Anti-flash: apply saved theme before first paint */
+    (function() {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Room Details - Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+    }
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* ==============================
+       APP SHELL & LAYOUT
+    ============================== */
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .content-area {
+      display: flex;
+      flex: 1;
+    }
+    .main-content {
+      flex: 1;
+      padding: 32px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Tablet/Mobile Adjustments */
+    @media (max-width: 768px) {
+      .main-wrapper { margin-left: 80px; }
+      .main-content { padding: 20px 16px; }
+    }
+    @media (max-width: 600px) {
+      .main-wrapper { margin-left: 0; }
+    }
+
+    /* ==============================
+       ROOM HEADER OVERVIEW
+    ============================== */
+    .room-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+    [data-theme="dark"] .room-header { border-color: #333; }
+    
+    .room-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .room-header-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .room-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .room-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 235, 0.1);
+      color: #2563eb;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    [data-theme="dark"] .room-code {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+    }
+    
+    .room-header-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-action {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-lock {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fca5a5;
+    }
+    [data-theme="dark"] .btn-lock {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+    .btn-lock:hover { background: #fee2e2; }
+    
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .room-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+      .room-header-actions { width: 100%; }
+      .btn-action { flex: 1; justify-content: center; }
+    }
+
+    /* ==============================
+       TABS NAVIGATION
+    ============================== */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1px solid var(--border, #ebebeb);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    [data-theme="dark"] .tabs-nav { border-color: #333; }
+    .tabs-nav::-webkit-scrollbar { display: none; }
+    
+    .tab-btn {
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+    .tab-btn.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+    [data-theme="dark"] .tab-btn.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+
+    /* ==============================
+       TAB PANES
+    ============================== */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-pane.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Section Header within Tabs */
+    .pane-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .pane-header h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .btn-add {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid var(--border, #ebebeb);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    [data-theme="dark"] .btn-add {
+      background: #334155;
+      color: #f8fafc;
+      border-color: #444;
+    }
+    .btn-add:hover { background: #e2e8f0; }
+
+    /* ---- Subjects Tab ---- */
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .subject-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s;
+    }
+    [data-theme="dark"] .subject-card { border-color: #333; }
+    .subject-card:hover { border-color: #2563eb; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    
+    .subject-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .subject-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-subject-action {
+      width: 100%;
+      background: rgba(37, 99, 235, 0.1);
+      color: #2563eb;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    [data-theme="dark"] .btn-subject-action {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+    }
+    .btn-subject-action:hover { background: #2563eb; color: white; }
+
+    /* ---- Students Tab ---- */
+    .student-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .student-list { border-color: #333; }
+    
+    .student-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border, #ebebeb);
+    }
+    [data-theme="dark"] .student-item { border-bottom-color: #333; }
+    .student-item:last-child { border-bottom: none; }
+    
+    .student-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .student-avatar {
+      width: 40px; height: 40px;
+      background: #e2e8f0;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #475569;
+    }
+    [data-theme="dark"] .student-avatar { background: #334155; color: #cbd5e1; }
+    
+    .student-details h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+    .student-details p { font-size: 12px; color: var(--text-muted); }
+    
+    .student-status {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .badge-joined {
+      background: #ecfdf5; color: #059669;
+      padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    }
+    .badge-invited {
+      background: #f1f5f9; color: #475569;
+      padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    }
+    [data-theme="dark"] .badge-joined { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    [data-theme="dark"] .badge-invited { background: #334155; color: #cbd5e1; }
+    
+    .btn-remove {
+      color: #ef4444;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+    .btn-remove:hover { opacity: 1; text-decoration: underline; }
+
+    /* ---- Settings Tab (Similar to Create form) ---- */
+    .settings-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    [data-theme="dark"] .settings-card { border-color: #333; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .form-input, .form-select {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--border, #ebebeb); border-radius: 10px;
+      background: var(--bg-base); color: var(--text-primary); font-family: inherit; font-size: 14px;
+    }
+    [data-theme="dark"] .form-input, [data-theme="dark"] .form-select { border-color: #444; }
+    
+    /* ---- Results Tab ---- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    [data-theme="dark"] .stat-card { border-color: #333; }
+    .stat-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    .stat-card h3 { font-size: 28px; font-weight: 800; color: #2563eb; }
+    [data-theme="dark"] .stat-card h3 { color: #60a5fa; }
+    
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="/"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <!-- TOP BAR -->
+      <app-topbar data-base="/"></app-topbar>
+
+      <!-- CONTENT AREA -->
+      <main class="content-area">
+        <section class="main-content">
+          
+          <!-- ROOM HEADER -->
+          <div class="room-header">
+            <div class="room-header-left">
+              <h1 class="room-header-title">Mathematics 101 - JAMB Prep</h1>
+              <div class="room-header-meta">
+                <span class="room-code">
+                  Code: MATH101-PREP
+                  <button title="Copy Code" style="color:inherit;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                </span>
+                <span>•</span>
+                <span>Created: 12 Aug 2026</span>
+              </div>
+            </div>
+            
+            <div class="room-header-actions">
+              <button class="btn-action btn-lock">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Lock Room
+              </button>
+              <button class="btn-action btn-primary" onclick="window.location.href='result.html'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                View Results
+              </button>
+            </div>
+          </div>
+
+          <!-- TABS NAV -->
+          <div class="tabs-nav">
+            <button class="tab-btn active" id="tab-subjects" onclick="switchTab('subjects')">Subjects</button>
+            <button class="tab-btn" id="tab-students" onclick="switchTab('students')">Students</button>
+            <button class="tab-btn" id="tab-settings" onclick="switchTab('settings')">Settings</button>
+            <button class="tab-btn" id="tab-results" onclick="switchTab('results')">Results</button>
+          </div>
+
+          <!-- TAB CONTENT: SUBJECTS -->
+          <div class="tab-pane active" id="pane-subjects">
+            <div class="pane-header">
+              <h3>Room Subjects</h3>
+              <button class="btn-add">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Subject
+              </button>
+            </div>
+            <div class="subject-grid">
+              
+              <div class="subject-card">
+                <h4>Mathematics</h4>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  40 Questions Added
+                </p>
+                <button class="btn-subject-action" onclick="window.location.href='add_question.html'">Manage Questions</button>
+              </div>
+
+              <div class="subject-card">
+                <h4>English Language</h4>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  0 Questions Added
+                </p>
+                <button class="btn-subject-action" onclick="window.location.href='add_question.html'">Tap to add questions</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB CONTENT: STUDENTS -->
+          <div class="tab-pane" id="pane-students">
+            <div class="pane-header">
+              <h3>Enrolled Students (24)</h3>
+              <button class="btn-add">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                Invite Student
+              </button>
+            </div>
+            
+            <div class="student-list">
+              <!-- Student 1 -->
+              <div class="student-item">
+                <div class="student-info">
+                  <div class="student-avatar">JD</div>
+                  <div class="student-details">
+                    <h4>John Doe</h4>
+                    <p>johndoe@example.com</p>
+                  </div>
+                </div>
+                <div class="student-status">
+                  <span class="badge-joined">Joined</span>
+                  <button class="btn-remove">Remove</button>
+                </div>
+              </div>
+
+              <!-- Student 2 -->
+              <div class="student-item">
+                <div class="student-info">
+                  <div class="student-avatar">AO</div>
+                  <div class="student-details">
+                    <h4>Aisha O.</h4>
+                    <p>aisha@myschool.com</p>
+                  </div>
+                </div>
+                <div class="student-status">
+                  <span class="badge-joined">Joined</span>
+                  <button class="btn-remove">Remove</button>
+                </div>
+              </div>
+
+              <!-- Student 3 -->
+              <div class="student-item">
+                <div class="student-info">
+                  <div class="student-avatar">CE</div>
+                  <div class="student-details">
+                    <h4>Chuks E.</h4>
+                    <p>chuks@test.net</p>
+                  </div>
+                </div>
+                <div class="student-status">
+                  <span class="badge-invited">Invited</span>
+                  <button class="btn-remove">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB CONTENT: SETTINGS -->
+          <div class="tab-pane" id="pane-settings">
+            <div class="pane-header">
+              <h3>Room Settings</h3>
+            </div>
+            <div class="settings-card">
+              
+              <div class="form-group" style="max-width: 400px;">
+                <label>Room Name</label>
+                <input type="text" class="form-input" value="Mathematics 101 - JAMB Prep">
+              </div>
+
+              <div class="form-group" style="max-width: 400px;">
+                <label>Lock / Unlock Room</label>
+                <select class="form-select">
+                  <option value="unlocked" selected>Unlocked (Open to join)</option>
+                  <option value="locked">Locked (No new joins)</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="max-width: 400px;">
+                <label>Room Code</label>
+                <div style="display:flex; gap:10px;">
+                  <input type="text" class="form-input" value="MATH101-PREP" readonly>
+                  <button class="btn-add" style="flex-shrink:0;">Regenerate</button>
+                </div>
+              </div>
+              
+              <div style="margin-top:24px;">
+                <button class="btn-primary" style="padding:10px 24px; border-radius:8px; font-weight:600; border:none; font-family:inherit;">Save Changes</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB CONTENT: RESULTS -->
+          <div class="tab-pane" id="pane-results">
+            <div class="pane-header">
+              <h3>Performance Summary</h3>
+            </div>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <p>Average Score</p>
+                <h3>68%</h3>
+              </div>
+              <div class="stat-card">
+                <p>Pass Rate (Above 50%)</p>
+                <h3>85%</h3>
+              </div>
+              <div class="stat-card">
+                <p>Total Attempts</p>
+                <h3>42</h3>
+              </div>
+            </div>
+
+            <div class="settings-card" style="text-align:center; padding: 40px;">
+              <p style="color:var(--text-muted); margin-bottom:16px;">Detailed result breakdown is available after students complete the exam.</p>
+              <button class="btn-action btn-primary" style="margin: 0 auto;">Download Full CSV</button>
+            </div>
+          </div>
+
+        </section>
+      </main>
+      
+    </div><!-- end main-wrapper -->
+  </div><!-- end app -->
+
+  <!-- Simple Tab Script -->
+  <script>
+    function switchTab(tabId) {
+      // Remove active from all tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+      
+      // Add active to selected
+      document.getElementById('tab-' + tabId).classList.add('active');
+      document.getElementById('pane-' + tabId).classList.add('active');
+    }
+  </script>
+
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

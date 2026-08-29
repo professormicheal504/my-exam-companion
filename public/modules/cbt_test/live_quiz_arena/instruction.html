@@ -1,6 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Live Arena Instructions</title>
@@ -8,8 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/components/topbar.css">
-  <link rel="stylesheet" href="/components/sidebar.css?v=5">
+    <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=6">
     
     <style>
         :root {
@@ -29,6 +39,40 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-float: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Sync custom variables with standard dark-mode.css variables */
+        [data-theme="dark"] {
+            --bg-color: var(--bg-base);
+            --card-bg: var(--bg-card);
+            --text-main: var(--text-primary);
+            --border-color: var(--border);
+        }
+
+        /* Override hardcoded light colors for dark mode */
+        [data-theme="dark"] .rule-item {
+            background: var(--bg-elevated) !important;
+            border-color: var(--border) !important;
+        }
+
+        [data-theme="dark"] .action-area {
+            background: linear-gradient(to top, var(--bg-base) 70%, transparent) !important;
+        }
+
+        [data-theme="dark"] .btn-start:disabled {
+            background: var(--bg-elevated) !important;
+            color: var(--text-muted) !important;
+        }
+
+        [data-theme="dark"] .live-tag {
+            background: rgba(59, 130, 246, 0.15) !important;
+            border-color: var(--primary-dk) !important;
+            color: var(--primary-dk) !important;
+        }
+
+        [data-theme="dark"] .hero-icon {
+            background: rgba(59, 130, 246, 0.15) !important;
+            border-color: var(--primary-dk) !important;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -165,7 +209,7 @@
         .rule-icon {
             flex-shrink: 0;
             width: 40px; height: 40px;
-            background: white;
+            background: var(--bg-card);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             font-size: 20px;
@@ -204,7 +248,7 @@
 
         .consent-row {
             display: flex; align-items: center; gap: 10px;
-            background: white; padding: 12px 16px; border-radius: 12px;
+            background: var(--bg-card); padding: 12px 16px; border-radius: 12px;
             border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
         }
 
@@ -339,9 +383,9 @@
 </style>
 
 </div> <!-- End main-wrapper -->
-<script defer src="/components/topbar.js"></script>
-  <script defer src="/components/nav.js"></script>
-<script defer src="/components/sidebar.js?v=6"></script>
+<script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=6"></script>
 
 </body>
 </html>

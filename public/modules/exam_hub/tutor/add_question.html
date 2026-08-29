@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    /* Anti-flash: apply saved theme before first paint */
+    (function() {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Manage Questions - Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  
+  <style>
+    /* ---- Reset & Global ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* ==============================
+       APP SHELL & LAYOUT
+    ============================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .content-area { display: flex; flex: 1; }
+    .main-content {
+      flex: 1; padding: 32px 24px; max-width: 900px; margin: 0 auto; width: 100%;
+    }
+
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } .main-content { padding: 20px 16px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ==============================
+       HEADER
+    ============================== */
+    .page-header { margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .page-header__title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; }
+    .page-header__desc { font-size: 14px; color: var(--text-muted); }
+    
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text-muted);
+      margin-bottom: 16px; transition: color 0.2s;
+    }
+    .btn-back:hover { color: #2563eb; }
+
+    /* ==============================
+       CARDS & FORMS
+    ============================== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border, #ebebeb);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      margin-bottom: 32px;
+    }
+    [data-theme="dark"] .card { border-color: #333; }
+
+    .section-title {
+      font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    /* ---- Source Tabs ---- */
+    .source-tabs {
+      display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none;
+    }
+    .source-tabs::-webkit-scrollbar { display: none; }
+    .source-btn {
+      padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 600;
+      color: var(--text-muted); background: var(--bg-base); border: 1px solid var(--border, #ebebeb);
+      white-space: nowrap; transition: all 0.2s;
+    }
+    [data-theme="dark"] .source-btn { border-color: #444; }
+    .source-btn:hover { background: var(--bg-card); color: var(--text-primary); }
+    .source-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+    .source-btn .ai-icon { margin-left: 4px; color: #fbbf24; }
+    [data-theme="dark"] .source-btn.active { background: #3b82f6; border-color: #3b82f6; }
+
+    /* ---- Form Grid ---- */
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .form-input, .form-textarea {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--border, #ebebeb); border-radius: 10px;
+      background: var(--bg-base); color: var(--text-primary); font-family: inherit; font-size: 14px; outline: none; transition: all 0.2s;
+    }
+    [data-theme="dark"] .form-input, [data-theme="dark"] .form-textarea { border-color: #444; }
+    .form-input:focus, .form-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); background: var(--bg-card); }
+    
+    /* Options Row */
+    .options-group { margin-bottom: 20px; }
+    .options-group label { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: block; }
+    .option-row {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    .option-radio {
+      appearance: none; width: 22px; height: 22px; border: 2px solid #cbd5e1; border-radius: 50%;
+      cursor: pointer; position: relative; flex-shrink: 0; outline: none; transition: 0.2s;
+    }
+    [data-theme="dark"] .option-radio { border-color: #475569; }
+    .option-radio:checked { border-color: #2563eb; }
+    .option-radio:checked::after {
+      content: ''; position: absolute; width: 10px; height: 10px; background: #2563eb;
+      border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .opt-label { font-weight: 700; color: var(--text-muted); width: 20px; text-align: center; }
+
+    .btn-primary {
+      background: #2563eb; color: white; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 14px;
+      display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); transition: 0.2s;
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+    /* ==============================
+       QUESTIONS LIST
+    ============================== */
+    .q-list { display: flex; flex-direction: column; gap: 16px; }
+    .q-card {
+      background: var(--bg-base); border: 1px solid var(--border, #ebebeb); border-radius: 12px;
+      padding: 20px; position: relative; transition: 0.2s;
+    }
+    [data-theme="dark"] .q-card { border-color: #444; }
+    .q-card:hover { border-color: #cbd5e1; }
+    
+    .q-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .q-text { font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.5; flex: 1; padding-right: 16px; }
+    .q-actions { display: flex; gap: 8px; }
+    .btn-icon {
+      color: var(--text-muted); padding: 6px; border-radius: 6px; transition: 0.2s;
+    }
+    .btn-icon:hover { background: rgba(0,0,0,0.05); color: var(--text-primary); }
+    [data-theme="dark"] .btn-icon:hover { background: rgba(255,255,255,0.1); }
+    .btn-delete:hover { color: #ef4444; background: #fef2f2; }
+    [data-theme="dark"] .btn-delete:hover { color: #f87171; background: rgba(239, 68, 68, 0.15); }
+
+    .q-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .q-opt-item {
+      font-size: 13px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px;
+      padding: 10px 12px; background: var(--bg-card); border-radius: 8px; border: 1px solid transparent;
+    }
+    .q-opt-item.correct {
+      background: #ecfdf5; color: #065f46; border-color: #a7f3d0; font-weight: 600;
+    }
+    [data-theme="dark"] .q-opt-item.correct {
+      background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.3);
+    }
+    .q-opt-letter { font-weight: 700; opacity: 0.7; }
+
+    @media (max-width: 600px) {
+      .q-options { grid-template-columns: 1fr; }
+      .page-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <app-sidebar data-base="/"></app-sidebar>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
+
+      <main class="content-area">
+        <section class="main-content">
+          
+          <a href="room_page.html" class="btn-back">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Room
+          </a>
+
+          <div class="page-header">
+            <div>
+              <h1 class="page-header__title">Manage Questions</h1>
+              <p class="page-header__desc">Subject: Mathematics (Math 101 - JAMB Prep)</p>
+            </div>
+          </div>
+
+          <!-- ADD QUESTION CARD -->
+          <div class="card">
+            <h2 class="section-title">Add CBT Question</h2>
+            
+            <div class="source-tabs">
+              <button class="source-btn active">Manual Entry</button>
+              <button class="source-btn">From Database</button>
+              <button class="source-btn">Generate with AI <span class="ai-icon">✨</span></button>
+            </div>
+
+            <!-- Manual Entry Form -->
+            <div class="form-container">
+              <div class="form-group">
+                <label>Question Text</label>
+                <textarea class="form-textarea" rows="3" placeholder="Enter the question text here..."></textarea>
+              </div>
+
+              <div class="options-group">
+                <label>Options (Select the radio button for the correct answer)</label>
+                
+                <div class="option-row">
+                  <input type="radio" name="correct_opt" value="A" class="option-radio" checked>
+                  <span class="opt-label">A</span>
+                  <input type="text" class="form-input" placeholder="Option A text">
+                </div>
+                
+                <div class="option-row">
+                  <input type="radio" name="correct_opt" value="B" class="option-radio">
+                  <span class="opt-label">B</span>
+                  <input type="text" class="form-input" placeholder="Option B text">
+                </div>
+                
+                <div class="option-row">
+                  <input type="radio" name="correct_opt" value="C" class="option-radio">
+                  <span class="opt-label">C</span>
+                  <input type="text" class="form-input" placeholder="Option C text">
+                </div>
+                
+                <div class="option-row">
+                  <input type="radio" name="correct_opt" value="D" class="option-radio">
+                  <span class="opt-label">D</span>
+                  <input type="text" class="form-input" placeholder="Option D text">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Explanation (Optional)</label>
+                <textarea class="form-textarea" rows="2" placeholder="Explain why the answer is correct..."></textarea>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button class="btn-primary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  Save Question
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- LIST OF QUESTIONS -->
+          <div class="card">
+            <h2 class="section-title">
+              Questions Bank
+              <span style="font-size: 13px; font-weight: 500; color: var(--text-muted); background: var(--bg-base); padding: 4px 10px; border-radius: 999px;">Total: 2 Added</span>
+            </h2>
+            
+            <div class="q-list">
+              
+              <!-- Question Item 1 -->
+              <div class="q-card">
+                <div class="q-header">
+                  <div class="q-text">1. If \( 2x + 3 = 11 \), what is the value of \( x \)?</div>
+                  <div class="q-actions">
+                    <button class="btn-icon" title="Edit">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <button class="btn-icon btn-delete" title="Delete">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="q-options">
+                  <div class="q-opt-item"><span class="q-opt-letter">A.</span> 3</div>
+                  <div class="q-opt-item correct"><span class="q-opt-letter">B.</span> 4</div>
+                  <div class="q-opt-item"><span class="q-opt-letter">C.</span> 5</div>
+                  <div class="q-opt-item"><span class="q-opt-letter">D.</span> 7</div>
+                </div>
+              </div>
+
+              <!-- Question Item 2 -->
+              <div class="q-card">
+                <div class="q-header">
+                  <div class="q-text">2. Solve the quadratic equation: \( x^2 - 5x + 6 = 0 \)</div>
+                  <div class="q-actions">
+                    <button class="btn-icon" title="Edit">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <button class="btn-icon btn-delete" title="Delete">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="q-options">
+                  <div class="q-opt-item"><span class="q-opt-letter">A.</span> x = 1, 6</div>
+                  <div class="q-opt-item"><span class="q-opt-letter">B.</span> x = -2, -3</div>
+                  <div class="q-opt-item correct"><span class="q-opt-letter">C.</span> x = 2, 3</div>
+                  <div class="q-opt-item"><span class="q-opt-letter">D.</span> x = -1, -6</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

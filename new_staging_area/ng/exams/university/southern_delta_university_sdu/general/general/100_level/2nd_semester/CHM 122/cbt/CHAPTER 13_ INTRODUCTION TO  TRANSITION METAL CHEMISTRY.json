@@ -6,8 +6,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which block of the periodic table contains the transition metals?",
-        "explanation": "Transition metals are a group of metals that are found in the d-block of the periodic table and are characterized by partially filled d subshells.",
+        "question_text": "<p>Which block of the periodic table contains the <b>transition metals</b>?</p>",
+        "explanation": "<p><b>Transition metals</b> are a group of metals that are found in the <b>d-block</b> of the periodic table and are characterized by partially filled <i>d</i> subshells.</p>",
         "options": [
             {
                 "option_id": "898994",
@@ -34,7 +34,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 13
+        "question_number": 13,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,35 +44,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What specifically characterizes the atoms of transition metals?",
-        "explanation": "Transition metals are characterized by the presence of partially filled d subshells in their atoms.",
+        "question_text": "<p><b>Transition metals</b> are a group of metallic elements in the periodic table. What specifically characterizes the atoms of these elements?</p>",
+        "explanation": "<p>Transition metals are defined by having atoms with <b>partially filled <i>d</i> subshells</b>. This is a key feature that distinguishes them from other groups of elements in the periodic table.</p>",
         "options": [
             {
                 "option_id": "633939",
                 "tag": "a",
-                "text": "Fully filled p subshells",
+                "text": "Fully filled <i>p</i> subshells",
                 "is_correct": false
             },
             {
                 "option_id": "119782",
                 "tag": "b",
-                "text": "Partially filled d subshells",
+                "text": "Partially filled <i>d</i> subshells",
                 "is_correct": true
             },
             {
                 "option_id": "317154",
                 "tag": "c",
-                "text": "Partially filled s subshells",
+                "text": "Partially filled <i>s</i> subshells",
                 "is_correct": false
             },
             {
                 "option_id": "251319",
                 "tag": "d",
-                "text": "Fully filled f subshells",
+                "text": "Fully filled <i>f</i> subshells",
                 "is_correct": false
             }
         ],
-        "question_number": 26
+        "question_number": 26,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,8 +82,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is NOT a transition metal?",
-        "explanation": "Calcium is an s-block element (alkaline earth metal), while Scandium, Titanium, and Vanadium are transition metals.",
+        "question_text": "<p>Which of the following is <b>NOT</b> a transition metal?</p>",
+        "explanation": "<p><b>Calcium</b> is an s-block element (alkaline earth metal), while Scandium, Titanium, and Vanadium are <b>transition metals</b>.</p>",
         "options": [
             {
                 "option_id": "621321",
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 39
+        "question_number": 39,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the correct electronic configuration of Chromium (Cr, Atomic number 24)?",
-        "explanation": "Chromium is an exception and half-fills its d orbitals by promoting an electron from the 4s orbital, resulting in the configuration $[Ar] 3d^5 4s^1$.",
+        "question_text": "<p>What is the <b>correct electronic configuration</b> of Chromium (Cr, Atomic number 24)?</p>",
+        "explanation": "<p>Chromium is an <b>exception</b> to the general filling order of orbitals. It promotes an electron from the <b>4s orbital</b> to achieve a <b>half-filled d-orbital</b> ($3d^5$), resulting in the stable configuration <i>$[Ar] 3d^5 4s^1$</i>.</p>",
         "options": [
             {
                 "option_id": "204228",
                 "tag": "a",
-                "text": "$[Ar] 3d^4 4s^2$",
+                "text": "<i>$[Ar] 3d<sup>4</sup> 4s<sup>2</sup>$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "108860",
                 "tag": "b",
-                "text": "$[Ar] 3d^5 4s^1$",
+                "text": "<i>$[Ar] 3d<sup>5</sup> 4s<sup>1</sup>$</i>",
                 "is_correct": true
             },
             {
                 "option_id": "449130",
                 "tag": "c",
-                "text": "$[Ar] 3d^6 4s^0$",
+                "text": "<i>$[Ar] 3d<sup>6</sup> 4s<sup>0</sup>$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "301935",
                 "tag": "d",
-                "text": "$[Ar] 3d^5 4s^2$",
+                "text": "<i>$[Ar] 3d<sup>5</sup> 4s<sup>2</sup>$</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 52
+        "question_number": 52,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,19 +158,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why does Chromium have an anomalous electronic configuration?",
-        "explanation": "Chromium promotes one 4s electron to achieve a half-filled $3d$ shell ($3d^5$), which provides extra stability.",
+        "question_text": "<p>Why does Chromium have an <b>anomalous electronic configuration</b>?</p>",
+        "explanation": "<p>Chromium promotes one <b>4s electron</b> to achieve a half-filled <b>$3d$ shell</b> ($3d^5$), which provides <b>extra stability</b>.</p>",
         "options": [
             {
                 "option_id": "328000",
                 "tag": "a",
-                "text": "To achieve a fully filled d-shell",
+                "text": "To achieve a fully filled <i>d</i>-shell",
                 "is_correct": false
             },
             {
                 "option_id": "173080",
                 "tag": "b",
-                "text": "To achieve a half-filled d-shell which has inherent extra stability",
+                "text": "To achieve a half-filled <i>d</i>-shell which has inherent extra stability",
                 "is_correct": true
             },
             {
@@ -178,11 +182,12 @@
             {
                 "option_id": "754585",
                 "tag": "d",
-                "text": "Because it belongs to the p-block",
+                "text": "Because it belongs to the <i>p</i>-block",
                 "is_correct": false
             }
         ],
-        "question_number": 65
+        "question_number": 65,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the electronic configuration of Copper (Cu, Atomic number 29)?",
-        "explanation": "Copper promotes one 4s electron to achieve a full set of d orbitals, giving it the configuration $[Ar] 3d^{10} 4s^1$.",
+        "question_text": "<p>What is the <b>electronic configuration</b> of Copper (Cu, Atomic number 29)?</p>",
+        "explanation": "<p>Copper promotes one <b>4s electron</b> to achieve a full set of <b>d orbitals</b>, giving it the configuration <i>$[Ar] 3d^{10} 4s^1$</i>.</p>",
         "options": [
             {
                 "option_id": "176796",
                 "tag": "a",
-                "text": "$[Ar] 3d^9 4s^2$",
+                "text": "<i>$[Ar] 3d^9 4s^2$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "652586",
                 "tag": "b",
-                "text": "$[Ar] 3d^{10} 4s^1$",
+                "text": "<i>$[Ar] 3d^{10} 4s^1$</i>",
                 "is_correct": true
             },
             {
                 "option_id": "778772",
                 "tag": "c",
-                "text": "$[Ar] 3d^{10} 4s^2$",
+                "text": "<i>$[Ar] 3d^{10} 4s^2$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "212972",
                 "tag": "d",
-                "text": "$[Ar] 3d^8 4s^2$",
+                "text": "<i>$[Ar] 3d^8 4s^2$</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 78
+        "question_number": 78,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which two elements are mentioned as exceptions to the general trend of transition metals exhibiting multiple oxidation states?",
-        "explanation": "Scandium only forms ions with a $+3$ charge, and Zinc only forms $+2$ ions. Thus, they display exceptions to the general trend of multiple oxidation states.",
+        "question_text": "<p>Which two elements are mentioned as exceptions to the <b>general trend</b> of transition metals exhibiting <b>multiple oxidation states</b>?</p>",
+        "explanation": "<p>Scandium only forms ions with a <b>$+3$</b> charge, and Zinc only forms <b>$+2$</b> ions. Thus, they display exceptions to the general trend of multiple oxidation states.</p>",
         "options": [
             {
                 "option_id": "372224",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 91
+        "question_number": 91,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +272,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the only stable oxidation state formed by Zinc ($Zn$)?",
-        "explanation": "Zinc has a full set of d orbitals ($[Ar] 3d^{10} 4s^2$) and only forms $+2$ ions, with an electronic arrangement of $[Ar] 3d^{10}$.",
+        "question_text": "<p>What is the only <b>stable oxidation state</b> formed by Zinc (<i>Zn</i>)?</p>",
+        "explanation": "<p>Zinc has a full set of <b>d orbitals</b> (<i>$[Ar] 3d^{10} 4s^2$</i>) and only forms <b>$+2$</b> ions, with an electronic arrangement of <i>$[Ar] 3d^{10}$</i>.</p>",
         "options": [
             {
                 "option_id": "291717",
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 104
+        "question_number": 104,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the stable oxidation state formed by Scandium ($Sc$)?",
-        "explanation": "Scandium has an electronic configuration of $[Ar] 3d^1 4s^2$, but it only forms ions with a $+3$ charge, resulting in a configuration of $[Ar] 3d^0$.",
+        "question_text": "<p>What is the <b>stable oxidation state</b> formed by Scandium (<i>Sc</i>)?</p>",
+        "explanation": "<p>Scandium has an electronic configuration of <b>$[Ar] 3d^1 4s^2$</b>, but it only forms ions with a <b>$+3$</b> charge, resulting in a configuration of <b>$[Ar] 3d^0$</b>.</p>",
         "options": [
             {
                 "option_id": "248916",
@@ -330,7 +338,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 117
+        "question_number": 117,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The conversion of $Fe^{2+}$ to $Fe^{3+}$ is an example of what type of reaction?",
-        "explanation": "Transition metals can undergo oxidation-reduction reactions, where they gain or lose electrons to form different ions, such as iron(II) oxidizing to iron(III).",
+        "question_text": "<p>The conversion of <i>Fe</i><sup>2+</sup> to <i>Fe</i><sup>3+</sup> is an example of what type of reaction?</p>",
+        "explanation": "<p><b>Transition metals</b> can undergo <b>oxidation-reduction reactions</b>, where they gain or lose electrons to form different ions, such as <i>iron(II)</i> oxidizing to <i>iron(III)</i>.</p>",
         "options": [
             {
                 "option_id": "594307",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 130
+        "question_number": 130,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,8 +386,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What term describes molecules or ions that donate electrons to a transition metal ion to form a complex?",
-        "explanation": "Ligands are molecules or ions that donate electrons to the metal ion in complexation reactions.",
+        "question_text": "<p>What term describes <b>molecules or ions</b> that donate electrons to a <b>transition metal ion</b> to form a complex?</p>",
+        "explanation": "<p><b>Ligands</b> are <i>molecules or ions</i> that donate electrons to the metal ion in <b>complexation reactions</b>.</p>",
         "options": [
             {
                 "option_id": "210450",
@@ -404,7 +414,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 143
+        "question_number": 143,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +424,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The formation of Tetraamminecopper(II), $[Cu(NH_3)_4]^{2+}$, is an example of which type of reaction?",
-        "explanation": "Transition metals can form complexes with ligands (like $NH_3$), which is a complexation reaction.",
+        "question_text": "<p>The formation of <b>Tetraamminecopper(II)</b>, <i>$[Cu(NH_3)_4]^{2+}$</i>, is an example of which type of reaction?</p>",
+        "explanation": "<p>Transition metals can form <b>complexes</b> with ligands (like <i>$NH_3$</i>), which is a <b>complexation reaction</b>.</p>",
         "options": [
             {
                 "option_id": "850304",
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 156
+        "question_number": 156,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,8 +462,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The formation of Iron(III) hydroxide, $Fe(OH)_3(s)$, from aqueous ions is an example of what reaction?",
-        "explanation": "Transition metal ions undergo precipitation reactions when they form insoluble compounds with other ions, like solid Iron(III) hydroxide.",
+        "question_text": "<p>The formation of <b>Iron(III) hydroxide</b>, <i>Fe(OH)<sub>3</sub>(s)</i>, from aqueous ions is an example of what reaction?</p>",
+        "explanation": "<p><b>Precipitation reactions</b> occur when aqueous ions combine to form an insoluble solid, such as <i>Fe(OH)<sub>3</sub>(s)</i>. In this case, the solid Iron(III) hydroxide precipitates out of solution, making it a classic example of a precipitation reaction.</p>",
         "options": [
             {
                 "option_id": "191933",
@@ -478,7 +490,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 169
+        "question_number": 169,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which transition metal is used as a catalyst in the Haber-Bosch process?",
-        "explanation": "Iron is used in the production of steel and acts as a catalyst in the Haber-Bosch process.",
+        "question_text": "<p>Which <b>transition metal</b> is used as a catalyst in the <b>Haber-Bosch process</b>?</p>",
+        "explanation": "<p><b>Iron</b> is used in the production of steel and acts as a catalyst in the <b>Haber-Bosch process</b>, which synthesizes ammonia from nitrogen and hydrogen gases.</p>",
         "options": [
             {
                 "option_id": "250027",
                 "tag": "a",
-                "text": "Gold",
+                "text": "<b>Gold</b>",
                 "is_correct": false
             },
             {
                 "option_id": "121193",
                 "tag": "b",
-                "text": "Silver",
+                "text": "<b>Silver</b>",
                 "is_correct": false
             },
             {
                 "option_id": "893242",
                 "tag": "c",
-                "text": "Copper",
+                "text": "<b>Copper</b>",
                 "is_correct": false
             },
             {
                 "option_id": "112081",
                 "tag": "d",
-                "text": "Iron",
+                "text": "<b>Iron</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 182
+        "question_number": 182,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which transition metal is used as a catalyst in the production of polyethylene?",
-        "explanation": "Copper is used in electronics and as a catalyst in the production of polyethylene.",
+        "question_text": "<p>Which <b>transition metal</b> is used as a catalyst in the production of <b>polyethylene</b>?</p>",
+        "explanation": "<p><b>Copper</b> is used in electronics and as a catalyst in the production of <b>polyethylene</b>.</p>",
         "options": [
             {
                 "option_id": "290528",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 195
+        "question_number": 195,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,8 +576,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Silver is widely known to act as a catalyst for which of the following processes?",
-        "explanation": "Silver can exhibit catalytic properties, such as the facilitation of the oxidation of ethylene to produce ethylene oxide.",
+        "question_text": "<p>Silver is widely known to act as a catalyst for which of the following processes?</p>",
+        "explanation": "<p>Silver can exhibit <b>catalytic properties</b>, such as the facilitation of the oxidation of ethylene to produce <b>ethylene oxide</b>.</p>",
         "options": [
             {
                 "option_id": "220655",
@@ -589,7 +604,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 208
+        "question_number": 208,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +614,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Gold is utilized as a catalyst in the production of which chemical?",
-        "explanation": "Gold is used in electronics and as a catalyst in the production of nitric acid.",
+        "question_text": "<p>Gold is utilized as a catalyst in the production of which <b>chemical</b>?</p>",
+        "explanation": "<p>Gold is used in electronics and as a <b>catalyst</b> in the production of <b>nitric acid</b>.</p>",
         "options": [
             {
                 "option_id": "697283",
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 221
+        "question_number": 221,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +652,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is a primary reason that transition elements exhibit variable oxidation states?",
-        "explanation": "Transition elements have partially filled d subshells, meaning electrons in the d orbitals can be easily removed or added, allowing multiple oxidation states.",
+        "question_text": "<p><b>Transition elements</b> exhibit variable oxidation states primarily due to the presence of <b>partially filled d subshells</b>.</p>",
+        "explanation": "<p>Transition elements have <b>partially filled d subshells</b>, which means electrons in the <b>d orbitals</b> can be easily removed or shared. This flexibility allows these elements to form multiple oxidation states, as the electrons in the <i>d</i> subshell can participate in bonding in different ways.</p>",
         "options": [
             {
                 "option_id": "206406",
@@ -663,7 +680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 234
+        "question_number": 234,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How do ionization energies contribute to the variable oxidation states of transition metals?",
-        "explanation": "Transition elements have relatively low ionization energies, which makes it easy to remove electrons from the d orbitals.",
+        "question_text": "<p><b>How do ionization energies contribute to the variable oxidation states of transition metals?</b></p>",
+        "explanation": "<p><b>Transition elements</b> have relatively low <b>ionization energies</b>, which makes it easy to remove electrons from the <b>d orbitals</b>. This ease of electron removal allows transition metals to exhibit multiple oxidation states, as varying numbers of d electrons can be lost to form different cations.</p>",
         "options": [
             {
                 "option_id": "636929",
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 247
+        "question_number": 247,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,13 +728,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "According to the textbook context, why are Iron(II) ions considered more common than Iron(III) ions?",
-        "explanation": "The text notes that the stability of ions plays a crucial role, stating that the $+2$ oxidation state of iron is more stable than the $+3$ oxidation state, making $Fe^{2+}$ more common.",
+        "question_text": "<p>According to the textbook context, why are <b>Iron(II)</b> ions considered more common than <b>Iron(III)</b> ions?</p>",
+        "explanation": "<p>The text notes that the stability of ions plays a crucial role, stating that the <i>+2</i> oxidation state of iron is more stable than the <i>+3</i> oxidation state, making <i>Fe<sup>2+</sup></i> more common.</p>",
         "options": [
             {
                 "option_id": "914086",
                 "tag": "a",
-                "text": "Because the $+2$ oxidation state of iron is stated to be more stable than the $+3$ oxidation state",
+                "text": "Because the <i>+2</i> oxidation state of iron is stated to be more stable than the <i>+3</i> oxidation state",
                 "is_correct": true
             },
             {
@@ -727,17 +746,18 @@
             {
                 "option_id": "314644",
                 "tag": "c",
-                "text": "Because the $+3$ oxidation state is radioactive",
+                "text": "Because the <i>+3</i> oxidation state is radioactive",
                 "is_correct": false
             },
             {
                 "option_id": "515764",
                 "tag": "d",
-                "text": "Because $Fe^{2+}$ has a full d-shell",
+                "text": "Because <i>Fe<sup>2+</sup></i> has a full <i>d</i>-shell",
                 "is_correct": false
             }
         ],
-        "question_number": 260
+        "question_number": 260,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What does the acronym LFSE stand for in coordination chemistry?",
-        "explanation": "LFSE stands for Ligand Field Stabilization Energy, which is the energy difference between the metal ion in a ligand field and in a free state.",
+        "question_text": "<p>What does the acronym <b>LFSE</b> stand for in coordination chemistry?</p>",
+        "explanation": "<p><b>LFSE</b> stands for <b>Ligand Field Stabilization Energy</b>, which is the energy difference between the metal ion in a ligand field and in a free state.</p>",
         "options": [
             {
                 "option_id": "263608",
                 "tag": "a",
-                "text": "Light Frequency Spectrum Energy",
+                "text": "<b>Light Frequency Spectrum Energy</b>",
                 "is_correct": false
             },
             {
                 "option_id": "330752",
                 "tag": "b",
-                "text": "Low Frequency Spin Energy",
+                "text": "<b>Low Frequency Spin Energy</b>",
                 "is_correct": false
             },
             {
                 "option_id": "204002",
                 "tag": "c",
-                "text": "Ligand Field Stabilization Energy",
+                "text": "<b>Ligand Field Stabilization Energy</b>",
                 "is_correct": true
             },
             {
                 "option_id": "181122",
                 "tag": "d",
-                "text": "Linear Field Separation Energy",
+                "text": "<b>Linear Field Separation Energy</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 273
+        "question_number": 273,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,19 +804,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What causes transition metal ions and compounds to exhibit vibrant colors?",
-        "explanation": "Transition elements exhibit coloured ions and compounds due to the presence of unpaired electrons in their d orbitals.",
+        "question_text": "<p>The vibrant colors exhibited by <b>transition metal ions and compounds</b> arise from which fundamental electronic property?</p>",
+        "explanation": "<p>The colors of transition metal compounds are primarily due to <b>d-d electronic transitions</b>. When unpaired electrons in the <i>d</i> orbitals absorb visible light, they are excited to higher energy levels. The energy difference between these levels corresponds to wavelengths in the visible spectrum, resulting in the observed colors.</p><p>Fully filled <i>d</i> subshells (option a) or the absence of <i>d</i>-orbitals (option d) do not allow such transitions, while high density and metallic radii (option c) are unrelated to color phenomena.</p>",
         "options": [
             {
                 "option_id": "316363",
                 "tag": "a",
-                "text": "Fully filled d subshells",
+                "text": "Fully filled <i>d</i> subshells",
                 "is_correct": false
             },
             {
                 "option_id": "139343",
                 "tag": "b",
-                "text": "Presence of unpaired electrons in their d subshells",
+                "text": "Presence of unpaired electrons in their <i>d</i> subshells",
                 "is_correct": true
             },
             {
@@ -807,11 +828,12 @@
             {
                 "option_id": "211832",
                 "tag": "d",
-                "text": "The absence of d-orbitals",
+                "text": "The absence of <i>d</i>-orbitals",
                 "is_correct": false
             }
         ],
-        "question_number": 286
+        "question_number": 286,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When light is absorbed by a transition metal ion causing an electron to jump from one d orbital to another, this is known as a:",
-        "explanation": "When light is absorbed, it can cause an electron to jump from one d orbital to another, which is known as a d-d transition.",
+        "question_text": "<p>When light is absorbed by a <b>transition metal ion</b> causing an electron to jump from one <b>d orbital</b> to another, this is known as a:</p>",
+        "explanation": "<p>When light is absorbed, it can cause an electron to jump from one <b>d orbital</b> to another, which is known as a <b>d-d transition</b>.</p>",
         "options": [
             {
                 "option_id": "700642",
                 "tag": "a",
-                "text": "p-d transition",
+                "text": "<i>p-d transition</i>",
                 "is_correct": false
             },
             {
                 "option_id": "229546",
                 "tag": "b",
-                "text": "s-p transition",
+                "text": "<i>s-p transition</i>",
                 "is_correct": false
             },
             {
                 "option_id": "190626",
                 "tag": "c",
-                "text": "d-d transition",
+                "text": "<i>d-d transition</i>",
                 "is_correct": true
             },
             {
                 "option_id": "733613",
                 "tag": "d",
-                "text": "f-f transition",
+                "text": "<i>f-f transition</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 299
+        "question_number": 299,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +880,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which theory explains how the energy levels of d orbitals are split due to interactions between the metal ion and surrounding ligands?",
-        "explanation": "The crystal field theory explains how the energy levels of the d orbitals are split in a transition metal ion due to interaction with surrounding ligands.",
+        "question_text": "<p>Which theory explains how the energy levels of <b>d orbitals</b> are split due to interactions between the metal ion and surrounding ligands?</p>",
+        "explanation": "<p>The <b>Crystal Field Theory</b> explains how the energy levels of the <b>d orbitals</b> are split in a transition metal ion due to interaction with surrounding ligands.</p>",
         "options": [
             {
                 "option_id": "197429",
@@ -885,7 +908,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 312
+        "question_number": 312,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,8 +918,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How many unpaired electrons does the $Ti^{3+}$ ion have, and what color is it responsible for?",
-        "explanation": "The Titanium(III) ion ($Ti^{3+}$) has one unpaired electron in its d orbital, which is responsible for its purple color.",
+        "question_text": "<p>The <b>$Ti^{3+}$</b> ion has how many unpaired electrons, and what color is it responsible for?</p>",
+        "explanation": "<p>The Titanium(III) ion (<b>$Ti^{3+}$</b>) has <b>one unpaired electron</b> in its d orbital, which is responsible for its <i>purple</i> color.</p>",
         "options": [
             {
                 "option_id": "319531",
@@ -922,7 +946,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 325
+        "question_number": 325,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +956,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What color is associated with the Copper(II) sulfate ($CuSO_4$) solution due to its one unpaired d-electron?",
-        "explanation": "The Copper(II) ion has one unpaired electron in its d orbital, which is responsible for the blue color.",
+        "question_text": "<p>The Copper(II) sulfate (<i>CuSO<sub>4</sub></i>) solution is associated with a specific color due to its one unpaired <b>d-electron</b>. What is that color?</p>",
+        "explanation": "<p>The <b>Copper(II) ion</b> (<i>Cu<sup>2+</sup></i>) has one unpaired electron in its <b>d orbital</b>, which causes the solution to absorb light in the red-orange region of the spectrum. This absorption results in the complementary color, <b>blue</b>, being transmitted and observed.</p>",
         "options": [
             {
                 "option_id": "207791",
@@ -959,7 +984,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 338
+        "question_number": 338,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The $Fe^{3+}$ ion in Iron(III) chloride ($FeCl_3$) has how many unpaired electrons, and what color does it produce?",
-        "explanation": "The Iron(III) ion has five unpaired electrons in its d orbitals, which is responsible for its yellow-brown color.",
+        "question_text": "<p>The <b>$Fe^{3+}$</b> ion in Iron(III) chloride (<b>$FeCl_3$</b>) has how many unpaired electrons, and what color does it produce?</p>",
+        "explanation": "<p>The Iron(III) ion has <b>five unpaired electrons</b> in its d orbitals, which is responsible for its <i>yellow-brown</i> color.</p>",
         "options": [
             {
                 "option_id": "106218",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 351
+        "question_number": 351,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,13 +1032,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the color of Manganese(II) Sulfate ($MnSO_4$) due to the presence of 5 unpaired d-electrons?",
-        "explanation": "The Manganese(II) ion has five unpaired electrons in its d orbitals, which is responsible for the pink color.",
+        "question_text": "<p>What is the color of <b>Manganese(II) Sulfate</b> (<i>MnSO<sub>4</sub></i>) due to the presence of 5 unpaired d-electrons?</p>",
+        "explanation": "<p>The <b>Manganese(II)</b> ion has five unpaired electrons in its d orbitals, which is responsible for the pink color.</p>",
         "options": [
             {
                 "option_id": "289461",
                 "tag": "a",
-                "text": "Pink",
+                "text": "<b>Pink</b>",
                 "is_correct": true
             },
             {
@@ -1033,7 +1060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 364
+        "question_number": 364,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1070,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which ion is responsible for the green color of Nickel(II) Chloride ($NiCl_2$)?",
-        "explanation": "The Nickel(II) ion has two unpaired electrons in its d orbitals, which is responsible for the green color.",
+        "question_text": "<p>The <b>green</b> color of <i>Nickel(II) Chloride</i> ($NiCl_2$) is due to the presence of which <b>ion</b>?</p>",
+        "explanation": "<p>The <b>$Ni^{2+}$</b> ion is responsible for the green color because it has two unpaired electrons in its d orbitals, which absorb certain wavelengths of light and reflect the complementary green color.</p>",
         "options": [
             {
                 "option_id": "131999",
@@ -1070,7 +1098,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 377
+        "question_number": 377,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1108,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What color is associated with the Cobalt(II) ion in Cobalt(II) Nitrate?",
-        "explanation": "The Cobalt(II) ion has three unpaired electrons in its d orbitals, which is responsible for the red pink color.",
+        "question_text": "<p>The <b>Cobalt(II)</b> ion in <b>Cobalt(II) Nitrate</b> is associated with which color?</p>",
+        "explanation": "<p>The <b>Cobalt(II)</b> ion has three unpaired electrons in its <b>d orbitals</b>, which is responsible for the <i>red pink</i> color.</p>",
         "options": [
             {
                 "option_id": "312296",
                 "tag": "a",
-                "text": "Yellow-brown",
+                "text": "<i>Yellow-brown</i>",
                 "is_correct": false
             },
             {
                 "option_id": "365805",
                 "tag": "b",
-                "text": "Red pink",
+                "text": "<i>Red pink</i>",
                 "is_correct": true
             },
             {
                 "option_id": "566466",
                 "tag": "c",
-                "text": "Blue-black",
+                "text": "<i>Blue-black</i>",
                 "is_correct": false
             },
             {
                 "option_id": "191636",
                 "tag": "d",
-                "text": "Purple",
+                "text": "<i>Purple</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 390
+        "question_number": 390,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1146,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Chromium(III) ion in $Cr_2O_3$ has 3 unpaired electrons and exhibits which color?",
-        "explanation": "The Chromium(III) ion has three unpaired electrons in its d orbitals, which is responsible for the green color.",
+        "question_text": "<p>The <b>Chromium(III)</b> ion in <i>Cr<sub>2</sub>O<sub>3</sub></i> has 3 unpaired electrons and exhibits which color?</p>",
+        "explanation": "<p>The <b>Chromium(III)</b> ion has three unpaired electrons in its d orbitals, which is responsible for the <b>green</b> color.</p>",
         "options": [
             {
                 "option_id": "350258",
@@ -1144,7 +1174,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 402
+        "question_number": 402,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,35 +1184,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Vanadium(IV) Oxide ($VO_2$) complex is characterized by what color?",
-        "explanation": "The Vanadium(IV) ion has one unpaired electron in its d orbital, which is responsible for the blue-black color.",
+        "question_text": "<p>The Vanadium(IV) Oxide (<i>VO</i><sub>2</sub>) complex is characterized by what color?</p>",
+        "explanation": "<p>The Vanadium(IV) ion has one unpaired electron in its <b>d orbital</b>, which is responsible for the <b>blue-black</b> color.</p>",
         "options": [
             {
                 "option_id": "122535",
                 "tag": "a",
-                "text": "Red pink",
+                "text": "<b>Red pink</b>",
                 "is_correct": false
             },
             {
                 "option_id": "262384",
                 "tag": "b",
-                "text": "Green",
+                "text": "<b>Green</b>",
                 "is_correct": false
             },
             {
                 "option_id": "336312",
                 "tag": "c",
-                "text": "Purple",
+                "text": "<b>Purple</b>",
                 "is_correct": false
             },
             {
                 "option_id": "128183",
                 "tag": "d",
-                "text": "Blue-black",
+                "text": "<b>Blue-black</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 414
+        "question_number": 414,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1222,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why is Molybdenum(VI) Oxide ($MoO_3$) yellow despite $Mo^{6+}$ having no unpaired electrons?",
-        "explanation": "The Molybdenum(VI) ion has no unpaired electrons, but the oxide ion has a high energy level, which is responsible for the yellow color.",
+        "question_text": "<p><b>Why</b> is Molybdenum(VI) Oxide (<i>MoO<sub>3</sub></i>) yellow despite <i>Mo<sup>6+</sup></i> having no unpaired electrons?</p>",
+        "explanation": "<p>The Molybdenum(VI) ion has no unpaired electrons, but the <b>oxide ion</b> has a high energy level, which is responsible for the yellow color.</p>",
         "options": [
             {
                 "option_id": "208603",
                 "tag": "a",
-                "text": "Because $Mo$ is not a transition metal",
+                "text": "Because <i>Mo</i> is not a <b>transition metal</b>",
                 "is_correct": false
             },
             {
                 "option_id": "255894",
                 "tag": "b",
-                "text": "Due to d-d transitions in the Mo ion",
+                "text": "Due to <b>d-d transitions</b> in the <i>Mo</i> ion",
                 "is_correct": false
             },
             {
                 "option_id": "101094",
                 "tag": "c",
-                "text": "Because the oxide ion has a high energy level",
+                "text": "Because the <b>oxide ion</b> has a high energy level",
                 "is_correct": true
             },
             {
                 "option_id": "152181",
                 "tag": "d",
-                "text": "Due to the presence of free radicals",
+                "text": "Due to the presence of <b>free radicals</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 426
+        "question_number": 426,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,8 +1260,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which specific property arises from unpaired electrons behaving like tiny magnets in transition metal ions?",
-        "explanation": "Transition elements exhibit magnetic properties because the unpaired electrons in the d orbitals behave like tiny magnets.",
+        "question_text": "<p>Which specific property arises from <b>unpaired electrons</b> behaving like tiny magnets in transition metal ions?</p>",
+        "explanation": "<p>The <b>magnetic properties</b> of transition metal ions stem from the presence of <b>unpaired electrons</b> in their <i>d orbitals</i>. These unpaired electrons generate a magnetic moment as they behave like tiny magnets, leading to observable magnetic behavior in the material.</p>",
         "options": [
             {
                 "option_id": "423886",
@@ -1255,7 +1288,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 438
+        "question_number": 438,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1298,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What term describes a material that is weakly attracted to a magnetic field due to unpaired electrons?",
-        "explanation": "Paramagnetism is a type of magnetism where a material is weakly attracted to a magnetic field due to the presence of unpaired electrons.",
+        "question_text": "<p>What term describes a material that is <i>weakly attracted</i> to a magnetic field due to unpaired electrons?</p>",
+        "explanation": "<p><b>Paramagnetism</b> is a type of magnetism where a material is <i>weakly attracted</i> to a magnetic field due to the presence of <b>unpaired electrons</b>.</p>",
         "options": [
             {
                 "option_id": "169108",
                 "tag": "a",
-                "text": "Diamagnetism",
+                "text": "<b>Diamagnetism</b>",
                 "is_correct": false
             },
             {
                 "option_id": "308387",
                 "tag": "b",
-                "text": "Paramagnetism",
+                "text": "<b>Paramagnetism</b>",
                 "is_correct": true
             },
             {
                 "option_id": "288651",
                 "tag": "c",
-                "text": "Ferromagnetism",
+                "text": "<b>Ferromagnetism</b>",
                 "is_correct": false
             },
             {
                 "option_id": "138079",
                 "tag": "d",
-                "text": "Antiferromagnetism",
+                "text": "<b>Antiferromagnetism</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 450
+        "question_number": 450,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1336,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is an example of a paramagnetic material?",
-        "explanation": "Examples of Paramagnetic Materials include Oxygen ($O_2$), Nitric oxide (NO), Aluminum (Al), and Titanium (Ti).",
+        "question_text": "<p>Which of the following is an example of a <b>paramagnetic</b> material?</p>",
+        "explanation": "<p>Examples of <b>Paramagnetic Materials</b> include Oxygen (<i>O<sub>2</sub></i>), Nitric oxide (NO), Aluminum (Al), and Titanium (Ti).</p>",
         "options": [
             {
                 "option_id": "274409",
@@ -1319,7 +1354,7 @@
             {
                 "option_id": "244373",
                 "tag": "c",
-                "text": "Oxygen ($O_2$)",
+                "text": "Oxygen (<i>O<sub>2</sub></i>)",
                 "is_correct": true
             },
             {
@@ -1329,7 +1364,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 462
+        "question_number": 462,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1374,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What type of magnetism involves a material being strongly attracted to a magnetic field?",
-        "explanation": "Ferromagnetism is a type of magnetism where a material is strongly attracted to a magnetic field, with unpaired electrons aligning with the field.",
+        "question_text": "<p>What type of magnetism involves a material being <b>strongly attracted</b> to a magnetic field?</p>",
+        "explanation": "<p><b>Ferromagnetism</b> is a type of magnetism where a material is <i>strongly attracted</i> to a magnetic field, with unpaired electrons aligning with the field.</p>",
         "options": [
             {
                 "option_id": "318739",
@@ -1366,7 +1402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 474
+        "question_number": 474,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1412,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following elements is a classic example of a ferromagnetic material?",
-        "explanation": "Examples of Ferromagnetic Materials include Iron (Fe), Nickel (Ni), Cobalt (Co), and Steel.",
+        "question_text": "<p>Which of the following elements is a <b>classic example</b> of a <b>ferromagnetic material</b>?</p>",
+        "explanation": "<p><b>Ferromagnetic materials</b> are substances that exhibit strong magnetic properties, such as being attracted to magnets. The most well-known examples include <b>Iron (Fe)</b>, <b>Nickel (Ni)</b>, <b>Cobalt (Co)</b>, and their alloys like <b>Steel</b>.</p>",
         "options": [
             {
                 "option_id": "179931",
@@ -1403,7 +1440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 486
+        "question_number": 486,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,8 +1450,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What type of magnetism causes a material to be weakly repelled by a magnetic field because unpaired electrons align antiparallel to the field?",
-        "explanation": "Antiferromagnetism occurs when unpaired electrons align themselves antiparallel to the field, causing the material to be weakly repelled.",
+        "question_text": "<p>What type of <b>magnetism</b> causes a material to be <i>weakly repelled</i> by a magnetic field because unpaired electrons align <b>antiparallel</b> to the field?</p>",
+        "explanation": "<p><b>Antiferromagnetism</b> occurs when unpaired electrons align themselves <b>antiparallel</b> to the field, causing the material to be <i>weakly repelled</i>.</p>",
         "options": [
             {
                 "option_id": "207466",
@@ -1440,7 +1478,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 498
+        "question_number": 498,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1488,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following materials is an example of an antiferromagnetic material?",
-        "explanation": "Examples of Antiferromagnetic Materials include Manganese (Mn), Chromium (Cr), Nickel oxide (NiO), and Iron oxide ($Fe_2O_3$).",
+        "question_text": "<p>Which of the following materials is an example of an <b>antiferromagnetic</b> material?</p>",
+        "explanation": "<p>Examples of <b>Antiferromagnetic Materials</b> include Manganese (Mn), Chromium (Cr), Nickel oxide (NiO), and Iron oxide (<i>Fe<sub>2</sub>O<sub>3</sub></i>).</p>",
         "options": [
             {
                 "option_id": "403555",
@@ -1477,7 +1516,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 510
+        "question_number": 510,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is a key reason that transition metals exhibit good catalytic properties?",
-        "explanation": "Transition metals exhibit catalytic properties because they can form complexes with reactants and facilitate electron transfer reactions.",
+        "question_text": "<p><b>Which of the following</b> is a <i>key reason</i> that <b>transition metals</b> exhibit good <b>catalytic properties</b>?</p>",
+        "explanation": "<p><b>Transition metals</b> exhibit <b>catalytic properties</b> because they can form <b>complexes with reactants</b> and facilitate <b>electron transfer reactions</b>.</p>",
         "options": [
             {
                 "option_id": "338346",
                 "tag": "a",
-                "text": "They have high density",
+                "text": "They have <b>high density</b>",
                 "is_correct": false
             },
             {
                 "option_id": "735281",
                 "tag": "b",
-                "text": "They have fully filled s subshells",
+                "text": "They have <b>fully filled s subshells</b>",
                 "is_correct": false
             },
             {
                 "option_id": "329248",
                 "tag": "c",
-                "text": "They have the ability to form complexes with reactants",
+                "text": "They have the <b>ability to form complexes with reactants</b>",
                 "is_correct": true
             },
             {
                 "option_id": "669870",
                 "tag": "d",
-                "text": "They have low melting points",
+                "text": "They have <b>low melting points</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 522
+        "question_number": 522,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1564,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which transition metal ions are commonly used to catalyze hydrogenation reactions?",
-        "explanation": "Transition metal ions such as palladium(II) and platinum(II) can catalyze hydrogenation reactions.",
+        "question_text": "<p>Which <b>transition metal ions</b> are commonly used to catalyze <b>hydrogenation reactions</b>?</p>",
+        "explanation": "<p><b>Palladium(II)</b> and <b>platinum(II)</b> are well-known transition metal ions that serve as effective catalysts for <i>hydrogenation reactions</i>.</p>",
         "options": [
             {
                 "option_id": "167034",
@@ -1551,7 +1592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 534
+        "question_number": 534,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,35 +1602,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Copper(II) and Iron(III) are well-known to catalyze which type of reactions?",
-        "explanation": "Transition metal ions such as copper(II) and iron(III) can catalyze oxidation reactions.",
+        "question_text": "<p>Copper(II) and Iron(III) are well-known to catalyze which type of reactions?</p>",
+        "explanation": "<p>Transition metal ions such as <b>copper(II)</b> and <b>iron(III)</b> can catalyze <b>oxidation</b> reactions.</p>",
         "options": [
             {
                 "option_id": "234704",
                 "tag": "a",
-                "text": "Hydrogenation reactions",
+                "text": "<b>Hydrogenation</b> reactions",
                 "is_correct": false
             },
             {
                 "option_id": "549476",
                 "tag": "b",
-                "text": "Polymerization reactions",
+                "text": "<b>Polymerization</b> reactions",
                 "is_correct": false
             },
             {
                 "option_id": "303350",
                 "tag": "c",
-                "text": "Oxidation reactions",
+                "text": "<b>Oxidation</b> reactions",
                 "is_correct": true
             },
             {
                 "option_id": "111048",
                 "tag": "d",
-                "text": "Neutralization reactions",
+                "text": "<b>Neutralization</b> reactions",
                 "is_correct": false
             }
         ],
-        "question_number": 546
+        "question_number": 546,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Titanium(III) and Vanadium(III) transition metal ions are widely used to catalyze which processes?",
-        "explanation": "Transition metal ions such as titanium(III) and vanadium(III) can catalyze polymerization reactions.",
+        "question_text": "<p>Titanium(III) and Vanadium(III) transition metal ions are widely used to catalyze which processes?</p>",
+        "explanation": "<p>Transition metal ions such as titanium(III) and vanadium(III) can catalyze <b>polymerization</b> reactions.</p>",
         "options": [
             {
                 "option_id": "106948",
                 "tag": "a",
-                "text": "Oxidation reactions",
+                "text": "<b>Oxidation</b> reactions",
                 "is_correct": false
             },
             {
                 "option_id": "336063",
                 "tag": "b",
-                "text": "Polymerization reactions",
+                "text": "<b>Polymerization</b> reactions",
                 "is_correct": true
             },
             {
                 "option_id": "279184",
                 "tag": "c",
-                "text": "Hydrogenation reactions",
+                "text": "<b>Hydrogenation</b> reactions",
                 "is_correct": false
             },
             {
                 "option_id": "166658",
                 "tag": "d",
-                "text": "Precipitation reactions",
+                "text": "<b>Precipitation</b> reactions",
                 "is_correct": false
             }
         ],
-        "question_number": 558
+        "question_number": 558,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Due to strong metallic bonding, transition metals generally have which physical property?",
-        "explanation": "The melting points and molar enthalpies of fusion of transition metals are high due to strong metallic bonding.",
+        "question_text": "<p>Due to strong metallic bonding, transition metals generally have which <b>physical property</b>?</p>",
+        "explanation": "<p>The melting points and molar enthalpies of fusion of transition metals are <b>high</b> due to strong metallic bonding.</p>",
         "options": [
             {
                 "option_id": "904441",
                 "tag": "a",
-                "text": "Low boiling points",
+                "text": "<i>Low</i> boiling points",
                 "is_correct": false
             },
             {
                 "option_id": "247279",
                 "tag": "b",
-                "text": "High melting and boiling points",
+                "text": "<i>High</i> melting and boiling points",
                 "is_correct": true
             },
             {
                 "option_id": "927163",
                 "tag": "c",
-                "text": "Low density",
+                "text": "<i>Low</i> density",
                 "is_correct": false
             },
             {
                 "option_id": "326606",
                 "tag": "d",
-                "text": "High compressibility",
+                "text": "<i>High</i> compressibility",
                 "is_correct": false
             }
         ],
-        "question_number": 570
+        "question_number": 570,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,8 +1716,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does the density of transition metals compare to that of s-block elements?",
-        "explanation": "Transition metals are much denser than s-block elements and show a gradual increase in density from scandium to copper.",
+        "question_text": "<p><b>How</b> does the <b>density</b> of <b>transition metals</b> compare to that of <b>s-block elements</b>?</p>",
+        "explanation": "<p><b>Transition metals</b> are much denser than <b>s-block elements</b> and show a gradual increase in density from scandium to copper.</p>",
         "options": [
             {
                 "option_id": "203836",
@@ -1699,7 +1744,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 582
+        "question_number": 582,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the field of medicine, what is a primary application of transition metals?",
-        "explanation": "Transition metals are used in medicine as diagnostic agents, therapeutic agents, and in the development of new treatments for diseases.",
+        "question_text": "<p>In the field of medicine, what is a <b>primary application</b> of transition metals?</p>",
+        "explanation": "<p><b>Transition metals</b> play a crucial role in modern medicine, particularly as <b>diagnostic and therapeutic agents</b>. They are integral to the development of contrast agents for imaging, such as <b>gadolinium</b> in MRI scans, and are used in therapies like <b>platinum-based drugs</b> for cancer treatment. Additionally, they contribute to the creation of new treatments for various diseases, including infections and chronic conditions.</p>",
         "options": [
             {
                 "option_id": "993431",
                 "tag": "a",
-                "text": "As surgical instruments only",
+                "text": "As <i>surgical instruments only</i>",
                 "is_correct": false
             },
             {
                 "option_id": "161364",
                 "tag": "b",
-                "text": "As dietary fillers",
+                "text": "As <i>dietary fillers</i>",
                 "is_correct": false
             },
             {
                 "option_id": "930950",
                 "tag": "c",
-                "text": "As diagnostic and therapeutic agents",
+                "text": "As <b>diagnostic and therapeutic agents</b>",
                 "is_correct": true
             },
             {
                 "option_id": "227303",
                 "tag": "d",
-                "text": "As painkillers",
+                "text": "As <i>painkillers</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 594
+        "question_number": 594,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1792,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How are transition metals applied in environmental remediation?",
-        "explanation": "Transition metals are used in the remediation of environmental pollutants, such as heavy metals and pesticides.",
+        "question_text": "<p>How are <b>transition metals</b> applied in <b>environmental remediation</b>?</p>",
+        "explanation": "<p><b>Transition metals</b> are used in the remediation of environmental pollutants, such as heavy metals and pesticides.</p>",
         "options": [
             {
                 "option_id": "216736",
@@ -1773,7 +1820,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 606
+        "question_number": 606,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,8 +1830,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What type of bond is formed when a ligand donates electrons to a transition metal ion?",
-        "explanation": "Coordination chemistry involves the study of complexes where ligands donate electrons to the transition metal ion, forming a coordinate covalent bond.",
+        "question_text": "<p>What type of bond is formed when a <b>ligand</b> donates electrons to a <b>transition metal ion</b>?</p>",
+        "explanation": "<p>In <b>coordination chemistry</b>, ligands act as electron pair donors to a central <b>transition metal ion</b>, resulting in the formation of a <b>coordinate covalent bond</b>.</p>",
         "options": [
             {
                 "option_id": "296557",
@@ -1810,7 +1858,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 618
+        "question_number": 618,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,8 +1868,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which rule dictates that the 4s orbitals generally fill up before the 3d orbitals?",
-        "explanation": "The 4s orbitals fill up before the 3d orbitals, according to Hund's rule and the Aufbau principle (with exceptions like Cr and Cu).",
+        "question_text": "<p>Which rule dictates that the <b>4s orbitals</b> generally fill up before the <b>3d orbitals</b>?</p>",
+        "explanation": "<p>The <b>4s orbitals</b> fill up before the <b>3d orbitals</b>, according to <b>Hund's rule</b> and the <b>Aufbau principle</b> (with exceptions like Cr and Cu).</p>",
         "options": [
             {
                 "option_id": "168001",
@@ -1847,6 +1896,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 630
+        "question_number": 630,
+        "is_rewritten": true
     }
 ]

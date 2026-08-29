@@ -1,11 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disclaimer | My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
   <link rel="stylesheet" href="../../components/sidebar.css?v=4">
   <link rel="stylesheet" href="../../components/footer.css">
   <script src="../../components/topbar.js" defer></script>
@@ -15,20 +25,20 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-family: 'Inter', sans-serif; }
-    body { background: #f7f7f8; color: #131212; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    body { background: var(--bg-base); color: var(--text-primary); display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
     .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; }
     .content-area { max-width: 900px; margin: 0 auto; padding: 60px 20px; width: 100%; flex: 1; }
-    .page-card { background: #fff; padding: 48px; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
-    h1 { font-size: 36px; font-weight: 800; margin-bottom: 32px; color: #111827; letter-spacing: -0.02em; }
-    h2 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: #111827; }
-    h3 { font-size: 18px; font-weight: 600; margin: 24px 0 16px; color: #1f2937; }
-    p { font-size: 16px; line-height: 1.8; color: #4b5563; margin-bottom: 20px; }
-    ul, ol { margin-bottom: 20px; padding-left: 24px; color: #4b5563; font-size: 16px; line-height: 1.8; }
+    .page-card { background: var(--bg-card); padding: 48px; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+    h1 { font-size: 36px; font-weight: 800; margin-bottom: 32px; color: var(--text-primary); letter-spacing: -0.02em; }
+    h2 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text-primary); }
+    h3 { font-size: 18px; font-weight: 600; margin: 24px 0 16px; color: var(--text-primary); }
+    p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
+    ul, ol { margin-bottom: 20px; padding-left: 24px; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
     li { margin-bottom: 12px; }
     a { color: #2563eb; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
-    .contact-box { background: #f9fafb; padding: 24px; border-radius: 12px; border: 1px solid #f3f4f6; }
+    .contact-box { background: var(--bg-base); padding: 24px; border-radius: 12px; border: 1px solid #f3f4f6; }
     .contact-box h3 { margin-top: 0; }
     @media (max-width: 768px) { .main-wrapper { margin-left: 0; } .page-card { padding: 32px 24px; } .contact-grid { grid-template-columns: 1fr; } }
   </style>

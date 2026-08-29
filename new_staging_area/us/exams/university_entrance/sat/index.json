@@ -101,5 +101,14 @@
                 "2000"
             ]
         }
-    ]
+    ],
+    "rules": {
+        "selectionType": "all_compulsory",
+        "totalSubjectsAllowed": "all",
+        "timeCalculation": "fixed",
+        "totalTimeMinutes": 180,
+        "questionLimits": {
+            "default": 1000
+        }
+    }
 }

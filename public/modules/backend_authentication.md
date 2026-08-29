@@ -1,227 +1,158 @@
-# Supabase Global Authentication (OTP) Guide
+# Global Backend Architecture: My Exam Companion
 
-This document outlines the complete architecture and implementation steps to set up a robust, multi-country authentication system using Supabase. It supports **One-Time Passwords (OTP)** via Email and SMS (Phone).
+This document outlines the detailed backend architecture for the application, designed to scale globally. It leverages **Supabase** (PostgreSQL) for structured, relational data and **Cloudflare R2 + GitHub (via jsDelivr)** for large, unstructured storage like images, exam assets, and study materials.
 
----
+## 1. High-Level Architecture
 
-## 1. Supabase Dashboard Configuration
-
-Before writing code, you must configure your Supabase project to allow global authentication.
-
-### Step 1: Create a Supabase Project
-1. Go to [supabase.com](https://supabase.com) and create a new project.
-2. Navigate to **Project Settings -> API** to find your `Project URL` and `anon public` API key. You will need these for the frontend.
-
-### Step 2: Enable Authentication Providers
-1. In the Supabase Dashboard, go to **Authentication -> Providers**.
-2. **Email OTP (Free & Global):**
-   - Ensure the **Email** provider is enabled.
-   - Turn on **Enable Email OTP** (Magic Links).
-3. **Phone OTP (Requires 3rd Party Provider):**
-   - Enable the **Phone** provider.
-   - Supabase does not send SMS directly. You must configure an SMS provider like **Twilio** or **MessageBird**.
-   - **Twilio Setup:** 
-     - Create a Twilio account, buy a phone number, and grab your `Account SID` and `Auth Token`.
-     - In Supabase -> Phone Provider, select Twilio and paste your credentials. 
-     - *Note: Twilio supports global SMS routing, ensuring users in any country can receive the OTP.*
-
-### Step 3: Google Auth Setup (OAuth)
-To allow users to sign in with Google, you need to configure OAuth credentials in the Google Cloud Console.
-
-1. **Get your Supabase Callback URL:**
-   - In Supabase, go to **Authentication -> Providers -> Google**.
-   - Under the configuration settings, copy the **Callback URL** (e.g., `https://alwplfsqzrijxqujrpyu.supabase.co/auth/v1/callback`).
-2. **Create Google Cloud Credentials:**
-   - Go to the [Google Cloud Console](https://console.cloud.google.com/).
-   - Create a new project or select an existing one.
-   - Go to **APIs & Services -> OAuth consent screen** and configure it (set to "External" if you want anyone to log in).
-   - Go to **APIs & Services -> Credentials**.
-   - Click **Create Credentials -> OAuth client ID**.
-   - Choose **Web application** as the application type.
-   - Under **Authorized redirect URIs**, paste the Supabase Callback URL you copied in step 1.
-   - Click **Create**. Google will give you a **Client ID** and a **Client Secret**.
-3. **Enable Google in Supabase:**
-   - Go back to the Supabase Dashboard -> **Authentication -> Providers -> Google**.
-   - Toggle it on.
-   - Paste the **Client ID** and **Client Secret** from Google.
-   - Click **Save**. Google Auth is now active!
-
-### Step 3: Database User Profiles (Optional but Recommended)
-Supabase handles raw auth in a secure `auth.users` schema. To store app-specific data (like the user's country), create a public `profiles` table.
-
-Run this SQL in the Supabase **SQL Editor**:
-
-```sql
--- Create a table for public profiles
-create table profiles (
-  id uuid references auth.users not null primary key,
-  phone text,
-  email text,
-  country text,
-  updated_at timestamp with time zone
-);
-
--- Set up Row Level Security (RLS)
-alter table profiles enable row level security;
-
-create policy "Public profiles are viewable by everyone."
-  on profiles for select
-  using ( true );
-
-create policy "Users can insert their own profile."
-  on profiles for insert
-  with check ( auth.uid() = id );
-
-create policy "Users can update own profile."
-  on profiles for update
-  using ( auth.uid() = id );
-
--- Automatically create a profile when a new user signs up
-create function public.handle_new_user()
-returns trigger
-language plpgsql
-security definer set search_path = public
-as $$
-begin
-  insert into public.profiles (id, phone, email)
-  values (new.id, new.phone, new.email);
-  return new;
-end;
-$$;
-
-create trigger on_auth_user_created
-  after insert on auth.users
-  for each row execute procedure public.handle_new_user();
-```
+*   **Database (Relational & Simple Data):** Supabase (PostgreSQL). It handles all user authentication, profiles, transactional data, exam progress, blog content, AI chat logs, and billing.
+*   **Storage (Large Assets):** 
+    *   **Cloudflare R2:** Used for large user-generated content (profile pictures, file uploads, audio/video data) and private static assets. It offers zero egress fees, making it perfect for high-bandwidth applications.
+    *   **GitHub + jsDelivr:** Used for public static assets (UI images, public study materials, past question assets). jsDelivr acts as a free, globally distributed CDN to serve these assets blazingly fast.
+*   **Authentication:** Supabase Auth (Email OTP, OAuth like Google/Apple, and Phone OTP).
+*   **Backend Logic:** Supabase Edge Functions and Node.js/Express server for custom workflows (payment webhooks, AI agent processing).
 
 ---
 
-## 2. Frontend Implementation
+## 2. Database Schema (Supabase / PostgreSQL)
 
-Below is the HTML and JavaScript required to implement global Phone/Email OTP in your application.
+Below is the detailed schema for the database, covering 10+ core modules (pages) of the application.
 
-### Step 1: Include the Supabase JS Library
-In your `index.html` or authentication HTML file, add the Supabase CDN script in the `<head>`:
+### 1. Users Module (`auth.users`)
+Managed automatically by Supabase.
+*   `id` (UUID, Primary Key)
+*   `email` (String)
+*   `phone` (String)
+*   `created_at` (Timestamp)
+*   `last_sign_in_at` (Timestamp)
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-```
+### 2. User Profiles Module (`public.profiles`)
+Stores app-specific user data.
+*   `id` (UUID, Primary Key, Foreign Key to `auth.users.id`)
+*   `first_name` (String)
+*   `last_name` (String)
+*   `avatar_url` (String - points to Cloudflare R2)
+*   `country` (String)
+*   `education_level` (String)
+*   `target_exam` (String, e.g., "JAMB", "WAEC")
+*   `updated_at` (Timestamp)
 
-### Step 2: HTML Structure for Country Code & OTP
-You need a dropdown for country codes to ensure phone numbers are formatted correctly (e.g., `+234` for Nigeria, `+1` for USA).
+### 3. Subscription & Billing Module (`public.subscriptions`)
+Tracks user subscription plans and active status.
+*   `id` (UUID, Primary Key)
+*   `user_id` (UUID, Foreign Key to `profiles.id`)
+*   `plan_name` (String, e.g., "Free", "Premium")
+*   `status` (Enum: "active", "canceled", "expired")
+*   `current_period_start` (Timestamp)
+*   `current_period_end` (Timestamp)
+*   `payment_gateway` (String, e.g., "Paystack", "Stripe")
 
-```html
-<!-- auth.html -->
-<div id="auth-container">
-  <h2>Login / Sign Up</h2>
-  
-  <!-- Step 1: Request OTP -->
-  <div id="request-otp-section">
-    <label for="country-code">Country</label>
-    <select id="country-code">
-      <option value="+234">Nigeria (+234)</option>
-      <option value="+1">USA/Canada (+1)</option>
-      <option value="+44">UK (+44)</option>
-      <option value="+91">India (+91)</option>
-      <!-- Add more countries or use a library like intl-tel-input -->
-    </select>
+### 4. Courses / Subjects Module (`public.subjects`)
+Defines the subjects available for study and exams.
+*   `id` (UUID, Primary Key)
+*   `name` (String, e.g., "Mathematics", "English")
+*   `category` (String, e.g., "Science", "Arts")
+*   `description` (Text)
+*   `icon_url` (String - points to GitHub/jsDelivr)
 
-    <label for="phone-input">Phone Number</label>
-    <input type="tel" id="phone-input" placeholder="8012345678" />
-    
-    <button onclick="requestOTP()">Send OTP</button>
-  </div>
+### 5. Exam Studio / Past Questions Module (`public.exams`)
+Holds metadata for various exams.
+*   `id` (UUID, Primary Key)
+*   `exam_board` (String, e.g., "JAMB", "Post-UTME")
+*   `year` (Integer)
+*   `subject_id` (UUID, Foreign Key to `subjects.id`)
+*   `duration_minutes` (Integer)
+*   `total_questions` (Integer)
 
-  <!-- Step 2: Verify OTP (Hidden initially) -->
-  <div id="verify-otp-section" style="display: none;">
-    <label for="otp-input">Enter 6-digit Code</label>
-    <input type="text" id="otp-input" placeholder="123456" />
-    <button onclick="verifyOTP()">Verify & Login</button>
-  </div>
-</div>
-```
+### 6. Questions Bank Module (`public.questions`)
+Stores the actual questions for the Exam Studio.
+*   `id` (UUID, Primary Key)
+*   `exam_id` (UUID, Foreign Key to `exams.id`)
+*   `question_text` (Text)
+*   `image_url` (String, Nullable - points to GitHub/jsDelivr)
+*   `option_a` (String)
+*   `option_b` (String)
+*   `option_c` (String)
+*   `option_d` (String)
+*   `correct_option` (Enum: "A", "B", "C", "D")
+*   `explanation` (Text)
 
-### Step 3: JavaScript Authentication Logic
-Initialize the Supabase client and write the functions to handle sending and verifying the OTP.
+### 7. User Test Progress & History Module (`public.test_sessions`)
+Tracks when a user takes a test.
+*   `id` (UUID, Primary Key)
+*   `user_id` (UUID, Foreign Key to `profiles.id`)
+*   `exam_id` (UUID, Foreign Key to `exams.id`)
+*   `score` (Integer)
+*   `start_time` (Timestamp)
+*   `end_time` (Timestamp)
+*   `status` (Enum: "in_progress", "completed", "abandoned")
 
-```javascript
-// Initialize Supabase Client
-const SUPABASE_URL = 'https://xyzcompany.supabase.co'; // Replace with your URL
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR...'; // Replace with your anon key
+### 8. AI Study Agent (Tutor) Chat History (`public.ai_chat_sessions`)
+Stores conversation history with the AI Tutor.
+*   `id` (UUID, Primary Key)
+*   `user_id` (UUID, Foreign Key to `profiles.id`)
+*   `session_title` (String)
+*   `subject_context` (String, Nullable)
+*   `created_at` (Timestamp)
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+### 9. AI Chat Messages (`public.ai_chat_messages`)
+Individual messages within a chat session.
+*   `id` (UUID, Primary Key)
+*   `session_id` (UUID, Foreign Key to `ai_chat_sessions.id`)
+*   `sender_role` (Enum: "user", "ai")
+*   `content` (Text)
+*   `media_url` (String, Nullable - points to Cloudflare R2 for user uploads)
+*   `created_at` (Timestamp)
 
-let currentPhoneNumber = '';
+### 10. Blog & News Module (`public.blog_posts`)
+Manages content for the "Blog" section (e.g., Scholarships, Exam News).
+*   `id` (UUID, Primary Key)
+*   `title` (String)
+*   `slug` (String, Unique)
+*   `content` (Text - Markdown or HTML)
+*   `author_name` (String)
+*   `category` (String, e.g., "JAMB", "Scholarships")
+*   `cover_image_url` (String - points to Cloudflare R2 or jsDelivr)
+*   `published_at` (Timestamp)
+*   `views` (Integer)
 
-// 1. Request the OTP
-async function requestOTP() {
-  const countryCode = document.getElementById('country-code').value;
-  const rawPhone = document.getElementById('phone-input').value.replace(/^0+/, ''); // Remove leading zero
-  
-  // Combine country code and phone number (e.g., +2348012345678)
-  currentPhoneNumber = `${countryCode}${rawPhone}`;
+### 11. Notifications Module (`public.notifications`)
+In-app alerts and notifications for the user.
+*   `id` (UUID, Primary Key)
+*   `user_id` (UUID, Foreign Key to `profiles.id`)
+*   `title` (String)
+*   `message` (Text)
+*   `is_read` (Boolean, Default: false)
+*   `type` (Enum: "system", "exam_reminder", "subscription", "blog")
+*   `created_at` (Timestamp)
 
-  try {
-    const { data, error } = await supabase.auth.signInWithOtp({
-      phone: currentPhoneNumber,
-    });
-
-    if (error) throw error;
-
-    alert('OTP Sent successfully to ' + currentPhoneNumber);
-    
-    // Switch UI to verification step
-    document.getElementById('request-otp-section').style.display = 'none';
-    document.getElementById('verify-otp-section').style.display = 'block';
-
-  } catch (error) {
-    console.error('Error sending OTP:', error.message);
-    alert('Failed to send OTP: ' + error.message);
-  }
-}
-
-// 2. Verify the OTP
-async function verifyOTP() {
-  const otpToken = document.getElementById('otp-input').value;
-
-  try {
-    const { data: { session }, error } = await supabase.auth.verifyOtp({
-      phone: currentPhoneNumber,
-      token: otpToken,
-      type: 'sms' // Important for phone OTP
-    });
-
-    if (error) throw error;
-
-    alert('Login Successful!');
-    console.log('User Session:', session);
-    
-    // Supabase automatically saves the session in localStorage.
-    // Redirect to the dashboard or home page
-    window.location.href = '/modules/index.html';
-
-  } catch (error) {
-    console.error('Error verifying OTP:', error.message);
-    alert('Invalid OTP: ' + error.message);
-  }
-}
-
-// 3. Check if user is already logged in
-async function checkSession() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (session) {
-    // User is logged in, redirect them
-    window.location.href = '/modules/index.html';
-  }
-}
-
-// Run session check on page load
-checkSession();
-```
+### 12. Upcoming Events / Calendar Module (`public.events`)
+For the "Upcoming Events" widget in the right sidebar.
+*   `id` (UUID, Primary Key)
+*   `title` (String, e.g., "JAMB Registration Closes")
+*   `description` (Text)
+*   `event_date` (Timestamp)
+*   `target_audience` (String, Nullable)
 
 ---
 
-## Best Practices for Global Deployments
-1. **Always use E.164 Formatting:** Supabase requires phone numbers to be in E.164 format (e.g., `+2348012345678`). Never send local formats (`08012345678`) to the API. Our JavaScript explicitly handles removing the leading zero.
-2. **Library Recommendation:** For a production-ready country dropdown, use the [intl-tel-input](https://github.com/jackocnr/intl-tel-input) library instead of a hardcoded `<select>`. It automatically handles country flags, dial codes, and validates E.164 formatting before you send it to Supabase.
-3. **Fallback to Email:** SMS deliverability can vary globally and can be expensive. It is highly recommended to offer Email OTP as a fallback option if a user doesn't receive the SMS. The code is identical, just swap `{ phone: '...' }` for `{ email: '...' }` and set the type to `'email'` in `verifyOtp`.
+## 3. Large Storage Strategy
+
+### Cloudflare R2 (Private/User-Generated Data)
+*   **Use Cases:** User avatars, PDF uploads to the AI Tutor, audio/voice notes sent to the AI, and exportable result sheets.
+*   **Why R2?** Zero egress fees mean that as your user base grows and downloads study materials or uploads files, you will not be charged astronomical bandwidth fees compared to AWS S3.
+*   **Integration:** Accessed securely via pre-signed URLs generated by your Node.js backend or Supabase Edge Functions.
+
+### GitHub + jsDelivr (Public Static Assets)
+*   **Use Cases:** Question diagrams, subject icons, UI SVGs, public JSON datasets (if any), and CSS/JS bundles.
+*   **Why jsDelivr?** By hosting static assets in a public GitHub repository and routing them through jsDelivr, you get a global CDN with edge caching for absolutely free.
+*   **Format:** `https://cdn.jsdelivr.net/gh/your-username/your-repo@branch/path/to/image.png`
+*   **Performance:** Extremely fast load times for the Exam Studio, as images for questions are cached at edge nodes closest to the student.
+
+---
+
+## 4. Next Steps for Implementation
+1. **Supabase Setup:** Create the Supabase project and execute the SQL scripts to build the 12+ tables listed above. Implement Row Level Security (RLS) policies to ensure users can only see their own test history and chats.
+2. **Storage Provisioning:** 
+   - Create a Cloudflare R2 bucket (`exam-companion-uploads`).
+   - Create a GitHub repository (`exam-companion-assets`) and configure jsDelivr URLs.
+3. **API Integration:** Connect the frontend (`fetch` or `@supabase/supabase-js`) to interact directly with Supabase for data fetching and mutations.

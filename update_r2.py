@@ -11,7 +11,7 @@ R2_ENDPOINT_URL = "https://9b1a87526cb70ec5c728ba8761685a37.r2.cloudflarestorage
 R2_BUCKET_NAME = "my-exam-companion-data"
 
 # Ensure we use the exact public staging area
-STAGING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public", "r2_staging_area")
+STAGING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "new_staging_area")
 
 def get_s3_client():
     return boto3.client(

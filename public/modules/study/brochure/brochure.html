@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brochure by Institution | My Exam Companion</title>
+  <meta name="description" content="Access the latest Brochure for all institutions. Find courses, subject combinations, and requirements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=2">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=5">
+  <style>
+    :root {
+      --bg-base: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --border-color: #E5E7EB;
+      --primary-color: #2563EB;
+      --primary-hover: #1D4ED8;
+      --input-bg: #FFFFFF;
+      --input-border: #D1D5DB;
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #111827;
+      --bg-card: #1F2937;
+      --text-primary: #F9FAFB;
+      --text-secondary: #9CA3AF;
+      --border-color: #374151;
+      --input-bg: #374151;
+      --input-border: #4B5563;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .main-wrapper {
+      margin-left: 72px; /* Sidebar width */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 32px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 32px;
+      color: var(--text-secondary);
+    }
+    .breadcrumbs svg { width: 16px; height: 16px; color: var(--text-secondary); }
+    .breadcrumbs a { color: var(--text-secondary); text-decoration: none; }
+    .breadcrumbs a:hover { color: var(--primary-color); }
+    .breadcrumbs .current { color: var(--primary-color); font-weight: 500; }
+
+    /* Filters Section */
+    .filters-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .filter-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .filter-input-wrapper {
+      position: relative;
+    }
+    .filter-input-wrapper select,
+    .filter-input-wrapper input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+      appearance: none;
+    }
+    .filter-input-wrapper select:focus,
+    .filter-input-wrapper input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    
+    /* Custom chevron for select */
+    .select-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--text-secondary);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Search icon */
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      width: 18px;
+      height: 18px;
+    }
+    .search-input {
+      padding-left: 44px !important;
+    }
+
+    /* Institution List */
+    .institution-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .institution-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.2s ease;
+    }
+    .institution-card:hover {
+      background-color: rgba(0,0,0,0.02);
+    }
+    [data-theme="dark"] .institution-card:hover {
+      background-color: rgba(255,255,255,0.02);
+    }
+    
+    .institution-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .institution-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    
+    .btn-view-courses {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-color);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-view-courses:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    .btn-view-courses svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-bottom: 60px;
+    }
+    .page-numbers {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .page-btn:hover:not(:disabled) {
+      background: var(--border-color);
+      color: var(--text-primary);
+    }
+    .page-btn.active {
+      background: rgba(37, 99, 235, 0.15);
+      color: var(--primary-color);
+    }
+    .page-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .page-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--primary-color);
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .page-nav-btn:hover:not(:disabled) {
+      border-color: var(--primary-color);
+    }
+    .page-nav-btn:disabled {
+      color: var(--text-secondary);
+      border-color: var(--border-color);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .page-nav-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .loading-spinner {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+      .main-content {
+        padding: 24px 16px;
+      }
+      .filters-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .filter-input-wrapper select,
+      .filter-input-wrapper input {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-size: 15px; /* Better for mobile touch targets */
+      }
+      .institution-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 16px; /* A bit tighter padding for mobile */
+      }
+      .btn-view-courses {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px; /* Taller button for easier tapping */
+      }
+      .pagination {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+      }
+      .page-numbers {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .page-nav-btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- Sidebar Component -->
+    <app-sidebar data-active="brochure" data-base="../../../"></app-sidebar>
+    
+    <div class="main-wrapper">
+      <!-- Topbar Component -->
+      <app-topbar data-base="../../../"></app-topbar>
+      
+      <main class="main-content">
+        
+        <div class="breadcrumbs">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <a href="/public/modules/index.html">Dashboard</a>
+          <span>/</span>
+          <span class="current">Brochure by institution</span>
+        </div>
+
+        <div class="filters-section">
+          <div class="filter-group">
+            <label for="typeFilter">Institution</label>
+            <div class="filter-input-wrapper">
+              <select id="typeFilter">
+                <option value="All">All Types</option>
+                <!-- Populated dynamically -->
+              </select>
+              <svg class="select-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <label for="ownershipFilter">Filter institution by</label>
+            <div class="filter-input-wrapper">
+              <select id="ownershipFilter">
+                <option value="All">All Ownerships</option>
+                <!-- Populated dynamically -->
+              </select>
+              <svg class="select-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="searchInput">Search</label>
+            <div class="filter-input-wrapper">
+              <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input type="text" id="searchInput" class="search-input" placeholder="Search institution name">
+            </div>
+          </div>
+        </div>
+
+        <div id="institutionList" class="institution-list">
+          <div class="loading-spinner">Loading institutions...</div>
+          <!-- Cards injected here -->
+        </div>
+
+        <div class="pagination" id="pagination">
+          <!-- Pagination injected here -->
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Supabase Core Component (required for topbar.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  
+  <script src="../../../components/nav.js"></script>
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js"></script>
+  <script src="brochure.js"></script>
+</body>
+</html>

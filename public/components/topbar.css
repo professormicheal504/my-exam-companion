@@ -6,6 +6,17 @@
 /* ── Font Import ────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;500;600;700;800&display=swap');
 
+/* ── Global Theme Variables ─────────────────────────── */
+:root {
+  --bg-base: #f7f7f8;
+  --bg-card: #ffffff;
+  --border: #f0f0f0;
+  --text-primary: #131212;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dk: #1d4ed8;
+}
+
 /* ── Global tap reset ───────────────────────────────── */
 * {
   -webkit-tap-highlight-color: transparent;
@@ -16,12 +27,19 @@
 ═══════════════════════════════════════════════════════ */
 app-topbar {
   display: block;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   /* MUST be above sidebar (200) and overlay (199) */
   z-index: 300;
   width: 100%;
-  background: #ffffff;
+  background: var(--bg-card);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+app-topbar.topbar-hidden {
+  transform: translateY(-100%);
 }
 
 .mec-topbar {
@@ -30,7 +48,7 @@ app-topbar {
   justify-content: space-between;
   height: 56px;
   padding: 0 12px 0 8px;
-  background: #ffffff;
+  background: var(--bg-card);
   border-bottom: 1.5px solid #ededed;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   gap: 8px;
@@ -66,8 +84,8 @@ app-topbar {
 }
 
 /* ── Text logo — matches original bubbly style ─────────
-   White text, thick red stroke, rounded font (Fredoka One)
-   on a red rounded-rectangle background blob
+   White text, rounded font
+   on a blue rounded-rectangle background blob
 ──────────────────────────────────────────────────────── */
 .mec-logo-text {
   display: inline-flex;
@@ -75,57 +93,53 @@ app-topbar {
   align-items: flex-start;
   justify-content: center;
   line-height: 1;
-  gap: 0;
-  background: #2563eb;
-  border-radius: 10px;
-  padding: 4px 12px 5px 10px;
-  box-shadow:
-    0 2px 0 #1e3a8a,
-    0 3px 8px rgba(37, 99, 235, 0.28);
+  gap: 2px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 .mec-logo-line1,
 .mec-logo-line2 {
-  font-family: 'Fredoka One', 'Outfit', cursive;
-  font-weight: 400;
-  /* Fredoka One only has one weight */
-  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
   display: block;
-  letter-spacing: 0.02em;
-  /* Blue stroke outline to mimic the logo */
-  -webkit-text-stroke: 2px #1e3a8a;
-  paint-order: stroke fill;
-  text-shadow:
-    1px 1px 0 rgba(0, 0, 0, 0.15);
+  color: #ffffff !important;
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: #ffffff;
+  background: none;
 }
 
 .mec-logo-line1 {
-  font-size: 14px;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.04em;
 }
 
 .mec-logo-line2 {
-  font-size: 13px;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 
 /* Responsive sizing */
 @media (min-width: 400px) {
   .mec-logo-line1 {
-    font-size: 16px;
+    font-size: 22px;
   }
-
   .mec-logo-line2 {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
 
 @media (min-width: 520px) {
   .mec-logo-line1 {
-    font-size: 18px;
+    font-size: 24px;
   }
-
   .mec-logo-line2 {
-    font-size: 17px;
+    font-size: 13px;
   }
 }
 
@@ -147,7 +161,7 @@ app-topbar {
 }
 
 .mec-sb-toggle:hover {
-  background: #f3f4f6;
+  background: var(--bg-base);
   color: #2563eb;
 }
 
@@ -169,15 +183,15 @@ app-topbar {
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--text-muted);
   transition: background 0.15s, color 0.15s;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .mec-tb-btn:hover {
-  background: #f3f4f6;
-  color: #111827;
+  background: var(--bg-base);
+  color: var(--text-primary);
 }
 
 .mec-tb-btn svg {
@@ -223,7 +237,7 @@ app-topbar {
   height: 34px;
   border-radius: 50%;
   border: 2px solid #e5e7eb;
-  background: #f9fafb;
+  background: var(--bg-base);
   cursor: pointer;
   transition: border-color 0.15s, box-shadow 0.15s;
   margin-left: 2px;
@@ -238,42 +252,254 @@ app-topbar {
 .mec-tb-profile svg {
   width: 18px;
   height: 18px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
-/* Mobile tweaks */
+/* ================================================================
+   MOBILE TOPBAR — Compact but COMPLETE: all items visible
+   Target: < 600px
+================================================================ */
 @media (max-width: 600px) {
   .mec-topbar {
-    padding: 0 8px 0 6px;
+    padding: 0 6px;
+    gap: 0px;
+    height: 52px;
   }
 
-  .mec-topbar__logo img {
-    min-width: 110px;
-    height: 34px;
+  /* Left: hamburger + logo, don't grow */
+  .mec-topbar__left {
+    flex: 0 0 auto;
+    gap: 2px;
   }
 
-  .mec-tb-btn {
-    width: 36px;
-    height: 36px;
+  /* Logo: very compact */
+  .mec-topbar__logo {
+    flex: 0 0 auto;
   }
 
-  .mec-tb-btn svg {
-    width: 19px;
-    height: 19px;
+  .mec-logo-text {
+    padding: 3px 6px 3px 6px;
+    border-radius: 7px;
   }
 
-  .mec-sb-toggle {
-    width: 36px;
-    height: 36px;
+  .mec-logo-line1 {
+    font-size: 11px !important;
+    letter-spacing: -0.02em;
+  }
+
+  .mec-logo-line2 {
+    font-size: 9px !important;
+    letter-spacing: 0.08em;
+  }
+
+  /* Right cluster: fill space, all elements visible */
+  .mec-topbar__right {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  /* Country flag */
+  .mec-country-switcher {
+    display: flex !important;
+    align-items: center;
+    margin-right: 0 !important;
+  }
+
+  #mec-country-flag,
+  .mec-country-switcher img {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
   }
 
   .mec-tb-btn--flag {
-    font-size: 20px;
+    padding: 2px 4px !important;
+  }
+
+  /* Theme toggle */
+  .mec-theme-toggle {
+    margin-right: 1px;
+  }
+
+  .mec-theme-label {
+    width: 34px;
+    height: 20px;
+  }
+
+  .mec-theme-label .mec-theme-slider {
+    width: 14px;
+    height: 14px;
+    top: 3px;
+    left: 3px;
+  }
+
+  .mec-theme-slider svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  :root[data-theme="dark"] .mec-theme-slider {
+    transform: translateX(14px);
+  }
+
+  /* Icon buttons (logged-in state) */
+  .mec-tb-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mec-tb-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mec-sb-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Auth buttons: small but always fully visible */
+  .mec-auth-login {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 9999px;
+  }
+
+  .mec-auth-signup {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 9999px;
   }
 }
 
-@media (max-width: 380px) {
-  .mec-topbar__logo img {
-    min-width: 95px;
+/* Extremely small phones (< 320px): only hide Login, keep Sign Up */
+@media (max-width: 320px) {
+  .mec-auth-login {
+    display: none !important;
   }
+  .mec-country-switcher {
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════════════════ */
+:root[data-theme="dark"] {
+  --bg-base: #0f172a;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;
+  --primary-dk: #60a5fa;
+}
+
+:root[data-theme="dark"] body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] app-topbar,
+:root[data-theme="dark"] .mec-topbar {
+  background: var(--bg-card);
+  border-bottom-color: var(--border);
+}
+
+:root[data-theme="dark"] .mec-sb-toggle {
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-sb-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--primary);
+}
+
+:root[data-theme="dark"] .mec-tb-btn {
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-tb-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .mec-tb-profile {
+  background: var(--bg-base);
+  border-color: var(--border);
+}
+:root[data-theme="dark"] .mec-tb-profile:hover {
+  border-color: var(--primary);
+}
+
+/* Dark mode toggle slider */
+.mec-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.mec-theme-label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: #cbd5e1;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+:root[data-theme="dark"] .mec-theme-label {
+  background-color: #334155;
+}
+
+.mec-theme-label .mec-theme-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-card);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+:root[data-theme="dark"] .mec-theme-slider {
+  transform: translateX(24px);
+  background-color: #0f172a;
+}
+
+.mec-theme-slider svg {
+  width: 12px;
+  height: 12px;
+  color: #f59e0b; /* Sun color */
+  transition: opacity 0.2s, transform 0.3s;
+}
+
+.mec-theme-slider .moon-icon {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  color: #60a5fa; /* Moon color */
+}
+
+:root[data-theme="dark"] .mec-theme-slider .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+:root[data-theme="dark"] .mec-theme-slider .moon-icon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up – My Exam Companion</title>
@@ -14,7 +23,7 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: #f9fafb;
+      background: var(--bg-base);
       background-image: 
         radial-gradient(at 0% 0%, rgba(183, 12, 1, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(183, 12, 1, 0.15) 0px, transparent 50%);
@@ -66,13 +75,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7280;
+      color: var(--text-muted);
       text-decoration: none;
       transition: background 0.15s;
     }
     .btn-close:hover {
       background: #e5e7eb;
-      color: #131212;
+      color: var(--text-primary);
     }
     .modal-header {
       text-align: center;
@@ -81,12 +90,12 @@
     .modal-title {
       font-size: 24px;
       font-weight: 800;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
     .modal-subtitle {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
     .form-group {
       margin-bottom: 16px;
@@ -132,7 +141,7 @@
       align-items: center;
       text-align: center;
       margin: 20px 0;
-      color: #9ca3af;
+      color: var(--text-muted);
       font-size: 13px;
     }
     .divider::before, .divider::after {
@@ -145,7 +154,7 @@
     .btn-google {
       width: 100%;
       padding: 12px;
-      background: #fff;
+      background: var(--bg-card);
       color: #374151;
       border: 1px solid #d1d5db;
       border-radius: 12px;
@@ -159,13 +168,13 @@
       transition: background 0.15s;
     }
     .btn-google:hover {
-      background: #f9fafb;
+      background: var(--bg-base);
     }
     .auth-links {
       text-align: center;
       margin-top: 24px;
       font-size: 13.5px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
     .auth-links a {
       color: #2563eb;
@@ -177,6 +186,8 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../components/supabase.js"></script>
+  <link rel="stylesheet" href="../../components/dark-mode.css">
 </head>
 <body>
   <div class="modal-overlay">
@@ -195,11 +206,15 @@
       <form id="signupForm" onsubmit="event.preventDefault(); handleSignUp();">
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required>
+          <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required autocomplete="email">
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input type="password" id="password-input" class="form-input" placeholder="Choose a secure password" required minlength="6">
+          <input type="password" id="password-input" class="form-input" placeholder="Choose a secure password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" id="confirm-password-input" class="form-input" placeholder="Confirm your password" required minlength="8" autocomplete="new-password">
         </div>
         
         <button type="submit" id="submit-btn" class="btn-primary">Sign Up</button>
@@ -223,29 +238,59 @@
     </div>
   </div>
 
+  <div id="account-exists-modal" class="modal-overlay" style="display: none; z-index: 2000;">
+    <div class="modal-box" style="text-align: center; max-width: 360px;">
+      <div style="background: #eff6ff; color: #2563eb; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <polyline points="17 11 19 13 23 9"></polyline>
+        </svg>
+      </div>
+      <h2 class="modal-title" style="font-size: 20px;">Account Exists</h2>
+      <p class="modal-subtitle" style="margin-bottom: 24px;">An account with this email is already registered. Would you like to sign in instead?</p>
+      <div style="display: flex; gap: 12px; justify-content: center;">
+        <button onclick="document.getElementById('account-exists-modal').style.display='none'" style="padding: 12px; background: #f3f4f6; color: #374151; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; flex: 1;">Close</button>
+        <a href="login.html" style="padding: 12px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; flex: 1; display: inline-block;">Go to Sign In</a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Lazy getter: resolves Supabase at call-time, not parse-time.
+    // This is obfuscator-safe and avoids TDZ (Temporal Dead Zone) errors.
+    function getClient() { return window.MECSupabase.getSupabase(); }
 
     async function handleSignUp() {
       const email = document.getElementById('email-input').value;
       const password = document.getElementById('password-input').value;
+      const confirmPassword = document.getElementById('confirm-password-input').value;
       const btn = document.getElementById('submit-btn');
+
+      if (password !== confirmPassword) {
+        showToast('Error: Passwords do not match', 'error');
+        return;
+      }
       
       try {
         btn.disabled = true;
         btn.innerText = 'Creating Account...';
 
-        const { error } = await supabaseClient.auth.signUp({ email, password });
+        const { error } = await getClient().auth.signUp({ email, password });
         
         if (error) throw error;
         
         localStorage.setItem('authEmail', email);
-        alert('Account created! Please check your email for the verification code.');
-        window.location.href = 'otp.html';
+        showToast('Account created! Please check your email for the verification code.', 'success');
+        setTimeout(() => window.location.href = 'otp.html', 1500);
       } catch (error) {
-        alert('Error: ' + error.message);
+        // Broaden the check to catch different Supabase "user already exists" messages
+        const errMsg = (error.message || '').toLowerCase();
+        if (errMsg.includes('already registered') || errMsg.includes('already exists') || errMsg.includes('user already exists')) {
+          document.getElementById('account-exists-modal').style.display = 'flex';
+        } else {
+          showToast('Error: ' + error.message, 'error');
+        }
         console.error(error);
       } finally {
         btn.disabled = false;
@@ -254,14 +299,18 @@
     }
 
     async function handleGoogleSignUp() {
-      const { data, error } = await supabaseClient.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: new URL('fill_form.html', window.location.href).href
-        }
-      });
-      if (error) {
-        alert('Error with Google Signup: ' + error.message);
+      try {
+        const { error } = await getClient().auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            // Send them to index.html; if they lack a profile, the global guard will bounce them to fill_form.html
+            redirectTo: new URL('../index.html', window.location.href).href
+          }
+        });
+        if (error) throw error;
+      } catch (error) {
+        showToast('Error with Google Signup: ' + error.message, 'error');
+        console.error(error);
       }
     }
   </script>

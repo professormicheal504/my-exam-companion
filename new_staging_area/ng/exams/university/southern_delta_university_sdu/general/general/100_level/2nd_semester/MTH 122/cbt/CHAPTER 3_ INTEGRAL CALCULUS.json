@@ -6,8 +6,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the process of reversing differentiation called?",
-        "explanation": "The process of reversing differentiation is referred to as anti-differentiation. Thus, an integral is an anti-derivative.",
+        "question_text": "<p>What is the process of reversing <b>differentiation</b> called?</p>",
+        "explanation": "<p>The process of reversing <b>differentiation</b> is referred to as <b>anti-differentiation</b>. Thus, an integral is an <b>anti-derivative</b>.</p>",
         "options": [
             {
                 "option_id": "104830",
@@ -34,7 +34,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 2
+        "question_number": 2,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,35 +44,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "The symbol \\( \\int f(x) dx \\) without specified upper and lower boundaries is called:",
-        "explanation": "An integral with no specified lower and upper boundaries is called an indefinite integral.",
+        "question_text": "<p>The symbol <i><b>\u222b f(x) dx</b></i> without specified upper and lower boundaries is called:</p>",
+        "explanation": "<p>An integral with no specified lower and upper boundaries is called an <b>indefinite integral</b>.</p>",
         "options": [
             {
                 "option_id": "336666",
                 "tag": "a",
-                "text": "A definite integral",
+                "text": "A <b>definite integral</b>",
                 "is_correct": false
             },
             {
                 "option_id": "130142",
                 "tag": "b",
-                "text": "A derivative",
+                "text": "A <b>derivative</b>",
                 "is_correct": false
             },
             {
                 "option_id": "604638",
                 "tag": "c",
-                "text": "An indefinite integral",
+                "text": "An <b>indefinite integral</b>",
                 "is_correct": true
             },
             {
                 "option_id": "336922",
                 "tag": "d",
-                "text": "A Riemann sum",
+                "text": "A <b>Riemann sum</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 4
+        "question_number": 4,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,8 +82,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "In the expression \\( \\int f(x) dx \\), the function \\( f(x) \\) is referred to as the:",
-        "explanation": "The function \\( f(x) \\), which is what is to be integrated, is called the integrand.",
+        "question_text": "<p>In the expression <i>\u222b f(x) dx</i>, the function <b>f(x)</b> is referred to as the:</p>",
+        "explanation": "<p>The function <b>f(x)</b>, which is what is to be integrated, is called the <b>integrand</b>.</p>",
         "options": [
             {
                 "option_id": "144232",
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 6
+        "question_number": 6,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "According to the general power rule of integration, what is \\( \\int x^n dx \\) for \\( n \\neq -1 \\)?",
-        "explanation": "The general rule of integration is stated as \\( \\int x^n dx = \\frac{x^{n+1}}{n+1} + C \\) when \\( n \\neq -1 \\).",
+        "question_text": "<p>According to the <b>general power rule of integration</b>, what is <i><b>\u222b x<sup>n</sup> dx</b></i> for <i>n \u2260 -1</i>?</p>",
+        "explanation": "<p>The <b>general power rule of integration</b> states that <i><b>\u222b x<sup>n</sup> dx = x<sup>n+1</sup> / (n+1) + C</b></i> when <i>n \u2260 -1</i>.</p>",
         "options": [
             {
                 "option_id": "333503",
                 "tag": "a",
-                "text": "\\( nx^{n-1} + C \\)",
+                "text": "<i><b>nx<sup>n-1</sup> + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "298331",
                 "tag": "b",
-                "text": "\\( \\frac{x^{n+1}}{n+1} + C \\)",
+                "text": "<i><b>x<sup>n+1</sup> / (n+1) + C</b></i>",
                 "is_correct": true
             },
             {
                 "option_id": "100349",
                 "tag": "c",
-                "text": "\\( \\frac{x^{n-1}}{n-1} + C \\)",
+                "text": "<i><b>x<sup>n-1</sup> / (n-1) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "214705",
                 "tag": "d",
-                "text": "\\( \\ln|x| + C \\)",
+                "text": "<i>ln|x| + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 8
+        "question_number": 8,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,8 +158,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What does the constant \\( C \\) represent in an indefinite integral?",
-        "explanation": "The constant \\( C \\) represents an arbitrary constant of the integral, accounting for any constant term that was lost during differentiation.",
+        "question_text": "<p>What does the constant <b><i>C</i></b> represent in an indefinite integral?</p>",
+        "explanation": "<p>The constant <b><i>C</i></b> represents an <b>arbitrary constant</b> of the integral, accounting for any constant term that was lost during differentiation.</p>",
         "options": [
             {
                 "option_id": "187512",
@@ -182,7 +186,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 10
+        "question_number": 10,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,13 +196,13 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Which of the following differentiates a definite integral from an indefinite integral?",
-        "explanation": "A definite integral has specified boundaries and evaluates to a constant or real number, whereas an indefinite integral is a set of functions (anti-derivatives).",
+        "question_text": "<p>A <b>definite integral</b> differs from an <b>indefinite integral</b> in which key way?</p>",
+        "explanation": "<p>A <b>definite integral</b> is characterized by its specified boundaries (upper and lower limits) and yields a <b>real number</b> as its result. In contrast, an <b>indefinite integral</b> represents a <i>family of functions</i> (anti-derivatives) and includes an arbitrary constant <i>C</i> to account for all possible solutions.</p>",
         "options": [
             {
                 "option_id": "319443",
                 "tag": "a",
-                "text": "It includes an arbitrary constant \\( C \\)",
+                "text": "It includes an arbitrary constant <i>C</i>",
                 "is_correct": false
             },
             {
@@ -219,7 +224,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 12
+        "question_number": 12,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate the definite integral \\( \\int_{-1}^{2} (3x^2 - 2x) dx \\).",
-        "explanation": "The integral evaluates to \\( [x^3 - x^2]_{-1}^{2} = (2^3 - 2^2) - ((-1)^3 - (-1)^2) = (8 - 4) - (-1 - 1) = 4 - (-2) = 6 \\).",
+        "question_text": "<p>Evaluate the definite integral <i>\u222b</i><sub>-1</sub><sup>2</sup> (3x<sup>2</sup> - 2x) dx.</p>",
+        "explanation": "<p>The integral evaluates to <i>\u222b</i> (3x<sup>2</sup> - 2x) dx = x<sup>3</sup> - x<sup>2</sup> + C. Applying the limits from -1 to 2:</p><p>[x<sup>3</sup> - x<sup>2</sup>]<sub>-1</sub><sup>2</sup> = (2<sup>3</sup> - 2<sup>2</sup>) - ((-1)<sup>3</sup> - (-1)<sup>2</sup>) = (8 - 4) - (-1 - 1) = 4 - (-2) = <b>6</b>.</p>",
         "options": [
             {
                 "option_id": "271598",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 14
+        "question_number": 14,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +272,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "The method of substituting part of an integrand with a parameter to simplify integration is known as:",
-        "explanation": "The process of substituting part of an integrand with a parameter and differentiating it to cancel out the remaining variables is referred to as integration by substitution.",
+        "question_text": "<p>The method of substituting part of an <b>integrand</b> with a parameter to simplify integration is known as:</p>",
+        "explanation": "<p>The process of substituting part of an <b>integrand</b> with a parameter and differentiating it to cancel out the remaining variables is referred to as <b>integration by substitution</b>.</p>",
         "options": [
             {
                 "option_id": "861194",
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 16
+        "question_number": 16,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "If applying substitution with \\( u = x^2 - 1 \\), what is \\( du \\) in terms of \\( dx \\)?",
-        "explanation": "Differentiating \\( u = x^2 - 1 \\) with respect to \\( x \\) gives \\( \\frac{du}{dx} = 2x \\), which implies that \\( du = 2x dx \\).",
+        "question_text": "<p>If applying substitution with <b><i>u = x<sup>2</sup> - 1</i></b>, what is <b><i>du</i></b> in terms of <b><i>dx</i></b>?</p>",
+        "explanation": "<p>Differentiating <b><i>u = x<sup>2</sup> - 1</i></b> with respect to <b><i>x</i></b> gives <b><i>\\frac{du}{dx} = 2x</i></b>, which implies that <b><i>du = 2x dx</i></b>.</p>",
         "options": [
             {
                 "option_id": "280305",
                 "tag": "a",
-                "text": "\\( x dx \\)",
+                "text": "<i>x dx</i>",
                 "is_correct": false
             },
             {
                 "option_id": "282736",
                 "tag": "b",
-                "text": "\\( 2x dx \\)",
+                "text": "<i>2x dx</i>",
                 "is_correct": true
             },
             {
                 "option_id": "199733",
                 "tag": "c",
-                "text": "\\( x^2 dx \\)",
+                "text": "<i>x<sup>2</sup> dx</i>",
                 "is_correct": false
             },
             {
                 "option_id": "140257",
                 "tag": "d",
-                "text": "\\( 2 dx \\)",
+                "text": "<i>2 dx</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 18
+        "question_number": 18,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,35 +348,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int 2x(x^2 - 1)^{10} dx \\).",
-        "explanation": "Let \\( u = x^2 - 1 \\), then \\( du = 2x dx \\). By substitution rule, the integral becomes \\( \\int u^{10} du = \\frac{u^{11}}{11} + C = \\frac{(x^2 - 1)^{11}}{11} + C \\).",
+        "question_text": "<p>Evaluate <i> \\int 2x(x<sup>2</sup> - 1)<sup>10</sup> dx</i>.</p>",
+        "explanation": "<p>Let <i> u = x<sup>2</sup> - 1</i>, then <i> du = 2x dx</i>. By the substitution rule, the integral becomes <i> \\int u<sup>10</sup> du = \\frac{u<sup>11</sup>}{11} + C = \\frac{(x<sup>2</sup> - 1)<sup>11</sup>}{11} + C</i>.</p>",
         "options": [
             {
                 "option_id": "183822",
                 "tag": "a",
-                "text": "\\( \\frac{(x^2 - 1)^{11}}{11} + C \\)",
+                "text": "<i> \\frac{(x<sup>2</sup> - 1)<sup>11</sup>}{11} + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "121943",
                 "tag": "b",
-                "text": "\\( 10(x^2 - 1)^{9} + C \\)",
+                "text": "<i> 10(x<sup>2</sup> - 1)<sup>9</sup> + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "252789",
                 "tag": "c",
-                "text": "\\( \\frac{(x^2 - 1)^{10}}{10} + C \\)",
+                "text": "<i> \\frac{(x<sup>2</sup> - 1)<sup>10</sup>}{10} + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "147200",
                 "tag": "d",
-                "text": "\\( 22x(x^2 - 1)^{11} + C \\)",
+                "text": "<i> 22x(x<sup>2</sup> - 1)<sup>11</sup> + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 20
+        "question_number": 20,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,35 +386,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of \\( \\cos(x) \\), i.e., \\( \\int \\cos(x) dx \\)?",
-        "explanation": "According to standard integration formats, \\( \\int \\cos(x) dx = \\sin(x) + C \\).",
+        "question_text": "<p>What is the standard integral of <i><b>cos(x)</b></i>, i.e., <i><b>\u222b cos(x) dx</b></i>?</p>",
+        "explanation": "<p>According to standard integration formats, <i><b>\u222b cos(x) dx = sin(x) + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "114937",
                 "tag": "a",
-                "text": "\\( -\\sin(x) + C \\)",
+                "text": "<i><b>\u2212sin(x) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "299350",
                 "tag": "b",
-                "text": "\\( \\sin(x) + C \\)",
+                "text": "<i><b>sin(x) + C</b></i>",
                 "is_correct": true
             },
             {
                 "option_id": "223446",
                 "tag": "c",
-                "text": "\\( -\\cos(x) + C \\)",
+                "text": "<i><b>\u2212cos(x) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "305563",
                 "tag": "d",
-                "text": "\\( \\sec(x) + C \\)",
+                "text": "<i><b>sec(x) + C</b></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 22
+        "question_number": 22,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,35 +424,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of \\( \\sin(x) \\), i.e., \\( \\int \\sin(x) dx \\)?",
-        "explanation": "According to standard integration formats, \\( \\int \\sin(x) dx = -\\cos(x) + C \\).",
+        "question_text": "<p>What is the <b>standard integral</b> of <i><b>sin(x)</b></i>, i.e., <i><b>\u222b sin(x) dx</b></i>?</p>",
+        "explanation": "<p>According to <b>standard integration formats</b>, <i><b>\u222b sin(x) dx = -cos(x) + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "253188",
                 "tag": "a",
-                "text": "\\( \\cos(x) + C \\)",
+                "text": "<i><b>cos(x) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "523000",
                 "tag": "b",
-                "text": "\\( -\\cos(x) + C \\)",
+                "text": "<i>-cos(x) + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "300169",
                 "tag": "c",
-                "text": "\\( \\sin^2(x) + C \\)",
+                "text": "<i>sin<sup>2</sup>(x) + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "227001",
                 "tag": "d",
-                "text": "\\( \\csc(x) + C \\)",
+                "text": "<i>csc(x) + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 24
+        "question_number": 24,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of \\( \\sec^2(x) \\)?",
-        "explanation": "According to standard integration formats, \\( \\int \\sec^2(x) dx = \\tan(x) + C \\).",
+        "question_text": "<p>What is the <b>standard integral</b> of <i><b>sec</b><sup>2</sup>(x)</i>?</p>",
+        "explanation": "<p>The <b>standard integral</b> of <i><b>sec</b><sup>2</sup>(x)</i> is <i><b>tan</b>(x) + C</i>, as derived from the differentiation of <i><b>tan</b>(x)</i>, which yields <i><b>sec</b><sup>2</sup>(x)</i>.</p>",
         "options": [
             {
                 "option_id": "229670",
                 "tag": "a",
-                "text": "\\( \\tan(x) + C \\)",
+                "text": "<i><b>tan</b>(x) + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "323203",
                 "tag": "b",
-                "text": "\\( \\cot(x) + C \\)",
+                "text": "<i><b>cot</b>(x) + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "258255",
                 "tag": "c",
-                "text": "\\( \\sec(x)\\tan(x) + C \\)",
+                "text": "<i><b>sec</b>(x)<b>tan</b>(x) + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "296417",
                 "tag": "d",
-                "text": "\\( -\\tan(x) + C \\)",
+                "text": "<i>-<b>tan</b>(x) + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 26
+        "question_number": 26,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{1}{x} dx \\) for \\( x > 0 \\).",
-        "explanation": "Integration of logarithmic functions shows that \\( \\int \\frac{1}{x} dx = \\ln(x) + C \\) for \\( x > 0 \\).",
+        "question_text": "<p>Evaluate <i>\u222b</i> <b>1</b><sub><b>x</b></sub> <i>dx</i> for <i>x</i> &gt; 0.</p>",
+        "explanation": "<p>Integration of logarithmic functions shows that <i>\u222b</i> <b>1</b><sub><b>x</b></sub> <i>dx</i> = <i>ln</i>(<i>x</i>) + <i>C</i> for <i>x</i> &gt; 0.</p>",
         "options": [
             {
                 "option_id": "183777",
                 "tag": "a",
-                "text": "\\( \\frac{1}{x^2} + C \\)",
+                "text": "<i>1</i><sub><i>x</i><sup>2</sup></sub> + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "315046",
                 "tag": "b",
-                "text": "\\( e^x + C \\)",
+                "text": "<i>e</i><sup><i>x</i></sup> + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "264529",
                 "tag": "c",
-                "text": "\\( \\ln(x) + C \\)",
+                "text": "<i>ln</i>(<i>x</i>) + <i>C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "335592",
                 "tag": "d",
-                "text": "\\( -\\frac{1}{x^2} + C \\)",
+                "text": "-<i>1</i><sub><i>x</i><sup>2</sup></sub> + <i>C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 28
+        "question_number": 28,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,35 +538,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of \\( \\frac{1}{a^2 + x^2} \\)?",
-        "explanation": "From the list of standard integrals, \\( \\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\).",
+        "question_text": "<p>What is the <b>standard integral</b> of <i>\\( \\frac{1}{a^2 + x^2} \\)</i>?</p>",
+        "explanation": "<p>The <b>standard integral</b> of <i>\\( \\frac{1}{a^2 + x^2} \\)</i> is derived from the known formula:</p><p>\\( \\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\)</p><p>This result is a fundamental integral in calculus, often used in solving problems involving inverse trigonometric functions.</p>",
         "options": [
             {
                 "option_id": "112495",
                 "tag": "a",
-                "text": "\\( \\ln(a^2 + x^2) + C \\)",
+                "text": "<i>\\( \\ln(a^2 + x^2) + C \\)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "187927",
                 "tag": "b",
-                "text": "\\( \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "<i>\\( \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "265943",
                 "tag": "c",
-                "text": "\\( \\sin^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "<i>\\( \\sin^{-1}(\\frac{x}{a}) + C \\)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "247993",
                 "tag": "d",
-                "text": "\\( \\frac{1}{a}\\ln|a+x| + C \\)",
+                "text": "<i>\\( \\frac{1}{a}\\ln|a+x| + C \\)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 30
+        "question_number": 30,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of \\( \\frac{1}{\\sqrt{a^2 - x^2}} \\)?",
-        "explanation": "From the list of standard integrals, \\( \\int \\frac{dx}{\\sqrt{a^2 - x^2}} = \\sin^{-1}(\\frac{x}{a}) + C \\).",
+        "question_text": "<p>What is the standard integral of <i><b>\\frac{1}{\\sqrt{a^2 - x^2}}</b></i>?</p>",
+        "explanation": "<p>From the list of standard integrals, <i><b>\\int \\frac{dx}{\\sqrt{a^2 - x^2}} = \\sin^{-1}(\\frac{x}{a}) + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "158809",
                 "tag": "a",
-                "text": "\\( \\cos^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "<i><b>\\cos^{-1}(\\frac{x}{a}) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "253609",
                 "tag": "b",
-                "text": "\\( \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "<i><b>\\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "619603",
                 "tag": "c",
-                "text": "\\( \\sin^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "<i><b>\\sin^{-1}(\\frac{x}{a}) + C</b></i>",
                 "is_correct": true
             },
             {
                 "option_id": "995411",
                 "tag": "d",
-                "text": "\\( \\ln|\\sqrt{a^2 - x^2}| + C \\)",
+                "text": "<i><b>\\ln|\\sqrt{a^2 - x^2}| + C</b></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 32
+        "question_number": 32,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +614,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Which substitution is appropriate to evaluate \\( \\int x(3x^2 + 1)^5 dx \\)?",
-        "explanation": "Letting \\( u = 3x^2 + 1 \\) yields \\( du = 6x dx \\), which easily simplifies the integrand into a power of \\( u \\).",
+        "question_text": "<p>Which substitution is appropriate to evaluate <i>\\</i><i>\u222b</i> <i>x</i>(3<i>x</i><sup>2</sup> + 1)<sup>5</sup> <i>dx</i>?</p>",
+        "explanation": "<p>Letting <i>u</i> = 3<i>x</i><sup>2</sup> + 1 yields <i>du</i> = 6<i>x</i> <i>dx</i>, which easily simplifies the integrand into a power of <b><i>u</i></b>.</p>",
         "options": [
             {
                 "option_id": "123753",
                 "tag": "a",
-                "text": "\\( u = x \\)",
+                "text": "<i>u</i> = <i>x</i>",
                 "is_correct": false
             },
             {
                 "option_id": "869926",
                 "tag": "b",
-                "text": "\\( u = 3x^2 + 1 \\)",
+                "text": "<i>u</i> = 3<i>x</i><sup>2</sup> + 1",
                 "is_correct": true
             },
             {
                 "option_id": "293097",
                 "tag": "c",
-                "text": "\\( u = (3x^2 + 1)^5 \\)",
+                "text": "<i>u</i> = (3<i>x</i><sup>2</sup> + 1)<sup>5</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "421172",
                 "tag": "d",
-                "text": "\\( u = 6x \\)",
+                "text": "<i>u</i> = 6<i>x</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 34
+        "question_number": 34,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int x(3x^2 + 1)^5 dx \\).",
-        "explanation": "Let \\( u = 3x^2 + 1 \\), \\( du = 6x dx \\), meaning \\( x dx = \\frac{du}{6} \\). The integral becomes \\( \\int \\frac{u^5}{6} du = \\frac{u^6}{36} + C = \\frac{(3x^2 + 1)^6}{36} + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b</i> <i>x</i>(3<i>x</i><sup>2</sup> + 1)<sup>5</sup> <i>dx</i>.</p>",
+        "explanation": "<p>Let <i>u</i> = 3<i>x</i><sup>2</sup> + 1, <i>du</i> = 6<i>x</i> <i>dx</i>, meaning <i>x dx</i> = <i>\\frac{du}{6}</i>. The integral becomes <i>\u222b \\frac{u^5}{6} du</i> = <i>\\frac{u^6}{36}</i> + <b>C</b> = <i>\\frac{(3x^2 + 1)^6}{36}</i> + <b>C</b>.</p>",
         "options": [
             {
                 "option_id": "117351",
                 "tag": "a",
-                "text": "\\( \\frac{(3x^2 + 1)^6}{6} + C \\)",
+                "text": "<i>\\frac{(3x^2 + 1)^6}{6} + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "104603",
                 "tag": "b",
-                "text": "\\( \\frac{(3x^2 + 1)^6}{36} + C \\)",
+                "text": "<i>\\frac{(3x^2 + 1)^6}{36} + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "259093",
                 "tag": "c",
-                "text": "\\( \\frac{(3x^2 + 1)^6}{18} + C \\)",
+                "text": "<i>\\frac{(3x^2 + 1)^6}{18} + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "148370",
                 "tag": "d",
-                "text": "\\( (3x^2 + 1)^6 + C \\)",
+                "text": "<i>(3x^2 + 1)^6 + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 36
+        "question_number": 36,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,35 +690,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "When the integrand contains \\( \\sqrt{a^2 - x^2} \\), which trigonometric substitution is generally utilized?",
-        "explanation": "According to the rules for substitution, when the integrand contains \\( \\sqrt{a^2 - x^2} \\), the substitution \\( x = a \\sin(u) \\) or \\( x = a \\cos(u) \\) is utilized.",
+        "question_text": "<p>When the integrand contains <b><i>\u221a(a\u00b2 - x\u00b2)</i></b>, which trigonometric substitution is generally utilized?</p>",
+        "explanation": "<p>According to the rules for substitution, when the integrand contains <b><i>\u221a(a\u00b2 - x\u00b2)</i></b>, the substitution <i>x = a sin(u)</i> or <i>x = a cos(u)</i> is utilized.</p>",
         "options": [
             {
                 "option_id": "171649",
                 "tag": "a",
-                "text": "\\( x = a \\tan(u) \\)",
+                "text": "<i>x = a tan(u)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "194092",
                 "tag": "b",
-                "text": "\\( x = a \\sec(u) \\)",
+                "text": "<i>x = a sec(u)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "939185",
                 "tag": "c",
-                "text": "\\( x = a \\sin(u) \\) or \\( x = a \\cos(u) \\)",
+                "text": "<i>x = a sin(u)</i> or <i>x = a cos(u)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "253308",
                 "tag": "d",
-                "text": "\\( x = a \\cot(u) \\)",
+                "text": "<i>x = a cot(u)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 38
+        "question_number": 38,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "When the integrand contains \\( a^2 + x^2 \\), which trigonometric substitution is commonly used?",
-        "explanation": "According to the rules for substitution, when the integrand contains \\( (a^2 + x^2) \\), the substitution \\( x = a \\tan(u) \\) is used.",
+        "question_text": "<p>When the integrand contains <b><i>a</i><sup>2</sup> + x<sup>2</sup></b>, which trigonometric substitution is commonly used?</p>",
+        "explanation": "<p>According to the rules for substitution, when the integrand contains <b><i>a</i><sup>2</sup> + x<sup>2</sup></b>, the substitution <i>x</i> = <i>a</i> <b><i>tan</i></b>(<i>u</i>) is used.</p>",
         "options": [
             {
                 "option_id": "169686",
                 "tag": "a",
-                "text": "\\( x = a \\tan(u) \\)",
+                "text": "<i>x</i> = <i>a</i> <b><i>tan</i></b>(<i>u</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "885105",
                 "tag": "b",
-                "text": "\\( x = a \\sin(u) \\)",
+                "text": "<i>x</i> = <i>a</i> <b><i>sin</i></b>(<i>u</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "182330",
                 "tag": "c",
-                "text": "\\( x = a \\cos(u) \\)",
+                "text": "<i>x</i> = <i>a</i> <b><i>cos</i></b>(<i>u</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "225966",
                 "tag": "d",
-                "text": "\\( x = a \\csc(u) \\)",
+                "text": "<i>x</i> = <i>a</i> <b><i>csc</i></b>(<i>u</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 40
+        "question_number": 40,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{dx}{\\sqrt{25 - x^2}} \\).",
-        "explanation": "Here \\( a^2 = 25 \\) so \\( a = 5 \\). Using the standard formula \\( \\int \\frac{dx}{\\sqrt{a^2 - x^2}} = \\sin^{-1}(\\frac{x}{a}) + C \\), we get \\( \\sin^{-1}(\\frac{x}{5}) + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b</i> <i>dx</i>/<i>\u221a</i>(25 \u2212 <i>x</i><sup>2</sup>).</p>",
+        "explanation": "<p>Here <i>a</i><sup>2</sup> = 25, so <i>a</i> = 5. Using the standard formula <i>\u222b</i> <i>dx</i>/<i>\u221a</i>(<i>a</i><sup>2</sup> \u2212 <i>x</i><sup>2</sup>) = sin<sup>\u22121</sup>(<i>x</i>/<i>a</i>) + <i>C</i>, we get <b>sin<sup>\u22121</sup>(<i>x</i>/5) + <i>C</i></b>.</p>",
         "options": [
             {
                 "option_id": "320982",
                 "tag": "a",
-                "text": "\\( \\frac{1}{5}\\tan^{-1}(\\frac{x}{5}) + C \\)",
+                "text": "<i>\u2155</i> tan<sup>\u22121</sup>(<i>x</i>/5) + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "308914",
                 "tag": "b",
-                "text": "\\( \\sin^{-1}(\\frac{x}{5}) + C \\)",
+                "text": "sin<sup>\u22121</sup>(<i>x</i>/5) + <i>C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "332824",
                 "tag": "c",
-                "text": "\\( \\cos^{-1}(\\frac{x}{5}) + C \\)",
+                "text": "cos<sup>\u22121</sup>(<i>x</i>/5) + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "194598",
                 "tag": "d",
-                "text": "\\( \\frac{1}{5}\\sin^{-1}(\\frac{x}{5}) + C \\)",
+                "text": "<i>\u2155</i> sin<sup>\u22121</sup>(<i>x</i>/5) + <i>C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 42
+        "question_number": 42,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,8 +804,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{dx}{9 + x^2} \\).",
-        "explanation": "Here \\( a^2 = 9 \\) so \\( a = 3 \\). Using the standard formula \\( \\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\), we get \\( \\frac{1}{3}\\tan^{-1}(\\frac{x}{3}) + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int \\frac{dx}{9 + x^2} \\)</i>.</p>",
+        "explanation": "<p>Here <i>a<sup>2</sup> = 9</i> so <i>a = 3</i>. Using the standard formula <i>\\( \\int \\frac{dx}{a^2 + x^2} = \\frac{1}{a}\\tan^{-1}(\\frac{x}{a}) + C \\)</i>, we get <i>\\( \\frac{1}{3}\\tan^{-1}(\\frac{x}{3}) + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "495935",
@@ -811,7 +832,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 44
+        "question_number": 44,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\sin(4x) dx \\).",
-        "explanation": "Using the standard integral \\( \\int \\sin(ax+b) dx = -\\frac{1}{a}\\cos(ax+b) + C \\), where \\( a = 4 \\), we get \\( -\\frac{1}{4}\\cos(4x) + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b sin(4x) dx</i>.</p>",
+        "explanation": "<p>Using the standard integral <i>\u222b sin(ax + b) dx = \u2212<b><sub>1</sub><br>/<sub>a</sub></b>cos(ax + b) + C</i>, where <i>a = 4</i>, we get <i>\u2212<b><sub>1</sub><br>/<sub>4</sub></b>cos(4x) + C</i>.</p>",
         "options": [
             {
                 "option_id": "620979",
                 "tag": "a",
-                "text": "\\( -\\frac{1}{4}\\cos(4x) + C \\)",
+                "text": "<i>\u2212</i><b><sub>1</sub><br>/<sub>4</sub></b>cos(4x) + C",
                 "is_correct": true
             },
             {
                 "option_id": "299688",
                 "tag": "b",
-                "text": "\\( \\frac{1}{4}\\cos(4x) + C \\)",
+                "text": "<b><sub>1</sub><br>/<sub>4</sub></b>cos(4x) + C",
                 "is_correct": false
             },
             {
                 "option_id": "198263",
                 "tag": "c",
-                "text": "\\( -4\\cos(4x) + C \\)",
+                "text": "<i>\u2212</i>4cos(4x) + C",
                 "is_correct": false
             },
             {
                 "option_id": "440283",
                 "tag": "d",
-                "text": "\\( 4\\cos(4x) + C \\)",
+                "text": "4cos(4x) + C",
                 "is_correct": false
             }
         ],
-        "question_number": 46
+        "question_number": 46,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +880,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int e^{-2t} dt \\).",
-        "explanation": "Letting \\( u = -2t \\), \\( du = -2 dt \\). The integral evaluates to \\( -\\frac{1}{2}e^{-2t} + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b e<sup>-2t</sup> dt</i>.</p>",
+        "explanation": "<p>Letting <i>u = \u22122t</i>, <i>du = \u22122 dt</i>. The integral evaluates to <b><i>\u2212\u00bde<sup>\u22122t</sup> + C</i></b>.</p>",
         "options": [
             {
                 "option_id": "555147",
                 "tag": "a",
-                "text": "\\( -2e^{-2t} + C \\)",
+                "text": "<i>\u22122e<sup>\u22122t</sup> + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "256014",
                 "tag": "b",
-                "text": "\\( -\\frac{1}{2}e^{-2t} + C \\)",
+                "text": "<i>\u2212\u00bde<sup>\u22122t</sup> + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "198936",
                 "tag": "c",
-                "text": "\\( \\frac{1}{2}e^{-2t} + C \\)",
+                "text": "<i>\u00bde<sup>\u22122t</sup> + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "156430",
                 "tag": "d",
-                "text": "\\( e^{-2t} + C \\)",
+                "text": "<i>e<sup>\u22122t</sup> + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 48
+        "question_number": 48,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,8 +918,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int (3x^2 + 2x - 5) dx \\).",
-        "explanation": "Integrating term by term: \\( \\int 3x^2 dx = x^3 \\), \\( \\int 2x dx = x^2 \\), and \\( \\int -5 dx = -5x \\). Summing them up gives \\( x^3 + x^2 - 5x + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int (3x^2 + 2x - 5) dx \\)</i>.</p>",
+        "explanation": "<p>Integrating term by term: <i>\\( \\int 3x^2 dx = x^3 \\)</i>, <i>\\( \\int 2x dx = x^2 \\)</i>, and <i>\\( \\int -5 dx = -5x \\)</i>. Summing them up gives <b><i>\\( x^3 + x^2 - 5x + C \\)</i></b>.</p>",
         "options": [
             {
                 "option_id": "211608",
@@ -922,7 +946,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 50
+        "question_number": 50,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,35 +956,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int (t^5 + 6t^3) dt \\).",
-        "explanation": "Integrating term by term: \\( \\int t^5 dt = \\frac{t^6}{6} \\), and \\( \\int 6t^3 dt = \\frac{6t^4}{4} = \\frac{3t^4}{2} \\). Adding them yields \\( \\frac{t^6}{6} + \\frac{3t^4}{2} + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int (t^5 + 6t^3) dt \\)</i>.</p>",
+        "explanation": "<p>Integrating term by term: <i>\\( \\int t^5 dt = \\frac{t^6}{6} \\)</i>, and <i>\\( \\int 6t^3 dt = \\frac{6t^4}{4} = \\frac{3t^4}{2} \\)</i>. Adding them yields <i>\\( \\frac{t^6}{6} + \\frac{3t^4}{2} + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "164589",
                 "tag": "a",
-                "text": "\\( 5t^4 + 18t^2 + C \\)",
+                "text": "<i>\\( 5t^4 + 18t^2 + C \\)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "534335",
                 "tag": "b",
-                "text": "\\( \\frac{t^6}{6} + \\frac{3t^4}{2} + C \\)",
+                "text": "<i>\\( \\frac{t^6}{6} + \\frac{3t^4}{2} + C \\)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "209802",
                 "tag": "c",
-                "text": "\\( \\frac{t^6}{6} + 2t^4 + C \\)",
+                "text": "<i>\\( \\frac{t^6}{6} + 2t^4 + C \\)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "179223",
                 "tag": "d",
-                "text": "\\( \\frac{t^6}{5} + \\frac{6t^4}{4} + C \\)",
+                "text": "<i>\\( \\frac{t^6}{5} + \\frac{6t^4}{4} + C \\)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 52
+        "question_number": 52,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int (5x + 3)^9 dx \\) using substitution.",
-        "explanation": "Let \\( u = 5x + 3 \\), then \\( du = 5 dx \\). The integral becomes \\( \\int \\frac{u^9}{5} du = \\frac{u^{10}}{50} + C = \\frac{(5x + 3)^{10}}{50} + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int (5x + 3)^9 dx \\)</i> using substitution.</p>",
+        "explanation": "<p>Let <i>u = 5x + 3</i>, then <i>du = 5 dx</i>. The integral becomes <i>\\( \\int \\frac{u^9}{5} du = \\frac{u^{10}}{50} + C = \\frac{(5x + 3)^{10}}{50} + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "917746",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 54
+        "question_number": 54,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,8 +1032,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "The process of taking a rational expression and decomposing it into simple rational expressions that we can add or subtract to get the original is called:",
-        "explanation": "This process of taking a rational expression and decomposing it into simple rational expressions that can be added or subtracted is called partial fraction decomposition.",
+        "question_text": "<p>The process of taking a <b>rational expression</b> and decomposing it into simple rational expressions that we can add or subtract to get the original is called:</p>",
+        "explanation": "<p>This process of taking a <b>rational expression</b> and decomposing it into simple rational expressions that can be added or subtracted is called <b>partial fraction decomposition</b>.</p>",
         "options": [
             {
                 "option_id": "286390",
@@ -1033,7 +1060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 56
+        "question_number": 56,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1070,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{2x - 1}{x^2 - x - 6} dx \\).",
-        "explanation": "Let \\( u = x^2 - x - 6 \\), then \\( \\frac{du}{dx} = 2x - 1 \\). The integral becomes \\( \\int \\frac{du}{u} = \\ln|u| + C = \\ln|x^2 - x - 6| + C \\).",
+        "question_text": "<p>Evaluate <i> <b>\u222b</b> (2x - 1)/(x<sup>2</sup> - x - 6) dx</i>.</p>",
+        "explanation": "<p>Let <i>u = x<sup>2</sup> - x - 6</i>, then <i>du/dx = 2x - 1</i>. The integral becomes <i>\u222b du/u = ln|u| + C = ln|x<sup>2</sup> - x - 6| + C</i>.</p>",
         "options": [
             {
                 "option_id": "347876",
                 "tag": "a",
-                "text": "\\( \\ln|2x - 1| + C \\)",
+                "text": "<i>ln|2x - 1| + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "450532",
                 "tag": "b",
-                "text": "\\( \\ln|x^2 - x - 6| + C \\)",
+                "text": "<i>ln|x<sup>2</sup> - x - 6| + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "336690",
                 "tag": "c",
-                "text": "\\( \\frac{1}{2}\\ln|x^2 - x - 6| + C \\)",
+                "text": "<i>1/2 ln|x<sup>2</sup> - x - 6| + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "108489",
                 "tag": "d",
-                "text": "\\( \\tan^{-1}(x^2 - x - 6) + C \\)",
+                "text": "<i>tan<sup>-1</sup>(x<sup>2</sup> - x - 6) + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 58
+        "question_number": 58,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1108,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "When integrating a rational function where the degree of the numerator is equal to or higher than the denominator, what must be done first?",
-        "explanation": "Since the degree of the denominator is not higher than the degree of the numerator, we must divide the numerator by the denominator until the remainder is of lower degree.",
+        "question_text": "<p>When integrating a <b>rational function</b> where the degree of the numerator is equal to or higher than the denominator, what must be done first?</p>",
+        "explanation": "<p>Since the degree of the denominator is not higher than the degree of the numerator, we must divide the numerator by the denominator until the remainder is of <b>lower degree</b>.</p>",
         "options": [
             {
                 "option_id": "214359",
@@ -1107,7 +1136,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 60
+        "question_number": 60,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1146,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "If \\( \\frac{3x + 11}{x^2 - x - 6} \\) is decomposed into \\( \\frac{4}{x - 3} - \\frac{1}{x + 2} \\), evaluate \\( \\int \\frac{3x + 11}{x^2 - x - 6} dx \\).",
-        "explanation": "Integrating term by term: \\( \\int \\frac{4}{x - 3} dx - \\int \\frac{1}{x + 2} dx = 4\\ln|x - 3| - \\ln|x + 2| + C \\).",
+        "question_text": "<p>If <i><b>\\frac{3x + 11}{x^2 - x - 6}</b></i> is decomposed into <i><b>\\frac{4}{x - 3} - \\frac{1}{x + 2}</b></i>, evaluate <i><b>\\int \\frac{3x + 11}{x^2 - x - 6} dx</b></i>.</p>",
+        "explanation": "<p>Integrating term by term: <i><b>\\int \\frac{4}{x - 3} dx - \\int \\frac{1}{x + 2} dx = 4\\ln|x - 3| - \\ln|x + 2| + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "217292",
                 "tag": "a",
-                "text": "\\( 4\\ln|x - 3| - \\ln|x + 2| + C \\)",
+                "text": "<i>4</i><b>ln|x - 3|</b> - <b>ln|x + 2|</b> + <i>C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "195668",
                 "tag": "b",
-                "text": "\\( \\ln|x - 3| - 4\\ln|x + 2| + C \\)",
+                "text": "<b>ln|x - 3|</b> - <i>4</i><b>ln|x + 2|</b> + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "394699",
                 "tag": "c",
-                "text": "\\( 4(x - 3) - (x + 2) + C \\)",
+                "text": "<i>4(x - 3)</i> - <i>(x + 2)</i> + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "155010",
                 "tag": "d",
-                "text": "\\( 4\\ln|x + 2| - \\ln|x - 3| + C \\)",
+                "text": "<i>4</i><b>ln|x + 2|</b> - <b>ln|x - 3|</b> + <i>C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 62
+        "question_number": 62,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,35 +1184,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the standard integral of the exponential function \\( a^x \\) (where \\( a \\) is a constant)?",
-        "explanation": "As seen in standard integration forms for exponential functions, \\( \\int a^x dx = \\frac{a^x}{\\ln a} + C \\).",
+        "question_text": "<p>What is the <b>standard integral</b> of the exponential function <i>a<sup>x</sup></i> (where <i>a</i> is a constant)?</p>",
+        "explanation": "<p>As seen in standard integration forms for exponential functions, <i>\u222b a<sup>x</sup> dx = <i>a<sup>x</sup></i> / ln <i>a</i></i> + <i>C</i>.</p>",
         "options": [
             {
                 "option_id": "153283",
                 "tag": "a",
-                "text": "\\( a^x \\ln(a) + C \\)",
+                "text": "<i>a<sup>x</sup></i> ln(<i>a</i>) + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "294411",
                 "tag": "b",
-                "text": "\\( \\frac{a^x}{\\ln a} + C \\)",
+                "text": "<i>a<sup>x</sup></i> / ln <i>a</i> + <i>C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "467187",
                 "tag": "c",
-                "text": "\\( a^{x+1} + C \\)",
+                "text": "<i>a<sup>x+1</sup></i> + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "304414",
                 "tag": "d",
-                "text": "\\( x a^{x-1} + C \\)",
+                "text": "<i>x a<sup>x-1</sup></i> + <i>C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 64
+        "question_number": 64,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,8 +1222,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int 5^x dx \\).",
-        "explanation": "Using the standard exponential integral formula \\( \\int a^x dx = \\frac{a^x}{\\ln a} + C \\) with \\( a = 5 \\), the result is \\( \\frac{5^x}{\\ln 5} + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int 5^x dx \\)</i>.</p>",
+        "explanation": "<p>Using the standard exponential integral formula <i>\\( \\int a^x dx = \\frac{a^x}{\\ln a} + C \\)</i> with <b>a = 5</b>, the result is <i>\\( \\frac{5^x}{\\ln 5} + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "731149",
@@ -1218,7 +1250,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 66
+        "question_number": 66,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1260,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\cos(5x) dx \\).",
-        "explanation": "Using the standard formula \\( \\int \\cos(ax+b) dx = \\frac{1}{a}\\sin(ax+b) + C \\), with \\( a = 5 \\), we get \\( \\frac{1}{5}\\sin(5x) + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b cos(5x) dx</i>.</p>",
+        "explanation": "<p>Using the standard formula <i>\u222b cos(ax + b) dx = </i><sub>a</sub><sup>1</sup><i>sin(ax + b) + C</i>, with <b>a = 5</b>, we get <i>\u222b cos(5x) dx = </i><sub>5</sub><sup>1</sup><i>sin(5x) + C</i>.</p>",
         "options": [
             {
                 "option_id": "745620",
                 "tag": "a",
-                "text": "\\( -\\frac{1}{5}\\sin(5x) + C \\)",
+                "text": "<i>\u2212</i><sub>5</sub><sup>1</sup>sin(5x) + C",
                 "is_correct": false
             },
             {
                 "option_id": "400931",
                 "tag": "b",
-                "text": "\\( \\frac{1}{5}\\sin(5x) + C \\)",
+                "text": "<sub>5</sub><sup>1</sup>sin(5x) + C",
                 "is_correct": true
             },
             {
                 "option_id": "323112",
                 "tag": "c",
-                "text": "\\( 5\\sin(5x) + C \\)",
+                "text": "5sin(5x) + C",
                 "is_correct": false
             },
             {
                 "option_id": "236755",
                 "tag": "d",
-                "text": "\\( -5\\sin(5x) + C \\)",
+                "text": "\u22125sin(5x) + C",
                 "is_correct": false
             }
         ],
-        "question_number": 68
+        "question_number": 68,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,25 +1298,25 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "In evaluating \\( \\int \\sin^m(u) \\cos^n(u) du \\), if both \\( m \\) and \\( n \\) are positive even integers, which technique is recommended?",
-        "explanation": "The technique will fail when \\( m \\) and \\( n \\) are both positive even integers. In this case, the integral may be transformed by the relations such as \\( \\sin^2(u) = \\frac{1 - \\cos(2u)}{2} \\).",
+        "question_text": "<p>In evaluating <i>\u222b sin<sup>m</sup>(u) cos<sup>n</sup>(u) du</i>, if both <i>m</i> and <i>n</i> are <b>positive even integers</b>, which technique is recommended?</p>",
+        "explanation": "<p>When <i>m</i> and <i>n</i> are both <b>positive even integers</b>, the standard techniques like simple substitution or integration by parts may not be effective. Instead, the integral can be simplified by using <b>trigonometric identities</b> such as <i>sin<sup>2</sup>(u) = (1 - cos(2u))/2</i> or similar identities for cosine. This transformation reduces the powers of sine and cosine, making the integral more manageable to evaluate.</p>",
         "options": [
             {
                 "option_id": "148686",
                 "tag": "a",
-                "text": "Simple substitution \\( u = \\sin(x) \\)",
+                "text": "Simple substitution <i>u = sin(x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "105621",
                 "tag": "b",
-                "text": "Simple substitution \\( u = \\cos(x) \\)",
+                "text": "Simple substitution <i>u = cos(x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "124408",
                 "tag": "c",
-                "text": "Transforming the integral using relations like \\( \\sin^2(u) = \\frac{1 - \\cos(2u)}{2} \\)",
+                "text": "Transforming the integral using relations like <i>sin<sup>2</sup>(u) = (1 - cos(2u))/2</i>",
                 "is_correct": true
             },
             {
@@ -1292,7 +1326,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 70
+        "question_number": 70,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,35 +1336,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\cos^3(x) dx \\) by substituting \\( \\cos^2(x) = 1 - \\sin^2(x) \\).",
-        "explanation": "\\( \\int \\cos^3(x) dx = \\int (1 - \\sin^2(x))\\cos(x) dx \\). Let \\( u = \\sin(x) \\), \\( du = \\cos(x) dx \\). The integral becomes \\( \\int (1 - u^2) du = u - \\frac{u^3}{3} + C = \\sin(x) - \\frac{\\sin^3(x)}{3} + C \\).",
+        "question_text": "<p>Evaluate <i><b>\u222b cos</b><sup>3</sup>(x) dx</i> by substituting <i><b>cos</b><sup>2</sup>(x) = 1 \u2212 sin<sup>2</sup>(x)</i>.</p>",
+        "explanation": "<p>First, rewrite <i><b>cos</b><sup>3</sup>(x)</i> using the identity <i><b>cos</b><sup>2</sup>(x) = 1 \u2212 sin<sup>2</sup>(x)</i>:</p><p><i><b>\u222b cos</b><sup>3</sup>(x) dx = \u222b (1 \u2212 sin<sup>2</sup>(x)) cos(x) dx</i>.</p><p>Let <i><b>u = sin(x)</b></i>, so <i><b>du = cos(x) dx</b></i>. Substituting, we get:</p><p><i>\u222b (1 \u2212 u<sup>2</sup>) du = u \u2212 u<sup>3</sup>/3 + C</i>.</p><p>Replacing <i><b>u</b></i> with <i><b>sin(x)</b></i>, the final result is:</p><p><i><b>sin(x) \u2212 sin</b><sup>3</sup>(x)/3 + C</i>.</p>",
         "options": [
             {
                 "option_id": "316261",
                 "tag": "a",
-                "text": "\\( \\sin(x) - \\frac{\\sin^3(x)}{3} + C \\)",
+                "text": "<i>sin(x) \u2212 <b>sin</b><sup>3</sup>(x)/3 + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "229664",
                 "tag": "b",
-                "text": "\\( \\frac{\\cos^4(x)}{4} + C \\)",
+                "text": "<i><b>cos</b><sup>4</sup>(x)/4 + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "795324",
                 "tag": "c",
-                "text": "\\( \\sin(x) + \\frac{\\sin^3(x)}{3} + C \\)",
+                "text": "<i>sin(x) + <b>sin</b><sup>3</sup>(x)/3 + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "125055",
                 "tag": "d",
-                "text": "\\( -\\sin(x) + \\frac{\\sin^3(x)}{3} + C \\)",
+                "text": "<i>\u2212sin(x) + <b>sin</b><sup>3</sup>(x)/3 + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 72
+        "question_number": 72,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1374,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\sin^2(x) \\cos(x) dx \\).",
-        "explanation": "Let \\( u = \\sin(x) \\), then \\( du = \\cos(x) dx \\). The integral becomes \\( \\int u^2 du = \\frac{u^3}{3} + C = \\frac{\\sin^3(x)}{3} + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int \\sin^2(x) \\cos(x) dx \\)</i>.</p>",
+        "explanation": "<p>Let <i>u = <b>sin(x)</b></i>, then <i>du = <b>cos(x) dx</b></i>. The integral becomes <i>\\( \\int u^2 du = \\frac{u^3}{3} + C \\)</i>. Substituting back, we get <i>\\( \\frac{\\sin^3(x)}{3} + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "880078",
@@ -1366,7 +1402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 74
+        "question_number": 74,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,35 +1412,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{5x^2}{10x^3 + 6} dx \\).",
-        "explanation": "Let \\( u = 10x^3 + 6 \\), then \\( du = 30x^2 dx \\). Multiply the numerator by 6 and divide the integral by 6 to match \\( du \\). The integral is \\( \\frac{1}{6}\\int \\frac{du}{u} = \\frac{1}{6}\\ln|10x^3 + 6| + C \\).",
+        "question_text": "<p>Evaluate <i> <b>\u222b</b> <b>5x\u00b2</b> / (10x\u00b3 + 6) <b>dx</b>.</i></p>",
+        "explanation": "<p>Let <i><b>u = 10x\u00b3 + 6</b></i>, then <i><b>du = 30x\u00b2 dx</b></i>. Multiply the numerator by <b>6</b> and divide the integral by <b>6</b> to match <i><b>du</b></i>. The integral is <i><b>1/6 \u222b du/u = 1/6 ln|10x\u00b3 + 6| + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "246937",
                 "tag": "a",
-                "text": "\\( \\frac{1}{6}\\ln|10x^3 + 6| + C \\)",
+                "text": "<i> <b>1/6</b> ln|10x\u00b3 + 6| + C </i>",
                 "is_correct": true
             },
             {
                 "option_id": "272726",
                 "tag": "b",
-                "text": "\\( \\ln|10x^3 + 6| + C \\)",
+                "text": "<i> ln|10x\u00b3 + 6| + C </i>",
                 "is_correct": false
             },
             {
                 "option_id": "173455",
                 "tag": "c",
-                "text": "\\( \\frac{5}{3}\\ln|10x^3 + 6| + C \\)",
+                "text": "<i> <b>5/3</b> ln|10x\u00b3 + 6| + C </i>",
                 "is_correct": false
             },
             {
                 "option_id": "193570",
                 "tag": "d",
-                "text": "\\( 6\\ln|10x^3 + 6| + C \\)",
+                "text": "<i> 6 ln|10x\u00b3 + 6| + C </i>",
                 "is_correct": false
             }
         ],
-        "question_number": 76
+        "question_number": 76,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\sec^2(3x) dx \\).",
-        "explanation": "Using the standard formula \\( \\int \\sec^2(ax+b) dx = \\frac{1}{a}\\tan(ax+b) + C \\), with \\( a = 3 \\).",
+        "question_text": "<p>Evaluate <i>\u222b sec</i><sup>2</sup>(3<i>x</i>) <i>dx</i>.</p>",
+        "explanation": "<p>Using the standard formula <i>\u222b sec</i><sup>2</sup>(<i>ax</i> + <i>b</i>) <i>dx</i> = <i>1/a tan</i>(<i>ax</i> + <i>b</i>) + <i>C</i>, with <b><i>a</i> = 3</b>.</p>",
         "options": [
             {
                 "option_id": "108803",
                 "tag": "a",
-                "text": "\\( 3\\tan(3x) + C \\)",
+                "text": "<i>3 tan</i>(3<i>x</i>) + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "925864",
                 "tag": "b",
-                "text": "\\( \\frac{1}{3}\\tan(3x) + C \\)",
+                "text": "<i>1/3 tan</i>(3<i>x</i>) + <i>C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "117218",
                 "tag": "c",
-                "text": "\\( -\\frac{1}{3}\\tan(3x) + C \\)",
+                "text": "<i>-1/3 tan</i>(3<i>x</i>) + <i>C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "126285",
                 "tag": "d",
-                "text": "\\( \\tan(3x) + C \\)",
+                "text": "<i>tan</i>(3<i>x</i>) + <i>C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 78
+        "question_number": 78,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the relationship between the velocity function \\( v(t) \\) and distance/displacement \\( s(t) \\)?",
-        "explanation": "Distance or displacement is the anti-derivative (integral) of velocity with respect to time.",
+        "question_text": "<p>The <b>velocity function</b> <i>v(t)</i> describes the rate of change of position over time, while the <b>distance/displacement function</b> <i>s(t)</i> represents the total change in position.</p><p>What is the mathematical relationship between these two functions?</p>",
+        "explanation": "<p><b>Distance or displacement</b> is the <b>anti-derivative (integral)</b> of <b>velocity</b> with respect to time. This means that integrating the velocity function <i>v(t)</i> over time yields the displacement function <i>s(t)</i>.</p><p>Mathematically, this relationship is expressed as <i>s(t)</i> = <i>\u222b v(t) dt</i>. The other options incorrectly reverse the relationship or misrepresent the mathematical operations involved.</p>",
         "options": [
             {
                 "option_id": "292787",
                 "tag": "a",
-                "text": "\\( v(t) = \\int s(t) dt \\)",
+                "text": "<i>v(t)</i> = <i>\u222b s(t) dt</i>",
                 "is_correct": false
             },
             {
                 "option_id": "759108",
                 "tag": "b",
-                "text": "\\( s(t) = \\frac{dv}{dt} \\)",
+                "text": "<i>s(t)</i> = <i>d</i><sub>dt</sub><i>v</i>",
                 "is_correct": false
             },
             {
                 "option_id": "504076",
                 "tag": "c",
-                "text": "\\( s(t) = \\int v(t) dt \\)",
+                "text": "<i>s(t)</i> = <i>\u222b v(t) dt</i>",
                 "is_correct": true
             },
             {
                 "option_id": "255228",
                 "tag": "d",
-                "text": "\\( s(t) = v(t) \\times t \\)",
+                "text": "<i>s(t)</i> = <i>v(t)</i> \u00d7 <i>t</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 80
+        "question_number": 80,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "If the acceleration of a particle is given by \\( a(t) = 30 - 6t \\) m/s\\(^2\\), and it starts from rest, what is its velocity function \\( v(t) \\)?",
-        "explanation": "\\( v(t) = \\int a(t) dt = \\int (30 - 6t) dt = 30t - 3t^2 + C \\). Since it starts from rest, \\( v(0) = 0 \\), so \\( C = 0 \\). Thus, \\( v(t) = 30t - 3t^2 \\).",
+        "question_text": "<p>If the acceleration of a particle is given by <i>a</i>(<i>t</i>) = 30 \u2212 6<i>t</i> m/s<sup>2</sup>, and it starts from rest, what is its velocity function <i>v</i>(<i>t</i>)?</p>",
+        "explanation": "<p>To find the velocity function, integrate the acceleration function: <i>v</i>(<i>t</i>) = \u222b <i>a</i>(<i>t</i>) <i>dt</i> = \u222b (30 \u2212 6<i>t</i>) <i>dt</i> = 30<i>t</i> \u2212 3<i>t</i><sup>2</sup> + <b>C</b>. Since the particle starts from rest, <i>v</i>(0) = 0, which implies <b>C</b> = 0. Therefore, the velocity function is <i>v</i>(<i>t</i>) = 30<i>t</i> \u2212 3<i>t</i><sup>2</sup>.</p>",
         "options": [
             {
                 "option_id": "359922",
                 "tag": "a",
-                "text": "\\( v(t) = 30 - 3t^2 \\)",
+                "text": "<i>v</i>(<i>t</i>) = 30 \u2212 3<i>t</i><sup>2</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "283359",
                 "tag": "b",
-                "text": "\\( v(t) = 30t - 6t^2 \\)",
+                "text": "<i>v</i>(<i>t</i>) = 30<i>t</i> \u2212 6<i>t</i><sup>2</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "319558",
                 "tag": "c",
-                "text": "\\( v(t) = 30t - 3t^2 \\)",
+                "text": "<i>v</i>(<i>t</i>) = 30<i>t</i> \u2212 3<i>t</i><sup>2</sup>",
                 "is_correct": true
             },
             {
                 "option_id": "173791",
                 "tag": "d",
-                "text": "\\( v(t) = 15t^2 - t^3 \\)",
+                "text": "<i>v</i>(<i>t</i>) = 15<i>t</i><sup>2</sup> \u2212 <i>t</i><sup>3</sup>",
                 "is_correct": false
             }
         ],
-        "question_number": 82
+        "question_number": 82,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,35 +1564,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Given a particle with velocity \\( v(t) = 6t - 3t^2 \\) m/s starting from rest, at what time \\( t > 0 \\) does the particle come to instantaneous rest?",
-        "explanation": "The particle comes to rest when \\( v(t) = 0 \\). Solving \\( 6t - 3t^2 = 0 \\) yields \\( 3t(2 - t) = 0 \\), so \\( t = 0 \\) or \\( t = 2 \\).",
+        "question_text": "<p>Given a particle with velocity <i>v</i>(<i>t</i>) = 6<i>t</i> \u2212 3<i>t</i><sup>2</sup> m/s starting from rest, at what time <i>t</i> > 0 does the particle come to <b>instantaneous rest</b>?</p>",
+        "explanation": "<p>The particle comes to rest when <i>v</i>(<i>t</i>) = 0. Solving 6<i>t</i> \u2212 3<i>t</i><sup>2</sup> = 0 yields 3<i>t</i>(2 \u2212 <i>t</i>) = 0, so <i>t</i> = 0 or <i>t</i> = 2.</p>",
         "options": [
             {
                 "option_id": "164746",
                 "tag": "a",
-                "text": "\\( t = 1 \\) sec",
+                "text": "<i>t</i> = 1 sec",
                 "is_correct": false
             },
             {
                 "option_id": "335812",
                 "tag": "b",
-                "text": "\\( t = 2 \\) secs",
+                "text": "<i>t</i> = 2 secs",
                 "is_correct": true
             },
             {
                 "option_id": "637010",
                 "tag": "c",
-                "text": "\\( t = 3 \\) secs",
+                "text": "<i>t</i> = 3 secs",
                 "is_correct": false
             },
             {
                 "option_id": "236743",
                 "tag": "d",
-                "text": "\\( t = 4 \\) secs",
+                "text": "<i>t</i> = 4 secs",
                 "is_correct": false
             }
         ],
-        "question_number": 84
+        "question_number": 84,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Find the total distance travelled by a particle with velocity \\( v(t) = 6t - 3t^2 \\) m/s before it first comes to instantaneous rest.",
-        "explanation": "It comes to rest at \\( t = 2 \\). Distance \\( = \\int_{0}^{2} (6t - 3t^2) dt = [3t^2 - t^3]_{0}^{2} = (12 - 8) - 0 = 4 \\) m.",
+        "question_text": "<p>Find the total <b>distance travelled</b> by a particle with velocity <i>v(t) = 6t - 3t<sup>2</sup></i> m/s before it first comes to <b>instantaneous rest</b>.</p>",
+        "explanation": "<p>It comes to rest at <i>t = 2</i>. Distance <i>= \u222b<sub>0</sub><sup>2</sup> (6t - 3t<sup>2</sup>) dt = [3t<sup>2</sup> - t<sup>3</sup>]<sub>0</sub><sup>2</sup> = (12 - 8) - 0 = 4</i> m.</p>",
         "options": [
             {
                 "option_id": "295056",
@@ -1588,7 +1630,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 86
+        "question_number": 86,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate the standard integral \\( \\int \\frac{dx}{x^2 - a^2} \\).",
-        "explanation": "This is a standard integral format obtained via partial fractions: \\( \\int \\frac{dx}{x^2 - a^2} = \\frac{1}{2a}\\ln|\\frac{x-a}{x+a}| + C \\).",
+        "question_text": "<p>Evaluate the standard integral <i>\u222b dx / (x\u00b2 - a\u00b2)</i>.</p>",
+        "explanation": "<p>This is a standard integral format obtained via partial fractions:</p> <p><b>\u222b dx / (x\u00b2 - a\u00b2) = (1 / (2a)) ln|(x - a) / (x + a)| + C</b>.</p>",
         "options": [
             {
                 "option_id": "273549",
                 "tag": "a",
-                "text": "\\( \\frac{1}{2a}\\ln|\\frac{x-a}{x+a}| + C \\)",
+                "text": "<i>1 / (2a)</i> ln|(x - a) / (x + a)| + C",
                 "is_correct": true
             },
             {
                 "option_id": "233041",
                 "tag": "b",
-                "text": "\\( \\frac{1}{2a}\\ln|\\frac{x+a}{x-a}| + C \\)",
+                "text": "<i>1 / (2a)</i> ln|(x + a) / (x - a)| + C",
                 "is_correct": false
             },
             {
                 "option_id": "260231",
                 "tag": "c",
-                "text": "\\( \\ln|x^2 - a^2| + C \\)",
+                "text": "ln|x\u00b2 - a\u00b2| + C",
                 "is_correct": false
             },
             {
                 "option_id": "237982",
                 "tag": "d",
-                "text": "\\( \\tan^{-1}(\\frac{x}{a}) + C \\)",
+                "text": "tan\u207b\u00b9(x / a) + C",
                 "is_correct": false
             }
         ],
-        "question_number": 88
+        "question_number": 88,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{dx}{x^2 - 16} \\).",
-        "explanation": "Here \\( a^2 = 16 \\), so \\( a = 4 \\). Using the formula \\( \\frac{1}{2a}\\ln|\\frac{x-a}{x+a}| + C \\), we get \\( \\frac{1}{8}\\ln|\\frac{x-4}{x+4}| + C \\).",
+        "question_text": "<p>Evaluate <i> <b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 16).</i></p>",
+        "explanation": "<p>Here <i><b>a</b><sup>2</sup> = 16</i>, so <i><b>a</b> = 4</i>. Using the formula <i><b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 <b>a</b><sup>2</sup>) = (1/2<b>a</b>)<b>ln</b>|(<b>x</b>\u2212<b>a</b>)/(<b>x</b>+<b>a</b>)| + C</i>, we get <i>(1/8)<b>ln</b>|(<b>x</b>\u22124)/(<b>x</b>+4)| + C</i>.</p>",
         "options": [
             {
                 "option_id": "118167",
                 "tag": "a",
-                "text": "\\( \\frac{1}{4}\\ln|\\frac{x-4}{x+4}| + C \\)",
+                "text": "<i> <b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 16) = (1/4)<b>ln</b>|(<b>x</b>\u22124)/(<b>x</b>+4)| + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "223012",
                 "tag": "b",
-                "text": "\\( \\frac{1}{8}\\ln|\\frac{x+4}{x-4}| + C \\)",
+                "text": "<i> <b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 16) = (1/8)<b>ln</b>|(<b>x</b>+4)/(<b>x</b>\u22124)| + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "443476",
                 "tag": "c",
-                "text": "\\( \\frac{1}{8}\\ln|\\frac{x-4}{x+4}| + C \\)",
+                "text": "<i> <b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 16) = (1/8)<b>ln</b>|(<b>x</b>\u22124)/(<b>x</b>+4)| + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "263262",
                 "tag": "d",
-                "text": "\\( \\sin^{-1}(\\frac{x}{4}) + C \\)",
+                "text": "<i> <b>\u222b</b> <b>dx</b> / (<b>x</b><sup>2</sup> \u2212 16) = <b>sin</b><sup>\u22121</sup>(<b>x</b>/4) + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 90
+        "question_number": 90,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1716,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\frac{x^3}{x - 2} dx \\) given that \\( \\frac{x^3}{x - 2} = x^2 + 2x + 4 + \\frac{8}{x - 2} \\).",
-        "explanation": "Integrating term by term: \\( \\int x^2 dx = \\frac{x^3}{3} \\), \\( \\int 2x dx = x^2 \\), \\( \\int 4 dx = 4x \\), and \\( \\int \\frac{8}{x-2} dx = 8\\ln|x-2| \\).",
+        "question_text": "<p>Evaluate <i> <b>\u222b</b> <b>x</b><sup>3</sup> / (<b>x</b> - 2) <b>dx</b></i> given that <i><b>x</b><sup>3</sup> / (<b>x</b> - 2) = <b>x</b><sup>2</sup> + 2<b>x</b> + 4 + 8 / (<b>x</b> - 2)</i>.</p>",
+        "explanation": "<p>Integrating term by term: <i>\u222b <b>x</b><sup>2</sup> <b>dx</b> = <b>x</b><sup>3</sup> / 3</i>, <i>\u222b 2<b>x</b> <b>dx</b> = <b>x</b><sup>2</sup></i>, <i>\u222b 4 <b>dx</b> = 4<b>x</b></i>, and <i>\u222b 8 / (<b>x</b> - 2) <b>dx</b> = 8 ln|<b>x</b> - 2|</i>.</p>",
         "options": [
             {
                 "option_id": "292344",
                 "tag": "a",
-                "text": "\\( \\frac{x^3}{3} + x^2 + 4x + 8\\ln|x - 2| + C \\)",
+                "text": "<i> <b>x</b><sup>3</sup> / 3 + <b>x</b><sup>2</sup> + 4<b>x</b> + 8 ln|<b>x</b> - 2| + C </i>",
                 "is_correct": true
             },
             {
                 "option_id": "260437",
                 "tag": "b",
-                "text": "\\( x^3 + x^2 + 4x + \\ln|x - 2| + C \\)",
+                "text": "<i> <b>x</b><sup>3</sup> + <b>x</b><sup>2</sup> + 4<b>x</b> + ln|<b>x</b> - 2| + C </i>",
                 "is_correct": false
             },
             {
                 "option_id": "191966",
                 "tag": "c",
-                "text": "\\( \\frac{x^4}{4} + x^2 + 4x + 8\\ln|x - 2| + C \\)",
+                "text": "<i> <b>x</b><sup>4</sup> / 4 + <b>x</b><sup>2</sup> + 4<b>x</b> + 8 ln|<b>x</b> - 2| + C </i>",
                 "is_correct": false
             },
             {
                 "option_id": "478328",
                 "tag": "d",
-                "text": "\\( \\frac{x^3}{3} + 2x^2 + 4x - \\frac{8}{(x - 2)^2} + C \\)",
+                "text": "<i> <b>x</b><sup>3</sup> / 3 + 2<b>x</b><sup>2</sup> + 4<b>x</b> - 8 / (<b>x</b> - 2)<sup>2</sup> + C </i>",
                 "is_correct": false
             }
         ],
-        "question_number": 92
+        "question_number": 92,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "What is the area bounded by the curve \\( y = f(x) \\) and the x-axis between \\( x=a \\) and \\( x=b \\)?",
-        "explanation": "The area under a curve \\( y = f(x) \\) from \\( a \\) to \\( b \\) is found by evaluating the definite integral \\( \\int_{a}^{b} f(x) dx \\).",
+        "question_text": "<p>What is the <b>area</b> bounded by the curve <i>y = f(x)</i> and the <b>x-axis</b> between <i>x = a</i> and <i>x = b</i>?</p>",
+        "explanation": "<p>The <b>area</b> under a curve <i>y = f(x)</i> from <i>a</i> to <i>b</i> is found by evaluating the <b>definite integral</b> <i>\\int_{a}^{b} f(x) dx</i>.</p>",
         "options": [
             {
                 "option_id": "168682",
                 "tag": "a",
-                "text": "\\( \\int_{a}^{b} f'(x) dx \\)",
+                "text": "<i>\\int_{a}^{b} f'(x) dx</i>",
                 "is_correct": false
             },
             {
                 "option_id": "895420",
                 "tag": "b",
-                "text": "\\( \\int_{a}^{b} f(x) dx \\)",
+                "text": "<i>\\int_{a}^{b} f(x) dx</i>",
                 "is_correct": true
             },
             {
                 "option_id": "128219",
                 "tag": "c",
-                "text": "\\( \\frac{d}{dx}[f(x)] \\)",
+                "text": "<i>\\frac{d}{dx}[f(x)]</i>",
                 "is_correct": false
             },
             {
                 "option_id": "331367",
                 "tag": "d",
-                "text": "\\( f(b) - f(a) \\)",
+                "text": "<i>f(b) - f(a)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 94
+        "question_number": 94,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,35 +1792,36 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int \\csc^2(x) dx \\).",
-        "explanation": "Since \\( \\frac{d}{dx}(\\cot x) = -\\csc^2(x) \\), the integral of \\( \\csc^2(x) \\) is \\( -\\cot(x) + C \\).",
+        "question_text": "<p>Evaluate <i>\u222b csc<sup>2</sup>(x) dx</i>.</p>",
+        "explanation": "<p>Since <i>d/dx(cot x) = -csc<sup>2</sup>(x)</i>, the integral of <b><i>csc<sup>2</sup>(x)</b></i> is <b><i>-cot(x) + C</b></i>.</p>",
         "options": [
             {
                 "option_id": "151586",
                 "tag": "a",
-                "text": "\\( \\sec(x) + C \\)",
+                "text": "<i>sec(x) + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "210056",
                 "tag": "b",
-                "text": "\\( \\cot(x) + C \\)",
+                "text": "<i>cot(x) + C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "104790",
                 "tag": "c",
-                "text": "\\( -\\cot(x) + C \\)",
+                "text": "<i>-cot(x) + C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "119677",
                 "tag": "d",
-                "text": "\\( -\\csc(x)\\cot(x) + C \\)",
+                "text": "<i>-csc(x)cot(x) + C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 96
+        "question_number": 96,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,8 +1830,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "Evaluate \\( \\int (5 - x)^2 dx \\) using substitution.",
-        "explanation": "Let \\( u = 5 - x \\), then \\( du = -dx \\). The integral becomes \\( \\int -u^2 du = -\\frac{u^3}{3} + C = -\\frac{(5 - x)^3}{3} + C \\).",
+        "question_text": "<p>Evaluate <i>\\( \\int (5 - x)^2 dx \\)</i> using substitution.</p>",
+        "explanation": "<p>Let <i>u = 5 - x</i>, then <i>du = -dx</i>. The integral becomes <i>\\( \\int -u^2 du = -\\frac{u^3}{3} + C = -\\frac{(5 - x)^3}{3} + C \\)</i>.</p>",
         "options": [
             {
                 "option_id": "410021",
@@ -1810,7 +1858,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 98
+        "question_number": 98,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,8 +1868,8 @@
         "course_code": "MTH 122",
         "course_title": "ELEMENTARY MATHEMATICS 2",
         "question_type": "CBT",
-        "question_text": "When differentiating an exponential function like \\( 5^x \\), the derivative is \\( 5^x \\ln 5 \\). If integrating \\( 5^x \\), why do we divide by \\( \\ln 5 \\)?",
-        "explanation": "Since integration is the reverse of differentiation, multiplying by \\( \\ln 5 \\) in differentiation becomes dividing by \\( \\ln 5 \\) during integration.",
+        "question_text": "<p>When differentiating an exponential function like <i>5<sup>x</sup></i>, the derivative is <i>5<sup>x</sup> ln 5</i>. If integrating <i>5<sup>x</sup></i>, why do we divide by <i>ln 5</i>?</p>",
+        "explanation": "<p>Since integration is the reverse of differentiation, multiplying by <b><i>ln 5</i></b> in differentiation becomes dividing by <b><i>ln 5</i></b> during integration.</p>",
         "options": [
             {
                 "option_id": "246065",
@@ -1831,13 +1880,13 @@
             {
                 "option_id": "119118",
                 "tag": "b",
-                "text": "To cancel out the \\( C \\) constant",
+                "text": "To cancel out the <i>C</i> constant",
                 "is_correct": false
             },
             {
                 "option_id": "126984",
                 "tag": "c",
-                "text": "Because \\( \\ln 5 \\) is the derivative of \\( x \\)",
+                "text": "Because <i>ln 5</i> is the derivative of <i>x</i>",
                 "is_correct": false
             },
             {
@@ -1847,6 +1896,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 100
+        "question_number": 100,
+        "is_rewritten": true
     }
 ]

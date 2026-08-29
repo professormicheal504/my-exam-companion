@@ -1,16 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Secondary School Classes – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
   <style>
     /* Reset & Global */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
+    html { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); scroll-behavior: smooth; }
     body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
@@ -28,10 +38,10 @@
       margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
     }
     .page-title {
-      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px;
+      font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 8px;
     }
     .page-desc {
-      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+      font-size: 15px; color: var(--text-muted); max-width: 600px; line-height: 1.6;
     }
 
     /* Actions */
@@ -50,16 +60,16 @@
     }
 
     .section-title {
-      font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+      font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
     }
 
     /* Class Cards */
     .class-card {
-      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
+      background: var(--bg-card); border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
       display: flex; flex-direction: column; transition: all 0.2s; position: relative; overflow: hidden;
     }
     .class-card:hover {
-      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #e5e7eb;
+      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: var(--border);
     }
     
     .class-icon {
@@ -67,18 +77,18 @@
       display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; color: #1d4ed8;
     }
     .class-name {
-      font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
+      font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
     }
     .class-meta {
-      font-size: 13.5px; color: #6b7280; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;
+      font-size: 13.5px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;
     }
     .class-meta span { display: flex; align-items: center; gap: 8px; }
     
     /* Tag */
     .category-tag {
-      position: absolute; top: 24px; right: 24px; background: #f3f4f6; color: #4b5563;
+      position: absolute; top: 24px; right: 24px; background: var(--bg-base); color: var(--text-muted);
       padding: 6px 12px; border-radius: 99px; font-size: 11px; font-weight: 800;
-      display: flex; align-items: center; gap: 4px; letter-spacing: 0.05em; border: 1px solid #e5e7eb; text-transform: uppercase;
+      display: flex; align-items: center; gap: 4px; letter-spacing: 0.05em; border: 1px solid var(--border); text-transform: uppercase;
     }
 
     .card-footer {

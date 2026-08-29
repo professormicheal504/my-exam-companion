@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Hub - Identity Verification</title>
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-muted: #9ca3af;
+            --primary-blue: #3b82f6; 
+            --border-color: #e5e7eb;
+            --bg-card: #ffffff;
+            --bg-base: #f9fafb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Responsive Card Wrapper */
+        .main-card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 640px) {
+            .main-card {
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                overflow: hidden;
+                flex: none;
+                min-height: auto;
+            }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 0;
+        }
+
+        /* Numbered Progress Steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 50%;
+            left: 54px;
+            right: 54px;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+            width: 50%; /* Step 2 -> 50% fill to next step */
+        }
+
+        .step-node {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--bg-base);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 2;
+            transition: all 0.3s ease;
+            border: 2px solid var(--bg-card);
+        }
+
+        .step-node.active {
+            background-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .step-node.completed {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Header Texts */
+        .header-content {
+            padding: 0 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: #111827;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        /* Form Area */
+        .form-container {
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 24px;
+            margin-top: 8px;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: var(--bg-card);
+            padding: 0 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .group-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-control {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 14px;
+            font-size: 16px;
+            color: #111827;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: transparent;
+            appearance: none;
+        }
+
+        .input-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-group:focus-within label {
+            color: var(--primary-blue);
+        }
+        
+        .input-control::placeholder {
+            color: #6b7280; 
+            opacity: 1;
+            font-weight: 400;
+        }
+
+        /* Select arrow */
+        .select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--text-muted);
+        }
+
+        /* Custom Select */
+        .custom-select { position: relative; user-select: none; outline: none; }
+        .custom-select-trigger { cursor: pointer; }
+        .custom-select-options {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border: 1px solid var(--border-color);
+            border-radius: 12px; margin-top: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 50; display: none; overflow: hidden;
+            max-height: 250px; overflow-y: auto;
+        }
+        .custom-select.open .custom-select-options { display: block; }
+        .custom-select.open .custom-select-trigger { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .custom-option {
+            padding: 12px 14px; display: flex; align-items: center; gap: 10px;
+            cursor: pointer; transition: background 0.2s; color: #111827;
+        }
+        .custom-option:hover { background: #f3f4f6; }
+
+        /* Phone layout */
+        .phone-layout {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .phone-prefix {
+            width: 35%;
+            position: relative;
+        }
+        
+        .phone-number {
+            width: 65%;
+        }
+
+        /* Footer Controls */
+        .footer-controls {
+            padding: 24px;
+            margin-top: auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-back {
+            flex: 1;
+            background-color: var(--bg-base);
+            color: var(--text-gray);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-back:hover {
+            background-color: #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .btn-next {
+            flex: 1;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-next:hover {
+            background-color: #2563eb;
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .btn-next:active {
+            transform: scale(0.99);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+
+    </style>
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+</head>
+<body>
+
+  <div class="main-card">
+    <!-- Top Bar -->
+    <div class="top-bar"></div>
+
+    <!-- Numbered Progress Steps -->
+    <div class="progress-steps">
+        <div class="progress-line">
+            <div class="progress-line-fill" style="width: 50%;"></div>
+        </div>
+        <div class="step-node completed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <div class="step-node active">2</div>
+        <div class="step-node">3</div>
+    </div>
+
+    <!-- Headers -->
+    <div class="header-content">
+        <h1>Verify your identity</h1>
+        <p class="subtitle">We need to verify your identity before you join</p>
+    </div>
+
+    <!-- Form Area -->
+    <div class="form-container">
+        
+        <!-- Legal first name -->
+        <div class="input-group">
+            <label>Legal first name</label>
+            <input type="text" class="input-control" placeholder="Enter your first name" id="fnameInput">
+        </div>
+
+        <!-- Legal last name -->
+        <div class="input-group">
+            <label>Legal last name</label>
+            <input type="text" class="input-control" placeholder="Enter your last name" id="lnameInput">
+        </div>
+
+        <!-- Country -->
+        <div class="input-group" style="margin-top: 0;">
+            <div class="custom-select" id="customCountryWrapper" tabindex="0">
+                <div class="custom-select-trigger input-control" style="display:flex; align-items:center; justify-content:space-between; height: 52px;">
+                    <div id="selectedCountryText" style="display:flex; align-items:center; gap:8px;">
+                        <span style="color:#6b7280;">Select Country</span>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted)">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="custom-select-options" id="customCountryOptions">
+                    <div class="custom-option" data-value="NG" data-prefix="+234" data-name="Nigeria">
+                        <img src="https://flagcdn.com/w20/ng.png" alt="NG" style="width:20px; border-radius:2px;"> Nigeria
+                    </div>
+                    <div class="custom-option" data-value="US" data-prefix="+1" data-name="United States (USA)">
+                        <img src="https://flagcdn.com/w20/us.png" alt="US" style="width:20px; border-radius:2px;"> United States (USA)
+                    </div>
+                    <div class="custom-option" data-value="GH" data-prefix="+233" data-name="Ghana">
+                        <img src="https://flagcdn.com/w20/gh.png" alt="GH" style="width:20px; border-radius:2px;"> Ghana
+                    </div>
+                    <div class="custom-option" data-value="KE" data-prefix="+254" data-name="Kenya">
+                        <img src="https://flagcdn.com/w20/ke.png" alt="KE" style="width:20px; border-radius:2px;"> Kenya
+                    </div>
+                    <div class="custom-option" data-value="ZA" data-prefix="+27" data-name="South Africa">
+                        <img src="https://flagcdn.com/w20/za.png" alt="ZA" style="width:20px; border-radius:2px;"> South Africa
+                    </div>
+                    <div class="custom-option" data-value="GB" data-prefix="+44" data-name="United Kingdom">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="GB" style="width:20px; border-radius:2px;"> United Kingdom
+                    </div>
+                </div>
+            </div>
+            <!-- Hidden input to store value -->
+            <input type="hidden" id="countrySelect" value="">
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <label>Your Email</label>
+            <input type="email" class="input-control" placeholder="Enter your email address" id="emailInput">
+        </div>
+
+        <!-- Phone Number Section -->
+        <div>
+            <label class="group-label">Phone Number</label>
+            <div class="phone-layout">
+                <div class="phone-prefix">
+                    <select class="input-control" style="padding-right: 28px;" id="phonePrefix">
+                        <option value="+234" selected>+234</option>
+                        <option value="+1">+1</option>
+                        <option value="+233">+233</option>
+                        <option value="+254">+254</option>
+                        <option value="+27">+27</option>
+                        <option value="+44">+44</option>
+                    </select>
+                    <div class="select-arrow">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="phone-number">
+                    <input type="tel" class="input-control" placeholder="Enter phone number" id="phoneInput">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="footer-controls">
+        <button class="btn-back" onclick="window.location.href='bio.html'">Back</button>
+        <button class="btn-next" onclick="window.location.href='account.html'">Continue to Next Step</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const fname = document.getElementById('fnameInput');
+        const lname = document.getElementById('lnameInput');
+        const country = document.getElementById('countrySelect');
+        const email = document.getElementById('emailInput');
+        const phonePrefix = document.getElementById('phonePrefix');
+        const phone = document.getElementById('phoneInput');
+
+        // Fetch Supabase user data
+        if (typeof window.MECSupabase !== 'undefined') {
+            const user = await window.MECSupabase.getCurrentUser();
+            if (user) {
+                // Set email as read-only
+                email.value = user.email || '';
+                email.setAttribute('readonly', 'true');
+                email.style.backgroundColor = '#f9fafb';
+                email.style.color = '#9ca3af';
+
+                // Fetch full name from user authentication metadata (auth.users)
+                const authName = user.user_metadata?.full_name || user.user_metadata?.display_name || user.user_metadata?.name;
+                
+                if (authName) {
+                    const nameParts = authName.trim().split(' ');
+                    fname.value = nameParts[0] || '';
+                    lname.value = nameParts.slice(1).join(' ') || '';
+                    
+                    // Make them readonly if name is present in auth
+                    fname.setAttribute('readonly', 'true');
+                    lname.setAttribute('readonly', 'true');
+                    fname.style.backgroundColor = '#f9fafb';
+                    lname.style.backgroundColor = '#f9fafb';
+                    fname.style.color = '#9ca3af';
+                    lname.style.color = '#9ca3af';
+                }
+            }
+        }
+
+        // Custom Dropdown Logic
+        const countryWrapper = document.getElementById('customCountryWrapper');
+        const selectedText = document.getElementById('selectedCountryText');
+        
+        countryWrapper.addEventListener('click', () => {
+            countryWrapper.classList.toggle('open');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!countryWrapper.contains(e.target)) {
+                countryWrapper.classList.remove('open');
+            }
+        });
+
+        const options = document.querySelectorAll('.custom-option');
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const val = opt.getAttribute('data-value');
+                const name = opt.getAttribute('data-name');
+                const prefix = opt.getAttribute('data-prefix');
+                const imgSrc = opt.querySelector('img').src;
+                
+                // Update trigger UI
+                selectedText.innerHTML = `<img src="${imgSrc}" style="width:20px; border-radius:2px;"> <span style="color:#111827;">${name}</span>`;
+                country.value = val;
+                
+                // Update Phone prefix
+                if (prefix) {
+                    phonePrefix.value = prefix;
+                    localStorage.setItem('pub_draft_phonePrefix', prefix);
+                }
+                localStorage.setItem('pub_draft_country', val);
+            });
+        });
+
+        // Load saved progress (only if not prefilled by Supabase)
+        if (!fname.value && localStorage.getItem('pub_draft_fname')) fname.value = localStorage.getItem('pub_draft_fname');
+        if (!lname.value && localStorage.getItem('pub_draft_lname')) lname.value = localStorage.getItem('pub_draft_lname');
+        
+        const savedCountry = localStorage.getItem('pub_draft_country');
+        if (savedCountry) {
+            const savedOpt = document.querySelector(`.custom-option[data-value="${savedCountry}"]`);
+            if (savedOpt) savedOpt.click(); // Simulates click to load text, img, and phone prefix
+        }
+
+        if (localStorage.getItem('pub_draft_phonePrefix')) phonePrefix.value = localStorage.getItem('pub_draft_phonePrefix');
+        if (localStorage.getItem('pub_draft_phone')) phone.value = localStorage.getItem('pub_draft_phone');
+
+        // Save progress on input
+        fname.addEventListener('input', () => localStorage.setItem('pub_draft_fname', fname.value));
+        lname.addEventListener('input', () => localStorage.setItem('pub_draft_lname', lname.value));
+        phonePrefix.addEventListener('change', () => localStorage.setItem('pub_draft_phonePrefix', phonePrefix.value));
+        phone.addEventListener('input', () => localStorage.setItem('pub_draft_phone', phone.value));
+    });
+  </script>
+</body>
+</html>

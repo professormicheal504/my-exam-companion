@@ -1,20 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>JAMB Mock Exam Setup – My Exam Companion</title>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description" content="Setup your JAMB Mock Exam. Choose 4 subjects to proceed.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
   <style>
     /* ---- Reset & Global ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
-    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
     ul, ol { list-style: none; }
@@ -37,15 +47,27 @@
 
     /* Header Section */
     .page-header { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
-    .page-header__title { font-size: 24px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 6px; }
-    .page-header__desc { font-size: 14px; color: #4b5563; max-width: 600px; line-height: 1.5; }
+    .page-header__title { font-size: 24px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .page-header__desc { font-size: 14px; color: var(--text-muted); max-width: 600px; line-height: 1.5; }
 
     /* Setup Card */
-    .setup-card { background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    .setup-card {
+      background: linear-gradient(145deg, var(--bg-card), rgba(248, 250, 252, 0.4));
+      border-radius: 20px; border: 1px solid rgba(226, 232, 240, 0.8);
+      padding: 32px; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.02);
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .setup-watermark {
+      position: absolute; right: -5%; bottom: -5%; width: 250px; height: 250px;
+      opacity: 0.03; color: var(--text-primary); pointer-events: none;
+      transform: rotate(-10deg); z-index: -1;
+    }
+    .setup-watermark svg { width: 100%; height: 100%; }
+
     .setup-section { margin-bottom: 32px; }
-    .setup-section h3 { font-size: 16px; font-weight: 800; color: #111827; margin-bottom: 8px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .setup-section h3 { font-size: 16px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
     .setup-section h3 svg { color: #2563eb; }
-    .setup-desc { font-size: 13.5px; color: #6b7280; margin-bottom: 20px; }
+    .setup-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px; }
 
     /* Form Grid */
     .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -54,13 +76,14 @@
     .form-group { display: flex; flex-direction: column; gap: 8px; }
     .form-group label { font-size: 13.5px; font-weight: 700; color: #374151; }
     .form-select {
-      appearance: none; background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat right 12px center; background-size: 16px;
-      border: 1px solid #d1d5db; padding: 12px 36px 12px 16px; border-radius: 10px; font-size: 14.5px; font-family: inherit; color: #111827;
+      appearance: none; background: var(--bg-base) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat right 12px center; background-size: 16px;
+      border: 1px solid #d1d5db; padding: 12px 36px 12px 16px; border-radius: 10px; font-size: 14.5px; font-family: inherit; color: var(--text-primary);
       transition: all 0.2s ease; cursor: pointer; outline: none; width: 100%;
+      text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
     }
-    .form-select:hover { border-color: #9ca3af; }
-    .form-select:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); background-color: white; }
-    .form-select:disabled { background-color: #f3f4f6; color: #6b7280; cursor: not-allowed; opacity: 0.8; }
+    .form-select:hover { border-color: var(--text-muted); }
+    .form-select:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); background-color: var(--bg-card); }
+    .form-select:disabled { background-color: var(--bg-base); color: var(--text-muted); cursor: not-allowed; opacity: 0.8; }
 
     /* Submit Area */
     .submit-area { margin-top: 32px; padding-top: 24px; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
@@ -97,12 +120,17 @@
           </div>
 
           <div class="setup-card">
+            <div class="setup-watermark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
             <div class="setup-section">
               <h3>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                Select Your Subjects
+                Select Subjects
               </h3>
-              <p class="setup-desc">Choose the 3 subjects you registered for in addition to Use of English.</p>
+              <p class="setup-desc">Choose 3 optional subjects to combine with Use of English.</p>
 
               <div class="form-grid" id="subject-dropdowns">
                 <div class="form-group">
@@ -142,17 +170,17 @@
 
         <aside class="right-sidebar">
           <div class="info-card">
-            <h4>💡 Important Instructions</h4>
-            <p>Ensure you are fully prepared before starting. The exam timer will begin immediately.</p>
+            <h4>💡 Instructions</h4>
+            <p>The exam timer begins immediately upon starting.</p>
             <ul>
               <li>Duration is 2 hours.</li>
-              <li>Do not refresh the page during the exam.</li>
-              <li>Calculators are provided within the interface.</li>
+              <li>Do not refresh the page.</li>
+              <li>Calculators are provided.</li>
             </ul>
           </div>
           <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
             <h4>🏆 Good Luck!</h4>
-            <p>Treat this exactly like the main JAMB exam to accurately test your readiness.</p>
+            <p>Simulate the main exam environment for best results.</p>
           </div>
         </aside>
 
@@ -164,18 +192,45 @@
   <script defer src="../../../components/nav.js"></script>
 <script defer src="../../../components/sidebar.js"></script>
   <script>
-    const availableSubjects = [
-      { id: 'math', name: 'Mathematics' },
-      { id: 'physics', name: 'Physics' },
-      { id: 'chemistry', name: 'Chemistry' },
-      { id: 'biology', name: 'Biology' },
-      { id: 'economics', name: 'Economics' },
-      { id: 'government', name: 'Government' },
-      { id: 'lit', name: 'Literature in English' },
-      { id: 'commerce', name: 'Commerce' },
-      { id: 'crs', name: 'CRK/CRS' },
-      { id: 'accounts', name: 'Financial Accounting' }
-    ];
+    let availableSubjects = [];
+    
+    async function loadSubjectsDynamically() {
+      const r2Url = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev/ng/exams/university_entrance/jamb/index.json';
+      const localUrl = '../../../../new_staging_area/ng/exams/university_entrance/jamb/index.json';
+      
+      try {
+        let res = await fetch(r2Url);
+        let isJson = res.headers.get('content-type')?.includes('json');
+        if (!res.ok || !isJson) {
+            res = await fetch(localUrl);
+            isJson = res.headers.get('content-type')?.includes('json');
+        }
+        
+        if (res.ok && isJson) {
+            const data = await res.json();
+            if (data && data.subjects) {
+                // Filter out english language as it's compulsory and handled separately
+                availableSubjects = data.subjects.filter(s => s.id !== 'english_language' && s.id !== 'english');
+            }
+        }
+      } catch (e) {
+        console.warn('Failed to load dynamic subjects, using fallback', e);
+      }
+      
+      // Ultimate fallback if fetch fails
+      if (availableSubjects.length === 0) {
+        availableSubjects = [
+          { id: 'mathematics', name: 'Mathematics' },
+          { id: 'physics', name: 'Physics' },
+          { id: 'chemistry', name: 'Chemistry' },
+          { id: 'biology', name: 'Biology' },
+          { id: 'economics', name: 'Economics' },
+          { id: 'government', name: 'Government' }
+        ];
+      }
+      
+      populateSelects();
+    }
 
     function populateSelects() {
       const selects = document.querySelectorAll('.dynamic-select');
@@ -222,13 +277,18 @@
     }
 
     function startMockExam() {
-      // In a real scenario, we'd pass the subjects as URL parameters or save to localStorage
-      // Navigate straight to the CBT Player
-      window.location.href = '../core/cbt_player.html';
+      const selects = Array.from(document.querySelectorAll('.dynamic-select'));
+      const selectedValues = selects.map(s => s.value).filter(v => v !== '');
+      if (selectedValues.length < 3) return;
+      
+      const allSubjects = ['english_language', ...selectedValues].join(',');
+      
+      // Navigate straight to the CBT Player with mock mode and subjects
+      window.location.href = '../core/cbt_player.html?mode=mock&mock_exam=jamb&subjects=' + encodeURIComponent(allSubjects);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      populateSelects();
+      loadSubjectsDynamically();
     });
   </script>
 </body>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Select Exam Body | Live Arena</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../components/topbar.css">
+<link rel="stylesheet" href="../../../components/dark-mode.css">
+<link rel="stylesheet" href="../../../components/sidebar.css?v=6">
+
+<style>
+/* CSS copied from setup.html for basic layout */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-family: 'Inter', sans-serif; font-size: 14px; }
+body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+img { display: block; max-width: 100%; }
+
+.app { display: flex; min-height: 100vh; }
+.main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+@media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+@media (max-width: 600px) { 
+  .main-wrapper { margin-left: 0; }
+  .topbar { padding: 0 10px; gap: 8px; }
+  .topbar__logo { flex-shrink: 0; }
+  .topbar__logo img { min-width: 90px !important; height: 32px !important; }
+  .topbar__search { display: flex; flex: 0 1 150px; min-width: 80px; padding: 5px 10px; font-size: 12px; }
+  .topbar__search input { font-size: 12px; min-width: 0; flex: 1; }
+  .topbar__actions { display: none; }
+}
+
+.topbar { height: 58px; background: var(--bg-card); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; position: sticky; top: 0; z-index: 40; gap: 16px; }
+
+.content-area { display: flex; flex: 1; gap: 0; }
+.main-content { flex: 1; padding: 32px 24px; overflow-y: auto; overflow-x: hidden; min-width: 0; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.page-header { margin-bottom: 32px; display: flex; align-items: flex-end; justify-content: space-between; }
+.page-header__title { font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 8px; }
+.page-header__desc { font-size: 15px; color: var(--text-muted); max-width: 600px; line-height: 1.5; }
+
+/* ==============================
+   PAGE SPECIFIC: SETUP STYLES
+============================== */
+.right-sidebar { width: 280px; background: var(--bg-card); border-left: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; }
+
+.setup-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); padding: 32px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); margin-bottom: 24px;}
+
+.setup-section { margin-bottom: 32px; }
+.setup-section:last-child { margin-bottom: 0; }
+
+.setup-section__title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.setup-section__title span { background: rgba(37, 99, 235, 0.1); color: #2563eb; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 13px; font-weight: 700; }
+[data-theme="dark"] .setup-section__title span { background: rgba(59, 130, 246, 0.15) !important; color: var(--primary-dk, #60a5fa) !important; }
+
+/* ---- Form Grid ---- */
+.form-group { display: flex; flex-direction: column; gap: 6px; max-width: 400px; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.form-select { appearance: none; background: var(--bg-base) url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center; border: 1px solid var(--border); border-radius: 10px; padding: 12px 40px 12px 16px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: inherit; color: var(--text-primary); outline: none; transition: all 0.2s ease; cursor: pointer; }
+.form-select:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); background-color: var(--bg-card); }
+
+/* ---- Exam Grid ---- */
+.exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.exam-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; cursor: pointer; display: flex; align-items: center; gap: 16px; transition: all 0.2s ease; background: var(--bg-base); }
+.exam-card:hover { border-color: #d1d5db; background: var(--bg-card); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.exam-card img { height: 48px; width: 48px; object-fit: contain; flex-shrink: 0; background: var(--bg-card); border-radius: 8px; padding: 4px; border: 1px solid var(--border); }
+.exam-card__content { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+.exam-card__content h4 { font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.exam-card__content p { font-size: 13px; color: var(--text-muted); line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---- Right Sidebar Info ---- */
+.info-card { background: var(--bg-base); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid var(--border); }
+.info-card h4 { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.info-card p, .info-card ul { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+.info-card ul { list-style-type: disc; padding-left: 16px; margin-top: 8px; }
+.info-card ul li { margin-bottom: 4px; }
+
+@media (max-width: 1024px) { .right-sidebar { display: none; } }
+@media (max-width: 480px) {
+  .main-content { padding: 16px 12px; }
+  .setup-card { padding: 20px 16px; }
+  .exam-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+    <main class="content-area">
+      <section class="main-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Live Arena Setup</h1>
+            <p class="page-header__desc">Select your region and examination body to enter the live quiz arena.</p>
+          </div>
+        </div>
+
+        <div class="setup-card">
+          
+          <div class="setup-section">
+            <h3 class="setup-section__title"><span>1</span> Select Region</h3>
+            <div class="form-group">
+              <select class="form-select" id="country-select">
+                <option value="nigeria" selected>🇳🇬 Nigeria</option>
+                <option value="usa">🇺🇸 USA / International</option>
+                <option value="ghana">🇬🇭 Ghana</option>
+                <option value="kenya">🇰🇪 Kenya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setup-section">
+            <h3 class="setup-section__title"><span>2</span> Choose Examination Body</h3>
+            <div class="exam-grid" id="exam-grid">
+              <!-- Cards will be populated by JS -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <aside class="right-sidebar">
+        <div class="info-card">
+          <h4>💡 Quick Tips</h4>
+          <p>Ensure you select the exact exam body you are preparing for.</p>
+          <ul>
+            <li>Some exams share similar syllabuses.</li>
+            <li>You will compete with thousands of other students.</li>
+          </ul>
+        </div>
+        <div class="info-card" style="background: rgba(37, 99, 235, 0.05); border-color: rgba(37, 99, 235, 0.1);">
+          <h4 style="color: #2563eb;">🏆 Leaderboard Challenge</h4>
+          <p style="color: inherit;">Compete in live arenas to climb the leaderboards and win weekly prizes!</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+</div>
+
+<script>
+const EXAM_DATA = {
+  'nigeria': [
+    { id: 'jamb', name: 'JAMB', desc: 'Joint Admissions and Matriculation Board', img: '../../../assets/country/nigeria/jamb.png' },
+    { id: 'waec', name: 'WAEC', desc: 'West African Examinations Council', img: '../../../assets/country/nigeria/waec.png' },
+    { id: 'neco', name: 'NECO', desc: 'National Examinations Council', img: '../../../assets/country/nigeria/neco.png' },
+    { id: 'nabteb', name: 'NABTEB', desc: 'National Business and Technical Examinations Board', img: '' },
+    { id: 'post_utme', name: 'Post-UTME', desc: 'University Screening Exams', img: '' },
+    { id: 'ncee', name: 'Common Entrance', desc: 'National Common Entrance Examination', img: '' },
+    { id: 'jsce', name: 'JSCE (Jr. WAEC)', desc: 'Junior Secondary Certificate Exam', img: '' },
+    { id: 'nmcn', name: 'Nursing Council', desc: 'Nursing & Midwifery Council of Nigeria', img: '' },
+    { id: 'scholarship', name: 'Scholarships', desc: 'Undergraduate & Postgraduate Scholarship Tests', img: '' },
+    { id: 'trcn', name: 'TRCN', desc: 'Teachers Registration Council of Nigeria', img: '' }
+  ],
+  'usa': [
+    { id: 'sat', name: 'SAT', desc: 'Scholastic Assessment Test', img: '../../../assets/country/usa/sat.png' },
+    { id: 'act', name: 'ACT', desc: 'American College Testing', img: '' },
+    { id: 'gre', name: 'GRE', desc: 'Graduate Record Examinations', img: '' },
+    { id: 'toefl', name: 'TOEFL', desc: 'Test of English as a Foreign Language', img: '' },
+    { id: 'gmat', name: 'GMAT', desc: 'Graduate Management Admission Test', img: '' },
+    { id: 'lsat', name: 'LSAT', desc: 'Law School Admission Test', img: '' },
+    { id: 'mcat', name: 'MCAT', desc: 'Medical College Admission Test', img: '' },
+    { id: 'university', name: 'University Exams', desc: 'General University Semesters & Entrances', img: '' },
+    { id: 'ap', name: 'AP Exams', desc: 'Advanced Placement', img: '' }
+  ],
+  'ghana': [
+    { id: 'waec_ghana', name: 'WAEC', desc: 'West African Examinations Council', img: '../../../assets/country/nigeria/waec.png' },
+    { id: 'bece', name: 'BECE', desc: 'Basic Education Certificate Examination', img: '' },
+    { id: 'university_gh', name: 'University Entrance', desc: 'University Screening & Entrances', img: '' }
+  ],
+  'kenya': [
+    { id: 'kcse', name: 'KCSE', desc: 'Kenya Certificate of Secondary Education', img: '' },
+    { id: 'kcpe', name: 'KCPE', desc: 'Kenya Certificate of Primary Education', img: '' },
+    { id: 'university_ke', name: 'University Entrance', desc: 'University Screening & Entrances', img: '' }
+  ]
+};
+
+const countrySelect = document.getElementById('country-select');
+const examGrid = document.getElementById('exam-grid');
+
+function renderExams(country) {
+  examGrid.innerHTML = '';
+  const exams = EXAM_DATA[country] || [];
+  
+  if (exams.length === 0) {
+    examGrid.innerHTML = '<p style="color: var(--text-muted);">No exams available for this country yet.</p>';
+    return;
+  }
+
+  exams.forEach((exam, index) => {
+    const card = document.createElement('div');
+    card.className = 'exam-card';
+    card.style.animation = `slideUpFade 0.4s ease forwards ${index * 0.1}s`;
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(15px)';
+    
+    card.onclick = () => {
+      window.location.href = `all_subject.html?exam_body=${exam.id}&country=${country}`;
+    };
+    
+    // Create inline SVG fallback safely
+    const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#f1f5f9"/><text x="50" y="50" dominant-baseline="central" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="28" fill="#64748b">${exam.name.substring(0,2)}</text></svg>`;
+    const fallbackSvg = 'data:image/svg+xml;utf8,' + encodeURIComponent(rawSvg);
+    const imgSrc = exam.img ? exam.img : fallbackSvg;
+
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="${exam.name}" onerror="this.src='${fallbackSvg}'">
+      <div class="exam-card__content">
+        <h4>${exam.name}</h4>
+        <p>${exam.desc}</p>
+      </div>
+    `;
+    examGrid.appendChild(card);
+  });
+}
+
+// Initial render
+renderExams('nigeria');
+
+// Add event listener for country dropdown
+countrySelect.addEventListener('change', (e) => {
+  const country = e.target.value;
+  renderExams(country);
+});
+
+// Add missing keyframes for animation dynamically
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+  @keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0); }
+  }
+`;
+document.head.appendChild(styleSheet);
+</script>
+
+<script defer src="../../../components/topbar.js"></script>
+<script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

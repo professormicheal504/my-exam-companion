@@ -1,0 +1,20 @@
+# Cloudflare Pages Configuration
+name = "myexamcompanion"
+pages_build_output_dir = "public"
+
+compatibility_date = "2024-03-20"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "poll_db"
+database_id = "9ebc48ef-d81a-4865-a00c-aaa8fea176ec"
+
+[[kv_namespaces]]
+binding = "POLL_VOTES"
+id = "b56d726439984478955ea9ed5d9d54ca"
+
+[[r2_buckets]]
+binding = "QUESTIONS_BUCKET"
+bucket_name = "my-exam-companion-data"
+

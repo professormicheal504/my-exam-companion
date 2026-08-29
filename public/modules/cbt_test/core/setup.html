@@ -2,14 +2,24 @@
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>JAMB CBT Simulator Setup  Myschool.ng</title>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
   <style>
     /* ---- Reset & Global (copied from index.html) ---- */
@@ -30,8 +40,8 @@
     }
 
     body {
-      background: #f7f7f8;
-      color: #131212;
+      background: var(--bg-base);
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -131,8 +141,8 @@
     ============================== */
     .topbar {
       height: 58px;
-      background: #ffffff;
-      border-bottom: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -159,7 +169,7 @@
 
     .topbar__logo-ng {
       font-size: 13px;
-      color: #9ca3af;
+      color: var(--text-muted);
       font-weight: 500;
     }
 
@@ -178,7 +188,7 @@
 
     .topbar__search:focus-within {
       border-color: #2563eb;
-      background: white;
+      background: var(--bg-card);
     }
 
     .topbar__search input {
@@ -187,7 +197,7 @@
       background: transparent;
       outline: none;
       font-size: 13px;
-      color: #131212;
+      color: var(--text-primary);
       font-family: inherit;
     }
 
@@ -207,9 +217,9 @@
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 600;
-      color: #131212;
-      border: 1px solid #ddd;
-      background: white;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
       transition: background 0.15s;
     }
 
@@ -253,7 +263,7 @@
 
     .right-sidebar {
       width: 280px;
-      background: #ffffff;
+      background: var(--bg-card);
       border-left: 1px solid #f0f0f0;
       padding: 24px;
       display: flex;
@@ -273,20 +283,20 @@
     .page-header__title {
       font-size: 26px;
       font-weight: 800;
-      color: #131212;
+      color: var(--text-primary);
       letter-spacing: -0.02em;
       margin-bottom: 4px;
     }
 
     .page-header__desc {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
       max-width: 600px;
       line-height: 1.5;
     }
 
     .setup-card {
-      background: white;
+      background: var(--bg-card);
       border-radius: 16px;
       border: 1px solid #ebebeb;
       padding: 32px;
@@ -304,7 +314,7 @@
     .setup-section__title {
       font-size: 16px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -312,7 +322,7 @@
     }
 
     .setup-section__title span {
-      background: #fff0f0;
+      background: rgba(37, 99, 235, 0.1);
       color: #2563eb;
       width: 24px;
       height: 24px;
@@ -321,6 +331,11 @@
       justify-content: center;
       border-radius: 50%;
       font-size: 13px;
+    }
+
+    [data-theme="dark"] .setup-section__title span {
+      background: rgba(59, 130, 246, 0.15) !important;
+      color: var(--primary-dk, #60a5fa) !important;
     }
 
     /* ---- Form Grid ---- */
@@ -339,13 +354,13 @@
     .form-group label {
       font-size: 13px;
       font-weight: 600;
-      color: #374151;
+      color: var(--text-primary);
     }
 
     .form-select {
       appearance: none;
-      background: #f9fafb url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
-      border: 1px solid #e5e7eb;
+      background: var(--bg-base) url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 12px 40px 12px 16px;
       font-size: 14px;
@@ -353,7 +368,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-family: inherit;
-      color: #131212;
+      color: var(--text-primary);
       outline: none;
       transition: all 0.2s ease;
       cursor: pointer;
@@ -362,12 +377,12 @@
     .form-select:focus {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
-      background-color: white;
+      background-color: var(--bg-card);
     }
 
     .form-select:disabled {
-      background-color: #f3f4f6;
-      color: #9ca3af;
+      background-color: var(--bg-base);
+      color: var(--text-muted);
       cursor: not-allowed;
     }
 
@@ -379,7 +394,7 @@
     }
 
     .mode-card {
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 16px;
       cursor: pointer;
@@ -391,7 +406,7 @@
 
     .mode-card:hover {
       border-color: #d1d5db;
-      background: #f9fafb;
+      background: var(--bg-base);
     }
 
     .mode-card.selected {
@@ -428,7 +443,7 @@
     .mode-card__content h4 {
       font-size: 15px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 4px;
     }
 
@@ -438,7 +453,7 @@
 
     .mode-card__content p {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--text-muted);
       line-height: 1.4;
     }
 
@@ -588,9 +603,12 @@
         <section class="main-content">
 
           <div class="page-header">
-            <div>
-              <h1 class="page-header__title" id="page-title">CBT Simulator Setup</h1>
-              <p class="page-header__desc" id="page-desc">Configure your CBT exam environment.</p>
+            <div style="display:flex; align-items:center; gap:16px;">
+              <img id="exam-logo" src="" alt="Exam Logo" style="height:60px; width:auto; display:none; border-radius:8px; object-fit:contain;">
+              <div>
+                <h1 class="page-header__title" id="page-title">CBT Simulator Setup</h1>
+                <p class="page-header__desc" id="page-desc">Configure your CBT exam environment.</p>
+              </div>
             </div>
           </div>
 
@@ -600,7 +618,7 @@
             <div class="setup-section">
               <h3 class="setup-section__title"><span>1</span> Choose Your Subject</h3>
               <div class="form-grid" id="subject-checkboxes">
-                <span style="color:#6b7280; font-size:13px; grid-column: 1 / -1;">Loading subjects...</span>
+                <span style="color: var(--text-muted); font-size:13px; grid-column: 1 / -1;">Loading subjects...</span>
               </div>
             </div>
 
@@ -633,7 +651,7 @@
             <!-- Submit -->
             <div class="submit-area">
               <button class="btn-start" onclick="startExam()">
-                Start CBT Exam ??
+                🚀 Start CBT Exam
               </button>
             </div>
 
@@ -644,7 +662,7 @@
         <aside class="right-sidebar">
 
           <div class="info-card">
-            <h4>?? Quick Tips</h4>
+            <h4>💡 Quick Tips</h4>
             <p>For the best simulation experience, ensure you are in a quiet environment free from distractions.</p>
             <ul>
               <li>Do not refresh the page during the exam.</li>
@@ -653,7 +671,7 @@
           </div>
 
           <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
-            <h4>?? Leaderboard Challenge</h4>
+            <h4>🏆 Leaderboard Challenge</h4>
             <p>Join the weekly MyExamCompanion CBT challenge to win cash prizes and airtime!</p>
           </div>
 
@@ -665,8 +683,9 @@
 
   <script defer src="../../../components/topbar.js"></script>
   <script defer src="../../../components/nav.js"></script>
-<script defer src="../../../components/sidebar.js?v=6"></script>
-  <script defer src="../../../components/exam_rules.js"></script>
+  <script defer src="../../../components/sidebar.js?v=6"></script>
+  <!-- exam_rules.js must NOT be defer so EXAM_RULES is available when DOMContentLoaded fires -->
+  <script src="../../../components/exam_rules.js"></script>
   <script>
     // Exam mode selection styling
     function selectMode(element) {
@@ -681,6 +700,24 @@
     const examId = urlParams.get('exam_id') || 'us_sat';
 
     document.addEventListener("DOMContentLoaded", async () => {
+      // Bug fix #22: Only clear stale states when navigating to a DIFFERENT exam
+      // Never wipe cbt_active_state that belongs to the current exam_id
+      const currentActiveStr = localStorage.getItem('cbt_active_state');
+      if (currentActiveStr) {
+        try {
+          const currentActive = JSON.parse(currentActiveStr);
+          const currentExamId = urlParams.get('exam_id') || '';
+          if (currentActive.exam_id !== currentExamId) {
+            // Different exam — safe to clear
+            localStorage.removeItem('cbt_active_state');
+          }
+          // Always clear review flag and old result on fresh setup
+        } catch(e) { localStorage.removeItem('cbt_active_state'); }
+      }
+      localStorage.removeItem('cbt_review');
+      localStorage.removeItem('cbt_result');
+      localStorage.removeItem('cbt_exam_state');
+      
       const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
       const pageTitle = document.getElementById('page-title');
       const pageDesc = document.getElementById('page-desc');
@@ -690,26 +727,44 @@
       pageTitle.textContent = "Loading Exam Setup...";
 
       try {
-        const indexPath = `content/exams/${examId}/index.json`;
+        // data_source is the real R2 path (e.g. "ng/exams/university_entrance/jamb/index.json")
+        // exam_id is just the logical ID (e.g. "nigeria/jamb") — do NOT use it to build the fetch path
+        const dataSource = urlParams.get('data_source') || `content/exams/${examId}/index.json`;
         let data = null;
 
-        // Try multiple local paths (handles Firebase, Express from root, and relative)
         const localPaths = [
-          `/new_staging_area/${indexPath}`,
-          `/public/new_staging_area/${indexPath}`,
-          `../../../new_staging_area/${indexPath}`,
+          `/new_staging_area/${dataSource}`,
+          `/public/new_staging_area/${dataSource}`,
+          `../../../new_staging_area/${dataSource}`,
         ];
         for (const localPath of localPaths) {
           try {
             const res = await fetch(localPath);
-            if (res.ok) { data = await res.json(); break; }
+            if (res.ok) {
+              const textRes = await res.text();
+              try {
+                data = JSON.parse(textRes);
+                break;
+              } catch (e) {
+                console.warn(`Local path ${localPath} returned non-JSON. Skipping.`);
+              }
+            }
           } catch (e) { /* try next */ }
         }
 
-        // Fallback to R2
+        // Fallback to Cloudflare R2 (uses exact data_source path → always correct)
         if (!data) {
-          const res = await fetch(`${R2_BASE_URL}/${indexPath}`);
-          data = await res.json();
+          const r2Url = `${R2_BASE_URL}/${dataSource}`;
+          const res = await fetch(r2Url);
+          if (!res.ok) throw new Error(`R2 fetch failed: ${res.status} for ${dataSource}`);
+          
+          const textResponse = await res.text();
+          try {
+            data = JSON.parse(textResponse);
+          } catch (err) {
+            console.error(`JSON Parse Error from R2 URL: ${r2Url}. Response text:`, textResponse.substring(0, 200));
+            throw new Error(`Failed to parse JSON from ${r2Url}. Check console for details.`);
+          }
         }
 
         EXAM_CONFIG = data;
@@ -719,10 +774,25 @@
         pageTitle.textContent = `${data.display_name} CBT Simulator Setup`;
         pageDesc.textContent = `Configure your ${data.display_name} CBT exam environment. Select your subjects, choose your exam year, and begin your practice session.`;
 
+        // Show exam body logo using a relative path map (relative to /modules/cbt_test/core/)
+        const LOGO_MAP = {
+          'nigeria/jamb': '../../../assets/country/nigeria/jamb.png',
+          'nigeria/waec': '../../../assets/country/nigeria/waec.png',
+          'nigeria/neco': '../../../assets/country/nigeria/neco.png',
+          'usa/sat':      '../../../assets/country/usa/sat.png',
+        };
+        const logoEl = document.getElementById('exam-logo');
+        const logoSrc = LOGO_MAP[examId] || urlParams.get('logo') || null;
+        if (logoSrc) {
+          logoEl.src = logoSrc;
+          logoEl.style.display = 'block';
+          logoEl.onerror = () => { logoEl.style.display = 'none'; };
+        }
+
         // Populate Subjects Dynamically based on Exam Rules
         if (data.subjects && data.subjects.length > 0) {
           let html = '';
-          const rules = EXAM_RULES.getRules(examId);
+          const rules = EXAM_RULES.getRules(EXAM_CONFIG);
           
           if (rules.selectionType === 'jamb_style') {
             const english = data.subjects.find(s => s.id === 'english_language' || s.name.toLowerCase().includes(rules.compulsorySubjectKeyword));
@@ -853,7 +923,7 @@
       
       // Sort descending (most recent first)
       const sortedYears = Array.from(allYears).map(Number).sort((a, b) => b - a);
-      yearSelect.innerHTML = `<option value="random" selected>?? Random Year</option>` +
+      yearSelect.innerHTML = `<option value="random" selected>Random Year</option>` +
         sortedYears.map(y => `<option value="${y}">${y}</option>`).join('');
     }
 
@@ -871,7 +941,7 @@
       // Remove duplicates
       const uniqueSubjects = Array.from(new Set(selected));
       
-      const rules = EXAM_RULES.getRules(examId);
+      const rules = EXAM_RULES.getRules(EXAM_CONFIG);
 
       if (rules.selectionType === 'jamb_style') {
         if (uniqueSubjects.length !== 4) {
@@ -907,8 +977,14 @@
           : '2024';
       }
       
+      // Preserve existing query params (e.g., data_source, logo)
+      const targetParams = new URLSearchParams(window.location.search);
+      targetParams.set('exam_id', examId);
+      targetParams.set('subject', selectedSubjects);
+      targetParams.set('year', year);
+      
       // Navigate to instruction page
-      window.location.href = `instruction.html?exam_id=${examId}&subject=${selectedSubjects}&year=${year}`;
+      window.location.href = `instruction.html?${targetParams.toString()}`;
     }
   </script>
 </body>

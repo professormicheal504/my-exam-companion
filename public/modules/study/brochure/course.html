@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institution Courses | My Exam Companion</title>
+  <meta name="description" content="View courses and requirements for this institution.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=2">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=5">
+  <style>
+    :root {
+      --bg-base: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --border-color: #E5E7EB;
+      --primary-color: #2563EB;
+      --primary-hover: #1D4ED8;
+      --input-bg: #FFFFFF;
+      --input-border: #D1D5DB;
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #111827;
+      --bg-card: #1F2937;
+      --text-primary: #F9FAFB;
+      --text-secondary: #9CA3AF;
+      --border-color: #374151;
+      --input-bg: #374151;
+      --input-border: #4B5563;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 72px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; background: var(--bg-base); transition: margin-left 0.3s ease; }
+    
+    @media (max-width: 1024px) { .main-wrapper { margin-left: 0; } }
+
+    .main-content {
+      flex: 1;
+      padding: 32px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 20px 16px; }
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .breadcrumbs a:hover { color: var(--primary-color); }
+    .breadcrumbs span.active { color: var(--primary-color); font-weight: 500; }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    
+    .page-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .search-container {
+      margin-bottom: 24px;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input-wrapper svg {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px 0 44px;
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+      appearance: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: opacity 0.2s;
+    }
+    .back-btn:hover { opacity: 0.8; }
+    .back-btn svg { width: 18px; height: 18px; }
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .course-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.2s ease;
+    }
+    .course-item:hover {
+      background-color: rgba(0,0,0,0.02);
+    }
+    [data-theme="dark"] .course-item:hover {
+      background-color: rgba(255,255,255,0.02);
+    }
+
+    .course-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .btn-view-details {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-color);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-view-details:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    
+    .btn-view-details svg {
+      width: 16px; height: 16px;
+    }
+    
+    /* Details Modal styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-overlay.active { display: flex; }
+    
+    .modal-content {
+      background: var(--bg-card);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 1000px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 24px 32px;
+      border-bottom: 1px dashed var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-close {
+      background: none; border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-body {
+      padding: 32px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .modal-grid-headers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .grid-col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .grid-col-header svg {
+      width: 18px; height: 18px;
+    }
+
+    .grid-col-content {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    
+    /* Scoped paragraphs in content */
+    .grid-col-content p {
+      margin-bottom: 12px;
+    }
+
+    .modal-footer {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-close-bottom {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-close-bottom:hover { background: var(--primary-hover); }
+
+    .mobile-only-header {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .mobile-only-header svg {
+      width: 18px; height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 0;
+        border-radius: 12px 12px 0 0;
+        max-height: 95vh;
+        margin-top: auto;
+      }
+      .modal-overlay {
+        padding: 20px 0 0 0;
+        align-items: flex-end;
+      }
+      .modal-header {
+        padding: 20px;
+      }
+      .modal-body {
+        padding: 20px;
+      }
+      .modal-grid-headers {
+        display: none;
+      }
+      .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .mobile-only-header {
+        display: flex;
+      }
+      .modal-footer {
+        padding: 20px;
+      }
+      .grid-col-content {
+        background: var(--bg-base);
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../../"></app-sidebar>
+
+    <main class="main-wrapper">
+      <app-topbar></app-topbar>
+
+      <div class="main-content">
+        <div class="breadcrumbs">
+          <a href="../../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Dashboard
+          </a>
+          <span>/</span>
+          <span class="active">Brochure by institution</span>
+        </div>
+
+        <h1 class="page-title" id="instTitle">Loading Institution...</h1>
+        <div class="page-subtitle">View all offered courses and their specific admission requirements.</div>
+
+        <div class="search-container">
+          <label class="search-label">Search courses</label>
+          <div class="search-input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search course name">
+          </div>
+        </div>
+
+        <a href="brochure.html" class="back-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to institutions
+        </a>
+
+        <div class="course-list" id="courseList">
+          <!-- Populated by JS -->
+          <div style="padding: 40px; text-align: center; color: var(--text-secondary);">Loading courses...</div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  
+  <!-- Course Details Modal -->
+  <div class="modal-overlay" id="courseModal">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Course Name</div>
+        <button class="modal-close" onclick="document.getElementById('courseModal').classList.remove('active')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        
+        <div class="modal-grid-headers">
+          <div class="grid-col-header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            Institutions
+          </div>
+          <div class="grid-col-header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Direct Entry Requirements
+          </div>
+          <div class="grid-col-header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            O'Level Requirements
+          </div>
+          <div class="grid-col-header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Subjects
+          </div>
+        </div>
+
+        <div class="modal-grid">
+          <div class="grid-col-content">
+            <div class="mobile-only-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              Institutions
+            </div>
+            <div id="modalColInst">-</div>
+          </div>
+          <div class="grid-col-content">
+            <div class="mobile-only-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Direct Entry Requirements
+            </div>
+            <div id="modalColDe">-</div>
+          </div>
+          <div class="grid-col-content">
+            <div class="mobile-only-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              O'Level Requirements
+            </div>
+            <div id="modalColOlevel">-</div>
+          </div>
+          <div class="grid-col-content">
+            <div class="mobile-only-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Subjects
+            </div>
+            <div id="modalColSubj">-</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-close-bottom" onclick="document.getElementById('courseModal').classList.remove('active')">
+          Close
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Supabase Core Component (required for topbar.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  
+  <script src="../../../components/nav.js"></script>
+  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/sidebar.js"></script>
+  <!-- MEC Task Engine Integration -->
+  <script src="../../../components/task_engine.js"></script>
+  <script src="course.js"></script>
+</body>
+</html>

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Classroom | My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
   <link rel="stylesheet" href="../../../components/footer.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
-    body { background: #f7f7f8; color: #131212; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
 
@@ -23,41 +33,41 @@
 
     /* -- Page Header -- */
     .page-header { margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .page-header__left h1 { font-size: 26px; font-weight: 800; color: #111827; margin-bottom: 4px; letter-spacing: -0.5px; }
-    .page-header__left p { font-size: 14px; color: #6b7280; max-width: 520px; line-height: 1.5; }
+    .page-header__left h1 { font-size: 26px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; letter-spacing: -0.5px; }
+    .page-header__left p { font-size: 14px; color: var(--text-muted); max-width: 520px; line-height: 1.5; }
 
     /* -- Country Picker -- */
     .country-picker {
-      display: flex; align-items: center; gap: 10px; background: white;
-      border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 16px;
+      display: flex; align-items: center; gap: 10px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px; padding: 10px 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05); flex-shrink: 0;
     }
-    .country-picker label { font-size: 12px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+    .country-picker label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
     .country-picker select {
       border: none; outline: none; font-family: inherit; font-size: 14px; font-weight: 600;
-      color: #111827; background: transparent; cursor: pointer; min-width: 120px;
+      color: var(--text-primary); background: transparent; cursor: pointer; min-width: 120px;
     }
 
     /* -- Exam Body Tabs -- */
     .exam-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; }
     .exam-tab {
-      padding: 9px 20px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: white;
-      color: #4b5563; font-size: 13px; font-weight: 700; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
+      padding: 9px 20px; border-radius: 99px; border: 1.5px solid #e5e7eb; background: var(--bg-card);
+      color: var(--text-muted); font-size: 13px; font-weight: 700; flex-shrink: 0; transition: all 0.2s; white-space: nowrap;
     }
-    .exam-tab:hover { border-color: #d1d5db; background: #f9fafb; }
+    .exam-tab:hover { border-color: #d1d5db; background: var(--bg-base); }
     .exam-tab.active { background: #2563eb; color: white; border-color: #2563eb; }
 
     /* -- Search & Filters -- */
     .filters-container { display: flex; gap: 12px; margin-bottom: 28px; align-items: center; flex-wrap: wrap; }
     .search-bar {
-      display: flex; flex: 1; min-width: 220px; align-items: center; background: white;
-      border: 1px solid #e5e7eb; border-radius: 12px; padding: 11px 16px;
+      display: flex; flex: 1; min-width: 220px; align-items: center; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px; padding: 11px 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s;
     }
     .search-bar:focus-within { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(183,12,1,0.1); }
-    .search-bar svg { color: #9ca3af; margin-right: 10px; flex-shrink: 0; }
-    .search-bar input { flex: 1; border: none; outline: none; font-size: 14px; color: #111827; background: transparent; }
-    .search-bar input::placeholder { color: #9ca3af; }
+    .search-bar svg { color: var(--text-muted); margin-right: 10px; flex-shrink: 0; }
+    .search-bar input { flex: 1; border: none; outline: none; font-size: 14px; color: var(--text-primary); background: transparent; }
+    .search-bar input::placeholder { color: var(--text-muted); }
 
     /* -- Subjects Grid -- */
     .subjects-grid {
@@ -67,7 +77,7 @@
     }
 
     .subject-card {
-      background: white; border: 1px solid #ebebeb; border-radius: 16px;
+      background: var(--bg-card); border: 1px solid #ebebeb; border-radius: 16px;
       padding: 22px; display: flex; align-items: center; gap: 16px;
       cursor: pointer; transition: all 0.2s ease;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease;
@@ -80,14 +90,14 @@
     .subject-icon {
       width: 50px; height: 50px; border-radius: 12px; display: flex;
       align-items: center; justify-content: center; font-size: 22px;
-      background: #f9fafb; flex-shrink: 0; transition: all 0.2s;
+      background: var(--bg-base); flex-shrink: 0; transition: all 0.2s;
     }
     .subject-card:hover .subject-icon { background: #fff0f0; }
 
     .subject-info { flex: 1; min-width: 0; }
-    .subject-info h4 { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 3px; transition: color 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .subject-info h4 { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; transition: color 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .subject-card:hover .subject-info h4 { color: #2563eb; }
-    .subject-info p { font-size: 12px; color: #6b7280; font-weight: 500; }
+    .subject-info p { font-size: 12px; color: var(--text-muted); font-weight: 500; }
     .subject-badge {
       font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px;
       background: #fff0f0; color: #2563eb; white-space: nowrap; text-transform: uppercase;
@@ -103,18 +113,71 @@
       width: 36px; height: 36px; border: 3px solid #f0f0f0;
       border-top-color: #2563eb; border-radius: 50%; animation: spin 0.7s linear infinite;
     }
-    .state-box p { font-size: 14px; color: #9ca3af; font-weight: 500; }
+    .state-box p { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
     /* -- Skeleton Loaders -- */
-    .skeleton-card { background: white; border: 1px solid #ebebeb; border-radius: 16px; padding: 22px; display: flex; align-items: center; gap: 16px; }
+    .skeleton-card { background: var(--bg-card); border: 1px solid #ebebeb; border-radius: 16px; padding: 22px; display: flex; align-items: center; gap: 16px; }
     .skeleton-icon { width: 50px; height: 50px; border-radius: 12px; background: #f0f0f0; animation: pulse 1.5s infinite ease-in-out; }
     .skeleton-text { flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .skeleton-line { height: 14px; background: #f0f0f0; border-radius: 4px; animation: pulse 1.5s infinite ease-in-out; }
     .skeleton-line.short { width: 40%; }
     
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    /* -- Dark Mode Overrides -- */
+    [data-theme="dark"] .subject-card,
+    [data-theme="dark"] .skeleton-card {
+        border-color: var(--border) !important;
+    }
+    
+    [data-theme="dark"] .exam-tab { border-color: var(--border) !important; color: var(--text-muted) !important; }
+    [data-theme="dark"] .exam-tab:hover { background: var(--bg-elevated) !important; }
+    [data-theme="dark"] .exam-tab.active { background: var(--primary) !important; color: white !important; border-color: var(--primary) !important; }
+
+    [data-theme="dark"] .subject-card:hover .subject-icon { background: rgba(59, 130, 246, 0.15) !important; }
+    [data-theme="dark"] .subject-badge { background: rgba(59, 130, 246, 0.15) !important; color: var(--primary-dk) !important; }
+
+    /* -- Premium Ad Container Styles -- */
+    .ad-container-premium {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: fit-content;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .ad-container-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0,0,0,0.03);
+    }
+
+    .ad-container-premium::before {
+      content: 'Advertisement';
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #9ca3af;
+      margin-bottom: 12px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    [data-theme="dark"] .ad-container-premium {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(51, 65, 85, 0.8);
+    }
 
     @media (max-width: 600px) {
       .content-area { padding: 16px 12px; }
@@ -187,18 +250,20 @@
 <script defer src="../../../components/sidebar.js?v=10"></script>
   <script defer src="../../../components/topbar.js"></script>
   <script defer src="../../../components/footer.js"></script>
+  <script defer src="../../../components/ads.js"></script>
+  <script defer src="../../../components/ad_manager.js"></script>
   <script>
     const R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
 
     // -- Subject icons by keyword --
     const SUBJECT_ICONS = {
-      english: '📚', mathematics: '📐', maths: '📐', physics: '⚛️',
-      chemistry: '🧪', biology: '🧬', economics: '📈', government: '🏛️',
-      history: '📜', geography: '🗺️', commerce: '🏪', accounts: '📊',
-      literature: '📖', french: '🇫🇷', arabic: '🇸🇦', hausa: '🕌',
-      yoruba: '🎭', igbo: '🎭', music: '🎵', christian: '✝️',
-      islamic: '☪️', computer: '💻', agricultural: '🌾', arts: '🎨',
-      physical: '🏃‍♂️', home: '🏠', default: '📘'
+      english: 'book.svg', mathematics: 'calculator.svg', maths: 'calculator.svg', physics: 'atom.svg',
+      chemistry: 'flask-conical.svg', biology: 'dna.svg', economics: 'trending-up.svg', government: 'landmark.svg',
+      history: 'hourglass.svg', geography: 'globe.svg', commerce: 'store.svg', accounts: 'table.svg',
+      literature: 'book-open.svg', french: 'languages.svg', arabic: 'languages.svg', hausa: 'languages.svg',
+      yoruba: 'languages.svg', igbo: 'languages.svg', music: 'music.svg', christian: 'cross.svg',
+      islamic: 'moon.svg', computer: 'monitor.svg', agricultural: 'sprout.svg', arts: 'palette.svg',
+      physical: 'dumbbell.svg', home: 'utensils.svg', default: 'file-text.svg'
     };
 
     function getIcon(name) {
@@ -220,13 +285,42 @@
 
     // -- State --
     let allSubjects = []; // [{examId, examName, examIcon, id, name, yearsCount}]
-    let currentExam = 'all';
+    let currentExam = null;
     let searchQuery = '';
 
+    async function fetchJSON(localPath, r2Path) {
+      let data = null;
+      try {
+        const res = await fetch(localPath);
+        if (res.ok) {
+          const text = await res.text();
+          try { data = JSON.parse(text); } catch(e) { console.warn('Local JSON parse failed for', localPath); }
+        }
+      } catch (e) {
+        console.warn('Local fetch failed for', localPath);
+      }
+
+      if (!data) {
+        try {
+          const res = await fetch(r2Path);
+          if (res.ok) {
+            const text = await res.text();
+            try { data = JSON.parse(text); } catch(e) { console.error('R2 JSON parse failed for', r2Path); }
+          }
+        } catch (e) {
+          console.error('R2 fetch failed for', r2Path);
+        }
+      }
+      return data;
+    }
+
     // -- Fetch country config then each exam's subjects --
-    async function loadForCountry(countryCode) {
+    async function loadForCountry(countryCode, targetExamId = null) {
       const grid = document.getElementById('subjectsGrid');
       const tabs = document.getElementById('examTabs');
+
+      try {
+        console.log(`[loadForCountry] Start loading for country: ${countryCode}`);
 
       grid.innerHTML = Array(6).fill(`
         <div class="skeleton-card">
@@ -237,28 +331,14 @@
           </div>
         </div>
       `).join('');
-      tabs.innerHTML = `<button class="exam-tab active" data-exam="all">All Exams</button>`;
+      tabs.innerHTML = ``;
       allSubjects = [];
-      currentExam = 'all';
+      currentExam = targetExamId;
 
       // 1. Fetch country config
-      let config;
       const configUrlLocal = `${getBasePath()}/new_staging_area/configs/${countryCode}.json`;
       const configUrlR2 = `${R2_BASE}/configs/${countryCode}.json`;
-      try {
-        const localRes = await fetch(configUrlLocal);
-        config = localRes.ok ? await localRes.json() : null;
-        if (!localRes.ok) console.warn(`Local config fetch failed (${localRes.status}): ${configUrlLocal}`);
-        
-        if (!config) {
-          const r2Res = await fetch(configUrlR2);
-          config = r2Res.ok ? await r2Res.json() : null;
-          if (!r2Res.ok) console.error(`R2 config fetch failed (${r2Res.status}): ${configUrlR2}`);
-        }
-      } catch(e) {
-        console.error(`Exception loading config (Local: ${configUrlLocal} | R2: ${configUrlR2}):`, e);
-        config = null;
-      }
+      const config = await fetchJSON(configUrlLocal, configUrlR2);
 
       if (!config || !config.dashboard_modules || !config.dashboard_modules.length) {
         grid.innerHTML = `<div class="state-box"><p>😢 No exam bodies found for this country.</p></div>`;
@@ -267,24 +347,9 @@
 
       // 2. Fetch each exam body's index.json in parallel
       const fetches = config.dashboard_modules.map(async (mod) => {
-        let examData;
         const examUrlLocal = `${getBasePath()}/new_staging_area/${mod.data_source}`;
         const examUrlR2 = `${R2_BASE}/${mod.data_source}`;
-        
-        try {
-          const localRes = await fetch(examUrlLocal);
-          examData = localRes.ok ? await localRes.json() : null;
-          if (!localRes.ok) console.warn(`Local exam fetch failed (${localRes.status}): ${examUrlLocal}`);
-          
-          if (!examData) {
-            const r2Res = await fetch(examUrlR2);
-            examData = r2Res.ok ? await r2Res.json() : null;
-            if (!r2Res.ok) console.error(`R2 exam fetch failed (${r2Res.status}): ${examUrlR2}`);
-          }
-        } catch(e) {
-          console.error(`Exception loading exam data for ${mod.id} (Local: ${examUrlLocal} | R2: ${examUrlR2}):`, e);
-          examData = null;
-        }
+        const examData = await fetchJSON(examUrlLocal, examUrlR2);
 
         if (examData && examData.subjects) {
           return { mod, subjects: examData.subjects };
@@ -298,9 +363,14 @@
       results.forEach(({ mod, subjects }) => {
         if (!subjects.length) return;
 
+        if (!currentExam) {
+          currentExam = mod.id;
+        }
+
         // Add exam tab
         const btn = document.createElement('button');
         btn.className = 'exam-tab';
+        if (mod.id === currentExam) btn.classList.add('active');
         btn.dataset.exam = mod.id;
         btn.textContent = `${mod.icon || '📘'} ${mod.display_name}`;
         tabs.appendChild(btn);
@@ -313,6 +383,7 @@
             id: subj.id,
             name: subj.name || formatSubjectName(subj.id),
             yearsCount: subj.years ? subj.years.length : 0,
+            dataSource: mod.data_source || '',  // e.g. "ng/exams/university_entrance/jamb/index.json"
           });
         });
       });
@@ -328,6 +399,12 @@
       });
 
       renderSubjects();
+      } catch (err) {
+        console.error('[loadForCountry] UNHANDLED ERROR:', err);
+        if (grid) {
+          grid.innerHTML = `<div class="state-box"><p style="color:red">❌ Error loading subjects: ${err.message}<br>Check console for details.</p></div>`;
+        }
+      }
     }
 
     // -- Render filtered subjects --
@@ -336,7 +413,7 @@
       const q = searchQuery.toLowerCase();
 
       const filtered = allSubjects.filter(s => {
-        const matchesExam = currentExam === 'all' || s.examId === currentExam;
+        const matchesExam = s.examId === currentExam;
         const matchesSearch = !q || s.name.toLowerCase().includes(q) || s.examName.toLowerCase().includes(q);
         return matchesExam && matchesSearch;
       });
@@ -347,15 +424,20 @@
       }
 
       grid.innerHTML = '';
-      filtered.forEach(subj => {
-        const icon = getIcon(subj.name);
-        const href = `classroom_questions.html?exam_id=${encodeURIComponent(subj.examId)}&subject=${encodeURIComponent(subj.id)}`;
+      filtered.forEach((subj, index) => {
+        const iconFilename = getIcon(subj.name);
+        const iconUrl = `../../../icons/subjects/${iconFilename}`;
+        // Strip "index.json" to get the base folder path for the exam data
+        const dataBase = (subj.dataSource || '').replace(/\/index\.json$/, '');
+        const href = `/study/${subj.examId}/${encodeURIComponent(subj.id)}`;
 
         const card = document.createElement('a');
         card.href = href;
         card.className = 'subject-card';
         card.innerHTML = `
-          <div class="subject-icon">${icon}</div>
+          <div class="subject-icon">
+            <img src="${iconUrl}" alt="${subj.name} icon" style="width: 26px; height: 26px; filter: invert(0.8);" />
+          </div>
           <div class="subject-info">
             <h4>${subj.name}</h4>
             <p>${subj.yearsCount ? subj.yearsCount + ' years available' : 'Questions available'}</p>
@@ -363,29 +445,78 @@
           <span class="subject-badge">${subj.examName}</span>
         `;
         grid.appendChild(card);
+
+        // Inject Ad Banner every 5 subjects using the new premium container
+        if ((index + 1) % 5 === 0) {
+          const adContainer = document.createElement('div');
+          adContainer.className = 'ad-container-premium';
+          adContainer.style.gridColumn = '1 / -1';
+          adContainer.style.justifySelf = 'center';
+          
+          const adSlot = document.createElement('div');
+          adSlot.className = 'mec-ad-slot';
+          // Alternate between multitag_300x250 and multitag_300x250_2
+          const adCount = Math.floor((index + 1) / 5);
+          adSlot.dataset.zone = adCount % 2 === 1 ? 'multitag_300x250' : 'multitag_300x250_2';
+          
+          adContainer.appendChild(adSlot);
+          grid.appendChild(adContainer);
+        }
       });
     }
 
-    // -- Wire search --
-    document.getElementById('subjectSearch').addEventListener('input', e => {
+    // -- Search --
+    document.getElementById('subjectSearch').addEventListener('input', (e) => {
       searchQuery = e.target.value;
       renderSubjects();
     });
 
-    // -- Wire country picker --
     const countrySelect = document.getElementById('countrySelect');
-    countrySelect.addEventListener('change', () => {
-      const code = countrySelect.value;
+    countrySelect.addEventListener('change', (e) => {
+      const code = e.target.value;
       localStorage.setItem('mec_country', code);
       document.dispatchEvent(new CustomEvent('country-changed', { detail: { code } }));
       loadForCountry(code);
     });
 
-    // -- On load: restore saved country --
+    function getRouteParams() {
+      const p = new URLSearchParams(window.location.search);
+      if (window.MEC_CLEAN_URL_PARAMS) {
+        if (!p.has('exam_id') && window.MEC_CLEAN_URL_PARAMS.exam_id) p.set('exam_id', window.MEC_CLEAN_URL_PARAMS.exam_id);
+      } else if (!p.has('exam_id') && window.location.pathname.startsWith('/study/')) {
+        const parts = window.location.pathname.split('/');
+        if (parts.length >= 4) p.set('exam_id', parts[2] + '/' + parts[3]);
+      }
+      return p;
+    }
+
+    // -- On load: restore saved country or use URL param --
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('mec_country') || 'ng';
-      countrySelect.value = saved;
-      loadForCountry(saved);
+      try {
+        const params = getRouteParams();
+        const examId = params.get('exam_id');
+        let targetCountryCode = 'ng';
+        let targetExamId = null;
+
+        if (examId) {
+           const COUNTRY_CODE_MAP = {
+             'nigeria': 'ng', 'ghana': 'gh', 'usa': 'us', 'uk': 'uk', 'global': 'global'
+           };
+           const prefix = examId.split('/')[0].toLowerCase();
+           if (COUNTRY_CODE_MAP[prefix]) {
+             targetCountryCode = COUNTRY_CODE_MAP[prefix];
+           }
+           targetExamId = examId;
+        } else {
+           targetCountryCode = localStorage.getItem('mec_country') || 'ng';
+        }
+
+        countrySelect.value = targetCountryCode;
+        loadForCountry(targetCountryCode, targetExamId);
+      } catch (err) {
+        console.error('[DOMContentLoaded] error:', err);
+        alert('Critical error on load: ' + err.message);
+      }
     });
 
     // -- Sync if user changes country from topbar --

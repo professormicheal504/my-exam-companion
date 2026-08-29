@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom Discussion | My Exam Companion</title>
+  <meta name="description" content="View the answer and explanation for this exam question on My Exam Companion.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="" id="canonicalTag">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="My Exam Companion">
+  <meta property="og:title" content="Explanation | My Exam Companion" id="ogTitle">
+  <meta property="og:description" content="" id="ogDesc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- MathJax for LaTeX rendering (full TeX + MML support) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        processEscapes: true,
+        packages: {'[+]': ['ams', 'boldsymbol']}
+      },
+      options: {
+        skipHtmlTags: ['script','noscript','style','textarea','pre']
+      },
+      startup: { typeset: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/footer.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/components/supabase.js"></script>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+    /* -- App Shell -- */
+    .app { display: flex; min-height: 100vh; overflow-x: hidden; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; max-width: calc(100% - 90px); overflow-x: hidden; }
+
+    /* -- Content -- */
+    .content-area { display: flex; flex: 1; overflow-x: hidden; }
+    .main-content { flex: 1; padding: 20px 16px 88px; min-width: 0; width: 100%; overflow-x: hidden; }
+
+    /* -- Layout -- */
+    .expl-layout { display: flex; gap: 20px; max-width: 1280px; margin: 0 auto; align-items: flex-start; width: 100%; }
+    .expl-main { flex: 1; min-width: 0; width: 0; display: flex; flex-direction: column; gap: 14px; }
+    .expl-sidebar { width: 380px; flex-shrink: 0; position: sticky; top: 70px; display: flex; flex-direction: column; gap: 14px; }
+    
+    /* -- Poll UI overrides -- */
+    body.is-poll .ans-wrap {
+      display: none !important;
+    }
+
+    .poll-option.voted .poll-percent {
+      opacity: 1;
+    }
+
+    /* -- Custom Confirm Modal -- */
+    .poll-option.my-vote {
+      border-color: #3b82f6;
+      background: #f8fafc;
+    }
+    .poll-option.my-vote .poll-bar {
+      background: #dbeafe; /* slightly darker blue for their vote */
+    }
+    .poll-option.winner .poll-bar {
+      background: #dcfce7; /* light green for winner */
+    }
+    .poll-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .poll-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .poll-modal {
+      background: #ffffff;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transform: scale(0.95) translateY(10px);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+    }
+    .poll-modal-overlay.active .poll-modal {
+      transform: scale(1) translateY(0);
+    }
+    .poll-modal-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+    }
+    .poll-modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 8px 0;
+    }
+    .poll-modal-desc {
+      font-size: 14px;
+      color: #4b5563;
+      margin: 0 0 24px 0;
+      line-height: 1.5;
+    }
+    .poll-modal-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .poll-modal-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .poll-modal-btn.cancel {
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+    .poll-modal-btn.cancel:hover {
+      background: #e5e7eb;
+    }
+    .poll-modal-btn.confirm {
+      background: #3b82f6;
+      color: white;
+    }
+    .poll-modal-btn.confirm:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+    }
+
+    /* -- Navigation -- */
+    .breadcrumb { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; align-items: center; }
+    .bc-tag { font-size: 11.5px; font-weight: 600; padding: 5px 13px; border-radius: 99px; }
+    .bc-subject { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .bc-exam    { background: var(--bg-base); color: var(--text-muted); border: 1px solid var(--border); }
+    .bc-back { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--text-muted); padding: 5px 12px; border: 1px solid var(--border); border-radius: 99px; background: var(--bg-card); transition: all 0.2s; margin-left: auto; }
+    .bc-back:hover { color: #2563eb; border-color: #fecaca; background: #fef2f2; }
+
+    /* -- Card -- */
+    .card { background: var(--bg-card); border: 1px solid #ebebeb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); width: 100%; overflow: hidden; }
+
+    /* -- Question text (CBT-style) -- */
+    .q-text { font-size: 18px; font-weight: 500; color: var(--text-primary); line-height: 1.65; margin-bottom: 24px; }
+    .q-text p { margin-bottom: 8px; }
+    .q-text table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+    .q-text td, .q-text th { border: 1px solid var(--border); padding: 8px 12px; }
+
+    /* -- Options (CBT-style) -- */
+    .q-options { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+    .q-option {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      min-height: 56px;
+      position: relative;
+      transition: all 0.18s;
+      background: var(--bg-card);
+    }
+    .q-option.correct { border-color: #10b981; background: rgba(16, 185, 129, 0.1); }
+    .q-option.wrong   { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); opacity: 0.75; }
+    .q-opt-circle {
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--text-muted);
+      flex-shrink: 0; transition: all 0.18s;
+    }
+    .q-option.correct .q-opt-circle { border-color: #10b981; background: #10b981; color: white; }
+    .q-option.wrong   .q-opt-circle { border-color: #ef4444; background: #ef4444; color: white; }
+    .q-opt-text { font-size: 15px; color: var(--text-primary); font-weight: 500; line-height: 1.5; flex: 1; }
+    .q-opt-text p { margin: 0; }
+    .q-correct-label { margin-left: auto; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #16a34a; background: rgba(22, 163, 74, 0.15); padding: 3px 10px; border-radius: 99px; flex-shrink: 0; }
+
+    /* -- Explanation card (CBT answer-review-box style) -- */
+    .expl-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .expl-title { font-size: 16px; font-weight: 800; color: var(--text-primary); }
+    .correct-badge { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #16a34a; background: rgba(22, 163, 74, 0.15); padding: 6px 14px; border-radius: 99px; }
+    .expl-content {
+      font-size: 15px; color: var(--text-primary); line-height: 1.8;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .expl-content p { margin-bottom: 10px; }
+    .expl-content p:last-child { margin-bottom: 0; }
+    .expl-content table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 14px; }
+    .expl-content td, .expl-content th { border: 1px solid #bbf7d0; padding: 8px 12px; }
+
+    /* -- Action chips -- */
+    .action-chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; flex-wrap: wrap; }
+    .action-chips::-webkit-scrollbar { display: none; }
+    .chip { display: flex; align-items: center; gap: 5px; padding: 7px 14px; white-space: nowrap; border: 1px solid var(--border); border-radius: 99px; background: var(--bg-card); font-size: 11.5px; font-weight: 600; color: var(--text-primary); flex-shrink: 0; transition: all 0.2s; }
+    .chip:hover { background: var(--bg-base); border-color: var(--text-muted); }
+    .chip.danger { color: #ef4444; border-color: rgba(239, 68, 68, 0.4); }
+    .chip.danger:hover { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; }
+
+    /* -- Share row -- */
+    .share-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .share-btn { display: flex; align-items: center; gap: 5px; padding: 7px 14px; border: 1px solid var(--border); border-radius: 99px; background: var(--bg-card); font-size: 11.5px; font-weight: 600; color: var(--text-primary); transition: all 0.2s; }
+    .share-btn:hover { background: var(--bg-base); border-color: var(--text-muted); }
+    .share-btn.accent { background: #111827; color: #fff; border-color: var(--text-primary); }
+    .share-btn.accent:hover { background: #2563eb; border-color: #2563eb; }
+
+    /* -- AI button -- */
+    .ai-btn { width: 100%; padding: 13px; border-radius: 12px; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
+    .ai-btn:hover { opacity: 0.9; }
+    .ai-gem { display: flex; align-items: center; }
+
+    /* -- Video card -- */
+    .video-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+    .no-video { font-size: 13px; color: var(--text-muted); }
+
+    /* -- Contribution -- */
+    .contrib-title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    .contrib-textarea-wrap { position: relative; }
+    .contrib-textarea { width: 100%; min-height: 90px; resize: none; border: 1px solid var(--border); border-radius: 10px; padding: 12px 40px 12px 14px; font-size: 13px; font-family: inherit; color: var(--text-primary); background: var(--bg-base); outline: none; transition: border-color 0.2s; }
+    .contrib-textarea:focus { border-color: #2563eb; background: var(--bg-card); }
+    .contrib-emoji { position: absolute; right: 12px; bottom: 12px; font-size: 18px; cursor: pointer; line-height: 1; }
+    .btn-contrib { margin-top: 10px; width: 100%; padding: 10px; border-radius: 99px; background: #e5e7eb; color: var(--text-muted); font-size: 13px; font-weight: 700; transition: all 0.2s; }
+    .btn-contrib.active { background: #111827; color: #fff; }
+    .btn-contrib.active:hover { background: #2563eb; }
+
+    /* -- Discussion items -- */
+    .disc-section { margin-top: 16px; border-top: 1px solid #f5f5f5; padding-top: 16px; }
+    .disc-heading { font-size: 11px; font-weight: 800; color: var(--text-muted); letter-spacing: 0.07em; margin-bottom: 14px; }
+    .disc-item { display: flex; gap: 10px; margin-bottom: 14px; }
+    .disc-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #2563eb, #f97316); color: white; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .disc-body { flex: 1; min-width: 0; }
+    .disc-name { font-size: 12.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+    .disc-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+    .disc-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+    /* -- Math overflow & table styles -- */
+    .math-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+    .math-scroll::-webkit-scrollbar { height: 4px; }
+    .math-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+    mjx-container[display="true"] { overflow-x: auto; max-width: 100%; }
+    .q-img-wrap { margin: 12px 0 20px; text-align: center; }
+    .q-img-wrap img { max-width: 100%; border-radius: 8px; border: 1px solid #ebebeb; background: var(--bg-base); }
+    .q-text table, .q-opt-text table, .expl-content table { border-collapse: collapse; width: 100%; max-width: 100%; margin: 10px 0; font-size: 13px; }
+    .q-text td, .q-text th, .q-opt-text td, .q-opt-text th { border: 1px solid #d1d5db; padding: 7px 10px; text-align: left; vertical-align: top; }
+    .q-text tr:nth-child(even), .q-opt-text tr:nth-child(even) { background: var(--bg-base); }
+
+    /* -- Nav buttons -- */
+    .btn-nav { display: flex; align-items: center; gap: 7px; padding: 12px 22px; border-radius: 10px; border: 1.5px solid #e5e7eb; background: var(--bg-card); font-size: 13px; font-weight: 700; color: #374151; transition: all 0.2s; }
+    .btn-nav:hover { border-color: #d1d5db; background: var(--bg-base); }
+    .btn-nav.primary { background: #2563eb; color: white; border-color: #2563eb; }
+    .btn-nav.primary:hover { background: #1d4ed8; }
+    .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
+    .desktop-nav { display: flex; justify-content: space-between; gap: 12px; }
+
+    /* -- Sticky bottom nav -- */
+    .sticky-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-top: 1px solid #f0f0f0; padding: 12px 16px; z-index: 50; display: none; gap: 10px; }
+
+    /* -- Loading state -- */
+    .state-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 60px 24px; text-align: center; }
+    .state-box .spinner { width: 32px; height: 32px; border: 3px solid #f0f0f0; border-top-color: #2563eb; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    .state-box p { font-size: 14px; color: var(--text-muted); }
+
+    /* -- Mobile contrib -- */
+    .mobile-contrib { display: none; }
+
+    /* -- Highlight Tooltip -- */
+    #highlightTooltip { position: absolute; background: #111827; color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transform: translate(-50%, -100%); z-index: 1000; margin-top: -8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: nowrap; }
+    #highlightTooltip::after { content: ''; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: var(--text-primary) transparent transparent transparent; }
+    #highlightTooltip:hover { background: #1f2937; }
+
+
+    /* -- Lightbox -- */
+    #lightboxOverlay { position: fixed; inset: 0; background: rgba(17,24,39,0.95); z-index: 2000; display: none; align-items: center; justify-content: center; cursor: zoom-out; }
+    #lightboxOverlay img { max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; cursor: default; }
+
+    /* -- Fixed Chat Bar -- */
+    .chat-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-card); border-top: 1px solid var(--border); padding: 10px 16px; z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); }
+    @media (min-width: 1025px) { .chat-bar { left: 90px; } }
+    .chat-bar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: flex-end; gap: 10px; }
+    
+    .chat-input-wrapper { flex: 1; background: var(--bg-base); border: 1px solid var(--border); border-radius: 20px; padding: 8px 16px; display: flex; align-items: center; min-height: 44px; }
+    #chatInput { width: 100%; border: none; background: transparent; outline: none; font-size: 14px; font-family: inherit; color: var(--text-primary); resize: none; max-height: 100px; line-height: 1.4; padding-top: 4px; }
+    #chatInput::placeholder { color: var(--text-muted); }
+    
+    .chat-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--text-muted); flex-shrink: 0; transition: all 0.2s; }
+    .chat-btn:hover { background: var(--bg-base); }
+    .chat-btn.action-btn { background: #10b981; color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+    .chat-btn.action-btn:hover { background: #059669; transform: scale(1.05); }
+    .chat-btn.mic-btn { background: #2563eb; color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+    .chat-btn.mic-btn:hover { background: #1d4ed8; transform: scale(1.05); }
+    
+    /* Recording State UI */
+    .chat-recording-wrapper { flex: 1; background: var(--bg-base); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; padding: 8px 16px; display: none; align-items: center; gap: 12px; min-height: 44px; }
+    .record-pulse { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; animation: blink 1s infinite; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+    .record-timer { font-variant-numeric: tabular-nums; font-weight: 700; color: #ef4444; font-size: 14px; }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+    
+    /* Prevent collision with footer */
+    .main-content { padding-bottom: 120px !important; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 1024px) { .expl-sidebar { display: none; } .mobile-contrib { display: block; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .sticky-nav { display: flex; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; max-width: 100%; } .main-content { padding: 10px 10px 88px; } .card { padding: 13px; } .q-text { font-size: 13.5px; } .q-option { padding: 10px 12px; } }
+  
+    /* -- Facebook-Style Comments Styles -- */
+    .cs-comment { display: flex; gap: 8px; margin-bottom: 12px; position: relative; }
+    .cs-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #e0f2fe; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05); }
+    .cs-body { flex: 1; }
+    .cs-bubble { background: #f0f2f5; border-radius: 18px; padding: 8px 12px; display: inline-block; max-width: 100%; }
+    [data-theme="dark"] .cs-bubble { background: #3a3b3c; color: #e4e6eb; }
+    .cs-name { font-size: 13px; font-weight: 700; color: #050505; line-height: 1.2; margin-bottom: 2px; }
+    [data-theme="dark"] .cs-name { color: #e4e6eb; }
+    .cs-text { font-size: 14px; color: #050505; line-height: 1.4; word-wrap: break-word; }
+    [data-theme="dark"] .cs-text { color: #e4e6eb; }
+    .cs-actions { display: flex; align-items: center; gap: 12px; margin-top: 2px; margin-left: 12px; font-size: 12px; font-weight: 600; color: #65676b; }
+    [data-theme="dark"] .cs-actions { color: #b0b3b8; }
+    .cs-action-btn { cursor: pointer; background: none; border: none; padding: 0; color: inherit; font-weight: inherit; font-family: inherit; display: inline-flex; align-items: center; gap: 4px; }
+    .cs-action-btn:hover { text-decoration: underline; }
+    .cs-action-btn.active-like { color: #2563eb; font-weight: 700; }
+    .cs-action-btn.active-dislike { color: #dc2626; font-weight: 700; }
+    [data-theme="dark"] .cs-action-btn.active-like { color: #60a5fa; }
+    [data-theme="dark"] .cs-action-btn.active-dislike { color: #f87171; }
+    .cs-date { font-weight: 400; cursor: pointer; }
+    .cs-date:hover { text-decoration: underline; }
+    .cs-comment {
+      --avatar-size: 32px;
+      --indent: 36px;
+    }
+    @media (max-width: 600px) {
+      .cs-comment {
+        --avatar-size: 26px;
+        --indent: 30px;
+      }
+    }
+    
+    .cs-avatar { width: var(--avatar-size); height: var(--avatar-size); border-radius: 50%; object-fit: cover; background: #e0f2fe; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05); }
+    .cs-nested { margin-left: var(--indent); margin-top: 8px; display: flex; flex-direction: column; }
+    
+    /* Vertical thread line from parent avatar */
+    .cs-comment.has-replies::after {
+      content: '';
+      position: absolute;
+      top: calc(var(--avatar-size) + 4px);
+      bottom: 20px;
+      left: calc(var(--avatar-size) / 2 - 1px);
+      width: 2px;
+      background: #e5e7eb;
+      z-index: 0;
+    }
+    [data-theme="dark"] .cs-comment.has-replies::after { background: #3f3f46; }
+
+    /* L-shape connecting line for each nested reply */
+    .cs-nested > .cs-comment::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: calc((var(--indent) * -1) + (var(--avatar-size) / 2) - 1px);
+      width: calc(var(--indent) - var(--avatar-size) + (var(--avatar-size) / 2) + 1px);
+      height: calc(var(--avatar-size) / 2 + 12px);
+      border-bottom-left-radius: 12px;
+      border-left: 2px solid #e5e7eb;
+      border-bottom: 2px solid #e5e7eb;
+      z-index: 0;
+    }
+    [data-theme="dark"] .cs-nested > .cs-comment::before { border-color: #3f3f46; }
+    .cs-reply-indicator { position:absolute; top:-30px; left:16px; font-size: 12px; font-weight: 600; color: #2563eb; background: #eff6ff; padding: 4px 10px; border-radius: 6px; display: none; align-items: center; gap:8px; border:1px solid #bfdbfe; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    [data-theme="dark"] .cs-reply-indicator { background: #1e3a8a; border-color: #1e40af; color:#93c5fd; }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="/" data-active="classroom"></app-sidebar>
+    <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
+
+      <div class="content-area">
+        <main class="main-content">
+          <div id="pageContent">
+            <div class="state-box"><div class="spinner"></div><p>Loading question...</p></div>
+          </div>
+        </main>
+      </div>
+      <app-footer data-base="../../../"></app-footer>
+    </div>
+  </div>
+
+  <!-- Fixed WhatsApp-style Chat Bar -->
+  <div class="chat-bar">
+    <div class="chat-bar-inner">
+      <button class="chat-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></button>
+      
+      <!-- Normal input mode -->
+      <div class="chat-input-wrapper" id="chatInputWrap" style="position:relative;">
+        <div id="csReplyIndicator" class="cs-reply-indicator"></div>
+        <textarea id="chatInput" placeholder="Join the discussion..." rows="1"></textarea>
+      </div>
+      
+      <!-- Recording mode -->
+      <div class="chat-recording-wrapper" id="chatRecordingWrap">
+        <div class="record-pulse"></div>
+        <span class="record-timer" id="recordTimer">0:00</span>
+        <button class="chat-btn" id="cancelRecordBtn" style="margin-left: auto; color: #ef4444;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg></button>
+      </div>
+
+      <button class="chat-btn mic-btn" id="chatActionBtn" title="Voice Note">
+        <svg id="micIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+      </button>
+
+      <button class="chat-btn action-btn" id="chatSendBtn" title="Send Comment">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky bottom nav (mobile) -->
+  <div class="sticky-nav" id="stickyNav">
+    <button class="btn-nav" id="stickyPrev" onclick="navigate(-1)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Previous
+    </button>
+    <button class="btn-nav primary" id="stickyNext" onclick="navigate(1)">
+      Next
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+
+  <!-- Lightbox UI -->
+  <div id="lightboxOverlay">
+    <img loading="lazy" id="lightboxImg" src="" alt="Zoomed Image">
+  </div>
+
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=10"></script>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/footer.js"></script>
+  <script>
+    const R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+
+    // -- Parse URL params --
+    const params  = new URLSearchParams(window.location.search);
+    const EXAM_ID = params.get('exam_id') || 'nigeria/jamb';
+    const SUBJECT = params.get('subject') || 'english_language';
+    const YEAR    = params.get('year') || '';
+    const Q_KEY   = params.get('q') || '';  // the JSON key of the question
+    const TYPE    = params.get('type') || 'objective';
+    
+    const API_Q_ID = Q_KEY.startsWith(SUBJECT) ? Q_KEY : `${SUBJECT}_${Q_KEY}`;
+    
+    let DATA_BASE = params.get('data_base') || null;
+
+    const EXAM_NAME = EXAM_ID.split('/').pop().toUpperCase();
+
+    // -- Map country name in EXAM_ID to the config file code --
+    const COUNTRY_CODE_MAP = {
+      nigeria: 'ng',
+      ghana:   'gh',
+      us:      'us',
+      'united states': 'us',
+    };
+
+    // -- Resolve DATA_BASE from country config when not supplied via URL --
+    async function resolveDataBase() {
+      if (DATA_BASE) return DATA_BASE;
+      const countryName = EXAM_ID.split('/')[0].toLowerCase();
+      const countryCode = COUNTRY_CODE_MAP[countryName];
+      if (!countryCode) return null;
+
+      const configLocal = `/new_staging_area/configs/${countryCode}.json`;
+      const configR2    = `configs/${countryCode}.json`;
+      const config = await fetchJSON(configLocal, configR2);
+      if (!config || !config.dashboard_modules) return null;
+
+      const mod = config.dashboard_modules.find(m => m.id === EXAM_ID);
+      if (!mod || !mod.data_source) return null;
+
+      return mod.data_source.replace(/\/index\.json$/, '');
+    }
+
+    function fmtSubject(id) {
+      return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).replace(/  +/g, ' ').trim();
+    }
+
+    async function fetchJSON(local, r2) {
+      const cacheKey = r2;
+      try {
+        const sessionData = sessionStorage.getItem(cacheKey);
+        if (sessionData) return JSON.parse(sessionData);
+      } catch(e) {}
+
+      try {
+        const r = await fetch(`${R2_BASE}/${r2}`); 
+        if (r.ok) {
+          const data = await r.json();
+          try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
+          return data;
+        }
+      } catch(e) {}
+
+      return null;
+    }
+
+    // -- Clean raw HTML from DB --
+    function cleanHtml(raw) {
+      if (!raw) return '';
+      return raw
+        .replace(/&amp;nbsp;|&nbsp;/g, ' ')
+        .replace(/&amp;amp;/g, '&')
+        .replace(/&amp;lt;/g, '<')
+        .replace(/&amp;gt;/g, '>')
+        .replace(/ style="[^"]*"/g, (m) => {
+          if (/width|color|background|text-align|font-weight|font-size/i.test(m)) return m;
+          return '';
+        })
+        .replace(/[ \t]+/g, ' ')
+        .replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>')
+        .replace(/(\\\[.*?\\\])/gs, '<div class="math-scroll">$1</div>')
+        .trim();
+    }
+
+    // -- Render question image: local-first, R2 CDN fallback --
+    const R2_IMG_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+    function renderImage(qData) {
+      if (!qData.question_image) return '';
+      const imgPath  = qData.question_image;
+      const localSrc = `/new_staging_area/${imgPath}`;
+      const r2Src    = `${R2_IMG_BASE}/${imgPath}`;
+      return `<div class="q-img-wrap">
+        <img
+          src="${localSrc}"
+          alt="Question diagram"
+          loading="lazy"
+          onerror="this.onerror=function(){this.style.display='none';}; this.src='${r2Src}';"
+        >
+      </div>`;
+    }
+
+    // -- Format math: CBT player pattern (typesetClear + retry until ready) --
+    async function formatMath() {
+      if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+        MathJax.typesetClear();
+        try {
+          await MathJax.typesetPromise();
+        } catch (err) {
+          console.warn('MathJax typeset error:', err);
+        }
+      } else {
+        // MathJax not ready yet  wait 100ms and retry
+        await new Promise(resolve => setTimeout(resolve, 100));
+        await formatMath();
+      }
+    }
+
+    let allKeys = [];
+    let allData = {};
+
+    // -- Find adjacent question keys for next/prev --
+    function getAdjacentKey(offset) {
+      const idx = allKeys.indexOf(Q_KEY);
+      if (idx === -1) return null;
+      return allKeys[idx + offset] || null;
+    }
+
+    function buildNavUrl(key) {
+      if (!key) return null;
+      return `classroom_discussion.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}&year=${encodeURIComponent(YEAR)}&q=${encodeURIComponent(key)}&type=${encodeURIComponent(TYPE)}`;
+    }
+
+    function navigate(offset) {
+      const key = getAdjacentKey(offset);
+      if (key) window.location.href = buildNavUrl(key);
+    }
+
+    // -- Render the full page --
+    function renderPage(qData) {
+      const prevKey = getAdjacentKey(-1);
+      const nextKey = getAdjacentKey(1);
+      const qIndex  = allKeys.indexOf(Q_KEY) + 1;
+      const isPollMode = new URLSearchParams(window.location.search).get('mode') === 'poll';
+
+      // Build options HTML
+      const isArabic = SUBJECT.toLowerCase() === 'arabic';
+      const dirAttr = isArabic ? ' dir="rtl"' : '';
+
+      const options = (qData.options || []).map(opt => {
+        const isCorrect = opt.is_correct;
+        if (isPollMode) {
+          // Poll Mode Options
+          return `
+            <div class="q-option poll-option" data-tag="${(opt.tag || '').toUpperCase()}" onclick="submitPollVote('${Q_KEY}', '${opt.tag || ''}')">
+              <span class="q-opt-circle">${(opt.tag || '').toUpperCase()}</span>
+              <span class="q-opt-text"${dirAttr}>${cleanHtml(opt.text || '')}</span>
+              <div class="poll-bar" style="width: 0%;"></div>
+              <span class="poll-percent"></span>
+            </div>`;
+        } else {
+          // Normal Mode Options
+          return `
+            <div class="q-option ${isCorrect ? 'correct' : ''}">
+              <span class="q-opt-circle">${(opt.tag || '').toUpperCase()}</span>
+              <span class="q-opt-text"${dirAttr}>${cleanHtml(opt.text || '')}</span>
+              ${isCorrect ? `<span class="q-correct-label">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                Correct
+              </span>` : ''}
+            </div>`;
+        }
+      }).join('');
+
+      // Correct option label
+      const correctOpt = (qData.options || []).find(o => o.is_correct);
+      const correctLabel = correctOpt ? correctOpt.tag.toUpperCase() : '';
+
+      const backUrl = `classroom_questions.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}`;
+
+      const lockedAnswer = new URLSearchParams(window.location.search).get('locked_answer');
+      let resultBanner = '';
+      if (!isPollMode && lockedAnswer && correctOpt) {
+        const isCorrect = lockedAnswer.toLowerCase() === correctOpt.tag.toLowerCase();
+        if (isCorrect) {
+          resultBanner = `
+            <div style="background:#f0fdf4; border:1px solid #10b981; border-radius:12px; padding:16px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+              <div style="width:36px; height:36px; border-radius:50%; background:#10b981; color:white; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <h4 style="margin:0 0 4px 0; color:#065f46; font-size:15px; font-weight:700;">Spot On! You got it right.</h4>
+                <p style="margin:0; color:#047857; font-size:13px; font-weight:500;">Option ${lockedAnswer.toUpperCase()} is the correct answer.</p>
+              </div>
+            </div>
+          `;
+        } else {
+          resultBanner = `
+            <div style="background:#fef2f2; border:1px solid #ef4444; border-radius:12px; padding:16px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+              <div style="width:36px; height:36px; border-radius:50%; background:#ef4444; color:white; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+              <div>
+                <h4 style="margin:0 0 4px 0; color:#991b1b; font-size:15px; font-weight:700;">Not quite right!</h4>
+                <p style="margin:0; color:#b91c1c; font-size:13px; font-weight:500;">You chose Option ${lockedAnswer.toUpperCase()}, but the correct answer is Option ${correctOpt.tag.toUpperCase()}.</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      document.getElementById('pageContent').innerHTML = `
+        <div class="expl-layout" style="animation:fadeIn 0.3s ease;">
+
+          <!-- -- Main Column -- -->
+          <div class="expl-main">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+              <span class="bc-tag bc-subject">${fmtSubject(SUBJECT)}</span>
+              <span class="bc-tag bc-exam">${qData.exam_type || EXAM_NAME}  ${YEAR}</span>
+              ${qIndex ? `<span class="bc-tag bc-exam" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">Q${qIndex} of ${allKeys.length}</span>` : ''}
+              <button class="bc-back" onclick="window.location.href='${backUrl}'">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+              </button>
+            </div>
+
+            ${resultBanner}
+
+            <!-- Question + Options -->
+            <div class="card">
+              <div class="q-text"${dirAttr}>${cleanHtml(qData.question_text || '')}</div>
+              ${renderImage(qData)}
+              <div class="q-options">${options}</div>
+
+              <!-- Action chips -->
+              <div class="action-chips">
+                <button class="chip">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  Add to Bookmark
+                </button>
+                <button class="chip">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.38 8.38 0 0 1 11.5 3h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  Ask a Question
+                </button>
+                <button class="chip danger">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  Report an Error
+                </button>
+              </div>
+
+              <!-- Share row -->
+              <div class="share-row" style="margin-top:12px; border-top:1px solid #f5f5f5; padding-top:12px; display: ${isPollMode ? 'none' : 'flex'};">
+                <button class="share-btn" onclick="shareDiscussionNative()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  Share
+                </button>
+                <button class="share-btn" onclick="copyDiscussionLink()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            <!-- Explanation -->
+            <!-- Explanation -->
+            ${!isPollMode ? (() => {
+              const explWordCount = qData.explanation ? qData.explanation.split(/\s+/).length : 0;
+              const explReadTime = Math.max(1, Math.ceil(explWordCount / 150));
+              return `
+              <div class="card">
+                <div class="expl-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="expl-title">Explanation</span>
+                    ${qData.explanation ? `<span class="q-tag" style="background:rgba(234, 88, 12, 0.1);color:#ea580c;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${explReadTime} min read</span>` : ''}
+                  </div>
+                  ${correctLabel ? `<span class="correct-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Correct Option <strong style="margin-left:3px;">${correctLabel}</strong>
+                  </span>` : ''}
+                </div>
+                <div class="expl-content"${dirAttr}>
+                  ${qData.explanation
+                    ? cleanHtml(qData.explanation)
+                    : '<p style="color: var(--text-muted);">No explanation available for this question yet.</p>'}
+                </div>
+              </div>
+              <button class="ai-btn">
+                <span class="ai-gem">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </span>
+                Get AI-Powered Explanation
+              </button>
+              <div class="card">
+                <div class="video-title">Video Explanation</div>
+                <p class="no-video">No video available for this question.</p>
+              </div>
+              `;
+            })() : ''}
+
+            <!-- Mobile Comments Block (Always Visible) -->
+            <div class="mobile-contrib card">
+              <div class="disc-section" style="margin-top:0; border-top:none; padding-top:0;">
+                <div class="disc-heading">CLASSROOM DISCUSSION</div>
+                <div id="commentsTree"><div class="state-box"><div class="spinner"></div><p>Loading comments...</p></div></div>
+              </div>
+            </div>
+
+            <!-- Desktop nav buttons -->
+            <div class="desktop-nav" style="display: ${isPollMode ? 'none' : 'flex'};">
+              <button class="btn-nav" onclick="navigate(-1)" ${!prevKey ? 'disabled' : ''}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Previous Question
+              </button>
+              <button class="btn-nav primary" onclick="navigate(1)" ${!nextKey ? 'disabled' : ''}>
+                Next Question
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+
+          </div><!-- end expl-main -->
+
+          <!-- -- Right Sidebar -- -->
+          <aside class="expl-sidebar">
+
+            <!-- Discussions -->
+            <div class="card">
+              <div class="disc-heading">CLASSROOM DISCUSSION (3)</div>
+              <div id="commentsTree"><div class="state-box"><div class="spinner"></div><p>Loading comments...</p></div></div>
+            </div>
+
+          </aside>
+
+        </div><!-- end expl-layout -->
+      `;
+
+      // Wire sticky nav state
+      const stickyPrev = document.getElementById('stickyPrev');
+      const stickyNext = document.getElementById('stickyNext');
+      if (stickyPrev) stickyPrev.disabled = !prevKey;
+      if (stickyNext) stickyNext.disabled = !nextKey;
+      document.getElementById('stickyNav').style.display = 'flex';
+    }
+
+    // -- Bootstrap --
+    async function init() {
+      try {
+        console.log('[init] initializing classroom_discussion.html');
+      // Award XP for studying
+      setTimeout(() => {
+        if (window.addXP) window.addXP(5);
+      }, 2000); // Award XP after 2 seconds of viewing
+
+      if (!YEAR || !Q_KEY) {
+        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>?? Missing question parameters. <a href="classroom_subject.html" style="color:#2563eb;">Go back to subjects</a></p></div>`;
+        return;
+      }
+
+      DATA_BASE = await resolveDataBase();
+      if (!DATA_BASE) {
+        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>❌ Could not resolve exam path.</p></div>`;
+        return;
+      }
+
+      const local = `/new_staging_area/${DATA_BASE}/${SUBJECT}/${TYPE}/${YEAR}.json`;
+      const r2    = `${DATA_BASE}/${SUBJECT}/${TYPE}/${YEAR}.json`;
+      const data  = await fetchJSON(local, r2);
+
+      if (!data) {
+        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>?? Could not load question data. Please check your connection.</p></div>`;
+        return;
+      }
+
+      allData = data;
+      // Convert raw keys (e.g., 'q1') to prefixed keys (e.g., '2026_q1') to match the URL and Q_KEY
+      allKeys = Object.keys(data).map(k => `${YEAR}_${k}`);
+
+      // The Q_KEY from the URL is prefixed (e.g., '2026_q1'). We need to extract the raw key to look up in the JSON.
+      const rawKey = Q_KEY.startsWith(YEAR + '_') ? Q_KEY.substring(YEAR.length + 1) : Q_KEY;
+      const qData = data[rawKey];
+      if (!qData) {
+        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>?? Question not found. <a href="javascript:history.back()" style="color:#2563eb;">Go back</a></p></div>`;
+        return;
+      }
+
+      // -- SEO: update title, meta description, canonical, and JSON-LD --
+      const subjectLabel = fmtSubject(SUBJECT);
+      const examLabel    = qData.exam_type || EXAM_NAME;
+      const cleanQuestion = (qData.question_text || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
+      const correctOptData = (qData.options || []).find(o => o.is_correct);
+      const correctText  = correctOptData ? correctOptData.text.replace(/<[^>]+>/g, '').trim() : '';
+      const cleanExplanation = (qData.explanation || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 300);
+
+      const pageTitle = `${subjectLabel} ${YEAR} ${examLabel} Question  ${cleanQuestion.slice(0, 60)} | MEC`;
+      const pageDesc  = `${examLabel} ${YEAR} ${subjectLabel} past question: "${cleanQuestion.slice(0, 100)}..." Correct answer: ${correctText}. ${cleanExplanation.slice(0, 100)}`;
+
+      document.title = pageTitle;
+      document.getElementById('ogTitle').setAttribute('content', pageTitle);
+      document.getElementById('ogDesc').setAttribute('content', pageDesc);
+
+      // Update meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', pageDesc);
+
+      // Canonical URL
+      const canonicalUrl = window.location.href.split('?')[0] + window.location.search;
+      document.getElementById('canonicalTag').setAttribute('href', canonicalUrl);
+
+      // JSON-LD structured data (Schema.org QAPage + Question)
+      const existingLd = document.getElementById('json-ld-qa');
+      if (existingLd) existingLd.remove();
+
+      const correctAnswer = (qData.options || []).find(o => o.is_correct);
+      const allAnswers    = (qData.options || []).map(o => ({
+        '@type': 'Answer',
+        'text': o.text.replace(/<[^>]+>/g, '').trim(),
+        'encodingFormat': 'text/plain'
+      }));
+
+      const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'QAPage',
+        'name': pageTitle,
+        'description': pageDesc,
+        'mainEntity': {
+          '@type': 'Question',
+          'name': cleanQuestion,
+          'educationalLevel': 'Secondary',
+          'about': {
+            '@type': 'Thing',
+            'name': `${subjectLabel}  ${examLabel} ${YEAR}`
+          },
+          'suggestedAnswer': allAnswers,
+          'acceptedAnswer': correctAnswer ? {
+            '@type': 'Answer',
+            'text': correctAnswer.text.replace(/<[^>]+>/g, '').trim(),
+            'encodingFormat': 'text/plain'
+          } : undefined
+        }
+      };
+
+      const ldScript = document.createElement('script');
+      ldScript.id   = 'json-ld-qa';
+      ldScript.type = 'application/ld+json';
+      ldScript.textContent = JSON.stringify(jsonLd, null, 2);
+      document.head.appendChild(ldScript);
+
+      renderPage(qData);
+
+      // Hide while typesetting, fade in after (CBT player pattern)
+      const pageContent = document.getElementById('pageContent');
+      pageContent.style.opacity = '0';
+      pageContent.style.transition = 'opacity 0.2s ease-in-out';
+      formatMath().then(() => {
+        window.fetchComments();
+        pageContent.style.opacity = '1';
+      });
+
+      } catch (err) {
+        console.error('[init] UNHANDLED ERROR:', err);
+        const pageContent = document.getElementById('pageContent');
+        if (pageContent) {
+          pageContent.innerHTML = `<div class="state-box"><p style="color:red">❌ Critical error on page load: ${err.message}<br>Check console for details.</p></div>`;
+        }
+      }
+    }
+
+    function syncContrib(textarea, btnId) {
+      const btn = document.getElementById(btnId);
+      if (btn) btn.classList.toggle('active', textarea.value.trim().length > 0);
+    }
+
+    // -- Highlight to Discuss --
+    const tooltip = document.createElement('div');
+    tooltip.id = 'highlightTooltip';
+    tooltip.innerHTML = '?? Ask Community';
+    document.body.appendChild(tooltip);
+
+    document.addEventListener('mouseup', (e) => {
+      const selection = window.getSelection();
+      const text = selection.toString().trim();
+      
+      // Show tooltip if selection is long enough and inside question or explanation text
+      if (text.length > 5 && e.target.closest('.expl-content, .q-text, .q-opt-text')) {
+        const range = selection.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        
+        tooltip.style.left = `${rect.left + rect.width / 2 + window.scrollX}px`;
+        tooltip.style.top = `${rect.top + window.scrollY}px`;
+        tooltip.style.display = 'block';
+        
+        tooltip.onclick = () => {
+          alert('Opening community discussion for: "' + text.substring(0, 50) + '..."');
+          selection.removeAllRanges();
+          tooltip.style.display = 'none';
+        };
+      } else if (e.target.id !== 'highlightTooltip') {
+        tooltip.style.display = 'none';
+      }
+    });
+    
+    document.addEventListener('mousedown', (e) => {
+      if (e.target.id !== 'highlightTooltip') tooltip.style.display = 'none';
+    });
+
+    // -- Lightbox Logic --
+    const lbOverlay = document.getElementById('lightboxOverlay');
+    const lbImg = document.getElementById('lightboxImg');
+    
+    document.body.addEventListener('click', (e) => {
+      if (e.target.tagName === 'IMG' && (e.target.closest('.q-img-wrap') || e.target.closest('.expl-content'))) {
+        lbImg.src = e.target.src;
+        lbOverlay.style.display = 'flex';
+        lbImg.style.animation = 'fadeIn 0.2s ease';
+      } else if (e.target.id === 'lightboxOverlay') {
+        lbOverlay.style.display = 'none';
+      }
+    });
+
+    
+    // --- Comments Logic ---
+    const API_BASE = 'https://classroom-api.myexamcompanion.workers.dev/api';
+    let currentCommentState = { parentId: null };
+    let commentsDataCache = [];
+
+    async function getAuthToken() {
+      const sessionStr = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
+      if (sessionStr) {
+        try {
+          const session = JSON.parse(sessionStr);
+          if (session && session.access_token) return session.access_token;
+        } catch (e) {}
+      }
+      return null;
+    }
+
+    function renderCommentTree(comments) {
+      if (!comments || comments.length === 0) {
+        return `<div style="text-align:center; color:var(--text-muted); padding:40px 20px;">No comments yet. Be the first to share your thoughts!</div>`;
+      }
+      
+      const map = {};
+      const roots = [];
+      comments.forEach(c => map[c.id] = { ...c, children: [] });
+      comments.forEach(c => {
+        if (c.parent_id && map[c.parent_id]) {
+          map[c.parent_id].children.push(map[c.id]);
+        } else {
+          roots.push(map[c.id]);
+        }
+      });
+
+      function timeAgo(dateParam) {
+        const date = typeof dateParam === 'object' ? dateParam : new Date(dateParam);
+        return date.toLocaleString(undefined, { 
+          month: 'short', day: 'numeric', year: 'numeric', 
+          hour: 'numeric', minute: '2-digit' 
+        });
+      }
+
+      function formatName(rawName) {
+        if (!rawName) return 'Anonymous';
+        let name = rawName;
+        if (name.includes('@')) {
+          name = name.split('@')[0];
+        }
+        name = name.replace(/[._-]/g, ' ');
+        // capitalize words
+        name = name.replace(/\b\w/g, c => c.toUpperCase());
+        return name;
+      }
+
+      function flattenReplies(node, flatList, level = 0, replyToName = null) {
+        if (level > 0) {
+          flatList.push({ ...node, replyToName: level > 1 ? replyToName : null });
+        }
+        if (node.children) {
+          node.children.forEach(child => flattenReplies(child, flatList, level + 1, formatName(node.user_name)));
+        }
+      }
+
+      function buildHtml(node) {
+        const displayName = formatName(node.user_name);
+        const seed = node.user_name ? encodeURIComponent(node.user_name) : 'Anonymous';
+        const avatarUrl = node.avatar_url || `https://api.dicebear.com/9.x/avataaars/svg?seed=${seed}&backgroundColor=e0f2fe`;
+        const timeStr = timeAgo(node.created_at);
+        
+        const allReplies = [];
+        if (node.children) {
+          node.children.forEach(child => flattenReplies(child, allReplies, 1, displayName));
+        }
+
+        allReplies.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+        const hasReplies = allReplies.length > 0;
+        
+        let repliesHtml = '';
+        if (hasReplies) {
+          const repliesContent = allReplies.map(reply => {
+            const rDisplayName = formatName(reply.user_name);
+            const rSeed = reply.user_name ? encodeURIComponent(reply.user_name) : 'Anonymous';
+            const rAvatarUrl = reply.avatar_url || `https://api.dicebear.com/9.x/avataaars/svg?seed=${rSeed}&backgroundColor=e0f2fe`;
+            const rTimeStr = timeAgo(reply.created_at);
+            const mentionHtml = reply.replyToName ? `<span style="color:#2563eb;font-weight:600;margin-right:4px;">@${reply.replyToName}</span>` : '';
+            
+            return `
+              <div class="cs-comment" style="margin-top: 8px;">
+                <img class="cs-avatar" src="${rAvatarUrl}" alt="Avatar">
+                <div class="cs-body">
+                  <div class="cs-bubble">
+                    <div class="cs-name">${rDisplayName}</div>
+                    ${reply.text !== "🎤 Voice Note" ? `<div class="cs-text">${mentionHtml}${reply.text}</div>` : ''}
+                    ${reply.audio_url ? `<audio controls src="${reply.audio_url}" style="height: 36px; margin-top: 6px; max-width: 240px; border-radius: 99px; outline: none;"></audio>` : ''}
+                  </div>
+                  <div class="cs-actions">
+                    <button class="cs-action-btn ${reply.user_reaction === 'like' ? 'active-like' : ''}" onclick="toggleCommentReaction(${reply.id}, 'like')">
+                      Like ${reply.likes > 0 ? `(${reply.likes})` : ''}
+                    </button>
+                    <button class="cs-action-btn ${reply.user_reaction === 'dislike' ? 'active-dislike' : ''}" onclick="toggleCommentReaction(${reply.id}, 'dislike')">
+                      Dislike ${reply.dislikes > 0 ? `(${reply.dislikes})` : ''}
+                    </button>
+                    <button class="cs-action-btn" onclick="setReplyParent(${reply.id}, '${rDisplayName.replace(/'/g, "\\\\'").replace(/"/g, '&quot;')}')">Reply</button>
+                    <span class="cs-date" title="${new Date(reply.created_at).toLocaleString()}">${rTimeStr}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          repliesHtml = `
+            <div class="cs-nested">
+              <button class="cs-action-btn" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="color:#65676b; font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                View previous ${allReplies.length} replies
+              </button>
+              <div style="display:none;">
+                ${repliesContent}
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="cs-comment ${hasReplies ? 'has-replies' : ''}">
+            <img class="cs-avatar" src="${avatarUrl}" alt="Avatar">
+            <div class="cs-body">
+              <div class="cs-bubble">
+                <div class="cs-name">${displayName}</div>
+                ${node.text !== "🎤 Voice Note" ? `<div class="cs-text">${node.text}</div>` : ''}
+                ${node.audio_url ? `<audio controls src="${node.audio_url}" style="height: 36px; margin-top: 6px; max-width: 240px; border-radius: 99px; outline: none;"></audio>` : ''}
+              </div>
+              <div class="cs-actions">
+                <button class="cs-action-btn ${node.user_reaction === 'like' ? 'active-like' : ''}" onclick="toggleCommentReaction(${node.id}, 'like')">
+                  Like ${node.likes > 0 ? `(${node.likes})` : ''}
+                </button>
+                <button class="cs-action-btn ${node.user_reaction === 'dislike' ? 'active-dislike' : ''}" onclick="toggleCommentReaction(${node.id}, 'dislike')">
+                  Dislike ${node.dislikes > 0 ? `(${node.dislikes})` : ''}
+                </button>
+                <button class="cs-action-btn" onclick="setReplyParent(${node.id}, '${displayName.replace(/'/g, "\\\\'").replace(/"/g, '&quot;')}')">Reply</button>
+                <span class="cs-date" title="${new Date(node.created_at).toLocaleString()}">${timeStr}</span>
+              </div>
+              ${repliesHtml}
+            </div>
+          </div>
+        `;
+      }
+      return roots.map(buildHtml).join('');
+    }
+
+    window.setReplyParent = function(parentId, userName) {
+      currentCommentState.parentId = parentId;
+      const indicator = document.getElementById('csReplyIndicator');
+      if (indicator) {
+        indicator.innerHTML = `Replying to ${userName} <button onclick="clearReplyParent()" style="color:inherit;background:none;border:none;cursor:pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>`;
+        indicator.style.display = 'flex';
+      }
+      const chatInput = document.getElementById('chatInput');
+      if (chatInput) chatInput.focus();
+    };
+
+    window.clearReplyParent = function() {
+      currentCommentState.parentId = null;
+      const indicator = document.getElementById('csReplyIndicator');
+      if (indicator) indicator.style.display = 'none';
+    };
+
+    window.toggleCommentReaction = async function(commentId, type) {
+      const token = await getAuthToken();
+      if (!token) {
+        window.location.href = '/modules/auth/login.html';
+        return;
+      }
+      try {
+        const res = await fetch(`${API_BASE}/comment-reaction`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+          body: JSON.stringify({ exam_id: EXAM_ID, question_id: API_Q_ID, comment_id: commentId, type: type })
+        });
+        if (res.ok) {
+          // Optimistically refresh comments to see new counts
+          window.fetchComments();
+        }
+      } catch (err) {
+        console.error('Toggle reaction failed', err);
+      }
+    };
+
+    window.fetchComments = async function() {
+      try {
+        const token = await getAuthToken();
+        const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+        const res = await fetch(`${API_BASE}/interactions?exam=${encodeURIComponent(EXAM_ID)}&question=${encodeURIComponent(API_Q_ID)}`, { headers });
+        if (res.ok) {
+          const data = await res.json();
+          commentsDataCache = data.comments || [];
+          
+          // Fetch avatars from Supabase 'profiles' table
+          try {
+            const userIds = [...new Set(commentsDataCache.map(c => c.user_id).filter(Boolean))];
+            if (userIds.length > 0 && window.MECSupabase) {
+              const sb = window.MECSupabase.getSupabase();
+              if (sb) {
+                const { data: profiles } = await sb.from('profiles').select('id, avatar_url').in('id', userIds);
+                if (profiles) {
+                  const avatarMap = {};
+                  profiles.forEach(p => avatarMap[p.id] = p.avatar_url);
+                  commentsDataCache.forEach(c => {
+                    if (avatarMap[c.user_id]) c.avatar_url = avatarMap[c.user_id];
+                  });
+                }
+              }
+            }
+          } catch(err) { console.error('Failed to fetch avatars', err); }
+
+          document.querySelectorAll('#commentsTree').forEach(el => {
+             el.innerHTML = renderCommentTree(commentsDataCache);
+          });
+          document.querySelectorAll('.disc-heading').forEach(el => {
+             el.innerHTML = `CLASSROOM DISCUSSION (${commentsDataCache.length})`;
+          });
+        }
+      } catch(e) { console.error('Fetch comments failed', e); }
+    };
+
+    window.submitNewComment = async function(text, audioUrl = null) {
+      if (!text && !audioUrl) return;
+      const token = await getAuthToken();
+      if (!token) {
+        window.location.href = '/modules/auth/login.html';
+        return;
+      }
+      try {
+        const res = await fetch(`${API_BASE}/comment`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+          body: JSON.stringify({ 
+            exam_id: EXAM_ID, 
+            question_id: API_Q_ID, 
+            text: text,
+            audio_url: audioUrl,
+            parent_id: currentCommentState.parentId
+          })
+        });
+        if (res.ok) {
+          window.clearReplyParent();
+          window.fetchComments();
+        } else {
+          alert('Failed to post comment');
+        }
+      } catch (e) {
+        alert('Error: ' + e.message);
+      }
+    };
+
+    // -- Fixed Chat Bar Logic (Voice Note + Auto Expand) --
+    const chatInput = document.getElementById('chatInput');
+    const chatActionBtn = document.getElementById('chatActionBtn');
+    const chatSendBtn = document.getElementById('chatSendBtn');
+    const chatInputWrap = document.getElementById('chatInputWrap');
+    const chatRecordingWrap = document.getElementById('chatRecordingWrap');
+    const recordTimer = document.getElementById('recordTimer');
+    const cancelRecordBtn = document.getElementById('cancelRecordBtn');
+    
+    let isRecording = false;
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let recordInterval = null;
+    let recordSeconds = 0;
+
+    // Auto-expand textarea
+    chatInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    chatSendBtn.addEventListener('click', async () => {
+      const text = chatInput.value.trim();
+      if (text.length > 0) {
+        chatSendBtn.style.opacity = '0.5';
+        chatSendBtn.disabled = true;
+        await window.submitNewComment(text);
+        chatInput.value = '';
+        chatInput.style.height = 'auto'; // Reset height
+        chatSendBtn.style.opacity = '1';
+        chatSendBtn.disabled = false;
+      }
+    });
+    
+    // Auth Check for Chat Input
+    async function checkAuthUI() {
+      const token = await getAuthToken();
+      if (!token) {
+         chatInput.placeholder = 'Sign In to Comment...';
+         chatInput.onclick = () => window.location.href = '/modules/auth/login.html';
+         chatInput.readOnly = true;
+         chatSendBtn.onclick = (e) => { e.preventDefault(); window.location.href = '/modules/auth/login.html'; };
+      }
+    }
+    checkAuthUI();
+
+
+    chatActionBtn.addEventListener('click', async () => {
+      if (!isRecording) {
+        startRecording();
+      } else {
+        stopRecording(true); // Stop & Send Audio
+      }
+    });
+
+    cancelRecordBtn.addEventListener('click', () => {
+      stopRecording(false); // Stop & Discard
+    });
+
+    async function startRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+        
+        mediaRecorder.ondataavailable = e => {
+          if (e.data.size > 0) audioChunks.push(e.data);
+        };
+        
+        mediaRecorder.onstop = () => {
+          stream.getTracks().forEach(t => t.stop());
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        
+        // UI Updates
+        chatInputWrap.style.display = 'none';
+        chatSendBtn.style.display = 'none';
+        chatRecordingWrap.style.display = 'flex';
+        chatActionBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+        chatActionBtn.style.background = '#10b981'; // Green to confirm send audio
+        
+        recordSeconds = 0;
+        recordTimer.textContent = '0:00';
+        recordInterval = setInterval(() => {
+          recordSeconds++;
+          const mins = Math.floor(recordSeconds / 60);
+          const secs = recordSeconds % 60;
+          recordTimer.textContent = `${mins}:${secs.toString().padStart(2, '0')} / 0:30`;
+          
+          if (recordSeconds >= 30) {
+            stopRecording(true); // Auto-send at 30s
+          }
+        }, 1000);
+        
+      } catch (err) {
+        alert('Microphone access denied or unavailable. Please check your browser permissions.');
+        console.error(err);
+      }
+    }
+
+    async function stopRecording(save) {
+      if (!isRecording) return;
+      isRecording = false;
+      clearInterval(recordInterval);
+      if (mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+      }
+      
+      if (save) {
+        // Show uploading state
+        chatActionBtn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px;border-top-color:#fff;"></div>';
+        chatActionBtn.style.pointerEvents = 'none';
+        
+        mediaRecorder.onstop = async () => {
+          mediaRecorder.stream.getTracks().forEach(t => t.stop());
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          
+          try {
+            if (!window.MECSupabase || !window.MECSupabase.getSupabase()) throw new Error("Supabase not initialized");
+            const sb = window.MECSupabase.getSupabase();
+            const fileName = `voicenote_${Date.now()}_${Math.random().toString(36).substring(7)}.webm`;
+            
+            const { data, error } = await sb.storage.from('voice_notes').upload(fileName, audioBlob, {
+              contentType: 'audio/webm',
+              cacheControl: '3600',
+              upsert: false
+            });
+            
+            if (error) throw error;
+            
+            const { data: { publicUrl } } = sb.storage.from('voice_notes').getPublicUrl(fileName);
+            console.log("Audio uploaded:", publicUrl);
+            
+            await window.submitNewComment("🎤 Voice Note", publicUrl);
+            chatInput.value = '';
+          } catch (err) {
+            console.error("Audio upload failed:", err);
+            alert("Failed to upload voice note. Please try again.");
+          } finally {
+            restoreChatUI();
+          }
+        };
+      } else {
+        restoreChatUI();
+      }
+    }
+    
+    function restoreChatUI() {
+      chatInputWrap.style.display = 'flex';
+      chatSendBtn.style.display = 'flex';
+      chatRecordingWrap.style.display = 'none';
+      chatActionBtn.style.pointerEvents = 'auto';
+      chatActionBtn.innerHTML = '<svg id="micIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>';
+      chatActionBtn.style.background = '';
+    }
+
+    // -- Share Logic --
+    window.shareDiscussionNative = async function () {
+      const parsedUrl = new URL(window.location.href);
+      parsedUrl.pathname = '/api/share';
+      // Add cache buster so Facebook always fetches fresh Open Graph tags
+      parsedUrl.searchParams.set('_t', Date.now());
+      const fullUrl = parsedUrl.href;
+      
+      const subjectDisplay = String(SUBJECT).replace(/_/g, ' ').toUpperCase();
+      const examDisplay = String(EXAM_ID).split('/').pop().toUpperCase();
+      const title = `${examDisplay} - ${subjectDisplay}`;
+      const textToShare = `${title}\nCan you solve this question? 📚👇\n\n`;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: title,
+            text: textToShare,
+            url: fullUrl
+          });
+        } catch (err) {
+          copyToClipboard(textToShare + fullUrl);
+        }
+      } else {
+        copyToClipboard(textToShare + fullUrl);
+      }
+    };
+
+    window.copyDiscussionLink = function () {
+      const parsedUrl = new URL(window.location.href);
+      parsedUrl.pathname = '/api/share';
+      parsedUrl.searchParams.set('_t', Date.now());
+      copyToClipboard(parsedUrl.href);
+    };
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Link copied!");
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+
+    // -- Poll Logic --
+    // Custom Confirm Modal
+    function customConfirm(optionTag) {
+      return new Promise((resolve) => {
+        const overlay = document.createElement('div');
+        overlay.className = 'poll-modal-overlay';
+        overlay.innerHTML = `
+          <div class="poll-modal">
+            <div class="poll-modal-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="poll-modal-title">Lock your vote?</h3>
+            <p class="poll-modal-desc">Are you sure you want to vote for <strong>Option ${optionTag}</strong>? You cannot change this once submitted.</p>
+            <div class="poll-modal-actions">
+              <button class="poll-modal-btn cancel" id="pollModalCancel">Cancel</button>
+              <button class="poll-modal-btn confirm" id="pollModalConfirm">Yes, Lock It In</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+        
+        // Trigger reflow for animation
+        overlay.offsetHeight;
+        overlay.classList.add('active');
+
+        const close = (result) => {
+          overlay.classList.remove('active');
+          setTimeout(() => overlay.remove(), 200);
+          resolve(result);
+        };
+
+        document.getElementById('pollModalCancel').onclick = () => close(false);
+        document.getElementById('pollModalConfirm').onclick = () => close(true);
+      });
+    }
+
+    async function initPollMode() {
+      if (new URLSearchParams(window.location.search).get('mode') !== 'poll') return;
+      
+      const hasVoted = localStorage.getItem('voted_' + Q_KEY);
+      await fetchAndRenderPollVotes(hasVoted);
+
+      // Real-time updates (poll every 2 seconds)
+      setInterval(() => {
+        fetchAndRenderPollVotes(!!localStorage.getItem('voted_' + Q_KEY));
+      }, 2000);
+    }
+
+    async function fetchAndRenderPollVotes(showResults = false) {
+      try {
+        // Remove .html from url for pages function
+        const res = await fetch(`/api/poll?pollId=${encodeURIComponent(Q_KEY)}&_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          window.currentPollCounts = data.counts || {};
+          if (showResults) {
+            renderPollResults();
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch poll votes:', err);
+      }
+    }
+
+    async function submitPollVote(pollId, optionTag) {
+      optionTag = optionTag.toUpperCase();
+      if (localStorage.getItem('voted_' + pollId)) {
+        alert('You have already locked your vote for this poll!');
+        return;
+      }
+
+      const isSure = await customConfirm(optionTag);
+      if (!isSure) return;
+
+      try {
+        // Optimistically update UI
+        localStorage.setItem('voted_' + pollId, optionTag);
+        if (!window.currentPollCounts) window.currentPollCounts = {};
+        window.currentPollCounts[optionTag] = (window.currentPollCounts[optionTag] || 0) + 1;
+        renderPollResults();
+
+        const res = await fetch('/api/poll', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pollId, option: optionTag })
+        });
+        
+        if (res.status === 429) {
+          alert('Voting is busy right now, please try again in a bit.');
+          localStorage.removeItem('voted_' + pollId); // Let them try again later
+          renderPollResults(); // Re-render to unlock
+        } else if (!res.ok) {
+          console.error('Failed to submit vote');
+          alert('Failed to submit vote. Please check your connection.');
+          localStorage.removeItem('voted_' + pollId);
+        } else {
+          // Re-fetch to get exact counts after our vote
+          fetchAndRenderPollVotes(true);
+        }
+      } catch (err) {
+        console.error('Error submitting vote:', err);
+        alert('An error occurred while submitting your vote.');
+        localStorage.removeItem('voted_' + pollId);
+      }
+    }
+
+    function renderPollResults() {
+      const counts = window.currentPollCounts || {};
+      let totalVotes = 0;
+      let maxVotes = 0;
+      let winningOption = null;
+
+      for (const [opt, count] of Object.entries(counts)) {
+        totalVotes += count;
+        if (count > maxVotes) {
+          maxVotes = count;
+          winningOption = opt;
+        }
+      }
+
+      // Intentionally keep votes locked even if totalVotes === 0 or DB fails.
+      // Removed self-healing logic per user request.
+
+      // Show total voters count
+      let votersCountEl = document.getElementById('pollVotersCount');
+      if (!votersCountEl) {
+        votersCountEl = document.createElement('div');
+        votersCountEl.id = 'pollVotersCount';
+        votersCountEl.style.fontSize = '13px';
+        votersCountEl.style.fontWeight = '600';
+        votersCountEl.style.color = '#6b7280';
+        votersCountEl.style.marginTop = '12px';
+        votersCountEl.style.marginBottom = '20px';
+        const optionsContainer = document.querySelector('.q-options-wrap');
+        if (optionsContainer) {
+           optionsContainer.insertAdjacentElement('afterend', votersCountEl);
+        }
+      }
+      votersCountEl.textContent = totalVotes + (totalVotes === 1 ? ' vote' : ' votes');
+
+      const myVote = localStorage.getItem('voted_' + Q_KEY);
+
+      document.querySelectorAll('.poll-option').forEach(el => {
+        el.classList.add('voted');
+        el.onclick = null; // Remove click handler
+        
+        const tag = el.getAttribute('data-tag');
+        const votes = counts[tag] || 0;
+        const percent = totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+        
+        if (tag === myVote || myVote === 'true') {
+          // If myVote is 'true' (old localstorage format), we won't know exactly which one,
+          // but if they vote freshly it'll be the tag.
+          if (tag === myVote) el.classList.add('my-vote');
+        }
+
+        if (tag === winningOption && maxVotes > 0) {
+          el.classList.add('winner');
+        }
+
+        const bar = el.querySelector('.poll-bar');
+        const pctLabel = el.querySelector('.poll-percent');
+        
+        if (bar) bar.style.width = percent + '%';
+        if (pctLabel) {
+          const voteText = votes === 1 ? '1 vote' : votes + ' votes';
+          if (tag === myVote) {
+             pctLabel.innerHTML = `<span style="color:#2563eb; margin-right:4px; font-size:12px;">✓</span>${voteText}`;
+          } else {
+             pctLabel.textContent = voteText;
+          }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      init().then(() => {
+        initPollMode();
+      });
+    });
+  </script>
+</body>
+</html>

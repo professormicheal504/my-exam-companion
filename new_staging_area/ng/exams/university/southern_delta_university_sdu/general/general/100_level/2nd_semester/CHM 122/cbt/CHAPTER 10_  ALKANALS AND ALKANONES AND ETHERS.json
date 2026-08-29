@@ -6,35 +6,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following functional groups is common to both alkanals (aldehydes) and alkanones (ketones)?",
-        "explanation": "Both alkanals and alkanones contain the carbonyl group ($\\chemfig{C=O}$) as their functional group. The difference lies in what is attached to the carbonyl carbon: alkanals have at least one hydrogen atom attached, while alkanones have two alkyl (carbon) groups attached.",
+        "question_text": "<p>Which of the following <b>functional groups</b> is common to both <b>alkanals (aldehydes)</b> and <b>alkanones (ketones)</b>?</p>",
+        "explanation": "<p>Both <b>alkanals</b> and <b>alkanones</b> contain the <b>carbonyl group</b> (<i>\\[\\chemfig{C=O}\\]</i>) as their <b>functional group</b>. The difference lies in what is attached to the carbonyl carbon: alkanals have at least one <b>hydrogen atom</b> attached, while alkanones have two <b>alkyl (carbon) groups</b> attached.</p>",
         "options": [
             {
                 "option_id": "209179",
                 "tag": "a",
-                "text": "Hydroxyl group ($-OH$)",
+                "text": "<b>Hydroxyl group</b> (<i>-OH</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "795098",
                 "tag": "b",
-                "text": "Carbonyl group ($\\chemfig{C=O}$)",
+                "text": "<b>Carbonyl group</b> (<i>\\[\\chemfig{C=O}\\]</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "222746",
                 "tag": "c",
-                "text": "Carboxyl group ($-COOH$)",
+                "text": "<b>Carboxyl group</b> (<i>-COOH</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "296659",
                 "tag": "d",
-                "text": "Ether group ($-O-$)",
+                "text": "<b>Ether group</b> (<i>-O-</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 5
+        "question_number": 5,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,35 +44,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the general formula for alkanals and alkanones?",
-        "explanation": "Both alkanals and alkanones share the same general molecular formula, $C_nH_{2n}O$. Because they have the same general formula, they can exist as functional group isomers of each other (e.g., propanal and propanone both have the formula $C_3H_6O$).",
+        "question_text": "<p>What is the <b>general formula</b> for <b>alkanals</b> and <b>alkanones</b>?</p>",
+        "explanation": "<p>Both <b>alkanals</b> and <b>alkanones</b> share the same <b>general molecular formula</b>, <i>C<sub>n</sub>H<sub>2n</sub>O</i>. Because they have the same general formula, they can exist as <b>functional group isomers</b> of each other (e.g., <i>propanal</i> and <i>propanone</i> both have the formula <i>C<sub>3</sub>H<sub>6</sub>O</i>).</p>",
         "options": [
             {
                 "option_id": "120469",
                 "tag": "a",
-                "text": "$C_nH_{2n+2}O$",
+                "text": "<i>C<sub>n</sub>H<sub>2n+2</sub>O</i>",
                 "is_correct": false
             },
             {
                 "option_id": "272640",
                 "tag": "b",
-                "text": "$C_nH_{2n}O$",
+                "text": "<i>C<sub>n</sub>H<sub>2n</sub>O</i>",
                 "is_correct": true
             },
             {
                 "option_id": "630269",
                 "tag": "c",
-                "text": "$C_nH_{2n-2}O$",
+                "text": "<i>C<sub>n</sub>H<sub>2n-2</sub>O</i>",
                 "is_correct": false
             },
             {
                 "option_id": "147753",
                 "tag": "d",
-                "text": "$C_nH_{2n+1}OH$",
+                "text": "<i>C<sub>n</sub>H<sub>2n+1</sub>OH</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 18
+        "question_number": 18,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following structures represents an alkanal?",
-        "explanation": "Alkanals (aldehydes) are characterized by a terminal carbonyl group, meaning the carbonyl carbon is bonded to at least one hydrogen atom. Their general structure is represented as $\\chemfig{R-C(=O)-H}$ or $RCHO$.",
+        "question_text": "<p>Which of the following structures represents an <b>alkanal</b>?</p>",
+        "explanation": "<p><b>Alkanals</b> (also known as <b>aldehydes</b>) are characterized by a <b>terminal carbonyl group</b>, meaning the carbonyl carbon is bonded to at least one <b>hydrogen atom</b>. Their general structure is represented as <b>\\chemfig{R-C(=O)-H}</b> or <b>RCHO</b>.</p>",
         "options": [
             {
                 "option_id": "556225",
                 "tag": "a",
-                "text": "$\\chemfig{R-C(=O)-R'}$",
+                "text": "<i>Ketone:</i> <b>\\chemfig{R-C(=O)-R'}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "197711",
                 "tag": "b",
-                "text": "$\\chemfig{R-OH}$",
+                "text": "<i>Alcohol:</i> <b>\\chemfig{R-OH}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "745609",
                 "tag": "c",
-                "text": "$\\chemfig{R-C(=O)-H}$",
+                "text": "<i>Alkanal (aldehyde):</i> <b>\\chemfig{R-C(=O)-H}</b>",
                 "is_correct": true
             },
             {
                 "option_id": "255965",
                 "tag": "d",
-                "text": "$\\chemfig{R-O-R'}$",
+                "text": "<i>Ether:</i> <b>\\chemfig{R-O-R'}</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 31
+        "question_number": 31,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which class of compounds is formed by the oxidation of secondary alcohols?",
-        "explanation": "Alkanones (ketones) are formed by the oxidation of secondary alcohols. For example, the oxidation of propan-2-ol yields propanone. Conversely, the oxidation of primary alcohols yields alkanals (aldehydes).",
+        "question_text": "<p>Which class of <b>compounds</b> is formed by the <b>oxidation</b> of <b>secondary alcohols</b>?</p>",
+        "explanation": "<p><b>Alkanones</b> (<b>ketones</b>) are formed by the <b>oxidation</b> of <b>secondary alcohols</b>. For example, the oxidation of propan-2-ol yields propanone. Conversely, the oxidation of <b>primary alcohols</b> yields <b>alkanals</b> (<b>aldehydes</b>).</p>",
         "options": [
             {
                 "option_id": "221396",
                 "tag": "a",
-                "text": "Alkanals",
+                "text": "<i>Alkanals</i>",
                 "is_correct": false
             },
             {
                 "option_id": "165156",
                 "tag": "b",
-                "text": "Carboxylic acids",
+                "text": "<i>Carboxylic acids</i>",
                 "is_correct": false
             },
             {
                 "option_id": "311570",
                 "tag": "c",
-                "text": "Alkanones",
+                "text": "<i>Alkanones</i>",
                 "is_correct": true
             },
             {
                 "option_id": "189717",
                 "tag": "d",
-                "text": "Ethers",
+                "text": "<i>Ethers</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 44
+        "question_number": 44,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,35 +158,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How are alkanals named according to IUPAC nomenclature?",
-        "explanation": "Alkanals are named by replacing the '-e' ending of the parent alkane name with the suffix '-al'. For example, methane becomes methanal, and ethane becomes ethanal.",
+        "question_text": "<p>How are <b>alkanals</b> named according to <b>IUPAC nomenclature</b>?</p>",
+        "explanation": "<p><b>Alkanals</b> are named by replacing the <b>'-e'</b> ending of the parent alkane name with the suffix <b>'-al'</b>. For example, <i>methane</i> becomes <i>methanal</i>, and <i>ethane</i> becomes <i>ethanal</i>.</p>",
         "options": [
             {
                 "option_id": "199605",
                 "tag": "a",
-                "text": "By replacing the '-e' ending of the corresponding alkane with '-one'",
+                "text": "By replacing the <b>'-e'</b> ending of the corresponding alkane with <b>'-one'</b>",
                 "is_correct": false
             },
             {
                 "option_id": "785276",
                 "tag": "b",
-                "text": "By replacing the '-e' ending of the corresponding alkane with '-ol'",
+                "text": "By replacing the <b>'-e'</b> ending of the corresponding alkane with <b>'-ol'</b>",
                 "is_correct": false
             },
             {
                 "option_id": "702543",
                 "tag": "c",
-                "text": "By replacing the '-e' ending of the corresponding alkane with '-al'",
+                "text": "By replacing the <b>'-e'</b> ending of the corresponding alkane with <b>'-al'</b>",
                 "is_correct": true
             },
             {
                 "option_id": "220636",
                 "tag": "d",
-                "text": "By replacing the '-e' ending of the corresponding alkane with '-oic acid'",
+                "text": "By replacing the <b>'-e'</b> ending of the corresponding alkane with <b>'-oic acid'</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 57
+        "question_number": 57,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for formaldehyde, which has the structure $\\chemfig{H-C(=O)-H}$?",
-        "explanation": "Formaldehyde is the common name for the simplest alkanal, which contains only one carbon atom. Its IUPAC name is methanal, corresponding to the one-carbon alkane, methane.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for <b>formaldehyde</b>, which has the structure <i>$\\chemfig{H-C(=O)-H}$</i>?</p>",
+        "explanation": "<p><b>Formaldehyde</b> is the common name for the simplest <b>alkanal</b>, which contains only one carbon atom. Its <b>IUPAC name</b> is <b>methanal</b>, corresponding to the one-carbon alkane, <b>methane</b>.</p>",
         "options": [
             {
                 "option_id": "105874",
                 "tag": "a",
-                "text": "Ethanal",
+                "text": "<i>Ethanal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "219148",
                 "tag": "b",
-                "text": "Methanal",
+                "text": "<b>Methanal</b>",
                 "is_correct": true
             },
             {
                 "option_id": "785989",
                 "tag": "c",
-                "text": "Propanal",
+                "text": "<i>Propanal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "825270",
                 "tag": "d",
-                "text": "Methanol",
+                "text": "<i>Methanol</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 70
+        "question_number": 70,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,35 +234,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds is an example of an alkanone?",
-        "explanation": "Alkanones (ketones) have an internal carbonyl group bonded to two other carbon atoms ($\\chemfig{R-C(=O)-R'}$). $\\chemfig{CH_3-C(=O)-CH_3}$ is propanone (acetone), which fits this description.",
+        "question_text": "<p>Which of the following compounds is an example of an <b>alkanone</b>?</p>",
+        "explanation": "<p><b>Alkanones</b> (also called <b>ketones</b>) are characterized by an <b>internal carbonyl group</b> bonded to two other carbon atoms, following the general structure <b>\\chemfig{R-C(=O)-R'}</b>. The compound <b>\\chemfig{CH_3-C(=O)-CH_3}</b> (propanone, commonly known as acetone) is a classic example of an alkanone.</p>",
         "options": [
             {
                 "option_id": "238533",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-C(=O)-H}$",
+                "text": "<i>aldehyde</i>: <b>\\chemfig{CH_3-C(=O)-H}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "307169",
                 "tag": "b",
-                "text": "$\\chemfig{CH_3-O-CH_3}$",
+                "text": "<i>ether</i>: <b>\\chemfig{CH_3-O-CH_3}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "973140",
                 "tag": "c",
-                "text": "$\\chemfig{CH_3-CH_2-OH}$",
+                "text": "<i>alcohol</i>: <b>\\chemfig{CH_3-CH_2-OH}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "317897",
                 "tag": "d",
-                "text": "$\\chemfig{CH_3-C(=O)-CH_3}$",
+                "text": "<i>ketone</i>: <b>\\chemfig{CH_3-C(=O)-CH_3}</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 83
+        "question_number": 83,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The polarity of the carbonyl group ($\\chemfig{C=O}$) in alkanals and alkanones gives them unique properties. Which atom in the carbonyl group carries a partial negative charge?",
-        "explanation": "The oxygen atom in the carbonyl group is more electronegative than the carbon atom. As a result, it pulls electron density towards itself, carrying a partial negative charge ($\\delta-$), while the carbon atom carries a partial positive charge ($\\delta+$).",
+        "question_text": "<p>The <b>polarity</b> of the <b>carbonyl group</b> (<i>\\chemfig{C=O}</i>) in <b>alkanals</b> and <b>alkanones</b> gives them unique properties. Which atom in the <b>carbonyl group</b> carries a <b>partial negative charge</b>?</p>",
+        "explanation": "<p>The <b>oxygen</b> atom in the <b>carbonyl group</b> is <i>more electronegative</i> than the <b>carbon</b> atom. As a result, it pulls <b>electron density</b> towards itself, carrying a <b>partial negative charge</b> (<i>\u03b4\u2212</i>), while the <b>carbon</b> atom carries a <b>partial positive charge</b> (<i>\u03b4+</i>).</p>",
         "options": [
             {
                 "option_id": "320341",
                 "tag": "a",
-                "text": "The carbon atom",
+                "text": "The <b>carbon</b> atom",
                 "is_correct": false
             },
             {
                 "option_id": "124340",
                 "tag": "b",
-                "text": "The oxygen atom",
+                "text": "The <b>oxygen</b> atom",
                 "is_correct": true
             },
             {
                 "option_id": "239158",
                 "tag": "c",
-                "text": "The hydrogen atom attached to the carbonyl carbon",
+                "text": "The <b>hydrogen</b> atom attached to the <b>carbonyl carbon</b>",
                 "is_correct": false
             },
             {
                 "option_id": "276209",
                 "tag": "d",
-                "text": "The alkyl radical",
+                "text": "The <b>alkyl radical</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 96
+        "question_number": 96,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is a common use for alkanals?",
-        "explanation": "Alkanals are commonly used as reducing agents and disinfectants (such as formalin, which is a solution of methanal used for preserving biological specimens). They are also used in the production of various chemicals and pharmaceuticals.",
+        "question_text": "<p>Which of the following is a <b>common use</b> for <b>alkanals</b>?</p>",
+        "explanation": "<p><b>Alkanals</b> are commonly used as <b>reducing agents</b> and <b>disinfectants</b> (such as <i>formalin</i>, which is a solution of <b>methanal</b> used for preserving biological specimens). They are also used in the production of various chemicals and pharmaceuticals.</p>",
         "options": [
             {
                 "option_id": "281647",
                 "tag": "a",
-                "text": "As solvents and plastics",
+                "text": "As <i>solvents</i> and <i>plastics</i>",
                 "is_correct": false
             },
             {
                 "option_id": "307568",
                 "tag": "b",
-                "text": "As reducing agents and disinfectants",
+                "text": "As <b>reducing agents</b> and <b>disinfectants</b>",
                 "is_correct": true
             },
             {
                 "option_id": "318002",
                 "tag": "c",
-                "text": "As inert gases in packaging",
+                "text": "As <i>inert gases</i> in packaging",
                 "is_correct": false
             },
             {
                 "option_id": "307812",
                 "tag": "d",
-                "text": "As bases in neutralization reactions",
+                "text": "As <i>bases</i> in neutralization reactions",
                 "is_correct": false
             }
         ],
-        "question_number": 109
+        "question_number": 109,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,35 +348,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the primary visual observation when an alkanal undergoes Tollen's test?",
-        "explanation": "Tollen's test (or silver mirror test) is used to differentiate alkanals from alkanones. Alkanals undergo oxidation in the presence of Tollen's reagent (ammoniacal silver nitrate), reducing the silver ions ($Ag^+$) to metallic silver ($Ag$), which forms a reflective silver mirror on the inner wall of the test tube.",
+        "question_text": "<p>What is the <b>primary visual observation</b> when an <b>alkanal</b> undergoes <b>Tollen's test</b>?</p>",
+        "explanation": "<p><b>Tollen's test</b> (or <b>silver mirror test</b>) is used to differentiate <b>alkanals</b> from <b>alkanones</b>. Alkanals undergo <b>oxidation</b> in the presence of Tollen's reagent (ammoniacal silver nitrate), reducing the silver ions (<b>Ag<sup>+</sup></b>) to metallic silver (<b>Ag</b>), which forms a reflective <b>silver mirror</b> on the inner wall of the test tube.</p>",
         "options": [
             {
                 "option_id": "320083",
                 "tag": "a",
-                "text": "Formation of a red precipitate",
+                "text": "<i>Formation of a red precipitate</i>",
                 "is_correct": false
             },
             {
                 "option_id": "135208",
                 "tag": "b",
-                "text": "Evolution of a colourless gas",
+                "text": "<i>Evolution of a colourless gas</i>",
                 "is_correct": false
             },
             {
                 "option_id": "603747",
                 "tag": "c",
-                "text": "Formation of a silver mirror on the inner wall of the test tube",
+                "text": "<i>Formation of a <b>silver mirror</b> on the inner wall of the test tube</i>",
                 "is_correct": true
             },
             {
                 "option_id": "192667",
                 "tag": "d",
-                "text": "The solution turns deep blue",
+                "text": "<i>The solution turns deep blue</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 121
+        "question_number": 121,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,35 +386,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why do alkanones give a negative result in Tollen's test?",
-        "explanation": "Alkanones (ketones) lack a hydrogen atom attached directly to the carbonyl carbon, making them resistant to oxidation by mild oxidizing agents like Tollen's reagent. Alkanals can be oxidized to carboxylic acids, but alkanones cannot be further oxidized under these conditions.",
+        "question_text": "<p>Why do <b>alkanones</b> give a <b>negative result</b> in <b>Tollen's test</b>?</p>",
+        "explanation": "<p><b>Alkanones</b> (ketones) lack a <b>hydrogen atom</b> attached directly to the <b>carbonyl carbon</b>, making them resistant to <b>oxidation</b> by mild oxidizing agents like <b>Tollen's reagent</b>. <b>Alkanals</b> can be oxidized to <b>carboxylic acids</b>, but alkanones cannot be further oxidized under these conditions.</p>",
         "options": [
             {
                 "option_id": "963921",
                 "tag": "a",
-                "text": "They do not dissolve in Tollen's reagent",
+                "text": "They do not <i>dissolve</i> in Tollen's reagent",
                 "is_correct": false
             },
             {
                 "option_id": "268223",
                 "tag": "b",
-                "text": "They are already fully oxidized",
+                "text": "They are already <b>fully oxidized</b>",
                 "is_correct": false
             },
             {
                 "option_id": "182844",
                 "tag": "c",
-                "text": "They do not undergo oxidation under the mild conditions of Tollen's test",
+                "text": "They do not undergo <b>oxidation</b> under the <i>mild conditions</i> of Tollen's test",
                 "is_correct": true
             },
             {
                 "option_id": "331178",
                 "tag": "d",
-                "text": "They reduce the silver ions too quickly",
+                "text": "They <i>reduce</i> the silver ions too quickly",
                 "is_correct": false
             }
         ],
-        "question_number": 134
+        "question_number": 134,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,35 +424,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What reagents are mixed to prepare Tollen's reagent?",
-        "explanation": "Tollen's reagent is prepared by adding a small amount of silver nitrate ($AgNO_3$) to aqueous ammonia ($NH_3$) until the initial precipitate of silver oxide dissolves, forming the diamminesilver(I) complex ion.",
+        "question_text": "<p>What reagents are mixed to prepare <b>Tollen's reagent</b>?</p>",
+        "explanation": "<p><b>Tollen's reagent</b> is prepared by adding a small amount of <b>silver nitrate</b> (<i>AgNO<sub>3</sub></i>) to <b>aqueous ammonia</b> (<i>NH<sub>3</sub></i>) until the initial precipitate of silver oxide dissolves, forming the <b>diamminesilver(I) complex ion</b>.</p>",
         "options": [
             {
                 "option_id": "111048",
                 "tag": "a",
-                "text": "Silver nitrate ($AgNO_3$) and sodium hydroxide ($NaOH$)",
+                "text": "<b>Silver nitrate</b> (<i>AgNO<sub>3</sub></i>) and <b>sodium hydroxide</b> (<i>NaOH</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "167515",
                 "tag": "b",
-                "text": "Silver nitrate ($AgNO_3$) and aqueous ammonia ($NH_3$)",
+                "text": "<b>Silver nitrate</b> (<i>AgNO<sub>3</sub></i>) and <b>aqueous ammonia</b> (<i>NH<sub>3</sub></i>)",
                 "is_correct": true
             },
             {
                 "option_id": "340899",
                 "tag": "c",
-                "text": "Copper sulfate ($CuSO_4$) and aqueous ammonia ($NH_3$)",
+                "text": "<b>Copper sulfate</b> (<i>CuSO<sub>4</sub></i>) and <b>aqueous ammonia</b> (<i>NH<sub>3</sub></i>)",
                 "is_correct": false
             },
             {
                 "option_id": "134636",
                 "tag": "d",
-                "text": "Silver chloride ($AgCl$) and nitric acid ($HNO_3$)",
+                "text": "<b>Silver chloride</b> (<i>AgCl</i>) and <b>nitric acid</b> (<i>HNO<sub>3</sub></i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 147
+        "question_number": 147,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for the compound with the formula $\\chemfig{CH_3-CHO}$?",
-        "explanation": "The compound $\\chemfig{CH_3-CHO}$ contains two carbon atoms. The corresponding alkane is ethane. Replacing the '-e' with '-al' gives its IUPAC name, ethanal. Its common name is acetaldehyde.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for the compound with the formula <b><i>CH<sub>3</sub>-CHO</i></b>?</p>",
+        "explanation": "<p>The compound <b><i>CH<sub>3</sub>-CHO</i></b> contains <b>two carbon atoms</b>. The corresponding <b>alkane</b> is <b>ethane</b>. Replacing the <b>'-e'</b> with <b>'-al'</b> gives its <b>IUPAC name</b>, <b>ethanal</b>. Its <i>common name</i> is <b>acetaldehyde</b>.</p>",
         "options": [
             {
                 "option_id": "263199",
                 "tag": "a",
-                "text": "Methanal",
+                "text": "<i>Methanal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "136973",
                 "tag": "b",
-                "text": "Ethanal",
+                "text": "<i>Ethanal</i>",
                 "is_correct": true
             },
             {
                 "option_id": "215236",
                 "tag": "c",
-                "text": "Propanal",
+                "text": "<i>Propanal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "325962",
                 "tag": "d",
-                "text": "Butanal",
+                "text": "<i>Butanal</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 162
+        "question_number": 162,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following represents the structure of benzaldehyde?",
-        "explanation": "Benzaldehyde consists of a benzene ring attached directly to an aldehyde (formyl) group. Its formula is $C_6H_5CHO$, which is represented as $\\chemfig{C_6H_5-CHO}$.",
+        "question_text": "<p>Which of the following represents the <b>structure of benzaldehyde</b>?</p>",
+        "explanation": "<p><b>Benzaldehyde</b> consists of a <b>benzene ring</b> attached directly to an <b>aldehyde (formyl) group</b>. Its formula is <i>C<sub>6</sub>H<sub>5</sub>CHO</i>, which is represented as <i>\\chemfig{C_6H_5-CHO}</i>.</p>",
         "options": [
             {
                 "option_id": "951639",
                 "tag": "a",
-                "text": "$\\chemfig{C_6H_5-CH_2-CHO}$",
+                "text": "<i>\\chemfig{C_6H_5-CH_2-CHO}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "316773",
                 "tag": "b",
-                "text": "$\\chemfig{C_6H_5-CHO}$",
+                "text": "<i>\\chemfig{C_6H_5-CHO}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "309498",
                 "tag": "c",
-                "text": "$\\chemfig{C_6H_5-OH}$",
+                "text": "<i>\\chemfig{C_6H_5-OH}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "211930",
                 "tag": "d",
-                "text": "$\\chemfig{C_6H_5-C(=O)-CH_3}$",
+                "text": "<i>\\chemfig{C_6H_5-C(=O)-CH_3}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 174
+        "question_number": 174,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,35 +538,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the common name for the alkanal with the IUPAC name pentanal (formula $C_4H_9CHO$)?",
-        "explanation": "The five-carbon aldehyde, pentanal, has the common name valeraldehyde. The old names often stem from natural sources, such as valeric acid from the valerian root.",
+        "question_text": "<p>What is the <b>common name</b> for the <b>alkanal</b> with the <b>IUPAC name</b> <i>pentanal</i> (formula <b>C<sub>4</sub>H<sub>9</sub>CHO</b>)?</p>",
+        "explanation": "<p>The <b>five-carbon aldehyde</b>, <i>pentanal</i>, has the <b>common name</b> <i>valeraldehyde</i>. The old names often stem from <i>natural sources</i>, such as valeric acid from the valerian root.</p>",
         "options": [
             {
                 "option_id": "984498",
                 "tag": "a",
-                "text": "Propionaldehyde",
+                "text": "<i>Propionaldehyde</i>",
                 "is_correct": false
             },
             {
                 "option_id": "228283",
                 "tag": "b",
-                "text": "Butyraldehyde",
+                "text": "<i>Butyraldehyde</i>",
                 "is_correct": false
             },
             {
                 "option_id": "304065",
                 "tag": "c",
-                "text": "Valeraldehyde",
+                "text": "<i>Valeraldehyde</i>",
                 "is_correct": true
             },
             {
                 "option_id": "465571",
                 "tag": "d",
-                "text": "Caproaldehyde",
+                "text": "<i>Caproaldehyde</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 187
+        "question_number": 187,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Consider the compound phenylethanal. What is its chemical formula?",
-        "explanation": "Phenylethanal (also known as phenylacetaldehyde) consists of an ethanal chain with a phenyl group attached to the second carbon (the $CH_2$ group). Its formula is $C_6H_5CH_2CHO$.",
+        "question_text": "<p>Consider the compound <b>phenylethanal</b>. What is its <b>chemical formula</b>?</p>",
+        "explanation": "<p><b>Phenylethanal</b> (also known as <b>phenylacetaldehyde</b>) consists of an <b>ethanal</b> chain with a <b>phenyl group</b> attached to the second carbon (the <i>CH<sub>2</sub></i> group). Its formula is <i>C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>CHO</i>.</p>",
         "options": [
             {
                 "option_id": "124461",
                 "tag": "a",
-                "text": "$C_6H_5CHO$",
+                "text": "<i>C<sub>6</sub>H<sub>5</sub>CHO</i>",
                 "is_correct": false
             },
             {
                 "option_id": "290403",
                 "tag": "b",
-                "text": "$C_6H_5CH_2CHO$",
+                "text": "<i>C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>CHO</i>",
                 "is_correct": true
             },
             {
                 "option_id": "295369",
                 "tag": "c",
-                "text": "$C_6H_5COCH_3$",
+                "text": "<i>C<sub>6</sub>H<sub>5</sub>COCH<sub>3</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "239873",
                 "tag": "d",
-                "text": "$C_6H_5CH_2OH$",
+                "text": "<i>C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>OH</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 200
+        "question_number": 200,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +614,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for acetone, which has the formula $\\chemfig{CH_3-C(=O)-CH_3}$?",
-        "explanation": "Acetone is a ketone with three carbon atoms. The corresponding alkane is propane. Replacing the '-e' with '-one' gives its IUPAC name, propanone.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for <b>acetone</b>, which has the formula <i>$\\chemfig{CH_3-C(=O)-CH_3}$</i>?</p>",
+        "explanation": "<p><b>Acetone</b> is a <b>ketone</b> with three carbon atoms. The corresponding <b>alkane</b> is <b>propane</b>. Replacing the <i>'-e'</i> with <i>'-one'</i> gives its <b>IUPAC name</b>, <b>propanone</b>.</p>",
         "options": [
             {
                 "option_id": "854288",
                 "tag": "a",
-                "text": "Propanal",
+                "text": "<b>Propanal</b>",
                 "is_correct": false
             },
             {
                 "option_id": "216179",
                 "tag": "b",
-                "text": "Propanone",
+                "text": "<b>Propanone</b>",
                 "is_correct": true
             },
             {
                 "option_id": "311107",
                 "tag": "c",
-                "text": "Butanone",
+                "text": "<b>Butanone</b>",
                 "is_correct": false
             },
             {
                 "option_id": "701481",
                 "tag": "d",
-                "text": "Pentan-2-one",
+                "text": "<b>Pentan-2-one</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 210
+        "question_number": 210,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following represents the structure of butanone?",
-        "explanation": "Butanone is a four-carbon ketone. Its structure consists of a methyl group and an ethyl group attached to a carbonyl carbon, represented as $C_2H_5COCH_3$ or $\\chemfig{CH_3-CH_2-C(=O)-CH_3}$.",
+        "question_text": "<p>Which of the following represents the <b>structure of butanone</b>?</p>",
+        "explanation": "<p><b>Butanone</b> is a <b>four-carbon ketone</b>. Its structure consists of a <b>methyl group</b> and an <b>ethyl group</b> attached to a <b>carbonyl carbon</b>, represented as <i>C<sub>2</sub>H<sub>5</sub>COCH<sub>3</sub></i> or <i>\\chemfig{CH_3-CH_2-C(=O)-CH_3}</i>.</p>",
         "options": [
             {
                 "option_id": "151543",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-CO-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-CO-CH_3}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "332957",
                 "tag": "b",
-                "text": "$\\chemfig{C_2H_5-CO-C_2H_5}$",
+                "text": "<i>\\chemfig{C_2H_5-CO-C_2H_5}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "122469",
                 "tag": "c",
-                "text": "$\\chemfig{C_2H_5-CO-CH_3}$",
+                "text": "<i>\\chemfig{C_2H_5-CO-CH_3}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "555060",
                 "tag": "d",
-                "text": "$\\chemfig{C_3H_7-CO-CH_3}$",
+                "text": "<i>\\chemfig{C_3H_7-CO-CH_3}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 225
+        "question_number": 225,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,25 +690,25 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the IUPAC naming of alkanones, how is the position of the carbonyl group indicated?",
-        "explanation": "For ketones with five or more carbon atoms, the position of the carbonyl group must be indicated numerically. The carbon chain is numbered from the end that gives the carbonyl carbon the lowest possible number (e.g., pentan-2-one instead of pentan-4-one).",
+        "question_text": "<p>In the <b>IUPAC naming</b> of <b>alkanones</b>, how is the position of the <b>carbonyl group</b> indicated?</p>",
+        "explanation": "<p>For <b>ketones</b> with five or more carbon atoms, the position of the <b>carbonyl group</b> must be indicated <b>numerically</b>. The carbon chain is numbered from the end that gives the <b>carbonyl carbon</b> the <i>lowest possible number</i> (e.g., <i>pentan-2-one</i> instead of <i>pentan-4-one</i>).</p>",
         "options": [
             {
                 "option_id": "142465",
                 "tag": "a",
-                "text": "By an alphabetical prefix",
+                "text": "By an <i>alphabetical</i> prefix",
                 "is_correct": false
             },
             {
                 "option_id": "175693",
                 "tag": "b",
-                "text": "By replacing the '-one' suffix with '-al'",
+                "text": "By replacing the <b>'-one'</b> suffix with <b>'-al'</b>",
                 "is_correct": false
             },
             {
                 "option_id": "999607",
                 "tag": "c",
-                "text": "Numerically, ensuring the carbonyl group bears the smallest possible number",
+                "text": "<b>Numerically</b>, ensuring the <b>carbonyl group</b> bears the <i>smallest possible number</i>",
                 "is_correct": true
             },
             {
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 239
+        "question_number": 239,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the structure of pentan-3-one?",
-        "explanation": "Pentan-3-one has a five-carbon chain with the carbonyl group on the third carbon. This means there are two ethyl groups attached to the carbonyl carbon, giving the structure $\\chemfig{C_2H_5-CO-C_2H_5}$.",
+        "question_text": "<p>What is the <b>structure</b> of <b>pentan-3-one</b>?</p>",
+        "explanation": "<p><b>Pentan-3-one</b> has a <b>five-carbon chain</b> with the <b>carbonyl group</b> on the <i>third carbon</i>. This means there are <b>two ethyl groups</b> attached to the carbonyl carbon, giving the structure \\chemfig{C_2H_5-CO-C_2H_5}.</p>",
         "options": [
             {
                 "option_id": "273022",
                 "tag": "a",
-                "text": "$\\chemfig{C_3H_7-CO-CH_3}$",
+                "text": "<b><i>Incorrect:</i></b> \\chemfig{C_3H_7-CO-CH_3}",
                 "is_correct": false
             },
             {
                 "option_id": "260114",
                 "tag": "b",
-                "text": "$\\chemfig{C_2H_5-CO-C_2H_5}$",
+                "text": "<b><i>Correct:</i></b> \\chemfig{C_2H_5-CO-C_2H_5}",
                 "is_correct": true
             },
             {
                 "option_id": "231691",
                 "tag": "c",
-                "text": "$\\chemfig{CH_3-CO-C_3H_7}$",
+                "text": "<b><i>Incorrect:</i></b> \\chemfig{CH_3-CO-C_3H_7}",
                 "is_correct": false
             },
             {
                 "option_id": "160573",
                 "tag": "d",
-                "text": "$\\chemfig{C_4H_9-CHO}$",
+                "text": "<b><i>Incorrect:</i></b> \\chemfig{C_4H_9-CHO}",
                 "is_correct": false
             }
         ],
-        "question_number": 252
+        "question_number": 252,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following names corresponds to the formula $\\chemfig{C_6H_5-CO-C_6H_5}$?",
-        "explanation": "The formula $\\chemfig{C_6H_5-CO-C_6H_5}$ represents a carbonyl group bonded to two phenyl rings. Its name is diphenylmethanone (also known as benzophenone).",
+        "question_text": "<p>Which of the following names corresponds to the formula <b><i>C<sub>6</sub>H<sub>5</sub>-CO-C<sub>6</sub>H<sub>5</sub></i></b>?</p>",
+        "explanation": "<p>The formula <b><i>C<sub>6</sub>H<sub>5</sub>-CO-C<sub>6</sub>H<sub>5</sub></i></b> represents a <b>carbonyl group</b> bonded to two <b>phenyl rings</b>. Its name is <b>diphenylmethanone</b> (also known as <i>benzophenone</i>).</p>",
         "options": [
             {
                 "option_id": "326692",
                 "tag": "a",
-                "text": "Phenylethanone",
+                "text": "<i>Phenylethanone</i>",
                 "is_correct": false
             },
             {
                 "option_id": "225438",
                 "tag": "b",
-                "text": "Phenylpropanone",
+                "text": "<i>Phenylpropanone</i>",
                 "is_correct": false
             },
             {
                 "option_id": "222638",
                 "tag": "c",
-                "text": "Diphenylmethanone",
+                "text": "<b>Diphenylmethanone</b>",
                 "is_correct": true
             },
             {
                 "option_id": "131052",
                 "tag": "d",
-                "text": "Cyclohexanone",
+                "text": "<i>Cyclohexanone</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 265
+        "question_number": 265,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +804,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethers are organic compounds characterized by which functional group?",
-        "explanation": "Ethers contain two organic (alkyl or aryl) radicals bonded to the same central oxygen atom. They are characterized by the functional group $\\chemfig{-C-O-C-}$.",
+        "question_text": "<p><b>Ethers</b> are <b>organic compounds</b> characterized by which <b>functional group</b>?</p>",
+        "explanation": "<p><b>Ethers</b> contain two <b>organic radicals</b> (alkyl or aryl) bonded to the same central <b>oxygen atom</b>. They are characterized by the <b>functional group</b> <chemfig>-C-O-C-</chemfig>.</p>",
         "options": [
             {
                 "option_id": "195209",
                 "tag": "a",
-                "text": "$\\chemfig{-C(=O)-}$",
+                "text": "<i>Carbonyl group:</i> <b><chemfig>-C(=O)-</chemfig></b>",
                 "is_correct": false
             },
             {
                 "option_id": "104275",
                 "tag": "b",
-                "text": "$\\chemfig{-O-H}$",
+                "text": "<i>Hydroxyl group:</i> <b><chemfig>-O-H</chemfig></b>",
                 "is_correct": false
             },
             {
                 "option_id": "249908",
                 "tag": "c",
-                "text": "$\\chemfig{-C-O-C-}$",
+                "text": "<i>Ether linkage:</i> <b><chemfig>-C-O-C-</chemfig></b>",
                 "is_correct": true
             },
             {
                 "option_id": "916041",
                 "tag": "d",
-                "text": "$\\chemfig{-C(=O)-OH}$",
+                "text": "<i>Carboxyl group:</i> <b><chemfig>-C(=O)-OH</chemfig></b>",
                 "is_correct": false
             }
         ],
-        "question_number": 278
+        "question_number": 278,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When an ether has two identical alkyl groups bonded to the oxygen atom, it is referred to as:",
-        "explanation": "An ether is said to be symmetrical if the two alkyl groups attached to the oxygen atom are the same (e.g., ethoxyethane, $\\chemfig{C_2H_5-O-C_2H_5}$). If they are different, it is an unsymmetrical ether.",
+        "question_text": "<p>When an <b>ether</b> has two <b>identical alkyl groups</b> bonded to the <b>oxygen atom</b>, it is referred to as:</p>",
+        "explanation": "<p>An <b>ether</b> is said to be <b>symmetrical</b> if the two <b>alkyl groups</b> attached to the <b>oxygen atom</b> are the same (e.g., ethoxyethane, <i>C<sub>2</sub>H<sub>5</sub>-O-C<sub>2</sub>H<sub>5</sub></i>). If they are different, it is an <i>unsymmetrical</i> ether.</p>",
         "options": [
             {
                 "option_id": "162918",
                 "tag": "a",
-                "text": "An unsymmetrical ether",
+                "text": "An <i>unsymmetrical</i> ether",
                 "is_correct": false
             },
             {
                 "option_id": "134274",
                 "tag": "b",
-                "text": "A symmetrical ether",
+                "text": "A <b>symmetrical</b> ether",
                 "is_correct": true
             },
             {
                 "option_id": "158743",
                 "tag": "c",
-                "text": "A cyclic ether",
+                "text": "A <i>cyclic</i> ether",
                 "is_correct": false
             },
             {
                 "option_id": "540187",
                 "tag": "d",
-                "text": "An aromatic ether",
+                "text": "An <i>aromatic</i> ether",
                 "is_correct": false
             }
         ],
-        "question_number": 291
+        "question_number": 291,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +880,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethers and alcohols can both be considered as organic derivatives of which inorganic molecule?",
-        "explanation": "Both alcohols and ethers are considered derivatives of water ($H_2O$). In alcohols, one hydrogen atom is replaced by an alkyl group ($\\chemfig{R-O-H}$). In ethers, both hydrogen atoms are replaced by alkyl groups ($\\chemfig{R-O-R'}$).",
+        "question_text": "<p>Both <b>ethers</b> and <b>alcohols</b> can be considered as organic derivatives of which inorganic molecule?</p>",
+        "explanation": "<p>Both <b>alcohols</b> and <b>ethers</b> are considered derivatives of <b>water</b> (H<sub>2</sub>O). In alcohols, one hydrogen atom is replaced by an <b>alkyl group</b> (<chemfig{R-O-H}>). In ethers, both hydrogen atoms are replaced by <b>alkyl groups</b> (<chemfig{R-O-R'}>).</p>",
         "options": [
             {
                 "option_id": "619667",
                 "tag": "a",
-                "text": "Ammonia ($NH_3$)",
+                "text": "<i>Ammonia</i> (NH<sub>3</sub>)",
                 "is_correct": false
             },
             {
                 "option_id": "298225",
                 "tag": "b",
-                "text": "Carbon dioxide ($CO_2$)",
+                "text": "<i>Carbon dioxide</i> (CO<sub>2</sub>)",
                 "is_correct": false
             },
             {
                 "option_id": "194544",
                 "tag": "c",
-                "text": "Water ($H_2O$)",
+                "text": "<i>Water</i> (H<sub>2</sub>O)",
                 "is_correct": true
             },
             {
                 "option_id": "285840",
                 "tag": "d",
-                "text": "Hydrogen peroxide ($H_2O_2$)",
+                "text": "<i>Hydrogen peroxide</i> (H<sub>2</sub>O<sub>2</sub>)",
                 "is_correct": false
             }
         ],
-        "question_number": 304
+        "question_number": 304,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +918,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the IUPAC nomenclature of ethers, the smaller alkyl group along with the oxygen is named as an:",
-        "explanation": "To name ethers, the alkoxy or aroxy radical name (e.g., methoxy, ethoxy) is attached to the hydrocarbon name. The longest hydrocarbon chain is used as the stem or parent name (e.g., methoxyethane).",
+        "question_text": "<p>In the <b>IUPAC nomenclature</b> of <b>ethers</b>, the <i>smaller alkyl group</i> along with the <b>oxygen</b> is named as an:</p>",
+        "explanation": "<p>To name <b>ethers</b> using <b>IUPAC nomenclature</b>, the <b>alkoxy</b> or <b>aroxy</b> radical name (e.g., methoxy, ethoxy) is attached to the <i>hydrocarbon name</i>. The <i>longest hydrocarbon chain</i> is used as the stem or parent name (e.g., methoxyethane).</p>",
         "options": [
             {
                 "option_id": "198517",
                 "tag": "a",
-                "text": "Alkanoyl group",
+                "text": "<b>Alkanoyl</b> group",
                 "is_correct": false
             },
             {
                 "option_id": "339563",
                 "tag": "b",
-                "text": "Alkoxy or aroxy radical",
+                "text": "<b>Alkoxy</b> or <b>aroxy</b> radical",
                 "is_correct": true
             },
             {
                 "option_id": "126540",
                 "tag": "c",
-                "text": "Alkyl radical",
+                "text": "<b>Alkyl</b> radical",
                 "is_correct": false
             },
             {
                 "option_id": "855399",
                 "tag": "d",
-                "text": "Alkanoate",
+                "text": "<b>Alkanoate</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 317
+        "question_number": 317,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,35 +956,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for the ether with the formula $\\chemfig{CH_3-O-C_2H_5}$?",
-        "explanation": "The formula $\\chemfig{CH_3-O-C_2H_5}$ has a methyl group and an ethyl group attached to the oxygen. The smaller group is methoxy ($-OCH_3$), and the longer chain is ethane. Hence, the name is methoxyethane.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for the <b>ether</b> with the formula <i>$\\chemfig{CH_3-O-C_2H_5}$</i>?</p>",
+        "explanation": "<p>The formula <i>$\\chemfig{CH_3-O-C_2H_5}$</i> has a <b>methyl group</b> and an <b>ethyl group</b> attached to the oxygen. The smaller group is <b>methoxy</b> (<i>$-OCH_3$</i>), and the longer chain is <b>ethane</b>. Hence, the name is <b>methoxyethane</b>.</p>",
         "options": [
             {
                 "option_id": "334526",
                 "tag": "a",
-                "text": "Ethoxyethane",
+                "text": "<b>Ethoxyethane</b>",
                 "is_correct": false
             },
             {
                 "option_id": "241379",
                 "tag": "b",
-                "text": "Methoxymethane",
+                "text": "<b>Methoxymethane</b>",
                 "is_correct": false
             },
             {
                 "option_id": "324997",
                 "tag": "c",
-                "text": "Methoxyethane",
+                "text": "<b>Methoxyethane</b>",
                 "is_correct": true
             },
             {
                 "option_id": "649906",
                 "tag": "d",
-                "text": "Propoxymethane",
+                "text": "<b>Propoxymethane</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 330
+        "question_number": 330,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,35 +994,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following represents the structure of ethoxyethane?",
-        "explanation": "Ethoxyethane is a symmetrical ether with two ethyl groups attached to the oxygen atom. Its structure is $\\chemfig{C_2H_5-O-C_2H_5}$ (commonly known as diethyl ether).",
+        "question_text": "<p>Which of the following represents the structure of <b>ethoxyethane</b>?</p>",
+        "explanation": "<p><b>Ethoxyethane</b> is a symmetrical <b>ether</b> with two <b>ethyl groups</b> attached to the oxygen atom. Its structure is <i>\\chemfig{C_2H_5-O-C_2H_5}</i> (commonly known as <b>diethyl ether</b>).</p>",
         "options": [
             {
                 "option_id": "197782",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-O-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-O-CH_3}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "184922",
                 "tag": "b",
-                "text": "$\\chemfig{C_2H_5-O-C_2H_5}$",
+                "text": "<i>\\chemfig{C_2H_5-O-C_2H_5}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "104858",
                 "tag": "c",
-                "text": "$\\chemfig{C_6H_5-O-CH_3}$",
+                "text": "<i>\\chemfig{C_6H_5-O-CH_3}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "287256",
                 "tag": "d",
-                "text": "$\\chemfig{CH_3-(CH_2)_3-O-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-(CH_2)_3-O-CH_3}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 343
+        "question_number": 343,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,35 +1032,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the structure of methoxybenzene?",
-        "explanation": "Methoxybenzene consists of a methoxy group ($-OCH_3$) attached to a benzene ring ($C_6H_5-$). Its formula is $\\chemfig{C_6H_5-O-CH_3}$ (also known as anisole).",
+        "question_text": "<p>What is the <b>structure</b> of <b>methoxybenzene</b>?</p>",
+        "explanation": "<p><b>Methoxybenzene</b> consists of a <b>methoxy group</b> (<b>\u2212OCH<sub>3</sub></b>) attached to a <b>benzene ring</b> (<b>C<sub>6</sub>H<sub>5</sub>\u2212</b>). Its <b>structure</b> is <b>\\chemfig{C_6H_5-O-CH_3}</b> (also known as <i>anisole</i>).</p>",
         "options": [
             {
                 "option_id": "330026",
                 "tag": "a",
-                "text": "$\\chemfig{C_6H_5-O-C_6H_5}$",
+                "text": "<i>Diphenyl ether:</i> <b>\\chemfig{C_6H_5-O-C_6H_5}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "589666",
                 "tag": "b",
-                "text": "$\\chemfig{C_6H_5-O-C_2H_5}$",
+                "text": "<i>Ethoxybenzene:</i> <b>\\chemfig{C_6H_5-O-C_2H_5}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "364186",
                 "tag": "c",
-                "text": "$\\chemfig{C_6H_5-CH_2-O-CH_3}$",
+                "text": "<i>Benzyl methyl ether:</i> <b>\\chemfig{C_6H_5-CH_2-O-CH_3}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "811071",
                 "tag": "d",
-                "text": "$\\chemfig{C_6H_5-O-CH_3}$",
+                "text": "<i>Anisole (methoxybenzene):</i> <b>\\chemfig{C_6H_5-O-CH_3}</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 356
+        "question_number": 356,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1070,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Cyclic ethers are named using a specific prefix before the stem of the hydrocarbon. What is this prefix?",
-        "explanation": "For cyclic ethers, the prefix 'epoxy' is used before the stem of the hydrocarbon to indicate the oxygen atom forms a ring with two carbon atoms. An example is epoxyethane.",
+        "question_text": "<p><b>Cyclic ethers</b> are named using a specific prefix before the stem of the hydrocarbon. What is this prefix?</p>",
+        "explanation": "<p>For <b>cyclic ethers</b>, the prefix <b>\u2018epoxy\u2019</b> is used before the stem of the hydrocarbon to indicate the oxygen atom forms a ring with two carbon atoms. An example is <i>epoxyethane</i>.</p>",
         "options": [
             {
                 "option_id": "202780",
                 "tag": "a",
-                "text": "Cyclo-",
+                "text": "<i>Cyclo-</i>",
                 "is_correct": false
             },
             {
                 "option_id": "182745",
                 "tag": "b",
-                "text": "Oxo-",
+                "text": "<i>Oxo-</i>",
                 "is_correct": false
             },
             {
                 "option_id": "854645",
                 "tag": "c",
-                "text": "Epoxy-",
+                "text": "<b>Epoxy-</b>",
                 "is_correct": true
             },
             {
                 "option_id": "238664",
                 "tag": "d",
-                "text": "Ether-",
+                "text": "<i>Ether-</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 369
+        "question_number": 369,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1108,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the common name for epoxyethane?",
-        "explanation": "Epoxyethane is a three-membered cyclic ether consisting of two carbon atoms and one oxygen atom. Its common name is ethylene oxide.",
+        "question_text": "<p>What is the <b>common name</b> for <b>epoxyethane</b>?</p>",
+        "explanation": "<p><b>Epoxyethane</b> is a three-membered <b>cyclic ether</b> consisting of two carbon atoms and one oxygen atom. Its <b>common name</b> is <b>ethylene oxide</b>.</p>",
         "options": [
             {
                 "option_id": "198416",
                 "tag": "a",
-                "text": "Tetrahydrofuran",
+                "text": "<i>Tetrahydrofuran</i>",
                 "is_correct": false
             },
             {
                 "option_id": "692823",
                 "tag": "b",
-                "text": "Ethylene oxide",
+                "text": "<b>Ethylene oxide</b>",
                 "is_correct": true
             },
             {
                 "option_id": "935012",
                 "tag": "c",
-                "text": "Propylene oxide",
+                "text": "<i>Propylene oxide</i>",
                 "is_correct": false
             },
             {
                 "option_id": "315628",
                 "tag": "d",
-                "text": "Dioxane",
+                "text": "<i>Dioxane</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 382
+        "question_number": 382,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1146,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "1,4-epoxybutane is a cyclic ether commonly known as:",
-        "explanation": "1,4-epoxybutane is a five-membered cyclic ether (four carbon atoms and one oxygen atom forming the ring). Its common and widely used name is tetrahydrofuran (THF).",
+        "question_text": "<p><b>1,4-epoxybutane</b> is a <b>cyclic ether</b> commonly known as:</p>",
+        "explanation": "<p><b>1,4-epoxybutane</b> is a <b>five-membered cyclic ether</b> (four carbon atoms and one oxygen atom forming the ring). Its common and widely used name is <b>tetrahydrofuran (THF)</b>.</p>",
         "options": [
             {
                 "option_id": "107584",
                 "tag": "a",
-                "text": "Ethylene oxide",
+                "text": "<i>Ethylene oxide</i>",
                 "is_correct": false
             },
             {
                 "option_id": "192488",
                 "tag": "b",
-                "text": "Furan",
+                "text": "<i>Furan</i>",
                 "is_correct": false
             },
             {
                 "option_id": "316242",
                 "tag": "c",
-                "text": "Tetrahydrofuran",
+                "text": "<b>Tetrahydrofuran</b>",
                 "is_correct": true
             },
             {
                 "option_id": "244820",
                 "tag": "d",
-                "text": "Pyran",
+                "text": "<i>Pyran</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 394
+        "question_number": 394,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,35 +1184,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is functional group isomerism?",
-        "explanation": "Functional group isomerism is a phenomenon where molecules with the same molecular formula belong to different homologous series because they contain different functional groups. A classic example is ethanol and methoxymethane.",
+        "question_text": "<p>What is <b>functional group isomerism</b>?</p>",
+        "explanation": "<p><b>Functional group isomerism</b> is a phenomenon where molecules with the <b>same molecular formula</b> belong to different <b>homologous series</b> because they contain <b>different functional groups</b>. A classic example is <i>ethanol</i> and <i>methoxymethane</i>.</p>",
         "options": [
             {
                 "option_id": "180448",
                 "tag": "a",
-                "text": "When isomers have the same functional group but different carbon chain lengths",
+                "text": "When isomers have the <b>same functional group</b> but different <b>carbon chain lengths</b>",
                 "is_correct": false
             },
             {
                 "option_id": "241690",
                 "tag": "b",
-                "text": "When two or more isomers have the same molecular formula but different functional groups",
+                "text": "When two or more isomers have the <b>same molecular formula</b> but <b>different functional groups</b>",
                 "is_correct": true
             },
             {
                 "option_id": "192100",
                 "tag": "c",
-                "text": "When isomers differ only in the spatial arrangement of atoms",
+                "text": "When isomers differ only in the <i>spatial arrangement</i> of atoms",
                 "is_correct": false
             },
             {
                 "option_id": "321295",
                 "tag": "d",
-                "text": "When isomers possess different molecular formulas but similar functional groups",
+                "text": "When isomers possess <b>different molecular formulas</b> but <i>similar functional groups</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 406
+        "question_number": 406,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1222,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The molecular formula $C_2H_6O$ can represent two different functional group isomers. What are they?",
-        "explanation": "The formula $C_2H_6O$ corresponds to an alcohol (ethanol, $\\chemfig{CH_3-CH_2-OH}$) and an ether (methoxymethane, $\\chemfig{CH_3-O-CH_3}$). These are functional group isomers.",
+        "question_text": "<p>The <b>molecular formula</b> <b>C<sub>2</sub>H<sub>6</sub>O</b> can represent two different <b>functional group isomers</b>. What are they?</p>",
+        "explanation": "<p>The formula <b>C<sub>2</sub>H<sub>6</sub>O</b> corresponds to an <b>alcohol</b> (<b>ethanol</b>, <b>\\chemfig{CH_3-CH_2-OH}</b>) and an <b>ether</b> (<b>methoxymethane</b>, <b>\\chemfig{CH_3-O-CH_3}</b>). These are <b>functional group isomers</b>.</p>",
         "options": [
             {
                 "option_id": "180409",
                 "tag": "a",
-                "text": "Ethanal and methanal",
+                "text": "<i>Ethanal</i> and <i>methanal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "167334",
                 "tag": "b",
-                "text": "Ethanol and methoxymethane",
+                "text": "<b>Ethanol</b> and <b>methoxymethane</b>",
                 "is_correct": true
             },
             {
                 "option_id": "101721",
                 "tag": "c",
-                "text": "Propanol and ethoxyethane",
+                "text": "<i>Propanol</i> and <i>ethoxyethane</i>",
                 "is_correct": false
             },
             {
                 "option_id": "244851",
                 "tag": "d",
-                "text": "Ethanoic acid and methyl methanoate",
+                "text": "<i>Ethanoic acid</i> and <i>methyl methanoate</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 418
+        "question_number": 418,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,25 +1260,25 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The molecular formula $C_3H_6O_2$ gives rise to multiple functional group isomers. Which of the following is NOT an isomer of $C_3H_6O_2$ according to the text?",
-        "explanation": "Propyl ethanoate has the formula $C_5H_{10}O_2$, so it cannot be an isomer of $C_3H_6O_2$. The text specifically mentions propanoic acid, 3-hydroxypropanal, and 1-hydroxypropanone as three different functional group isomers of $C_3H_6O_2$.",
+        "question_text": "<p>The molecular formula <b>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></b> gives rise to multiple <b>functional group isomers</b>. Which of the following is <i>NOT</i> an isomer of <b>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></b> according to the text?</p>",
+        "explanation": "<p><b>Propyl ethanoate</b> has the formula <b>C<sub>5</sub>H<sub>10</sub>O<sub>2</sub></b>, so it cannot be an isomer of <b>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></b>. The text specifically mentions <b>propanoic acid</b>, <b>3-hydroxypropanal</b>, and <b>1-hydroxypropanone</b> as three different <b>functional group isomers</b> of <b>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></b>.</p>",
         "options": [
             {
                 "option_id": "127887",
                 "tag": "a",
-                "text": "Propanoic acid ($\\chemfig{CH_3CH_2COOH}$)",
+                "text": "Propanoic acid (<b><i>CH<sub>3</sub>CH<sub>2</sub>COOH</i></b>)",
                 "is_correct": false
             },
             {
                 "option_id": "259338",
                 "tag": "b",
-                "text": "3-hydroxypropanal ($\\chemfig{CH_2OHCH_2CHO}$)",
+                "text": "3-hydroxypropanal (<b><i>CH<sub>2</sub>OHCH<sub>2</sub>CHO</i></b>)",
                 "is_correct": false
             },
             {
                 "option_id": "100496",
                 "tag": "c",
-                "text": "1-hydroxypropanone ($\\chemfig{CH_3COCH_2OH}$)",
+                "text": "1-hydroxypropanone (<b><i>CH<sub>3</sub>COCH<sub>2</sub>OH</i></b>)",
                 "is_correct": false
             },
             {
@@ -1255,7 +1288,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 430
+        "question_number": 430,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1298,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Identify the structure of 1-methoxybutane.",
-        "explanation": "1-methoxybutane consists of a methoxy group ($-OCH_3$) attached to the first carbon of a butane chain (four carbons). Its formula is $\\chemfig{CH_3-(CH_2)_3-O-CH_3}$.",
+        "question_text": "<p>Identify the <b>structure</b> of <b>1-methoxybutane</b>.</p>",
+        "explanation": "<p><b>1-methoxybutane</b> consists of a <b>methoxy group</b> (<i>\u2212OCH<sub>3</sub></i>) attached to the first carbon of a <b>butane chain</b> (four carbons). Its formula is <i>\\chemfig{CH_3-(CH_2)_3-O-CH_3}</i>.</p>",
         "options": [
             {
                 "option_id": "435712",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-CH(CH_3)-O-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-CH(CH_3)-O-CH_3}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "153910",
                 "tag": "b",
-                "text": "$\\chemfig{CH_3-(CH_2)_3-O-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-(CH_2)_3-O-CH_3}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "402594",
                 "tag": "c",
-                "text": "$\\chemfig{C_2H_5-O-C_2H_5}$",
+                "text": "<i>\\chemfig{C_2H_5-O-C_2H_5}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "246838",
                 "tag": "d",
-                "text": "$\\chemfig{CH_3-CH_2-CH_2-O-CH_2-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-CH_2-CH_2-O-CH_2-CH_3}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 442
+        "question_number": 442,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,13 +1336,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Identify the structure of 2-methoxybutane.",
-        "explanation": "2-methoxybutane has a methoxy group attached to the second carbon of the butane chain. Its structural formula can be represented as $\\chemfig{C_2H_5-CH(OCH_3)-CH_3}$ or $\\chemfig{CH_3-CH_2-CH(OCH_3)-CH_3}$.",
+        "question_text": "<p>Identify the <b>structure</b> of <b>2-methoxybutane</b>.</p>",
+        "explanation": "<p><b>2-methoxybutane</b> has a <b>methoxy group</b> (<b>-OCH<sub>3</sub></b>) attached to the <b>second carbon</b> of the <b>butane chain</b>. Its <b>structural formula</b> can be represented as $\\chemfig{C_2H_5-CH(OCH_3)-CH_3}$ or $\\chemfig{CH_3-CH_2-CH(OCH_3)-CH_3}$.</p>",
         "options": [
             {
                 "option_id": "169909",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-CH_2-CH(OCH_3)-CH_3}$",
+                "text": "<i>Correct structure:</i> $\\chemfig{CH_3-CH_2-CH(OCH_3)-CH_3}$",
                 "is_correct": true
             },
             {
@@ -1329,7 +1364,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 454
+        "question_number": 454,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,35 +1374,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanals are formed by the oxidation of which class of alcohols?",
-        "explanation": "Alkanals (aldehydes) are produced by the controlled oxidation of primary alcohols. If oxidized further, they form carboxylic acids. Secondary alcohols oxidize to form alkanones (ketones).",
+        "question_text": "<p><b>Alkanals</b> are formed by the oxidation of which class of <b>alcohols</b>?</p>",
+        "explanation": "<p><b>Alkanals</b> (aldehydes) are produced by the controlled oxidation of <b>primary alcohols</b>. If oxidized further, they form <b>carboxylic acids</b>. <b>Secondary alcohols</b> oxidize to form <b>alkanones</b> (ketones), while <i>tertiary alcohols do not undergo oxidation under normal conditions</i>.</p>",
         "options": [
             {
                 "option_id": "138871",
                 "tag": "a",
-                "text": "Primary alcohols",
+                "text": "<b>Primary alcohols</b>",
                 "is_correct": true
             },
             {
                 "option_id": "321653",
                 "tag": "b",
-                "text": "Secondary alcohols",
+                "text": "<b>Secondary alcohols</b>",
                 "is_correct": false
             },
             {
                 "option_id": "820027",
                 "tag": "c",
-                "text": "Tertiary alcohols",
+                "text": "<b>Tertiary alcohols</b>",
                 "is_correct": false
             },
             {
                 "option_id": "100713",
                 "tag": "d",
-                "text": "Phenols",
+                "text": "<b>Phenols</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 466
+        "question_number": 466,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,35 +1412,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the naming of 2-methylheptan-4-one, what does the '4' indicate?",
-        "explanation": "In 2-methylheptan-4-one, the '4' indicates the numerical position of the carbonyl group ($\\chemfig{C=O}$) on the parent heptane chain. The methyl group is located on carbon 2.",
+        "question_text": "<p>In the naming of <b>2-methylheptan-4-one</b>, what does the <b>'4'</b> indicate?</p>",
+        "explanation": "<p>In <b>2-methylheptan-4-one</b>, the <b>'4'</b> indicates the numerical position of the <b>carbonyl group</b> (<i>C=O</i>) on the parent <b>heptane</b> chain. The <b>methyl group</b> is located on carbon <b>2</b>.</p>",
         "options": [
             {
                 "option_id": "101239",
                 "tag": "a",
-                "text": "The position of the methyl group",
+                "text": "The position of the <b>methyl group</b>",
                 "is_correct": false
             },
             {
                 "option_id": "326398",
                 "tag": "b",
-                "text": "The total number of carbon atoms",
+                "text": "The total number of <b>carbon atoms</b>",
                 "is_correct": false
             },
             {
                 "option_id": "468581",
                 "tag": "c",
-                "text": "The position of the carbonyl group ($\\chemfig{C=O}$)",
+                "text": "The position of the <b>carbonyl group</b> (<i>C=O</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "132386",
                 "tag": "d",
-                "text": "The number of double bonds",
+                "text": "The number of <b>double bonds</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 478
+        "question_number": 478,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the structural formula of cyclohexanone?",
-        "explanation": "Cyclohexanone is a cyclic ketone with six carbon atoms in the ring, one of which is a carbonyl carbon. Its formula is $\\chemfig{C_5H_{10}CO}$ (total $C_6H_{10}O$), featuring a six-membered ring containing a $\\chemfig{C=O}$ group.",
+        "question_text": "<p>What is the <b>structural formula</b> of <b>cyclohexanone</b>?</p>",
+        "explanation": "<p><b>Cyclohexanone</b> is a <b>cyclic ketone</b> with six carbon atoms in the ring, one of which is a <b>carbonyl carbon</b>. Its formula is <i>\\chemfig{C_5H_{10}CO}</i> (total <i>C_6H_{10}O</i>), featuring a six-membered ring containing a <i>\\chemfig{C=O}</i> group.</p>",
         "options": [
             {
                 "option_id": "123628",
                 "tag": "a",
-                "text": "$\\chemfig{C_6H_6O}$",
+                "text": "<i>\\chemfig{C_6H_6O}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "217510",
                 "tag": "b",
-                "text": "$\\chemfig{C_6H_{10}O}$",
+                "text": "<i>\\chemfig{C_6H_{10}O}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "178023",
                 "tag": "c",
-                "text": "$\\chemfig{C_5H_{10}CO}$",
+                "text": "<i>\\chemfig{C_5H_{10}CO}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "463524",
                 "tag": "d",
-                "text": "$\\chemfig{C_6H_5OH}$",
+                "text": "<i>\\chemfig{C_6H_5OH}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 490
+        "question_number": 490,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds has the common name 'butyraldehyde'?",
-        "explanation": "Butanal is a four-carbon aldehyde. Its common name is butyraldehyde, derived from butyric acid (which is found in rancid butter). Its formula is $C_3H_7CHO$.",
+        "question_text": "<p>Which of the following compounds has the <b>common name</b> <i>'butyraldehyde'</i>?</p>",
+        "explanation": "<p><b>Butanal</b> is a four-carbon aldehyde. Its <b>common name</b> is <i>butyraldehyde</i>, derived from <b>butyric acid</b> (which is found in rancid butter). Its formula is <i>C<sub>3</sub>H<sub>7</sub>CHO</i>.</p>",
         "options": [
             {
                 "option_id": "170434",
                 "tag": "a",
-                "text": "Propanal",
+                "text": "<b>Propanal</b>",
                 "is_correct": false
             },
             {
                 "option_id": "164367",
                 "tag": "b",
-                "text": "Butanal",
+                "text": "<b>Butanal</b>",
                 "is_correct": true
             },
             {
                 "option_id": "104346",
                 "tag": "c",
-                "text": "Pentanal",
+                "text": "<b>Pentanal</b>",
                 "is_correct": false
             },
             {
                 "option_id": "234264",
                 "tag": "d",
-                "text": "Hexanal",
+                "text": "<b>Hexanal</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 502
+        "question_number": 502,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What happens when an unknown compound is heated with Tollen's reagent in a water bath, and no silver mirror forms?",
-        "explanation": "Tollen's test distinguishes alkanals from alkanones. Alkanals form a silver mirror because they are oxidized. Alkanones do not undergo oxidation with Tollen's reagent and therefore yield a negative result (no silver mirror).",
+        "question_text": "<p>What happens when an <b>unknown compound</b> is heated with <b>Tollen's reagent</b> in a water bath, and <i>no silver mirror</i> forms?</p>",
+        "explanation": "<p><b>Tollen's test</b> distinguishes <b>alkanals</b> from <b>alkanones</b>. Alkanals form a <b>silver mirror</b> because they are <b>oxidized</b>. Alkanones do not undergo oxidation with Tollen's reagent and therefore yield a <i>negative result</i> (no silver mirror).</p>",
         "options": [
             {
                 "option_id": "579075",
                 "tag": "a",
-                "text": "The compound is definitely an alkanal.",
+                "text": "The compound is <i>definitely</i> an <b>alkanal</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "221981",
                 "tag": "b",
-                "text": "The compound is likely an alkanone, as alkanones do not undergo oxidation under these conditions.",
+                "text": "The compound is <i>likely</i> an <b>alkanone</b>, as alkanones do not undergo <b>oxidation</b> under these conditions.",
                 "is_correct": true
             },
             {
                 "option_id": "279797",
                 "tag": "c",
-                "text": "The compound is a primary alcohol.",
+                "text": "The compound is a <b>primary alcohol</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "294738",
                 "tag": "d",
-                "text": "The Tollen's reagent was too concentrated.",
+                "text": "The Tollen's reagent was <i>too concentrated</i>.",
                 "is_correct": false
             }
         ],
-        "question_number": 514
+        "question_number": 514,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,35 +1564,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following gives the correct molecular formula for the isomer of $C_2H_6O$ that behaves as an ether?",
-        "explanation": "The formula $C_2H_6O$ represents two isomers: ethanol (an alcohol, $\\chemfig{CH_3-CH_2-OH}$) and methoxymethane (an ether, $\\chemfig{CH_3-O-CH_3}$). The ether isomer is methoxymethane.",
+        "question_text": "<p>Which of the following gives the correct <b>molecular formula</b> for the <b>isomer</b> of <b>C<sub>2</sub>H<sub>6</sub>O</b> that behaves as an <b>ether</b>?</p>",
+        "explanation": "<p>The formula <b>C<sub>2</sub>H<sub>6</sub>O</b> represents two <b>isomers</b>: ethanol (an <b>alcohol</b>, <i>\\chemfig{CH_3-CH_2-OH}</i>) and methoxymethane (an <b>ether</b>, <i>\\chemfig{CH_3-O-CH_3}</i>). The <b>ether isomer</b> is methoxymethane.</p>",
         "options": [
             {
                 "option_id": "918773",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-CH_2-OH}$",
+                "text": "<i>\\chemfig{CH_3-CH_2-OH}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "602636",
                 "tag": "b",
-                "text": "$\\chemfig{CH_3-O-CH_3}$",
+                "text": "<i>\\chemfig{CH_3-O-CH_3}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "167449",
                 "tag": "c",
-                "text": "$\\chemfig{CH_3-CHO}$",
+                "text": "<i>\\chemfig{CH_3-CHO}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "103430",
                 "tag": "d",
-                "text": "$\\chemfig{H-C(=O)-OH}$",
+                "text": "<i>\\chemfig{H-C(=O)-OH}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 526
+        "question_number": 526,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,35 +1602,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for $C_6H_5CH_2COCH_3$?",
-        "explanation": "The structure $C_6H_5CH_2COCH_3$ contains a three-carbon ketone chain (propanone) with a phenyl group attached to the terminal carbon. Hence, it is named phenylpropanone.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for <b>C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>COCH<sub>3</sub></b>?</p>",
+        "explanation": "<p>The structure <b>C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>COCH<sub>3</sub></b> contains a <i>three-carbon ketone chain</i> (<b>propanone</b>) with a <b>phenyl group</b> attached to the terminal carbon. Hence, it is named <b>phenylpropanone</b>.</p>",
         "options": [
             {
                 "option_id": "129334",
                 "tag": "a",
-                "text": "Phenylethanone",
+                "text": "<b>Phenylethanone</b>",
                 "is_correct": false
             },
             {
                 "option_id": "129205",
                 "tag": "b",
-                "text": "Diphenylmethanone",
+                "text": "<b>Diphenylmethanone</b>",
                 "is_correct": false
             },
             {
                 "option_id": "329658",
                 "tag": "c",
-                "text": "Phenylpropanone",
+                "text": "<b>Phenylpropanone</b>",
                 "is_correct": true
             },
             {
                 "option_id": "138703",
                 "tag": "d",
-                "text": "Benzyl methyl ether",
+                "text": "<b>Benzyl methyl ether</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 538
+        "question_number": 538,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The oxidation of which specific alcohol yields propanone?",
-        "explanation": "Propanone is a ketone, which is formed by the oxidation of a secondary alcohol. Propan-2-ol is the secondary alcohol that oxidizes to yield propanone.",
+        "question_text": "<p>The <b>oxidation</b> of which specific <b>alcohol</b> yields <b>propanone</b>?</p>",
+        "explanation": "<p><b>Propanone</b> is a <b>ketone</b>, which is formed by the <b>oxidation</b> of a <i>secondary</i> <b>alcohol</b>. <b>Propan-2-ol</b> is the secondary alcohol that oxidizes to yield propanone.</p>",
         "options": [
             {
                 "option_id": "336356",
                 "tag": "a",
-                "text": "Propan-1-ol",
+                "text": "<b>Propan-1-ol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "205046",
                 "tag": "b",
-                "text": "Propan-2-ol",
+                "text": "<b>Propan-2-ol</b>",
                 "is_correct": true
             },
             {
                 "option_id": "327520",
                 "tag": "c",
-                "text": "Ethanol",
+                "text": "<b>Ethanol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "168620",
                 "tag": "d",
-                "text": "2-methylpropan-2-ol",
+                "text": "<b>2-methylpropan-2-ol</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 550
+        "question_number": 550,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the structure of 2,3-epoxypentane, the oxygen atom is bonded to which carbon atoms of the pentane chain?",
-        "explanation": "The name 2,3-epoxypentane indicates that the 'epoxy' oxygen bridge is formed across carbon 2 and carbon 3 of the five-carbon pentane chain.",
+        "question_text": "<p>In the structure of <b>2,3-epoxypentane</b>, the <b>oxygen atom</b> is bonded to which <b>carbon atoms</b> of the pentane chain?</p>",
+        "explanation": "<p>The name <b>2,3-epoxypentane</b> indicates that the <i>epoxy</i> oxygen bridge is formed across <b>carbon 2</b> and <b>carbon 3</b> of the five-carbon pentane chain.</p>",
         "options": [
             {
                 "option_id": "255183",
                 "tag": "a",
-                "text": "Carbons 1 and 2",
+                "text": "Carbons <b>1</b> and <b>2</b>",
                 "is_correct": false
             },
             {
                 "option_id": "282151",
                 "tag": "b",
-                "text": "Carbons 2 and 3",
+                "text": "Carbons <b>2</b> and <b>3</b>",
                 "is_correct": true
             },
             {
                 "option_id": "866642",
                 "tag": "c",
-                "text": "Carbons 1 and 5",
+                "text": "Carbons <b>1</b> and <b>5</b>",
                 "is_correct": false
             },
             {
                 "option_id": "135107",
                 "tag": "d",
-                "text": "Carbons 3 and 4",
+                "text": "Carbons <b>3</b> and <b>4</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 562
+        "question_number": 562,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1716,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds is considered a derivative of water where both hydrogen atoms are replaced by the same organic radical?",
-        "explanation": "Replacing both hydrogens of water ($H_2O$) with the same organic radical produces a symmetrical ether. $\\chemfig{C_2H_5-O-C_2H_5}$ (ethoxyethane) has two identical ethyl radicals, fitting this description.",
+        "question_text": "<p>Which of the following compounds is considered a <b>derivative of water</b> where <b>both hydrogen atoms</b> are replaced by the <i>same</i> <b>organic radical</b>?</p>",
+        "explanation": "<p>Replacing <b>both hydrogens</b> of water (<b>H<sub>2</sub>O</b>) with the <i>same</i> <b>organic radical</b> produces a <b>symmetrical ether</b>. <b>\\chemfig{C_2H_5-O-C_2H_5}</b> (ethoxyethane) has two identical ethyl radicals, fitting this description.</p>",
         "options": [
             {
                 "option_id": "183633",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-OH}$",
+                "text": "<i>Methanol:</i> <b>\\chemfig{CH_3-OH}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "234624",
                 "tag": "b",
-                "text": "$\\chemfig{CH_3-O-C_2H_5}$",
+                "text": "<i>Ethyl methyl ether:</i> <b>\\chemfig{CH_3-O-C_2H_5}</b>",
                 "is_correct": false
             },
             {
                 "option_id": "241873",
                 "tag": "c",
-                "text": "$\\chemfig{C_2H_5-O-C_2H_5}$",
+                "text": "<i>Diethyl ether:</i> <b>\\chemfig{C_2H_5-O-C_2H_5}</b>",
                 "is_correct": true
             },
             {
                 "option_id": "160969",
                 "tag": "d",
-                "text": "$\\chemfig{CH_3-C(=O)-CH_3}$",
+                "text": "<i>Acetone:</i> <b>\\chemfig{CH_3-C(=O)-CH_3}</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 574
+        "question_number": 574,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why are aldehydes and ketones grouped together in study?",
-        "explanation": "Aldehydes (alkanals) and ketones (alkanones) are related and studied together because they both contain the carbonyl functional group ($\\chemfig{C=O}$).",
+        "question_text": "<p>Why are <b>aldehydes</b> and <b>ketones</b> grouped together in study?</p>",
+        "explanation": "<p><b>Aldehydes</b> (alkanals) and <b>ketones</b> (alkanones) are related and studied together because they both contain the <b>carbonyl functional group</b> (<i>C=O</i>).</p>",
         "options": [
             {
                 "option_id": "854791",
                 "tag": "a",
-                "text": "They both contain a hydroxyl group",
+                "text": "They both contain a <b>hydroxyl group</b>",
                 "is_correct": false
             },
             {
                 "option_id": "221099",
                 "tag": "b",
-                "text": "They both contain a carbonyl group ($\\chemfig{C=O}$)",
+                "text": "They both contain a <b>carbonyl group</b> (<i>C=O</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "467596",
                 "tag": "c",
-                "text": "They are both basic in nature",
+                "text": "They are both <b>basic</b> in nature",
                 "is_correct": false
             },
             {
                 "option_id": "909963",
                 "tag": "d",
-                "text": "They both form silver mirrors with Tollen's reagent",
+                "text": "They both form <b>silver mirrors</b> with <i>Tollen's reagent</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 586
+        "question_number": 586,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,35 +1792,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is the structural formula of Hexan-3-one?",
-        "explanation": "Hexan-3-one is a six-carbon ketone with the carbonyl group on carbon 3. This leaves an ethyl group (2 carbons) on one side and a propyl group (3 carbons) on the other. Its formula is $\\chemfig{C_2H_5-CO-C_3H_7}$.",
+        "question_text": "<p>Which of the following is the <b>structural formula</b> of <b>Hexan-3-one</b>?</p>",
+        "explanation": "<p><b>Hexan-3-one</b> is a six-carbon <b>ketone</b> with the <b>carbonyl group</b> on carbon 3. This leaves an <b>ethyl group</b> (2 carbons) on one side and a <b>propyl group</b> (3 carbons) on the other. Its formula is <i>\\chemfig{C_2H_5-CO-C_3H_7}</i>.</p>",
         "options": [
             {
                 "option_id": "193170",
                 "tag": "a",
-                "text": "$\\chemfig{CH_3-CO-C_4H_9}$",
+                "text": "<i>\\chemfig{CH_3-CO-C_4H_9}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "679482",
                 "tag": "b",
-                "text": "$\\chemfig{C_2H_5-CO-C_3H_7}$",
+                "text": "<i>\\chemfig{C_2H_5-CO-C_3H_7}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "267815",
                 "tag": "c",
-                "text": "$\\chemfig{C_3H_7-CO-C_3H_7}$",
+                "text": "<i>\\chemfig{C_3H_7-CO-C_3H_7}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "145682",
                 "tag": "d",
-                "text": "$\\chemfig{C_2H_5-CO-C_2H_5}$",
+                "text": "<i>\\chemfig{C_2H_5-CO-C_2H_5}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 598
+        "question_number": 598,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1830,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Identify the incorrect statement regarding the Tollen's test.",
-        "explanation": "The incorrect statement is that alkanones are oxidized. Alkanones do NOT undergo oxidation under the conditions of the Tollen's test. Only alkanals (aldehydes) are oxidized to carboxylic acids.",
+        "question_text": "<p>Identify the <b>incorrect statement</b> regarding the <b>Tollen's test</b>.</p>",
+        "explanation": "<p>The <b>incorrect statement</b> is that <b>alkanones</b> are oxidized. <b>Alkanones</b> do <i>NOT</i> undergo oxidation under the conditions of the <b>Tollen's test</b>. Only <b>alkanals (aldehydes)</b> are oxidized to <b>carboxylic acids</b>.</p>",
         "options": [
             {
                 "option_id": "310556",
                 "tag": "a",
-                "text": "It uses an ammoniacal solution of silver nitrate.",
+                "text": "It uses an <b>ammoniacal solution of silver nitrate</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "266382",
                 "tag": "b",
-                "text": "It can be used to distinguish between ethanal and propanone.",
+                "text": "It can be used to distinguish between <b>ethanal</b> and <b>propanone</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "213109",
                 "tag": "c",
-                "text": "Alkanones are oxidized to carboxylic acids during the test.",
+                "text": "<b>Alkanones</b> are oxidized to <b>carboxylic acids</b> during the test.",
                 "is_correct": true
             },
             {
                 "option_id": "106456",
                 "tag": "d",
-                "text": "A positive result is the formation of a silver mirror.",
+                "text": "A <i>positive result</i> is the formation of a <b>silver mirror</b>.",
                 "is_correct": false
             }
         ],
-        "question_number": 610
+        "question_number": 610,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,34 +1868,35 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the structural relationship between propanal and propanone?",
-        "explanation": "Propanal (an alkanal) and propanone (an alkanone) both share the same molecular formula, $C_3H_6O$ ($C_nH_{2n}O$). Since they have different functional groups (aldehyde vs. ketone), they are functional group isomers.",
+        "question_text": "<p>What is the <b>structural relationship</b> between <b>propanal</b> and <b>propanone</b>?</p>",
+        "explanation": "<p><b>Propanal</b> (an alkanal) and <b>propanone</b> (an alkanone) both share the same <b>molecular formula</b>, <i>C<sub>3</sub>H<sub>6</sub>O</i> (<i>C<sub>n</sub>H<sub>2n</sub>O</i>). Since they have different <b>functional groups</b> (aldehyde vs. ketone), they are <b>functional group isomers</b>.</p>",
         "options": [
             {
                 "option_id": "145376",
                 "tag": "a",
-                "text": "They are structural isomers (specifically, functional group isomers) with the formula $C_3H_6O$.",
+                "text": "They are <b>structural isomers</b> (specifically, <b>functional group isomers</b>) with the formula <i>C<sub>3</sub>H<sub>6</sub>O</i>.",
                 "is_correct": true
             },
             {
                 "option_id": "111638",
                 "tag": "b",
-                "text": "They are geometrical isomers.",
+                "text": "They are <b>geometrical isomers</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "192940",
                 "tag": "c",
-                "text": "They are isotopes.",
+                "text": "They are <b>isotopes</b>.",
                 "is_correct": false
             },
             {
                 "option_id": "100609",
                 "tag": "d",
-                "text": "They are stereoisomers.",
+                "text": "They are <b>stereoisomers</b>.",
                 "is_correct": false
             }
         ],
-        "question_number": 622
+        "question_number": 622,
+        "is_rewritten": true
     }
 ]

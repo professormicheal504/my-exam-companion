@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Dashboard - My Exam Companion</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            /* Light theme */
+            --bg-base: #f9fafb;
+            --bg-surface: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent-blue: #2563eb;
+            --accent-blue-hover: #1d4ed8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        [data-theme="dark"] {
+            --bg-base: #111827;
+            --bg-surface: #1f2937;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border: #374151;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 16px;
+        }
+
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            padding: 0 12px;
+            color: var(--text-main);
+        }
+
+        .brand span {
+            color: var(--accent-blue);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(37, 99, 235, 0.08);
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .tab {
+            padding: 12px 4px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .tab.active {
+            color: var(--accent-blue);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-blue);
+            border-radius: 2px 2px 0 0;
+        }
+
+        /* Table */
+        .table-container {
+            background: var(--bg-surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            background: var(--bg-surface);
+            z-index: 10;
+        }
+
+        td {
+            font-size: 0.875rem;
+            vertical-align: middle;
+        }
+
+        .article-cell {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .article-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #9ca3af;
+            overflow: hidden;
+        }
+
+        .article-title {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .article-publisher {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .status-pending { background: #fef3c7; color: #d97706; }
+        .status-approved { background: #d1fae5; color: #059669; }
+        .status-rejected { background: #fee2e2; color: #dc2626; }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.2s;
+        }
+        .action-btn:hover { opacity: 0.8; }
+        .btn-view { background: var(--bg-base); color: var(--text-main); border: 1px solid var(--border); }
+        
+        tr:hover {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* Modal / Review Screen */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: var(--bg-surface);
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 20px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .preview-area {
+            flex: 2;
+            background: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        .device-frame {
+            width: 375px;
+            height: 100%;
+            background: #fff;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 8px solid #111;
+            position: relative;
+        }
+
+        .device-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .action-area {
+            flex: 1;
+            padding: 32px;
+            border-left: 1px solid var(--border);
+            background: var(--bg-surface);
+            overflow-y: auto;
+        }
+
+        .action-area h3 {
+            margin-bottom: 16px;
+        }
+
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.875rem; }
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-base);
+            color: var(--text-main);
+            min-height: 120px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-approve { background: var(--success); color: white; flex: 1; text-align: center; padding: 12px; }
+        .btn-reject { background: var(--danger); color: white; flex: 1; text-align: center; padding: 12px; }
+        
+        .empty-state {
+            padding: 60px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand">MyExam<span>Hub</span></div>
+        <div class="nav-item active">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+            Review Queue
+        </div>
+        <div class="nav-item" onclick="window.location.href='../index.html'">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Back to App
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Editor Dashboard</h1>
+            <div style="font-size: 0.875rem; color: var(--text-muted);" id="userEmailDisplay">Loading...</div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="setFilter('pending', this)">Pending Review</div>
+            <div class="tab" onclick="setFilter('approved', this)">Approved</div>
+            <div class="tab" onclick="setFilter('rejected', this)">Rejected</div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Article</th>
+                        <th>Publisher ID</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="articlesTableBody">
+                    <tr><td colspan="5" class="empty-state">Loading articles...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Reviewing Article</h2>
+                <button class="action-btn btn-view" onclick="closeModal()">Close</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-area">
+                    <div class="device-frame" id="deviceFrame">
+                        <div style="padding: 40px; text-align: center; color: #666;">Loading preview...</div>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <h3>Decision</h3>
+                    <div class="form-group">
+                        <label>Rejection Reason (if rejecting)</label>
+                        <textarea id="rejectionReason" placeholder="Please provide constructive feedback..."></textarea>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn btn-reject" onclick="handleDecision('rejected')">Reject</button>
+                        <button class="action-btn btn-approve" onclick="handleDecision('approved')">Approve</button>
+                    </div>
+                    
+                    <div style="margin-top: 40px; padding: 16px; background: rgba(37, 99, 235, 0.05); border-radius: 8px;">
+                        <h4 style="margin-bottom: 8px; color: var(--accent-blue);">Editor Guidelines</h4>
+                        <ul style="font-size: 0.8rem; color: var(--text-muted); padding-left: 16px; line-height: 1.6;">
+                            <li>Ensure content meets quality standards.</li>
+                            <li>Check for plagiarism or inappropriate material.</li>
+                            <li>Approving this article will automatically publish it to the live Cloudflare CDN.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../components/supabase.js"></script>
+<script>
+    let currentFilter = 'pending';
+    let allPosts = [];
+    let currentReviewPostId = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        if (typeof window.MECSupabase === 'undefined') return;
+        
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            window.location.href = '../profile/login.html';
+            return;
+        }
+
+        document.getElementById('userEmailDisplay').textContent = user.email;
+
+        // Verify editor access visually (RLS actually enforces this)
+        const allowedEmails = ['professormicheal504@gmail.com', 'prepzone504@gmail.com'];
+        if (!allowedEmails.includes(user.email)) {
+            document.getElementById('articlesTableBody').innerHTML = `<tr><td colspan="5" class="empty-state">Access Denied. You are not an authorized editor.</td></tr>`;
+            return;
+        }
+
+        await fetchPosts();
+    });
+
+    async function fetchPosts() {
+        const sb = window.MECSupabase.getSupabase();
+        
+        // As an editor, we query all posts.
+        const { data: posts, error } = await sb
+            .from('publisher_posts')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error('Error fetching posts:', error);
+            document.getElementById('articlesTableBody').innerHTML = `<tr><td colspan="5" class="empty-state" style="color:red;">Error loading posts. Make sure the database migration is applied.</td></tr>`;
+            return;
+        }
+
+        allPosts = posts || [];
+        renderTable();
+    }
+
+    function setFilter(filter, el) {
+        currentFilter = filter;
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        renderTable();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById('articlesTableBody');
+        const filtered = allPosts.filter(p => p.status === currentFilter);
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5" class="empty-state">No ${currentFilter} articles found.</td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = filtered.map(post => {
+            const date = new Date(post.created_at).toLocaleDateString();
+            const thumb = post.thumbnail_url 
+                ? `<img src="${post.thumbnail_url}" style="width:100%;height:100%;object-fit:cover;">`
+                : `Txt`;
+
+            return `
+                <tr>
+                    <td>
+                        <div class="article-cell">
+                            <div class="article-thumb">${thumb}</div>
+                            <div>
+                                <div class="article-title">${post.title.substring(0, 50)}${post.title.length > 50 ? '...' : ''}</div>
+                                <div class="article-publisher">ID: ${post.id.split('-')[0]}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="font-family: monospace; font-size: 0.75rem;">${post.publisher_id.split('-')[0]}...</td>
+                    <td>${date}</td>
+                    <td><span class="status-badge status-${post.status}">${post.status.toUpperCase()}</span></td>
+                    <td>
+                        <button class="action-btn btn-view" onclick="openReview('${post.id}')">Review</button>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function openReview(postId) {
+        const post = allPosts.find(p => p.id === postId);
+        if (!post) return;
+
+        currentReviewPostId = post.id;
+        document.getElementById('modalTitle').textContent = `Reviewing: ${post.title}`;
+        document.getElementById('rejectionReason').value = post.rejection_reason || '';
+        
+        // Hide action buttons if already approved/rejected (optional, but good for read-only viewing)
+        const actionButtons = document.querySelector('.action-buttons');
+        const rejectReasonField = document.getElementById('rejectionReason');
+        
+        if (post.status === 'pending') {
+            actionButtons.style.display = 'flex';
+            rejectReasonField.readOnly = false;
+        } else {
+            actionButtons.style.display = 'none';
+            rejectReasonField.readOnly = true;
+        }
+
+        document.getElementById('reviewModal').classList.add('active');
+
+        // Fetch jsDelivr HTML and render inside iframe
+        const frameContainer = document.getElementById('deviceFrame');
+        frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: #666;">Downloading code from jsDelivr...</div>`;
+        
+        const url = post.github_url;
+        if (!url) {
+            frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: red;">No jsDelivr URL found for this post.</div>`;
+            return;
+        }
+
+        fetch(url)
+            .then(res => res.text())
+            .then(html => {
+                const iframe = document.createElement('iframe');
+                iframe.srcdoc = html;
+                frameContainer.innerHTML = '';
+                frameContainer.appendChild(iframe);
+            })
+            .catch(err => {
+                frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: red;">Failed to load preview from jsDelivr.</div>`;
+            });
+    }
+
+    function closeModal() {
+        document.getElementById('reviewModal').classList.remove('active');
+        currentReviewPostId = null;
+    }
+
+    async function handleDecision(decision) {
+        if (!currentReviewPostId) return;
+
+        const reason = document.getElementById('rejectionReason').value.trim();
+        if (decision === 'rejected' && !reason) {
+            alert('Please provide a rejection reason.');
+            return;
+        }
+
+        const sb = window.MECSupabase.getSupabase();
+        
+        // Update the database
+        const updatePayload = {
+            status: decision,
+            rejection_reason: decision === 'rejected' ? reason : null
+        };
+
+        const { error } = await sb
+            .from('publisher_posts')
+            .update(updatePayload)
+            .eq('id', currentReviewPostId);
+
+        if (error) {
+            alert('Error updating post: ' + error.message);
+            return;
+        }
+
+        alert(`Article successfully ${decision}!`);
+        closeModal();
+        await fetchPosts(); // Refresh list
+    }
+</script>
+</body>
+</html>

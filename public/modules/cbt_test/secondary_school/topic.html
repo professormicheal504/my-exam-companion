@@ -1,107 +1,287 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <script>
+    /* Anti-flash: apply saved theme before first paint */
+    (function () {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Subject Topics – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
   <style>
     /* Reset & Global */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
-    body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
 
     /* App Shell */
-    .app { display: flex; min-height: 100vh; }
-    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
-    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
-    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
 
-    .content-area { padding: 32px 24px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 80px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+    }
+
+    .content-area {
+      padding: 32px 24px;
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
     /* Back Link */
     .back-link {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: #4b5563; margin-bottom: 24px; transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      transition: color 0.2s;
     }
-    .back-link:hover { color: #111827; }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
 
     /* Header Section */
     .page-header {
-      margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
     }
+
     .page-title {
-      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
+
     .page-desc {
-      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.6;
     }
 
     /* Actions */
     .btn-primary {
-      background: #2563eb; color: white; padding: 10px 20px; border-radius: 10px;
-      font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.2s; box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+      background: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
     }
+
     .btn-primary:hover {
-      background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
     }
 
     /* Search Bar */
     .search-container {
-      background: white; padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid #e5e7eb;
-      display: flex; gap: 12px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      background: var(--bg-card);
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
-    .search-container svg { color: #9ca3af; margin-left: 8px; }
+
+    .search-container svg {
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+
     .search-container input {
-      flex: 1; border: none; outline: none; font-size: 15px; padding: 8px; font-family: inherit; color: #131212;
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      padding: 8px;
+      font-family: inherit;
+      color: var(--text-primary);
     }
-    .search-container input::placeholder { color: #9ca3af; }
+
+    .search-container input::placeholder {
+      color: var(--text-muted);
+    }
 
     /* Topic List */
     .topic-list {
-      display: flex; flex-direction: column; gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     /* Topic Item */
     .topic-item {
-      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 20px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 20px; transition: all 0.2s;
-    }
-    .topic-item:hover {
-      transform: translateX(4px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); border-color: #e5e7eb;
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid #ebebeb;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: all 0.2s;
     }
 
-    .topic-info { flex: 1; }
+    .topic-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      border-color: var(--border);
+    }
+
+    .topic-info {
+      flex: 1;
+    }
+
     .topic-name {
-      font-size: 17px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    
+
     .status-badge {
-      padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .status-badge.new { background: #fef2f2; color: #b91c1c; }
-    .status-badge.completed { background: #ecfdf5; color: #047857; }
+
+    .status-badge.new {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .status-badge.completed {
+      background: #ecfdf5;
+      color: #047857;
+    }
 
     .topic-meta {
-      font-size: 13.5px; color: #6b7280; display: flex; align-items: center; gap: 16px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
-    .topic-meta span { display: flex; align-items: center; gap: 6px; }
+
+    .topic-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     .topic-action {
       flex-shrink: 0;
     }
 
     @media (max-width: 600px) {
-      .topic-item { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .topic-action { width: 100%; }
-      .topic-action button { width: 100%; justify-content: center; }
+      .topic-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .topic-action {
+        width: 100%;
+      }
+
+      .topic-action button {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="app">
@@ -113,9 +293,13 @@
       <app-topbar data-base="../../../"></app-topbar>
 
       <main class="content-area">
-        
+
         <a href="subjects.html" class="back-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
           Back to Subjects
         </a>
 
@@ -123,14 +307,19 @@
           <div>
             <h1 class="page-title">
               <span id="subject_display_name">Subject Name</span>
-              <span style="font-size: 14px; padding: 4px 10px; background: #eff6ff; color: #1d4ed8; border-radius: 99px; border: 1px solid #bfdbfe; text-transform: uppercase; font-weight: 800;">Topics</span>
+              <span
+                style="font-size: 14px; padding: 4px 10px; background: #eff6ff; color: #1d4ed8; border-radius: 99px; border: 1px solid #bfdbfe; text-transform: uppercase; font-weight: 800;">Topics</span>
             </h1>
-            <p class="page-desc">Master the curriculum topic by topic. Practice CBT questions specific to each area to pinpoint your weaknesses.</p>
+            <p class="page-desc">Master the curriculum topic by topic. Practice CBT questions specific to each area to
+              pinpoint your weaknesses.</p>
           </div>
         </div>
 
         <div class="search-container">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
           <input type="text" id="topicSearch" placeholder="Search for a topic..." oninput="filterTopics()">
         </div>
 
@@ -143,7 +332,7 @@
   </div>
 
   <script defer src="../../../components/nav.js"></script>
-<script defer src="../../../components/sidebar.js"></script>
+  <script defer src="../../../components/sidebar.js"></script>
   <script defer src="../../../components/topbar.js"></script>
   <script>
     // Get Subject from URL parameters
@@ -166,8 +355,8 @@
 
       if (list.length === 0) {
         container.innerHTML = `
-        <div style="padding: 60px; text-align: center; color: #6b7280; background: white; border-radius: 16px; border: 1px dashed #d1d5db;">
-          <h3 style="color: #111827; font-size: 18px; margin-bottom: 8px;">No Topics Found</h3>
+        <div style="padding: 60px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px; border: 1px dashed #d1d5db;">
+          <h3 style="color: var(--text-primary); font-size: 18px; margin-bottom: 8px;">No Topics Found</h3>
           <p>We couldn't find any topics matching your search.</p>
         </div>`;
         return;
@@ -176,7 +365,7 @@
       list.forEach((topic, index) => {
         const item = document.createElement('div');
         item.className = 'topic-item';
-        
+
         let statusHtml = '';
         if (topic.status === 'new') statusHtml = `<div class="status-badge new">NOT STARTED</div>`;
         if (topic.status === 'completed') statusHtml = `<div class="status-badge completed">COMPLETED</div>`;
@@ -184,7 +373,7 @@
         item.innerHTML = `
           <div class="topic-info">
             <h3 class="topic-name">
-              <span style="color: #9ca3af; font-size: 14px; margin-right: 8px;">${String(index + 1).padStart(2, '0')}</span> 
+              <span style="color: var(--text-muted); font-size: 14px; margin-right: 8px;">${String(index + 1).padStart(2, '0')}</span> 
               ${topic.name} 
               ${statusHtml}
             </h3>
@@ -220,4 +409,5 @@
     renderTopics(allTopics);
   </script>
 </body>
+
 </html>

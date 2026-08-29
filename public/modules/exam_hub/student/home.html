@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Student Dashboard - Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  
+  <style>
+    /* Reset & Global */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    a { text-decoration: none; color: inherit; }
+    
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .content-area { display: flex; flex: 1; }
+    .main-content { flex: 1; padding: 32px 24px; max-width: 900px; margin: 0 auto; width: 100%; }
+
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } .main-content { padding: 20px 16px; } }
+
+    .page-header { margin-bottom: 32px; }
+    .page-header h1 { font-size: 26px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; }
+    .page-header p { font-size: 14px; color: var(--text-muted); }
+
+    /* Join Room Card */
+    .join-card {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      border-radius: 16px;
+      padding: 32px;
+      color: white;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .join-card::after {
+      content: ''; position: absolute; top: -50%; right: -10%;
+      width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .join-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .join-card p { font-size: 14px; opacity: 0.9; margin-bottom: 24px; }
+    
+    .join-form { display: flex; gap: 16px; align-items: flex-start; position: relative; z-index: 2; flex-wrap: wrap; }
+    .join-input-group { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 6px; }
+    .join-input-group label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+    .join-input {
+      width: 100%; padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-weight: 600;
+      outline: none; transition: 0.2s;
+    }
+    .join-input::placeholder { color: rgba(255,255,255,0.5); font-weight: 400; }
+    .join-input:focus { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
+    
+    .btn-join {
+      background: white; color: #1e40af; font-size: 15px; font-weight: 700;
+      padding: 14px 32px; border-radius: 12px; height: 52px; margin-top: 22px;
+      transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-join:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+    /* Room List */
+    .section-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+    .room-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    
+    .room-card {
+      background: var(--bg-card); border: 1px solid var(--border, #ebebeb); border-radius: 16px;
+      padding: 24px; display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.2s ease; cursor: pointer; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .room-card { border-color: #333; }
+    .room-card:hover { border-color: #2563eb; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
+    
+    .room-card.disabled { opacity: 0.7; cursor: not-allowed; border-color: var(--border, #ebebeb); box-shadow: none; transform: none; }
+    [data-theme="dark"] .room-card.disabled { border-color: #333; }
+    
+    .room-info { display: flex; flex-direction: column; gap: 6px; }
+    .room-name { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+    .room-meta { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 12px; }
+    .room-meta span { display: flex; align-items: center; gap: 4px; }
+    
+    .room-status {
+      display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; font-weight: 700; gap: 6px;
+    }
+    
+    /* Status Colors */
+    .status-active { background: #ecfdf5; color: #059669; }
+    .status-active::before { content: ''; width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+    [data-theme="dark"] .status-active { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    
+    .status-pending { background: #fffbeb; color: #b45309; }
+    .status-pending::before { content: ''; width: 6px; height: 6px; background: #f59e0b; border-radius: 50%; }
+    [data-theme="dark"] .status-pending { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+    .status-closed { background: #f1f5f9; color: #475569; }
+    .status-closed::before { content: ''; width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; }
+    [data-theme="dark"] .status-closed { background: #334155; color: #cbd5e1; }
+
+    @media (max-width: 600px) {
+      .join-form { flex-direction: column; }
+      .join-input-group, .btn-join { width: 100%; margin-top: 0; }
+      .room-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="/"></app-sidebar>
+    <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
+      <main class="content-area">
+        <section class="main-content">
+          
+          <div class="page-header">
+            <h1>Student Dashboard</h1>
+            <p>Join a room using a code, or access your enrolled exam rooms.</p>
+          </div>
+
+          <!-- Join Room Box -->
+          <div class="join-card">
+            <h2>Join a New Room</h2>
+            <p>Enter the room code and password provided by your tutor.</p>
+            <div class="join-form">
+              <div class="join-input-group">
+                <label>Room Code</label>
+                <input type="text" class="join-input" placeholder="e.g. MATH101-PREP">
+              </div>
+              <div class="join-input-group">
+                <label>Room Password (Optional)</label>
+                <input type="password" class="join-input" placeholder="Enter password...">
+              </div>
+              <button class="btn-join" onclick="window.location.href='room_info.html'">Join Room</button>
+            </div>
+          </div>
+
+          <h3 class="section-title">My Rooms</h3>
+          <div class="room-list">
+            
+            <!-- Available Now -->
+            <div class="room-card" onclick="window.location.href='room_info.html'">
+              <div class="room-info">
+                <div class="room-name">Mathematics 101 - JAMB Prep</div>
+                <div class="room-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Starts: Today, 10:00 AM</span>
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 120 Mins</span>
+                </div>
+              </div>
+              <div class="room-status status-active">Available Now</div>
+            </div>
+
+            <!-- Not Yet Open -->
+            <div class="room-card disabled">
+              <div class="room-info">
+                <div class="room-name">Physics Masterclass</div>
+                <div class="room-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Starts: Tomorrow, 2:00 PM</span>
+                </div>
+              </div>
+              <div class="room-status status-pending">Not Yet Open</div>
+            </div>
+
+            <!-- Closed -->
+            <div class="room-card" onclick="window.location.href='my_result.html'">
+              <div class="room-info">
+                <div class="room-name">Chemistry Crash Course</div>
+                <div class="room-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Exam Completed</span>
+                </div>
+              </div>
+              <div class="room-status status-closed">Closed (View Result)</div>
+            </div>
+
+          </div>
+
+        </section>
+      </main>
+    </div>
+  </div>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login – My Exam Companion</title>
@@ -14,7 +23,7 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: #f9fafb;
+      background: var(--bg-base);
       background-image: 
         radial-gradient(at 0% 0%, rgba(183, 12, 1, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(183, 12, 1, 0.15) 0px, transparent 50%);
@@ -66,13 +75,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7280;
+      color: var(--text-muted);
       text-decoration: none;
       transition: background 0.15s;
     }
     .btn-close:hover {
       background: #e5e7eb;
-      color: #131212;
+      color: var(--text-primary);
     }
     .modal-header {
       text-align: center;
@@ -81,12 +90,12 @@
     .modal-title {
       font-size: 24px;
       font-weight: 800;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
     .modal-subtitle {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
     .form-group {
       margin-bottom: 16px;
@@ -132,7 +141,7 @@
       align-items: center;
       text-align: center;
       margin: 20px 0;
-      color: #9ca3af;
+      color: var(--text-muted);
       font-size: 13px;
     }
     .divider::before, .divider::after {
@@ -145,7 +154,7 @@
     .btn-google {
       width: 100%;
       padding: 12px;
-      background: #fff;
+      background: var(--bg-card);
       color: #374151;
       border: 1px solid #d1d5db;
       border-radius: 12px;
@@ -159,13 +168,13 @@
       transition: background 0.15s;
     }
     .btn-google:hover {
-      background: #f9fafb;
+      background: var(--bg-base);
     }
     .auth-links {
       text-align: center;
       margin-top: 24px;
       font-size: 13.5px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
     .auth-links a {
       color: #2563eb;
@@ -177,6 +186,8 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../components/supabase.js"></script>
+  <link rel="stylesheet" href="../../components/dark-mode.css">
 </head>
 <body>
   <div class="modal-overlay">
@@ -246,7 +257,11 @@
         </div>
         <div class="form-group">
           <label class="form-label">New Password</label>
-          <input type="password" id="forgot-new-password" class="form-input" placeholder="Enter new password" required>
+          <input type="password" id="forgot-new-password" class="form-input" placeholder="Enter new password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm New Password</label>
+          <input type="password" id="forgot-confirm-password" class="form-input" placeholder="Confirm new password" required minlength="8" autocomplete="new-password">
         </div>
         <button type="submit" id="btn-reset-pwd" class="btn-primary">Reset Password</button>
         <div class="auth-links">
@@ -257,9 +272,9 @@
   </div>
 
   <script>
-    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Lazy getter: resolves Supabase at call-time, not parse-time.
+    // This is obfuscator-safe and avoids TDZ (Temporal Dead Zone) errors.
+    function getClient() { return window.MECSupabase.getSupabase(); }
 
     async function handleLogin() {
       const email = document.getElementById('email-input').value;
@@ -270,13 +285,13 @@
         btn.disabled = true;
         btn.innerText = 'Signing In...';
 
-        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        const { error } = await getClient().auth.signInWithPassword({ email, password });
         
         if (error) throw error;
         
         window.location.href = new URL('../index.html', window.location.href).href;
       } catch (error) {
-        alert('Error: ' + error.message);
+        showToast('Error: ' + error.message, 'error');
         console.error(error);
       } finally {
         btn.disabled = false;
@@ -286,7 +301,7 @@
 
     async function handleGoogleLogin() {
       try {
-        const { error } = await supabaseClient.auth.signInWithOAuth({
+        const { error } = await getClient().auth.signInWithOAuth({
           provider: 'google',
           options: {
             redirectTo: new URL('../index.html', window.location.href).href
@@ -294,7 +309,7 @@
         });
         if (error) throw error;
       } catch (error) {
-        alert('Error with Google Login: ' + error.message);
+        showToast('Error with Google Login: ' + error.message, 'error');
         console.error(error);
       }
     }
@@ -324,17 +339,17 @@
         btn.disabled = true;
         btn.innerText = 'Sending...';
 
-        const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+        const { error } = await getClient().auth.resetPasswordForEmail(email);
         if (error) throw error;
         
-        alert("Success! Check your email for the 6-digit code.");
+        showToast("Success! Check your email for the 6-digit code.", 'success');
         
         document.querySelector('.modal-subtitle').innerText = "Enter the 6-digit code and your new password.";
         document.getElementById('forgotPasswordForm').style.display = 'none';
         document.getElementById('resetPasswordForm').style.display = 'block';
 
       } catch(err) {
-        alert('Error: ' + err.message);
+        showToast('Error: ' + err.message, 'error');
       } finally {
         btn.disabled = false;
         btn.innerText = 'Send Reset Code';
@@ -345,40 +360,50 @@
       const email = document.getElementById('forgot-email').value;
       const token = document.getElementById('forgot-otp').value;
       const newPassword = document.getElementById('forgot-new-password').value;
+      const confirmPassword = document.getElementById('forgot-confirm-password').value;
       const btn = document.getElementById('btn-reset-pwd');
+
+      if (newPassword !== confirmPassword) {
+        showToast('Error: Passwords do not match', 'error');
+        return;
+      }
 
       try {
         btn.disabled = true;
         btn.innerText = 'Verifying & Resetting...';
 
         // Verify OTP to temporarily log them in
-        const { error: verifyError } = await supabaseClient.auth.verifyOtp({
+        const { error: verifyError } = await getClient().auth.verifyOtp({
           email,
           token,
           type: 'recovery'
         });
         
-        if (verifyError) throw verifyError;
+        if (verifyError) {
+          document.getElementById('forgot-otp').value = ''; // Clear OTP field
+          throw verifyError;
+        }
 
         // Immediately update password
-        const { error: updateError } = await supabaseClient.auth.updateUser({
+        const { error: updateError } = await getClient().auth.updateUser({
           password: newPassword
         });
 
         if (updateError) throw updateError;
 
-        alert("Password reset successfully! You are now logged in.");
+        showToast("Password reset successfully! You are now logged in.", 'success');
         setTimeout(() => {
           window.location.href = new URL('../index.html', window.location.href).href;
         }, 1500);
 
       } catch(err) {
-        alert('Error: ' + err.message);
+        showToast('Error: ' + err.message, 'error');
         btn.disabled = false;
         btn.innerText = 'Reset Password';
       }
     }
   </script>
+
   <script src="../../components/toast.js"></script>
 </body>
 </html>

@@ -6,35 +6,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Extraction is a technique used to separate compounds based on which principle?",
-        "explanation": "Extraction separates compounds based on solubility differences in two immiscible (non-mixing) liquids. A dissolved solute is moved from one solvent to another in which it dissolves better. Because most contaminants are left behind in the first solvent, liquid-liquid extraction also serves as a purification technique. The two solvents must be mutually immiscible, and the separation is carried out using a separatory funnel.",
+        "question_text": "<p><b>Extraction</b> is a technique used to separate compounds based on which principle?</p>",
+        "explanation": "<p><b>Extraction</b> separates compounds based on <i>solubility differences</i> in two immiscible (non-mixing) liquids. A dissolved solute is moved from one solvent to another in which it dissolves better. Because most contaminants are left behind in the first solvent, liquid-liquid extraction also serves as a <b>purification technique</b>. The two solvents must be mutually immiscible, and the separation is carried out using a separatory funnel.</p>",
         "options": [
             {
                 "option_id": "266146",
                 "tag": "a",
-                "text": "Differences in boiling points of compounds",
+                "text": "Differences in <b>boiling points</b> of compounds",
                 "is_correct": false
             },
             {
                 "option_id": "253311",
                 "tag": "b",
-                "text": "Differences in solubility of compounds in two immiscible liquids",
+                "text": "Differences in <b>solubility</b> of compounds in two immiscible liquids",
                 "is_correct": true
             },
             {
                 "option_id": "334718",
                 "tag": "c",
-                "text": "Differences in molecular weight of compounds",
+                "text": "Differences in <b>molecular weight</b> of compounds",
                 "is_correct": false
             },
             {
                 "option_id": "142375",
                 "tag": "d",
-                "text": "Differences in melting points of compounds",
+                "text": "Differences in <b>melting points</b> of compounds",
                 "is_correct": false
             }
         ],
-        "question_number": 4
+        "question_number": 4,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In liquid-liquid extraction, why is it more efficient to perform multiple extractions with divided solvent volumes rather than one large extraction?",
-        "explanation": "It is more efficient to perform multiple extractions with smaller volumes than one extraction with the total volume. For example, performing three consecutive extractions using 10 mL each of solvent X extracts more solute than one extraction with 30 mL. This is because each successive extraction removes a fraction of the remaining solute, so the cumulative extraction efficiency is higher. This principle is governed by the Partition Law and the partition coefficient.",
+        "question_text": "<p>In liquid-liquid extraction, why is it more efficient to perform <b>multiple extractions with divided solvent volumes</b> rather than one large extraction?</p>",
+        "explanation": "<p>It is more efficient to perform <b>multiple extractions with smaller volumes</b> than one extraction with the total volume. For example, performing three consecutive extractions using 10 mL each of solvent X extracts <i>more solute</i> than one extraction with 30 mL. This is because each successive extraction removes a <b>fraction of the remaining solute</b>, so the cumulative extraction efficiency is higher. This principle is governed by the <b>Partition Law</b> and the <b>partition coefficient</b>.",
         "options": [
             {
                 "option_id": "764838",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 17
+        "question_number": 17,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "According to the Partition Law, if a solute $S$ is distributed between two immiscible solvents $A$ and $B$ at constant temperature, what is the partition coefficient?",
-        "explanation": "The Partition Law states that if a solute $S$ is distributed between two immiscible solvents $A$ and $B$ at constant temperature and the solute exists in the same molecular state in both solvents, then the partition coefficient $K$ is: $K = \\frac{\\text{Concentration of } S \\text{ in } A}{\\text{Concentration of } S \\text{ in } B} = \\frac{\\text{Solubility of } S \\text{ in } A}{\\text{Solubility of } S \\text{ in } B} = \\text{constant}$. This constant ratio governs how the solute distributes between the two solvents in liquid-liquid extraction.",
+        "question_text": "<p>According to the <b>Partition Law</b>, if a solute <i>S</i> is distributed between two immiscible solvents <i>A</i> and <i>B</i> at constant temperature, what is the <b>partition coefficient</b>?</p>",
+        "explanation": "<p>The <b>Partition Law</b> states that if a solute <i>S</i> is distributed between two immiscible solvents <i>A</i> and <i>B</i> at constant temperature and the solute exists in the same molecular state in both solvents, then the <b>partition coefficient</b> <i>K</i> is:</p><p><i>K</i> = <i>\\dfrac{\\text{Concentration of } S \\text{ in } A}{\\text{Concentration of } S \\text{ in } B} = \\dfrac{\\text{Solubility of } S \\text{ in } A}{\\text{Solubility of } S \\text{ in } B} = \\text{constant}</i>.</p><p>This constant ratio governs how the solute distributes between the two solvents in liquid-liquid extraction.</p>",
         "options": [
             {
                 "option_id": "328617",
                 "tag": "a",
-                "text": "$K = \\dfrac{\\text{Concentration of } S \\text{ in } B}{\\text{Concentration of } S \\text{ in } A}$",
+                "text": "<i>K</i> = <i>\\dfrac{\\text{Concentration of } S \\text{ in } B}{\\text{Concentration of } S \\text{ in } A}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "133637",
                 "tag": "b",
-                "text": "$K = \\dfrac{\\text{Concentration of } S \\text{ in } A}{\\text{Concentration of } S \\text{ in } B} = \\text{constant}$",
+                "text": "<i>K</i> = <i>\\dfrac{\\text{Concentration of } S \\text{ in } A}{\\text{Concentration of } S \\text{ in } B} = \\text{constant}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "924377",
                 "tag": "c",
-                "text": "$K = \\text{Concentration of } S \\text{ in } A + \\text{Concentration of } S \\text{ in } B$",
+                "text": "<i>K</i> = <i>\\text{Concentration of } S \\text{ in } A + \\text{Concentration of } S \\text{ in } B</i>",
                 "is_correct": false
             },
             {
                 "option_id": "969621",
                 "tag": "d",
-                "text": "$K = \\text{Concentration of } S \\text{ in } A \\times \\text{Concentration of } S \\text{ in } B$",
+                "text": "<i>K</i> = <i>\\text{Concentration of } S \\text{ in } A \\times \\text{Concentration of } S \\text{ in } B</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 30
+        "question_number": 30,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Solid-liquid extraction is best described as which of the following?",
-        "explanation": "Solid-liquid extraction is a separation technique in which a valuable component is dissolved out of a solid matrix using a liquid solvent. A classic example is extracting active ingredients (such as alkaloids or flavonoids) from medicinal plants. The solvent selectively dissolves the target compounds from the solid material, leaving behind the insoluble solid residue.",
+        "question_text": "<p>Solid-liquid extraction is best described as which of the following?</p>",
+        "explanation": "<p><b>Solid-liquid extraction</b> is a separation technique in which a valuable component is dissolved out of a solid matrix using a liquid solvent. A classic example is extracting active ingredients (such as alkaloids or flavonoids) from medicinal plants. The solvent selectively dissolves the target compounds from the solid material, leaving behind the insoluble solid residue.",
         "options": [
             {
                 "option_id": "159999",
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 43
+        "question_number": 43,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,8 +158,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In filtration, the liquid that passes through the filter paper is called the _____, and the solid retained on the filter paper is called the _____.",
-        "explanation": "During filtration, a mixture is passed through a filter medium (filter paper, sintered glass, gooch fibre, etc.). The liquid component passes through the pores and is collected as the filtrate. The solid material that cannot pass through the filter is retained and is called the residue. Filtration exists in two main forms: gravity filtration (uses gravitational force) and vacuum filtration (uses a vacuum to speed up the process).",
+        "question_text": "<p>In filtration, the liquid that passes through the filter paper is called the <b>filtrate</b>, and the solid retained on the filter paper is called the <b>residue</b>.</p>",
+        "explanation": "<p>During filtration, a mixture is passed through a filter medium (filter paper, sintered glass, gooch fibre, etc.). The liquid component passes through the pores and is collected as the <b>filtrate</b>. The solid material that cannot pass through the filter is retained and is called the <b>residue</b>.</p><p>Filtration exists in two main forms: <i>gravity filtration</i> (uses gravitational force) and <i>vacuum filtration</i> (uses a vacuum to speed up the process).</p>",
         "options": [
             {
                 "option_id": "304711",
@@ -182,7 +186,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 56
+        "question_number": 56,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,8 +196,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which type of filtration is most appropriate for separating fine particles quickly from a reaction mixture?",
-        "explanation": "Vacuum filtration is used when rapid separation is needed, especially for fine particles or precipitated solids from a reaction. A vacuum is applied (using a Buchner funnel connected to an aspirator or vacuum pump) to draw liquid through the filter much faster than gravity alone. Gravity filtration is suitable for removing large particles (e.g., sand from water) but is too slow for fine particles. Vacuum filtration is widely used to collect crystalline products from reaction mixtures.",
+        "question_text": "<p>Which type of filtration is most appropriate for separating <b>fine particles</b> quickly from a reaction mixture?</p>",
+        "explanation": "<p>Vacuum filtration is used when <i>rapid separation</i> is needed, especially for <b>fine particles</b> or precipitated solids from a reaction. A vacuum is applied (using a Buchner funnel connected to an aspirator or vacuum pump) to draw liquid through the filter much faster than gravity alone. <b>Gravity filtration</b> is suitable for removing large particles (e.g., sand from water) but is too slow for fine particles. Vacuum filtration is widely used to collect crystalline products from reaction mixtures.</p>",
         "options": [
             {
                 "option_id": "311512",
@@ -219,7 +224,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 69
+        "question_number": 69,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,35 +234,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In centrifugation, how are components of a mixture separated?",
-        "explanation": "In centrifugation, the solution is placed in centrifuge tubes and spun at very high speed. The centrifugal force causes differential sedimentation: components with higher density and mass settle towards the bottom of the tube while lighter components remain near the top. Centrifugation is a good alternative to filtration, particularly for separating very fine particles, biological cells, or colloids that would clog filter papers.",
+        "question_text": "<p>In centrifugation, how are components of a mixture separated?</p>",
+        "explanation": "<p>In centrifugation, the solution is placed in centrifuge tubes and spun at very high speed. The <b>centrifugal force</b> causes <b>differential sedimentation</b>: components with higher density and mass settle towards the bottom of the tube while lighter components remain near the top. Centrifugation is a good alternative to filtration, particularly for separating very fine particles, biological cells, or colloids that would clog filter papers.</p>",
         "options": [
             {
                 "option_id": "205167",
                 "tag": "a",
-                "text": "By dissolving them in different solvents",
+                "text": "By dissolving them in <i>different solvents</i>",
                 "is_correct": false
             },
             {
                 "option_id": "124651",
                 "tag": "b",
-                "text": "By heating the mixture until lighter components vaporise",
+                "text": "By heating the mixture until <i>lighter components vaporise</i>",
                 "is_correct": false
             },
             {
                 "option_id": "142711",
                 "tag": "c",
-                "text": "By spinning the mixture at high speed so that components with higher density and mass sediment to the bottom of the tube",
+                "text": "By spinning the mixture at high speed so that components with <b>higher density and mass sediment to the bottom of the tube</b>",
                 "is_correct": true
             },
             {
                 "option_id": "653263",
                 "tag": "d",
-                "text": "By passing a current through the mixture to attract charged particles",
+                "text": "By passing a current through the mixture to attract <i>charged particles</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 82
+        "question_number": 82,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +272,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In simple crystallisation, what is the 'mother liquor'?",
-        "explanation": "In simple crystallisation, an impure solid is dissolved in a small amount of hot boiling solvent. As the solution cools gradually, the pure compound crystallises out. The saturated solution surrounding the growing crystals \u00e2\u20ac\u201d which contains the dissolved impurities \u00e2\u20ac\u201d is called the 'mother liquor'. Ideally, the growing crystals form with high purity because impurities remain dissolved in this mother liquor. The crystals are then filtered and washed to remove the mother liquor.",
+        "question_text": "<p>In simple crystallisation, what is the <b>mother liquor</b>?</p>",
+        "explanation": "<p>In simple crystallisation, an impure solid is dissolved in a small amount of hot boiling solvent. As the solution cools gradually, the pure compound crystallises out. The saturated solution surrounding the growing crystals \u2014 which contains the dissolved impurities \u2014 is called the <b>mother liquor</b>. Ideally, the growing crystals form with high purity because impurities remain dissolved in this mother liquor. The crystals are then filtered and washed to remove the mother liquor.",
         "options": [
             {
                 "option_id": "166076",
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 95
+        "question_number": 95,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is NOT a desirable property of a solvent used for crystallisation?",
-        "explanation": "A good crystallisation solvent must: (1) dissolve more of the substance at high temperature than at room temperature; (2) keep impurities either insoluble or dissolved in the mother liquor; (3) not be highly inflammable; and most importantly (4) NOT react chemically with the compound being crystallised \u00e2\u20ac\u201d a reactive solvent would destroy or alter the compound. Common solvents include water, alcohol, ether, chloroform, acetone, benzene, and petroleum ether.",
+        "question_text": "<p>Which of the following is <b>NOT</b> a desirable property of a solvent used for crystallisation?</p>",
+        "explanation": "<p>A good crystallisation solvent must:</p><p>(1) dissolve more of the substance at high temperature than at room temperature;</p><p>(2) keep impurities either insoluble or dissolved in the mother liquor;</p><p>(3) not be highly inflammable; and most importantly</p><p>(4) <b>NOT</b> react chemically with the compound being crystallised \u2014 a reactive solvent would destroy or alter the compound.</p><p>Common solvents include water, alcohol, ether, chloroform, acetone, benzene, and petroleum ether.</p>",
         "options": [
             {
                 "option_id": "208723",
                 "tag": "a",
-                "text": "It should dissolve more of the substance at high temperature than at room temperature",
+                "text": "<i>It should dissolve more of the substance at high temperature than at room temperature</i>",
                 "is_correct": false
             },
             {
                 "option_id": "278563",
                 "tag": "b",
-                "text": "It should react chemically with the compound to improve crystal quality",
+                "text": "<i>It should react chemically with the compound to improve crystal quality</i>",
                 "is_correct": true
             },
             {
                 "option_id": "268277",
                 "tag": "c",
-                "text": "Impurities should either be insoluble in it or remain dissolved in the mother liquor",
+                "text": "<i>Impurities should either be insoluble in it or remain dissolved in the mother liquor</i>",
                 "is_correct": false
             },
             {
                 "option_id": "264455",
                 "tag": "d",
-                "text": "It should not be highly flammable",
+                "text": "<i>It should not be highly flammable</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 108
+        "question_number": 108,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does recrystallisation differ from simple crystallisation?",
-        "explanation": "Recrystallisation is a purification technique for solid organic compounds. Impure crystals are dissolved in a minimum volume of hot solvent. As the solution cools, pure crystals reform while impurities remain dissolved in solution. The key requirements for the recrystallisation solvent are: the solid dissolves when hot but not when cold; impurities dissolve in both hot and cold solvent; the solvent has a low boiling point; it has intermediate polarity; and it does not react with the solute.",
+        "question_text": "<p>How does <b>recrystallisation</b> differ from <b>simple crystallisation</b>?</p>",
+        "explanation": "<p><b>Recrystallisation</b> is a <i>purification technique</i> for solid organic compounds. Impure crystals are dissolved in a minimum volume of hot solvent. As the solution cools, pure crystals reform while impurities remain dissolved in solution. The key requirements for the recrystallisation solvent are: the solid dissolves when hot but not when cold; impurities dissolve in both hot and cold solvent; the solvent has a low boiling point; it has intermediate polarity; and it does not react with the solute.</p><p><b>Simple crystallisation</b>, in contrast, typically refers to the natural formation of crystals from a saturated solution without the explicit goal of purification, and does not involve the repetitive dissolution and cooling steps central to recrystallisation.</p>",
         "options": [
             {
                 "option_id": "361794",
@@ -351,7 +360,7 @@
             {
                 "option_id": "345955",
                 "tag": "b",
-                "text": "In recrystallisation, impure crystals are dissolved in a small amount of hot solvent, allowed to cool and re-form, leaving impurities in solution \u00e2\u20ac\u201d the process can be repeated to improve purity",
+                "text": "In recrystallisation, impure crystals are dissolved in a small amount of hot solvent, allowed to cool and re-form, leaving impurities in solution \u2014 the process can be repeated to improve purity",
                 "is_correct": true
             },
             {
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 122
+        "question_number": 122,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,19 +386,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Fractional crystallisation is used to separate a mixture of two components with different solubilities. Which component crystallises out FIRST when a hot saturated solution is cooled?",
-        "explanation": "In fractional crystallisation, the mixture is dissolved in a solvent with different solubilities for the two components. When the hot saturated solution is cooled, the less soluble component reaches its saturation point first and crystallises out. The more soluble component remains in solution (mother liquor). After removing the less soluble crystals, the mother liquor is concentrated and cooled again to obtain the more soluble component's crystals. This process can be repeated to achieve good separation.",
+        "question_text": "<p><b>Fractional crystallisation</b> is used to separate a mixture of two components with different solubilities. Which component crystallises out <b>FIRST</b> when a hot saturated solution is cooled?</p>",
+        "explanation": "<p>In <b>fractional crystallisation</b>, the mixture is dissolved in a solvent with different solubilities for the two components. When the hot saturated solution is cooled, the <b>less soluble</b> component reaches its saturation point first and crystallises out. The <b>more soluble</b> component remains in solution (mother liquor). After removing the less soluble crystals, the mother liquor is concentrated and cooled again to obtain the more soluble component's crystals. This process can be repeated to achieve good separation.</p>",
         "options": [
             {
                 "option_id": "309874",
                 "tag": "a",
-                "text": "The more soluble component crystallises first",
+                "text": "The <b>more soluble</b> component crystallises first",
                 "is_correct": false
             },
             {
                 "option_id": "191101",
                 "tag": "b",
-                "text": "The less soluble component crystallises first",
+                "text": "The <b>less soluble</b> component crystallises first",
                 "is_correct": true
             },
             {
@@ -404,7 +414,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 135
+        "question_number": 135,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +424,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Sublimation is the process in which a solid converts directly to a vapour without passing through the liquid state. Which of the following substances is known to sublime?",
-        "explanation": "Substances that sublime (transition directly from solid to vapour without passing through the liquid phase) include: camphor, naphthalene, iodine, ammonium chloride, benzoic acid, quinones, salicylic acid, and anthracene. Sublimation is used as a purification technique to separate these volatile compounds from non-sublimable contaminants. Applying a vacuum increases sublimation efficiency and lowers the sublimation temperature, reducing the risk of decomposition.",
+        "question_text": "<p><b>Sublimation</b> is the process in which a solid converts directly to a vapour without passing through the liquid state. Which of the following substances is known to sublime?</p>",
+        "explanation": "<p>Substances that <b>sublime</b> (transition directly from solid to vapour without passing through the liquid phase) include: camphor, naphthalene, iodine, ammonium chloride, benzoic acid, quinones, salicylic acid, and anthracene. <b>Sublimation</b> is used as a purification technique to separate these volatile compounds from non-sublimable contaminants. Applying a <i>vacuum</i> increases sublimation efficiency and lowers the sublimation temperature, reducing the risk of decomposition.</p>",
         "options": [
             {
                 "option_id": "164420",
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 148
+        "question_number": 148,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,8 +462,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the advantage of applying a vacuum during sublimation purification?",
-        "explanation": "Applying a vacuum (reduced pressure) during sublimation offers two key advantages: (1) It decreases the solid's propensity to transition into the intermediate liquid state, ensuring a cleaner solid-to-vapour transition; and (2) It lowers the sublimation temperature, which reduces the risk of the compound decomposing during purification. This is especially important for heat-sensitive organic compounds that might break down at higher temperatures.",
+        "question_text": "<p>What is the advantage of applying a vacuum during <b>sublimation purification</b>?</p>",
+        "explanation": "<p>Applying a vacuum (reduced pressure) during sublimation offers two key advantages:</p><p>(1) It decreases the solid's propensity to transition into the intermediate <i>liquid state</i>, ensuring a cleaner solid-to-vapour transition; and</p><p>(2) It lowers the <b>sublimation temperature</b>, which reduces the risk of the compound decomposing during purification. This is especially important for <b>heat-sensitive organic compounds</b> that might break down at higher temperatures.</p>",
         "options": [
             {
                 "option_id": "426794",
@@ -478,7 +490,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 161
+        "question_number": 161,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Simple distillation is used to separate liquids with significantly different boiling points. What is the minimum boiling point difference generally required for simple distillation to be effective?",
-        "explanation": "Simple distillation is effective for separating liquids with a boiling point difference of at least $25\u00c2\u00b0C$. The process involves heating the mixture, vaporising the component with the lowest boiling point first, condensing the vapour in a water-cooled condenser, and collecting the distillate in a receiving flask. Simple distillation is also used to purify liquids containing non-volatile impurities. For liquids with boiling points closer than $25\u00c2\u00b0C$, fractional distillation is required.",
+        "question_text": "<p>Simple distillation is used to separate liquids with significantly different boiling points. What is the <b>minimum boiling point difference</b> generally required for simple distillation to be effective?</p>",
+        "explanation": "<p>Simple distillation is effective for separating liquids with a boiling point difference of <b>at least 25\u00b0C</b>. The process involves heating the mixture, vaporising the component with the lowest boiling point first, condensing the vapour in a water-cooled condenser, and collecting the distillate in a receiving flask. Simple distillation is also used to purify liquids containing non-volatile impurities. For liquids with boiling points closer than <i>25\u00b0C</i>, <b>fractional distillation</b> is required.</p>",
         "options": [
             {
                 "option_id": "945912",
                 "tag": "a",
-                "text": "Less than $5\u00c2\u00b0C$",
+                "text": "Less than <i>5\u00b0C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "219406",
                 "tag": "b",
-                "text": "Exactly $10\u00c2\u00b0C$",
+                "text": "Exactly <i>10\u00b0C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "253243",
                 "tag": "c",
-                "text": "At least $25\u00c2\u00b0C$",
+                "text": "At least <i>25\u00b0C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "109334",
                 "tag": "d",
-                "text": "At least $100\u00c2\u00b0C$",
+                "text": "At least <i>100\u00b0C</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 173
+        "question_number": 173,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Fractional distillation is used to separate miscible liquids with boiling points differing by less than $25\u00c2\u00b0C$. What special apparatus is used in this technique?",
-        "explanation": "Fractional distillation uses a fractionating column \u00e2\u20ac\u201d a long glass tube with barriers (plates or packing material) that allow many mini-cycles of vaporisation and condensation within the column, providing many theoretical plates of separation. The component with the lower boiling point exits the top first. For example, acetone (b.p. $330 \\text{ K}$) and methyl alcohol (b.p. $338 \\text{ K}$) can be separated this way.",
+        "question_text": "<p><b>Fractional distillation</b> is used to separate miscible liquids with boiling points differing by less than <b>$25\u00b0C</b>. What special apparatus is used in this technique?</p>",
+        "explanation": "<p>A <b>fractionating column</b> is the key apparatus in fractional distillation. It is a long glass tube containing <i>plates or packing material</i> that enable multiple cycles of vaporization and condensation within the column, effectively increasing the number of <b>theoretical plates</b> for separation. The liquid with the lower boiling point vaporizes first and exits the top of the column, while the higher-boiling component remains lower in the column. For example, acetone (boiling point <b>$330 K$</b>) and methyl alcohol (boiling point <b>$338 K$</b>) can be separated using this method.</p>",
         "options": [
             {
                 "option_id": "140356",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 186
+        "question_number": 186,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,25 +576,25 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Vacuum distillation is particularly useful for which type of substances?",
-        "explanation": "Vacuum distillation reduces the pressure above the liquid mixture, which lowers the boiling points of all components. This allows high-boiling liquids or heat-sensitive compounds (that would decompose at their normal atmospheric boiling points) to be distilled at much lower temperatures. This technique is used industrially in crude oil refining and the sugarcane industry.",
+        "question_text": "<p>Vacuum distillation is particularly useful for which type of substances?</p>",
+        "explanation": "<p>Vacuum distillation reduces the pressure above the liquid mixture, which <b>lowers the boiling points</b> of all components. This allows <b>high-boiling liquids</b> or <b>heat-sensitive compounds</b> (that would decompose at their normal atmospheric boiling points) to be distilled at much lower temperatures. This technique is used industrially in crude oil refining and the sugarcane industry.</p>",
         "options": [
             {
                 "option_id": "266767",
                 "tag": "a",
-                "text": "Substances that are highly volatile at room temperature",
+                "text": "Substances that are <b>highly volatile</b> at room temperature",
                 "is_correct": false
             },
             {
                 "option_id": "280889",
                 "tag": "b",
-                "text": "Substances that decompose at or below their normal boiling points, requiring distillation at lower temperatures under reduced pressure",
+                "text": "Substances that <b>decompose</b> at or below their normal boiling points, requiring distillation at lower temperatures under reduced pressure",
                 "is_correct": true
             },
             {
                 "option_id": "299367",
                 "tag": "c",
-                "text": "Substances that form azeotropic mixtures with water",
+                "text": "Substances that form <i>azeotropic mixtures</i> with water",
                 "is_correct": false
             },
             {
@@ -589,7 +604,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 199
+        "question_number": 199,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +614,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Steam distillation is particularly useful for purifying organic compounds that satisfy which conditions?",
-        "explanation": "Steam distillation is suitable for organic compounds that: (1) are insoluble in water; (2) have high solubility in ether (for subsequent extraction); (3) have a high vapour pressure (25-40 mmHg) at $100\u00c2\u00b0C$; and (4) have a relatively high molecular weight (90-140 g/mol). The mixture boils when the combined vapour pressure of water and the organic compound equals atmospheric pressure, allowing the organic compound to distil at temperatures below its normal boiling point.",
+        "question_text": "<p>Steam distillation is particularly useful for purifying organic compounds that satisfy which conditions?</p>",
+        "explanation": "<p>Steam distillation is suitable for organic compounds that:</p><ol><li>are <b>insoluble in water</b>;</li><li>have high solubility in ether (for subsequent extraction);</li><li>have a <b>high vapour pressure</b> (25-40 mmHg) at 100\u00b0C; and</li><li>have a <b>relatively high molecular weight</b> (90-140 g/mol).</li></ol><p>The mixture boils when the combined vapour pressure of water and the organic compound equals atmospheric pressure, allowing the organic compound to distil at temperatures <i>below</i> its normal boiling point.</p>",
         "options": [
             {
                 "option_id": "776664",
                 "tag": "a",
-                "text": "They must be completely miscible with water and have low vapour pressure",
+                "text": "They must be completely miscible with water and have <i>low</i> vapour pressure",
                 "is_correct": false
             },
             {
                 "option_id": "245366",
                 "tag": "b",
-                "text": "They must be insoluble in water, have high vapour pressure at $100\u00c2\u00b0C$ (25-40 mmHg), and have relatively high molecular weight",
+                "text": "They must be <b>insoluble in water</b>, have <b>high vapour pressure at 100\u00b0C (25-40 mmHg)</b>, and have <b>relatively high molecular weight</b>",
                 "is_correct": true
             },
             {
                 "option_id": "715365",
                 "tag": "c",
-                "text": "They must be ionic and soluble in polar solvents",
+                "text": "They must be <b>ionic</b> and soluble in polar solvents",
                 "is_correct": false
             },
             {
                 "option_id": "271053",
                 "tag": "d",
-                "text": "They must decompose at temperatures above $200\u00c2\u00b0C$",
+                "text": "They must decompose at temperatures above 200\u00b0C",
                 "is_correct": false
             }
         ],
-        "question_number": 213
+        "question_number": 213,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In a steam distillation calculation, a mixture of water and an immiscible organic compound Y (molecular weight $= 90$) boils at $96\u00c2\u00b0C$. The vapour pressure of water at $96\u00c2\u00b0C$ is $710$ mmHg and total atmospheric pressure is $760$ mmHg. What is the ratio of weight of Y to weight of water in the distillate?",
-        "explanation": "At the boiling point, the vapour pressure of Y is: $760 - 710 = 50 \\text{ mmHg}$. The vapour pressure of water is $710 \\text{ mmHg}$. The weight ratio in the distillate is: $\\frac{\\text{Weight of Y}}{\\text{Weight of water}} = \\frac{p_Y \\times M_Y}{p_{water} \\times M_{water}} = \\frac{50 \\times 90}{710 \\times 18} = \\frac{4500}{12780} \\approx 0.352$. This means for every gram of water in the distillate, approximately 0.352 g of Y co-distils.",
+        "question_text": "<p>In a <b>steam distillation</b> calculation, a mixture of water and an immiscible organic compound Y (molecular weight <i>M</i><sub>Y</sub> = 90) boils at 96\u00b0C. The vapour pressure of water at 96\u00b0C is 710 mmHg and total atmospheric pressure is 760 mmHg. What is the ratio of weight of Y to weight of water in the distillate?</p>",
+        "explanation": "<p>At the boiling point, the vapour pressure of Y is: <i>760 - 710 = 50 mmHg</i>. The vapour pressure of water is <i>710 mmHg</i>. The weight ratio in the distillate is:</p><p><i>\\frac{\\text{Weight of Y}}{\\text{Weight of water}} = \\frac{p_Y \\times M_Y}{p_{water} \\times M_{water}} = \\frac{50 \\times 90}{710 \\times 18} = \\frac{4500}{12780} \\approx 0.352</i>.</p><p>This means for every gram of water in the distillate, approximately 0.352 g of Y co-distils.</p>",
         "options": [
             {
                 "option_id": "261425",
                 "tag": "a",
-                "text": "$\\dfrac{50 \\times 90}{710 \\times 18} \\approx 0.352$",
+                "text": "<i>\\dfrac{50 \\times 90}{710 \\times 18} \\approx 0.352</i>",
                 "is_correct": true
             },
             {
                 "option_id": "161820",
                 "tag": "b",
-                "text": "$\\dfrac{710 \\times 90}{50 \\times 18} \\approx 71$",
+                "text": "<i>\\dfrac{710 \\times 90}{50 \\times 18} \\approx 71</i>",
                 "is_correct": false
             },
             {
                 "option_id": "255788",
                 "tag": "c",
-                "text": "$\\dfrac{50 \\times 18}{710 \\times 90} \\approx 0.014$",
+                "text": "<i>\\dfrac{50 \\times 18}{710 \\times 90} \\approx 0.014</i>",
                 "is_correct": false
             },
             {
                 "option_id": "979877",
                 "tag": "d",
-                "text": "$\\dfrac{90}{18} = 5$",
+                "text": "<i>\\dfrac{90}{18} = 5</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 226
+        "question_number": 226,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "An azeotropic mixture is a mixture that:",
-        "explanation": "An azeotropic mixture boils at a constant temperature regardless of its composition \u00e2\u20ac\u201d it behaves as if it were a single pure compound. The most well-known example is the ethanol-water azeotrope: a mixture of $95.87\\%$ ethanol and $4.13\\%$ water by volume, which boils at $78.13\u00c2\u00b0C$. Because both components co-distil at this constant temperature, ordinary fractional distillation cannot separate them. Azeotropic distillation using a third chemical must be employed instead.",
+        "question_text": "<p>An <b>azeotropic mixture</b> is a mixture that:</p>",
+        "explanation": "<p>An <b>azeotropic mixture</b> boils at a constant temperature regardless of its composition \u2014 it behaves as if it were a single pure compound. The most well-known example is the ethanol-water azeotrope: a mixture of <i>95.87% ethanol</i> and <i>4.13% water</i> by volume, which boils at <i>78.13\u00b0C</i>. Because both components co-distil at this constant temperature, ordinary fractional distillation <b>cannot</b> separate them. Azeotropic distillation using a third chemical must be employed instead.</p>",
         "options": [
             {
                 "option_id": "273009",
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 238
+        "question_number": 238,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,8 +728,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In chromatographic techniques, separation is based on which principle?",
-        "explanation": "All chromatographic techniques are based on the differential migration of components between two phases: a stationary phase (solid or liquid, fixed in place) and a mobile phase (liquid or gas, which moves). The rate of movement of each component depends on its relative affinity for the two phases. Components with greater affinity for the stationary phase move more slowly; those with greater affinity for the mobile phase move faster. Greater polarity of a component generally means slower movement on polar stationary phases.",
+        "question_text": "<p>In chromatographic techniques, separation is based on which principle?</p>",
+        "explanation": "<p>All chromatographic techniques are based on the <i>differential migration</i> of components between two phases: a <b>stationary phase</b> (solid or liquid, fixed in place) and a <b>mobile phase</b> (liquid or gas, which moves). The rate of movement of each component depends on its relative affinity for the two phases. Components with greater affinity for the stationary phase move more slowly; those with greater affinity for the mobile phase move faster. Greater polarity of a component generally means slower movement on polar stationary phases.</p>",
         "options": [
             {
                 "option_id": "168622",
@@ -721,7 +740,7 @@
             {
                 "option_id": "238067",
                 "tag": "b",
-                "text": "Differences in the rates of movement of components between a stationary phase and a mobile phase due to differences in affinity",
+                "text": "Differences in the rates of movement of components between a <b>stationary phase</b> and a <b>mobile phase</b> due to differences in affinity",
                 "is_correct": true
             },
             {
@@ -737,7 +756,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 251
+        "question_number": 251,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,8 +766,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In column chromatography, what material is typically used as the stationary phase?",
-        "explanation": "In column chromatography, the stationary phase is typically silica gel or alumina packed into a glass column. The mobile phase is a liquid solvent or solvent mixture (eluent) passed through the column, carrying dissolved sample components with it. Components with higher affinity for the stationary phase travel more slowly, while those with higher affinity for the mobile phase travel faster \u00e2\u20ac\u201d thus separating the mixture into distinct fractions, each collected in a separate test tube or flask.",
+        "question_text": "<p>In column chromatography, what material is typically used as the <b>stationary phase</b>?</p>",
+        "explanation": "<p>In column chromatography, the <b>stationary phase</b> is typically <b>silica gel</b> or <b>alumina</b> packed into a glass column. The <b>mobile phase</b> is a liquid solvent or solvent mixture (<i>eluent</i>) passed through the column, carrying dissolved sample components with it. Components with higher affinity for the stationary phase travel more slowly, while those with higher affinity for the mobile phase travel faster\u2014thus separating the mixture into distinct fractions, each collected in a separate test tube or flask.</p>",
         "options": [
             {
                 "option_id": "283764",
@@ -774,7 +794,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 264
+        "question_number": 264,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,8 +804,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In thin layer chromatography (TLC), the retention factor $R_f$ is calculated as:",
-        "explanation": "The retention factor $R_f$ in TLC is defined as: $R_f = \\frac{\\text{Distance travelled by the sample spot from baseline}}{\\text{Distance travelled by the solvent front from baseline}}$. The $R_f$ value is always between 0 and 1. It is characteristic for a given compound under specific conditions (solvent system, adsorbent, temperature). A high $R_f$ indicates greater affinity for the mobile phase; a low $R_f$ indicates greater affinity for the stationary phase.",
+        "question_text": "<p>The retention factor <b>$R_f$</b> in thin layer chromatography (TLC) is calculated as:</p>",
+        "explanation": "<p>The retention factor <b>$R_f$</b> in TLC is defined as:</p><p>$R_f = \\frac{\\text{Distance travelled by the sample spot from baseline}}{\\text{Distance travelled by the solvent front from baseline}}$.</p><p>The <b>$R_f$</b> value is always between 0 and 1. It is characteristic for a given compound under specific conditions (solvent system, adsorbent, temperature). A high <b>$R_f$</b> indicates greater affinity for the mobile phase; a low <b>$R_f$</b> indicates greater affinity for the stationary phase.</p>",
         "options": [
             {
                 "option_id": "264850",
@@ -811,7 +832,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 277
+        "question_number": 277,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,8 +842,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In TLC, a compound has a higher $R_f$ value. What does this tell you about its chemical affinity?",
-        "explanation": "Since $R_f = \\frac{\\text{distance by sample}}{\\text{distance by solvent}}$, a higher $R_f$ value (closer to 1) means the compound travelled nearly as far as the solvent front \u00e2\u20ac\u201d indicating high affinity for the mobile phase (solvent) and low affinity for the stationary phase (silica gel or alumina). Conversely, a compound with a low $R_f$ (closer to 0) has high affinity for the stationary phase and moves slowly. More polar compounds have lower $R_f$ values on polar stationary phases like silica gel.",
+        "question_text": "<p>In <b>TLC</b> (Thin Layer Chromatography), a compound has a higher <i>R<sub>f</sub></i> value. What does this tell you about its chemical affinity?</p>",
+        "explanation": "<p>Since <i>R<sub>f</sub></i> = <b>distance by sample / distance by solvent</b>, a higher <i>R<sub>f</sub></i> value (closer to 1) means the compound travelled nearly as far as the solvent front\u2014indicating <b>high affinity for the mobile phase</b> (solvent) and <b>low affinity for the stationary phase</b> (silica gel or alumina). Conversely, a compound with a low <i>R<sub>f</sub></i> (closer to 0) has high affinity for the stationary phase and moves slowly. More polar compounds have lower <i>R<sub>f</sub></i> values on polar stationary phases like silica gel.</p>",
         "options": [
             {
                 "option_id": "160884",
@@ -848,7 +870,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 290
+        "question_number": 290,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +880,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the stationary phase in paper chromatography?",
-        "explanation": "In paper chromatography, the chromatography paper (usually cellulose) \u00e2\u20ac\u201d along with the water molecules adsorbed onto it \u00e2\u20ac\u201d serves as the stationary phase. The mobile phase is a solvent or solvent mixture that moves up the paper by capillary action, carrying solute components with it. Compounds are separated based on their different solubilities in the mobile phase and their different affinities for the paper. This technique is used to separate pigments, amino acids, and inorganic ions.",
+        "question_text": "<p>What is the <b>stationary phase</b> in paper chromatography?</p>",
+        "explanation": "<p>In paper chromatography, the chromatography paper (usually cellulose) <i>\u2014along with the water molecules adsorbed onto it\u2014</i> serves as the <b>stationary phase</b>. The <b>mobile phase</b> is a solvent or solvent mixture that moves up the paper by capillary action, carrying solute components with it. Compounds are separated based on their different solubilities in the mobile phase and their different affinities for the paper. This technique is used to separate pigments, amino acids, and inorganic ions.</p>",
         "options": [
             {
                 "option_id": "162712",
@@ -885,7 +908,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 303
+        "question_number": 303,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,8 +918,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In gas-liquid chromatography (GLC), which gas typically serves as the mobile phase?",
-        "explanation": "In gas-liquid chromatography (GLC), also known as vapour-phase chromatography (VPC), an inert carrier gas such as helium serves as the mobile phase. The stationary phase is a high-boiling liquid (often a waxy polymer) adsorbed onto a solid support (finely crushed diatomaceous earth) packed into a stainless steel column (1-4 m long, up to 4 mm internal diameter). The sample is injected as vapour and carried through the column by the helium gas.",
+        "question_text": "<p>In <b>gas-liquid chromatography (GLC)</b>, which gas typically serves as the <b>mobile phase</b>?</p>",
+        "explanation": "<p>In <b>gas-liquid chromatography (GLC)</b>, also known as vapour-phase chromatography (VPC), an <i>inert carrier gas</i> such as helium serves as the <b>mobile phase</b>. The <b>stationary phase</b> is a high-boiling liquid (often a waxy polymer) adsorbed onto a solid support (finely crushed diatomaceous earth) packed into a stainless steel column (1-4 m long, up to 4 mm internal diameter). The sample is injected as vapour and carried through the column by the helium gas.</p>",
         "options": [
             {
                 "option_id": "125904",
@@ -922,7 +946,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 316
+        "question_number": 316,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +956,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In GLC, what is 'retention time' and what factors affect it?",
-        "explanation": "Retention time in GLC is the time taken for a specific component to travel from the injection point through the column to the detector. It is affected by: (1) The compound's boiling point \u00e2\u20ac\u201d higher boiling point = longer retention time (more time spent condensed); (2) Solubility in the liquid stationary phase \u00e2\u20ac\u201d higher solubility = longer retention time; (3) Column temperature \u00e2\u20ac\u201d higher temperature shortens retention times by pushing molecules into the gas phase. Retention time is a characteristic property used to identify compounds.",
+        "question_text": "<p><b>Retention time</b> in Gas-Liquid Chromatography (GLC) refers to the time taken for a specific component to travel from the <b>injector</b> to the <b>detector</b> through the chromatographic column. It is a critical parameter used for identifying and quantifying compounds in a mixture.</p>",
+        "explanation": "<p><b>Retention time</b> is defined as the duration between the injection of a sample and the detection of a specific compound. Several factors influence it:</p><ol><li><b>Boiling point of the compound</b>: Compounds with higher boiling points tend to spend more time in the liquid stationary phase, resulting in longer retention times.</li><li><b>Solubility in the stationary phase</b>: Greater solubility in the liquid phase increases retention time as the compound interacts more strongly with the stationary phase.</li><li><b>Column temperature</b>: Higher temperatures reduce retention times by promoting the compound's transition into the gas phase, decreasing its interaction with the stationary phase.</li></ol><p>Retention time is a unique characteristic for each compound under specific conditions, making it invaluable for qualitative analysis in GLC.</p>",
         "options": [
             {
                 "option_id": "474393",
@@ -959,7 +984,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 329
+        "question_number": 329,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is an advantage of ion-exchange chromatography over standard column chromatography?",
-        "explanation": "Ion-exchange chromatography uses a finely divided ion-exchange resin in a tubular column instead of a traditional adsorbent. The resin contains charged groups that interact selectively with ions of opposite charge in the sample mixture. This allows for the selective retention and concentration of specific ionic molecules \u00e2\u20ac\u201d particularly useful for separating charged biomolecules like amino acids, nucleotides, and proteins.",
+        "question_text": "<p>Which of the following is an <b>advantage</b> of <b>ion-exchange chromatography</b> over <b>standard column chromatography</b>?</p>",
+        "explanation": "<p><b>Ion-exchange chromatography</b> uses a finely divided ion-exchange resin in a tubular column instead of a traditional adsorbent. The resin contains charged groups that interact selectively with ions of opposite charge in the sample mixture. This allows for the selective retention and concentration of <i>specific ionic molecules</i> \u2014 particularly useful for separating charged biomolecules like amino acids, nucleotides, and proteins.</p>",
         "options": [
             {
                 "option_id": "282760",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 342
+        "question_number": 342,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,19 +1032,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The purity of a solid organic compound can be assessed by melting point determination. How does the melting point of an impure solid differ from that of a pure solid?",
-        "explanation": "A pure solid has a sharp, distinct melting point \u00e2\u20ac\u201d it melts over a very narrow temperature range (less than $1-2\u00c2\u00b0C$). An impure solid shows a depressed melting point (melts at a lower temperature) and melts over a wider temperature range. Impurities disrupt the crystal lattice, lowering the free energy required to melt the solid. The broader and lower the melting range, the greater the degree of impurity.",
+        "question_text": "<p>The purity of a solid organic compound can be assessed by melting point determination. How does the melting point of an impure solid differ from that of a pure solid?</p>",
+        "explanation": "<p>A pure solid has a sharp, distinct melting point \u2014 it melts over a very narrow temperature range (less than 1\u20132\u00b0C). An impure solid shows a <b>depressed melting point</b> (melts at a lower temperature) and melts over a <b>wider temperature range</b>. Impurities disrupt the crystal lattice, lowering the free energy required to melt the solid. The broader and lower the melting range, the greater the degree of impurity.</p>",
         "options": [
             {
                 "option_id": "102892",
                 "tag": "a",
-                "text": "Impure solids have a higher and sharper melting point than pure solids",
+                "text": "Impure solids have a <b>higher</b> and <b>sharper</b> melting point than pure solids",
                 "is_correct": false
             },
             {
                 "option_id": "118016",
                 "tag": "b",
-                "text": "Impure solids melt over a wider temperature range and at a lower temperature compared to the pure compound",
+                "text": "Impure solids melt over a <b>wider temperature range</b> and at a <b>lower temperature</b> compared to the pure compound",
                 "is_correct": true
             },
             {
@@ -1029,11 +1056,12 @@
             {
                 "option_id": "237254",
                 "tag": "d",
-                "text": "The melting point of a solid is unaffected by impurities",
+                "text": "The melting point of a solid is <i>unaffected</i> by impurities",
                 "is_correct": false
             }
         ],
-        "question_number": 355
+        "question_number": 355,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1070,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the purpose of the mixed melting point test?",
-        "explanation": "The mixed melting point test is used to identify and confirm the identity of solid organic compounds. If an unknown compound has a melting point of $110\u00c2\u00b0C$ and a known compound X also melts at $110\u00c2\u00b0C$, they might be the same compound. To confirm, equal amounts of both are thoroughly mixed and the melting point of the mixture is measured. If the melting point remains at $110\u00c2\u00b0C$ with a sharp range, the compounds are identical. If the melting point drops and broadens (melting point depression), they are different compounds.",
+        "question_text": "<p>The purpose of the <b>mixed melting point test</b> is to:</p>",
+        "explanation": "<p>The <b>mixed melting point test</b> is used to identify and confirm the identity of solid organic compounds. If an unknown compound has a melting point of <i>110\u00b0C</i> and a known compound X also melts at <i>110\u00b0C</i>, they might be the same compound. To confirm, equal amounts of both are thoroughly mixed and the melting point of the mixture is measured. If the melting point remains at <i>110\u00b0C</i> with a sharp range, the compounds are identical. If the melting point drops and broadens (<b>melting point depression</b>), they are different compounds.",
         "options": [
             {
                 "option_id": "176464",
                 "tag": "a",
-                "text": "To determine the boiling point of a liquid organic compound",
+                "text": "determine the boiling point of a liquid organic compound",
                 "is_correct": false
             },
             {
                 "option_id": "524714",
                 "tag": "b",
-                "text": "To confirm whether an unknown compound is identical to a known compound by mixing equal parts and re-determining the melting point",
+                "text": "confirm whether an unknown compound is identical to a known compound by mixing equal parts and re-determining the melting point",
                 "is_correct": true
             },
             {
                 "option_id": "323026",
                 "tag": "c",
-                "text": "To separate two compounds that have different melting points",
+                "text": "separate two compounds that have different melting points",
                 "is_correct": false
             },
             {
                 "option_id": "861713",
                 "tag": "d",
-                "text": "To measure the refractive index of a liquid",
+                "text": "measure the refractive index of a liquid",
                 "is_correct": false
             }
         ],
-        "question_number": 368
+        "question_number": 368,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,25 +1108,25 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "A pure liquid is said to have which of the following boiling point characteristics?",
-        "explanation": "A pure liquid has a sharp, distinct boiling point at a given pressure \u00e2\u20ac\u201d it boils over a very narrow temperature range (approximately $1\u00c2\u00b0C$). During distillation, it should completely distil leaving no residue. An impure liquid or mixture boils over a broader temperature range. Note: an azeotropic mixture can also show a constant boiling point, so a sharp boiling point alone is not always proof of purity \u00e2\u20ac\u201d additional tests like refractometry may be needed.",
+        "question_text": "<p>A pure liquid is said to have which of the following boiling point characteristics?</p>",
+        "explanation": "<p>A pure liquid has a <b>sharp, distinct boiling point</b> at a given pressure \u2014 it boils over a very narrow temperature range (approximately <i>1 \u00b0C</i>). During distillation, it should completely distil leaving no residue. An impure liquid or mixture boils over a broader temperature range.</p><p>Note: an azeotropic mixture can also show a constant boiling point, so a sharp boiling point alone is not always proof of purity \u2014 additional tests like refractometry may be needed.</p>",
         "options": [
             {
                 "option_id": "364869",
                 "tag": "a",
-                "text": "A broad boiling range of $10-20\u00c2\u00b0C$",
+                "text": "A broad boiling range of <i>10\u201320 \u00b0C</i>",
                 "is_correct": false
             },
             {
                 "option_id": "102494",
                 "tag": "b",
-                "text": "A sharp, distinct boiling point within a narrow range of about $1\u00c2\u00b0C$",
+                "text": "A sharp, distinct boiling point within a narrow range of about <i>1 \u00b0C</i>",
                 "is_correct": true
             },
             {
                 "option_id": "240560",
                 "tag": "c",
-                "text": "No specific boiling point \u00e2\u20ac\u201d it evaporates gradually",
+                "text": "No specific boiling point \u2014 it evaporates gradually",
                 "is_correct": false
             },
             {
@@ -1107,7 +1136,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 381
+        "question_number": 381,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1146,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Refractometry is used to assess the purity of a liquid compound. What property does a refractometer measure?",
-        "explanation": "A refractometer measures the refractive index of a liquid \u00e2\u20ac\u201d the ratio of the speed of light in a vacuum to its speed in the liquid. This value is highly correlated with the purity of a liquid sample: pure liquids have characteristic, reproducible refractive indices that change when impurities are present. Refractometry is particularly useful for liquids with azeotropic issues. Its advantages include speed, small sample size requirement, and non-destructiveness to the material being studied.",
+        "question_text": "<p>A refractometer is used to assess the purity of a liquid compound. What property does a refractometer measure?</p>",
+        "explanation": "<p>A refractometer measures the <b>refractive index</b> of a liquid \u2014 the ratio of the speed of light in a vacuum to its speed in the liquid. This value is <i>highly correlated</i> with the purity of a liquid sample: pure liquids have characteristic, reproducible refractive indices that change when impurities are present. Refractometry is particularly useful for liquids with azeotropic issues. Its advantages include speed, small sample size requirement, and non-destructiveness to the material being studied.",
         "options": [
             {
                 "option_id": "267553",
@@ -1144,7 +1174,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 393
+        "question_number": 393,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1184,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "UV spectroscopy involves molecules absorbing UV light in the range of $200-400 \\text{ nm}$. What happens to the electrons when UV light is absorbed?",
-        "explanation": "In UV spectroscopy, molecules absorb UV light in the $200-400 \\text{ nm}$ range. This absorbed energy causes electrons to be excited from their ground state (lowest energy) to a higher energy excited or anti-bonding state. Molecules with $\\pi$-electrons (double bonds, aromatic systems) or non-bonding $n$-electrons (lone pairs) are particularly effective at absorbing UV light. The four types of electronic transitions are: $\\sigma \\rightarrow \\sigma^*$, $n \\rightarrow \\sigma^*$, $\\pi \\rightarrow \\pi^*$, and $n \\rightarrow \\pi^*$.",
+        "question_text": "<p>UV spectroscopy involves molecules absorbing UV light in the range of <b>200\u2013400 nm</b>. What happens to the electrons when UV light is absorbed?</p>",
+        "explanation": "<p>In UV spectroscopy, molecules absorb UV light in the <b>200\u2013400 nm</b> range. This absorbed energy causes electrons to be excited from their ground state (lowest energy) to a higher energy excited or <i>anti-bonding</i> state. Molecules with <b>\u03c0-electrons</b> (double bonds, aromatic systems) or non-bonding <i>n-electrons</i> (lone pairs) are particularly effective at absorbing UV light. The four types of electronic transitions are: <b>\u03c3 \u2192 \u03c3*</b>, <b>n \u2192 \u03c3*</b>, <b>\u03c0 \u2192 \u03c0*</b>, and <b>n \u2192 \u03c0*</b>.</p>",
         "options": [
             {
                 "option_id": "944023",
@@ -1181,7 +1212,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 405
+        "question_number": 405,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1222,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Beer-Lambert Law for UV spectroscopy is given as $A = abC$. What do the variables $a$, $b$, and $C$ represent?",
-        "explanation": "The Beer-Lambert Law is: $A = abC$, where: $A$ = absorbance of the sample (dimensionless); $a$ = absorptivity of the compound in solution (a constant dependent on the wavelength of radiation and the nature of the compound); $b$ = path length of light through the sample (length of the cuvette interior, in cm); $C$ = concentration of the absorbing material in solution (in g/L). Absorbance is directly proportional to both the concentration and the path length.",
+        "question_text": "<p>The Beer-Lambert Law for UV spectroscopy is given as <i>A = abC</i>. What do the variables <i>a</i>, <i>b</i>, and <i>C</i> represent?</p>",
+        "explanation": "<p>The Beer-Lambert Law is: <i>A = abC</i>, where:</p><p><b>A</b> = absorbance of the sample (dimensionless); <b>a</b> = absorptivity of the compound in solution (a constant dependent on the wavelength of radiation and the nature of the compound); <b>b</b> = path length of light through the sample (length of the cuvette interior, in cm); <b>C</b> = concentration of the absorbing material in solution (in g/L). Absorbance is directly proportional to both the concentration and the path length.</p>",
         "options": [
             {
                 "option_id": "240170",
                 "tag": "a",
-                "text": "$a$ = area of cuvette, $b$ = beam width, $C$ = concentration in mol/L",
+                "text": "<i>a</i> = area of cuvette, <i>b</i> = beam width, <i>C</i> = concentration in mol/L",
                 "is_correct": false
             },
             {
                 "option_id": "200761",
                 "tag": "b",
-                "text": "$a$ = absorptivity (a constant for the compound at a given wavelength), $b$ = path length of the cuvette interior, $C$ = concentration of absorbing material (g/L)",
+                "text": "<i>a</i> = absorptivity (a constant for the compound at a given wavelength), <i>b</i> = path length of the cuvette interior, <i>C</i> = concentration of absorbing material (g/L)",
                 "is_correct": true
             },
             {
                 "option_id": "331977",
                 "tag": "c",
-                "text": "$a$ = atomic number, $b$ = boiling point, $C$ = colour intensity",
+                "text": "<i>a</i> = atomic number, <i>b</i> = boiling point, <i>C</i> = colour intensity",
                 "is_correct": false
             },
             {
                 "option_id": "196035",
                 "tag": "d",
-                "text": "$a$ = absorbance at reference wavelength, $b$ = baseline correction, $C$ = calibration factor",
+                "text": "<i>a</i> = absorbance at reference wavelength, <i>b</i> = baseline correction, <i>C</i> = calibration factor",
                 "is_correct": false
             }
         ],
-        "question_number": 417
+        "question_number": 417,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1260,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The order of UV electronic transitions from highest to lowest energy is:",
-        "explanation": "The four electronic transitions in UV spectroscopy ordered from highest to lowest energy (shortest to longest wavelength absorbed) are: $\\sigma \\rightarrow \\sigma^* > n \\rightarrow \\sigma^* > \\pi \\rightarrow \\pi^* > n \\rightarrow \\pi^*$. The $\\sigma \\rightarrow \\sigma^*$ transition requires the most energy (very short UV wavelengths, below 200 nm). The $n \\rightarrow \\pi^*$ transition requires the least energy and occurs at the longest wavelength. This order helps predict which chromophore (light-absorbing group) will appear in a given region of the UV spectrum.",
+        "question_text": "<p>The order of UV electronic transitions from <b>highest to lowest energy</b> is:</p>",
+        "explanation": "<p>The four electronic transitions in UV spectroscopy ordered from <b>highest to lowest energy</b> (shortest to longest wavelength absorbed) are:</p> <p><i>\u03c3</i> \u2192 <i>\u03c3</i>* > <i>n</i> \u2192 <i>\u03c3</i>* > <i>\u03c0</i> \u2192 <i>\u03c0</i>* > <i>n</i> \u2192 <i>\u03c0</i>*.</p> <p>The <i>\u03c3</i> \u2192 <i>\u03c3</i>* transition requires the most energy (very short UV wavelengths, below 200 nm). The <i>n</i> \u2192 <i>\u03c0</i>* transition requires the least energy and occurs at the longest wavelength. This order helps predict which <b>chromophore</b> (light-absorbing group) will appear in a given region of the UV spectrum.</p>",
         "options": [
             {
                 "option_id": "197489",
                 "tag": "a",
-                "text": "$n \\rightarrow \\pi^* > \\pi \\rightarrow \\pi^* > n \\rightarrow \\sigma^* > \\sigma \\rightarrow \\sigma^*$",
+                "text": "<i>n</i> \u2192 <i>\u03c0</i>* > <i>\u03c0</i> \u2192 <i>\u03c0</i>* > <i>n</i> \u2192 <i>\u03c3</i>* > <i>\u03c3</i> \u2192 <i>\u03c3</i>*",
                 "is_correct": false
             },
             {
                 "option_id": "221845",
                 "tag": "b",
-                "text": "$\\sigma \\rightarrow \\sigma^* > n \\rightarrow \\sigma^* > \\pi \\rightarrow \\pi^* > n \\rightarrow \\pi^*$",
+                "text": "<i>\u03c3</i> \u2192 <i>\u03c3</i>* > <i>n</i> \u2192 <i>\u03c3</i>* > <i>\u03c0</i> \u2192 <i>\u03c0</i>* > <i>n</i> \u2192 <i>\u03c0</i>*",
                 "is_correct": true
             },
             {
                 "option_id": "290526",
                 "tag": "c",
-                "text": "$\\pi \\rightarrow \\pi^* > n \\rightarrow \\pi^* > \\sigma \\rightarrow \\sigma^* > n \\rightarrow \\sigma^*$",
+                "text": "<i>\u03c0</i> \u2192 <i>\u03c0</i>* > <i>n</i> \u2192 <i>\u03c0</i>* > <i>\u03c3</i> \u2192 <i>\u03c3</i>* > <i>n</i> \u2192 <i>\u03c3</i>*",
                 "is_correct": false
             },
             {
                 "option_id": "338342",
                 "tag": "d",
-                "text": "$n \\rightarrow \\sigma^* > \\sigma \\rightarrow \\sigma^* > n \\rightarrow \\pi^* > \\pi \\rightarrow \\pi^*$",
+                "text": "<i>n</i> \u2192 <i>\u03c3</i>* > <i>\u03c3</i> \u2192 <i>\u03c3</i>* > <i>n</i> \u2192 <i>\u03c0</i>* > <i>\u03c0</i> \u2192 <i>\u03c0</i>*",
                 "is_correct": false
             }
         ],
-        "question_number": 429
+        "question_number": 429,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,8 +1298,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is a major application of UV spectroscopy in organic chemistry?",
-        "explanation": "UV spectroscopy has several important applications: (1) Detection of impurities \u00e2\u20ac\u201d by measuring absorbance at a specific wavelength and comparing additional peaks with a standard; (2) Structure elucidation \u00e2\u20ac\u201d identifying unsaturation and heteroatoms; (3) Qualitative and quantitative analysis; (4) Determining functional group presence; (5) Kinetics studies \u00e2\u20ac\u201d monitoring reaction progress via absorbance changes; (6) Drug assay; and (7) As an HPLC detector. It is one of the most versatile spectroscopic tools in organic chemistry.",
+        "question_text": "<p>Which of the following is a <b>major application</b> of UV spectroscopy in organic chemistry?</p>",
+        "explanation": "<p>UV spectroscopy is widely used in organic chemistry for multiple purposes, including:</p><p>(1) <b>Detection of impurities</b> \u2013 by measuring absorbance at a specific wavelength and comparing additional peaks with a standard.</p><p>(2) <b>Structure elucidation</b> \u2013 identifying unsaturation and heteroatoms.</p><p>(3) Qualitative and quantitative analysis.</p><p>(4) Determining functional group presence.</p><p>(5) Kinetics studies \u2013 monitoring reaction progress via absorbance changes.</p><p>(6) Drug assay.</p><p>(7) As an HPLC detector.</p><p>It is one of the most <i>versatile spectroscopic tools</i> in organic chemistry.</p>",
         "options": [
             {
                 "option_id": "182532",
@@ -1292,7 +1326,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 441
+        "question_number": 441,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1336,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does UV-Visible (UV-Vis) spectroscopy differ from UV spectroscopy alone?",
-        "explanation": "UV-Visible (UV-Vis) spectroscopy combines two adjacent regions of the electromagnetic spectrum: the ultraviolet region ($200-400 \\text{ nm}$) and the visible light region ($400-800 \\text{ nm}$, or $25000-12500 \\text{ cm}^{-1}$). A practical difference is that in the visible spectroscopy region, regular glass can be used as the cuvette (since glass absorbs UV), whereas UV spectroscopy requires quartz or fused silica cuvettes. Both are routinely combined in modern spectrophotometers.",
+        "question_text": "<p>How does <b>UV-Visible (UV-Vis) spectroscopy</b> differ from <b>UV spectroscopy</b> alone?</p>",
+        "explanation": "<p><b>UV-Visible (UV-Vis) spectroscopy</b> combines two adjacent regions of the electromagnetic spectrum: the <b>ultraviolet region</b> (<i>200-400 nm</i>) and the <b>visible light region</b> (<i>400-800 nm</i>, or <i>25000-12500 cm<sup>-1</sup></i>). A practical difference is that in the visible spectroscopy region, regular glass can be used as the cuvette (since glass absorbs UV), whereas UV spectroscopy requires quartz or fused silica cuvettes. Both are routinely combined in modern spectrophotometers.</p>",
         "options": [
             {
                 "option_id": "142755",
@@ -1313,7 +1348,7 @@
             {
                 "option_id": "180618",
                 "tag": "b",
-                "text": "UV-Vis covers both the UV region ($200-400 \\text{ nm}$) and the visible light region ($400-800 \\text{ nm}$); regular glass can be used as the sample holder in the visible region",
+                "text": "UV-Vis covers both the UV region (<i>200-400 nm</i>) and the visible light region (<i>400-800 nm</i>); regular glass can be used as the sample holder in the visible region",
                 "is_correct": true
             },
             {
@@ -1329,7 +1364,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 453
+        "question_number": 453,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1374,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Infrared (IR) spectroscopy is based on which type of molecular motion?",
-        "explanation": "Infrared (IR) spectroscopy is based on the absorption of infrared radiation by molecules, which causes molecular vibrations to increase in amplitude. The three main types of molecular vibration are: (1) Stretching vibrations (bond length changes along the bond axis); (2) Bending vibrations (bond angle changes); and (3) Rotational transitions. The IR region spans from $0.7 \\mu\\text{m}$ to $500 \\mu\\text{m}$ ($14000 \\text{ cm}^{-1}$ to $20 \\text{ cm}^{-1}$). Different functional groups have characteristic IR absorption frequencies.",
+        "question_text": "<p>Infrared (IR) spectroscopy is based on which type of <b>molecular motion</b>?</p>",
+        "explanation": "<p>Infrared (IR) spectroscopy is based on the absorption of infrared radiation by molecules, which causes <b>molecular vibrations</b> to increase in amplitude. The three main types of molecular vibration are: (1) <b>Stretching vibrations</b> (bond length changes along the bond axis); (2) <b>Bending vibrations</b> (bond angle changes); and (3) <b>Rotational transitions</b>. The IR region spans from <i>0.7 \u03bcm</i> to <i>500 \u03bcm</i> (<i>14000 cm<sup>\u22121</sup></i> to <i>20 cm<sup>\u22121</sup></i>). Different functional groups have characteristic IR absorption frequencies.</p>",
         "options": [
             {
                 "option_id": "933131",
@@ -1356,7 +1392,7 @@
             {
                 "option_id": "284039",
                 "tag": "c",
-                "text": "Molecular vibrations \u00e2\u20ac\u201d specifically stretching, bending, and rotation of covalent bonds",
+                "text": "Molecular vibrations \u2014 specifically stretching, bending, and rotation of covalent bonds",
                 "is_correct": true
             },
             {
@@ -1366,7 +1402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 465
+        "question_number": 465,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,35 +1412,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The IR spectrum is divided into the functional group region and the fingerprint region. What wavenumber range defines the functional group region?",
-        "explanation": "The IR spectrum is divided into two key regions: (1) The Functional Group Region: $4000-1300 \\text{ cm}^{-1}$ \u00e2\u20ac\u201d this region contains absorption bands characteristic of specific functional groups (e.g., $O-H$, $N-H$, $C=O$, $C \\equiv C$, $C-H$ stretching). These bands are used to identify which functional groups are present. (2) The Fingerprint Region: $1300-400 \\text{ cm}^{-1}$ \u00e2\u20ac\u201d this region contains complex, compound-specific absorption patterns unique to each molecule, used for definitive identification by comparison with reference spectra.",
+        "question_text": "<p>The IR spectrum is divided into the <b>functional group region</b> and the <b>fingerprint region</b>. What wavenumber range defines the <b>functional group region</b>?</p>",
+        "explanation": "<p>The IR spectrum is divided into two key regions:</p><p>(1) The <b>Functional Group Region</b>: <i>4000-1300 cm<sup>-1</sup></i> \u2014 this region contains absorption bands characteristic of specific functional groups (e.g., <i>O-H</i>, <i>N-H</i>, <i>C=O</i>, <i>C\u2261C</i>, <i>C-H</i> stretching). These bands are used to identify which functional groups are present.</p><p>(2) The <b>Fingerprint Region</b>: <i>1300-400 cm<sup>-1</sup></i> \u2014 this region contains complex, compound-specific absorption patterns unique to each molecule, used for definitive identification by comparison with reference spectra.</p>",
         "options": [
             {
                 "option_id": "129356",
                 "tag": "a",
-                "text": "$1300-400 \\text{ cm}^{-1}$",
+                "text": "<i>1300-400 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "194475",
                 "tag": "b",
-                "text": "$4000-1300 \\text{ cm}^{-1}$",
+                "text": "<i>4000-1300 cm<sup>-1</sup></i>",
                 "is_correct": true
             },
             {
                 "option_id": "142780",
                 "tag": "c",
-                "text": "$600-200 \\text{ cm}^{-1}$",
+                "text": "<i>600-200 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "309305",
                 "tag": "d",
-                "text": "$200-50 \\text{ cm}^{-1}$",
+                "text": "<i>200-50 cm<sup>-1</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 477
+        "question_number": 477,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In an IR spectrum, a strong, broad absorption band in the range $3200-3600 \\text{ cm}^{-1}$ is characteristic of which functional group?",
-        "explanation": "A strong, broad absorption band at $3200-3600 \\text{ cm}^{-1}$ is the characteristic IR signature of an $O-H$ (hydroxyl) stretching vibration in alcohols. The breadth of this band is due to hydrogen bonding between $O-H$ groups. Other key IR frequencies: carbonyl $C=O$ stretching: $1650-1750 \\text{ cm}^{-1}$ (strong); alkyne $C \\equiv C$ stretching: $2100-2250 \\text{ cm}^{-1}$ (weak); carboxylic acid $O-H$: $2500-3300 \\text{ cm}^{-1}$ (broad); alkane $C-H$: $2850-2950 \\text{ cm}^{-1}$.",
+        "question_text": "<p>In an IR spectrum, a strong, broad absorption band in the range <b>$3200-3600 \\text{ cm}^{-1}$</b> is characteristic of which functional group?</p>",
+        "explanation": "<p>A strong, broad absorption band at <b>$3200-3600 \\text{ cm}^{-1}$</b> is the characteristic IR signature of an <i>O-H</i> (hydroxyl) stretching vibration in alcohols. The breadth of this band is due to hydrogen bonding between <i>O-H</i> groups.</p><p>Other key IR frequencies:</p><ul><li>Carbonyl <i>C=O</i> stretching: <b>$1650-1750 \\text{ cm}^{-1}$</b> (strong);</li><li>Alkyne <i>C \u2261 C</i> stretching: <b>$2100-2250 \\text{ cm}^{-1}$</b> (weak);</li><li>Carboxylic acid <i>O-H</i>: <b>$2500-3300 \\text{ cm}^{-1}$</b> (broad);</li><li>Alkane <i>C-H</i>: <b>$2850-2950 \\text{ cm}^{-1}$</b>.</li></ul>",
         "options": [
             {
                 "option_id": "279092",
                 "tag": "a",
-                "text": "Carbonyl group ($C=O$) stretching",
+                "text": "Carbonyl group (<i>C=O</i>) stretching",
                 "is_correct": false
             },
             {
                 "option_id": "654599",
                 "tag": "b",
-                "text": "Alkyne ($C \\equiv C$) stretching",
+                "text": "Alkyne (<i>C \u2261 C</i>) stretching",
                 "is_correct": false
             },
             {
                 "option_id": "246334",
                 "tag": "c",
-                "text": "Alcohol ($O-H$) stretching",
+                "text": "Alcohol (<i>O-H</i>) stretching",
                 "is_correct": true
             },
             {
                 "option_id": "158196",
                 "tag": "d",
-                "text": "Alkane ($C-H$) stretching",
+                "text": "Alkane (<i>C-H</i>) stretching",
                 "is_correct": false
             }
         ],
-        "question_number": 489
+        "question_number": 489,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "A carbonyl group ($C=O$) in a ketone or aldehyde shows a strong IR absorption at approximately what wavenumber?",
-        "explanation": "The carbonyl group ($C=O$) shows a very strong, sharp absorption band in the region $1650-1750 \\text{ cm}^{-1}$. More specifically: ketones and aldehydes absorb at $1700-1750 \\text{ cm}^{-1}$; carboxylic acids at $1700-1725 \\text{ cm}^{-1}$; conjugated ketones and amides at the lower end ($\\sim 1650 \\text{ cm}^{-1}$). This $C=O$ stretching band is one of the most diagnostic and easily recognisable absorptions in IR spectroscopy.",
+        "question_text": "<p>A <b>carbonyl group</b> (<i>C=O</i>) in a ketone or aldehyde shows a strong <b>IR absorption</b> at approximately what wavenumber?</p>",
+        "explanation": "<p>The <b>carbonyl group</b> (<i>C=O</i>) shows a very strong, sharp absorption band in the region <i>1650-1750 cm<sup>-1</sup></i>. More specifically: ketones and aldehydes absorb at <i>1700-1750 cm<sup>-1</sup></i>; carboxylic acids at <i>1700-1725 cm<sup>-1</sup></i>; conjugated ketones and amides at the lower end (<i>~1650 cm<sup>-1</sup></i>). This <b>C=O stretching band</b> is one of the most diagnostic and easily recognisable absorptions in <b>IR spectroscopy</b>.</p>",
         "options": [
             {
                 "option_id": "206286",
                 "tag": "a",
-                "text": "$1000-1100 \\text{ cm}^{-1}$",
+                "text": "<i>1000-1100 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "172061",
                 "tag": "b",
-                "text": "$2100-2250 \\text{ cm}^{-1}$",
+                "text": "<i>2100-2250 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "369077",
                 "tag": "c",
-                "text": "$1650-1750 \\text{ cm}^{-1}$",
+                "text": "<i>1650-1750 cm<sup>-1</sup></i>",
                 "is_correct": true
             },
             {
                 "option_id": "571528",
                 "tag": "d",
-                "text": "$3200-3600 \\text{ cm}^{-1}$",
+                "text": "<i>3200-3600 cm<sup>-1</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 501
+        "question_number": 501,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1526,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In IR spectroscopy, what does the vertical axis '% transmittance' represent, and what do downward spikes on the spectrum indicate?",
-        "explanation": "In an IR spectrum: The vertical axis shows '% transmittance' \u00e2\u20ac\u201d the percentage of IR light that passes through the sample at each wavenumber. At 100% transmittance, no absorption occurred at that frequency. When the compound absorbs IR radiation at a particular frequency, less light passes through, producing a downward spike \u00e2\u20ac\u201d the 'absorption band'. Each absorption band corresponds to a specific molecular vibration. A compound displays multiple absorption bands because it contains multiple different types of bonds, each with a unique vibration frequency.",
+        "question_text": "<p>In <b>IR spectroscopy</b>, what does the vertical axis <b>% transmittance</b> represent, and what do downward spikes on the spectrum indicate?</p>",
+        "explanation": "<p>In an <b>IR spectrum</b>: The vertical axis shows <b>% transmittance</b> \u2014 the percentage of IR light that passes through the sample at each wavenumber. At 100% transmittance, no absorption occurred at that frequency. When the compound absorbs IR radiation at a particular frequency, less light passes through, producing a downward spike \u2014 the <i>absorption band</i>. Each absorption band corresponds to a specific molecular vibration. A compound displays multiple absorption bands because it contains multiple different types of bonds, each with a unique vibration frequency.</p>",
         "options": [
             {
                 "option_id": "243448",
@@ -1514,7 +1554,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 513
+        "question_number": 513,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1564,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The horizontal axis in an IR spectrum shows wavenumber $\\bar{\\nu}$ in units of $\\text{cm}^{-1}$. How is wavenumber related to wavelength ($\\lambda$)?",
-        "explanation": "Wavenumber $\\bar{\\nu}$ (in $\\text{cm}^{-1}$) is defined as the reciprocal of wavelength: $\\bar{\\nu} = \\frac{1}{\\lambda}$ where $\\lambda$ is in centimetres. For example, $\\bar{\\nu} = 4000 \\text{ cm}^{-1}$ corresponds to $\\lambda = \\frac{1}{4000} \\text{ cm} = 2.5 \\mu\\text{m}$. Larger wavenumbers (shorter wavelengths) correspond to higher frequencies and higher energies. In IR spectra, the horizontal axis decreases from left ($\\sim 4000 \\text{ cm}^{-1}$) to right ($\\sim 600 \\text{ cm}^{-1}$).",
+        "question_text": "<p>The horizontal axis in an IR spectrum shows wavenumber <b>$\\(\\bar{\\nu}\\)$</b> in units of <b>$\\(\\text{cm}^{-1}\\)$</b>. How is wavenumber related to wavelength <b>$(\\lambda)$</b>?</p>",
+        "explanation": "<p>Wavenumber <b>$\\bar{\\nu}$</b> (in <b>$\\text{cm}^{-1}$</b>) is defined as the <b>reciprocal of wavelength</b>: <b>$\\bar{\\nu} = \\frac{1}{\\lambda}$</b> where <b>$\\lambda$</b> is in centimetres. For example, <b>$\\bar{\\nu} = 4000 \\text{ cm}^{-1}$</b> corresponds to <b>$\\lambda = \\frac{1}{4000} \\text{ cm} = 2.5 \\mu\\text{m}$</b>. Larger wavenumbers (shorter wavelengths) correspond to higher frequencies and higher energies. In IR spectra, the horizontal axis decreases from left (<b>$\\sim 4000 \\text{ cm}^{-1}$</b>) to right (<b>$\\sim 600 \\text{ cm}^{-1}$</b>).</p>",
         "options": [
             {
                 "option_id": "221022",
@@ -1535,7 +1576,7 @@
             {
                 "option_id": "369917",
                 "tag": "b",
-                "text": "$\\bar{\\nu} = \\dfrac{1}{\\lambda}$ (wavenumber is the reciprocal of wavelength in cm)",
+                "text": "$\\bar{\\nu} = \\dfrac{1}{\\lambda}$ <i>(wavenumber is the reciprocal of wavelength in cm)</i>",
                 "is_correct": true
             },
             {
@@ -1551,7 +1592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 525
+        "question_number": 525,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Nuclear Magnetic Resonance (NMR) spectroscopy involves which fundamental physical process?",
-        "explanation": "NMR spectroscopy is based on the principle that certain atomic nuclei (with non-zero spin quantum number $I$) possess angular momentum (spin). When placed in an external magnetic field, these nuclei can adopt specific orientations and absorb radio frequency electromagnetic radiation to change between these orientations. For protons ($^1\\text{H}$) with $I = \\frac{1}{2}$, there are two possible orientations: aligned with the field (lower energy) or against the field (higher energy). The absorption of energy is detected as the NMR signal.",
+        "question_text": "<p>Nuclear Magnetic Resonance (NMR) spectroscopy involves which <b>fundamental physical process</b>?</p>",
+        "explanation": "<p>NMR spectroscopy is based on the principle that certain atomic nuclei (with non-zero spin quantum number <i>I</i>) possess angular momentum (spin). When placed in an external magnetic field, these nuclei can adopt specific orientations and absorb <b>radio frequency</b> electromagnetic radiation to change between these orientations. For protons (<sup>1</sup>H) with <i>I</i> = \u00bd, there are two possible orientations: aligned with the field (lower energy) or against the field (higher energy). The absorption of energy is detected as the NMR signal.</p>",
         "options": [
             {
                 "option_id": "258474",
@@ -1572,7 +1614,7 @@
             {
                 "option_id": "316242",
                 "tag": "b",
-                "text": "Spinning nuclei in a magnetic field changing orientation by absorbing electromagnetic radiation in the radio frequency range",
+                "text": "<i>Spinning nuclei</i> in a magnetic field changing orientation by absorbing electromagnetic radiation in the radio frequency range",
                 "is_correct": true
             },
             {
@@ -1588,7 +1630,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 537
+        "question_number": 537,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,19 +1640,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which nuclei are NOT detected in an NMR experiment?",
-        "explanation": "For a nucleus to be NMR-active, it must have a non-zero spin quantum number $I$. Nuclei where both the number of protons AND neutrons are even numbers have $I = 0$ \u00e2\u20ac\u201d they have no angular momentum, no magnetic moment, and are magnetically inert. Examples include $^{12}\\text{C}$ (6 protons, 6 neutrons \u00e2\u20ac\u201d both even), $^{16}\\text{O}$ (8p, 8n), and $^{32}\\text{S}$ (16p, 16n). These nuclei CANNOT be detected in NMR. Nuclei with $I = \\frac{1}{2}$ (like $^1\\text{H}$ and $^{19}\\text{F}$) are most commonly used.",
+        "question_text": "<p>Which nuclei are <b>NOT</b> detected in an NMR experiment?</p>",
+        "explanation": "<p>For a nucleus to be NMR-active, it must have a non-zero spin quantum number <i>I</i>. Nuclei where both the number of protons <b>AND</b> neutrons are even numbers have <i>I</i> = 0 \u2014 they have no angular momentum, no magnetic moment, and are magnetically inert. Examples include <sup>12</sup>C (6 protons, 6 neutrons \u2014 both even), <sup>16</sup>O (8p, 8n), and <sup>32</sup>S (16p, 16n). These nuclei <b>CANNOT</b> be detected in NMR. Nuclei with <i>I</i> = \u00bd (like <sup>1</sup>H and <sup>19</sup>F) are most commonly used.</p>",
         "options": [
             {
                 "option_id": "199209",
                 "tag": "a",
-                "text": "Nuclei with an odd number of protons or neutrons ($I \\neq 0$)",
+                "text": "Nuclei with an odd number of protons or neutrons (<i>I</i> \u2260 0)",
                 "is_correct": false
             },
             {
                 "option_id": "212021",
                 "tag": "b",
-                "text": "Nuclei where both the number of protons AND neutrons are even numbers, giving spin quantum number $I = 0$",
+                "text": "Nuclei where both the number of protons <b>AND</b> neutrons are even numbers, giving spin quantum number <i>I</i> = 0",
                 "is_correct": true
             },
             {
@@ -1625,7 +1668,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 549
+        "question_number": 549,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,8 +1678,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "For proton ($^1\\text{H}$) NMR, spin quantum number $I = \\frac{1}{2}$. How many energy orientations does a proton have in an external magnetic field?",
-        "explanation": "The number of energy orientations for a nucleus in a magnetic field is $2I + 1$. For protons ($^1\\text{H}$, $I = \\frac{1}{2}$): $2 \\times \\frac{1}{2} + 1 = 2$ orientations. These are: (1) Aligned with the applied magnetic field \u00e2\u20ac\u201d lower energy state ($m_I = +\\frac{1}{2}$), and (2) Aligned against the applied magnetic field \u00e2\u20ac\u201d higher energy state ($m_I = -\\frac{1}{2}$). When radio frequency radiation of exactly the right energy is applied, protons undergo transitions between these states, producing the NMR signal.",
+        "question_text": "<p>For proton (<b><sup>1</sup>H</b>) NMR, spin quantum number <i>I</i> = <b>\u00bd</b>. How many energy orientations does a proton have in an external magnetic field?</p>",
+        "explanation": "<p>The number of energy orientations for a nucleus in a magnetic field is <i>2I + 1</i>. For protons (<b><sup>1</sup>H</b>, <i>I</i> = <b>\u00bd</b>): <i>2 \u00d7 \u00bd + 1 = 2</i> orientations. These are: (1) Aligned with the applied magnetic field \u2014 lower energy state (<i>m<sub>I</sub></i> = +<b>\u00bd</b>), and (2) Aligned against the applied magnetic field \u2014 higher energy state (<i>m<sub>I</sub></i> = \u2013<b>\u00bd</b>). When radio frequency radiation of exactly the right energy is applied, protons undergo transitions between these states, producing the NMR signal.</p>",
         "options": [
             {
                 "option_id": "255735",
@@ -1662,7 +1706,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 561
+        "question_number": 561,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,8 +1716,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In NMR spectroscopy, what is meant by 'chemical shift' ($\\delta$)?",
-        "explanation": "All protons would absorb at the same magnetic field strength if they were bare nuclei. However, the electrons surrounding each nucleus partially shield it from the applied magnetic field. Protons in different chemical environments (e.g., $CH_3F$ vs $CH_3Cl$) have different electron densities, causing them to experience different effective magnetic fields and absorb at slightly different field strengths. The variation in resonance positions for protons in different environments \u00e2\u20ac\u201d expressed as $\\delta$ (delta, in ppm) \u00e2\u20ac\u201d is called the chemical shift.",
+        "question_text": "<p><b>Chemical shift</b> (<i>\u03b4</i>) in NMR spectroscopy refers to:</p>",
+        "explanation": "<p>In NMR spectroscopy, <b>chemical shift</b> arises because protons in different chemical environments experience different degrees of <b>electronic shielding</b> from the applied magnetic field. This shielding alters the effective magnetic field felt by each proton, causing them to resonate at slightly different field strengths. The <i>\u03b4</i> value (in ppm) quantifies this variation in resonance positions, reflecting the local electronic environment of each proton.</p><p>For example, protons in a <i>CH<sub>3</sub>F</i> molecule are more deshielded than those in <i>CH<sub>3</sub>Cl</i> due to the electronegativity of fluorine, resulting in a distinct chemical shift for each environment.</p>",
         "options": [
             {
                 "option_id": "155856",
@@ -1699,7 +1744,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 573
+        "question_number": 573,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "As the electronegativity of a substituent group attached to $CH_3$ increases (e.g., $CH_3F > CH_3Cl > CH_3Br > CH_3I$), what happens to the $\\delta$ value of the methyl protons?",
-        "explanation": "As the electronegativity of the group attached to $CH_3$ increases, that group withdraws more electron density from the $CH_3$ group (negative inductive effect, $-I$). This de-shielding of the methyl protons means a lower applied magnetic field is needed to bring them to resonance \u00e2\u20ac\u201d they appear at larger $\\delta$ values. Example data: $CH_3I$ ($\\delta = 2.16$), $CH_3Br$ ($\\delta = 2.65$), $CH_3Cl$ ($\\delta = 3.10$), $CH_3F$ ($\\delta = 4.26$). $CH_3F$ has the highest $\\delta$ because fluorine is the most electronegative substituent.",
+        "question_text": "<p>As the <b>electronegativity</b> of a substituent group attached to <i>CH<sub>3</sub></i> increases (e.g., <i>CH<sub>3</sub>F</i> &gt; <i>CH<sub>3</sub>Cl</i> &gt; <i>CH<sub>3</sub>Br</i> &gt; <i>CH<sub>3</sub>I</i>), what happens to the <b>\u03b4 value</b> of the methyl protons?</p>",
+        "explanation": "<p>As the <b>electronegativity</b> of the group attached to <i>CH<sub>3</sub></i> increases, that group withdraws more electron density from the <i>CH<sub>3</sub></i> group (negative inductive effect, <i>\u2212I</i>). This <b>de-shielding</b> of the methyl protons means a lower applied magnetic field is needed to bring them to resonance\u2014they appear at larger <b>\u03b4 values</b>.</p><p>Example data: <i>CH<sub>3</sub>I</i> (<b>\u03b4</b> = 2.16), <i>CH<sub>3</sub>Br</i> (<b>\u03b4</b> = 2.65), <i>CH<sub>3</sub>Cl</i> (<b>\u03b4</b> = 3.10), <i>CH<sub>3</sub>F</i> (<b>\u03b4</b> = 4.26). <i>CH<sub>3</sub>F</i> has the highest <b>\u03b4</b> because fluorine is the most electronegative substituent.</p>",
         "options": [
             {
                 "option_id": "335342",
                 "tag": "a",
-                "text": "The $\\delta$ value decreases (protons become more shielded)",
+                "text": "The <b>\u03b4 value</b> decreases (protons become more shielded)",
                 "is_correct": false
             },
             {
                 "option_id": "232950",
                 "tag": "b",
-                "text": "The $\\delta$ value increases (protons become more de-shielded as more electron density is withdrawn)",
+                "text": "The <b>\u03b4 value</b> increases (protons become more de-shielded as more electron density is withdrawn)",
                 "is_correct": true
             },
             {
                 "option_id": "129712",
                 "tag": "c",
-                "text": "The $\\delta$ value remains unchanged regardless of substituent electronegativity",
+                "text": "The <b>\u03b4 value</b> remains unchanged regardless of substituent electronegativity",
                 "is_correct": false
             },
             {
                 "option_id": "559358",
                 "tag": "d",
-                "text": "The $\\delta$ value first increases then decreases in a parabolic pattern",
+                "text": "The <b>\u03b4 value</b> first increases then decreases in a parabolic pattern",
                 "is_correct": false
             }
         ],
-        "question_number": 585
+        "question_number": 585,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1792,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Mass spectrometry is used to determine which property of a molecule?",
-        "explanation": "Mass spectrometry determines the mass-to-charge ratio ($m/z$) of ions derived from a sample. A mass spectrometer ionises the sample (usually by high-energy electron bombardment, based on Newton's second law of motion and momentum), accelerates ions through a magnetic or electric field, and separates them based on their $m/z$ ratio. The result is a mass spectrum showing peaks at different $m/z$ values. The molecular ion peak ($M^+$) gives the exact molecular weight, and fragmentation patterns provide structural information.",
+        "question_text": "<p>Mass spectrometry is used to determine which property of a molecule?</p>",
+        "explanation": "<p>Mass spectrometry determines the <b><i>mass-to-charge ratio</i> (<i>m/z</i>)</b> of ions derived from a sample. A mass spectrometer ionises the sample (usually by high-energy electron bombardment, based on Newton's second law of motion and momentum), accelerates ions through a magnetic or electric field, and separates them based on their <i>m/z</i> ratio. The result is a mass spectrum showing peaks at different <i>m/z</i> values. The molecular ion peak (<i>M<sup>+</sup></i>) gives the exact molecular weight, and fragmentation patterns provide structural information.</p>",
         "options": [
             {
                 "option_id": "214490",
@@ -1757,7 +1804,7 @@
             {
                 "option_id": "196960",
                 "tag": "b",
-                "text": "The mass-to-charge ratio ($m/z$) of ions, giving exact molecular weight and fragmentation pattern",
+                "text": "The <i>mass-to-charge ratio</i> (<i>m/z</i>) of ions, giving exact molecular weight and fragmentation pattern",
                 "is_correct": true
             },
             {
@@ -1773,7 +1820,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 597
+        "question_number": 597,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,8 +1830,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In column chromatography, which step comes AFTER loading the sample onto the column?",
-        "explanation": "The steps in column chromatography are: (1) Column preparation \u00e2\u20ac\u201d pack column with stationary phase; (2) Sample loading \u00e2\u20ac\u201d dissolve sample in mobile phase and carefully load onto column; (3) Elution \u00e2\u20ac\u201d slowly pass mobile phase through the column, allowing separated components to flow out at different rates; (4) Fraction collection \u00e2\u20ac\u201d collect fractions in separate test tubes; (5) Analysis \u00e2\u20ac\u201d use TLC to assess fraction composition; (6) Solvent evaporation \u00e2\u20ac\u201d to isolate the pure compound. Elution (step 3) follows immediately after sample loading.",
+        "question_text": "<p>In <b>column chromatography</b>, which step comes <b>AFTER</b> loading the sample onto the column?</p>",
+        "explanation": "<p>The steps in <b>column chromatography</b> are: <i>(1) Column preparation</i> \u2014 pack column with stationary phase; <i>(2) Sample loading</i> \u2014 dissolve sample in mobile phase and carefully load onto column; <i>(3) Elution</i> \u2014 slowly pass mobile phase through the column, allowing separated components to flow out at different rates; <i>(4) Fraction collection</i> \u2014 collect fractions in separate test tubes; <i>(5) Analysis</i> \u2014 use TLC to assess fraction composition; <i>(6) Solvent evaporation</i> \u2014 to isolate the pure compound. <b>Elution (step 3)</b> follows immediately after sample loading.</p>",
         "options": [
             {
                 "option_id": "142261",
@@ -1810,7 +1858,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 609
+        "question_number": 609,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,34 +1868,35 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "An alkyne functional group ($C \\equiv C$) shows a characteristic IR absorption in which wavenumber range?",
-        "explanation": "The $C \\equiv C$ (triple bond) stretching vibration in alkynes appears as a weak-to-medium absorption band at $2100-2250 \\text{ cm}^{-1}$. Terminal alkynes also show a sharp $C-H$ stretching band at $3250-3350 \\text{ cm}^{-1}$. The $C \\equiv C$ band at $2100-2250 \\text{ cm}^{-1}$ is diagnostic for alkynes \u00e2\u20ac\u201d this region is otherwise relatively empty in most organic molecules, making it easy to identify. Note: nitrile ($C \\equiv N$) also absorbs in a similar region ($2200-2260 \\text{ cm}^{-1}$).",
+        "question_text": "<p>An <b>alkyne</b> functional group (<i>C \u2261 C</i>) shows a characteristic IR absorption in which wavenumber range?</p>",
+        "explanation": "<p>The <b>C \u2261 C</b> (triple bond) stretching vibration in alkynes appears as a weak-to-medium absorption band at <i>2100-2250 cm<sup>-1</sup></i>. Terminal alkynes also show a sharp <b>C-H</b> stretching band at <i>3250-3350 cm<sup>-1</sup></i>.</p><p>The <b>C \u2261 C</b> band at <i>2100-2250 cm<sup>-1</sup></i> is <b>diagnostic</b> for alkynes \u2014 this region is otherwise relatively empty in most organic molecules, making it easy to identify. <i>Note:</i> nitrile (<b>C \u2261 N</b>) also absorbs in a similar region (<i>2200-2260 cm<sup>-1</sup></i>).",
         "options": [
             {
                 "option_id": "298321",
                 "tag": "a",
-                "text": "$3200-3600 \\text{ cm}^{-1}$",
+                "text": "<i>3200-3600 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "126068",
                 "tag": "b",
-                "text": "$1650-1750 \\text{ cm}^{-1}$",
+                "text": "<i>1650-1750 cm<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "151903",
                 "tag": "c",
-                "text": "$2100-2250 \\text{ cm}^{-1}$",
+                "text": "<i>2100-2250 cm<sup>-1</sup></i>",
                 "is_correct": true
             },
             {
                 "option_id": "913988",
                 "tag": "d",
-                "text": "$2850-2950 \\text{ cm}^{-1}$",
+                "text": "<i>2850-2950 cm<sup>-1</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 621
+        "question_number": 621,
+        "is_rewritten": true
     }
 ]

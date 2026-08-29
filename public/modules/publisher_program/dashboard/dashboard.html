@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publisher Dashboard</title>
@@ -11,7 +20,8 @@
             --text-primary: #1a1a1a;
             --text-secondary: #999999;
             --accent-blue: #0066ff;
-            --accent-red: #ff3b30;
+            /* Using a crisp, premium red */
+            --accent-red: #e60000;
             --border-color: #ebebeb;
             --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
@@ -82,7 +92,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #ffeaea;
-            background-color: #fff;
+            background-color: var(--bg-card);
             box-shadow: 0 2px 8px rgba(255, 59, 48, 0.1);
         }
         .banner-left {
@@ -200,11 +210,11 @@
         }
         .sheet-overlay.open { display: flex; }
         .sheet {
-            background: #fff;
-            border-radius: 20px 20px 0 0;
+            background: #f1f5f9;
+            border-radius: 24px 24px 0 0;
             width: 100%; max-width: 600px;
             padding: 0 0 32px;
-            box-shadow: 0 -4px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 -8px 30px rgba(0,0,0,0.12);
             animation: slideUp 0.28s ease;
         }
         @keyframes slideUp {
@@ -212,23 +222,24 @@
             to   { transform: translateY(0);    opacity: 1; }
         }
         .sheet-handle {
-            width: 40px; height: 4px; background: #e0e0e0;
-            border-radius: 2px; margin: 12px auto 20px;
+            width: 48px; height: 5px; background: #cbd5e1;
+            border-radius: 3px; margin: 16px auto 24px;
         }
         .sheet-title {
-            font-size: 1.05rem; font-weight: 700;
-            text-align: center; margin-bottom: 20px; color: #111;
+            font-size: 1.15rem; font-weight: 800;
+            text-align: center; margin-bottom: 24px; color: #1e293b;
         }
-        .sheet-options { display: flex; flex-direction: column; gap: 12px; padding: 0 20px; }
+        .sheet-options { display: flex; flex-direction: column; gap: 12px; padding: 0 24px; }
         .sheet-option {
-            display: flex; align-items: center; gap: 16px;
-            padding: 16px 18px; border-radius: 12px;
-            border: 1.5px solid #eee; background: #fafafa;
+            display: flex; align-items: center; gap: 18px;
+            padding: 20px 24px; border-radius: 16px;
+            border: none; background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             cursor: pointer; text-align: left;
-            transition: all 0.18s;
+            transition: all 0.2s ease;
             text-decoration: none; color: inherit;
         }
-        .sheet-option:hover { border-color: #2563eb; background: #f0f6ff; }
+        .sheet-option:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
         .sheet-option:hover .sheet-opt-title { color: #2563eb; }
         .sheet-opt-icon {
             width: 48px; height: 48px; border-radius: 12px;
@@ -270,7 +281,7 @@
         .article-item { padding: 16px; border-bottom: 1px solid var(--border-color); }
         .article-content-row { display: flex; gap: 12px; margin-bottom: 12px; }
         .article-img {
-            width: 80px; height: 80px; flex-shrink: 0; background-color: #fff; border-radius: 4px;
+            width: 80px; height: 80px; flex-shrink: 0; background-color: var(--bg-card); border-radius: 4px;
             object-fit: cover; border: 1px solid #e0e0e0; padding: 4px; display: flex; flex-direction: column;
         }
         .article-img-text { font-family: sans-serif; font-size: 10px; line-height: 1.2; color: #333; font-weight: 600; }
@@ -279,7 +290,9 @@
         .article-title { font-size: 1rem; font-weight: 600; color: #222; line-height: 1.3; margin-bottom: 8px; }
         .article-meta { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #999; font-weight: 500; }
         .status-badge { padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 500; border: 1px solid; }
+        .status-approved { color: #16a34a; border-color: #16a34a; }
         .status-pending { color: #f29d38; border-color: #f29d38; }
+        .status-rejected { color: #dc2626; border-color: #dc2626; }
         .status-published { color: var(--accent-blue); border-color: var(--accent-blue); }
         .article-stats { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; color: #aaa; font-weight: 500; }
         .article-stats .divider { color: #eaeaea; }
@@ -291,7 +304,56 @@
             box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4); cursor: pointer; text-decoration: none;
         }
         .fab svg { width: 28px; height: 28px; fill: currentColor; }
+
+        /* --- Desktop & Tablet Responsive Design --- */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 24px;
+                background-color: transparent;
+            }
+            
+            header {
+                border-radius: 12px;
+                margin-top: 16px;
+                margin-bottom: 24px;
+                box-shadow: var(--shadow-sm);
+            }
+
+            #pendingReviewScreen {
+                border-radius: 12px;
+                margin-bottom: 24px;
+            }
+
+            /* Only apply grid if the dashboard is being shown */
+            #mainDashboardContent[style*="display: block"] {
+                display: grid !important;
+                grid-template-columns: 2fr 1fr;
+                gap: 24px;
+                grid-template-areas: 
+                    "banner banner"
+                    "actions actions"
+                    "ticker ticker"
+                    "articles trending";
+            }
+
+            .banner-wrap { grid-area: banner; border-radius: 12px; padding: 24px; }
+            .banner-title { font-size: 1.4rem; }
+            .banner-desc { font-size: 1.1rem; }
+            
+            .actions-wrap { grid-area: actions; border-radius: 12px; padding: 24px; }
+            .action-icon { width: 48px; height: 48px; }
+            .action-btn span { font-size: 0.85rem; }
+            
+            .ticker { grid-area: ticker; border-radius: 12px; }
+            
+            .articles-box { grid-area: articles; border-radius: 12px; margin-top: 0; padding-bottom: 24px; }
+            .trending-box { grid-area: trending; background-color: var(--surface-color); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 24px; }
+            
+            .fab-container { display: none; } /* Hide mobile FAB on desktop */
+        }
     </style>
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
 </head>
 <body>
     <div class="container">
@@ -303,14 +365,24 @@
                 </svg>
                 <div class="logo-text">MyExam<span>Hub</span></div>
             </div>
-            <div class="avatar">
+            <div class="avatar" id="dashboardAvatarContainer">
                 <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
             </div>
         </header>
 
-        <!-- Banner -->
-        <div class="banner-wrap">
-            <div class="banner-card">
+        <!-- Pending Review Screen -->
+        <div id="pendingReviewScreen" style="display: none; padding: 12px 16px; background-color: #fff3cd; border-bottom: 1px solid #ffeeba; align-items: center; gap: 12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#856404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div style="color: #856404; font-size: 0.9rem; font-weight: 500; line-height: 1.4;">
+                <strong>Account waiting for review.</strong> You will be notified once approved to start publishing.
+            </div>
+        </div>
+
+        <!-- Main Dashboard Content -->
+        <div id="mainDashboardContent" style="display: none;">
+            <!-- Banner -->
+            <div class="banner-wrap">
+                <div class="banner-card">
                 <div class="banner-left">
                     <div class="banner-title">Monetization Calculator</div>
                     <div class="banner-desc">to be taken down for maintenance and feature improvement</div>
@@ -417,49 +489,8 @@
                 </div>
             </div>
 
-            <div class="article-item">
-                <div class="article-content-row">
-                    <div class="article-img">
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
-                    </div>
-                    <div class="article-info">
-                        <div class="article-title">Send your lover a beautiful good night message</div>
-                        <div class="article-meta"><span class="status-badge status-pending">Pending</span><span>1s</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article-item">
-                <div class="article-content-row">
-                    <div class="article-img">
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
-                    </div>
-                    <div class="article-info">
-                        <div class="article-title">Make your lover feel overwhelmed 🤗</div>
-                        <div class="article-meta"><span class="status-badge status-published">Published</span><span>3h</span></div>
-                    </div>
-                </div>
-                <div class="article-stats">
-                    <span>Reach 10.3k</span><span class="divider">|</span><span>Clicks 220</span><span class="divider">|</span><span>Shares 2</span><span class="divider">|</span><span>Comments 0</span>
-                </div>
-            </div>
-
-            <div class="article-item">
-                <div class="article-content-row">
-                    <div class="article-img">
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love you</div>
-                        <div class="article-img-text">I LOVE YOU</div><div class="article-img-text-sub">I love u</div>
-                    </div>
-                    <div class="article-info">
-                        <div class="article-title">Need to make her blush? Why not send her this? 👇</div>
-                        <div class="article-meta"><span class="status-badge status-published">Published</span><span>3h</span></div>
-                    </div>
-                </div>
-                <div class="article-stats">
-                    <span>Reach 13.8k</span><span class="divider">|</span><span>Clicks 260</span><span class="divider">|</span><span>Shares 0</span><span class="divider">|</span><span>Comments 0</span>
-                </div>
+            <div id="articlesList">
+                <div style="padding: 24px; text-align: center; color: #666;">Loading articles...</div>
             </div>
         </div>
 
@@ -469,6 +500,9 @@
             </button>
         </div>
     </div>
+
+        </div> <!-- End of mainDashboardContent -->
+    </div> <!-- End of container -->
 
     <!-- Create Type Bottom Sheet -->
     <div class="sheet-overlay" id="createSheet" onclick="handleSheetOverlayClick(event)">
@@ -487,22 +521,135 @@
                     </div>
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
                 </div>
-                <!-- Exam Question -->
-                <div class="sheet-option" onclick="goCreate('exam')">
-                    <div class="sheet-opt-icon icon-exam">
-                        <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    </div>
-                    <div class="sheet-opt-body">
-                        <div class="sheet-opt-title">Create an Exam Question</div>
-                        <div class="sheet-opt-desc">Add past questions, quizzes or practice tests</div>
-                    </div>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-                </div>
+
             </div>
         </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../../components/supabase.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const pendingScreen = document.getElementById('pendingReviewScreen');
+        const mainContent = document.getElementById('mainDashboardContent');
+
+        // Get current user
+        if (typeof window.MECSupabase === 'undefined') return;
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            alert('Debug: No user found in dashboard. Auth might have been lost.');
+            window.location.href = '../profile/bio.html';
+            return;
+        }
+        
+        const sb = window.MECSupabase.getSupabase();
+
+        // Fetch user avatar from profiles table
+        const { data: profile } = await sb.from('profiles').select('avatar_url').eq('id', user.id).single();
+        if (profile && profile.avatar_url) {
+            const avatarContainer = document.getElementById('dashboardAvatarContainer');
+            if (avatarContainer) {
+                avatarContainer.innerHTML = `<img src="${profile.avatar_url}" alt="Profile Picture">`;
+            }
+        }
+
+        // Query publishers table for this user
+        const { data: publishers, error } = await sb
+            .from('publishers')
+            .select('*')
+            .eq('user_id', user.id)
+            .limit(1);
+
+        const publisher = publishers && publishers.length > 0 ? publishers[0] : null;
+
+        if (error || !publisher) {
+            alert('Debug Redirecting! Error: ' + JSON.stringify(error) + ' | Data returned: ' + JSON.stringify(publishers));
+            // No publisher record — send to onboarding
+            window.location.href = '../profile/bio.html';
+            return;
+        }
+
+        if (publisher.status === 'reviewing') {
+            // Show pending review banner and dashboard
+            pendingScreen.style.display = 'flex';
+            if (mainContent) mainContent.style.display = 'block';
+            
+            // Disable create actions
+            const createBtn = document.querySelector('.action-btn[href*="create_post"]');
+            if (createBtn) {
+                createBtn.href = '#';
+                createBtn.style.opacity = '0.5';
+                createBtn.onclick = (e) => { e.preventDefault(); alert('You must be approved to create posts.'); };
+            }
+            
+            const fabBtn = document.querySelector('.fab');
+            if (fabBtn) {
+                fabBtn.style.opacity = '0.5';
+                fabBtn.onclick = (e) => { e.preventDefault(); alert('You must be approved to create posts.'); };
+            }
+            return;
+        }
+
+        // Status is 'approved' — hide pending banner, show full dashboard
+        pendingScreen.style.display = 'none';
+        if (mainContent) mainContent.style.display = 'block';
+
+        // Fetch posts
+        const { data: posts, error: postsError } = await sb
+            .from('publisher_posts')
+            .select('*')
+            .eq('publisher_id', user.id)
+            .order('created_at', { ascending: false });
+
+        if (!postsError && posts) {
+            const list = document.getElementById('articlesList');
+            list.innerHTML = '';
+            if (posts.length === 0) {
+                list.innerHTML = '<div style="padding: 24px; text-align: center; color: #666;">No articles yet. Click + to create one.</div>';
+            } else {
+                posts.forEach(post => {
+                    const statusClass = post.status === 'pending' ? 'status-pending' : (post.status === 'rejected' ? 'status-rejected' : 'status-approved');
+                    const statusText = post.status.charAt(0).toUpperCase() + post.status.slice(1);
+                    const link = post.status === 'approved' ? post.cloudflare_url : (post.github_url || '#');
+                    
+                    const date = new Date(post.created_at).toLocaleDateString();
+
+                    const thumbHtml = post.thumbnail_url 
+                        ? `<img src="${post.thumbnail_url}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`
+                        : `<div class="article-img-text" style="font-size: 14px; padding: 10px; line-height: 1.2;">${post.title.substring(0, 20)}...</div>`;
+
+                    list.innerHTML += `
+                        <div class="article-item" onclick="if('${link}' !== '#' && '${link}' !== 'null') window.location.href = 'article/preview.html?viewUrl=' + encodeURIComponent('${link}')" style="cursor: pointer;">
+                            <div class="article-content-row">
+                                <div class="article-img" style="background: #f0f0f0; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    ${thumbHtml}
+                                </div>
+                                <div class="article-info">
+                                    <div class="article-title">${post.title}</div>
+                                    <div class="article-meta">
+                                        <span class="status-badge ${statusClass}">${statusText}</span>
+                                        <span>${date}</span>
+                                    </div>
+                                    <div class="article-stats" style="margin-top: 6px;">
+                                        <span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px; margin-bottom: 2px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                            ${post.impressions || 0} Impressions
+                                        </span>
+                                        <span class="divider">|</span>
+                                        <span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px; margin-bottom: 2px;"><path d="M15 3h6v6"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="21 3 14 10 10 6 3 13"></polyline></svg>
+                                            ${post.clicks || 0} Clicks
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+    });
+
     let _pendingTopic = '';
 
     function openCreate(topic) {
@@ -521,16 +668,11 @@
 
     function goCreate(type) {
         closeCreate();
-        if (type === 'exam') {
-            // Navigate to future exam question editor
-            window.location.href = 'create_exam.html';
-        } else {
-            // Blog — pass topic if available
-            const url = _pendingTopic
-                ? 'article/create_post.html?topic=' + encodeURIComponent(_pendingTopic)
-                : 'article/create_post.html';
-            window.location.href = url;
-        }
+        // Blog — pass topic if available
+        const url = _pendingTopic
+            ? 'article/create_post.html?topic=' + encodeURIComponent(_pendingTopic)
+            : 'article/create_post.html';
+        window.location.href = url;
     }
 </script>
 </body>

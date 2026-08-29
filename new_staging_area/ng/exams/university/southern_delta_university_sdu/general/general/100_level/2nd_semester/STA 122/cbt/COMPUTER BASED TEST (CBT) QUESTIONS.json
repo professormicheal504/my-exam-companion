@@ -6,35 +6,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The order of arrangement of an item in a particular order is known as:",
-        "explanation": "Permutation is the arrangement of items in a specific, distinct order.",
+        "question_text": "<p>The order of arrangement of an item in a particular order is known as:</p>",
+        "explanation": "<p><b>Permutation</b> is the arrangement of items in a <b>specific, distinct order</b>.</p>",
         "options": [
             {
                 "option_id": "159139",
                 "tag": "a",
-                "text": "combination",
+                "text": "<i>combination</i>",
                 "is_correct": false
             },
             {
                 "option_id": "260984",
                 "tag": "b",
-                "text": "factorial",
+                "text": "<i>factorial</i>",
                 "is_correct": false
             },
             {
                 "option_id": "789370",
                 "tag": "c",
-                "text": "permutation",
+                "text": "<b>permutation</b>",
                 "is_correct": true
             },
             {
                 "option_id": "124259",
                 "tag": "d",
-                "text": "Sets",
+                "text": "<i>Sets</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 1
+        "question_number": 1,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The Ministry of Finance has 8 field workers from which a 5-member task force on debt recovery will be formed. How many task forces can be formed?",
-        "explanation": "This is a combination problem where order doesn't matter. $\\binom{8}{5} = \\frac{8!}{5!(8-5)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
+        "question_text": "<p>This problem involves selecting a group of workers where the <b>order of selection does not matter</b>. The Ministry of Finance has 8 field workers, and we need to form a 5-member task force for debt recovery.</p>",
+        "explanation": "<p>This is a <b>combination</b> problem because the order in which the workers are selected does not affect the composition of the task force. The formula for combinations is:</p><p>$\\(\\binom{8}{5} = \\frac{8!}{5!(8-5)!}\\)</p><p>Simplifying this:</p><p>$\\(\\frac{8 \\times 7 \\times 6 \\times 5!}{5! \\times 3!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56\\)</p><p>Thus, there are <b>56</b> possible ways to form the task force.</p>",
         "options": [
             {
                 "option_id": "476201",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 12
+        "question_number": 12,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,19 +82,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The act of performing a task in probability is called:",
-        "explanation": "An experiment is any procedure or process that can be infinitely repeated and has a well-defined set of possible outcomes.",
+        "question_text": "<p>In probability, the act of performing a task is referred to as:</p>",
+        "explanation": "<p>An <b>experiment</b> is any procedure or process that can be infinitely repeated and has a well-defined set of possible outcomes. It is the act of performing a task whose outcome is subject to uncertainty.</p>",
         "options": [
             {
                 "option_id": "241935",
                 "tag": "a",
-                "text": "Trial",
+                "text": "<b>Trial</b>",
                 "is_correct": false
             },
             {
                 "option_id": "226586",
                 "tag": "b",
-                "text": "Experiment",
+                "text": "<b>Experiment</b>",
                 "is_correct": true
             },
             {
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 18
+        "question_number": 18,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The occurrence of one event that rules out the other event occurring is called:",
-        "explanation": "Mutually exclusive events are events that cannot occur at the same time.",
+        "question_text": "<p>The occurrence of one event that rules out the other event occurring is called:</p>",
+        "explanation": "<p><b>Mutually exclusive events</b> are events that <i>cannot occur at the same time</i>.",
         "options": [
             {
                 "option_id": "700244",
                 "tag": "a",
-                "text": "Independent Event",
+                "text": "<b>Independent Event</b>",
                 "is_correct": false
             },
             {
                 "option_id": "309071",
                 "tag": "b",
-                "text": "Dependent Event",
+                "text": "<b>Dependent Event</b>",
                 "is_correct": false
             },
             {
                 "option_id": "227939",
                 "tag": "c",
-                "text": "Equally likely Event",
+                "text": "<b>Equally likely Event</b>",
                 "is_correct": false
             },
             {
                 "option_id": "216381",
                 "tag": "d",
-                "text": "Mutually Exclusive Event",
+                "text": "<b>Mutually Exclusive Event</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 24
+        "question_number": 24,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,35 +158,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Let $g(X)$ be a function of the random variable $X$ whose probability distribution is $p(x)$. The expectation of $g(X)$ if $X$ is a discrete variable is given by:",
-        "explanation": "For a discrete random variable, the expectation of a function $g(X)$ is the sum of the product of each function value and its corresponding probability.",
+        "question_text": "<p>Let <i>g(X)</i> be a function of the random variable <i>X</i> whose probability distribution is <i>p(x)</i>. The expectation of <i>g(X)</i> if <i>X</i> is a discrete variable is given by:</p>",
+        "explanation": "<p>The expectation of a function <i>g(X)</i> for a discrete random variable is calculated by summing the product of each function value and its corresponding probability, i.e., <b>\u2211</b> <i>g(x)</i><i>p(x)</i>.</p><p>This is because the expectation represents the weighted average of all possible values of <i>g(X)</i>, where the weights are the probabilities <i>p(x)</i>.</p>",
         "options": [
             {
                 "option_id": "202532",
                 "tag": "a",
-                "text": "$\\sum g(x)p(x)$",
+                "text": "<b>\u2211</b> <i>g(x)</i><i>p(x)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "136709",
                 "tag": "b",
-                "text": "$\\sum p(x)$",
+                "text": "<b>\u2211</b> <i>p(x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "301015",
                 "tag": "c",
-                "text": "$\\int g(x)p(x) dx$",
+                "text": "<b>\u222b</b> <i>g(x)</i><i>p(x)</i> <i>dx</i>",
                 "is_correct": false
             },
             {
                 "option_id": "958934",
                 "tag": "d",
-                "text": "$\\int p(x) dx$",
+                "text": "<b>\u222b</b> <i>p(x)</i> <i>dx</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 30
+        "question_number": 30,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "From a lot containing 20 items, 5 of the items are defective. If 4 items are drawn with replacement, what is the probability of getting exactly one defective item?",
-        "explanation": "The probability of drawing a defective item is $p = \\frac{5}{20} = \\frac{1}{4}$. Using the binomial distribution for $n=4$ trials and $x=1$ success: $P(X=1) = \\binom{4}{1} (\\frac{1}{4})^1 (\\frac{3}{4})^3 = 4 \\times \\frac{1}{4} \\times \\frac{27}{64} = \\frac{27}{64}$.",
+        "question_text": "<p>From a lot containing 20 items, <b>5 of the items are defective</b>. If 4 items are drawn <i>with replacement</i>, what is the probability of getting exactly one defective item?</p>",
+        "explanation": "<p>First, calculate the probability of drawing a defective item: <b>p</b> = <b>5</b>/20 = <b>1</b>/4.</p><p>Since the items are drawn <i>with replacement</i>, each draw is independent, and we can use the <b>binomial distribution</b> formula:</p><p><b>P(X = 1)</b> = <b>C(4, 1)</b> \u00d7 (<b>1</b>/4)<sup>1</sup> \u00d7 (<b>3</b>/4)<sup>3</sup></p><p>Where <b>C(4, 1)</b> is the number of combinations of 4 items taken 1 at a time, which equals 4.</p><p>Substituting the values:</p><p><b>P(X = 1)</b> = 4 \u00d7 (<b>1</b>/4) \u00d7 (<b>27</b>/64) = <b>27</b>/64.</p>",
         "options": [
             {
                 "option_id": "160111",
                 "tag": "a",
-                "text": "$\\frac{1}{64}$",
+                "text": "<b>1</b>/64",
                 "is_correct": false
             },
             {
                 "option_id": "448468",
                 "tag": "b",
-                "text": "$\\frac{3}{64}$",
+                "text": "<b>3</b>/64",
                 "is_correct": false
             },
             {
                 "option_id": "131424",
                 "tag": "c",
-                "text": "$\\frac{1}{156}$",
+                "text": "<b>1</b>/156",
                 "is_correct": false
             },
             {
                 "option_id": "173419",
                 "tag": "d",
-                "text": "$\\frac{27}{64}$",
+                "text": "<b>27</b>/64",
                 "is_correct": true
             }
         ],
-        "question_number": 36
+        "question_number": 36,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A salesman for ABC Company makes 10 household calls a day. The probability that he will make a sale at a randomly selected house is 0.2. What is the mean of the distribution?",
-        "explanation": "For a binomial distribution, the mean is $\\mu = np$. Given $n=10$ and $p=0.2$, the mean is $10 \\times 0.2 = 2.0$.",
+        "question_text": "<p> A salesman for <b>ABC Company</b> makes 10 household calls a day. The probability that he will make a sale at a randomly selected house is 0.2. What is the <b>mean</b> of the distribution? </p>",
+        "explanation": "<p> For a <b>binomial distribution</b>, the mean is <i>\u03bc = np</i>. Given <i>n = 10</i> and <i>p = 0.2</i>, the mean is <i>10 \u00d7 0.2 = 2.0</i>. </p>",
         "options": [
             {
                 "option_id": "192005",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 42
+        "question_number": 42,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +272,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Suppose the average number of students per minute arriving at a DUST cafeteria is 4. Find the probability that during one particular minute, exactly three students will arrive.",
-        "explanation": "This follows a Poisson distribution with $\\lambda = 4$. $P(X=3) = \\frac{e^{-4} \\cdot 4^3}{3!} \\approx 0.1954$.",
+        "question_text": "<p>Suppose the <b>average number of students per minute</b> arriving at a DUST cafeteria is 4. Find the probability that during one particular minute, <b>exactly three students</b> will arrive.</p>",
+        "explanation": "<p>This follows a <b>Poisson distribution</b> with <i>\u03bb = 4</i>. The probability of exactly three students arriving is calculated as:</p><p>$P(X=3) = \\frac{e^{-4} \\cdot 4^3}{3!} \\approx 0.1954$</p>",
         "options": [
             {
                 "option_id": "255442",
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 48
+        "question_number": 48,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Births in a hospital occur randomly at an average rate of 1.8 births per hour. What is the probability of observing 4 births in a given hour at the hospital?",
-        "explanation": "This follows a Poisson distribution with $\\lambda = 1.8$. $P(X=4) = \\frac{e^{-1.8} \\cdot 1.8^4}{4!} \\approx 0.0723$.",
+        "question_text": "<p>Births in a hospital occur <i>randomly</i> at an average rate of <b>1.8 births per hour</b>. What is the probability of observing <b>4 births</b> in a given hour at the hospital?</p>",
+        "explanation": "<p>This follows a <b>Poisson distribution</b> with <i>\u03bb = 1.8</i>. The probability of observing exactly 4 births is calculated as:</p><p><i>P(X=4) = (e<sup>-1.8</sup> \u00b7 1.8<sup>4</sup>) / 4! \u2248 0.0723</i></p>",
         "options": [
             {
                 "option_id": "861234",
@@ -330,7 +338,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 54
+        "question_number": 54,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $x$ is a continuous random variable that follows a normal distribution with mean $\\mu$ and variance $\\sigma^2$, then its probability density function (p.d.f) is given by:",
-        "explanation": "The standard probability density function for a continuous normal distribution is $f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$.",
+        "question_text": "<p>The probability density function (p.d.f) of a continuous random variable <b>$X$</b> that follows a normal distribution with mean <b>$\\mu$</b> and variance <b>$\\sigma^2$</b> is given by:</p>",
+        "explanation": "<p>The standard probability density function for a continuous normal distribution is <b>$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}$</b>.</p>",
         "options": [
             {
                 "option_id": "279512",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 60
+        "question_number": 60,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,35 +386,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A typist on average makes 3 errors per page. What is the probability of her typing a page with exactly one error?",
-        "explanation": "Using the Poisson distribution with $\\lambda = 3$. $P(X=1) = \\frac{e^{-3} \\cdot 3^1}{1!} = 3e^{-3} \\approx 0.149$, which rounds to 0.15.",
+        "question_text": "<p>A typist on average makes <b>3 errors per page</b>. What is the probability of her typing a page with exactly one error?</p>",
+        "explanation": "<p>Using the <b>Poisson distribution</b> with <b>\u03bb = 3</b>. The probability of exactly one error is calculated as:</p><p><i>P(X=1) = (e<sup>-3</sup> \u00b7 3<sup>1</sup>) / 1! = 3e<sup>-3</sup> \u2248 0.149</i>, which rounds to <b>0.15</b>.</p>",
         "options": [
             {
                 "option_id": "214983",
                 "tag": "a",
-                "text": "0.15",
+                "text": "<i>0.15</i>",
                 "is_correct": true
             },
             {
                 "option_id": "219020",
                 "tag": "b",
-                "text": "0.51",
+                "text": "<i>0.51</i>",
                 "is_correct": false
             },
             {
                 "option_id": "211961",
                 "tag": "c",
-                "text": "0.25",
+                "text": "<i>0.25</i>",
                 "is_correct": false
             },
             {
                 "option_id": "304697",
                 "tag": "d",
-                "text": "1.50",
+                "text": "<i>1.50</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 66
+        "question_number": 66,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,35 +424,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A table with all possible values of a random variable and its corresponding probabilities is called:",
-        "explanation": "A probability distribution represents all possible values of a random variable and their associated probabilities.",
+        "question_text": "<p>A table with all possible values of a random variable and its corresponding probabilities is called:</p>",
+        "explanation": "<p>A <b>probability distribution</b> represents all possible values of a random variable and their associated probabilities.</p>",
         "options": [
             {
                 "option_id": "324929",
                 "tag": "a",
-                "text": "Probability Mass Function",
+                "text": "<b>Probability Mass Function</b>",
                 "is_correct": false
             },
             {
                 "option_id": "317655",
                 "tag": "b",
-                "text": "Probability Density Function",
+                "text": "<b>Probability Density Function</b>",
                 "is_correct": false
             },
             {
                 "option_id": "161484",
                 "tag": "c",
-                "text": "Cumulative Distribution Function",
+                "text": "<b>Cumulative Distribution Function</b>",
                 "is_correct": false
             },
             {
                 "option_id": "177155",
                 "tag": "d",
-                "text": "Probability Distribution",
+                "text": "<b>Probability Distribution</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 72
+        "question_number": 72,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a Binomial Distribution, if '$n$' is the number of trials and '$p$' is the probability of success, then the mean value is given by:",
-        "explanation": "The mean (expected value) of a binomial distribution is the product of the number of trials and the probability of success, $\\mu = np$.",
+        "question_text": "<p>In a <b>Binomial Distribution</b>, if <i><b>n</b></i> is the number of trials and <i><b>p</b></i> is the probability of success, then the mean value is given by:</p>",
+        "explanation": "<p>The mean (expected value) of a binomial distribution is the product of the number of trials and the probability of success, <i><b>\u03bc = np</b></i>.</p>",
         "options": [
             {
                 "option_id": "226618",
                 "tag": "a",
-                "text": "$p$",
+                "text": "<i><b>p</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "131927",
                 "tag": "b",
-                "text": "$np$",
+                "text": "<i><b>np</b></i>",
                 "is_correct": true
             },
             {
                 "option_id": "682222",
                 "tag": "c",
-                "text": "$p/n$",
+                "text": "<i><b>p/n</b></i>",
                 "is_correct": false
             },
             {
                 "option_id": "128436",
                 "tag": "d",
-                "text": "$pq$",
+                "text": "<i><b>pq</b></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 78
+        "question_number": 78,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,13 +500,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is not an axiom of probability?",
-        "explanation": "The probability of the entire sample space occurring is 1, not zero. $P(S) = 1$.",
+        "question_text": "<p>Which of the following is <b>not</b> an axiom of probability?</p>",
+        "explanation": "<p>The probability of the entire sample space occurring is <b>1</b>, not zero. <i>P(S) = 1</i>.</p>",
         "options": [
             {
                 "option_id": "748052",
                 "tag": "a",
-                "text": "The probability of any given event is a non-negative number, $0 \\leq P(A) \\leq 1$",
+                "text": "The probability of any given event is a non-negative number, <i>0 \u2264 P(A) \u2264 1</i>",
                 "is_correct": false
             },
             {
@@ -511,11 +524,12 @@
             {
                 "option_id": "290400",
                 "tag": "d",
-                "text": "If $A^c$ is the complement of $A$, then $P(A^c) = 1 - P(A)$",
+                "text": "If <i>A<sup>c</sup></i> is the complement of <i>A</i>, then <i>P(A<sup>c</sup>) = 1 \u2212 P(A)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 84
+        "question_number": 84,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following standard probability distributions applies to discrete random variables?",
-        "explanation": "The Poisson distribution models discrete count data, whereas Gaussian, Exponential, and Rayleigh are continuous probability distributions.",
+        "question_text": "<p>Which of the following standard probability distributions applies to <b>discrete</b> random variables?</p>",
+        "explanation": "<p>The <b>Poisson distribution</b> models <i>discrete</i> count data, whereas Gaussian, Exponential, and Rayleigh are <b>continuous</b> probability distributions.</p>",
         "options": [
             {
                 "option_id": "346089",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 90
+        "question_number": 90,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "When each member of the population selected is returned to the population before the next member is selected, it is known as:",
-        "explanation": "In sampling with replacement, selected members are put back into the population, giving them a chance to be selected again.",
+        "question_text": "<p>When each member of the population selected is returned to the population before the next member is selected, it is known as:</p>",
+        "explanation": "<p>In <b>sampling with replacement</b>, selected members are put back into the population, giving them a chance to be selected again.</p>",
         "options": [
             {
                 "option_id": "737768",
                 "tag": "a",
-                "text": "Sampling without replacement",
+                "text": "<b>Sampling without replacement</b>",
                 "is_correct": false
             },
             {
                 "option_id": "319545",
                 "tag": "b",
-                "text": "Simple random sampling",
+                "text": "<b>Simple random sampling</b>",
                 "is_correct": false
             },
             {
                 "option_id": "182350",
                 "tag": "c",
-                "text": "Systematic sampling",
+                "text": "<b>Systematic sampling</b>",
                 "is_correct": false
             },
             {
                 "option_id": "100081",
                 "tag": "d",
-                "text": "Sampling with replacement",
+                "text": "<b>Sampling with replacement</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 96
+        "question_number": 96,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +614,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following sampling methods is the best way to select a group of people for a study if you are interested in making statements about the larger population?",
-        "explanation": "Simple random sampling gives every individual an equal chance of being selected, which minimizes bias and allows for generalization.",
+        "question_text": "<p>Which of the following <b>sampling methods</b> is the best way to select a group of people for a study if you are interested in making statements about the <i>larger population</i>?</p>",
+        "explanation": "<p>Simple random sampling gives every individual an equal chance of being selected, which minimizes <b>bias</b> and allows for <i>generalization</i> to the larger population.</p>",
         "options": [
             {
                 "option_id": "293000",
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 102
+        "question_number": 102,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +652,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A random sample of $n = 300$ measurements is drawn from a binomial population with a probability of success 0.43. What is the mean and standard deviation of the distribution?",
-        "explanation": "Mean $\\mu = np = 300 \\times 0.43 = 129$. Standard deviation $\\sigma = \\sqrt{np(1-p)} = \\sqrt{300 \\times 0.43 \\times 0.57} = \\sqrt{73.53} \\approx 8.57$.",
+        "question_text": "<p>A random sample of <i>n</i> = 300 measurements is drawn from a binomial population with a probability of success 0.43. What is the <b>mean</b> and <b>standard deviation</b> of the distribution?</p>",
+        "explanation": "<p>The <b>mean</b> of a binomial distribution is calculated as <b>\u03bc = np</b>, where <i>n</i> is the number of trials and <i>p</i> is the probability of success. Here, <b>\u03bc = 300 \u00d7 0.43 = 129</b>.</p><p>The <b>standard deviation</b> is given by <b>\u03c3 = \u221a(np(1-p))</b>. Substituting the values: <b>\u03c3 = \u221a(300 \u00d7 0.43 \u00d7 0.57) = \u221a73.53 \u2248 8.57</b>.</p>",
         "options": [
             {
                 "option_id": "201101",
@@ -663,7 +680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 108
+        "question_number": 108,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a Binomial distribution, the mean is 15 and the variance is 10. Compute the parameter $n$.",
-        "explanation": "We know $\\mu = np = 15$ and $\\sigma^2 = npq = 10$. Dividing variance by mean: $q = \\frac{10}{15} = \\frac{2}{3}$. Since $p = 1 - q = \\frac{1}{3}$, we have $n(1/3) = 15 \\implies n = 45$.",
+        "question_text": "<p>In a <b>Binomial distribution</b>, the <b>mean</b> is 15 and the <b>variance</b> is 10. Compute the parameter <i>n</i>.</p>",
+        "explanation": "<p>We know <i>\u03bc = np = 15</i> and <i>\u03c3\u00b2 = npq = 10</i>. Dividing variance by mean: <i>q = 10/15 = 2/3</i>. Since <i>p = 1 - q = 1/3</i>, we have <i>n(1/3) = 15 \u21d2 n = 45</i>.</p>",
         "options": [
             {
                 "option_id": "728955",
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 114
+        "question_number": 114,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -746,35 +765,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Consider a Poisson distribution for tossing a biased coin. The mean for this distribution is $\\mu$. The standard deviation for this distribution is given by:",
-        "explanation": "In a Poisson distribution, the variance is equal to the mean ($\\mu$). Therefore, the standard deviation is the square root of the mean, $\\sqrt{\\mu}$.",
+        "question_text": "<p>Consider a <b>Poisson distribution</b> for tossing a biased coin. The mean for this distribution is <b><i>\u03bc</i></b>. The standard deviation for this distribution is given by:</p>",
+        "explanation": "<p>In a <b>Poisson distribution</b>, the <b>variance</b> is equal to the <b>mean</b> (<i>\u03bc</i>). Therefore, the <b>standard deviation</b> is the <b>square root</b> of the mean, <i>\u221a\u03bc</i>.</p>",
         "options": [
             {
                 "option_id": "275892",
                 "tag": "a",
-                "text": "$\\mu$",
+                "text": "<i>\u03bc</i>",
                 "is_correct": false
             },
             {
                 "option_id": "240552",
                 "tag": "b",
-                "text": "$\\sqrt{\\mu}$",
+                "text": "<i>\u221a\u03bc</i>",
                 "is_correct": true
             },
             {
                 "option_id": "312548",
                 "tag": "c",
-                "text": "$\\mu^2$",
+                "text": "<i>\u03bc<sup>2</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "230863",
                 "tag": "d",
-                "text": "$1/\\mu$",
+                "text": "<i>1/\u03bc</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 126
+        "question_number": 126,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,8 +803,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If calls arrive at a telephone exchange such that the time of arrival of any call is independent of the time of arrival of earlier or future calls, the probability distribution function of the total number of calls in a fixed time interval will be:",
-        "explanation": "The Poisson distribution models the number of events occurring in a fixed interval of time when events happen independently at a constant average rate.",
+        "question_text": "<p>If calls arrive at a telephone exchange such that the time of arrival of any call is <b>independent</b> of the time of arrival of earlier or future calls, the probability distribution function of the total number of calls in a fixed time interval will be:</p>",
+        "explanation": "<p>The <b>Poisson distribution</b> models the number of events occurring in a fixed interval of time when events happen independently at a constant average rate.</p>",
         "options": [
             {
                 "option_id": "285050",
@@ -811,7 +831,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 132
+        "question_number": 132,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +841,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The mean and variance of a geometric distribution (modeling number of failures before first success) are given by:",
-        "explanation": "For a geometric distribution describing the number of failures before the first success, the mean is $\\frac{q}{p}$ and the variance is $\\frac{q}{p^2}$.",
+        "question_text": "<p>The mean and variance of a geometric distribution <i>(modeling number of failures before first success)</i> are given by:</p>",
+        "explanation": "<p>For a geometric distribution describing the number of failures before the first success, the <b>mean</b> is <b>q/p</b> and the <b>variance</b> is <b>q/p<sup>2</sup></b>.</p>",
         "options": [
             {
                 "option_id": "255092",
                 "tag": "a",
-                "text": "$p/q$ and $p^2$",
+                "text": "<b>p/q</b> and <b>p<sup>2</sup></b>",
                 "is_correct": false
             },
             {
                 "option_id": "119045",
                 "tag": "b",
-                "text": "$q/p$ and $q/p^2$",
+                "text": "<b>q/p</b> and <b>q/p<sup>2</sup></b>",
                 "is_correct": true
             },
             {
                 "option_id": "168405",
                 "tag": "c",
-                "text": "$q/p$ and $q/p$",
+                "text": "<b>q/p</b> and <b>q/p</b>",
                 "is_correct": false
             },
             {
                 "option_id": "238610",
                 "tag": "d",
-                "text": "$p/q$ and $n/p$",
+                "text": "<b>p/q</b> and <i>n/p</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 138
+        "question_number": 138,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +879,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is not possible in a probability distribution?",
-        "explanation": "Probability represents a chance of occurrence and must always be a non-negative value between 0 and 1 inclusive. A negative probability is impossible.",
+        "question_text": "<p>Which of the following is <i>not</i> possible in a probability distribution?</p>",
+        "explanation": "<p>A <b>probability distribution</b> assigns probabilities to each possible outcome of a random event. The key properties of a valid probability distribution are:</p><p>1. Each probability <b><i>P(x)</i></b> must satisfy <b>0 \u2264 P(x) \u2264 1</b> (non-negative and \u2264 1).</p><p>2. The sum of all probabilities must equal <b>1</b> (\u2211 <i>P(x)</i> = 1).</p><p>3. The expected value (\u2211 <i>x P(x)</i>) can be any real number, including 2, as it represents the average outcome.</p><p>Option <b>d</b> violates the first rule because <b><i>P(x)</i> = -0.5</b> is negative, which is impossible in probability theory.</p>",
         "options": [
             {
                 "option_id": "266038",
                 "tag": "a",
-                "text": "$P(x) \\geq 0$",
+                "text": "<i>P(x)</i> \u2265 0",
                 "is_correct": false
             },
             {
                 "option_id": "147720",
                 "tag": "b",
-                "text": "$\\sum P(x) = 1$",
+                "text": "\u2211 <i>P(x)</i> = 1",
                 "is_correct": false
             },
             {
                 "option_id": "135175",
                 "tag": "c",
-                "text": "$\\sum x P(x) = 2$",
+                "text": "\u2211 <i>x P(x)</i> = 2",
                 "is_correct": false
             },
             {
                 "option_id": "920206",
                 "tag": "d",
-                "text": "$P(x) = -0.5$",
+                "text": "<i>P(x)</i> = -0.5",
                 "is_correct": true
             }
         ],
-        "question_number": 144
+        "question_number": 144,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,19 +917,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The expression $E[X - E(X)]$ is equal to:",
-        "explanation": "By linearity of expectation, $E[X - E(X)] = E(X) - E[E(X)] = E(X) - E(X) = 0$.",
+        "question_text": "<p>The expression <i>E[X - E(X)]</i> is equal to:</p>",
+        "explanation": "<p>By linearity of expectation, <i>E[X - E(X)] = E(X) - E[E(X)] = E(X) - E(X) = 0</i>.</p>",
         "options": [
             {
                 "option_id": "142508",
                 "tag": "a",
-                "text": "$E(X)$",
+                "text": "<i>E(X)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "338632",
                 "tag": "b",
-                "text": "$Var(X)$",
+                "text": "<b>Var(X)</b>",
                 "is_correct": false
             },
             {
@@ -918,11 +941,12 @@
             {
                 "option_id": "157121",
                 "tag": "d",
-                "text": "$E(X) - X$",
+                "text": "<i>E(X) - X</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 150
+        "question_number": 150,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +955,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The result of a trial is referred to as:",
-        "explanation": "An outcome is the single specific result of a probability experiment or trial.",
+        "question_text": "<p>The result of a trial is referred to as:</p>",
+        "explanation": "<p>An <b>outcome</b> is the single specific result of a probability experiment or trial.</p>",
         "options": [
             {
                 "option_id": "198672",
@@ -959,7 +983,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 156
+        "question_number": 156,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,13 +993,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Suppose two events $A$ and $B$ are defined on a sample space. The two events are said to be ___ if the occurrence of $A$ does not affect the occurrence of $B$.",
-        "explanation": "Independent events are events where the outcome of one does not affect the probability of the other.",
+        "question_text": "<p>Suppose two events <b>$A$</b> and <b>$B$</b> are defined on a sample space. The two events are said to be <i>___</i> if the occurrence of <b>$A$</b> does not affect the occurrence of <b>$B$</b>.</p>",
+        "explanation": "<p><b>Independent events</b> are events where the outcome of one does not affect the probability of the other.</p>",
         "options": [
             {
                 "option_id": "335287",
                 "tag": "a",
-                "text": "Independent",
+                "text": "<b>Independent</b>",
                 "is_correct": true
             },
             {
@@ -996,7 +1021,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 162
+        "question_number": 162,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,35 +1031,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "An experiment whose outcome cannot be predicted with certainty is called:",
-        "explanation": "A random experiment is an experiment with multiple possible outcomes, whose exact result cannot be determined deterministically in advance.",
+        "question_text": "<p>An experiment whose outcome cannot be predicted with certainty is called:</p>",
+        "explanation": "<p>A <b>random experiment</b> is an experiment with multiple possible outcomes, whose exact result cannot be determined <i>deterministically</i> in advance.</p>",
         "options": [
             {
                 "option_id": "219783",
                 "tag": "a",
-                "text": "Exact",
+                "text": "<i>Exact</i>",
                 "is_correct": false
             },
             {
                 "option_id": "302323",
                 "tag": "b",
-                "text": "Random",
+                "text": "<b>Random</b>",
                 "is_correct": true
             },
             {
                 "option_id": "282901",
                 "tag": "c",
-                "text": "Complete",
+                "text": "<i>Complete</i>",
                 "is_correct": false
             },
             {
                 "option_id": "194287",
                 "tag": "d",
-                "text": "Event",
+                "text": "<i>Event</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 168
+        "question_number": 168,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1069,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A single trial of an experiment whose outcome is either success or failure can be modelled using:",
-        "explanation": "A Bernoulli distribution models exactly one trial with only two possible outcomes: success (1) or failure (0).",
+        "question_text": "<p>A single trial of an experiment whose outcome is either success or failure can be modelled using:</p>",
+        "explanation": "<p>A <b>Bernoulli distribution</b> models exactly one trial with only two possible outcomes: success (1) or failure (0).</p>",
         "options": [
             {
                 "option_id": "845781",
@@ -1070,7 +1097,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 174
+        "question_number": 174,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1107,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that the probability density function $f(x) = kx^2$ for $0 < x < 1$, obtain the value of $k$.",
-        "explanation": "The total area under the pdf must be 1. $\\int_0^1 kx^2 dx = k[\\frac{x^3}{3}]_0^1 = \\frac{k}{3} = 1$, hence $k = 3$.",
+        "question_text": "<p>Given that the probability density function <i>f(x) = kx<sup>2</sup></i> for <i>0 < x < 1</i>, obtain the value of <b>k</b>.</p>",
+        "explanation": "<p>The total area under the pdf must be 1. <i>\\int_0^1 kx^2 dx = k[\\frac{x^3}{3}]_0^1 = \\frac{k}{3} = 1</i>, hence <b>k = 3</b>.</p>",
         "options": [
             {
                 "option_id": "134351",
@@ -1107,7 +1135,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 180
+        "question_number": 180,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1145,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $f(x) = 3x^2$ for $0 < x < 1$, obtain the expectation of $X$, $E(X)$.",
-        "explanation": "$E(X) = \\int_0^1 xf(x)dx = \\int_0^1 3x^3 dx = [\\frac{3x^4}{4}]_0^1 = \\frac{3}{4}$.",
+        "question_text": "<p>Given that <i>f(x) = 3x<sup>2</sup></i> for <i>0 &lt; x &lt; 1</i>, obtain the expectation of <i>X</i>, <b>E(X)</b>.</p>",
+        "explanation": "<p><b>E(X) = \u222b<sub>0</sub><sup>1</sup> xf(x)dx = \u222b<sub>0</sub><sup>1</sup> 3x<sup>3</sup> dx = [3x<sup>4</sup>/4]<sub>0</sub><sup>1</sup> = <i>3/4</i>.</b></p>",
         "options": [
             {
                 "option_id": "137286",
@@ -1128,13 +1157,13 @@
             {
                 "option_id": "464295",
                 "tag": "b",
-                "text": "$3/4$",
+                "text": "<i>3/4</i>",
                 "is_correct": true
             },
             {
                 "option_id": "641079",
                 "tag": "c",
-                "text": "$1/4$",
+                "text": "<i>1/4</i>",
                 "is_correct": false
             },
             {
@@ -1144,7 +1173,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 186
+        "question_number": 186,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,25 +1183,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $f(x) = kx^2$ for $0 < x < 3$, obtain the value of $k$ to make it a valid probability density function.",
-        "explanation": "We need $\\int_0^3 kx^2 dx = 1$. Evaluating the integral gives $k[\\frac{x^3}{3}]_0^3 = k(9) = 1$. Thus, $k = 1/9$.",
+        "question_text": "<p>Given that <i>f(x) = kx<sup>2</sup></i> for <i>0 &lt; x &lt; 3</i>, obtain the value of <b>k</b> to make it a valid probability density function.</p>",
+        "explanation": "<p>We need <i>\u222b<sub>0</sub><sup>3</sup> kx<sup>2</sup> dx = 1</i>. Evaluating the integral gives <i>k[<b>x<sup>3</sup>/3</b>]<sub>0</sub><sup>3</sup> = k(9) = 1</i>. Thus, <b>k = 1/9</b>.</p>",
         "options": [
             {
                 "option_id": "109076",
                 "tag": "a",
-                "text": "$1/3$",
+                "text": "<i>1/3</i>",
                 "is_correct": false
             },
             {
                 "option_id": "218345",
                 "tag": "b",
-                "text": "$1/6$",
+                "text": "<i>1/6</i>",
                 "is_correct": false
             },
             {
                 "option_id": "191005",
                 "tag": "c",
-                "text": "$1/9$",
+                "text": "<i>1/9</i>",
                 "is_correct": true
             },
             {
@@ -1181,7 +1211,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 192
+        "question_number": 192,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,8 +1221,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is NOT an applicable use case for a Binomial distribution?",
-        "explanation": "The number of typing errors on a page per minute is better modeled by a Poisson distribution, as it represents events occurring in a continuous interval.",
+        "question_text": "<p>Which of the following is <b>NOT</b> an applicable use case for a <b>Binomial distribution</b>?</p>",
+        "explanation": "<p>The number of typing errors on a page per minute is better modeled by a <b>Poisson distribution</b>, as it represents events occurring in a continuous interval.</p>",
         "options": [
             {
                 "option_id": "190023",
@@ -1218,7 +1249,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 198
+        "question_number": 198,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,8 +1259,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is an applicable use case for a Poisson distribution?",
-        "explanation": "The Poisson distribution models the rate of occurrences of independent events over a specific interval of time, space, or area, such as typing errors per page.",
+        "question_text": "<p>The <b>Poisson distribution</b> is used to model the number of events occurring within a fixed interval of time or space. Which of the following is an applicable use case for this distribution?</p>",
+        "explanation": "<p>The <b>Poisson distribution</b> is ideal for modeling the number of events in a fixed interval when these events occur with a known constant mean rate and independently of the time since the last event. A classic example is counting the number of <i>typing errors</i> on a page per minute, as it fits the criteria of independent occurrences over a defined space (a page) and time (a minute).</p><p>In contrast, options <b>a</b>, <b>b</b>, and <b>d</b> involve scenarios that are better suited for other distributions or models, such as the <b>binomial distribution</b> (for Yes/No criteria) or <b>clinical trial analysis</b> (which may require hypothesis testing).</p>",
         "options": [
             {
                 "option_id": "184878",
@@ -1255,7 +1287,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 204
+        "question_number": 204,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,8 +1297,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The probability that a student is accepted to a department of statistics is 0.4. If 10 students apply, obtain the probability that exactly 3 are accepted.",
-        "explanation": "Using binomial distribution $P(X=3) = \\binom{10}{3} (0.4)^3 (0.6)^7 = 120 \\times 0.064 \\times 0.0279936 \\approx 0.215$.",
+        "question_text": "<p>Given that the probability a student is accepted to a department of statistics is <b>0.4</b>, calculate the probability that exactly <b>3</b> out of <b>10</b> students are accepted.</p>",
+        "explanation": "<p>This is a <b>binomial probability</b> problem where we use the formula:</p><p><i>P(X = k) = C(n, k) * p<sup>k</sup> * (1 - p)<sup>(n - k)</sup></i></p><p>Here, <i>n = 10</i>, <i>k = 3</i>, and <i>p = 0.4</i>. Substituting the values:</p><p><i>P(X = 3) = C(10, 3) * (0.4)<sup>3</sup> * (0.6)<sup>7</sup></i></p><p>Calculating further:</p><p><i>C(10, 3) = 120</i>, <i>(0.4)<sup>3</sup> = 0.064</i>, and <i>(0.6)<sup>7</sup> \u2248 0.0279936</i>.</p><p>Thus, <i>P(X = 3) \u2248 120 * 0.064 * 0.0279936 \u2248 0.215</i>.</p>",
         "options": [
             {
                 "option_id": "215453",
@@ -1292,7 +1325,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 210
+        "question_number": 210,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,35 +1335,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The distribution of an experiment that entails repeating independent Bernoulli trials until observing the first success is known as:",
-        "explanation": "The geometric distribution models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials.",
+        "question_text": "<p>The distribution of an experiment that entails repeating <b>independent Bernoulli trials</b> until observing the first success is known as:</p>",
+        "explanation": "<p>The <b>geometric distribution</b> models the number of trials required to obtain the first success in a sequence of independent <b>Bernoulli trials</b>.</p>",
         "options": [
             {
                 "option_id": "284099",
                 "tag": "a",
-                "text": "Binomial distribution",
+                "text": "<b>Binomial distribution</b>",
                 "is_correct": false
             },
             {
                 "option_id": "203692",
                 "tag": "b",
-                "text": "Bernoulli distribution",
+                "text": "<b>Bernoulli distribution</b>",
                 "is_correct": false
             },
             {
                 "option_id": "321783",
                 "tag": "c",
-                "text": "Geometric distribution",
+                "text": "<b>Geometric distribution</b>",
                 "is_correct": true
             },
             {
                 "option_id": "282791",
                 "tag": "d",
-                "text": "Poisson distribution",
+                "text": "<i>Poisson distribution</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 216
+        "question_number": 216,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1373,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Hospital records show that 70% of patients suffering from a certain disease died of it. What is the probability that out of 3 randomly selected patients, exactly 1 will recover?",
-        "explanation": "Probability of recovery $p = 1 - 0.70 = 0.30$. Using binomial distribution for $n=3$, $x=1$: $P(X=1) = \\binom{3}{1} (0.3)^1 (0.7)^2 = 3 \\times 0.3 \\times 0.49 = 0.441$.",
+        "question_text": "<p>Hospital records show that <b>70%</b> of patients suffering from a certain disease died of it. What is the probability that out of <b>3 randomly selected patients</b>, exactly <b>1 will recover</b>?</p>",
+        "explanation": "<p><b>Probability of recovery</b> <i>p</i> = 1 - 0.70 = 0.30. Using <b>binomial distribution</b> for <i>n</i>=3, <i>x</i>=1:</p><p><i>P(X=1)</i> = <sub>3</sub>C<sub>1</sub> (0.3)<sup>1</sup> (0.7)<sup>2</sup> = 3 \u00d7 0.3 \u00d7 0.49 = <b>0.441</b>.</p>",
         "options": [
             {
                 "option_id": "216410",
@@ -1366,7 +1401,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 222
+        "question_number": 222,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,13 +1411,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A distribution that is symmetrical with a single central peak at the mean of the data and forms a bell-shaped curve is known as:",
-        "explanation": "The Normal (or Gaussian) distribution is characterized by its symmetric, bell-shaped density curve centered around the mean.",
+        "question_text": "<p>A distribution that is symmetrical with a single central peak at the <b>mean</b> of the data and forms a bell-shaped curve is known as:</p>",
+        "explanation": "<p>The <b>Normal</b> (or Gaussian) distribution is characterized by its symmetric, bell-shaped density curve centered around the <b>mean</b>.</p>",
         "options": [
             {
                 "option_id": "324396",
                 "tag": "a",
-                "text": "Normal",
+                "text": "<b>Normal</b>",
                 "is_correct": true
             },
             {
@@ -1403,7 +1439,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 228
+        "question_number": 228,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,8 +1449,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Let the sample space in the roll of a die be $S=\\{1,2,3,4,5,6\\}$. Given that $A$ is the event that the points are even and $B$ is the event that the points are odd, then $P(A)$ is:",
-        "explanation": "The even outcomes are $\\{2, 4, 6\\}$, so there are 3 outcomes. $P(A) = \\frac{3}{6} = 0.5$.",
+        "question_text": "<p>Let the sample space in the roll of a die be <i>S</i> = {1, 2, 3, 4, 5, 6}. Given that <b>A</b> is the event that the points are even and <b>B</b> is the event that the points are odd, then <i>P(A)</i> is:</p>",
+        "explanation": "<p>The even outcomes are {2, 4, 6}, so there are 3 outcomes. <i>P(A)</i> = 3/6 = 0.5.</p>",
         "options": [
             {
                 "option_id": "340202",
@@ -1440,7 +1477,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 234
+        "question_number": 234,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1487,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Let the sample space in the roll of a die be $S=\\{1,2,3,4,5,6\\}$. Given that $C$ is the event that the points are prime numbers, then $P(C)$ is:",
-        "explanation": "The prime numbers on a die are 2, 3, and 5. Therefore, event $C = \\{2, 3, 5\\}$ has 3 outcomes. $P(C) = \\frac{3}{6} = 0.5$.",
+        "question_text": "<p>Let the sample space in the roll of a die be <i>S</i> = {1, 2, 3, 4, 5, 6}. Given that <i>C</i> is the event that the points are <b>prime numbers</b>, then <i>P(C)</i> is:</p>",
+        "explanation": "<p>The prime numbers on a die are 2, 3, and 5. Therefore, event <i>C</i> = {2, 3, 5} has 3 outcomes. <i>P(C)</i> = <b>3/6</b> = 0.5.</p>",
         "options": [
             {
                 "option_id": "412454",
@@ -1477,7 +1515,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 240
+        "question_number": 240,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1525,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a bag, there are 3 white balls and 4 yellow balls. 2 balls are drawn at random with replacement. What is the probability that both balls drawn will be white?",
-        "explanation": "Since drawing is with replacement, the probability of drawing a white ball is $3/7$ both times. $P(W,W) = \\frac{3}{7} \\times \\frac{3}{7} = \\frac{9}{49}$.",
+        "question_text": "<p>In a bag, there are <b>3 white balls</b> and <b>4 yellow balls</b>. 2 balls are drawn at random <i>with replacement</i>. What is the probability that both balls drawn will be white?</p>",
+        "explanation": "<p>Since drawing is <i>with replacement</i>, the probability of drawing a white ball is <b>$3/7$</b> both times. <br><b>$P(W,W) = \\frac{3}{7} \\times \\frac{3}{7} = \\frac{9}{49}$</b></p>",
         "options": [
             {
                 "option_id": "164475",
@@ -1514,7 +1553,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 246
+        "question_number": 246,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1560,35 +1600,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A coin is tossed 3 times. Let $A$ be the event of getting all heads or all tails: $A = \\{HHH, TTT\\}$. Obtain $P(A)$.",
-        "explanation": "The total number of outcomes is $2^3 = 8$. Event $A$ has 2 elements (HHH, TTT). Therefore, $P(A) = \\frac{2}{8} = \\frac{1}{4}$.",
+        "question_text": "<p>A coin is tossed 3 times. Let <b>A</b> be the event of getting all heads or all tails: <b>A</b> = {<i>HHH</i>, <i>TTT</i>}. Obtain <b>P(A)</b>.</p>",
+        "explanation": "<p>The total number of outcomes is 2<sup>3</sup> = 8. Event <b>A</b> has 2 elements (<i>HHH</i>, <i>TTT</i>). Therefore, <b>P(A)</b> = <i>2</i>/8 = <i>1</i>/4.</p>",
         "options": [
             {
                 "option_id": "305785",
                 "tag": "a",
-                "text": "$3/4$",
+                "text": "<i>3</i>/4",
                 "is_correct": false
             },
             {
                 "option_id": "178431",
                 "tag": "b",
-                "text": "$1/2$",
+                "text": "<i>1</i>/2",
                 "is_correct": false
             },
             {
                 "option_id": "228850",
                 "tag": "c",
-                "text": "$1/4$",
+                "text": "<i>1</i>/4",
                 "is_correct": true
             },
             {
                 "option_id": "721739",
                 "tag": "d",
-                "text": "$1/8$",
+                "text": "<i>1</i>/8",
                 "is_correct": false
             }
         ],
-        "question_number": 258
+        "question_number": 258,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,8 +1638,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following describes a continuous random variable?",
-        "explanation": "Temperature is measured on a continuous scale, allowing for infinitely many values within an interval, unlike the others which are discrete counts.",
+        "question_text": "<p>A <b>continuous random variable</b> is one that can take on an <i>infinite number of possible values</i> within a given range. Which of the following examples best fits this definition?</p>",
+        "explanation": "<p><b>Temperature</b> is a classic example of a continuous random variable because it can take any value within a range (e.g., 20.5\u00b0C, 20.51\u00b0C, etc.), and there are infinitely many possible values between any two points. In contrast, the other options are <b>discrete random variables</b> because they represent countable outcomes (e.g., whole numbers of defective parts, students, or errors).</p>",
         "options": [
             {
                 "option_id": "269356",
@@ -1625,7 +1666,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 264
+        "question_number": 264,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,8 +1676,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following describes a discrete random variable?",
-        "explanation": "The number of typing errors is counted in distinct whole numbers (discrete), while temperature, pressure, and weight are measured continuously.",
+        "question_text": "<p>A <b>discrete random variable</b> is one that can take on a countable number of distinct values. Which of the following describes a <b>discrete random variable</b>?</p>",
+        "explanation": "<p>A <b>discrete random variable</b> must take on distinct, separate values. The <i>number of typing errors</i> is a classic example because it is counted in whole numbers (e.g., 0, 1, 2 errors). In contrast, <i>temperature</i>, <i>pressure</i>, and <i>weight</i> are <b>continuous variables</b> because they can take on any value within a range and are measured on a continuous scale.</p>",
         "options": [
             {
                 "option_id": "239471",
@@ -1662,7 +1704,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 270
+        "question_number": 270,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,13 +1714,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$, $a = 2$ and $b = 4$ where $a$ and $b$ are constants. Obtain $Var(aX)$.",
-        "explanation": "The property of variance states that $Var(aX) = a^2 Var(X)$. Thus, $Var(2X) = 2^2 \\times 3 = 4 \\times 3 = 12$.",
+        "question_text": "<p>Given that <i>Var</i>(<i>X</i>) = 3, <i>a</i> = 2 and <i>b</i> = 4 where <i>a</i> and <i>b</i> are constants. Obtain <i>Var</i>(<i>aX</i>).</p>",
+        "explanation": "<p>The property of variance states that <i>Var</i>(<i>aX</i>) = <i>a</i><sup>2</sup> <i>Var</i>(<i>X</i>). Thus, <i>Var</i>(2<i>X</i>) = 2<sup>2</sup> \u00d7 3 = 4 \u00d7 3 = <b>12</b>.</p>",
         "options": [
             {
                 "option_id": "321813",
                 "tag": "a",
-                "text": "12",
+                "text": "<b>12</b>",
                 "is_correct": true
             },
             {
@@ -1699,7 +1742,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 276
+        "question_number": 276,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,8 +1752,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$, $a = 2$ and $b = 4$ where $a$ and $b$ are constants. Obtain the value of $Var(b + aX)$.",
-        "explanation": "Adding a constant does not change the variance. $Var(b + aX) = a^2 Var(X) = 2^2 \\times 3 = 12$.",
+        "question_text": "<p>Given that <b>Var(X) = 3</b>, <b>a = 2</b> and <b>b = 4</b> where <b>a</b> and <b>b</b> are constants. Obtain the value of <b>Var(b + aX)</b>.</p>",
+        "explanation": "<p>Adding a constant does not change the variance. <b>Var(b + aX) = a<sup>2</sup> Var(X) = 2<sup>2</sup> \u00d7 3 = 12</b>.</p>",
         "options": [
             {
                 "option_id": "180171",
@@ -1736,7 +1780,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 282
+        "question_number": 282,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1790,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$, $Var(Y) = 2$, $E(X) = 2$, $E(Y) = 3$, $E(XY) = 6$. Obtain the value of $Var(2X + Y)$.",
-        "explanation": "$Cov(X,Y) = E(XY) - E(X)E(Y) = 6 - (2 \\times 3) = 0$. $Var(2X + Y) = 2^2 Var(X) + Var(Y) + 2(2)(1)Cov(X,Y) = 4(3) + 2 + 0 = 14$.",
+        "question_text": "<p>Given that <i>Var</i>(<i>X</i>) = 3, <i>Var</i>(<i>Y</i>) = 2, <i>E</i>(<i>X</i>) = 2, <i>E</i>(<i>Y</i>) = 3, <i>E</i>(<i>XY</i>) = 6. Obtain the value of <i>Var</i>(2<i>X</i> + <i>Y</i>).</p>",
+        "explanation": "<p><i>Cov</i>(<i>X,Y</i>) = <i>E</i>(<i>XY</i>) - <i>E</i>(<i>X</i>)<i>E</i>(<i>Y</i>) = 6 - (2 \u00d7 3) = 0.</p><p><i>Var</i>(2<i>X</i> + <i>Y</i>) = 2<sup>2</sup> <i>Var</i>(<i>X</i>) + <i>Var</i>(<i>Y</i>) + 2(2)(1)<i>Cov</i>(<i>X,Y</i>) = 4(3) + 2 + 0 = <b>14</b>.</p>",
         "options": [
             {
                 "option_id": "513102",
@@ -1773,7 +1818,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 288
+        "question_number": 288,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1828,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Identify the discrete probability distribution from the options below:",
-        "explanation": "The Geometric distribution deals with counts (number of trials until success) and is thus discrete, while the others model continuous variables.",
+        "question_text": "<p>Identify the <b>discrete</b> probability distribution from the options below:</p>",
+        "explanation": "<p>The <b>Geometric</b> distribution deals with counts (number of trials until success) and is thus <b>discrete</b>, while the others model <b>continuous</b> variables.</p>",
         "options": [
             {
                 "option_id": "724947",
                 "tag": "a",
-                "text": "Normal",
+                "text": "<i>Normal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "338482",
                 "tag": "b",
-                "text": "Exponential",
+                "text": "<i>Exponential</i>",
                 "is_correct": false
             },
             {
                 "option_id": "181895",
                 "tag": "c",
-                "text": "Geometric",
+                "text": "<i>Geometric</i>",
                 "is_correct": true
             },
             {
                 "option_id": "244150",
                 "tag": "d",
-                "text": "Gamma",
+                "text": "<i>Gamma</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 294
+        "question_number": 294,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,13 +1866,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Identify the continuous probability distribution from the options below:",
-        "explanation": "The Normal distribution is used for continuous data, while Poisson, Geometric, and Hypergeometric distributions are all discrete.",
+        "question_text": "<p>Identify the <b>continuous</b> probability distribution from the options below:</p>",
+        "explanation": "<p>The <b>Normal</b> distribution is used for <i>continuous</i> data, while Poisson, Geometric, and Hypergeometric distributions are all <i>discrete</i>.</p>",
         "options": [
             {
                 "option_id": "647276",
                 "tag": "a",
-                "text": "Normal",
+                "text": "<b>Normal</b>",
                 "is_correct": true
             },
             {
@@ -1847,7 +1894,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 300
+        "question_number": 300,
+        "is_rewritten": true
     },
     {
         "order_id": "51",
@@ -1856,8 +1904,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most one head?",
-        "explanation": "Outcomes with at most one head: TTT, TTH, THT, HTT. 4/8 = 1/2.",
+        "question_text": "<p>If a fair coin is tossed three times, what is the probability of getting <b>at most one head</b>?</p>",
+        "explanation": "<p>Outcomes with at most one head: TTT, TTH, THT, HTT. <i>4/8 = 1/2</i>.</p>",
         "options": [
             {
                 "option_id": "316171",
@@ -1884,7 +1932,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 301
+        "question_number": 301,
+        "is_rewritten": true
     },
     {
         "order_id": "52",
@@ -1893,8 +1942,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times, what is the probability of getting exactly two tails?",
-        "explanation": "Outcomes with exactly two tails: TTH, THT, HTT. 3/8.",
+        "question_text": "<p>If a fair coin is tossed three times, what is the probability of getting <b>exactly two tails</b>?</p>",
+        "explanation": "<p>There are <b>8 possible outcomes</b> when tossing a coin three times (2<sup>3</sup>). The favorable outcomes with exactly two tails are: <i>TTH, THT, HTT</i>. Thus, the probability is <b>3/8</b>.</p>",
         "options": [
             {
                 "option_id": "185035",
@@ -1921,7 +1970,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 302
+        "question_number": 302,
+        "is_rewritten": true
     },
     {
         "order_id": "53",
@@ -1930,8 +1980,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most two heads?",
-        "explanation": "Everything except HHH (3 heads). 1 - 1/8 = 7/8.",
+        "question_text": "<p>If a fair coin is tossed three times, what is the probability of getting <b>at most two heads</b>?</p>",
+        "explanation": "<p><i>At most two heads</i> means 0, 1, or 2 heads. The only outcome not included is <b>HHH</b> (3 heads). The probability of HHH is <b>1/8</b>, so the probability of at most two heads is <b>1 - 1/8 = 7/8</b>.</p>",
         "options": [
             {
                 "option_id": "264348",
@@ -1958,7 +2008,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 303
+        "question_number": 303,
+        "is_rewritten": true
     },
     {
         "order_id": "54",
@@ -1967,8 +2018,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a bag, there are 3 white balls and 4 yellow balls. 2 balls are drawn at random without replacement. What is the probability that both balls will be yellow?",
-        "explanation": "P(Y1 and Y2) = P(Y1) * P(Y2|Y1) = (4/7) * (3/6) = 12/42 = 2/7.",
+        "question_text": "<p>In a bag, there are <b>3 white balls</b> and <b>4 yellow balls</b>. 2 balls are drawn at random <i>without replacement</i>. What is the probability that both balls will be yellow?</p>",
+        "explanation": "<p>The probability of drawing two yellow balls in succession <i>without replacement</i> is calculated as follows:</p><p><b>P(Y1 and Y2)</b> = <b>P(Y1)</b> * <b>P(Y2|Y1)</b> = (4/7) * (3/6) = 12/42 = <b>2/7</b>.</p>",
         "options": [
             {
                 "option_id": "526630",
@@ -1995,7 +2046,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 304
+        "question_number": 304,
+        "is_rewritten": true
     },
     {
         "order_id": "55",
@@ -2004,8 +2056,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Evaluate 6!",
-        "explanation": "6! = 6 * 5 * 4 * 3 * 2 * 1 = 720.",
+        "question_text": "<p><b>Evaluate</b> <i>6!</i></p>",
+        "explanation": "<p><i>6!</i> = 6 * 5 * 4 * 3 * 2 * 1 = <b>720</b>.</p>",
         "options": [
             {
                 "option_id": "401897",
@@ -2032,7 +2084,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 305
+        "question_number": 305,
+        "is_rewritten": true
     },
     {
         "order_id": "56",
@@ -2041,8 +2094,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a balanced die is thrown, what is the probability of getting a number that is at most 3?",
-        "explanation": "The numbers at most 3 are 1, 2, and 3. Probability is 3/6 = 0.5.",
+        "question_text": "<p>If a <b>balanced die</b> is thrown, what is the probability of getting a number that is <i>at most 3</i>?</p>",
+        "explanation": "<p>The numbers <b>at most 3</b> are 1, 2, and 3. Probability is 3/6 = 0.5.</p>",
         "options": [
             {
                 "option_id": "210120",
@@ -2069,7 +2122,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 306
+        "question_number": 306,
+        "is_rewritten": true
     },
     {
         "order_id": "57",
@@ -2078,8 +2132,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a balanced die is thrown, what is the probability of getting a number that is at least 3?",
-        "explanation": "The numbers at least 3 are 3, 4, 5, and 6. Probability is 4/6 \\approx 0.66.",
+        "question_text": "<p>If a <b>balanced die</b> is thrown, what is the probability of getting a number that is <b>at least 3</b>?</p>",
+        "explanation": "<p>The numbers <b>at least 3</b> are 3, 4, 5, and 6. Probability is 4/6 <i>\u2248</i> 0.66.</p>",
         "options": [
             {
                 "option_id": "216452",
@@ -2106,7 +2160,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 307
+        "question_number": 307,
+        "is_rewritten": true
     },
     {
         "order_id": "58",
@@ -2115,35 +2170,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The distribution that has equal mean and variance is known as:",
-        "explanation": "In a Poisson distribution, both the mean and the variance are equal to \\lambda.",
+        "question_text": "<p>The distribution that has <b>equal mean and variance</b> is known as:</p>",
+        "explanation": "<p>In a <b>Poisson distribution</b>, both the <b>mean</b> and the <b>variance</b> are equal to <i>\u03bb</i>.</p>",
         "options": [
             {
                 "option_id": "272207",
                 "tag": "a",
-                "text": "Binomial distribution",
+                "text": "<b>Binomial distribution</b>",
                 "is_correct": false
             },
             {
                 "option_id": "283838",
                 "tag": "b",
-                "text": "Geometric distribution",
+                "text": "<b>Geometric distribution</b>",
                 "is_correct": false
             },
             {
                 "option_id": "569825",
                 "tag": "c",
-                "text": "Poisson distribution",
+                "text": "<b>Poisson distribution</b>",
                 "is_correct": true
             },
             {
                 "option_id": "746768",
                 "tag": "d",
-                "text": "Hypergeometric distribution",
+                "text": "<b>Hypergeometric distribution</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 308
+        "question_number": 308,
+        "is_rewritten": true
     },
     {
         "order_id": "59",
@@ -2152,8 +2208,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Find the area under the standard normal curve for Z lying between Z = -0.32 and Z = 0.61 using the Z-table.",
-        "explanation": "P(-0.32 < Z < 0.61) = P(Z < 0.61) - P(Z < -0.32) = 0.7291 - 0.3745 = 0.3546.",
+        "question_text": "<p>Find the area under the <b>standard normal curve</b> for <i>Z</i> lying between <i>Z</i> = -0.32 and <i>Z</i> = 0.61 using the <b>Z-table</b>.</p>",
+        "explanation": "<p><b>P</b>(-0.32 &lt; <i>Z</i> &lt; 0.61) = <b>P</b>(<i>Z</i> &lt; 0.61) - <b>P</b>(<i>Z</i> &lt; -0.32) = 0.7291 - 0.3745 = <b>0.3546</b>.</p>",
         "options": [
             {
                 "option_id": "105965",
@@ -2180,7 +2236,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 309
+        "question_number": 309,
+        "is_rewritten": true
     },
     {
         "order_id": "60",
@@ -2189,8 +2246,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Find the area under the standard normal curve for P(Z > 0.61) using the Z-table.",
-        "explanation": "P(Z > 0.61) = 1 - P(Z < 0.61) = 1 - 0.7291 = 0.2709.",
+        "question_text": "<p>Find the area under the <b>standard normal curve</b> for <i>P(Z > 0.61)</i> using the Z-table.</p>",
+        "explanation": "<p>To find <i>P(Z > 0.61)</i>, we use the complement rule: <i>P(Z > 0.61) = 1 - P(Z < 0.61)</i>. From the Z-table, <i>P(Z < 0.61) = 0.7291</i>. Therefore, <i>P(Z > 0.61) = 1 - 0.7291 = 0.2709</i>.</p>",
         "options": [
             {
                 "option_id": "233503",
@@ -2217,7 +2274,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 310
+        "question_number": 310,
+        "is_rewritten": true
     },
     {
         "order_id": "61",
@@ -2226,8 +2284,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the probability of success.",
-        "explanation": "\\mu = np = 25 and \\sigma^2 = npq = 5. Dividing variance by mean: q = 5 / 25 = 0.2. The probability of success is p = 1 - q = 0.8.",
+        "question_text": "<p>In a <b>Binomial distribution</b>, the <b>mean</b> is 25 and the <b>variance</b> is 5. Compute the <b>probability of success</b>.</p>",
+        "explanation": "<p>The mean (<i>\u03bc</i>) of a Binomial distribution is given by <i>\u03bc = np</i>, and the variance (<i>\u03c3</i><sup>2</sup>) is given by <i>\u03c3</i><sup>2</sup> = <i>npq</i>, where <i>n</i> is the number of trials, <i>p</i> is the probability of success, and <i>q</i> is the probability of failure (<i>q = 1 - p</i>).</p><p>Given <i>\u03bc = 25</i> and <i>\u03c3</i><sup>2</sup> = <i>5</i>, we divide the variance by the mean to find <i>q</i>:</p><p><i>q = \u03c3</i><sup>2</sup> / <i>\u03bc = 5 / 25 = 0.2</i>.</p><p>The probability of success is then <i>p = 1 - q = 1 - 0.2 = 0.8</i>.</p>",
         "options": [
             {
                 "option_id": "175090",
@@ -2254,7 +2312,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 311
+        "question_number": 311,
+        "is_rewritten": true
     },
     {
         "order_id": "62",
@@ -2263,8 +2322,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the probability of failure.",
-        "explanation": "q = \\sigma^2 / \\mu = 5 / 25 = 0.20.",
+        "question_text": "<p>In a <b>Binomial distribution</b>, the <b>mean</b> is 25 and the <b>variance</b> is 5. Compute the probability of failure.</p>",
+        "explanation": "<p>The probability of failure <i>q</i> is calculated using the formula <i>q</i> = <i>\u03c3</i><sup>2</sup> / <i>\u03bc</i>. Substituting the given values, <i>q</i> = 5 / 25 = <b>0.20</b>.</p>",
         "options": [
             {
                 "option_id": "333650",
@@ -2291,7 +2350,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 312
+        "question_number": 312,
+        "is_rewritten": true
     },
     {
         "order_id": "63",
@@ -2300,8 +2360,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a Binomial distribution, the mean is 25 and the variance is 5. Compute the parameter n.",
-        "explanation": "Since np = 25 and p = 0.8, n = 25 / 0.8 = 31.25 \\approx 31.",
+        "question_text": "<p>In a <b>Binomial distribution</b>, the <b>mean</b> is 25 and the <b>variance</b> is 5. Compute the parameter <i>n</i>.</p>",
+        "explanation": "<p>Since <i>np</i> = 25 and <i>p</i> = 0.8, <i>n</i> = 25 / 0.8 = 31.25 <i>\u2248</i> 31.</p>",
         "options": [
             {
                 "option_id": "150269",
@@ -2328,7 +2388,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 313
+        "question_number": 313,
+        "is_rewritten": true
     },
     {
         "order_id": "64",
@@ -2337,8 +2398,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times, what is the number of elements in the sample space?",
-        "explanation": "The number of outcomes is 2^n. For 3 tosses, 2^3 = 8.",
+        "question_text": "<p>If a <b>fair coin</b> is tossed three times, what is the number of elements in the <b>sample space</b>?</p>",
+        "explanation": "<p>The number of outcomes is <i>2^n</i>. For 3 tosses, <i>2^3</i> = 8.</p>",
         "options": [
             {
                 "option_id": "163461",
@@ -2365,7 +2426,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 314
+        "question_number": 314,
+        "is_rewritten": true
     },
     {
         "order_id": "65",
@@ -2374,8 +2436,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the variance of a geometric distribution having parameter p = 0.72?",
-        "explanation": "Var(X) = (1-p) / p^2 = 0.28 / (0.72)^2 = 0.28 / 0.5184 \\approx 0.54 or 54%.",
+        "question_text": "<p>What is the <b>variance</b> of a <b>geometric distribution</b> having parameter <i>p</i> = 0.72?</p>",
+        "explanation": "<p>The variance of a geometric distribution is given by the formula: <b>Var(X) = (1 - p) / p<sup>2</sup></b>. Substituting <i>p</i> = 0.72, we get:</p><p><b>Var(X) = (1 - 0.72) / (0.72)<sup>2</sup> = 0.28 / 0.5184 \u2248 0.54 or 54%</b>.</p>",
         "options": [
             {
                 "option_id": "252581",
@@ -2402,7 +2464,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 315
+        "question_number": 315,
+        "is_rewritten": true
     },
     {
         "order_id": "66",
@@ -2411,19 +2474,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A discrete probability distribution that deals with an experiment where each outcome can take only one of two forms can be expressed as:",
-        "explanation": "The Bernoulli distribution has the probability mass function f(x) = p^x q^{1-x} where x \\in {0,1}.",
+        "question_text": "<p>A discrete probability distribution that deals with an experiment where each outcome can take only one of two forms can be expressed as:</p>",
+        "explanation": "<p>This is the <b>Bernoulli distribution</b>, which models a single trial with two possible outcomes (e.g., success/failure). Its probability mass function is given by <b>f(x) = p<sup>x</sup> q<sup>1-x</sup></b>, where <b>x</b> is the outcome (0 or 1), <b>p</b> is the probability of success, and <b>q = 1 - p</b> is the probability of failure.</p>",
         "options": [
             {
                 "option_id": "144209",
                 "tag": "a",
-                "text": "p^x q^{1-x}",
+                "text": "p<sup>x</sup> q<sup>1-x</sup>",
                 "is_correct": true
             },
             {
                 "option_id": "642483",
                 "tag": "b",
-                "text": "pq^x",
+                "text": "pq<sup>x</sup>",
                 "is_correct": false
             },
             {
@@ -2439,7 +2502,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 316
+        "question_number": 316,
+        "is_rewritten": true
     },
     {
         "order_id": "67",
@@ -2448,13 +2512,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following formulas can be best used to describe a Poisson distribution mathematically?",
-        "explanation": "The probability mass function of a Poisson distribution is P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}.",
+        "question_text": "<p>Which of the following formulas can be best used to describe a <b>Poisson distribution</b> mathematically?</p>",
+        "explanation": "<p>The probability mass function of a <b>Poisson distribution</b> is given by:</p><p><b>P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}</b></p><p>This formula represents the probability of observing <i>x</i> events in a fixed interval when the average rate of occurrence is <i>\u03bb</i>.</p>",
         "options": [
             {
                 "option_id": "234112",
                 "tag": "a",
-                "text": "P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}",
+                "text": "P(X=x) = <b>\\frac{e^{-\\lambda} \\lambda^x}{x!}</b>",
                 "is_correct": true
             },
             {
@@ -2476,7 +2540,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 317
+        "question_number": 317,
+        "is_rewritten": true
     },
     {
         "order_id": "68",
@@ -2485,8 +2550,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Calculate the expected value of the random variable X given that X has the following probability distribution: P(1)=1/10, P(2)=1/5, P(3)=2/5, P(4)=1/20, P(5)=1/4.",
-        "explanation": "E(X) = \\sum x P(x) = 1(0.1) + 2(0.2) + 3(0.4) + 4(0.05) + 5(0.25) = 3.15.",
+        "question_text": "<p>Calculate the <b>expected value</b> of the random variable <i>X</i> given that <i>X</i> has the following probability distribution: <b>P(1)=1/10</b>, <b>P(2)=1/5</b>, <b>P(3)=2/5</b>, <b>P(4)=1/20</b>, <b>P(5)=1/4</b>.</p>",
+        "explanation": "<p>The <b>expected value</b> <i>E(X)</i> is calculated as the sum of each outcome multiplied by its probability:</p><p><i>E(X)</i> = <i>\\sum</i> x <i>P(x)</i> = 1(0.1) + 2(0.2) + 3(0.4) + 4(0.05) + 5(0.25) = 3.15.</p>",
         "options": [
             {
                 "option_id": "278978",
@@ -2513,7 +2578,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 318
+        "question_number": 318,
+        "is_rewritten": true
     },
     {
         "order_id": "69",
@@ -2522,35 +2588,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Simplify the expression \\frac{(n+3)!}{(n+1)!}.",
-        "explanation": "\\frac{(n+3)!}{(n+1)!} = (n+3)(n+2) = n^2 + 2n + 3n + 6 = n^2 + 5n + 6.",
+        "question_text": "<p>Simplify the expression <i>\\frac{(n+3)!}{(n+1)!}</i>.</p>",
+        "explanation": "<p>The factorial expression <i>\\frac{(n+3)!}{(n+1)!}</i> simplifies by expanding the factorials:</p><p><i>\\frac{(n+3)(n+2)(n+1)!}{(n+1)!} = (n+3)(n+2)</i></p><p>Now, expand the product:</p><p><i>(n+3)(n+2) = n<sup>2</sup> + 2n + 3n + 6 = n<sup>2</sup> + 5n + 6</i></p>",
         "options": [
             {
                 "option_id": "331677",
                 "tag": "a",
-                "text": "n^2 + 5n + 6",
+                "text": "n<sup>2</sup> + 5n + 6",
                 "is_correct": true
             },
             {
                 "option_id": "169849",
                 "tag": "b",
-                "text": "n^2 + 3n + 2",
+                "text": "n<sup>2</sup> + 3n + 2",
                 "is_correct": false
             },
             {
                 "option_id": "273370",
                 "tag": "c",
-                "text": "n^2 + n",
+                "text": "n<sup>2</sup> + n",
                 "is_correct": false
             },
             {
                 "option_id": "300937",
                 "tag": "d",
-                "text": "n^2 + 7n + 12",
+                "text": "n<sup>2</sup> + 7n + 12",
                 "is_correct": false
             }
         ],
-        "question_number": 319
+        "question_number": 319,
+        "is_rewritten": true
     },
     {
         "order_id": "70",
@@ -2559,8 +2626,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given the probability distribution of a random variable X: P(0)=0.1, P(1)=0.3, P(2)=0.1, P(3)=0.31, P(4)=0.09, P(5)=0.1. Compute P(0 < X < 4).",
-        "explanation": "P(0 < X < 4) = P(1) + P(2) + P(3) = 0.3 + 0.1 + 0.31 = 0.71.",
+        "question_text": "<p>Given the probability distribution of a random variable <b>X</b>: <i>P(0)=0.1</i>, <i>P(1)=0.3</i>, <i>P(2)=0.1</i>, <i>P(3)=0.31</i>, <i>P(4)=0.09</i>, <i>P(5)=0.1</i>. Compute <b>P(0 < X < 4)</b>.</p>",
+        "explanation": "<p><b>P(0 < X < 4)</b> = <i>P(1) + P(2) + P(3)</i> = 0.3 + 0.1 + 0.31 = <b>0.71</b>.</p>",
         "options": [
             {
                 "option_id": "312499",
@@ -2587,7 +2654,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 320
+        "question_number": 320,
+        "is_rewritten": true
     },
     {
         "order_id": "71",
@@ -2596,8 +2664,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can the letters of the word STATISTICS be arranged?",
-        "explanation": "The word STATISTICS has 10 letters where S repeats 3 times, T repeats 3 times, and I repeats 2 times. 10! / (3!3!2!) = 50,400.",
+        "question_text": "<p>In how many ways can the letters of the word <b>STATISTICS</b> be arranged?</p>",
+        "explanation": "<p>The word <b>STATISTICS</b> has 10 letters where <b>S</b> repeats 3 times, <b>T</b> repeats 3 times, and <b>I</b> repeats 2 times. The number of distinct arrangements is calculated as <i>10! / (3! \u00d7 3! \u00d7 2!) = 50,400</i>.</p>",
         "options": [
             {
                 "option_id": "193712",
@@ -2624,7 +2692,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 321
+        "question_number": 321,
+        "is_rewritten": true
     },
     {
         "order_id": "72",
@@ -2633,8 +2702,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can the letters of the word MONOPOLY be arranged?",
-        "explanation": "The word MONOPOLY has 8 letters with 'O' repeating 3 times. 8! / 3! = 6720.",
+        "question_text": "<p>In how many ways can the letters of the word <b>MONOPOLY</b> be arranged?</p>",
+        "explanation": "<p>The word <b>MONOPOLY</b> has 8 letters with <i>\u2018O\u2019</i> repeating 3 times. <br>8! / 3! = 6720.</p>",
         "options": [
             {
                 "option_id": "112376",
@@ -2661,7 +2730,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 322
+        "question_number": 322,
+        "is_rewritten": true
     },
     {
         "order_id": "73",
@@ -2670,25 +2740,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The process of drawing a sample from a population is known as:",
-        "explanation": "Sampling is the statistical process of selecting a subset of individuals from within a population.",
+        "question_text": "<p>The process of drawing a sample from a population is known as:</p>",
+        "explanation": "<p><b>Sampling</b> is the statistical process of selecting a subset of individuals from within a <b>population</b>.</p>",
         "options": [
             {
                 "option_id": "201108",
                 "tag": "a",
-                "text": "Census",
+                "text": "<b>Census</b>",
                 "is_correct": false
             },
             {
                 "option_id": "252838",
                 "tag": "b",
-                "text": "Sampling",
+                "text": "<b>Sampling</b>",
                 "is_correct": true
             },
             {
                 "option_id": "205672",
                 "tag": "c",
-                "text": "Survey research",
+                "text": "<i>Survey research</i>",
                 "is_correct": false
             },
             {
@@ -2698,7 +2768,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 323
+        "question_number": 323,
+        "is_rewritten": true
     },
     {
         "order_id": "74",
@@ -2707,8 +2778,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times what is the probability of getting at least one head?",
-        "explanation": "P(at least 1 head) = 1 - P(zero heads) = 1 - P(TTT) = 1 - 1/8 = 7/8.",
+        "question_text": "<p>If a fair coin is tossed three times, what is the probability of getting <b>at least one head</b>?</p>",
+        "explanation": "<p>To find the probability of getting <b>at least one head</b> in three tosses, we can use the complement rule. The complement of getting at least one head is getting <i>no heads</i> (i.e., all tails).</p><p>The probability of getting tails in one toss is 1/2. Therefore, the probability of getting tails in all three tosses (TTT) is (1/2) * (1/2) * (1/2) = 1/8.</p><p>Thus, the probability of getting at least one head is 1 minus the probability of getting no heads: 1 - 1/8 = <b>7/8</b>.</p>",
         "options": [
             {
                 "option_id": "561268",
@@ -2735,7 +2806,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 324
+        "question_number": 324,
+        "is_rewritten": true
     },
     {
         "order_id": "75",
@@ -2744,13 +2816,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following formulas can be used to compute the standard score when the sample size is less than 30 (n < 30)?",
-        "explanation": "For small sample sizes (n < 30) when the population standard deviation is unknown, the t-statistic is used.",
+        "question_text": "<p>Which of the following formulas can be used to compute the <b>standard score</b> when the sample size is less than 30 (<i>n</i> < 30)?</p>",
+        "explanation": "<p>For small sample sizes (<i>n</i> < 30) when the population standard deviation is <b>unknown</b>, the <b>t-statistic</b> is used. The formula involves the sample standard deviation <b>s</b> instead of the population standard deviation <b>\u03c3</b>.</p>",
         "options": [
             {
                 "option_id": "159474",
                 "tag": "a",
-                "text": "t = \\frac{\\bar{x} - \\mu}{s/\\sqrt{n}}",
+                "text": "t = <b>\\frac{\\bar{x} - \\mu}{s/\\sqrt{n}}</b>",
                 "is_correct": true
             },
             {
@@ -2772,7 +2844,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 325
+        "question_number": 325,
+        "is_rewritten": true
     },
     {
         "order_id": "76",
@@ -2781,25 +2854,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Assuming the mean age of a certain population is 17 years, a random sample of 25 people drawn from this population shows a mean age of 18.1 years, and sample variance of 16. What is the value of the test statistic?",
-        "explanation": "t = \\frac{\\bar{x} - \\mu}{s/\\sqrt{n}} = \\frac{18.1 - 17}{\\sqrt{16}/\\sqrt{25}} = \\frac{1.1}{4/5} = 1.375.",
+        "question_text": "<p>Assuming the <b>mean age</b> of a certain population is 17 years, a random sample of 25 people drawn from this population shows a <b>mean age</b> of 18.1 years, and <b>sample variance</b> of 16. What is the value of the <b>test statistic</b>?</p>",
+        "explanation": "<p>The test statistic is calculated using the formula for the <b>t-statistic</b>:</p><p><i>t</i> = <i>(x\u0304 - \u03bc)</i> / <i>(s / \u221an)</i> = <i>(18.1 - 17)</i> / <i>(\u221a16 / \u221a25)</i> = <i>1.1</i> / <i>(4 / 5)</i> = <i>1.375</i>.</p>",
         "options": [
             {
                 "option_id": "279206",
                 "tag": "a",
-                "text": "1.351",
+                "text": "<i>1.351</i>",
                 "is_correct": false
             },
             {
                 "option_id": "131990",
                 "tag": "b",
-                "text": "1.375",
+                "text": "<i>1.375</i>",
                 "is_correct": true
             },
             {
                 "option_id": "244905",
                 "tag": "c",
-                "text": "1.735",
+                "text": "<i>1.735</i>",
                 "is_correct": false
             },
             {
@@ -2809,7 +2882,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 326
+        "question_number": 326,
+        "is_rewritten": true
     },
     {
         "order_id": "77",
@@ -2818,35 +2892,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following formulas can be used to compute the standard score when the sample size is greater than 30 (n \\ge 30)?",
-        "explanation": "For large sample sizes, the Z-score is used.",
+        "question_text": "<p>Which of the following formulas can be used to compute the <b>standard score</b> when the sample size is greater than 30 (<i>n</i> &ge; 30)?</p>",
+        "explanation": "<p>The <b>Z-score</b> formula for large samples (n &ge; 30) is <i>Z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}</i>. This formula standardizes the sample mean by accounting for the population mean (<i>\\mu</i>), sample mean (<i>\\bar{x}</i>), population standard deviation (<i>\\sigma</i>), and sample size (<i>n</i>). The denominator uses <i>\\sigma/\\sqrt{n}</i> to represent the standard error of the mean, which is critical for large-sample inference.</p><p>Option <b>b</b> incorrectly uses <i>\\sigma^2</i> (variance) instead of <i>\\sigma</i> (standard deviation). Option <b>c</b> omits the square root in the denominator, leading to an incorrect standard error calculation. Option <b>d</b> reverses the order of <i>\\mu</i> and <i>\\bar{x}</i>, which would yield a negative score but is not the conventional Z-score formula.</p>",
         "options": [
             {
                 "option_id": "317371",
                 "tag": "a",
-                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}",
+                "text": "Z = <i>\\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "129004",
                 "tag": "b",
-                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma^2/\\sqrt{n}}",
+                "text": "Z = <i>\\frac{\\bar{x} - \\mu}{\\sigma^2/\\sqrt{n}}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "216576",
                 "tag": "c",
-                "text": "Z = \\frac{\\bar{x} - \\mu}{\\sigma/n}",
+                "text": "Z = <i>\\frac{\\bar{x} - \\mu}{\\sigma/n}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "799550",
                 "tag": "d",
-                "text": "Z = \\frac{\\mu - \\bar{x}}{\\sigma/\\sqrt{n}}",
+                "text": "Z = <i>\\frac{\\mu - \\bar{x}}{\\sigma/\\sqrt{n}}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 327
+        "question_number": 327,
+        "is_rewritten": true
     },
     {
         "order_id": "78",
@@ -2855,35 +2930,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The concept of exploratory data analysis was popularized by:",
-        "explanation": "Exploratory Data Analysis (EDA) was promoted and popularized by John Tukey.",
+        "question_text": "<p>The concept of <b>exploratory data analysis</b> was popularized by:</p>",
+        "explanation": "<p>Exploratory Data Analysis (<b>EDA</b>) was promoted and popularized by <b>John Tukey</b>.</p>",
         "options": [
             {
                 "option_id": "871930",
                 "tag": "a",
-                "text": "Isaac Newton",
+                "text": "<b>Isaac Newton</b>",
                 "is_correct": false
             },
             {
                 "option_id": "258465",
                 "tag": "b",
-                "text": "John Thompson",
+                "text": "<b>John Thompson</b>",
                 "is_correct": false
             },
             {
                 "option_id": "222149",
                 "tag": "c",
-                "text": "John Wiley",
+                "text": "<b>John Wiley</b>",
                 "is_correct": false
             },
             {
                 "option_id": "228738",
                 "tag": "d",
-                "text": "John Tukey",
+                "text": "<b>John Tukey</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 328
+        "question_number": 328,
+        "is_rewritten": true
     },
     {
         "order_id": "79",
@@ -2892,35 +2968,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The following are key objectives of exploratory data analysis except:",
-        "explanation": "Drawing inferences about a population is the goal of Inferential Statistics, not EDA.",
+        "question_text": "<p><b>Exploratory Data Analysis (EDA)</b> aims to achieve several objectives. Which of the following is <i>not</i> one of its key objectives?</p>",
+        "explanation": "<p><b>Drawing inferences about a population</b> is the primary goal of <b>Inferential Statistics</b>, not <b>Exploratory Data Analysis (EDA)</b>. EDA focuses on understanding data patterns, detecting anomalies, summarizing characteristics, and validating assumptions about the data itself, rather than making broader population-level inferences.</p>",
         "options": [
             {
                 "option_id": "203810",
                 "tag": "a",
-                "text": "drawing inference about a population",
+                "text": "Drawing inference about a population",
                 "is_correct": true
             },
             {
                 "option_id": "375135",
                 "tag": "b",
-                "text": "detection of outliers",
+                "text": "Detection of outliers",
                 "is_correct": false
             },
             {
                 "option_id": "251733",
                 "tag": "c",
-                "text": "summarize main characteristics",
+                "text": "Summarize main characteristics",
                 "is_correct": false
             },
             {
                 "option_id": "125929",
                 "tag": "d",
-                "text": "validates assumption",
+                "text": "Validates assumptions",
                 "is_correct": false
             }
         ],
-        "question_number": 329
+        "question_number": 329,
+        "is_rewritten": true
     },
     {
         "order_id": "80",
@@ -2929,8 +3006,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "One of the following is not a measure of central tendency:",
-        "explanation": "Variance is a measure of dispersion, not central tendency.",
+        "question_text": "<p>One of the following is not a <b>measure of central tendency</b>:</p>",
+        "explanation": "<p><b>Variance</b> is a measure of <i>dispersion</i>, not <b>central tendency</b>.</p>",
         "options": [
             {
                 "option_id": "179304",
@@ -2957,7 +3034,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 330
+        "question_number": 330,
+        "is_rewritten": true
     },
     {
         "order_id": "81",
@@ -2966,35 +3044,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Range, variance, standard deviation and interquartile range are measures of:",
-        "explanation": "These are all measures of how spread out a distribution is, which is known as dispersion.",
+        "question_text": "<p><b>Range</b>, <b>variance</b>, <b>standard deviation</b>, and <b>interquartile range</b> are measures of:</p>",
+        "explanation": "<p>These are all measures of how spread out a distribution is, which is known as <b>dispersion</b>.</p>",
         "options": [
             {
                 "option_id": "435195",
                 "tag": "a",
-                "text": "central tendency",
+                "text": "<i>central tendency</i>",
                 "is_correct": false
             },
             {
                 "option_id": "102147",
                 "tag": "b",
-                "text": "dispersion",
+                "text": "<i>dispersion</i>",
                 "is_correct": true
             },
             {
                 "option_id": "144281",
                 "tag": "c",
-                "text": "shape",
+                "text": "<i>shape</i>",
                 "is_correct": false
             },
             {
                 "option_id": "160038",
                 "tag": "d",
-                "text": "partition",
+                "text": "<i>partition</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 331
+        "question_number": 331,
+        "is_rewritten": true
     },
     {
         "order_id": "82",
@@ -3003,35 +3082,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is not a measure of partition?",
-        "explanation": "Mode is a measure of central tendency. Median, decile, and quartile divide the dataset into parts.",
+        "question_text": "<p><b>Which</b> of the following is <i>not</i> a measure of partition?</p>",
+        "explanation": "<p><b>Mode</b> is a measure of <b>central tendency</b>. <b>Median</b>, <b>decile</b>, and <b>quartile</b> divide the dataset into parts.</p>",
         "options": [
             {
                 "option_id": "243316",
                 "tag": "a",
-                "text": "median",
+                "text": "<b>median</b>",
                 "is_correct": false
             },
             {
                 "option_id": "256507",
                 "tag": "b",
-                "text": "decile",
+                "text": "<b>decile</b>",
                 "is_correct": false
             },
             {
                 "option_id": "313631",
                 "tag": "c",
-                "text": "quartile",
+                "text": "<b>quartile</b>",
                 "is_correct": false
             },
             {
                 "option_id": "203331",
                 "tag": "d",
-                "text": "mode",
+                "text": "<b>mode</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 332
+        "question_number": 332,
+        "is_rewritten": true
     },
     {
         "order_id": "83",
@@ -3040,19 +3120,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The highest occurred observation in a distribution is known as:",
-        "explanation": "The mode is the value that appears most frequently in a data set.",
+        "question_text": "<p>The highest occurred observation in a distribution is known as:</p>",
+        "explanation": "<p>The <b>mode</b> is the value that appears most frequently in a data set.</p>",
         "options": [
             {
                 "option_id": "113333",
                 "tag": "a",
-                "text": "mode",
+                "text": "<b>mode</b>",
                 "is_correct": true
             },
             {
                 "option_id": "242339",
                 "tag": "b",
-                "text": "median",
+                "text": "<i>median</i>",
                 "is_correct": false
             },
             {
@@ -3068,7 +3148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 333
+        "question_number": 333,
+        "is_rewritten": true
     },
     {
         "order_id": "84",
@@ -3077,35 +3158,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The skewness and kurtosis are classified as measures of:",
-        "explanation": "Skewness measures asymmetry and kurtosis measures the 'tailedness' of a distribution. Both describe shape.",
+        "question_text": "<p><b>Skewness</b> and <b>kurtosis</b> are classified as measures of:</p>",
+        "explanation": "<p><b>Skewness</b> measures the asymmetry of a probability distribution, while <b>kurtosis</b> measures the 'tailedness' or peakedness of the distribution. Both are <b>measures of shape</b> rather than dispersion, location, or partition.</p>",
         "options": [
             {
                 "option_id": "294120",
                 "tag": "a",
-                "text": "partition",
+                "text": "<i>partition</i>",
                 "is_correct": false
             },
             {
                 "option_id": "132581",
                 "tag": "b",
-                "text": "dispersion",
+                "text": "<i>dispersion</i>",
                 "is_correct": false
             },
             {
                 "option_id": "266673",
                 "tag": "c",
-                "text": "shape",
+                "text": "<i>shape</i>",
                 "is_correct": true
             },
             {
                 "option_id": "822625",
                 "tag": "d",
-                "text": "location",
+                "text": "<i>location</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 334
+        "question_number": 334,
+        "is_rewritten": true
     },
     {
         "order_id": "85",
@@ -3114,8 +3196,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The statistical measure that divides a distribution into several equal parts is known as:",
-        "explanation": "Measures of partition, such as quartiles and deciles, divide a dataset into equal parts.",
+        "question_text": "<p>The statistical measure that divides a distribution into several equal parts is known as:</p>",
+        "explanation": "<p>A <b>measure of partition</b> (e.g., quartiles, deciles, or percentiles) splits a dataset into <i>equal parts</i>. These measures help describe the distribution of data by identifying key thresholds.</p>",
         "options": [
             {
                 "option_id": "139841",
@@ -3142,7 +3224,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 335
+        "question_number": 335,
+        "is_rewritten": true
     },
     {
         "order_id": "86",
@@ -3151,8 +3234,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The probability that it will rain tomorrow is 0.72. What is the probability that it will not rain tomorrow?",
-        "explanation": "P(not rain) = 1 - P(rain) = 1 - 0.72 = 0.28 = 28%.",
+        "question_text": "<p>The probability that it will rain tomorrow is <b>0.72</b>. What is the probability that it will not rain tomorrow?</p>",
+        "explanation": "<p><b>P(not rain)</b> = 1 - <b>P(rain)</b> = 1 - 0.72 = 0.28 = 28%.</p>",
         "options": [
             {
                 "option_id": "205916",
@@ -3179,7 +3262,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 336
+        "question_number": 336,
+        "is_rewritten": true
     },
     {
         "order_id": "87",
@@ -3188,8 +3272,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a box, there are 5 purple, 15 grey and 25 green balls. If a ball is picked up randomly, find the probability that it is neither grey nor purple?",
-        "explanation": "Neither grey nor purple means green. P(Green) = 25 / (5+15+25) = 25 / 45 = 5/9.",
+        "question_text": "<p>In a box, there are <b>5 purple</b>, <b>15 grey</b> and <b>25 green</b> balls. If a ball is picked up randomly, find the probability that it is <i>neither grey nor purple</i>?</p>",
+        "explanation": "<p><i>Neither grey nor purple</i> means <b>green</b>. P(Green) = 25 / (5+15+25) = 25 / 45 = 5/9.</p>",
         "options": [
             {
                 "option_id": "159816",
@@ -3216,7 +3300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 337
+        "question_number": 337,
+        "is_rewritten": true
     },
     {
         "order_id": "88",
@@ -3225,8 +3310,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If Var(Y) = 6, then Var(2Y - 4) is:",
-        "explanation": "Var(aY + b) = a^2 Var(Y). Thus, Var(2Y - 4) = 2^2 \\times 6 = 24.",
+        "question_text": "<p>If <b>Var(Y)</b> = 6, then <b>Var(2Y - 4)</b> is:</p>",
+        "explanation": "<p><b>Var(aY + b)</b> = a<sup>2</sup> <b>Var(Y)</b>. Thus, <b>Var(2Y - 4)</b> = 2<sup>2</sup> \u00d7 6 = 24.</p>",
         "options": [
             {
                 "option_id": "162979",
@@ -3253,7 +3338,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 338
+        "question_number": 338,
+        "is_rewritten": true
     },
     {
         "order_id": "89",
@@ -3262,8 +3348,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the mean of a geometric distribution having parameter p = 0.72?",
-        "explanation": "Using the geometric distribution definition for number of failures, \\mu = \\frac{1-p}{p} = \\frac{0.28}{0.72} \\approx 0.3889 or 39%.",
+        "question_text": "<p>What is the <b>mean</b> of a <b>geometric distribution</b> having parameter <i>p</i> = 0.72?</p>",
+        "explanation": "<p>The <b>mean</b> of a geometric distribution (for the number of failures before the first success) is calculated using the formula <i>\u03bc</i> = (1 - <i>p</i>) / <i>p</i>. Substituting <i>p</i> = 0.72, we get <i>\u03bc</i> = (1 - 0.72) / 0.72 = 0.28 / 0.72 \u2248 0.3889, which is approximately <b>39%</b>.</p>",
         "options": [
             {
                 "option_id": "323933",
@@ -3290,7 +3376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 339
+        "question_number": 339,
+        "is_rewritten": true
     },
     {
         "order_id": "90",
@@ -3299,8 +3386,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a fair coin is tossed three times, what is the probability of getting at most three heads?",
-        "explanation": "'At most three heads' includes all possible outcomes for three tosses, so the probability is 1.",
+        "question_text": "<p>If a fair coin is tossed three times, what is the probability of getting <b>at most three heads</b>?</p>",
+        "explanation": "<p><b>At most three heads</b> includes all possible outcomes for three tosses (0 heads, 1 head, 2 heads, or 3 heads), so the probability is <b>1</b>.</p>",
         "options": [
             {
                 "option_id": "189092",
@@ -3327,7 +3414,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 340
+        "question_number": 340,
+        "is_rewritten": true
     },
     {
         "order_id": "91",
@@ -3336,13 +3424,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The standard score for the sampling distribution of difference of two means can be represented mathematically as:",
-        "explanation": "This is the correct formula for the Z-score for the difference between two sample means.",
+        "question_text": "<p>The standard score for the sampling distribution of difference of two means can be represented mathematically as:</p>",
+        "explanation": "<p>This is the <b>correct formula</b> for the Z-score for the difference between two sample means.</p>",
         "options": [
             {
                 "option_id": "288381",
                 "tag": "a",
-                "text": "Z = \\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2}}}",
+                "text": "Z = <b>\\frac{(\\bar{x}_1 - \\bar{x}_2) - (\\mu_1 - \\mu_2)}{\\sqrt{\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2}}}</b>",
                 "is_correct": true
             },
             {
@@ -3364,7 +3452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 341
+        "question_number": 341,
+        "is_rewritten": true
     },
     {
         "order_id": "92",
@@ -3373,35 +3462,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can we select 6 people out of 10, if a particular person is completely excluded from the selection?",
-        "explanation": "Excluding 1 person leaves 9 people to choose from. We must choose 6, which gives ^9C_6.",
+        "question_text": "<p>In how many ways can we select <b>6 people</b> out of 10, if a particular person is completely excluded from the selection?</p>",
+        "explanation": "<p>Excluding 1 person leaves <b>9 people</b> to choose from. We must choose <b>6</b>, which gives <sup>9</sup>C<sub>6</sub>.</p>",
         "options": [
             {
                 "option_id": "675178",
                 "tag": "a",
-                "text": "^9C_6",
+                "text": "<sup>9</sup>C<sub>6</sub>",
                 "is_correct": true
             },
             {
                 "option_id": "306807",
                 "tag": "b",
-                "text": "^{10}C_6",
+                "text": "<sup>10</sup>C<sub>6</sub>",
                 "is_correct": false
             },
             {
                 "option_id": "291205",
                 "tag": "c",
-                "text": "^9C_5",
+                "text": "<sup>9</sup>C<sub>5</sub>",
                 "is_correct": false
             },
             {
                 "option_id": "338935",
                 "tag": "d",
-                "text": "^{10}C_5",
+                "text": "<sup>10</sup>C<sub>5</sub>",
                 "is_correct": false
             }
         ],
-        "question_number": 342
+        "question_number": 342,
+        "is_rewritten": true
     },
     {
         "order_id": "93",
@@ -3410,8 +3500,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Mutually Exclusive events:",
-        "explanation": "Mutually exclusive events cannot happen at the same time, meaning they share no common sample points (their intersection is empty).",
+        "question_text": "<p><b>Mutually Exclusive events</b>:</p>",
+        "explanation": "<p><b>Mutually exclusive events</b> cannot occur simultaneously, as they share no <b>common sample points</b>. In other words, their intersection is empty.</p>",
         "options": [
             {
                 "option_id": "113282",
@@ -3434,11 +3524,12 @@
             {
                 "option_id": "156825",
                 "tag": "d",
-                "text": "Do not contain any common sample point",
+                "text": "Do not contain any <i>common</i> sample point",
                 "is_correct": true
             }
         ],
-        "question_number": 343
+        "question_number": 343,
+        "is_rewritten": true
     },
     {
         "order_id": "94",
@@ -3447,35 +3538,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The expected value of a discrete random variable 'x' is given by:",
-        "explanation": "The expected value is the sum of the products of possible values and their probabilities: \\sum x P(x).",
+        "question_text": "<p>The expected value of a discrete random variable <b>'x'</b> is given by:</p>",
+        "explanation": "<p>The expected value is the sum of the products of possible values and their probabilities: <b>\\sum x P(x)</b>.</p>",
         "options": [
             {
                 "option_id": "309463",
                 "tag": "a",
-                "text": "P(x)",
+                "text": "<i>P(x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "100222",
                 "tag": "b",
-                "text": "\\sum P(x)",
+                "text": "\\sum <i>P(x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "102839",
                 "tag": "c",
-                "text": "\\sum x P(x)",
+                "text": "\\sum <i>x P(x)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "314240",
                 "tag": "d",
-                "text": "\\int x P(x) dx",
+                "text": "\\int <i>x P(x)</i> dx",
                 "is_correct": false
             }
         ],
-        "question_number": 344
+        "question_number": 344,
+        "is_rewritten": true
     },
     {
         "order_id": "95",
@@ -3484,8 +3576,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A company employing 14 Women and 10 Men is forming a 6-Person Safety Committee. How many different combinations of people are possible?",
-        "explanation": "We select 6 people from a total of 24 (14 women + 10 men). ^{24}C_6 = \\frac{24!}{6!18!} = 134,596.",
+        "question_text": "<p>A company employing <b>14 Women</b> and <b>10 Men</b> is forming a <b>6-Person Safety Committee</b>. How many different combinations of people are possible?</p>",
+        "explanation": "<p>We select 6 people from a total of 24 (14 women + 10 men). <sup>24</sup>C<sub>6</sub> = <i>\\frac{24!}{6!18!}</i> = 134,596.</p>",
         "options": [
             {
                 "option_id": "235071",
@@ -3512,7 +3604,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 345
+        "question_number": 345,
+        "is_rewritten": true
     },
     {
         "order_id": "96",
@@ -3521,8 +3614,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following conditions satisfies a discrete random variable with a probability function P(x)?",
-        "explanation": "A valid discrete probability distribution must have non-negative probabilities that sum to 1.",
+        "question_text": "<p>Which of the following conditions satisfies a <b>discrete random variable</b> with a probability function <i>P(x)</i>?</p>",
+        "explanation": "<p>A valid <b>discrete probability distribution</b> must satisfy two key conditions: <b>non-negative probabilities</b> for all values of <i>x</i> and a total sum of probabilities equal to 1. Mathematically, this means <i>P(x) \u2265 0</i> for all <i>x</i> and <i>\u2211P(x) = 1</i>.</p>",
         "options": [
             {
                 "option_id": "962532",
@@ -3549,7 +3642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 346
+        "question_number": 346,
+        "is_rewritten": true
     },
     {
         "order_id": "97",
@@ -3558,8 +3652,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A Box and Whisker plot describes a distribution as positively (right) skewed when:",
-        "explanation": "In a positively skewed distribution, the data has a long right (or top) tail. Thus, the top whisker is longer.",
+        "question_text": "<p>A Box and Whisker plot describes a distribution as positively (right) skewed when:</p>",
+        "explanation": "<p>In a <b>positively skewed</b> distribution, the data has a long right (or top) tail. Thus, the top whisker is longer.</p>",
         "options": [
             {
                 "option_id": "162714",
@@ -3586,7 +3680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 347
+        "question_number": 347,
+        "is_rewritten": true
     },
     {
         "order_id": "98",
@@ -3595,35 +3690,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The stem-and-leaf plot is drawn with two columns separated by a ___ line.",
-        "explanation": "A vertical line is used to separate the stems (leading digits) from the leaves (trailing digits).",
+        "question_text": "<p>The <b>stem-and-leaf plot</b> is drawn with two columns separated by a <b>___</b> line.</p>",
+        "explanation": "<p>A <b>vertical</b> line is used to separate the <b>stems</b> (leading digits) from the <b>leaves</b> (trailing digits).</p>",
         "options": [
             {
                 "option_id": "697599",
                 "tag": "a",
-                "text": "diagonal",
+                "text": "<i>diagonal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "339692",
                 "tag": "b",
-                "text": "horizontal",
+                "text": "<i>horizontal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "262576",
                 "tag": "c",
-                "text": "orthogonal",
+                "text": "<i>orthogonal</i>",
                 "is_correct": false
             },
             {
                 "option_id": "242923",
                 "tag": "d",
-                "text": "vertical",
+                "text": "<i>vertical</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 348
+        "question_number": 348,
+        "is_rewritten": true
     },
     {
         "order_id": "99",
@@ -3632,19 +3728,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The right column of a stem and leaf plot is known as the:",
-        "explanation": "The right column represents the 'leaf' of the plot, which contains the trailing digits.",
+        "question_text": "<p>The right column of a <b>stem and leaf plot</b> is known as the:</p>",
+        "explanation": "<p>The right column represents the <b>leaf</b> of the plot, which contains the trailing digits.</p>",
         "options": [
             {
                 "option_id": "190260",
                 "tag": "a",
-                "text": "leaf",
+                "text": "<b>leaf</b>",
                 "is_correct": true
             },
             {
                 "option_id": "214471",
                 "tag": "b",
-                "text": "stem",
+                "text": "<i>stem</i>",
                 "is_correct": false
             },
             {
@@ -3660,7 +3756,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 349
+        "question_number": 349,
+        "is_rewritten": true
     },
     {
         "order_id": "100",
@@ -3669,8 +3766,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The left column of a stem and leaf plot is known as the:",
-        "explanation": "The left column contains the 'stems,' grouping data by leading digits.",
+        "question_text": "<p>The left column of a <b>stem and leaf plot</b> is known as the:</p>",
+        "explanation": "<p>The left column contains the <b>stems</b>, which represent the leading digits of the data values. The right column, called the <b>leaf</b>, displays the trailing digits.</p>",
         "options": [
             {
                 "option_id": "148153",
@@ -3697,7 +3794,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 350
+        "question_number": 350,
+        "is_rewritten": true
     },
     {
         "order_id": "101",
@@ -3706,8 +3804,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The first step in plotting a stem and leaf plot is:",
-        "explanation": "Arranging the data in ascending order makes it easier to organize into stems and leaves.",
+        "question_text": "<p>The first step in plotting a <b>stem and leaf plot</b> is:</p>",
+        "explanation": "<p>Arranging the data in <b>ascending order</b> makes it easier to organize into stems and leaves.</p>",
         "options": [
             {
                 "option_id": "510271",
@@ -3734,7 +3832,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 351
+        "question_number": 351,
+        "is_rewritten": true
     },
     {
         "order_id": "102",
@@ -3743,8 +3842,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Obtain the stems of the following distribution: 63, 47, 28, 58, 27, 52, 87, 105, 102, and 43.",
-        "explanation": "The stems represent the leading digits (tens and hundreds). The unique stems here are 2, 4, 5, 6, 8, and 10.",
+        "question_text": "<p>Obtain the <b>stems</b> of the following distribution: 63, 47, 28, 58, 27, 52, 87, 105, 102, and 43.</p>",
+        "explanation": "<p>In a stem-and-leaf plot, the <b>stems</b> represent the leading digits (tens and hundreds) of the data points. For the given numbers: 63, 47, 28, 58, 27, 52, 87, 105, 102, and 43, the stems are 2, 4, 5, 6, 8, and 10. These are the unique leading digits when the numbers are organized by their tens and hundreds place.</p><p><i>Note:</i> The correct answer lists each stem only once, as stems are unique identifiers for the leading digits.</p>",
         "options": [
             {
                 "option_id": "294662",
@@ -3771,7 +3870,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 352
+        "question_number": 352,
+        "is_rewritten": true
     },
     {
         "order_id": "103",
@@ -3780,35 +3880,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is not a component of a histogram?",
-        "explanation": "Histograms consist of bins (intervals), bars (frequencies), and axes. 'Level' is not a standard component.",
+        "question_text": "<p>Which of the following is <b>not</b> a component of a histogram?</p>",
+        "explanation": "<p>Histograms consist of <b>bins</b> (intervals), <b>bars</b> (frequencies), and <b>axes</b>. <i>Level</i> is not a standard component.</p>",
         "options": [
             {
                 "option_id": "163188",
                 "tag": "a",
-                "text": "bins",
+                "text": "<b>bins</b>",
                 "is_correct": false
             },
             {
                 "option_id": "298567",
                 "tag": "b",
-                "text": "bars",
+                "text": "<b>bars</b>",
                 "is_correct": false
             },
             {
                 "option_id": "172095",
                 "tag": "c",
-                "text": "level",
+                "text": "<i>level</i>",
                 "is_correct": true
             },
             {
                 "option_id": "365458",
                 "tag": "d",
-                "text": "axes",
+                "text": "<b>axes</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 353
+        "question_number": 353,
+        "is_rewritten": true
     },
     {
         "order_id": "104",
@@ -3817,25 +3918,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The probability mass function (pmf) of a Bernoulli random variable X is defined as:",
-        "explanation": "The Bernoulli distribution has the pmf f(x) = p^x(1-p)^{1-x} for x \\in {0, 1}.",
+        "question_text": "<p>The probability mass function (pmf) of a <b>Bernoulli random variable</b> X is defined as:</p>",
+        "explanation": "<p>The Bernoulli distribution has the pmf <i>f</i>(<i>x</i>) = <i>p</i><sup>x</sup>(1-<i>p</i>)<sup>1-x</sup> for <i>x</i> \u2208 {0, 1}.</p>",
         "options": [
             {
                 "option_id": "185718",
                 "tag": "a",
-                "text": "p^x(1-p)^{1-x}",
+                "text": "<i>p</i><sup>x</sup>(1-<i>p</i>)<sup>1-x</sup>",
                 "is_correct": true
             },
             {
                 "option_id": "339677",
                 "tag": "b",
-                "text": "p^x(1-p)^x",
+                "text": "<i>p</i><sup>x</sup>(1-<i>p</i>)<sup>x</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "155314",
                 "tag": "c",
-                "text": "p^x (1-q)^x",
+                "text": "<i>p</i><sup>x</sup> (1-<i>q</i>)<sup>x</sup>",
                 "is_correct": false
             },
             {
@@ -3845,7 +3946,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 354
+        "question_number": 354,
+        "is_rewritten": true
     },
     {
         "order_id": "105",
@@ -3854,8 +3956,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The mean and variance of a Bernoulli random variable X are respectively denoted by:",
-        "explanation": "The expected value is p and the variance is p(1-p) = pq.",
+        "question_text": "<p>For a <b>Bernoulli random variable</b> <i>X</i>, the mean and variance are respectively denoted by:</p>",
+        "explanation": "<p>The <b>mean (expected value)</b> of a Bernoulli random variable is <i>p</i>, and the <b>variance</b> is calculated as <i>p(1 - p)</i>, which simplifies to <i>pq</i> (where <i>q = 1 - p</i>).</p>",
         "options": [
             {
                 "option_id": "473420",
@@ -3882,7 +3984,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 355
+        "question_number": 355,
+        "is_rewritten": true
     },
     {
         "order_id": "106",
@@ -3891,8 +3994,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In a game of chance, a player has a 35% chance of winning a prize. What is the probability that the player will not win a prize?",
-        "explanation": "The probability of not winning is 1 - P(winning) = 1 - 0.35 = 0.65.",
+        "question_text": "<p>The player has a <b>35%</b> chance of winning a prize. What is the probability that the player will <b>not</b> win a prize?</p>",
+        "explanation": "<p>The probability of not winning is calculated as <b>1 - P(winning)</b>. Since the chance of winning is 35% (or 0.35), the probability of not winning is <b>1 - 0.35 = 0.65</b>.</p>",
         "options": [
             {
                 "option_id": "191380",
@@ -3919,7 +4022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 356
+        "question_number": 356,
+        "is_rewritten": true
     },
     {
         "order_id": "107",
@@ -3928,13 +4032,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The random experiment with only two possible outcomes in a single trial follows the ___ distribution.",
-        "explanation": "A single trial with exactly two possible outcomes is modeled by a Bernoulli distribution.",
+        "question_text": "<p>The random experiment with only <b>two possible outcomes</b> in a single trial follows the <b>___</b> distribution.</p>",
+        "explanation": "<p>A single trial with exactly <b>two possible outcomes</b> is modeled by a <b>Bernoulli distribution</b>.</p>",
         "options": [
             {
                 "option_id": "820725",
                 "tag": "a",
-                "text": "Bernoulli",
+                "text": "<b>Bernoulli</b>",
                 "is_correct": true
             },
             {
@@ -3956,7 +4060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 357
+        "question_number": 357,
+        "is_rewritten": true
     },
     {
         "order_id": "108",
@@ -3965,8 +4070,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of these discrete probability distributions has equal mean and variance?",
-        "explanation": "The Poisson distribution uniquely has its mean equal to its variance (\\lambda).",
+        "question_text": "<p>Which of these <b>discrete probability distributions</b> has <b>equal mean and variance</b>?</p>",
+        "explanation": "<p>The <b>Poisson distribution</b> uniquely has its mean equal to its variance (<i>\u03bb</i>).</p>",
         "options": [
             {
                 "option_id": "286839",
@@ -3993,7 +4098,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 358
+        "question_number": 358,
+        "is_rewritten": true
     },
     {
         "order_id": "109",
@@ -4002,35 +4108,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The variance of a continuous uniform distribution on the interval [a, b] is obtained as:",
-        "explanation": "For a continuous uniform distribution, the variance is \\frac{(b-a)^2}{12}.",
+        "question_text": "<p>The variance of a continuous uniform distribution on the interval <b>[a, b]</b> is obtained as:</p>",
+        "explanation": "<p>The variance for a continuous uniform distribution is calculated using the formula <b>\\frac{(b-a)^2}{12}</b>, where <b>a</b> and <b>b</b> are the interval endpoints.</p>",
         "options": [
             {
                 "option_id": "288498",
                 "tag": "a",
-                "text": "\\frac{(b-a)^2}{12}",
+                "text": "<i>\\frac{(b-a)^2}{12}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "127850",
                 "tag": "b",
-                "text": "\\frac{b-a}{12}",
+                "text": "<i>\\frac{b-a}{12}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "320795",
                 "tag": "c",
-                "text": "\\frac{(b-a)^2}{2}",
+                "text": "<i>\\frac{(b-a)^2}{2}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "484620",
                 "tag": "d",
-                "text": "\\frac{a+b}{2}",
+                "text": "<i>\\frac{a+b}{2}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 359
+        "question_number": 359,
+        "is_rewritten": true
     },
     {
         "order_id": "110",
@@ -4039,8 +4146,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following statistics is classified as both a measure of central tendency and a measure of partition?",
-        "explanation": "The median is a measure of central tendency (middle value) and also a measure of partition (second quartile or fifth decile).",
+        "question_text": "<p>The <b>median</b> is the only statistic that serves a dual role in statistical analysis. It is classified as both a <b>measure of central tendency</b> and a <b>measure of partition</b>.</p>",
+        "explanation": "<p>The <b>median</b> represents the middle value of a data set, making it a <b>measure of central tendency</b>. Additionally, it divides the data into two equal halves, positioning it as the <b>second quartile (Q2)</b> or the <b>fifth decile</b>, which classifies it as a <b>measure of partition</b>.</p>",
         "options": [
             {
                 "option_id": "978604",
@@ -4067,7 +4174,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 360
+        "question_number": 360,
+        "is_rewritten": true
     },
     {
         "order_id": "111",
@@ -4076,13 +4184,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The following are components of a box and whisker plot except:",
-        "explanation": "A box and whisker plot is based on the five-number summary: minimum, first quartile, median, third quartile, and maximum. The mean is excluded.",
+        "question_text": "<p>The following are components of a box and whisker plot except:</p>",
+        "explanation": "<p>A box and whisker plot is based on the <b>five-number summary</b>: minimum, first quartile, median, third quartile, and maximum. The <b>mean</b> is excluded.</p>",
         "options": [
             {
                 "option_id": "255882",
                 "tag": "a",
-                "text": "mean",
+                "text": "<b>mean</b>",
                 "is_correct": true
             },
             {
@@ -4104,7 +4212,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 361
+        "question_number": 361,
+        "is_rewritten": true
     },
     {
         "order_id": "112",
@@ -4113,35 +4222,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A ___ plot shows the relationship between two continuous variables.",
-        "explanation": "A scatter plot displays values for two continuous variables, showing their correlation or relationship.",
+        "question_text": "<p>A <b>___</b> plot shows the relationship between two continuous variables.</p>",
+        "explanation": "<p>A <b>scatter plot</b> displays values for two continuous variables, showing their <i>correlation</i> or <i>relationship</i>.</p>",
         "options": [
             {
                 "option_id": "203943",
                 "tag": "a",
-                "text": "box and whisker",
+                "text": "<b>box and whisker</b>",
                 "is_correct": false
             },
             {
                 "option_id": "117135",
                 "tag": "b",
-                "text": "scatter",
+                "text": "<b>scatter</b>",
                 "is_correct": true
             },
             {
                 "option_id": "965904",
                 "tag": "c",
-                "text": "histogram",
+                "text": "<b>histogram</b>",
                 "is_correct": false
             },
             {
                 "option_id": "173552",
                 "tag": "d",
-                "text": "pie chart",
+                "text": "<b>pie chart</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 362
+        "question_number": 362,
+        "is_rewritten": true
     },
     {
         "order_id": "113",
@@ -4150,8 +4260,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "___ are data points that significantly deviate from the majority of observations in a distribution.",
-        "explanation": "Outliers are values that are abnormally distant from other observations in the data set.",
+        "question_text": "<p><b>Outliers</b> are data points that significantly deviate from the majority of observations in a distribution.</p>",
+        "explanation": "<p><b>Outliers</b> are values that are abnormally distant from other observations in the data set.</p>",
         "options": [
             {
                 "option_id": "515733",
@@ -4178,7 +4288,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 363
+        "question_number": 363,
+        "is_rewritten": true
     },
     {
         "order_id": "114",
@@ -4187,8 +4298,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The statistic that divides a distribution into two equal parts is known as the:",
-        "explanation": "The median separates the higher half of a dataset from the lower half.",
+        "question_text": "<p>The statistic that divides a distribution into <b>two equal parts</b> is known as the:</p>",
+        "explanation": "<p>The <b>median</b> separates the higher half of a dataset from the lower half.</p>",
         "options": [
             {
                 "option_id": "813728",
@@ -4215,7 +4326,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 364
+        "question_number": 364,
+        "is_rewritten": true
     },
     {
         "order_id": "115",
@@ -4224,35 +4336,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The statistics that divide a distribution into four equal parts are known as:",
-        "explanation": "Quartiles divide a rank-ordered data set into four equal parts.",
+        "question_text": "<p>The statistics that divide a distribution into four equal parts are known as:</p>",
+        "explanation": "<p><b>Quartiles</b> divide a rank-ordered data set into four equal parts.</p>",
         "options": [
             {
                 "option_id": "200815",
                 "tag": "a",
-                "text": "means",
+                "text": "<i>means</i>",
                 "is_correct": false
             },
             {
                 "option_id": "840701",
                 "tag": "b",
-                "text": "quartiles",
+                "text": "<b>quartiles</b>",
                 "is_correct": true
             },
             {
                 "option_id": "204383",
                 "tag": "c",
-                "text": "deciles",
+                "text": "<i>deciles</i>",
                 "is_correct": false
             },
             {
                 "option_id": "194945",
                 "tag": "d",
-                "text": "medians",
+                "text": "<i>medians</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 365
+        "question_number": 365,
+        "is_rewritten": true
     },
     {
         "order_id": "116",
@@ -4261,8 +4374,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The statistics that divide a distribution into ten equal parts are known as:",
-        "explanation": "Deciles divide a rank-ordered data set into ten equal parts.",
+        "question_text": "<p>The statistics that divide a distribution into ten equal parts are known as:</p>",
+        "explanation": "<p><b>Deciles</b> divide a rank-ordered data set into ten equal parts.</p>",
         "options": [
             {
                 "option_id": "735295",
@@ -4289,7 +4402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 366
+        "question_number": 366,
+        "is_rewritten": true
     },
     {
         "order_id": "117",
@@ -4298,8 +4412,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The horizontal line inside the box of a box and whisker plot is known as the:",
-        "explanation": "The line inside the box represents the median (second quartile) of the data.",
+        "question_text": "<p>The horizontal line inside the box of a <b>box and whisker plot</b> is known as the:</p>",
+        "explanation": "<p>The line inside the box represents the <b>median</b> (second quartile) of the data.</p>",
         "options": [
             {
                 "option_id": "846092",
@@ -4326,7 +4440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 367
+        "question_number": 367,
+        "is_rewritten": true
     },
     {
         "order_id": "118",
@@ -4335,13 +4450,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The entire box in the box and whisker plot represents the:",
-        "explanation": "The box extends from the first quartile (Q1) to the third quartile (Q3), representing the interquartile range (IQR).",
+        "question_text": "<p>The entire <b>box</b> in the box and whisker plot represents the:</p>",
+        "explanation": "<p>The box extends from the first quartile (Q1) to the third quartile (Q3), representing the <b>interquartile range (IQR)</b>.</p>",
         "options": [
             {
                 "option_id": "124232",
                 "tag": "a",
-                "text": "interquartile range",
+                "text": "<b>interquartile range</b>",
                 "is_correct": true
             },
             {
@@ -4363,7 +4478,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 368
+        "question_number": 368,
+        "is_rewritten": true
     },
     {
         "order_id": "119",
@@ -4372,8 +4488,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the lower quartile of the distribution.",
-        "explanation": "Sorting the data gives: 11, 13, 15, 18, 25, 26, 27, 32, 35, 45. The lower quartile (Q1) is the median of the lower half (11, 13, 15, 18, 25), which is 15.",
+        "question_text": "<p>From the mathematics scores <i>(15, 13, 25, 27, 35, 26, 45, 32, 18, 11)</i>, obtain the <b>lower quartile</b> of the distribution.</p>",
+        "explanation": "<p>Sorting the data gives: <i>11, 13, 15, 18, 25, 26, 27, 32, 35, 45</i>. The <b>lower quartile (Q1)</b> is the median of the lower half <i>(11, 13, 15, 18, 25)</i>, which is <b>15</b>.</p>",
         "options": [
             {
                 "option_id": "202539",
@@ -4400,7 +4516,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 369
+        "question_number": 369,
+        "is_rewritten": true
     },
     {
         "order_id": "120",
@@ -4409,8 +4526,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the upper quartile of the distribution.",
-        "explanation": "The upper quartile (Q3) is the median of the upper half of the data (26, 27, 32, 35, 45), which is 32.",
+        "question_text": "<p>From the mathematics scores <i>(15, 13, 25, 27, 35, 26, 45, 32, 18, 11)</i>, obtain the <b>upper quartile</b> of the distribution.</p>",
+        "explanation": "<p>The <b>upper quartile (Q3)</b> is the median of the upper half of the data <i>(26, 27, 32, 35, 45)</i>, which is <b>32</b>.</p>",
         "options": [
             {
                 "option_id": "240946",
@@ -4437,7 +4554,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 370
+        "question_number": 370,
+        "is_rewritten": true
     },
     {
         "order_id": "121",
@@ -4446,8 +4564,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "From the mathematics scores (15, 13, 25, 27, 35, 26, 45, 32, 18, 11), obtain the median of the distribution.",
-        "explanation": "The median is the average of the 5th and 6th values: \\frac{25 + 26}{2} = 25.5.",
+        "question_text": "<p>From the mathematics scores <i>(15, 13, 25, 27, 35, 26, 45, 32, 18, 11)</i>, obtain the <b>median</b> of the distribution.</p>",
+        "explanation": "<p>The <b>median</b> is the average of the 5th and 6th values: <i>\\frac{25 + 26}{2} = 25.5</i>.</p>",
         "options": [
             {
                 "option_id": "172623",
@@ -4474,7 +4592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 371
+        "question_number": 371,
+        "is_rewritten": true
     },
     {
         "order_id": "122",
@@ -4483,35 +4602,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Data points outside the whisker are referred to as:",
-        "explanation": "Data points lying beyond the whiskers (typically beyond 1.5 times the interquartile range) are outliers.",
+        "question_text": "<p>Data points outside the whisker are referred to as:</p>",
+        "explanation": "<p>Data points lying beyond the whiskers (typically beyond <b>1.5 times the interquartile range</b>) are <b>outliers</b>.</p>",
         "options": [
             {
                 "option_id": "185398",
                 "tag": "a",
-                "text": "observations",
+                "text": "<i>observations</i>",
                 "is_correct": false
             },
             {
                 "option_id": "198432",
                 "tag": "b",
-                "text": "values",
+                "text": "<i>values</i>",
                 "is_correct": false
             },
             {
                 "option_id": "120734",
                 "tag": "c",
-                "text": "sample points",
+                "text": "<i>sample points</i>",
                 "is_correct": false
             },
             {
                 "option_id": "329464",
                 "tag": "d",
-                "text": "outliers",
+                "text": "<b>outliers</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 372
+        "question_number": 372,
+        "is_rewritten": true
     },
     {
         "order_id": "123",
@@ -4520,8 +4640,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A ___ is based on a five-number summary.",
-        "explanation": "A box and whisker plot visually displays the five-number summary: minimum, first quartile, median, third quartile, and maximum.",
+        "question_text": "<p>A <b>box and whisker plot</b> is based on a five-number summary.</p>",
+        "explanation": "<p>A <b>box and whisker plot</b> visually displays the five-number summary: minimum, first quartile, median, third quartile, and maximum.</p>",
         "options": [
             {
                 "option_id": "293363",
@@ -4548,7 +4668,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 373
+        "question_number": 373,
+        "is_rewritten": true
     },
     {
         "order_id": "124",
@@ -4557,8 +4678,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A box and whisker plot describes a distribution as negatively (left) skewed when:",
-        "explanation": "In a negatively skewed distribution, the data has a long left (bottom) tail. Thus, the bottom whisker is longer than the top whisker.",
+        "question_text": "<p>A box and whisker plot describes a distribution as <b>negatively (left) skewed</b> when:</p>",
+        "explanation": "<p>In a <b>negatively skewed</b> distribution, the data has a long left (bottom) tail. Thus, the bottom whisker is longer than the top whisker.</p>",
         "options": [
             {
                 "option_id": "532140",
@@ -4585,6 +4706,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 374
+        "question_number": 374,
+        "is_rewritten": true
     }
 ]

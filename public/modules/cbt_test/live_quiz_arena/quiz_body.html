@@ -1,6 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Live Arena - Chat</title>
@@ -8,8 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/components/topbar.css">
-  <link rel="stylesheet" href="/components/sidebar.css?v=5">
+    <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=6">
     
     <style>
         :root {
@@ -30,6 +40,36 @@
             --border-color: #e2e8f0;
             --text-muted: #64748b;
         }
+
+        /* Sync custom variables with standard dark-mode.css variables */
+        [data-theme="dark"] {
+            --chat-bg: var(--bg-base);
+            --msg-in-bg: var(--bg-card);
+            --msg-in-text: var(--text-primary);
+            --border-color: var(--border);
+        }
+
+        /* Override hardcoded light colors for dark mode */
+        [data-theme="dark"] .quiz-container { background: rgba(15, 23, 42, 0.8) !important; }
+        
+        [data-theme="dark"] .q-opt,
+        [data-theme="dark"] .selected-preview,
+        [data-theme="dark"] .btn-cancel,
+        [data-theme="dark"] .chat-input {
+            background: var(--bg-elevated) !important;
+            border-color: var(--border) !important;
+            color: var(--text-primary) !important;
+        }
+
+        [data-theme="dark"] .chat-input:focus { background: var(--bg-card) !important; }
+        [data-theme="dark"] .chat-input:disabled { background: rgba(255,255,255,0.05) !important; color: var(--text-muted) !important; }
+
+        [data-theme="dark"] .q-opt-letter,
+        [data-theme="dark"] .sp-letter {
+            color: var(--primary-dk) !important;
+        }
+        
+        [data-theme="dark"] .chat-action-btn:hover { background: rgba(255, 255, 255, 0.05) !important; }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -77,7 +117,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 16px;
-            background: #ffffff;
+            background: var(--bg-card);
             border-bottom: 1px solid var(--border-color);
             z-index: 10;
             flex-shrink: 0; /* Header must not shrink */
@@ -237,7 +277,7 @@
 
         /* ─── QUICK REPLIES & CHAT INPUT (FOOTER) ─── */
         .chat-input-area {
-            background: #ffffff;
+            background: var(--bg-card);
             border-top: 1px solid var(--border-color);
             padding: 12px 16px;
             z-index: 10;
@@ -259,7 +299,7 @@
             border-radius: 99px; font-family: 'Inter', sans-serif; font-size: 15px;
             background: #f8fafc; outline: none; transition: border-color 0.2s;
         }
-        .chat-input:focus { border-color: var(--primary); background: white; }
+        .chat-input:focus { border-color: var(--primary); background: var(--bg-card); }
         .chat-input:disabled { background: #e2e8f0; cursor: not-allowed; opacity: 0.7; }
         
         .chat-send-btn {
@@ -291,7 +331,7 @@
         }
         .modal-overlay.open { opacity: 1; pointer-events: auto; }
         .modal-card {
-            background: #fff; width: 85%; max-width: 320px;
+            background: var(--bg-card); width: 85%; max-width: 320px;
             border-radius: 20px; padding: 24px; text-align: center;
             transform: scale(0.95); transition: transform 0.2s; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
@@ -387,9 +427,9 @@
     </div>
 </div>
 
-<script defer src="/components/topbar.js"></script>
-  <script defer src="/components/nav.js"></script>
-<script defer src="/components/sidebar.js?v=6"></script>
+<script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+<script defer src="../../../components/sidebar.js?v=6"></script>
 
 <script>
     // --- Mock Data ---

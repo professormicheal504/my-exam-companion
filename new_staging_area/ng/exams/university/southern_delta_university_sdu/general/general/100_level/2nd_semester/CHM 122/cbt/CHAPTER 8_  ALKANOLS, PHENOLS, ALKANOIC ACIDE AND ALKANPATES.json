@@ -6,8 +6,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the general formula of alkanols?",
-        "explanation": "Alkanols are a type of alcohols that have a hydroxyl group bonded to a saturated carbon atom, with a general formula \\( \\ce{R-OH} \\).",
+        "question_text": "<p>What is the <b>general formula</b> of alkanols?</p>",
+        "explanation": "<p>Alkanols are a type of <b>alcohols</b> that have a <b>hydroxyl group</b> bonded to a <b>saturated carbon atom</b>, with a general formula \\( \\ce{R-OH} \\).</p>",
         "options": [
             {
                 "option_id": "266510",
@@ -34,7 +34,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 10
+        "question_number": 10,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How are alkanols classified based on the number of hydrogen atoms attached to the carbon atom bonded to the hydroxyl group?",
-        "explanation": "Alcohols are classified as Primary, Secondary, or Tertiary depending on the number of hydrogen atoms attached to the carbon atom bonded to the alcohol carbon.",
+        "question_text": "<p>How are <b>alkanols</b> classified based on the number of hydrogen atoms attached to the carbon atom bonded to the <b>hydroxyl group</b>?</p>",
+        "explanation": "<p>Alcohols are classified as <b>Primary</b>, <b>Secondary</b>, or <b>Tertiary</b> depending on the number of hydrogen atoms attached to the carbon atom bonded to the alcohol carbon.</p>",
         "options": [
             {
                 "option_id": "698724",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 23
+        "question_number": 23,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In a primary alkanol, the hydroxyl (-OH) group is attached to:",
-        "explanation": "In primary alkanols, the -OH group is attached to the carbon atom at the end of the carbon chain.",
+        "question_text": "<p>In a <b>primary alkanol</b>, the hydroxyl (<i>-OH</i>) group is attached to:</p>",
+        "explanation": "<p>In <b>primary alkanols</b>, the <i>-OH</i> group is attached to the carbon atom at the end of the carbon chain.</p>",
         "options": [
             {
                 "option_id": "298947",
                 "tag": "a",
-                "text": "A carbon atom bonded to two other carbon atoms",
+                "text": "<b>A carbon atom bonded to two other carbon atoms</b>",
                 "is_correct": false
             },
             {
                 "option_id": "193630",
                 "tag": "b",
-                "text": "A carbon atom bonded to three other carbon atoms",
+                "text": "<b>A carbon atom bonded to three other carbon atoms</b>",
                 "is_correct": false
             },
             {
                 "option_id": "256318",
                 "tag": "c",
-                "text": "A carbon atom at the end of the carbon chain",
+                "text": "<b>A carbon atom at the end of the carbon chain</b>",
                 "is_correct": true
             },
             {
                 "option_id": "218153",
                 "tag": "d",
-                "text": "An aromatic benzene ring",
+                "text": "<i>An aromatic benzene ring</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 36
+        "question_number": 36,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Propan-2-ol is an example of which class of alkanol?",
-        "explanation": "In Propan-2-ol, the -OH group is attached to the second carbon atom, which is bonded to two other carbon atoms, making it a secondary alkanol.",
+        "question_text": "<p>Propan-2-ol is an example of which class of <b>alkanol</b>?</p>",
+        "explanation": "<p>In Propan-2-ol, the -OH group is attached to the second carbon atom, which is bonded to <b>two other carbon atoms</b>, making it a <b>secondary alkanol</b>.</p>",
         "options": [
             {
                 "option_id": "259971",
                 "tag": "a",
-                "text": "Primary alkanol",
+                "text": "<b>Primary alkanol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "151381",
                 "tag": "b",
-                "text": "Secondary alkanol",
+                "text": "<b>Secondary alkanol</b>",
                 "is_correct": true
             },
             {
                 "option_id": "106121",
                 "tag": "c",
-                "text": "Tertiary alkanol",
+                "text": "<b>Tertiary alkanol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "998785",
                 "tag": "d",
-                "text": "Polyhydric alkanol",
+                "text": "<i>Polyhydric alkanol</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 49
+        "question_number": 49,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -191,8 +195,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Reacting a Grignard reagent (\\( \\ce{RMgX} \\)) with a ketone, followed by hydrolysis, produces which type of alcohol?",
-        "explanation": "Grignard reagent reacts with a ketone to form a complex which hydrolyses to a tertiary alcohol.",
+        "question_text": "<p>A Grignard reagent (<i><b>RMgX</b></i>) reacts with a ketone, followed by hydrolysis. What type of alcohol is produced?</p>",
+        "explanation": "<p>The Grignard reagent (<i><b>RMgX</b></i>) acts as a nucleophile, attacking the electrophilic carbonyl carbon of the ketone. This forms a <b>tertiary alkoxide intermediate</b>, which upon hydrolysis yields a <b>tertiary alcohol</b>.</p>",
         "options": [
             {
                 "option_id": "287833",
@@ -219,7 +223,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 75
+        "question_number": 75,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +233,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Reduction of aldehydes using lithium aluminum hydride (\\( \\ce{LiAlH4} \\)) yields:",
-        "explanation": "Reduction of aldehydes yields primary alcohols, while reduction of ketones gives secondary alcohols.",
+        "question_text": "<p><b>Reduction</b> of aldehydes using lithium aluminum hydride (<i>\\ce{LiAlH4}</i>) yields:</p>",
+        "explanation": "<p><b>Reduction</b> of aldehydes yields <b>primary alcohols</b>, while reduction of ketones gives <b>secondary alcohols</b>.",
         "options": [
             {
                 "option_id": "333094",
@@ -256,7 +261,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 88
+        "question_number": 88,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +271,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds is produced when a halogenoalkane is boiled with sodium hydroxide solution?",
-        "explanation": "Halogenoalkanes will have their halogen replaced by an -OH group if boiled with sodium hydroxide solutions, forming an alkanol.",
+        "question_text": "<p>Which of the following compounds is produced when a <b>halogenoalkane</b> is boiled with sodium hydroxide solution?</p>",
+        "explanation": "<p>Halogenoalkanes will have their halogen replaced by an <b>-OH</b> group if boiled with sodium hydroxide solutions, forming an <b>alkanol</b>.</p>",
         "options": [
             {
                 "option_id": "221390",
@@ -293,7 +299,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 101
+        "question_number": 101,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +309,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanols generally have higher boiling points compared to other hydrocarbons of equal molecular mass. This is primarily due to:",
-        "explanation": "The high boiling point of alkanols is due to the presence of intermolecular hydrogen bonding between the hydroxyl groups.",
+        "question_text": "<p>Alkanols generally have higher boiling points compared to other hydrocarbons of equal molecular mass. This is primarily due to:</p>",
+        "explanation": "<p>The high boiling point of alkanols is due to the presence of <b>intermolecular hydrogen bonding</b> between the hydroxyl groups.</p>",
         "options": [
             {
                 "option_id": "120062",
                 "tag": "a",
-                "text": "Covalent bonding",
+                "text": "<b>Covalent bonding</b>",
                 "is_correct": false
             },
             {
                 "option_id": "108174",
                 "tag": "b",
-                "text": "Ionic bonding",
+                "text": "<b>Ionic bonding</b>",
                 "is_correct": false
             },
             {
                 "option_id": "203949",
                 "tag": "c",
-                "text": "Intermolecular hydrogen bonding",
+                "text": "<b>Intermolecular hydrogen bonding</b>",
                 "is_correct": true
             },
             {
                 "option_id": "207522",
                 "tag": "d",
-                "text": "London dispersion forces",
+                "text": "<b>London dispersion forces</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 114
+        "question_number": 114,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +347,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does branching in the aliphatic carbon chain affect the boiling point of an alkanol?",
-        "explanation": "The boiling point decreases with an increase in branching in aliphatic carbon chains. Primary alkanols have a higher boiling point.",
+        "question_text": "<p>How does <b>branching</b> in the <b>aliphatic carbon chain</b> affect the <b>boiling point</b> of an alkanol?</p>",
+        "explanation": "<p>The boiling point <b>decreases</b> with an increase in <b>branching</b> in aliphatic carbon chains. <i>Primary alkanols</i> have a higher boiling point.</p>",
         "options": [
             {
                 "option_id": "789728",
@@ -367,7 +375,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 127
+        "question_number": 127,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,19 +385,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The solubility of alkanols in water decreases as the size of the alkyl group increases because:",
-        "explanation": "The alkyl group attached to the hydroxyl group is hydrophobic in nature. Therefore, solubility decreases with the increase in the size of the alkyl group.",
+        "question_text": "<p>The solubility of <b>alkanols</b> in water decreases as the size of the alkyl group increases because:</p>",
+        "explanation": "<p>The alkyl group attached to the hydroxyl group is <b>hydrophobic</b> in nature. Therefore, solubility decreases with the increase in the size of the alkyl group.</p>",
         "options": [
             {
                 "option_id": "238968",
                 "tag": "a",
-                "text": "The alkyl group is hydrophilic",
+                "text": "The alkyl group is <i>hydrophilic</i>",
                 "is_correct": false
             },
             {
                 "option_id": "760538",
                 "tag": "b",
-                "text": "The alkyl group is hydrophobic",
+                "text": "The alkyl group is <i>hydrophobic</i>",
                 "is_correct": true
             },
             {
@@ -404,7 +413,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 140
+        "question_number": 140,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +423,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Primary alkanols are oxidized by acidified \\( \\ce{KMnO4} \\) or \\( \\ce{K2Cr2O7} \\) to initially form:",
-        "explanation": "Primary alkanols are oxidized first to the corresponding alkanals (aldehydes) and finally to carboxylic acids.",
+        "question_text": "<p>Primary alkanols are oxidized by acidified <i><b>KMnO<sub>4</sub></b></i> or <i><b>K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></b></i> to initially form:</p>",
+        "explanation": "<p>Primary alkanols undergo oxidation first to form <b>alkanals (aldehydes)</b>, which can then be further oxidized to <b>carboxylic acids</b> under stronger oxidizing conditions.</p>",
         "options": [
             {
                 "option_id": "289902",
@@ -441,7 +451,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 153
+        "question_number": 153,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,8 +461,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Secondary alkanols are oxidized by warm acidified \\( \\ce{K2Cr2O7} \\) solution to produce:",
-        "explanation": "Secondary alkanols are oxidized to alkanones (ketones) with the formula \\( \\ce{R-CO-R'} \\).",
+        "question_text": "<p>Secondary alkanols are oxidized by warm acidified <i><b>K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></b></i> solution to produce:</p>",
+        "explanation": "<p>Secondary alkanols are oxidized to <b>alkanones (ketones)</b> with the formula <i><b>R-CO-R'</b></i>.</p>",
         "options": [
             {
                 "option_id": "248411",
@@ -478,7 +489,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 166
+        "question_number": 166,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +499,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why are tertiary alkanols difficult to oxidize?",
-        "explanation": "Tertiary alkanols are difficult to oxidize because of the lack of a carbon-hydrogen bond on the hydroxyl-bearing carbon atom.",
+        "question_text": "<p>Why are <b>tertiary alkanols</b> difficult to oxidize?</p>",
+        "explanation": "<p>Tertiary alkanols are difficult to oxidize because of the <b>lack of a carbon-hydrogen bond on the hydroxyl-bearing carbon atom</b>. This structural feature prevents the formation of a carbonyl group, which is necessary for oxidation to occur.</p>",
         "options": [
             {
                 "option_id": "190892",
                 "tag": "a",
-                "text": "Because they are highly volatile",
+                "text": "Because they are <i>highly volatile</i>",
                 "is_correct": false
             },
             {
                 "option_id": "412087",
                 "tag": "b",
-                "text": "Due to the lack of a carbon-hydrogen bond on the hydroxyl-bearing carbon atom",
+                "text": "Due to the lack of a carbon-hydrogen bond on the <b>hydroxyl-bearing carbon atom</b>",
                 "is_correct": true
             },
             {
                 "option_id": "310497",
                 "tag": "c",
-                "text": "Because they easily undergo esterification instead",
+                "text": "Because they easily undergo <i>esterification</i> instead",
                 "is_correct": false
             },
             {
                 "option_id": "453986",
                 "tag": "d",
-                "text": "Due to excessive hydrogen bonding",
+                "text": "Due to <i>excessive hydrogen bonding</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 179
+        "question_number": 179,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +537,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The reaction between ethanol and ethanoic acid to produce ethyl ethanoate and water is known as:",
-        "explanation": "Ethanol reacts with ethanoic acid to produce ethyl ethanoate (an ester) and water in a reversible reaction known as esterification.",
+        "question_text": "<p>The reaction between ethanol and ethanoic acid to produce ethyl ethanoate and water is known as:</p>",
+        "explanation": "<p>Ethanol reacts with ethanoic acid to produce <b>ethyl ethanoate</b> (an <i>ester</i>) and water in a reversible reaction known as <b>esterification</b>.</p>",
         "options": [
             {
                 "option_id": "325485",
@@ -552,7 +565,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 192
+        "question_number": 192,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,8 +575,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Dehydration of ethanol at 170\u00b0C in the presence of concentrated \\( \\ce{H2SO4} \\) produces:",
-        "explanation": "A molecule of water is removed from ethanol in the presence of concentrated \\( \\ce{H2SO4} \\) at 170\u00b0C to produce ethene.",
+        "question_text": "<p>Dehydration of ethanol at <b>170\u00b0C</b> in the presence of concentrated <i>H<sub>2</sub>SO<sub>4</sub></i> produces:</p>",
+        "explanation": "<p>The reaction involves the removal of a molecule of <b>water</b> from ethanol in the presence of concentrated <i>H<sub>2</sub>SO<sub>4</sub></i> at <b>170\u00b0C</b>, resulting in the formation of <b>ethene</b>.</p>",
         "options": [
             {
                 "option_id": "754950",
@@ -589,7 +603,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 205
+        "question_number": 205,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +613,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When ethanol reacts with sodium or potassium metal, what gas is liberated?",
-        "explanation": "Ethanol reacts with sodium or potassium with effervescence to produce sodium or potassium ethoxide, liberating hydrogen gas.",
+        "question_text": "<p>When ethanol reacts with sodium or potassium metal, what gas is liberated?</p>",
+        "explanation": "<p>Ethanol reacts with sodium or potassium with effervescence to produce <b>sodium or potassium ethoxide</b>, liberating <b>hydrogen gas</b>.</p>",
         "options": [
             {
                 "option_id": "264257",
@@ -626,7 +641,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 218
+        "question_number": 218,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +651,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is NOT a common use of alkanols?",
-        "explanation": "Alkanols are used as solvents, cleaning agents, fuel additives, etc., but heavy mineral oils (hydrocarbons) are the primary components of motor oils.",
+        "question_text": "<p>Which of the following is <b>NOT</b> a common use of alkanols?</p>",
+        "explanation": "<p>Alkanols are used as solvents, cleaning agents, fuel additives, etc., but <i>heavy mineral oils (hydrocarbons)</i> are the primary components of motor oils.</p>",
         "options": [
             {
                 "option_id": "190251",
@@ -663,7 +679,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 231
+        "question_number": 231,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,19 +689,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the defining characteristic of a phenol?",
-        "explanation": "Phenol is an aromatic organic molecule in which an aromatic benzene ring is joined directly to the -OH (hydroxyl) group.",
+        "question_text": "<p><b>What is the defining characteristic of a phenol?</b></p>",
+        "explanation": "<p>A <b>phenol</b> is an aromatic organic compound characterized by a <b>hydroxyl group (-OH)</b> directly bonded to a <b>benzene ring</b>. This distinguishes it from alcohols, where the hydroxyl group is attached to a saturated carbon chain.</p>",
         "options": [
             {
                 "option_id": "172313",
                 "tag": "a",
-                "text": "It has a hydroxyl group bonded to a saturated carbon chain",
+                "text": "It has a hydroxyl group bonded to a <i>saturated</i> carbon chain",
                 "is_correct": false
             },
             {
                 "option_id": "215821",
                 "tag": "b",
-                "text": "It has a hydroxyl group bonded directly to an aromatic benzene ring",
+                "text": "It has a hydroxyl group bonded directly to an <i>aromatic benzene ring</i>",
                 "is_correct": true
             },
             {
@@ -700,7 +717,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 244
+        "question_number": 244,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +727,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Benzene-1,2-diol is classified as a:",
-        "explanation": "Dihydric phenols contain two hydroxyl groups attached to the aromatic ring. Benzene-1,2-diol is an example.",
+        "question_text": "<p><b>Benzene-1,2-diol</b> is classified as a:</p>",
+        "explanation": "<p>Dihydric phenols contain <b>two hydroxyl groups</b> attached to the aromatic ring. <b>Benzene-1,2-diol</b> is an example.</p>",
         "options": [
             {
                 "option_id": "229252",
                 "tag": "a",
-                "text": "Monohydric phenol",
+                "text": "<b>Monohydric phenol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "105481",
                 "tag": "b",
-                "text": "Dihydric phenol",
+                "text": "<b>Dihydric phenol</b>",
                 "is_correct": true
             },
             {
                 "option_id": "994829",
                 "tag": "c",
-                "text": "Trihydric phenol",
+                "text": "<b>Trihydric phenol</b>",
                 "is_correct": false
             },
             {
                 "option_id": "146613",
                 "tag": "d",
-                "text": "Polycyclic aromatic hydrocarbon",
+                "text": "<i>Polycyclic aromatic hydrocarbon</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 257
+        "question_number": 257,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,8 +765,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why does pure phenol turn pink upon exposure to air and light?",
-        "explanation": "Phenol turns pink upon exposure to air and light due to oxidation and the formation of mixtures of quinones.",
+        "question_text": "<p>Why does <b>pure phenol</b> turn pink upon exposure to air and light?</p>",
+        "explanation": "<p>Phenol turns pink upon exposure to air and light due to <b>oxidation</b> and the formation of mixtures of <i>quinones</i>.</p>",
         "options": [
             {
                 "option_id": "198547",
@@ -764,7 +783,7 @@
             {
                 "option_id": "271694",
                 "tag": "c",
-                "text": "Due to the formation of mixtures of quinones",
+                "text": "Due to the formation of mixtures of <i>quinones</i>",
                 "is_correct": true
             },
             {
@@ -774,7 +793,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 270
+        "question_number": 270,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +803,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Compare the acidity of phenols and aliphatic alcohols:",
-        "explanation": "Phenols are weak acids, but they are more acidic than unsubstituted aliphatic alcohols and react with strong bases like NaOH.",
+        "question_text": "<p>Compare the <b>acidity</b> of <b>phenols</b> and <b>aliphatic alcohols</b>:</p>",
+        "explanation": "<p>Phenols are <b>weak acids</b>, but they are <i>more acidic</i> than unsubstituted aliphatic alcohols and react with strong bases like NaOH.</p>",
         "options": [
             {
                 "option_id": "136118",
                 "tag": "a",
-                "text": "Phenols are less acidic than aliphatic alcohols",
+                "text": "Phenols are <i>less</i> acidic than aliphatic alcohols",
                 "is_correct": false
             },
             {
                 "option_id": "225082",
                 "tag": "b",
-                "text": "Phenols are more acidic than unsubstituted aliphatic alcohols",
+                "text": "Phenols are <i>more</i> acidic than unsubstituted aliphatic alcohols",
                 "is_correct": true
             },
             {
                 "option_id": "137655",
                 "tag": "c",
-                "text": "They have the same acidity",
+                "text": "They have the <i>same</i> acidity",
                 "is_correct": false
             },
             {
                 "option_id": "212634",
                 "tag": "d",
-                "text": "Phenols are basic, while alcohols are acidic",
+                "text": "Phenols are <b>basic</b>, while alcohols are <b>acidic</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 283
+        "question_number": 283,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,8 +841,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When phenol is distilled with zinc dust, what is the primary product obtained?",
-        "explanation": "When phenol is distilled with zinc dust, a low yield of benzene is obtained.",
+        "question_text": "<p>When <b>phenol</b> is distilled with <b>zinc dust</b>, what is the primary product obtained?</p>",
+        "explanation": "<p>When <b>phenol</b> is distilled with <b>zinc dust</b>, a low yield of <b>benzene</b> is obtained.</p>",
         "options": [
             {
                 "option_id": "330513",
@@ -848,7 +869,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 296
+        "question_number": 296,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +879,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Phenol can be prepared from a diazonium salt by warming the solution with:",
-        "explanation": "When water or weak acids are used to warm benzene diazonium chloride solution, phenol is produced along with nitrogen gas.",
+        "question_text": "<p>Phenol can be prepared from a diazonium salt by warming the solution with:</p>",
+        "explanation": "<p>When <b>water</b> or <i>weak acids</i> are used to warm <b>benzene diazonium chloride</b> solution, <b>phenol</b> is produced along with <b>nitrogen gas</b>.</p>",
         "options": [
             {
                 "option_id": "316224",
                 "tag": "a",
-                "text": "Sodium hydroxide",
+                "text": "<b>Sodium hydroxide</b>",
                 "is_correct": false
             },
             {
                 "option_id": "135692",
                 "tag": "b",
-                "text": "Water or weak acids",
+                "text": "<b>Water</b> or <i>weak acids</i>",
                 "is_correct": true
             },
             {
                 "option_id": "158544",
                 "tag": "c",
-                "text": "Ammonia",
+                "text": "<b>Ammonia</b>",
                 "is_correct": false
             },
             {
                 "option_id": "250596",
                 "tag": "d",
-                "text": "Zinc dust",
+                "text": "<b>Zinc dust</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 309
+        "question_number": 309,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,13 +917,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The sodium salt of salicylic acid can be decarboxylated to produce phenol by using:",
-        "explanation": "The sodium salt of salicylic acid is decarboxylated using soda lime, and then acidified to produce phenol.",
+        "question_text": "<p>The sodium salt of <b>salicylic acid</b> can be decarboxylated to produce <b>phenol</b> by using:</p>",
+        "explanation": "<p>The sodium salt of salicylic acid is decarboxylated using <b>soda lime</b>, and then acidified to produce <b>phenol</b>.</p>",
         "options": [
             {
                 "option_id": "137022",
                 "tag": "a",
-                "text": "Concentrated sulphuric acid",
+                "text": "Concentrated <i>sulphuric acid</i>",
                 "is_correct": false
             },
             {
@@ -922,7 +945,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 322
+        "question_number": 322,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +955,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds is prepared from phenol and is used as a selective weed killer?",
-        "explanation": "Phenol is used in the preparation of 2,4-dichlorophenoxyacetic acid (2,4-D), which is used as a selective weed killer.",
+        "question_text": "<p>Which of the following compounds is prepared from <b>phenol</b> and is used as a <i>selective weed killer</i>?</p>",
+        "explanation": "<p><b>Phenol</b> is used in the preparation of <b>2,4-dichlorophenoxyacetic acid (2,4-D)</b>, which is used as a <i>selective weed killer</i>.</p>",
         "options": [
             {
                 "option_id": "140442",
@@ -959,7 +983,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 335
+        "question_number": 335,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,35 +993,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanoic acids contain which of the following functional groups?",
-        "explanation": "Alkanoic acids are organic acids which contain the carboxyl group (-COOH) as their functional group.",
+        "question_text": "<p>Alkanoic acids contain which of the following <b>functional groups</b>?</p>",
+        "explanation": "<p>Alkanoic acids are organic acids which contain the <b>carboxyl group</b> (-COOH) as their <i>functional group</i>.</p>",
         "options": [
             {
                 "option_id": "294219",
                 "tag": "a",
-                "text": "Hydroxyl group (-OH)",
+                "text": "<b>Hydroxyl group</b> (-OH)",
                 "is_correct": false
             },
             {
                 "option_id": "146974",
                 "tag": "b",
-                "text": "Carbonyl group (-C=O)",
+                "text": "<b>Carbonyl group</b> (-C=O)",
                 "is_correct": false
             },
             {
                 "option_id": "213815",
                 "tag": "c",
-                "text": "Carboxyl group (-COOH)",
+                "text": "<b>Carboxyl group</b> (-COOH)",
                 "is_correct": true
             },
             {
                 "option_id": "282716",
                 "tag": "d",
-                "text": "Ester group (-COOR)",
+                "text": "<b>Ester group</b> (-COOR)",
                 "is_correct": false
             }
         ],
-        "question_number": 348
+        "question_number": 348,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,13 +1031,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanoic acids are often called 'fatty acids' because:",
-        "explanation": "They are known as fatty acids because some higher members (e.g., palmitic and stearic acids) occur naturally as their glyceryl esters in fats and oils.",
+        "question_text": "<p>Alkanoic acids are often called <b>\u2018fatty acids\u2019</b> because:</p>",
+        "explanation": "<p>They are known as <b>fatty acids</b> because some higher members (e.g., palmitic and stearic acids) occur naturally as their <b>glyceryl esters</b> in <i>fats</i> and oils.</p>",
         "options": [
             {
                 "option_id": "167252",
                 "tag": "a",
-                "text": "They dissolve fats and oils",
+                "text": "They dissolve <i>fats</i> and oils",
                 "is_correct": false
             },
             {
@@ -1023,7 +1049,7 @@
             {
                 "option_id": "240592",
                 "tag": "c",
-                "text": "Higher members occur naturally as glyceryl esters in fats and oils",
+                "text": "Higher members occur naturally as glyceryl esters in <i>fats</i> and oils",
                 "is_correct": true
             },
             {
@@ -1033,7 +1059,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 361
+        "question_number": 361,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1069,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name for formic acid?",
-        "explanation": "The common name for \\( \\ce{HCOOH} \\) is formic acid, and its IUPAC name is methanoic acid.",
+        "question_text": "<p>What is the <b>IUPAC name</b> for <i>formic acid</i>?</p>",
+        "explanation": "<p>The common name for <i><b>HCOOH</b></i> is <i>formic acid</i>, and its <b>IUPAC name</b> is <b>methanoic acid</b>.</p>",
         "options": [
             {
                 "option_id": "218968",
@@ -1070,7 +1097,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 374
+        "question_number": 374,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1107,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethanoic acid can be prepared in the laboratory by the complete oxidation of:",
-        "explanation": "Ethanoic acid is the final organic oxidation product of ethanol, produced by using an oxidizing agent like \\( \\ce{Na2Cr2O7} \\) in moderate concentrated \\( \\ce{H2SO4} \\).",
+        "question_text": "<p>Ethanoic acid can be prepared in the laboratory by the complete oxidation of:</p>",
+        "explanation": "<p>Ethanoic acid is the final organic oxidation product of <b>ethanol</b>, produced by using an oxidizing agent like <i><b>Na<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></b></i> in moderate concentrated <i><b>H<sub>2</sub>SO<sub>4</sub></b></i>.</p>",
         "options": [
             {
                 "option_id": "108962",
@@ -1107,7 +1135,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 387
+        "question_number": 387,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1145,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the industrial preparation of ethanoic acid, ethyne is first converted to which intermediate compound using dilute \\( \\ce{H2SO4} \\) and a mercury(II) catalyst?",
-        "explanation": "The first stage is the production of ethanal by passing ethyne into dilute \\( \\ce{H2SO4} \\) in the presence of mercury(II) tetraoxosulphate(VI) as a catalyst.",
+        "question_text": "<p>In the industrial preparation of <b>ethanoic acid</b>, ethyne is first converted to which intermediate compound using dilute <i>H<sub>2</sub>SO<sub>4</sub></i> and a mercury(II) catalyst?</p>",
+        "explanation": "<p>The first stage is the production of <b>ethanal</b> by passing ethyne into dilute <i>H<sub>2</sub>SO<sub>4</sub></i> in the presence of mercury(II) tetraoxosulphate(VI) as a catalyst.</p>",
         "options": [
             {
                 "option_id": "337749",
@@ -1144,7 +1173,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 399
+        "question_number": 399,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1183,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Pure anhydrous ethanoic acid is sometimes called 'glacial' because:",
-        "explanation": "Pure anhydrous ethanoic acid freezes into ice-like crystals at temperatures below 17\u00b0C.",
+        "question_text": "<p>Pure anhydrous ethanoic acid is sometimes called <b>\u2018glacial\u2019</b> because:</p>",
+        "explanation": "<p>Pure anhydrous ethanoic acid freezes into <b>ice-like crystals</b> at temperatures below 17\u00b0C.</p>",
         "options": [
             {
                 "option_id": "293815",
@@ -1181,7 +1211,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 411
+        "question_number": 411,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1221,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanoic acids react with electropositive metals (e.g., Na, K, Mg) to liberate which gas?",
-        "explanation": "All alkanoic acids liberate hydrogen when reacted with strongly electropositive metals to form their corresponding metallic salts (alkanoates).",
+        "question_text": "<p>Alkanoic acids react with electropositive metals (e.g., Na, K, Mg) to liberate which gas?</p>",
+        "explanation": "<p>All <b>alkanoic acids</b> liberate <b>hydrogen</b> when reacted with strongly electropositive metals to form their corresponding metallic salts (<i>alkanoates</i>).</p>",
         "options": [
             {
                 "option_id": "290453",
                 "tag": "a",
-                "text": "Carbon dioxide",
+                "text": "<b>Carbon dioxide</b>",
                 "is_correct": false
             },
             {
                 "option_id": "436519",
                 "tag": "b",
-                "text": "Oxygen",
+                "text": "<b>Oxygen</b>",
                 "is_correct": false
             },
             {
                 "option_id": "261102",
                 "tag": "c",
-                "text": "Hydrogen",
+                "text": "<b>Hydrogen</b>",
                 "is_correct": true
             },
             {
                 "option_id": "865961",
                 "tag": "d",
-                "text": "Carbon monoxide",
+                "text": "<b>Carbon monoxide</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 423
+        "question_number": 423,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,8 +1259,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What gas is liberated when ethanoic acid reacts with sodium trioxocarbonate(IV) (\\( \\ce{Na2CO3} \\))?",
-        "explanation": "Alkanoic acids liberate \\( \\ce{CO2} \\) (carbon dioxide) from trioxocarbonate(IV) compounds.",
+        "question_text": "<p>What gas is liberated when <b>ethanoic acid</b> reacts with <b>sodium trioxocarbonate(IV)</b> (<i><b>\\ce{Na2CO3}</b></i>)?</p>",
+        "explanation": "<p>Alkanoic acids liberate <i><b>\\ce{CO2}</b></i> (<b>carbon dioxide</b>) from trioxocarbonate(IV) compounds.</p>",
         "options": [
             {
                 "option_id": "331647",
@@ -1255,7 +1287,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 435
+        "question_number": 435,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,8 +1297,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When alkanoic acids react with phosphorus(V) chloride (\\( \\ce{PCl5} \\)), the product formed is:",
-        "explanation": "Phosphorus(V) chloride reacts readily with alkanoic acids to form colourless liquids called acid chlorides. The -OH group is replaced by a chlorine atom.",
+        "question_text": "<p>When <b>alkanoic acids</b> react with phosphorus(V) chloride (<i><b>\\ce{PCl5}</b></i>), the product formed is:</p>",
+        "explanation": "<p>Phosphorus(V) chloride reacts readily with <b>alkanoic acids</b> to form colourless liquids called <b>acid chlorides</b>. The <i>-OH group</i> is replaced by a chlorine atom.</p>",
         "options": [
             {
                 "option_id": "403398",
@@ -1292,7 +1325,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 447
+        "question_number": 447,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1335,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When heated with soda-lime (NaOH/CaO), alkanoic acids form their next lower alkanes. What is the alkane formed from ethanoic acid?",
-        "explanation": "Ethanoic acid forms methane and carbon(IV) oxide when heated with soda-lime.",
+        "question_text": "<p>When heated with <b>soda-lime (NaOH/CaO)</b>, <b>alkanoic acids</b> form their next lower <b>alkanes</b>. What is the alkane formed from <b>ethanoic acid</b>?</p>",
+        "explanation": "<p>Ethanoic acid forms <b>methane</b> and carbon(IV) oxide when heated with soda-lime.</p>",
         "options": [
             {
                 "option_id": "161428",
@@ -1329,7 +1363,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 459
+        "question_number": 459,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1373,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What are the common industrial or domestic uses of ethanoic acid?",
-        "explanation": "Ethanoic acid is used as a solvent and in the food industry as vinegar for preserving and flavouring food.",
+        "question_text": "<p>What are the <b>common industrial or domestic uses</b> of ethanoic acid?</p>",
+        "explanation": "<p>Ethanoic acid is used as a <b>solvent</b> and in the food industry as <b>vinegar</b> for preserving and flavouring food.</p>",
         "options": [
             {
                 "option_id": "631018",
@@ -1366,7 +1401,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 471
+        "question_number": 471,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1411,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "An ester is formed by the reaction between an alkanoic acid and an alkanol. What is the general formula for a simple ester?",
-        "explanation": "Simple esters have the formula \\( \\ce{RCOOR'} \\), formed by replacing the ionisable hydrogen of a carboxylic acid by an alkyl group.",
+        "question_text": "<p>An ester is formed by the reaction between an <b>alkanoic acid</b> and an <b>alkanol</b>. What is the general formula for a <i>simple ester</i>?</p>",
+        "explanation": "<p>The general formula for a <b>simple ester</b> is <b>\\( \\ce{RCOOR'} \\)</b>. This formula is derived by replacing the ionisable hydrogen of a <b>carboxylic acid</b> (\\( \\ce{R-COOH} \\)) with an <b>alkyl group</b> (\\( \\ce{R'} \\)).</p>",
         "options": [
             {
                 "option_id": "927548",
@@ -1403,7 +1439,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 483
+        "question_number": 483,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,8 +1449,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds is responsible for the sweet smell of flowers and the flavours of many fruits?",
-        "explanation": "Esters (Alkanoates) are sweet smelling and are responsible for the flavours of many fruits and the smell of flowers.",
+        "question_text": "<p>Which of the following compounds is responsible for the <b>sweet smell of flowers</b> and the <b>flavours of many fruits</b>?</p>",
+        "explanation": "<p><b>Esters (Alkanoates)</b> are <i>sweet-smelling</i> compounds responsible for the flavors of many fruits and the scents of flowers.</p>",
         "options": [
             {
                 "option_id": "194231",
@@ -1440,7 +1477,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 495
+        "question_number": 495,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1487,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the IUPAC name of the ester formed from ethanoic acid and ethanol?",
-        "explanation": "The alkyl group from the alcohol (ethyl) is named first, followed by the acid part (ethanoate), giving ethyl ethanoate.",
+        "question_text": "<p>What is the <b>IUPAC name</b> of the ester formed from <b>ethanoic acid</b> and <b>ethanol</b>?</p>",
+        "explanation": "<p>The <b>alkyl group</b> from the alcohol (ethyl) is named first, followed by the acid part (ethanoate), giving <b>ethyl ethanoate</b>.</p>",
         "options": [
             {
                 "option_id": "101006",
@@ -1477,7 +1515,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 507
+        "question_number": 507,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1525,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethyl ethanoate undergoes hydrolysis slowly with water to produce:",
-        "explanation": "Ethyl ethanoate is hydrolysed by water to its constituent acid and alcohol, which are ethanoic acid and ethanol.",
+        "question_text": "<p>Ethyl ethanoate undergoes hydrolysis slowly with water to produce:</p>",
+        "explanation": "<p>Ethyl ethanoate is hydrolysed by water to its constituent <b>acid</b> and <b>alcohol</b>, which are <b>ethanoic acid</b> and <b>ethanol</b>.</p>",
         "options": [
             {
                 "option_id": "186975",
@@ -1514,7 +1553,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 519
+        "question_number": 519,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1563,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When ammonia gas is passed through ethyl ethanoate, what are the products formed?",
-        "explanation": "Ethyl ethanoate forms an amide when treated with ammonia. Ethanol and ethanamide (\\( \\ce{CH3CONH2} \\)) are produced.",
+        "question_text": "<p>When ammonia gas is passed through ethyl ethanoate, what are the products formed?</p>",
+        "explanation": "<p>Ethyl ethanoate forms an <b>amide</b> when treated with ammonia. Ethanol and <b>ethanamide</b> (<i><b>CH<sub>3</sub>CONH<sub>2</sub></b></i>) are produced.</p>",
         "options": [
             {
                 "option_id": "133244",
@@ -1551,7 +1591,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 531
+        "question_number": 531,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1601,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Reduction of ethyl ethanoate using \\( \\ce{LiAlH4} \\) yields which of the following?",
-        "explanation": "Ethyl ethanoate is reduced to ethanol by \\( \\ce{LiAlH4} \\). Since both the acid part and alcohol part have two carbons, it yields \\( \\ce{CH3CH2OH + C2H5OH} \\).",
+        "question_text": "<p>Reduction of ethyl ethanoate using <i><b>LiAlH<sub>4</sub></b></i> yields which of the following?</p>",
+        "explanation": "<p>Ethyl ethanoate is reduced to ethanol by <i><b>LiAlH<sub>4</sub></b></i>. Since both the acid part and alcohol part have two carbons, it yields <i><b>CH<sub>3</sub>CH<sub>2</sub>OH + C<sub>2</sub>H<sub>5</sub>OH</b></i>.</p>",
         "options": [
             {
                 "option_id": "190154",
@@ -1588,7 +1629,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 543
+        "question_number": 543,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,8 +1639,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following compounds reacts with water to form carboxylic acids and hydrochloric acid?",
-        "explanation": "Acid chlorides react with water to form carboxylic acids and hydrochloric acid (\\( \\ce{RCOCl + H2O -> RCOOH + HCl} \\)).",
+        "question_text": "<p>Which of the following compounds reacts with water to form <b>carboxylic acids</b> and <b>hydrochloric acid</b>?</p>",
+        "explanation": "<p><b>Acid chlorides</b> react with water to form <b>carboxylic acids</b> and <i>hydrochloric acid</i> (<i>RCOCl + H<sub>2</sub>O \u2192 RCOOH + HCl</i>).</p>",
         "options": [
             {
                 "option_id": "119908",
@@ -1625,7 +1667,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 555
+        "question_number": 555,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,19 +1677,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Acid anhydrides are formed by the removal of water from:",
-        "explanation": "Anhydrides are compounds formed by the removal of water from two carboxylic acid molecules.",
+        "question_text": "<p>Acid anhydrides are formed by the removal of water from:</p>",
+        "explanation": "<p>Acid anhydrides are compounds formed by the removal of water from <b>two carboxylic acid molecules</b>.</p>",
         "options": [
             {
                 "option_id": "246873",
                 "tag": "a",
-                "text": "Two alkanol molecules",
+                "text": "<b>Two alkanol molecules</b>",
                 "is_correct": false
             },
             {
                 "option_id": "283338",
                 "tag": "b",
-                "text": "Two carboxylic acid molecules",
+                "text": "<b>Two carboxylic acid molecules</b>",
                 "is_correct": true
             },
             {
@@ -1662,7 +1705,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 567
+        "question_number": 567,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,8 +1715,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the general formula for acid anhydrides derived from carboxylic acids?",
-        "explanation": "Anhydrides are characterized by the presence of two acyl groups (\\( \\ce{RCO-} \\)) bonded to a single oxygen atom. The general formula is \\( \\ce{(RCO)2O} \\).",
+        "question_text": "<p>What is the <b>general formula</b> for <b>acid anhydrides</b> derived from <b>carboxylic acids</b>?</p>",
+        "explanation": "<p>Anhydrides are characterized by the presence of two <i>acyl groups</i> (\\( \\ce{RCO-} \\)) bonded to a single oxygen atom. The general formula is \\( \\ce{(RCO)2O} \\).</p>",
         "options": [
             {
                 "option_id": "312733",
@@ -1699,7 +1743,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 579
+        "question_number": 579,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,8 +1753,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Acid anhydrides react with alcohols to form which functional group?",
-        "explanation": "Acid anhydrides react with alcohols to form esters and carboxylic acids (\\( \\ce{(RCO)2O + R'OH -> RCOOR' + RCOOH} \\)).",
+        "question_text": "<p>Acid anhydrides react with alcohols to form which <b>functional group</b>?</p>",
+        "explanation": "<p>Acid anhydrides react with alcohols to form <b>esters</b> and carboxylic acids (<i><b>RCO</b><sub>2</sub>O + <b>R'OH</b> \u2192 <b>RCOOR'</b> + <b>RCOOH</b></i>).</p>",
         "options": [
             {
                 "option_id": "197159",
@@ -1736,7 +1781,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 591
+        "question_number": 591,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1791,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Acid anhydrides are used in the acylation of aromatic compounds in the presence of a Lewis acid catalyst (like \\( \\ce{AlCl3} \\)). What is this reaction called?",
-        "explanation": "Acid anhydrides are used in the acylation of aromatic compounds in the presence of a Lewis acid catalyst, a process known as Friedel-Crafts Acylation.",
+        "question_text": "<p>Acid anhydrides are used in the acylation of aromatic compounds in the presence of a Lewis acid catalyst (like <i><b><sub>AlCl<sub>3</sub></sub></b></i>). What is this reaction called?</p>",
+        "explanation": "<p>Acid anhydrides are used in the acylation of aromatic compounds in the presence of a Lewis acid catalyst, a process known as <b>Friedel-Crafts Acylation</b>.</p>",
         "options": [
             {
                 "option_id": "316052",
@@ -1773,7 +1819,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 603
+        "question_number": 603,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,8 +1829,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which specific acid anhydride is widely used in the synthesis of aspirin (acetylsalicylic acid)?",
-        "explanation": "Acetic anhydride is a key reagent used in the pharmaceutical industry for the production of aspirin.",
+        "question_text": "<p>Which specific <b>acid anhydride</b> is widely used in the synthesis of <i>aspirin (acetylsalicylic acid)</i>?</p>",
+        "explanation": "<p><b>Acetic anhydride</b> is a key reagent used in the pharmaceutical industry for the production of <i>aspirin</i>. It reacts with salicylic acid to form acetylsalicylic acid (aspirin) and acetic acid as a byproduct.</p>",
         "options": [
             {
                 "option_id": "292856",
@@ -1810,7 +1857,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 615
+        "question_number": 615,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,13 +1867,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following acts as a dehydrating agent that can remove water from carboxylic acids to form acid anhydrides?",
-        "explanation": "Reagents like phosphorus pentoxide (\\( \\ce{P2O5} \\)) or thionyl chloride can be used as dehydrating agents to remove water from carboxylic acids.",
+        "question_text": "<p>Which of the following acts as a <b>dehydrating agent</b> that can remove water from carboxylic acids to form acid anhydrides?</p>",
+        "explanation": "<p>Reagents like <b>phosphorus pentoxide (<i>P<sub>2</sub>O<sub>5</sub></i>)</b> or <b>thionyl chloride</b> can be used as <b>dehydrating agents</b> to remove water from carboxylic acids.</p>",
         "options": [
             {
                 "option_id": "479050",
                 "tag": "a",
-                "text": "Dilute \\( \\ce{HCl} \\)",
+                "text": "Dilute <i>HCl</i>",
                 "is_correct": false
             },
             {
@@ -1837,7 +1885,7 @@
             {
                 "option_id": "146999",
                 "tag": "c",
-                "text": "Phosphorus pentoxide (\\( \\ce{P2O5} \\))",
+                "text": "Phosphorus pentoxide (<i>P<sub>2</sub>O<sub>5</sub></i>)",
                 "is_correct": true
             },
             {
@@ -1847,6 +1895,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 627
+        "question_number": 627,
+        "is_rewritten": true
     }
 ]

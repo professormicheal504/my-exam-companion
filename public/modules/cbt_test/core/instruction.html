@@ -2,15 +2,25 @@
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAMB CBT Instructions – My exam companion</title>
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Relative path for local testing -->
     <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=2">
     <style>
         /* ---- Reset & Global ---- */
@@ -29,8 +39,8 @@
         }
 
         body {
-            background: #f7f7f8;
-            color: #131212;
+            background: var(--bg-base);
+            color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -213,7 +223,7 @@
                 left: 0 !important;
                 right: 0 !important;
                 z-index: 9999 !important;
-                background: white;
+                background: var(--bg-card);
                 border-radius: 0;
                 border-top: 1px solid #e5e5e5;
                 padding: 14px 16px;
@@ -232,8 +242,8 @@
     ============================== */
         .topbar {
             height: 58px;
-            background: #ffffff;
-            border-bottom: 1px solid #f0f0f0;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -266,7 +276,7 @@
 
         .topbar__search:focus-within {
             border-color: #2563eb;
-            background: white;
+            background: var(--bg-card);
         }
 
         .topbar__search input {
@@ -275,7 +285,7 @@
             background: transparent;
             outline: none;
             font-size: 13px;
-            color: #131212;
+            color: var(--text-primary);
             font-family: inherit;
         }
 
@@ -295,9 +305,9 @@
             border-radius: 9999px;
             font-size: 13px;
             font-weight: 600;
-            color: #131212;
-            border: 1px solid #ddd;
-            background: white;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
             transition: background 0.15s;
         }
 
@@ -339,7 +349,7 @@
 
         .right-sidebar {
             width: 300px;
-            background: #ffffff;
+            background: var(--bg-card);
             border-left: 1px solid #f0f0f0;
             padding: 32px 24px;
             display: flex;
@@ -351,8 +361,8 @@
        INSTRUCTION PAGE STYLES
     ============================== */
         .instruction-card {
-            background: white;
-            border: 1px solid #ebebeb;
+            background: var(--bg-card);
+            border: 1px solid var(--border, #ebebeb);
             border-radius: 12px;
             /* removed overflow: hidden to allow sticky children */
         }
@@ -365,7 +375,7 @@
             background-position: right center;
             background-size: cover;
             padding: 30px 40px;
-            border-bottom: 1px solid #ebebeb;
+            border-bottom: 1px solid var(--border, #ebebeb);
             border-top-left-radius: 11px;
             border-top-right-radius: 11px;
         }
@@ -373,7 +383,7 @@
         .instruction-banner h1 {
             font-size: 24px;
             font-weight: 800;
-            color: #131212;
+            color: var(--text-primary);
             margin: 0;
         }
 
@@ -385,7 +395,7 @@
         .section-title {
             font-size: 18px;
             font-weight: 700;
-            color: #131212;
+            color: var(--text-primary);
             margin: 32px 0 16px 0;
             display: flex;
             align-items: center;
@@ -404,7 +414,7 @@
         .instruction-text {
             font-size: 14px;
             line-height: 1.6;
-            color: #374151;
+            color: var(--text-primary, #374151);
             margin-bottom: 16px;
         }
 
@@ -416,7 +426,7 @@
         .instruction-list li {
             font-size: 14px;
             line-height: 1.6;
-            color: #374151;
+            color: var(--text-primary, #374151);
             margin-bottom: 8px;
             position: relative;
         }
@@ -426,12 +436,12 @@
             content: '•';
             position: absolute;
             left: -16px;
-            color: #6b7280;
+            color: var(--text-muted);
             font-weight: bold;
         }
 
         .instruction-list strong {
-            color: #131212;
+            color: var(--text-primary);
         }
 
         /* Shortcuts Table */
@@ -456,7 +466,7 @@
 
         .shortcuts-table td {
             padding: 14px 20px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border);
             font-size: 13px;
             color: #374151;
         }
@@ -489,7 +499,7 @@
             justify-content: flex-end;
             gap: 16px;
             padding: 24px 40px;
-            background: white;
+            background: var(--bg-card);
             border-top: 1px solid #ebebeb;
             border-bottom-left-radius: 11px;
             border-bottom-right-radius: 11px;
@@ -505,7 +515,7 @@
             font-size: 14px;
             font-weight: 600;
             color: #2563eb;
-            background: white;
+            background: var(--bg-card);
             border: 1px solid #2563eb;
             transition: all 0.15s;
         }
@@ -536,7 +546,7 @@
        RIGHT SIDEBAR CARDS
     ============================== */
         .info-card {
-            background: white;
+            background: var(--bg-card);
             border: 1px solid #ebebeb;
             border-radius: 12px;
             padding: 20px;
@@ -564,12 +574,12 @@
         .info-card__title {
             font-size: 14px;
             font-weight: 700;
-            color: #131212;
+            color: var(--text-primary);
         }
 
         .info-card__desc {
             font-size: 12px;
-            color: #6b7280;
+            color: var(--text-muted);
             line-height: 1.5;
             margin-bottom: 12px;
         }
@@ -582,9 +592,9 @@
 
         .info-card__list li {
             font-size: 13px;
-            color: #374151;
+            color: var(--text-primary, #374151);
             padding: 6px 0;
-            border-bottom: 1px solid #f5f5f5;
+            border-bottom: 1px solid var(--border);
         }
 
         .info-card__list li:last-child {
@@ -601,7 +611,7 @@
         .info-card__value {
             font-size: 16px;
             font-weight: 700;
-            color: #131212;
+            color: var(--text-primary);
         }
 
         .badge-mode {
@@ -643,7 +653,7 @@
        LEFT SIDEBAR (Web Component)
   ============================ -->
         <!-- Note: sidebar.js has been updated to use absolute paths, data-base is optional but left for completeness -->
-        <app-sidebar data-base="../../"></app-sidebar>
+        <app-sidebar data-base="../../../"></app-sidebar>
 
         <!-- ============================
        MAIN WRAPPER
@@ -651,7 +661,7 @@
         <div class="main-wrapper">
 
             <!-- TOP BAR -->
-            <app-topbar data-base="../../"></app-topbar>
+            <app-topbar data-base="../../../"></app-topbar>
 
             <!-- CONTENT AREA -->
             <main class="content-area">
@@ -755,11 +765,9 @@
 
                         <!-- Actions Footer -->
                         <div class="instruction-actions">
-                            <!-- Navigate back to setup page on quit -->
-                            <button class="btn-quit"
-                                onclick="window.location.href='setup.html'">Quit</button>
-                            <button class="btn-start" onclick="window.location.href='cbt_player.html' + window.location.search">Start
-                                Test</button>
+                            <!-- Bug fix #21: preserve query params when quitting -->
+                            <button class="btn-quit" id="btn-quit-instr">Quit</button>
+                            <button class="btn-start" id="btn-start-instr">Start Test</button>
                         </div>
                     </div>
 
@@ -792,8 +800,9 @@
                             <span class="info-card__title">Test Mode</span>
                         </div>
                         <div class="info-card__row" style="margin-top: 16px;">
-                            <div class="info-card__value">120 <span
-                                    style="font-size: 13px; font-weight: normal; color: #6b7280;">Min</span></div>
+                            <!-- Bug fix #25: will be filled dynamically -->
+                            <div class="info-card__value" id="instr-time-val">120 <span
+                                    style="font-size: 13px; font-weight: normal; color: var(--text-muted);">Min</span></div>
                             <div class="badge-mode">Full Mode</div>
                         </div>
                     </div>
@@ -811,7 +820,7 @@
                     </div>
 
                     <!-- Edit Selections Button -->
-                    <button class="btn-edit" onclick="window.location.href='setup.html'">
+                    <button class="btn-edit" id="btn-edit-instr">
                         ✏️ Edit Selections
                     </button>
 
@@ -892,12 +901,36 @@
           if (instrList1) instrList1.style.display = 'none'; // Hide the specific question count list
       }
       
-      // Ensure "Start Test" passes along the query string
-      const startBtn = document.querySelector('.btn-start');
-      if (startBtn) {
-          startBtn.onclick = function() {
-              window.location.href = 'cbt_player.html' + window.location.search;
-          };
+      // Bug fix #21/#25: all navigation preserves query params, time is dynamic
+      const qStr = window.location.search;
+      
+      // Wire quit/edit/start buttons with correct params
+      const quitBtn = document.getElementById('btn-quit-instr');
+      const startBtn = document.getElementById('btn-start-instr');
+      const editBtn  = document.getElementById('btn-edit-instr');
+      
+      if (quitBtn)  quitBtn.onclick  = () => window.location.href = 'setup.html' + qStr;
+      if (editBtn)  editBtn.onclick  = () => window.location.href = 'setup.html' + qStr;
+      if (startBtn) startBtn.onclick = () => window.location.href = 'cbt_player.html' + qStr;
+      
+      // Compute and show dynamic time (JAMB=120, WAEC/NECO per subject, SAT=180)
+      const examIdParam = params.get('exam_id') || '';
+      const subjectCount = (params.get('subject') || '').split(',').filter(Boolean).length || 1;
+      let dynamicTime = 120;
+      if (examIdParam.includes('waec') || examIdParam.includes('neco')) {
+        dynamicTime = subjectCount * 50;
+      } else if (examIdParam.includes('sat')) {
+        dynamicTime = 180;
+      } else if (examIdParam.includes('jamb')) {
+        dynamicTime = 120;
+      }
+      const timeEl = document.getElementById('instr-time-val');
+      if (timeEl) timeEl.innerHTML = `${dynamicTime} <span style="font-size:13px;font-weight:normal;color: var(--text-muted);">Min</span>`;
+      
+      // Also update the time mention in the instruction body text
+      const timeMentions = document.querySelectorAll('.instruction-text');
+      if (timeMentions.length > 1) {
+        timeMentions[1].innerHTML = timeMentions[1].innerHTML.replace(/\d+ minutes/, `<strong>${dynamicTime} minutes</strong>`);
       }
     </script>
 </body>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Post</title>
@@ -9,8 +18,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #fff;
-            color: #111;
+            background: var(--bg-body, #f0f2f5);
+            color: var(--text-primary, #111);
             -webkit-font-smoothing: antialiased;
             display: flex;
             justify-content: center;
@@ -18,11 +27,22 @@
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            background: #fff;
+            background: var(--bg-card, #fff);
+        }
+
+        @media (min-width: 850px) {
+            .container {
+                height: calc(100vh - 40px);
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+                border: 1px solid var(--border, #eaeaea);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            }
         }
 
         /* ── Header ── */
@@ -31,7 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 16px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border);
             flex-shrink: 0;
         }
         .back-btn {
@@ -58,22 +78,23 @@
             width: 100%;
             border: none;
             outline: none;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary, #111);
+            background: transparent;
             font-family: inherit;
             line-height: 1.35;
-            min-height: 28px;
+            min-height: 36px;
         }
         .title-input:empty::before {
             content: attr(data-placeholder);
-            color: #d0d0d0;
+            color: var(--text-muted, #999);
         }
         .char-count {
             display: flex;
             justify-content: flex-end;
-            font-size: 0.7rem;
-            color: #c0c0c0;
+            font-size: 0.8rem;
+            color: var(--text-secondary, #666);
             margin-top: 6px;
         }
 
@@ -91,7 +112,7 @@
             display: none;
             position: absolute;
             top: 0; left: 0; right: 0;
-            background: #fff;
+            background: var(--bg-card);
             border-bottom: 1px solid #e0e0e0;
             padding: 8px 12px;
             gap: 8px;
@@ -102,7 +123,7 @@
         .url-popup.open { display: flex; }
         .url-popup input {
             flex: 1;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border);
             border-radius: 6px;
             padding: 7px 10px;
             font-size: 0.85rem;
@@ -204,14 +225,14 @@
         .editor {
             min-height: 100%;
             outline: none;
-            font-size: 1rem;
-            color: #111;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            color: var(--text-primary, #111);
+            line-height: 1.8;
             font-family: inherit;
         }
         .editor:empty::before {
             content: attr(data-placeholder);
-            color: #c8c8c8;
+            color: var(--text-muted, #999);
             pointer-events: none;
         }
         /* Article-like styles inside the editor */
@@ -229,7 +250,7 @@
             font-style: italic;
             font-weight: 700;
             line-height: 1.35;
-            color: #000;
+            color: var(--text-primary);
         }
         .editor ul { padding-left: 22px; margin: 8px 0; }
         .editor ol { padding-left: 22px; margin: 8px 0; }
@@ -253,6 +274,7 @@
             flex-shrink: 0;
         }
     </style>
+  <link rel="stylesheet" href="../../../../components/dark-mode.css">
 </head>
 <body>
 <div class="container">
@@ -450,11 +472,24 @@
         const file = e.target.files[0];
         if (!file) return;
 
+        let caption = prompt("Add a comment or caption for this image (max 200 characters):", "");
+        if (caption === null) {
+            e.target.value = '';
+            return; // User cancelled
+        }
+        
+        if (caption.length > 200) {
+            caption = caption.substring(0, 200);
+        }
+        if (!caption.trim()) {
+            caption = "Add caption...";
+        }
+
         const reader = new FileReader();
         reader.onload = function(ev) {
             editor.focus();
             document.execCommand('insertHTML', false,
-                `<figure><img src="${ev.target.result}" alt="Inserted image"><figcaption contenteditable="true">Add caption...</figcaption></figure><p><br></p>`
+                `<figure><img src="${ev.target.result}" alt="Inserted image"><figcaption contenteditable="true" style="font-style: italic; font-size: 0.9rem; text-align: center;">${caption}</figcaption></figure><p><br></p>`
             );
             updateStats();
         };

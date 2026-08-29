@@ -93,10 +93,10 @@
       label: 'JAMB Syllabus',
     },
     {
-      id: 'jamb_brochure',
-      path: 'study/jamb_brochure/jamb_brochure.html',
+      id: 'brochure',
+      path: 'study/brochure/brochure.html',
       section: 'study',
-      label: 'JAMB Brochure',
+      label: 'Brochure',
     },
     {
       id: 'topic_video',
@@ -120,7 +120,7 @@
     // ── CBT Test ──────────────────────────────────────────────
     {
       id: 'live_arena',
-      path: 'cbt_test/live_quiz_arena/all_subject.html',
+      path: 'cbt_test/live_quiz_arena/exam_body.html',
       section: 'test',
       label: 'Live Arena',
     },
@@ -242,6 +242,12 @@
       section: 'test',
       label: 'Leaderboard',
     },
+    {
+      id: 'history',
+      path: 'history/history.html',
+      section: 'test',
+      label: 'History',
+    },
 
     // ── Blog ──────────────────────────────────────────────────
     {
@@ -254,9 +260,9 @@
     // ── Exam Studio ───────────────────────────────────────────
     {
       id: 'tutor',
-      path: 'exam_hub/tutor/teacher_entry.html',
+      path: 'exam_hub/tutor/List_of_rooms.html',
       section: 'exam_studio',
-      label: 'Tutor Entry',
+      label: 'Tutor',
       guard: 'auth',
     },
     {
@@ -281,10 +287,38 @@
       guard: 'auth',
     },
     {
-      id: 'student',
-      path: 'exam_hub/student/all_rooms.html',
+      id: 'tutor_create_exam',
+      path: 'exam_hub/tutor/create_exam.html',
       section: 'exam_studio',
-      label: 'All Rooms',
+      label: 'Create Exam',
+      guard: 'auth',
+    },
+    {
+      id: 'tutor_hub_manager',
+      path: 'exam_hub/tutor/hub_manager.html',
+      section: 'exam_studio',
+      label: 'Hub Manager',
+      guard: 'auth',
+    },
+    {
+      id: 'tutor_question_editor',
+      path: 'exam_hub/tutor/question_editor.html',
+      section: 'exam_studio',
+      label: 'Question Editor',
+      guard: 'auth',
+    },
+    {
+      id: 'tutor_chat_room',
+      path: 'exam_hub/tutor/chat_room.html',
+      section: 'exam_studio',
+      label: 'Tutor Chat Room',
+      guard: 'auth',
+    },
+    {
+      id: 'student',
+      path: 'exam_hub/student/home.html',
+      section: 'exam_studio',
+      label: 'Student',
       guard: 'auth',
     },
     {
@@ -317,6 +351,20 @@
       section: 'exam_studio',
       label: 'Student Analysis',
       params: ['room'],
+      guard: 'auth',
+    },
+    {
+      id: 'student_all_course',
+      path: 'exam_hub/student/all_course.html',
+      section: 'exam_studio',
+      label: 'Student All Courses',
+      guard: 'auth',
+    },
+    {
+      id: 'student_chat_with_admin',
+      path: 'exam_hub/student/chat_with_admin.html',
+      section: 'exam_studio',
+      label: 'Chat With Admin',
       guard: 'auth',
     },
 
@@ -373,13 +421,7 @@
       section: 'more',
       label: 'Admission News',
     },
-    {
-      id: 'history',
-      path: null,
-      section: 'more',
-      label: 'History',
-      anchor: '#history',
-    },
+
     {
       id: 'friend_score',
       path: null,
@@ -391,7 +433,7 @@
     // ── AI Tutor ──────────────────────────────────────────────
     {
       id: 'ai_tutor',
-      path: 'AI_study_agent/ai_study_agent.html',
+      path: 'cbt_test/core/ai_plan.html',
       section: 'ai_tutor',
       label: 'AI Tutor',
     },
@@ -428,10 +470,12 @@
   ═══════════════════════════════════════════════════════════════ */
   const _guards = [];
 
-  /** Default auth guard — checks localStorage.isLoggedIn */
+  /** Default auth guard — checks Supabase token or localStorage.isLoggedIn */
   function _defaultAuthGuard({ route }) {
     if (route && route.guard === 'auth') {
-      const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      const legacyLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      const supabaseToken = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
+      const loggedIn = legacyLoggedIn || (supabaseToken !== null);
       if (!loggedIn) {
         global.location.href = _resolveBase() + 'auth/login.html';
         return false;
@@ -763,6 +807,15 @@
   /* ═══════════════════════════════════════════════════════════════
      13. BOOT
   ═══════════════════════════════════════════════════════════════ */
+  // 1. Run guards immediately for the current page on direct load
+  var currentRoute = _matchCurrentRoute();
+  if (currentRoute) {
+    for (var i = 0; i < _guards.length; i++) {
+      if (_guards[i]({ id: currentRoute.id, route: currentRoute, href: global.location.href }) === false) return;
+    }
+  }
+
+  // 2. Initialize link interceptor for subsequent clicks
   _initLinkInterceptor();
 
   // Expose globally

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bulk Upload Exams | My Exam Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --surface: #ffffff;
+            --background: #F3F4F6;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar Mockup */
+        .sidebar {
+            width: 260px;
+            background: #111827;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            color: #9CA3AF;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        /* Drag and Drop Zone */
+        .upload-zone {
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #EEF2FF;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-zone.dragover {
+            background: #E0E7FF;
+            border-color: var(--primary-hover);
+        }
+
+        .upload-zone i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .upload-zone h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-zone p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Table Preview */
+        .preview-section {
+            display: none;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .stat-value.error { color: var(--danger); }
+        .stat-value.success { color: var(--success); }
+
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #F9FAFB;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+        
+        .truncate {
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-valid { background: #D1FAE5; color: #065F46; }
+        .status-invalid { background: #FEE2E2; color: #991B1B; }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: #F9FAFB;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #file-input { display: none; }
+
+        /* Cascading Select Styles */
+        .config-select {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #F9FAFB;
+            width: 100%;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            transition: border-color 0.2s, background 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.9rem center;
+            padding-right: 2.5rem;
+        }
+        .config-select:focus { outline: none; border-color: var(--primary); background-color: var(--bg-card); }
+        .config-select:disabled { opacity: 0.45; cursor: not-allowed; background-color: #F3F4F6; }
+        .config-select.loading { opacity: 0.7; cursor: wait; }
+
+        .config-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .config-label .step-badge {
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.65rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Delete Mode Toggle */
+        .mode-toggle-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 26px;
+        }
+        .toggle-switch input { display: none; }
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: #D1D5DB;
+            border-radius: 26px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .toggle-slider:before {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            left: 3px; top: 3px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            transition: 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .toggle-switch input:checked + .toggle-slider { background: var(--danger); }
+        .toggle-switch input:checked + .toggle-slider:before { transform: translateX(22px); }
+
+        .delete-mode-active #config-card {
+            border-color: #FECACA;
+            box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+        }
+        .delete-mode-active .card-header-title { color: var(--danger); }
+
+        /* Path preview */
+        .path-preview-box {
+            padding: 1rem 1.25rem;
+            background: #EEF2FF;
+            border-radius: 8px;
+            border: 1px solid #C7D2FE;
+            margin-top: 1rem;
+        }
+        .path-preview-box.delete-path {
+            background: #FEF2F2;
+            border-color: #FECACA;
+        }
+        .path-preview-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #4338CA;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+        .path-preview-box.delete-path .path-preview-label { color: var(--danger); }
+        .path-preview-value {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-top: 0.4rem;
+            word-break: break-all;
+        }
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+        .config-row-2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        .btn-danger:hover { background: #DC2626; }
+        .btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #111827;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 50;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            Admin Panel
+        </div>
+        <nav>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-file-circle-plus"></i> Bulk Add Exams
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Cloudflare Sync
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header">
+            <div>
+                <h1>Bulk Upload Questions</h1>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Upload JSON files to batch import questions into the staging area.</p>
+            </div>
+            <button class="btn btn-outline" onclick="downloadTemplate()">
+                <i class="fa-solid fa-download"></i> Download JSON Template
+            </button>
+        </div>
+
+        <!-- Metadata Configuration -->
+        <div class="card" id="config-card" style="margin-bottom: 2rem;">
+            <!-- Header Row: Title + Delete Mode Toggle -->
+            <div class="mode-toggle-bar">
+                <div>
+                    <h2 class="card-header-title" style="font-size: 1.25rem; font-weight: 700;">📁 Folder Architecture Configuration</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Auto-populates from your config files. No code needed.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--danger);" id="delete-mode-label">Delete Mode</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="delete-mode-toggle" onchange="onDeleteModeToggle()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Row 1: Country | Exam Category | Exam Body -->
+            <div class="config-grid">
+                <div>
+                    <div class="config-label"><span class="step-badge">1</span> Country</div>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="config-label"><span class="step-badge">2</span> Exam Category</div>
+                    <select id="config-category" class="config-select" onchange="onCategoryChange()" disabled>
+                        <option value="">— Select Country first —</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="config-label"><span class="step-badge">3</span> Exam Body</div>
+                    <select id="config-exam-body" class="config-select" onchange="onExamBodyChange()" disabled>
+                        <option value="">— Select Category first —</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 2: Subject | Question Type | Year -->
+            <div class="config-row-2">
+                <div>
+                    <div class="config-label"><span class="step-badge">4</span> Subject</div>
+                    <select id="config-subject" class="config-select" onchange="updatePathPreview()" disabled>
+                        <option value="">— Select Exam Body first —</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="config-label"><span class="step-badge">5</span> Question Type</div>
+                    <select id="config-type" class="config-select" onchange="updatePathPreview()">
+                        <option value="objective">Objective</option>
+                        <option value="theory">Theory</option>
+                        <option value="practical">Practical</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="config-label"><span class="step-badge">6</span> Year</div>
+                    <select id="config-year" class="config-select" onchange="updatePathPreview()">
+                        <option value="">— All Years —</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Path Preview -->
+            <div class="path-preview-box" id="path-preview-box">
+                <div class="path-preview-label" id="path-preview-label">📂 Target Path Preview</div>
+                <div class="path-preview-value" id="path-preview">new_staging_area / [country] / exams / [category] / [exam_body] / [subject] / [type] / [year].json</div>
+            </div>
+        </div>
+
+        <!-- Upload Zone -->
+        <div class="card" id="upload-card">
+            <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+                <i class="fa-solid fa-folder-open"></i>
+                <h3>Drag & Drop folders or JSON files here</h3>
+                <p>or click to browse directories from your computer</p>
+                <input type="file" id="file-input" accept=".json" webkitdirectory directory multiple>
+            </div>
+        </div>
+
+        <!-- Data Preview & Validation (Hidden until upload) -->
+        <div class="card preview-section" id="preview-section">
+            <div class="preview-header">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Questions</span>
+                        <span class="stat-value" id="stat-total">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Valid</span>
+                        <span class="stat-value success" id="stat-valid">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Errors</span>
+                        <span class="stat-value error" id="stat-error">0</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-outline" onclick="resetUpload()">
+                        <i class="fa-solid fa-trash-can"></i> Discard
+                    </button>
+                    <button class="btn btn-success" id="btn-sync" onclick="syncToStaging()">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Sync to new_staging_area
+                    </button>
+                    <button class="btn btn-danger" id="btn-delete" onclick="deleteQuestions()" style="display:none;">
+                        <i class="fa-solid fa-trash"></i> Delete These Questions
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="questions-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>No.</th>
+                            <th>Exam Details</th>
+                            <th>Question Preview</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--success)"></i>
+        <span id="toast-message">Action successful!</span>
+    </div>
+
+    <script>
+        // ─── State ───────────────────────────────────────────────────────────────
+        let uploadedData = [];
+        let validCount = 0;
+        let errorCount = 0;
+        let fileErrors = [];
+        let allModules = [];   // full list from country config
+        let isDeleteMode = false;
+
+        // ─── DOM Refs ────────────────────────────────────────────────────────────
+        const dropZone    = document.getElementById('drop-zone');
+        const fileInput   = document.getElementById('file-input');
+        const pathPreview = document.getElementById('path-preview');
+        const pathBox     = document.getElementById('path-preview-box');
+        const pathLabel   = document.getElementById('path-preview-label');
+
+        const selCountry  = document.getElementById('config-country');
+        const selCategory = document.getElementById('config-category');
+        const selExamBody = document.getElementById('config-exam-body');
+        const selSubject  = document.getElementById('config-subject');
+        const selType     = document.getElementById('config-type');
+        const selYear     = document.getElementById('config-year');
+
+        // ─── Category display names ──────────────────────────────────────────────
+        const CATEGORY_LABELS = {
+            'university_entrance' : '🎓 University Entrance',
+            'high_school_graduate': '🏫 High School Graduate',
+            'university'          : '🏛️ University',
+            'postgraduate'        : '📚 Postgraduate',
+            'other'               : '📋 Other'
+        };
+
+        // ─── Year options ────────────────────────────────────────────────────────
+        (function populateYears() {
+            const currentYear = new Date().getFullYear();
+            for (let y = currentYear; y >= 1990; y--) {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                selYear.appendChild(opt);
+            }
+        })();
+
+        // ─── On page load: fetch global countries and populate Country dropdown ──
+        (async function init() {
+            try {
+                selCountry.innerHTML = '<option value="">Loading...</option>';
+                selCountry.classList.add('loading');
+                const res  = await fetch('/new_staging_area/configs/global_countries.json');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                selCountry.innerHTML = '<option value="">— Select Country —</option>';
+                Object.entries(data).forEach(([code, info]) => {
+                    const opt = document.createElement('option');
+                    opt.value = code;
+                    opt.textContent = `${info.name} (${code})`;
+                    if (code === 'ng') opt.selected = true;
+                    selCountry.appendChild(opt);
+                });
+                selCountry.classList.remove('loading');
+                // Auto-load Nigeria on start
+                await onCountryChange();
+            } catch(err) {
+                selCountry.innerHTML = '<option value="">⚠ Could not load countries</option>';
+                selCountry.classList.remove('loading');
+                console.error('init error:', err);
+            }
+        })();
+
+        // ─── Country selected → load exam modules for that country ────────────────
+        async function onCountryChange() {
+            const code = selCountry.value;
+            resetSelect(selCategory, '— Select Category —', true);
+            resetSelect(selExamBody, '— Select Category first —', true);
+            resetSelect(selSubject,  '— Select Exam Body first —', true);
+            allModules = [];
+            updatePathPreview();
+            if (!code) return;
+
+            try {
+                selCategory.innerHTML = '<option>Loading...</option>';
+                selCategory.classList.add('loading');
+                const res = await fetch(`/new_staging_area/configs/${code}.json`);
+                if (!res.ok) throw new Error(`No config found for "${code}" (HTTP ${res.status})`);
+                const data = await res.json();
+                allModules = data.dashboard_modules || [];
+
+                // Build unique category list
+                const categories = [...new Set(allModules.map(m => m.category).filter(Boolean))];
+                selCategory.innerHTML = '<option value="">— Select Category —</option>';
+                categories.forEach(cat => {
+                    const opt = document.createElement('option');
+                    opt.value = cat;
+                    opt.textContent = CATEGORY_LABELS[cat] || cat;
+                    selCategory.appendChild(opt);
+                });
+                selCategory.disabled = false;
+                selCategory.classList.remove('loading');
+                updatePathPreview();
+            } catch(err) {
+                selCategory.innerHTML = `<option>⚠ ${err.message}</option>`;
+                selCategory.classList.remove('loading');
+            }
+        }
+
+        // ─── Category selected → populate Exam Body ───────────────────────────────
+        function onCategoryChange() {
+            const cat = selCategory.value;
+            resetSelect(selExamBody, '— Select Category first —', true);
+            resetSelect(selSubject, '— Select Exam Body first —', true);
+            updatePathPreview();
+            if (!cat) return;
+
+            const filtered = allModules.filter(m => m.category === cat);
+            selExamBody.innerHTML = '<option value="">— Select Exam Body —</option>';
+            filtered.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = JSON.stringify({ dataSource: m.data_source, examBody: m.exam_body });
+                opt.textContent = `${m.icon || ''} ${m.display_name}`;
+                selExamBody.appendChild(opt);
+            });
+            selExamBody.disabled = false;
+            updatePathPreview();
+        }
+
+        // ─── Exam Body selected → fetch its index.json and populate Subjects ──────
+        async function onExamBodyChange() {
+            const raw = selExamBody.value;
+            resetSelect(selSubject, '— Select Exam Body first —', true);
+            updatePathPreview();
+            if (!raw) return;
+
+            const { dataSource } = JSON.parse(raw);
+            try {
+                selSubject.innerHTML = '<option>Loading subjects...</option>';
+                selSubject.classList.add('loading');
+                const res = await fetch(`/new_staging_area/${dataSource}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                const subjects = data.subjects || [];
+                selSubject.innerHTML = '<option value="">— Select Subject —</option>';
+                subjects.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.id;
+                    opt.textContent = s.name;
+                    selSubject.appendChild(opt);
+                });
+                selSubject.disabled = false;
+                selSubject.classList.remove('loading');
+                updatePathPreview();
+            } catch(err) {
+                selSubject.innerHTML = `<option>⚠ Could not load subjects</option>`;
+                selSubject.classList.remove('loading');
+                console.error('Subject load error:', err);
+            }
+        }
+
+        // ─── Build the full target path ───────────────────────────────────────────
+        function buildTargetPath() {
+            const country  = selCountry.value  || '[country]';
+            const cat      = selCategory.value || '[category]';
+            const examRaw  = selExamBody.value;
+            const examBody = examRaw ? JSON.parse(examRaw).examBody : '[exam_body]';
+            const subject  = selSubject.value  || '[subject]';
+            const type     = selType.value     || 'objective';
+            const year     = selYear.value;
+            const file     = year ? `${year}.json` : '[year].json';
+            return `new_staging_area/${country}/exams/${cat}/${examBody}/${subject}/${type}/${file}`;
+        }
+
+        function updatePathPreview() {
+            const path = buildTargetPath();
+            pathPreview.textContent = path;
+            if (isDeleteMode) {
+                pathBox.classList.add('delete-path');
+                pathLabel.textContent = '🗑️ Delete Target Path';
+            } else {
+                pathBox.classList.remove('delete-path');
+                pathLabel.textContent = '📂 Target Path Preview';
+            }
+        }
+
+        // ─── Delete Mode toggle ──────────────────────────────────────────────────
+        function onDeleteModeToggle() {
+            isDeleteMode = document.getElementById('delete-mode-toggle').checked;
+            document.body.classList.toggle('delete-mode-active', isDeleteMode);
+            document.getElementById('btn-sync').style.display   = isDeleteMode ? 'none'  : '';
+            document.getElementById('btn-delete').style.display = isDeleteMode ? ''      : 'none';
+            updatePathPreview();
+        }
+
+        // ─── Validation ───────────────────────────────────────────────────────────
+        function validateConfig() {
+            if (!selCountry.value || !selCategory.value || !selExamBody.value || !selSubject.value) {
+                showToast("Please complete all 4 dropdowns (Country, Category, Exam Body, Subject) before uploading.", true);
+                return false;
+            }
+            if (!selYear.value) {
+                showToast("Please select a Year before uploading.", true);
+                return false;
+            }
+            return true;
+        }
+
+        // ─── Helper: reset a select ───────────────────────────────────────────────
+        function resetSelect(el, placeholder, disabled) {
+            el.innerHTML = `<option value="">${placeholder}</option>`;
+            el.disabled = disabled;
+            el.classList.remove('loading');
+        }
+
+        // Drag & Drop Handlers
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+        });
+        
+        dropZone.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            
+            if (!validateConfig()) return;
+            
+            uploadedData = []; // reset
+            fileErrors = []; // reset
+            let promises = [];
+            
+            if (e.dataTransfer.items) {
+                for (let i = 0; i < e.dataTransfer.items.length; i++) {
+                    const item = e.dataTransfer.items[i].webkitGetAsEntry();
+                    if (item) {
+                        promises.push(traverseFileTree(item));
+                    }
+                }
+            } else if (e.dataTransfer.files.length) {
+                for (let i = 0; i < e.dataTransfer.files.length; i++) {
+                    promises.push(processFile(e.dataTransfer.files[i]));
+                }
+            }
+            
+            await Promise.all(promises);
+            if (uploadedData.length > 0) {
+                validateAndPreviewData();
+                if (fileErrors.length > 0) {
+                    showToast(`Loaded with errors. Check popup for details.`, true);
+                    alert("Errors during upload:\n" + fileErrors.join("\n"));
+                }
+            } else {
+                if (fileErrors.length > 0) {
+                    alert("Errors during upload:\n" + fileErrors.join("\n"));
+                } else {
+                    showToast("No valid JSON questions found in the selected folders.", true);
+                }
+            }
+        });
+        
+        fileInput.addEventListener('change', async (e) => {
+            if (!validateConfig()) {
+                fileInput.value = '';
+                return;
+            }
+            uploadedData = []; // reset
+            fileErrors = []; // reset
+            let promises = [];
+            
+            if (e.target.files.length) {
+                for (let i = 0; i < e.target.files.length; i++) {
+                    promises.push(processFile(e.target.files[i]));
+                }
+            }
+            
+            await Promise.all(promises);
+            if (uploadedData.length > 0) {
+                validateAndPreviewData();
+                if (fileErrors.length > 0) {
+                    showToast(`Loaded with errors. Check popup for details.`, true);
+                    alert("Errors during upload:\n" + fileErrors.join("\n"));
+                }
+            } else {
+                if (fileErrors.length > 0) {
+                    alert("Errors during upload:\n" + fileErrors.join("\n"));
+                } else {
+                    showToast("No valid JSON questions found.", true);
+                }
+            }
+        });
+
+        function traverseFileTree(item) {
+            return new Promise((resolve) => {
+                if (item.isFile) {
+                    item.file((file) => {
+                        processFile(file).then(resolve);
+                    });
+                } else if (item.isDirectory) {
+                    let dirReader = item.createReader();
+                    dirReader.readEntries(async (entries) => {
+                        let promises = [];
+                        for (let i = 0; i < entries.length; i++) {
+                            promises.push(traverseFileTree(entries[i]));
+                        }
+                        await Promise.all(promises);
+                        resolve();
+                    });
+                }
+            });
+        }
+
+        function processFile(file) {
+            return new Promise((resolve) => {
+                if (!file.name.toLowerCase().endsWith(".json")) {
+                    resolve();
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const json = JSON.parse(e.target.result);
+                        let data = Array.isArray(json) ? json : (json.questions || json.data || []);
+                        
+                        // If it's a single question object rather than an array
+                        if (data.length === 0 && !Array.isArray(json) && typeof json === 'object' && json.question) {
+                            data = [json];
+                        }
+                        
+                        if (data.length > 0) {
+                            uploadedData = uploadedData.concat(data);
+                        } else {
+                            fileErrors.push(`No questions found in ${file.name}`);
+                        }
+                    } catch (err) {
+                        fileErrors.push(`${file.name}: ${err.message}`);
+                    }
+                    resolve();
+                };
+                reader.onerror = () => {
+                    fileErrors.push(`Failed to read file: ${file.name}`);
+                    resolve();
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        function validateAndPreviewData() {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+            validCount = 0;
+            errorCount = 0;
+
+            uploadedData.forEach((q, index) => {
+                // Validation checks
+                const hasQuestion = !!q.question;
+                const hasOptions = q.options && q.options.A && q.options.B && q.options.C && q.options.D;
+                const hasAnswer = !!q.answer;
+                
+                const isValid = hasQuestion && hasOptions && hasAnswer;
+                
+                if (isValid) validCount++; else errorCount++;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <span class="status-badge ${isValid ? 'status-valid' : 'status-invalid'}">
+                            ${isValid ? '<i class="fa-solid fa-check"></i> Valid' : '<i class="fa-solid fa-xmark"></i> Error'}
+                        </span>
+                    </td>
+                    <td>${q.question_number || (index + 1)}</td>
+                    <td>
+                        <div style="font-weight: 600">${(q.exam_board || 'N/A').toUpperCase()}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted)">${q.subject || 'Unknown'} - ${q.year || '----'}</div>
+                    </td>
+                    <td>
+                        <div class="truncate">${q.question || '<em style="color:red">Missing Question Text</em>'}</div>
+                    </td>
+                    <td><strong>${q.answer || '-'}</strong></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update Stats
+            document.getElementById('stat-total').innerText = uploadedData.length;
+            document.getElementById('stat-valid').innerText = validCount;
+            document.getElementById('stat-error').innerText = errorCount;
+            
+            const btnSync = document.getElementById('btn-sync');
+            if(errorCount > 0) {
+                btnSync.disabled = true;
+                btnSync.style.opacity = '0.5';
+                btnSync.title = "Fix errors in JSON before syncing";
+            } else {
+                btnSync.disabled = false;
+                btnSync.style.opacity = '1';
+                btnSync.title = "";
+            }
+
+            // Toggle UI
+            document.getElementById('upload-card').style.display = 'none';
+            document.getElementById('preview-section').style.display = 'block';
+        }
+
+        function resetUpload() {
+            uploadedData = [];
+            fileInput.value = '';
+            document.getElementById('upload-card').style.display = 'block';
+            document.getElementById('preview-section').style.display = 'none';
+        }
+
+        function downloadTemplate() {
+            const template = [
+                {
+                    "exam_board": "JAMB",
+                    "subject": "english",
+                    "year": 2023,
+                    "question_number": 1,
+                    "question": "Which of the following is a noun?",
+                    "options": {
+                        "A": "Quickly",
+                        "B": "Run",
+                        "C": "Happiness",
+                        "D": "Beautiful"
+                    },
+                    "answer": "C",
+                    "explanation": "Happiness is a noun denoting a state of well-being."
+                }
+            ];
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(template, null, 4));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "questions_template.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        function syncToStaging() {
+            if (errorCount > 0) {
+                showToast("Cannot sync: There are invalid questions in the batch.", true);
+                return;
+            }
+
+            const btn = document.getElementById('btn-sync');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Syncing...';
+            btn.disabled = true;
+
+            const targetPath = buildTargetPath();
+
+            // Mock backend sync (In reality, POST to /api/admin/bulk-upload with the path)
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Synced Successfully';
+                showToast(`Successfully synced ${validCount} questions to ${targetPath}`);
+                
+                setTimeout(() => {
+                    resetUpload();
+                    btn.innerHTML = originalText;
+                }, 2500);
+            }, 1500);
+        }
+
+        function deleteQuestions() {
+            const targetPath = buildTargetPath();
+            if (!targetPath.includes('[')) {
+                if (confirm(`⚠️ DELETE MODE\n\nYou are about to delete:\n${targetPath}\n\nThis action cannot be undone. Are you sure?`)) {
+                    const btn = document.getElementById('btn-delete');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Deleting...';
+                    btn.disabled = true;
+                    // In reality, send DELETE to /api/admin/delete?path=<targetPath>
+                    // e.g. fetch(`/api/admin/delete`, { method: 'DELETE', body: JSON.stringify({ path: targetPath }) })
+                    setTimeout(() => {
+                        showToast(`✅ Deleted: ${targetPath}`, false);
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        resetUpload();
+                    }, 1000);
+                }
+            } else {
+                showToast("Please complete all dropdowns before deleting.", true);
+            }
+        }
+
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const icon = toast.querySelector('i');
+            
+            toast.querySelector('#toast-message').innerText = message;
+            
+            if(isError) {
+                icon.className = 'fa-solid fa-circle-exclamation';
+                icon.style.color = 'var(--danger)';
+            } else {
+                icon.className = 'fa-solid fa-circle-check';
+                icon.style.color = 'var(--success)';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

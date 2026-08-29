@@ -6,8 +6,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What term in probability is defined as a process of observation in order to draw useful information or the act of performing a task?",
-        "explanation": "An experiment is a process of observation in order to draw useful information. It is also the act of performing a task. For instance, tossing a coin is an experiment.",
+        "question_text": "<p><b>Trial</b> and <b>experiment</b> are two terms frequently encountered in probability. Which of the following best fits the definition of a process of observation in order to draw useful information or the act of performing a task?</p>",
+        "explanation": "<p>In probability, an <b>experiment</b> is defined as a process of observation conducted to gather useful information or as the act of performing a task. It involves observing the outcomes of a particular activity. For example, <i>tossing a coin</i> is considered an experiment because it is a task performed to observe its outcome (heads or tails).</p><p>A <b>trial</b>, on the other hand, refers to a single performance of an experiment. While closely related, the term <b>experiment</b> encompasses the broader concept of the process itself.</p>",
         "options": [
             {
                 "option_id": "277857",
@@ -34,7 +34,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 3
+        "question_number": 3,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In the context of probability, what is a 'Trial'?",
-        "explanation": "A Trial is one act that is performed and the result is referred to as an outcome.",
+        "question_text": "<p>A <b>Trial</b> in probability refers to:</p>",
+        "explanation": "<p>A <b>Trial</b> is defined as one act that is performed, and the result of this act is referred to as an <b>outcome</b>. It is a fundamental concept in probability theory, as it represents the process through which observations or measurements are obtained.</p>",
         "options": [
             {
                 "option_id": "273619",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 8
+        "question_number": 8,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,8 +82,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following best describes a 'Sample Space'?",
-        "explanation": "The Sample Space is the list of all possible outcomes in an experiment, and each outcome is called a sample point.",
+        "question_text": "<p>The term <b>Sample Space</b> is best described by which of the following?</p>",
+        "explanation": "<p>A <b>Sample Space</b> refers to the <i>complete set</i> of all possible outcomes that could result from an experiment or random trial. Each individual outcome within this space is known as a <b>sample point</b>.</p>",
         "options": [
             {
                 "option_id": "182640",
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 14
+        "question_number": 14,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "An event in probability is strictly defined as:",
-        "explanation": "An Event is a collection of outcomes (sample points) that have a certain quality in common. It is mathematically a subset of the sample space.",
+        "question_text": "<p>An event in probability is strictly defined as:</p>",
+        "explanation": "<p>An <b>Event</b> is <i>a collection of outcomes (sample points)</i> that have a certain quality in common. It is mathematically a <b>subset of the sample space</b>.</p>",
         "options": [
             {
                 "option_id": "296710",
@@ -129,7 +132,7 @@
             {
                 "option_id": "276140",
                 "tag": "b",
-                "text": "A collection of outcomes (sample points) that have a certain quality in common.",
+                "text": "<b>A collection of outcomes (sample points)</b> that have a certain quality in common.",
                 "is_correct": true
             },
             {
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 20
+        "question_number": 20,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,8 +158,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the collective term for events composed of all possible outcomes when an experiment is carried out?",
-        "explanation": "Exhaustive events compose all possible outcomes. This means that when the probability of all these events is added, it constitutes the sample space.",
+        "question_text": "<p>What is the <b>collective term</b> for events composed of <i>all possible outcomes</i> when an experiment is carried out?</p>",
+        "explanation": "<p><b>Exhaustive events</b> compose <i>all possible outcomes</i>. This means that when the probability of all these events is added, it constitutes the <b>sample space</b>.</p>",
         "options": [
             {
                 "option_id": "605755",
@@ -182,7 +186,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 26
+        "question_number": 26,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,8 +196,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If the occurrence of one event rules out another from occurring, the events are called:",
-        "explanation": "Two or more events are mutually exclusive if the occurrence of one rules out the others occurring, such as getting a Head or a Tail in a single coin toss.",
+        "question_text": "<p>If the occurrence of one event <b>rules out</b> another from occurring, the events are called:</p>",
+        "explanation": "<p>Two or more events are <b>mutually exclusive</b> if the occurrence of one rules out the others occurring, such as getting a <i>Head</i> or a <i>Tail</i> in a single coin toss.</p>",
         "options": [
             {
                 "option_id": "287456",
@@ -219,7 +224,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 32
+        "question_number": 32,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Events which have an equal chance of occurring, with no reason to expect one to occur more often than the others, are termed:",
-        "explanation": "Equally likely events have an equal chance of occurring. For example, a fair die has six possible outcomes with equal chances of occurrence.",
+        "question_text": "<p><b>Events</b> which have an <i>equal chance</i> of occurring, with no reason to expect one to occur more often than the others, are termed:</p>",
+        "explanation": "<p><b>Equally likely events</b> have an <i>equal chance</i> of occurring. For example, a fair die has six possible outcomes with equal chances of occurrence.</p>",
         "options": [
             {
                 "option_id": "271181",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 38
+        "question_number": 38,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,8 +272,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Events for which the occurrence of one is not affected by knowledge of the occurrence of the remaining events are known as:",
-        "explanation": "Independent events do not affect each other's occurrence. E.g., getting a 6 in a first die throw doesn't affect subsequent throws.",
+        "question_text": "<p>Events for which the occurrence of one is <b>not affected</b> by knowledge of the occurrence of the remaining events are known as:</p>",
+        "explanation": "<p><b>Independent events</b> are those where the outcome of one event does not influence the outcome of another. For example, rolling a die multiple times: the result of the first roll does not change the probability of outcomes in subsequent rolls.</p>",
         "options": [
             {
                 "option_id": "202349",
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 45
+        "question_number": 45,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "When drawing balls from a bag without replacement, the outcome of the first draw affects the subsequent draws. These events are called:",
-        "explanation": "Dependent events are those where the occurrence of one in any trial affects the chances that the other events will occur.",
+        "question_text": "<p>When drawing balls from a bag <i>without replacement</i>, the outcome of the first draw affects the subsequent draws. These events are called:</p>",
+        "explanation": "<p>Events are <b>dependent</b> when the outcome of one event influences the probability of another event occurring. In this case, removing a ball changes the composition of the bag, altering the probabilities for future draws.</p>",
         "options": [
             {
                 "option_id": "150259",
@@ -330,7 +338,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 51
+        "question_number": 51,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In statistical terms, what is an index calculated from the population called?",
-        "explanation": "A Parameter is an index calculated from the population, for example, the population mean $\\mu$.",
+        "question_text": "<p>In statistical terms, what is an index calculated from the <b>population</b> called?</p>",
+        "explanation": "<p>A <b>Parameter</b> is an index calculated from the population, for example, the population mean <i>\u03bc</i>.</p>",
         "options": [
             {
                 "option_id": "326767",
@@ -367,7 +376,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 56
+        "question_number": 56,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,8 +386,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "An index computed from a sample, such as the sample mean $\\bar{X}$, is called a:",
-        "explanation": "A Statistic is an index solved from the sample, such as the sample mean $\\bar{X}$.",
+        "question_text": "<p>A statistic computed from a sample, such as the <b>sample mean</b> <i>X\u0304</i>, is called a:</p>",
+        "explanation": "<p>A <b>statistic</b> is an index computed from a sample, such as the sample mean <i>X\u0304</i>.</p>",
         "options": [
             {
                 "option_id": "236089",
@@ -404,7 +414,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 62
+        "question_number": 62,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,19 +424,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A value of a sample statistic which is taken as an approximation of the parameter value is known as an:",
-        "explanation": "An Estimate is a value of the sample statistic which is taken as an approximation of the parameter value.",
+        "question_text": "<p>A value of a sample statistic which is taken as an approximation of the parameter value is known as an:</p>",
+        "explanation": "<p>An <b>Estimate</b> is a value of the sample statistic which is taken as an approximation of the parameter value.</p>",
         "options": [
             {
                 "option_id": "501322",
                 "tag": "a",
-                "text": "Estimator",
+                "text": "<b>Estimator</b>",
                 "is_correct": false
             },
             {
                 "option_id": "325195",
                 "tag": "b",
-                "text": "Estimate",
+                "text": "<b>Estimate</b>",
                 "is_correct": true
             },
             {
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 68
+        "question_number": 68,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,13 +462,13 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The specific formula or rule chosen to provide an estimate of a population value is called an:",
-        "explanation": "An Estimator refers to the formula or statistic which has been chosen to provide an estimate of the population value.",
+        "question_text": "<p>The specific formula or rule chosen to provide an estimate of a population value is called an:</p>",
+        "explanation": "<p>An <b>Estimator</b> refers to the formula or statistic which has been chosen to provide an estimate of the population value.</p>",
         "options": [
             {
                 "option_id": "245322",
                 "tag": "a",
-                "text": "Estimator",
+                "text": "<b>Estimator</b>",
                 "is_correct": true
             },
             {
@@ -478,7 +490,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 74
+        "question_number": 74,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "According to the axioms of probability, the probability of any given event $A$ must satisfy which condition?",
-        "explanation": "The first axiom of probability states that the probability of any given event is a non-negative number bounded by 1: $0 \\le P(A) \\le 1$.",
+        "question_text": "<p>According to the axioms of probability, the probability of any given event <b>A</b> must satisfy which condition?</p>",
+        "explanation": "<p>The first axiom of probability states that the probability of any given event is a non-negative number bounded by 1: <i>0</i> <b>\u2264</b> <i>P</i>(<i>A</i>) <b>\u2264</b> <i>1</i>.</p>",
         "options": [
             {
                 "option_id": "680780",
                 "tag": "a",
-                "text": "$P(A) \\ge 1$",
+                "text": "<i>P</i>(<i>A</i>) <b>\u2265</b> 1",
                 "is_correct": false
             },
             {
                 "option_id": "247180",
                 "tag": "b",
-                "text": "$-1 \\le P(A) \\le 1$",
+                "text": "-1 <b>\u2264</b> <i>P</i>(<i>A</i>) <b>\u2264</b> 1",
                 "is_correct": false
             },
             {
                 "option_id": "107427",
                 "tag": "c",
-                "text": "$0 \\le P(A) \\le 1$",
+                "text": "0 <b>\u2264</b> <i>P</i>(<i>A</i>) <b>\u2264</b> 1",
                 "is_correct": true
             },
             {
                 "option_id": "143956",
                 "tag": "d",
-                "text": "$P(A) > 0$",
+                "text": "<i>P</i>(<i>A</i>) <b>> 0</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 80
+        "question_number": 80,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $S$ represents the entire sample space (universal set) of an experiment, what is $P(S)$?",
-        "explanation": "The probability of the sample space (universal set) is always one. $P(S) = 1$.",
+        "question_text": "<p>If <b>$S$</b> represents the entire sample space (universal set) of an experiment, what is <b>$P(S)$</b>?</p>",
+        "explanation": "<p>The probability of the sample space (universal set) is always <b>one</b>. <b>$P(S) = 1$</b>.</p>",
         "options": [
             {
                 "option_id": "286011",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 86
+        "question_number": 86,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If events $A$ and $B$ are mutually exclusive (disjoint), what is the probability of their union, $P(A \\cup B)$?",
-        "explanation": "For mutually exclusive events, their intersection is empty ($A \\cap B = \\emptyset$), so the addition rule simplifies to $P(A \\cup B) = P(A) + P(B)$.",
+        "question_text": "<p>If events <b>A</b> and <b>B</b> are mutually exclusive (disjoint), what is the probability of their union, <i>P(A \u222a B)</i>?</p>",
+        "explanation": "<p>For mutually exclusive events, their intersection is empty (<i>A \u2229 B</i> = \u2205), so the addition rule simplifies to <i>P(A \u222a B)</i> = <i>P(A)</i> + <i>P(B)</i>.</p>",
         "options": [
             {
                 "option_id": "204578",
                 "tag": "a",
-                "text": "$P(A) \\times P(B)$",
+                "text": "<i>P(A)</i> \u00d7 <i>P(B)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "250475",
                 "tag": "b",
-                "text": "$P(A) + P(B)$",
+                "text": "<i>P(A)</i> + <i>P(B)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "132964",
                 "tag": "c",
-                "text": "$1 - P(A)$",
+                "text": "1 \u2212 <i>P(A)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "123990",
                 "tag": "d",
-                "text": "$0$",
+                "text": "0",
                 "is_correct": false
             }
         ],
-        "question_number": 92
+        "question_number": 92,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,25 +614,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the probability of the null set $\\emptyset$ (an impossible event)?",
-        "explanation": "The probability of the null set or impossible event is zero, i.e., $P(\\emptyset) = 0$.",
+        "question_text": "<p>The probability of the <b>null set</b> <i>\u2205</i> (an <i>impossible event</i>) is:</p>",
+        "explanation": "<p>The probability of the <b>null set</b> or <i>impossible event</i> is <b>zero</b>, i.e., <i>P(\u2205) = 0</i>.</p>",
         "options": [
             {
                 "option_id": "374042",
                 "tag": "a",
-                "text": "$1$",
+                "text": "<b>1</b>",
                 "is_correct": false
             },
             {
                 "option_id": "763679",
                 "tag": "b",
-                "text": "$-1$",
+                "text": "<b>\u22121</b>",
                 "is_correct": false
             },
             {
                 "option_id": "909591",
                 "tag": "c",
-                "text": "$0$",
+                "text": "<b>0</b>",
                 "is_correct": true
             },
             {
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 98
+        "question_number": 98,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $A^c$ is the complement of event $A$, which of the following equations is true?",
-        "explanation": "Since $A$ and $A^c$ are mutually exclusive and together form the sample space $S$, $P(S) = P(A) + P(A^c) = 1$. Therefore, $P(A^c) = 1 - P(A)$.",
+        "question_text": "<p>If <b>$A^c$</b> is the complement of event <b>$A$</b>, which of the following equations is true?</p>",
+        "explanation": "<p>Since <b>$A$</b> and <b>$A^c$</b> are mutually exclusive and together form the sample space <b>$S$</b>, <i>$P(S) = P(A) + P(A^c) = 1$</i>. Therefore, <i>$P(A^c) = 1 - P(A)$</i>.</p>",
         "options": [
             {
                 "option_id": "191114",
                 "tag": "a",
-                "text": "$P(A^c) = P(A) - 1$",
+                "text": "<i>$P(A^c) = P(A) - 1$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "153131",
                 "tag": "b",
-                "text": "$P(A^c) = 1 / P(A)$",
+                "text": "<i>$P(A^c) = 1 / P(A)$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "176935",
                 "tag": "c",
-                "text": "$P(A^c) = 1 + P(A)$",
+                "text": "<i>$P(A^c) = 1 + P(A)$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "220395",
                 "tag": "d",
-                "text": "$P(A^c) = 1 - P(A)$",
+                "text": "<i>$P(A^c) = 1 - P(A)$</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 104
+        "question_number": 104,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For any two arbitrary events $A$ and $B$, which formula represents the general addition rule for $P(A \\cup B)$?",
-        "explanation": "For any two events, $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$, avoiding double-counting of their intersection.",
+        "question_text": "<p>For any two arbitrary events <b>$A$</b> and <b>$B$</b>, which formula represents the general addition rule for <b>$P(A \\cup B)$</b>?</p>",
+        "explanation": "<p>The general addition rule for the probability of the union of two events is given by <b>$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$</b>. This formula accounts for the fact that the intersection <b>$P(A \\cap B)$</b> is counted twice when simply adding <b>$P(A)$</b> and <b>$P(B)$</b>, so it must be subtracted once to avoid double-counting.</p>",
         "options": [
             {
                 "option_id": "134125",
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 110
+        "question_number": 110,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A real-valued quantity or numerical measure whose value depends on the outcomes of a random experiment is called a:",
-        "explanation": "A random variable is any real-valued quantity whose value depends on the outcomes of a random experiment, usually denoted by a capital letter $X$.",
+        "question_text": "<p>A real-valued quantity or <b>numerical measure</b> whose value depends on the outcomes of a random experiment is called a:</p>",
+        "explanation": "<p>A <b>random variable</b> is any real-valued quantity whose value depends on the outcomes of a random experiment, usually denoted by a capital letter <i>$X$</i>.</p>",
         "options": [
             {
                 "option_id": "383070",
                 "tag": "a",
-                "text": "Parameter",
+                "text": "<b>Parameter</b>",
                 "is_correct": false
             },
             {
                 "option_id": "220430",
                 "tag": "b",
-                "text": "Random Variable",
+                "text": "<b>Random Variable</b>",
                 "is_correct": true
             },
             {
                 "option_id": "506431",
                 "tag": "c",
-                "text": "Statistic",
+                "text": "<b>Statistic</b>",
                 "is_correct": false
             },
             {
                 "option_id": "264024",
                 "tag": "d",
-                "text": "Sample space",
+                "text": "<b>Sample space</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 116
+        "question_number": 116,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If the number of possible values of a random variable $X$ is finite or countable, it is called a:",
-        "explanation": "A Discrete Random Variable is one whose possible values are finite or countable, such as the number of defective items drawn.",
+        "question_text": "<p>If the number of possible values of a random variable <i>X</i> is finite or countable, it is called a:</p>",
+        "explanation": "<p>A <b>Discrete Random Variable</b> is one whose possible values are finite or countable, such as the number of defective items drawn.</p>",
         "options": [
             {
                 "option_id": "511562",
                 "tag": "a",
-                "text": "Continuous random variable",
+                "text": "<b>Continuous</b> random variable",
                 "is_correct": false
             },
             {
                 "option_id": "226833",
                 "tag": "b",
-                "text": "Dependent random variable",
+                "text": "<b>Dependent</b> random variable",
                 "is_correct": false
             },
             {
                 "option_id": "119581",
                 "tag": "c",
-                "text": "Discrete random variable",
+                "text": "<b>Discrete</b> random variable",
                 "is_correct": true
             },
             {
                 "option_id": "309844",
                 "tag": "d",
-                "text": "Standard random variable",
+                "text": "<b>Standard</b> random variable",
                 "is_correct": false
             }
         ],
-        "question_number": 122
+        "question_number": 122,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,8 +804,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A random variable that can assume an infinitely large number of values corresponding to points on a line interval without interruption is called a:",
-        "explanation": "A Continuous Random Variable is one that can assume an infinitely large number of values corresponding to the points on a line interval.",
+        "question_text": "<p>A random variable that can assume an <b>infinitely large number of values</b> corresponding to points on a line interval without interruption is called a:</p>",
+        "explanation": "<p>A <b>Continuous Random Variable</b> is one that can assume an infinitely large number of values corresponding to the points on a line interval.</p>",
         "options": [
             {
                 "option_id": "151925",
@@ -811,7 +832,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 128
+        "question_number": 128,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For a discrete random variable $X$, the sum of all its probabilities $\\sum p(x)$ must be equal to:",
-        "explanation": "A fundamental property of any probability distribution for a discrete random variable is that the sum of all individual probabilities equals $1$, $\\sum p(x) = 1$.",
+        "question_text": "<p>For a <b>discrete random variable</b> <i>X</i>, the sum of all its probabilities <b>\u2211p(x)</b> must be equal to:</p>",
+        "explanation": "<p>A fundamental property of any probability distribution for a <b>discrete random variable</b> is that the sum of all individual probabilities equals <b>1</b>, <b>\u2211p(x) = 1</b>.</p>",
         "options": [
             {
                 "option_id": "174188",
                 "tag": "a",
-                "text": "$0$",
+                "text": "<i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "316486",
                 "tag": "b",
-                "text": "$0.5$",
+                "text": "<i>0.5</i>",
                 "is_correct": false
             },
             {
                 "option_id": "213718",
                 "tag": "c",
-                "text": "$1$",
+                "text": "<i>1</i>",
                 "is_correct": true
             },
             {
                 "option_id": "320816",
                 "tag": "d",
-                "text": "The expected value $E[X]$",
+                "text": "The expected value <i>E[X]</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 134
+        "question_number": 134,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +880,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For a continuous random variable $X$ with probability density function $f(x)$, the integral $\\int_{-\\infty}^{\\infty} f(x) dx$ must equal:",
-        "explanation": "The total area under the probability density curve must equal $1$. Therefore, $\\int_{-\\infty}^{\\infty} f(x) dx = 1$.",
+        "question_text": "<p>For a continuous random variable <b>$X$</b> with probability density function <b>$f(x)$</b>, the integral <b>$\\(\\int_{-\\infty}^{\\infty} f(x) \\, dx\\)$</b> must equal:</p>",
+        "explanation": "<p>The total area under the probability density curve must equal <b>$1$</b>. Therefore, <b>$\\(\\int_{-\\infty}^{\\infty} f(x) \\, dx = 1\\)$</b>.</p>",
         "options": [
             {
                 "option_id": "416150",
@@ -885,7 +908,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 140
+        "question_number": 140,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +918,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "How is the expected value $E[X]$ of a discrete random variable $X$ mathematically defined?",
-        "explanation": "The expected value $E[X]$ of a discrete random variable is the weighted mean of its possible values, calculated as $\\sum x P(x)$.",
+        "question_text": "<p>The expected value <i>E[X]</i> of a discrete random variable <i>X</i> is mathematically defined as the sum of each possible value of <i>X</i> multiplied by its probability. How is this formally expressed?</p>",
+        "explanation": "<p>The expected value <i>E[X]</i> of a discrete random variable is the weighted mean of its possible values, calculated as the sum of each value <b>x</b> multiplied by its probability <b>P(x)</b>. This is formally written as <b>\u2211 x P(x)</b>.</p>",
         "options": [
             {
                 "option_id": "320880",
                 "tag": "a",
-                "text": "$\\sum [x - P(x)]$",
+                "text": "<b>\u2211</b> [x - P(x)]",
                 "is_correct": false
             },
             {
                 "option_id": "196879",
                 "tag": "b",
-                "text": "$\\sum P(x)$",
+                "text": "<b>\u2211</b> P(x)",
                 "is_correct": false
             },
             {
                 "option_id": "314144",
                 "tag": "c",
-                "text": "$\\sum x P(x)$",
+                "text": "<b>\u2211</b> x P(x)",
                 "is_correct": true
             },
             {
                 "option_id": "337688",
                 "tag": "d",
-                "text": "$\\sum x^2 P(x)$",
+                "text": "<b>\u2211</b> x<sup>2</sup> P(x)",
                 "is_correct": false
             }
         ],
-        "question_number": 146
+        "question_number": 146,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,35 +956,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For a continuous random variable $X$ with probability density function $f(x)$, what is the formula for the expected value $E[X]$?",
-        "explanation": "For a continuous random variable, the expected value is given by the integral of $x$ multiplied by its density function: $E[X] = \\int x f(x) dx$.",
+        "question_text": "<p>For a continuous random variable <i>$X$</i> with probability density function <i>$f(x)$</i>, what is the formula for the expected value <i>$E[X]$</i>?</p>",
+        "explanation": "<p>The expected value <i>$E[X]$</i> for a continuous random variable is calculated by integrating the product of the variable <i>$x$</i> and its probability density function <i>$f(x)$</i> over all possible values of <i>$x$</i>. The correct formula is:</p><p><b><i>$E[X] = \\int x f(x) \\, dx$</i></b></p><p>This integral represents the <b>weighted average</b> of all possible values of <i>$X$</i>, where each value is weighted by its probability density.</p>",
         "options": [
             {
                 "option_id": "237148",
                 "tag": "a",
-                "text": "$\\int x^2 f(x) dx$",
+                "text": "<i>$$\n\\int x^2 f(x) \\, dx\n$$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "313378",
                 "tag": "b",
-                "text": "$\\int x f(x) dx$",
+                "text": "<i>$$\n\\int x f(x) \\, dx\n$$</i>",
                 "is_correct": true
             },
             {
                 "option_id": "124221",
                 "tag": "c",
-                "text": "$\\int f(x) dx$",
+                "text": "<i>$$\n\\int f(x) \\, dx\n$$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "127905",
                 "tag": "d",
-                "text": "$\\int (x - \\mu)^2 f(x) dx$",
+                "text": "<i>$$\n\\int (x - \\mu)^2 f(x) \\, dx\n$$</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 152
+        "question_number": 152,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A discrete random variable $X$ has values $1, 2, 3, 4, 5$ with probabilities $0.1, 0.2, 0.4, 0.05, 0.25$ respectively. Calculate the expected value $E[X]$.",
-        "explanation": "Using $E[X] = \\sum x P(x)$, $E[X] = (1)(0.1) + (2)(0.2) + (3)(0.4) + (4)(0.05) + (5)(0.25) = 0.1 + 0.4 + 1.2 + 0.2 + 1.25 = 3.15$.",
+        "question_text": "<p> A discrete random variable <b>$X$</b> has values <b>$1, 2, 3, 4, 5$</b> with probabilities <b>$0.1, 0.2, 0.4, 0.05, 0.25$</b> respectively. Calculate the expected value <b>$E[X]$</b>.</p>",
+        "explanation": "<p>Using <b>$E[X] = \\sum x P(x)$</b>, <i>$E[X] = (1)(0.1) + (2)(0.2) + (3)(0.4) + (4)(0.05) + (5)(0.25) = 0.1 + 0.4 + 1.2 + 0.2 + 1.25 = 3.15$</i>.</p>",
         "options": [
             {
                 "option_id": "648928",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 158
+        "question_number": 158,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,8 +1032,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is a strict property regarding the variance of a random variable?",
-        "explanation": "The variance is a statistical measure of dispersion derived from squared deviations, therefore, it cannot be negative.",
+        "question_text": "<p><b>Variance</b> is a key measure in statistics that quantifies the spread of a random variable's values. Which of the following is a strict property regarding the variance of a random variable?</p>",
+        "explanation": "<p>The <b>variance</b> is calculated as the average of the squared deviations from the mean. Since squaring any real number (whether positive or negative) results in a non-negative value, the variance <i>cannot be negative</i>. However, it is not necessarily bounded between 0 and 1, nor does it have to equal the mean.</p>",
         "options": [
             {
                 "option_id": "199360",
@@ -1033,7 +1060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 165
+        "question_number": 165,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1070,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $b$ is a constant, what is the variance of $b$, $Var(b)$?",
-        "explanation": "The variance of a constant is zero because a constant has no spread or deviation. $Var(b) = 0$.",
+        "question_text": "<p>If <b>$b$</b> is a constant, what is the variance of <b>$b$</b>, <b>$Var(b)$</b>?</p>",
+        "explanation": "<p>The variance of a constant is zero because a constant has no spread or deviation. <b>$Var(b) = 0$</b>.</p>",
         "options": [
             {
                 "option_id": "845413",
                 "tag": "a",
-                "text": "$b$",
+                "text": "<i>$b$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "261288",
                 "tag": "b",
-                "text": "$b^2$",
+                "text": "<i>$b^2$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "140905",
                 "tag": "c",
-                "text": "$1$",
+                "text": "<i>$1$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "334485",
                 "tag": "d",
-                "text": "$0$",
+                "text": "<i>$0$</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 170
+        "question_number": 170,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1108,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Let $X$ be a random variable and $a$ be a constant. What does $Var(aX)$ equal?",
-        "explanation": "A standard property of variance is that scaling a random variable by a constant $a$ scales the variance by $a^2$. $Var(aX) = a^2 Var(X)$.",
+        "question_text": "<p>Let <i>X</i> be a random variable and <i>a</i> be a constant. What does <i>Var(aX)</i> equal?</p>",
+        "explanation": "<p>A standard property of <b>variance</b> is that scaling a random variable by a constant <i>a</i> scales the variance by <i>a</i><sup>2</sup>. <i>Var(aX)</i> = <i>a</i><sup>2</sup> <b>Var</b>(<i>X</i>).</p>",
         "options": [
             {
                 "option_id": "133820",
                 "tag": "a",
-                "text": "$a Var(X)$",
+                "text": "<i>a</i> <b>Var</b>(<i>X</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "229145",
                 "tag": "b",
-                "text": "$a^2 Var(X)$",
+                "text": "<i>a</i><sup>2</sup> <b>Var</b>(<i>X</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "173128",
                 "tag": "c",
-                "text": "$Var(X) + a$",
+                "text": "<b>Var</b>(<i>X</i>) + <i>a</i>",
                 "is_correct": false
             },
             {
                 "option_id": "284501",
                 "tag": "d",
-                "text": "$a + Var(X)$",
+                "text": "<i>a</i> + <b>Var</b>(<i>X</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 176
+        "question_number": 176,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1146,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For constants $a$ and $b$, which of the following correctly expands $Var(aX + b)$?",
-        "explanation": "Since $Var(aX + b) = Var(aX) + Var(b)$ and $Var(b) = 0$, it simplifies to $a^2 Var(X)$.",
+        "question_text": "<p>For constants <i>a</i> and <i>b</i>, which of the following correctly expands <b>Var(aX + b)</b>?</p>",
+        "explanation": "<p>Since <b>Var(aX + b) = Var(aX) + Var(b)</b> and <b>Var(b) = 0</b>, it simplifies to <i>a</i><sup>2</sup> Var(X).</p>",
         "options": [
             {
                 "option_id": "115801",
                 "tag": "a",
-                "text": "$a Var(X) + b$",
+                "text": "<i>a</i> Var(X) + <i>b</i>",
                 "is_correct": false
             },
             {
                 "option_id": "550160",
                 "tag": "b",
-                "text": "$a^2 Var(X) + b^2$",
+                "text": "<i>a</i><sup>2</sup> Var(X) + <i>b</i><sup>2</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "868135",
                 "tag": "c",
-                "text": "$a^2 Var(X)$",
+                "text": "<i>a</i><sup>2</sup> Var(X)",
                 "is_correct": true
             },
             {
                 "option_id": "155466",
                 "tag": "d",
-                "text": "$a Var(X) + Var(b)$",
+                "text": "<i>a</i> Var(X) + Var(<i>b</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 182
+        "question_number": 182,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1184,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $X$ and $Y$ are independent random variables, what does $Var(X + Y)$ simplify to?",
-        "explanation": "When $X$ and $Y$ are independent, their covariance is $0$. Thus, $Var(X + Y) = Var(X) + Var(Y)$.",
+        "question_text": "<p>If <b>$X$</b> and <b>$Y$</b> are <i>independent</i> random variables, what does <b>$Var(X + Y)$</b> simplify to?</p>",
+        "explanation": "<p>When <b>$X$</b> and <b>$Y$</b> are independent, their covariance is <b>$0$</b>. Thus, <b>$Var(X + Y) = Var(X) + Var(Y)$</b>.</p>",
         "options": [
             {
                 "option_id": "198853",
@@ -1181,7 +1212,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 188
+        "question_number": 188,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1222,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$ and $b = 5$ is a constant, find $Var(b)$.",
-        "explanation": "The variance of any constant is zero. Since $5$ is a constant, $Var(5) = 0$.",
+        "question_text": "<p>Given that <b>Var(X) = 3</b> and <b>b = 5</b> is a constant, find <b>Var(b)</b>.</p>",
+        "explanation": "<p>The variance of any constant is zero. Since <b>5</b> is a constant, <b>Var(5) = 0</b>.</p>",
         "options": [
             {
                 "option_id": "605560",
                 "tag": "a",
-                "text": "$3$",
+                "text": "<i>3</i>",
                 "is_correct": false
             },
             {
                 "option_id": "484977",
                 "tag": "b",
-                "text": "$5$",
+                "text": "<i>5</i>",
                 "is_correct": false
             },
             {
                 "option_id": "241947",
                 "tag": "c",
-                "text": "$0$",
+                "text": "<i>0</i>",
                 "is_correct": true
             },
             {
                 "option_id": "212167",
                 "tag": "d",
-                "text": "$15$",
+                "text": "<i>15</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 194
+        "question_number": 194,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1260,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$, $a = 4$, and $b = 5$, evaluate $Var(2 + aX)$.",
-        "explanation": "Using variance properties: $Var(2 + aX) = Var(2) + a^2 Var(X) = 0 + 4^2(3) = 16 \\times 3 = 48$.",
+        "question_text": "<p>Given that <i>Var</i>(<i>X</i>) = 3, <i>a</i> = 4, and <i>b</i> = 5, evaluate <i>Var</i>(2 + <i>aX</i>).</p>",
+        "explanation": "<p>Using the properties of variance, we know that adding a constant (like 2) does not affect the variance. Therefore, <i>Var</i>(2 + <i>aX</i>) = <i>Var</i>(<i>aX</i>).</p><p>Next, we apply the scaling property of variance: <i>Var</i>(<i>aX</i>) = <i>a</i><sup>2</sup> <i>Var</i>(<i>X</i>). Substituting the given values: <i>a</i> = 4 and <i>Var</i>(<i>X</i>) = 3, we get:</p><p><i>Var</i>(2 + <i>aX</i>) = 4<sup>2</sup> \u00d7 3 = 16 \u00d7 3 = <b>48</b>.</p>",
         "options": [
             {
                 "option_id": "739495",
                 "tag": "a",
-                "text": "$14$",
+                "text": "<i>Var</i>(2 + <i>aX</i>) = <i>a</i><sup>2</sup> <i>Var</i>(<i>X</i>) = 4<sup>2</sup> \u00d7 3 = 48",
                 "is_correct": false
             },
             {
                 "option_id": "240587",
                 "tag": "b",
-                "text": "$48$",
+                "text": "48",
                 "is_correct": true
             },
             {
                 "option_id": "312866",
                 "tag": "c",
-                "text": "$50$",
+                "text": "50",
                 "is_correct": false
             },
             {
                 "option_id": "171457",
                 "tag": "d",
-                "text": "$12$",
+                "text": "12",
                 "is_correct": false
             }
         ],
-        "question_number": 200
+        "question_number": 200,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1298,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Given that $Var(X) = 3$, $a = 4$, and $b = 5$, evaluate $Var(bX)$.",
-        "explanation": "Using variance properties: $Var(bX) = b^2 Var(X) = 5^2(3) = 25 \\times 3 = 75$.",
+        "question_text": "<p>Given that <b>Var(X) = 3</b>, <i>a = 4</i>, and <i>b = 5</i>, evaluate <b>Var(bX)</b>.</p>",
+        "explanation": "<p>Using variance properties: <b>Var(bX) = b<sup>2</sup> Var(X) = 5<sup>2</sup>(3) = 25 \u00d7 3 = 75</b>.</p>",
         "options": [
             {
                 "option_id": "319014",
                 "tag": "a",
-                "text": "$15$",
+                "text": "<i>15</i>",
                 "is_correct": false
             },
             {
                 "option_id": "266717",
                 "tag": "b",
-                "text": "$75$",
+                "text": "<i>75</i>",
                 "is_correct": true
             },
             {
                 "option_id": "192189",
                 "tag": "c",
-                "text": "$45$",
+                "text": "<i>45</i>",
                 "is_correct": false
             },
             {
                 "option_id": "372091",
                 "tag": "d",
-                "text": "$125$",
+                "text": "<i>125</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 207
+        "question_number": 207,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1336,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The first ordinary moment of a random variable $X$ is algebraically equivalent to its:",
-        "explanation": "The first ordinary moment is defined as $E[X^1] = E[X]$, which is the mean of the random variable.",
+        "question_text": "<p>The first ordinary moment of a random variable <i>X</i> is algebraically equivalent to its:</p>",
+        "explanation": "<p>The first ordinary moment is defined as <i>E</i>[<i>X</i><sup>1</sup>] = <i>E</i>[<i>X</i>], which is the <b>mean</b> of the random variable.</p>",
         "options": [
             {
                 "option_id": "321542",
@@ -1319,7 +1354,7 @@
             {
                 "option_id": "338291",
                 "tag": "c",
-                "text": "Mean ($E[X]$)",
+                "text": "Mean (<i>E</i>[<i>X</i>])",
                 "is_correct": true
             },
             {
@@ -1329,7 +1364,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 212
+        "question_number": 212,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,35 +1374,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For any random variable $X$, what is the value of the first central moment?",
-        "explanation": "The first central moment is $E[(X - \\mu)^1] = E[X] - \\mu = \\mu - \\mu = 0$.",
+        "question_text": "<p>For any random variable <i>X</i>, what is the value of the <b>first central moment</b>?</p>",
+        "explanation": "<p>The first central moment is defined as <i>E</i>[(<i>X</i> \u2212 <i>\u03bc</i>)<sup>1</sup>], which simplifies to <i>E</i>[<i>X</i>] \u2212 <i>\u03bc</i> = <i>\u03bc</i> \u2212 <i>\u03bc</i> = <b>0</b>.</p>",
         "options": [
             {
                 "option_id": "307930",
                 "tag": "a",
-                "text": "$E[X]$",
+                "text": "<i>E</i>[<i>X</i>]",
                 "is_correct": false
             },
             {
                 "option_id": "483179",
                 "tag": "b",
-                "text": "$1$",
+                "text": "1",
                 "is_correct": false
             },
             {
                 "option_id": "100763",
                 "tag": "c",
-                "text": "$0$",
+                "text": "0",
                 "is_correct": true
             },
             {
                 "option_id": "114198",
                 "tag": "d",
-                "text": "$Var(X)$",
+                "text": "<i>Var</i>(<i>X</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 218
+        "question_number": 218,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1412,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The second central moment of a random variable $X$, defined as $E[(X - \\mu)^2]$, represents its:",
-        "explanation": "The second central moment measures the expected squared deviation from the mean, which is the exact definition of Variance, $Var(X)$.",
+        "question_text": "<p>The <b>second central moment</b> of a random variable <i>X</i>, defined as <i>E[(X - \u03bc)<sup>2</sup>]</i>, represents its:</p>",
+        "explanation": "<p>The <b>second central moment</b> measures the expected squared deviation from the mean, which is the exact definition of <b>Variance</b>, <i>Var(X)</i>.</p>",
         "options": [
             {
                 "option_id": "333159",
@@ -1403,7 +1440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 225
+        "question_number": 225,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the general formula for the $k^{th}$ ordinary moment (moment about the origin) of a continuous random variable $X$?",
-        "explanation": "The $k^{th}$ ordinary moment is $E[X^k]$. For a continuous random variable, this is calculated as $\\int x^k f(x) dx$.",
+        "question_text": "<p>What is the general formula for the <b>$k^{th}$ ordinary moment</b> (moment about the origin) of a continuous random variable <i>$X$</i>?</p>",
+        "explanation": "<p>The <b>$k^{th}$ ordinary moment</b> is <i>$E[X^k]$</i>. For a continuous random variable, this is calculated as <i>$$\n\\int x^k f(x) \\, dx\n$$</i>.</p>",
         "options": [
             {
                 "option_id": "293796",
                 "tag": "a",
-                "text": "$\\int x^k f(x) dx$",
+                "text": "<i>$$\n\\int x^k f(x) \\, dx\n$$</i>",
                 "is_correct": true
             },
             {
                 "option_id": "727009",
                 "tag": "b",
-                "text": "$\\int (x - \\mu)^k f(x) dx$",
+                "text": "<i>$$\n\\int (x - \\mu)^k f(x) \\, dx\n$$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "957003",
                 "tag": "c",
-                "text": "$\\sum x^k p(x)$",
+                "text": "<i>$$\n\\sum x^k p(x)\n$$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "246655",
                 "tag": "d",
-                "text": "$\\int x f(x) dx$",
+                "text": "<i>$$\n\\int x f(x) \\, dx\n$$</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 230
+        "question_number": 230,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the general formula for the $k^{th}$ central moment (moment about the mean) of a continuous random variable $X$?",
-        "explanation": "The $k^{th}$ central moment is $E[(X - \\mu)^k]$. For a continuous variable, it is evaluated as $\\int (x - \\mu)^k f(x) dx$.",
+        "question_text": "<p>What is the general formula for the <b>$k^{th}$</b> central moment (moment about the mean) of a continuous random variable <b>$X$</b>?</p>",
+        "explanation": "<p>The <b>$k^{th}$</b> central moment is <b>$E[(X - \\mu)^k]$</b>. For a continuous variable, it is evaluated as <i>$\n\\int (x - \\mu)^k f(x) dx$</i>.</p>",
         "options": [
             {
                 "option_id": "276855",
                 "tag": "a",
-                "text": "$\\int x^k f(x) dx$",
+                "text": "<i>$\\int x^k f(x) dx$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "195155",
                 "tag": "b",
-                "text": "$\\int (x - \\mu)^k f(x) dx$",
+                "text": "<i>$\\int (x - \\mu)^k f(x) dx$</i>",
                 "is_correct": true
             },
             {
                 "option_id": "229295",
                 "tag": "c",
-                "text": "$\\sum (x - \\mu)^k p(x)$",
+                "text": "<i>$\n\\sum (x - \\mu)^k p(x)$</i>",
                 "is_correct": false
             },
             {
                 "option_id": "217883",
                 "tag": "d",
-                "text": "$\\int (x + \\mu)^k f(x) dx$",
+                "text": "<i>$\n\\int (x + \\mu)^k f(x) dx$</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 236
+        "question_number": 236,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A continuous random variable $X$ has the probability density function $f(x) = kx^2$ for $0 < x < 3$ and $0$ elsewhere. Find the value of the constant $k$.",
-        "explanation": "The integral of $f(x)$ must equal 1. $\\int_0^3 kx^2 dx = k[\\frac{x^3}{3}]_0^3 = k(\\frac{27}{3}) = 9k$. Setting $9k = 1$ gives $k = 1/9$.",
+        "question_text": "<p>A continuous random variable <b>$X$</b> has the probability density function <b>$f(x) = kx^2$</b> for <i>0 < x < 3</i> and <b>$0$</b> elsewhere. Find the value of the constant <b>$k$</b>.</p>",
+        "explanation": "<p>The integral of <b>$f(x)$</b> must equal <b>$1$</b>. <br><br><b>$\\int_0^3 kx^2 \\, dx = k[\\frac{x^3}{3}]_0^3 = k(\\frac{27}{3}) = 9k$</b>. Setting <b>$9k = 1$</b> gives <b>$k = 1/9$</b>.</p>",
         "options": [
             {
                 "option_id": "253002",
                 "tag": "a",
-                "text": "$1/3$",
+                "text": "<b>$1/3$</b>",
                 "is_correct": false
             },
             {
                 "option_id": "304790",
                 "tag": "b",
-                "text": "$1/6$",
+                "text": "<b>$1/6$</b>",
                 "is_correct": false
             },
             {
                 "option_id": "250317",
                 "tag": "c",
-                "text": "$1/9$",
+                "text": "<b>$1/9$</b>",
                 "is_correct": true
             },
             {
                 "option_id": "270688",
                 "tag": "d",
-                "text": "$2/9$",
+                "text": "<b>$2/9$</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 242
+        "question_number": 242,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,35 +1564,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Using the PDF $f(x) = \\frac{1}{9}x^2$ for $0 < x < 3$, calculate the mean $E[X]$.",
-        "explanation": "$E[X] = \\int_0^3 x (\\frac{1}{9}x^2) dx = \\int_0^3 \\frac{x^3}{9} dx = [\\frac{x^4}{36}]_0^3 = \\frac{81}{36} = 2.25$.",
+        "question_text": "<p>Using the PDF <i><b>f(x) = \\frac{1}{9}x^2</b></i> for <i>0 &lt; x &lt; 3</i>, calculate the mean <i>E[X]</i>.</p>",
+        "explanation": "<p>The mean <i>E[X]</i> is calculated as follows:</p><p><i>E[X] = \\int_0^3 x (\\frac{1}{9}x^2) dx = \\int_0^3 \\frac{x^3}{9} dx = [\\frac{x^4}{36}]_0^3 = \\frac{81}{36} = <b>2.25</b></i>.</p>",
         "options": [
             {
                 "option_id": "262262",
                 "tag": "a",
-                "text": "$2.25$",
+                "text": "<i>2.25</i>",
                 "is_correct": true
             },
             {
                 "option_id": "326166",
                 "tag": "b",
-                "text": "$2.00$",
+                "text": "<i>2.00</i>",
                 "is_correct": false
             },
             {
                 "option_id": "336660",
                 "tag": "c",
-                "text": "$1.50$",
+                "text": "<i>1.50</i>",
                 "is_correct": false
             },
             {
                 "option_id": "188398",
                 "tag": "d",
-                "text": "$2.75$",
+                "text": "<i>2.75</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 248
+        "question_number": 248,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Using the PDF $f(x) = \\frac{1}{9}x^2$ for $0 < x < 3$, calculate the variance of $X$.",
-        "explanation": "First find $E[X^2] = \\int_0^3 x^2 (\\frac{1}{9}x^2) dx = [\\frac{x^5}{45}]_0^3 = \\frac{243}{45} = 5.4$. Then $Var(X) = E[X^2] - (E[X])^2 = 5.4 - (2.25)^2 = 5.4 - 5.0625 = 0.3375$.",
+        "question_text": "<p>Using the PDF <i><b>$f(x) = \\frac{1}{9}x^2$</b></i> for <i><b>$0 < x < 3$</b></i>, calculate the variance of <i><b>$X$</b></i>.</p>",
+        "explanation": "<p>First find <i><b>$E[X^2] = \\int_0^3 x^2 (\\frac{1}{9}x^2) dx = [\\frac{x^5}{45}]_0^3 = \\frac{243}{45} = 5.4$</b></i>.</p><p>Then <i><b>$Var(X) = E[X^2] - (E[X])^2 = 5.4 - (2.25)^2 = 5.4 - 5.0625 = 0.3375$</b></i>.</p>",
         "options": [
             {
                 "option_id": "574992",
@@ -1588,7 +1630,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 254
+        "question_number": 254,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A discrete random variable $X$ takes values $1, 2, 3$ with probabilities $1/6, 2/6, 3/6$ respectively. What is the mean ($E[X]$)?",
-        "explanation": "$E[X] = \\sum x p(x) = 1(1/6) + 2(2/6) + 3(3/6) = (1 + 4 + 9) / 6 = 14/6 \\approx 2.33$.",
+        "question_text": "<p>Consider a <b>discrete random variable</b> <i>X</i> that takes values <b>1, 2, 3</b> with probabilities <b>1/6, 2/6, 3/6</b> respectively. What is the <b>mean</b> (<i>E[X]</i>) of this distribution?</p>",
+        "explanation": "<p>The <b>expected value</b> <i>E[X]</i> is calculated as:</p><p><i>E[X]</i> = <i>\u03a3</i> <i>x</i>\u00b7<i>p</i>(<i>x</i>) = 1(1/6) + 2(2/6) + 3(3/6) = (1 + 4 + 9) / 6 = <b>14/6</b> \u2248 <b>2.33</b>.</p>",
         "options": [
             {
                 "option_id": "274366",
                 "tag": "a",
-                "text": "$14/6$ or $2.33$",
+                "text": "<b>14/6</b> or <b>2.33</b>",
                 "is_correct": true
             },
             {
                 "option_id": "166294",
                 "tag": "b",
-                "text": "$12/6$ or $2.00$",
+                "text": "<b>12/6</b> or <b>2.00</b>",
                 "is_correct": false
             },
             {
                 "option_id": "224980",
                 "tag": "c",
-                "text": "$15/6$ or $2.50$",
+                "text": "<b>15/6</b> or <b>2.50</b>",
                 "is_correct": false
             },
             {
                 "option_id": "287499",
                 "tag": "d",
-                "text": "$10/6$ or $1.67$",
+                "text": "<b>10/6</b> or <b>1.67</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 260
+        "question_number": 260,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For the random variable $X$ with values $1, 2, 3$ and probabilities $1/6, 2/6, 3/6$, compute the second ordinary moment $E[X^2]$.",
-        "explanation": "$E[X^2] = \\sum x^2 p(x) = 1^2(1/6) + 2^2(2/6) + 3^2(3/6) = (1 + 8 + 27) / 6 = 36 / 6 = 6$.",
+        "question_text": "<p>For the random variable <i>X</i> with values <b>1</b>, <b>2</b>, <b>3</b> and probabilities <b>1/6</b>, <b>2/6</b>, <b>3/6</b>, compute the second ordinary moment <i>E[X<sup>2</sup>]</i>.</p>",
+        "explanation": "<p><i>E[X<sup>2</sup>] = &sum; x<sup>2</sup> p(x) = 1<sup>2</sup>(1/6) + 2<sup>2</sup>(2/6) + 3<sup>2</sup>(3/6) = (1 + 8 + 27) / 6 = 36 / 6 = <b>6</b></p>",
         "options": [
             {
                 "option_id": "319607",
                 "tag": "a",
-                "text": "$4$",
+                "text": "<b>4</b>",
                 "is_correct": false
             },
             {
                 "option_id": "294496",
                 "tag": "b",
-                "text": "$5$",
+                "text": "<b>5</b>",
                 "is_correct": false
             },
             {
                 "option_id": "249257",
                 "tag": "c",
-                "text": "$6$",
+                "text": "<b>6</b>",
                 "is_correct": true
             },
             {
                 "option_id": "929442",
                 "tag": "d",
-                "text": "$7$",
+                "text": "<b>7</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 266
+        "question_number": 266,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1716,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For the random variable $X$ with values $1, 2, 3$ and probabilities $1/6, 2/6, 3/6$, compute the third ordinary moment $E[X^3]$.",
-        "explanation": "$E[X^3] = \\sum x^3 p(x) = 1^3(1/6) + 2^3(2/6) + 3^3(3/6) = (1 + 16 + 81) / 6 = 98 / 6 \\approx 16.33$.",
+        "question_text": "<p>For the random variable <i>X</i> with values <b>1</b>, <b>2</b>, <b>3</b> and probabilities <b>1/6</b>, <b>2/6</b>, <b>3/6</b>, compute the third ordinary moment <i>E[X<sup>3</sup>]</i>.</p>",
+        "explanation": "<p><i>E[X<sup>3</sup>] = \u03a3 x<sup>3</sup> p(x) = 1<sup>3</sup>(1/6) + 2<sup>3</sup>(2/6) + 3<sup>3</sup>(3/6) = (1 + 16 + 81) / 6 = 98 / 6 \u2248 <b>16.33</b></i>.</p>",
         "options": [
             {
                 "option_id": "239764",
                 "tag": "a",
-                "text": "$12.50$",
+                "text": "<b>12.50</b>",
                 "is_correct": false
             },
             {
                 "option_id": "319765",
                 "tag": "b",
-                "text": "$16.33$",
+                "text": "<b>16.33</b>",
                 "is_correct": true
             },
             {
                 "option_id": "270935",
                 "tag": "c",
-                "text": "$18.00$",
+                "text": "<b>18.00</b>",
                 "is_correct": false
             },
             {
                 "option_id": "294019",
                 "tag": "d",
-                "text": "$14.67$",
+                "text": "<b>14.67</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 272
+        "question_number": 272,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,8 +1754,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For the random variable $X$ with values $1, 2, 3$ and probabilities $1/6, 2/6, 3/6$, compute the fourth ordinary moment $E[X^4]$.",
-        "explanation": "$E[X^4] = \\sum x^4 p(x) = 1^4(1/6) + 2^4(2/6) + 3^4(3/6) = (1 + 32 + 243) / 6 = 276 / 6 = 46$.",
+        "question_text": "<p>For the random variable <b>$X$</b> with values <b>$1, 2, 3$</b> and probabilities <b>$1/6, 2/6, 3/6$</b>, compute the fourth ordinary moment <b>$E[X^4]$</b>.</p>",
+        "explanation": "<p><b>$E[X^4] = \\sum x^4 p(x) = 1^4(1/6) + 2^4(2/6) + 3^4(3/6) = (1 + 32 + 243) / 6 = 276 / 6 = 46$</b></p>",
         "options": [
             {
                 "option_id": "265910",
@@ -1736,7 +1782,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 278
+        "question_number": 278,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1792,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "For two continuous random variables $X$ and $Y$ with joint probability density function $f(x, y)$, what must the double integral $\\int\\int f(x, y) dx dy$ over their entire support equal?",
-        "explanation": "A joint probability density function $f(x, y)$ must be valid over the sample space. The sum of all probabilities over the two-dimensional support must equal exactly $1$.",
+        "question_text": "<p>For two continuous random variables <b>$X$</b> and <b>$Y$</b> with joint probability density function <b>$f(x, y)$</b>, what must the double integral <b>$\\\\int\\\\int f(x, y) \\\\, dx \\\\, dy$</b> over their entire support equal?</p>",
+        "explanation": "<p>A joint probability density function <b>$f(x, y)$</b> must be valid over the sample space. The sum of all probabilities over the two-dimensional support must equal exactly <b>$1$</b>.</p>",
         "options": [
             {
                 "option_id": "204278",
@@ -1773,7 +1820,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 284
+        "question_number": 284,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1830,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "The cumulative distribution function (CDF), typically denoted as $F(x)$ for a continuous random variable, is mathematically defined as:",
-        "explanation": "The cumulative distribution function $F(x)$ evaluates the probability that the random variable $X$ takes a value less than or equal to $x$, $F(x) = P(X \\le x) = \\int_{-\\infty}^x f(t) dt$.",
+        "question_text": "<p>The <b>cumulative distribution function (CDF)</b>, typically denoted as <i>F(x)</i> for a continuous random variable, is mathematically defined as:</p>",
+        "explanation": "<p>The <b>cumulative distribution function</b> <i>F(x)</i> evaluates the probability that the random variable <i>X</i> takes a value less than or equal to <i>x</i>, <i>F(x) = P(X \u2264 x) = \u222b<sub>-\u221e</sub><sup>x</sup> f(t) dt</i>.</p>",
         "options": [
             {
                 "option_id": "269511",
                 "tag": "a",
-                "text": "$P(X > x)$",
+                "text": "<i>P(X > x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "272893",
                 "tag": "b",
-                "text": "$P(X = x)$",
+                "text": "<i>P(X = x)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "930921",
                 "tag": "c",
-                "text": "$P(X \\le x)$",
+                "text": "<i>P(X \u2264 x)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "778895",
                 "tag": "d",
-                "text": "$\\int_x^{\\infty} f(t) dt$",
+                "text": "<i>\u222b<sub>x</sub><sup>\u221e</sup> f(t) dt</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 290
+        "question_number": 290,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,34 +1868,35 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $g(X)$ is a function of a discrete random variable $X$ with probability distribution $p(x)$, how is the expectation $E[g(X)]$ evaluated?",
-        "explanation": "The expectation of a function of a discrete random variable is found by taking the product of the value of $g(x)$ and its probability $p(x)$, then summing for all possible values: $\\sum g(x) p(x)$.",
+        "question_text": "<p>If <b><i>g(X)</i></b> is a function of a discrete random variable <b><i>X</i></b> with probability distribution <b><i>p(x)</i></b>, how is the expectation <b><i>E[g(X)]</i></b> evaluated?</p>",
+        "explanation": "<p>The expectation of a function of a discrete random variable is found by taking the product of the value of <b><i>g(x)</i></b> and its probability <b><i>p(x)</i></b>, then summing for all possible values: <i>\u2211 g(x) p(x)</i>.</p>",
         "options": [
             {
                 "option_id": "328805",
                 "tag": "a",
-                "text": "$\\int g(x) p(x) dx$",
+                "text": "<i>\u222b g(x) p(x) dx</i>",
                 "is_correct": false
             },
             {
                 "option_id": "310540",
                 "tag": "b",
-                "text": "$\\sum g(x) p(x)$",
+                "text": "<i>\u2211 g(x) p(x)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "230838",
                 "tag": "c",
-                "text": "$g(\\sum x p(x))$",
+                "text": "<i>g(\u2211 x p(x))</i>",
                 "is_correct": false
             },
             {
                 "option_id": "983700",
                 "tag": "d",
-                "text": "$\\sum x g(p(x))$",
+                "text": "<i>\u2211 x g(p(x))</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 296
+        "question_number": 296,
+        "is_rewritten": true
     }
 ]

@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <script>
+    /* Anti-flash: apply saved theme before first paint */
+    (function () {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Deep Analysis | My Exam Companion</title>
   <meta name="description" content="Deep Analysis of your JAMB CBT Performance">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <style>
     :root {
       --bg: #f8fafc;
@@ -22,9 +35,28 @@
       --danger: #ef4444;
       --warning: #f59e0b;
       --success: #10b981;
+      --header-bg: rgba(255, 255, 255, 0.85);
+      --fade-bottom: rgba(248, 250, 252, 1);
+      --fade-top: rgba(248, 250, 252, 0);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --header-bg: rgba(30, 41, 59, 0.85);
+      --fade-bottom: rgba(15, 23, 42, 1);
+      --fade-top: rgba(15, 23, 42, 0);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -41,7 +73,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.85);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -114,9 +146,17 @@
     }
 
     @media (max-width: 768px) {
-      .subject-grid { grid-template-columns: 1fr; }
-      .container { padding: 32px 24px 120px; }
-      .header { padding: 16px 24px; }
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 32px 24px 120px;
+      }
+
+      .header {
+        padding: 16px 24px;
+      }
     }
 
     .subject-card {
@@ -164,9 +204,10 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+
     .topic-item:hover {
       border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(183,12,1,0.08);
+      box-shadow: 0 4px 12px rgba(183, 12, 1, 0.08);
       transform: translateY(-2px);
     }
 
@@ -186,9 +227,17 @@
       font-size: 13px;
     }
 
-    .topic-score.danger { color: var(--danger); }
-    .topic-score.warning { color: var(--warning); }
-    .topic-score.success { color: var(--success); }
+    .topic-score.danger {
+      color: var(--danger);
+    }
+
+    .topic-score.warning {
+      color: var(--warning);
+    }
+
+    .topic-score.success {
+      color: var(--success);
+    }
 
     .progress-track {
       height: 4px;
@@ -202,9 +251,17 @@
       border-radius: 2px;
     }
 
-    .fill-danger { background: var(--danger); }
-    .fill-warning { background: var(--warning); }
-    .fill-success { background: var(--success); }
+    .fill-danger {
+      background: var(--danger);
+    }
+
+    .fill-warning {
+      background: var(--warning);
+    }
+
+    .fill-success {
+      background: var(--success);
+    }
 
     .insight-text {
       font-size: 11px;
@@ -222,7 +279,7 @@
       left: 0;
       right: 0;
       padding: 32px 24px;
-      background: linear-gradient(to top, rgba(248, 250, 252, 1) 40%, rgba(248, 250, 252, 0));
+      background: linear-gradient(to top, var(--fade-bottom) 40%, var(--fade-top));
       display: flex;
       justify-content: center;
       pointer-events: none;
@@ -245,11 +302,11 @@
     }
 
     .btn-ai-agent:hover {
-      background: #ffffff;
+      background: var(--bg-card);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
-    
+
     .practice-btn {
       font-size: 10px;
       font-weight: 600;
@@ -265,19 +322,23 @@
       transition: all 0.2s;
       vertical-align: middle;
     }
+
     .practice-btn:hover {
       background: var(--primary);
       color: white;
     }
   </style>
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
 </head>
+
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="header-left">
       <a href="result.html" class="btn-back" title="Back to Result">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
@@ -288,15 +349,17 @@
 
   <!-- Main Content -->
   <div class="container">
-    
+
     <!-- Summary -->
     <div class="summary-section">
       <h1 class="summary-title">Performance Diagnostics</h1>
-      <p class="summary-desc">A comprehensive breakdown of your subject proficiency. Identify and target critical knowledge gaps to optimize your study plan.</p>
+      <p class="summary-desc">A comprehensive breakdown of your subject proficiency. Identify and target critical
+        knowledge gaps to optimize your study plan.</p>
     </div>
 
     <!-- Chart -->
-    <div id="chart-container" style="max-width: 500px; margin: 0 auto 48px; background: var(--surface); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
+    <div id="chart-container"
+      style="max-width: 500px; margin: 0 auto 48px; background: var(--surface); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
       <canvas id="radarChart"></canvas>
     </div>
 
@@ -309,7 +372,8 @@
   <!-- Action Footer -->
   <div class="action-panel">
     <a href="ai_plan.html" class="btn-ai-agent">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
       </svg>
       Generate Action Plan
@@ -318,12 +382,12 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const rawState = localStorage.getItem('cbt_exam_state');
+      const rawState = localStorage.getItem('cbt_result');
       let examState = null;
-      try { examState = JSON.parse(rawState); } catch(e){}
+      try { examState = JSON.parse(rawState); } catch (e) { }
 
       const grid = document.getElementById('subject-grid');
-      
+
       if (!examState || !examState.questions || examState.questions.length === 0) {
         grid.innerHTML = '<div style="padding:24px; color:var(--text-muted); grid-column: 1 / -1;">No recent exam data found. Please take an exam first.</div>';
         return;
@@ -333,46 +397,46 @@
       const subjectData = {};
 
       let history = [];
-      try { history = JSON.parse(localStorage.getItem('cbt_exam_history') || '[]'); } catch(e){}
-      
+      try { history = JSON.parse(localStorage.getItem('cbt_exam_history') || '[]'); } catch (e) { }
+
       // Calculate historical averages
       let historicalTopicScores = {};
       for (let i = 0; i < history.length - 1; i++) {
-         const pastState = history[i].state;
-         if (!pastState || !pastState.questions) continue;
-         pastState.questions.forEach((q, idx) => {
-             let t = q.topic;
-             if (!t) {
-                const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
-                const words = text.split(/\s+/).filter(w => w.length > 4);
-                t = "Fundamentals";
-                for (let w of words) {
-                    const lw = w.toLowerCase();
-                    if (!['which','what','where','when','choose','select','following','statement','correct','incorrect','calculate','determine','about','these','those','their','there','would','could','should'].includes(lw)) {
-                        t = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
-                        break;
-                    }
-                }
-             } else {
-                t = t.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-             }
-             const s = q.subject || 'General';
-             const key = s + '::' + t;
-             if (!historicalTopicScores[key]) historicalTopicScores[key] = { total: 0, correct: 0 };
-             historicalTopicScores[key].total++;
-             
-             const uAnsIdx = (pastState.answers && pastState.answers[idx] !== undefined) ? parseInt(pastState.answers[idx], 10) : -1;
-             const cAnsIdx = q.isGridIn ? -1 : parseInt(q.correct, 10);
-             let isC = false;
-             if (q.isGridIn) {
-                 const u = (pastState.answers && pastState.answers[idx]) ? pastState.answers[idx].toString().trim().toLowerCase() : '';
-                 const c = (q.correctAnswer || '').toString().trim().toLowerCase();
-                 isC = (u !== '' && u === c);
-             } else {
-                 isC = (uAnsIdx !== -1 && uAnsIdx === cAnsIdx);
-             }
-             if (isC) historicalTopicScores[key].correct++;
-         });
+        const pastState = history[i].state;
+        if (!pastState || !pastState.questions) continue;
+        pastState.questions.forEach((q, idx) => {
+          let t = q.topic;
+          if (!t) {
+            const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
+            const words = text.split(/\s+/).filter(w => w.length > 4);
+            t = "Fundamentals";
+            for (let w of words) {
+              const lw = w.toLowerCase();
+              if (!['which', 'what', 'where', 'when', 'choose', 'select', 'following', 'statement', 'correct', 'incorrect', 'calculate', 'determine', 'about', 'these', 'those', 'their', 'there', 'would', 'could', 'should'].includes(lw)) {
+                t = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
+                break;
+              }
+            }
+          } else {
+            t = t.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          }
+          const s = q.subject || 'General';
+          const key = s + '::' + t;
+          if (!historicalTopicScores[key]) historicalTopicScores[key] = { total: 0, correct: 0 };
+          historicalTopicScores[key].total++;
+
+          const uAnsIdx = (pastState.answers && pastState.answers[idx] !== undefined) ? parseInt(pastState.answers[idx], 10) : -1;
+          const cAnsIdx = q.isGridIn ? -1 : parseInt(q.correct, 10);
+          let isC = false;
+          if (q.isGridIn) {
+            const u = (pastState.answers && pastState.answers[idx]) ? pastState.answers[idx].toString().trim().toLowerCase() : '';
+            const c = (q.correctAnswer || '').toString().trim().toLowerCase();
+            isC = (u !== '' && u === c);
+          } else {
+            isC = (uAnsIdx !== -1 && uAnsIdx === cAnsIdx);
+          }
+          if (isC) historicalTopicScores[key].correct++;
+        });
       }
 
       questions.forEach((q, i) => {
@@ -380,29 +444,29 @@
         const userAnsIndex = (answers && answers[i] !== undefined) ? parseInt(answers[i], 10) : -1;
         const correctAnsIndex = q.isGridIn ? -1 : parseInt(q.correct, 10);
         let isCorrect = false;
-        
+
         if (q.isGridIn) {
-           const uAns = (answers && answers[i]) ? answers[i].toString().trim().toLowerCase() : '';
-           const cAns = (q.correctAnswer || '').toString().trim().toLowerCase();
-           isCorrect = (uAns !== '' && uAns === cAns);
+          const uAns = (answers && answers[i]) ? answers[i].toString().trim().toLowerCase() : '';
+          const cAns = (q.correctAnswer || '').toString().trim().toLowerCase();
+          isCorrect = (uAns !== '' && uAns === cAns);
         } else {
-           isCorrect = (userAnsIndex !== -1 && userAnsIndex === correctAnsIndex);
+          isCorrect = (userAnsIndex !== -1 && userAnsIndex === correctAnsIndex);
         }
-        
+
         let topic = q.topic;
         if (topic) {
-           topic = topic.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          topic = topic.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         } else {
-           const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
-           const words = text.split(/\s+/).filter(w => w.length > 4);
-           topic = "Fundamentals";
-           for (let w of words) {
-               const lw = w.toLowerCase();
-               if (!['which','what','where','when','choose','select','following','statement','correct','incorrect','calculate','determine','about','these','those','their','there','would','could','should'].includes(lw)) {
-                   topic = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
-                   break;
-               }
-           }
+          const text = (q.text || q.question || '').replace(/<[^>]+>/g, ' ').replace(/[^a-zA-Z\s]/g, ' ').trim();
+          const words = text.split(/\s+/).filter(w => w.length > 4);
+          topic = "Fundamentals";
+          for (let w of words) {
+            const lw = w.toLowerCase();
+            if (!['which', 'what', 'where', 'when', 'choose', 'select', 'following', 'statement', 'correct', 'incorrect', 'calculate', 'determine', 'about', 'these', 'those', 'their', 'there', 'would', 'could', 'should'].includes(lw)) {
+              topic = w.charAt(0).toUpperCase() + w.toLowerCase().slice(1) + " Concepts";
+              break;
+            }
+          }
         }
 
         const tSpent = (timeSpentPerQuestion && timeSpentPerQuestion[i]) ? timeSpentPerQuestion[i] : 0;
@@ -410,9 +474,9 @@
         if (!subjectData[subj]) subjectData[subj] = { total: 0, correct: 0, topics: {} };
         subjectData[subj].total++;
         if (isCorrect) subjectData[subj].correct++;
-        
+
         if (!subjectData[subj].topics[topic]) {
-            subjectData[subj].topics[topic] = { total: 0, correct: 0, time: 0 };
+          subjectData[subj].topics[topic] = { total: 0, correct: 0, time: 0 };
         }
         subjectData[subj].topics[topic].total++;
         subjectData[subj].topics[topic].time += tSpent;
@@ -424,39 +488,39 @@
       for (const subj in subjectData) {
         const sData = subjectData[subj];
         const sPct = Math.round((sData.correct / sData.total) * 100) || 0;
-        
+
         let topicsHtml = '';
-        const sortedTopics = Object.keys(sData.topics).sort((a,b) => sData.topics[b].total - sData.topics[a].total).slice(0, 5);
-        
+        const sortedTopics = Object.keys(sData.topics).sort((a, b) => sData.topics[b].total - sData.topics[a].total).slice(0, 5);
+
         sortedTopics.forEach(tName => {
-           const tData = sData.topics[tName];
-           const tPct = Math.round((tData.correct / tData.total) * 100) || 0;
-           
-           const avgTime = Math.round(tData.time / tData.total);
-           const avgTimeStr = avgTime < 60 ? avgTime + 's' : Math.floor(avgTime/60) + 'm ' + (avgTime%60) + 's';
-           
-           let statusClass = 'success';
-           let insight = '';
-           let practiceBtn = '';
-           
-           if (tPct < 40) { 
-              statusClass = 'danger'; 
-              insight = '<span class="insight-text">Critical Gap</span>'; 
-              practiceBtn = `<a href="../../AI_study_agent/ai_study_agent.html?prompt=Create%20a%2010-question%20practice%20quiz%20focusing%20specifically%20on%20the%20topic%20of%20${encodeURIComponent(tName)}%20in%20${encodeURIComponent(subj)}." class="practice-btn">Targeted Practice</a>`;
-           }
-           else if (tPct < 70) { statusClass = 'warning'; }
-           
-           const key = subj + '::' + tName;
-           let trendHtml = '';
-           if (historicalTopicScores[key] && historicalTopicScores[key].total > 0) {
-               const histPct = Math.round((historicalTopicScores[key].correct / historicalTopicScores[key].total) * 100);
-               const diff = tPct - histPct;
-               if (diff > 0) trendHtml = `<span style="color:var(--success); font-size:11px; margin-left:8px; font-weight:700;">▲ +${diff}%</span>`;
-               else if (diff < 0) trendHtml = `<span style="color:var(--danger); font-size:11px; margin-left:8px; font-weight:700;">▼ ${diff}%</span>`;
-               else trendHtml = `<span style="color:var(--text-muted); font-size:11px; margin-left:8px; font-weight:700;">- 0%</span>`;
-           }
-           
-           topicsHtml += `
+          const tData = sData.topics[tName];
+          const tPct = Math.round((tData.correct / tData.total) * 100) || 0;
+
+          const avgTime = Math.round(tData.time / tData.total);
+          const avgTimeStr = avgTime < 60 ? avgTime + 's' : Math.floor(avgTime / 60) + 'm ' + (avgTime % 60) + 's';
+
+          let statusClass = 'success';
+          let insight = '';
+          let practiceBtn = '';
+
+          if (tPct < 40) {
+            statusClass = 'danger';
+            insight = '<span class="insight-text">Critical Gap</span>';
+            practiceBtn = `<a href="ai_plan.html?prompt=Create%20a%2010-question%20practice%20quiz%20focusing%20specifically%20on%20the%20topic%20of%20${encodeURIComponent(tName)}%20in%20${encodeURIComponent(subj)}." class="practice-btn">Targeted Practice</a>`;
+          }
+          else if (tPct < 70) { statusClass = 'warning'; }
+
+          const key = subj + '::' + tName;
+          let trendHtml = '';
+          if (historicalTopicScores[key] && historicalTopicScores[key].total > 0) {
+            const histPct = Math.round((historicalTopicScores[key].correct / historicalTopicScores[key].total) * 100);
+            const diff = tPct - histPct;
+            if (diff > 0) trendHtml = `<span style="color:var(--success); font-size:11px; margin-left:8px; font-weight:700;">▲ +${diff}%</span>`;
+            else if (diff < 0) trendHtml = `<span style="color:var(--danger); font-size:11px; margin-left:8px; font-weight:700;">▼ ${diff}%</span>`;
+            else trendHtml = `<span style="color:var(--text-muted); font-size:11px; margin-left:8px; font-weight:700;">- 0%</span>`;
+          }
+
+          topicsHtml += `
              <div class="topic-item" onclick="window.location.href='./cbt_player.html?reviewTopic=${encodeURIComponent(tName)}'">
                <div class="topic-header">
                  <div>
@@ -487,7 +551,7 @@
           </div>
         `;
       }
-      
+
       grid.innerHTML = html;
 
       // Prepare Data for Chart
@@ -497,82 +561,83 @@
       let chartTitle = 'Subject Performance (%)';
 
       const subjectsArr = Object.keys(subjectData);
-      
+
       if (subjectsArr.length > 1) {
-         // Chart subjects
-         subjectsArr.forEach(subj => {
-            const sPct = Math.round((subjectData[subj].correct / subjectData[subj].total) * 100) || 0;
-            chartLabels.push(subj);
-            chartData.push(sPct);
-            chartColors.push(sPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (sPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
-         });
+        // Chart subjects
+        subjectsArr.forEach(subj => {
+          const sPct = Math.round((subjectData[subj].correct / subjectData[subj].total) * 100) || 0;
+          chartLabels.push(subj);
+          chartData.push(sPct);
+          chartColors.push(sPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (sPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
+        });
       } else if (subjectsArr.length === 1) {
-         // Chart top 10 weakest topics
-         chartTitle = 'Topic Proficiency (%)';
-         const subj = subjectsArr[0];
-         const sData = subjectData[subj];
-         const topics = Object.keys(sData.topics).sort((a,b) => {
-             const aPct = sData.topics[a].correct / sData.topics[a].total;
-             const bPct = sData.topics[b].correct / sData.topics[b].total;
-             return aPct - bPct;
-         }).slice(0, 10);
-         
-         topics.forEach(tName => {
-             const tPct = Math.round((sData.topics[tName].correct / sData.topics[tName].total) * 100) || 0;
-             chartLabels.push(tName.length > 25 ? tName.substring(0, 25) + '...' : tName);
-             chartData.push(tPct);
-             chartColors.push(tPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (tPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
-         });
+        // Chart top 10 weakest topics
+        chartTitle = 'Topic Proficiency (%)';
+        const subj = subjectsArr[0];
+        const sData = subjectData[subj];
+        const topics = Object.keys(sData.topics).sort((a, b) => {
+          const aPct = sData.topics[a].correct / sData.topics[a].total;
+          const bPct = sData.topics[b].correct / sData.topics[b].total;
+          return aPct - bPct;
+        }).slice(0, 10);
+
+        topics.forEach(tName => {
+          const tPct = Math.round((sData.topics[tName].correct / sData.topics[tName].total) * 100) || 0;
+          chartLabels.push(tName.length > 25 ? tName.substring(0, 25) + '...' : tName);
+          chartData.push(tPct);
+          chartColors.push(tPct < 40 ? 'rgba(239, 68, 68, 0.8)' : (tPct < 70 ? 'rgba(245, 158, 11, 0.8)' : 'rgba(16, 185, 129, 0.8)'));
+        });
       }
 
       // Render Bar Chart
       if (chartLabels.length > 0) {
-         const ctx = document.getElementById('radarChart').getContext('2d');
-         new Chart(ctx, {
-            type: 'bar',
-            data: {
-               labels: chartLabels,
-               datasets: [{
-                  label: chartTitle,
-                  data: chartData,
-                  backgroundColor: chartColors,
-                  borderRadius: 4
-               }]
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: chartLabels,
+            datasets: [{
+              label: chartTitle,
+              data: chartData,
+              backgroundColor: chartColors,
+              borderRadius: 4
+            }]
+          },
+          options: {
+            indexAxis: subjectsArr.length === 1 ? 'y' : 'x', // Horizontal for topics, Vertical for subjects
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: { display: false },
+                min: 0,
+                max: 100
+              },
+              y: {
+                grid: { display: false },
+                min: 0,
+                max: 100,
+                ticks: {
+                  font: { family: 'Inter', size: 12 }
+                }
+              }
             },
-            options: {
-               indexAxis: subjectsArr.length === 1 ? 'y' : 'x', // Horizontal for topics, Vertical for subjects
-               responsive: true,
-               maintainAspectRatio: false,
-               scales: {
-                  x: { 
-                     grid: { display: false },
-                     min: 0, 
-                     max: 100 
-                  },
-                  y: { 
-                     grid: { display: false },
-                     min: 0, 
-                     max: 100,
-                     ticks: {
-                        font: { family: 'Inter', size: 12 }
-                     }
-                  }
-               },
-               plugins: { 
-                   legend: { display: false },
-                   title: {
-                       display: true,
-                       text: chartTitle,
-                       font: { family: 'Inter', size: 14, weight: '600' }
-                   }
-               }
+            plugins: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: chartTitle,
+                font: { family: 'Inter', size: 14, weight: '600' }
+              }
             }
-         });
-         document.getElementById('chart-container').style.height = subjectsArr.length === 1 ? '350px' : '300px';
+          }
+        });
+        document.getElementById('chart-container').style.height = subjectsArr.length === 1 ? '350px' : '300px';
       } else {
-         document.getElementById('chart-container').style.display = 'none';
+        document.getElementById('chart-container').style.display = 'none';
       }
     });
   </script>
 </body>
+
 </html>

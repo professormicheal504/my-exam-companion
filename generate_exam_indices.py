@@ -39,9 +39,44 @@ for country in os.listdir(base_dir):
                 "years": years
             })
             
+        rules = {
+            "selectionType": "any_optional",
+            "totalSubjectsAllowed": 4,
+            "timeCalculation": "fixed",
+            "totalTimeMinutes": 120,
+            "questionLimits": { "default": 50 }
+        }
+        
+        if "jamb" in exam_id:
+            rules = {
+                "selectionType": "jamb_style",
+                "compulsorySubjectKeyword": "english",
+                "totalSubjectsAllowed": 4,
+                "timeCalculation": "fixed",
+                "totalTimeMinutes": 120,
+                "questionLimits": { "compulsory": 60, "others": 40 }
+            }
+        elif "waec" in exam_id or "neco" in exam_id:
+            rules = {
+                "selectionType": "any_optional",
+                "totalSubjectsAllowed": 4,
+                "timeCalculation": "per_subject",
+                "timePerSubjectMinutes": 50,
+                "questionLimits": { "default": 50 }
+            }
+        elif "sat" in exam_id:
+            rules = {
+                "selectionType": "all_compulsory",
+                "totalSubjectsAllowed": "all",
+                "timeCalculation": "fixed",
+                "totalTimeMinutes": 180,
+                "questionLimits": { "default": 1000 }
+            }
+
         config = {
             "exam_id": exam_id,
             "display_name": display_name,
+            "rules": rules,
             "subjects": subjects
         }
         

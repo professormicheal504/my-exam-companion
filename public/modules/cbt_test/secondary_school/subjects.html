@@ -1,16 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Class Subjects – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
   <style>
     /* Reset & Global */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; scroll-behavior: smooth; }
+    html { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); scroll-behavior: smooth; }
     body { min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
@@ -25,19 +35,19 @@
 
     /* Back Link */
     .back-link {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: #4b5563; margin-bottom: 24px; transition: color 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 24px; transition: color 0.2s;
     }
-    .back-link:hover { color: #111827; }
+    .back-link:hover { color: var(--text-primary); }
 
     /* Header Section */
     .page-header {
       margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
     }
     .page-title {
-      font-size: 28px; font-weight: 800; color: #131212; letter-spacing: -0.02em; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+      font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
     }
     .page-desc {
-      font-size: 15px; color: #4b5563; max-width: 600px; line-height: 1.6;
+      font-size: 15px; color: var(--text-muted); max-width: 600px; line-height: 1.6;
     }
 
     /* Actions */
@@ -52,16 +62,16 @@
 
     /* Filter Bar */
     .filter-bar {
-      background: white; padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid #e5e7eb;
+      background: var(--bg-card); padding: 16px; border-radius: 16px; margin-bottom: 32px; border: 1px solid var(--border);
       display: flex; gap: 16px; flex-wrap: wrap; box-shadow: 0 2px 10px rgba(0,0,0,0.02); align-items: center; justify-content: space-between;
     }
     
     .search-input-wrapper {
-      flex: 1; min-width: 250px; display: flex; align-items: center; gap: 8px; background: #f9fafb;
-      padding: 10px 16px; border-radius: 12px; border: 1px solid #e5e7eb; transition: border-color 0.2s;
+      flex: 1; min-width: 250px; display: flex; align-items: center; gap: 8px; background: var(--bg-base);
+      padding: 10px 16px; border-radius: 12px; border: 1px solid var(--border); transition: border-color 0.2s;
     }
-    .search-input-wrapper:focus-within { border-color: #2563eb; background: white; }
-    .search-input-wrapper svg { color: #9ca3af; }
+    .search-input-wrapper:focus-within { border-color: #2563eb; background: var(--bg-card); }
+    .search-input-wrapper svg { color: var(--text-muted); }
     .search-input-wrapper input {
       flex: 1; border: none; outline: none; background: transparent; font-size: 14.5px; font-family: inherit;
     }
@@ -70,11 +80,11 @@
       min-width: 200px; position: relative;
     }
     .select-wrapper select {
-      width: 100%; appearance: none; background: #f9fafb; border: 1px solid #e5e7eb; padding: 10px 36px 10px 16px;
+      width: 100%; appearance: none; background: var(--bg-base); border: 1px solid var(--border); padding: 10px 36px 10px 16px;
       border-radius: 12px; font-size: 14.5px; font-family: inherit; color: #374151; font-weight: 500;
       cursor: pointer; outline: none; transition: border-color 0.2s;
     }
-    .select-wrapper select:focus { border-color: #2563eb; background: white; }
+    .select-wrapper select:focus { border-color: #2563eb; background: var(--bg-card); }
     .select-wrapper::after {
       content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
       width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #6b7280; pointer-events: none;
@@ -87,11 +97,11 @@
 
     /* Subject Card */
     .subject-card {
-      background: white; border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
+      background: var(--bg-card); border-radius: 16px; border: 1px solid #ebebeb; padding: 24px;
       display: flex; flex-direction: column; transition: all 0.2s; position: relative; overflow: hidden;
     }
     .subject-card:hover {
-      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #e5e7eb;
+      transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: var(--border);
     }
     
     .subject-icon {
@@ -99,10 +109,10 @@
       display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; color: #047857;
     }
     .subject-name {
-      font-size: 18px; font-weight: 800; color: #111827; margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
+      font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3;
     }
     .subject-meta {
-      font-size: 13.5px; color: #6b7280; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
+      font-size: 13.5px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
     }
     .subject-meta span { display: flex; align-items: center; gap: 8px; }
     
@@ -113,7 +123,7 @@
     .term-badge.first { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
     .term-badge.second { background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
     .term-badge.third { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
-    .term-badge.all { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+    .term-badge.all { background: var(--bg-base); color: var(--text-muted); border: 1px solid var(--border); }
 
     .card-footer { margin-top: auto; border-top: 1px solid #f3f4f6; padding-top: 20px; }
     .card-footer .btn-primary { width: 100%; justify-content: center; padding: 10px 16px; font-size: 13.5px; }
@@ -146,7 +156,7 @@
           <div>
             <h1 class="page-title">
               <span id="class_display_name">Selected Class</span>
-              <span style="font-size: 14px; padding: 4px 10px; background: #f3f4f6; color: #4b5563; border-radius: 99px; border: 1px solid #e5e7eb; text-transform: uppercase; font-weight: 800;">Subjects</span>
+              <span style="font-size: 14px; padding: 4px 10px; background: var(--bg-base); color: var(--text-muted); border-radius: 99px; border: 1px solid var(--border); text-transform: uppercase; font-weight: 800;">Subjects</span>
             </h1>
             <p class="page-desc">Filter by term to access the specific continuous assessments or termly exams for each subject.</p>
           </div>
@@ -210,8 +220,8 @@
 
       if (list.length === 0) {
         grid.innerHTML = `
-        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #6b7280; background: white; border-radius: 16px; border: 1px dashed #d1d5db;">
-          <h3 style="color: #111827; font-size: 18px; margin-bottom: 8px;">No Subjects Found</h3>
+        <div style="grid-column: 1/-1; padding: 60px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px; border: 1px dashed #d1d5db;">
+          <h3 style="color: var(--text-primary); font-size: 18px; margin-bottom: 8px;">No Subjects Found</h3>
           <p>We couldn't find any subjects matching your filters.</p>
         </div>`;
         return;

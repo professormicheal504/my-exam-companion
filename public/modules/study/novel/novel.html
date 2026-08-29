@@ -1,6 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Novels | My Exam Companion</title>
@@ -8,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="/components/sidebar.css?v=2">
   <style>
     :root {
@@ -19,7 +29,7 @@
       --accent: #2563eb;
       --accent-hover: #9b0a01;
       
-      --border-color: #e5e7eb;
+      --border-color: var(--border);
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
@@ -40,8 +50,8 @@
     }
 
     body {
-      background: #f7f7f8;
-      color: #131212;
+      background: var(--bg-base);
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -95,8 +105,8 @@
     ============================== */
     .topbar {
       height: 58px;
-      background: #ffffff;
-      border-bottom: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -129,11 +139,11 @@
 
     .topbar__search:focus-within {
       border-color: #2563eb;
-      background: white;
+      background: var(--bg-card);
     }
 
     .topbar__search-icon {
-      color: #9ca3af;
+      color: var(--text-muted);
       flex-shrink: 0;
     }
 
@@ -143,7 +153,7 @@
       background: transparent;
       outline: none;
       font-size: 13px;
-      color: #131212;
+      color: var(--text-primary);
       font-family: inherit;
     }
 
@@ -163,9 +173,9 @@
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 600;
-      color: #131212;
-      border: 1px solid #ddd;
-      background: white;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
       transition: background 0.15s;
     }
 
@@ -323,7 +333,7 @@
 
     .novel-cover-container {
       position: relative;
-      background: #f9fafb;
+      background: var(--bg-base);
       border-radius: var(--radius-md);
       padding: 16px;
       display: flex;
@@ -414,13 +424,13 @@
       font-weight: 600;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text-primary);
     }
 
     .btn-action:hover {
-      background: #f9fafb;
+      background: var(--bg-base);
       border-color: #d1d5db;
     }
 
@@ -472,105 +482,86 @@
     
     <!-- Hero Header -->
     <header class="hero">
-      <h2>Recommended JAMB Novels.</h2>
-      <p>Read summaries and practice questions specifically curated for the recommended reading syllabus.</p>
+      <h2>Recommended JAMB Novel.</h2>
+      <p>Download the official JAMB literature novel directly to your device. Support us by watching a short ad!</p>
     </header>
 
-    <!-- Subjects -->
-    <div class="section-header">
-      <h3 class="section-title">JAMB Literature Series</h3>
+    <div style="display: flex; justify-content: center; margin-top: 40px;">
+      <!-- The Lekki Headmaster -->
+      <div class="novel-card" style="max-width: 380px; width: 100%;">
+        <div class="novel-badge" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">Official 2026</div>
+        <div class="novel-cover-container" style="background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); padding: 30px; height: auto;">
+          <img loading="lazy" src="/assets/country/nigeria/novel/lekki.jpg" alt="The Lekki Headmaster" class="novel-cover" style="box-shadow: 0 12px 24px -8px rgba(0,0,0,0.3); border-radius: 8px;">
+        </div>
+        <h4 class="novel-title" style="font-size: 24px; margin-top: 12px;">The Lekki Headmaster</h4>
+        <div class="novel-tags">
+          <span class="tag-jamb" style="background: #fff0f0; color: #e11d48; border-color: #ffe4e6;">JAMB UTME</span>
+          <span class="tag-eng" style="background: #f0fdf4; color: #16a34a; border-color: #dcfce7;">PDF Download (5.5 MB)</span>
+        </div>
+        <div class="novel-actions" style="flex-direction: column; gap: 16px; margin-top: 8px;">
+          <button id="btn-download" class="btn-action btn-primary" onclick="downloadNovelWithAd()" style="padding: 16px; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Novel PDF
+          </button>
+          <p id="dl-status" style="text-align: center; font-size: 13px; color: var(--text-tertiary); margin: 0;">Requires watching a short ad to unlock.</p>
+        </div>
+      </div>
     </div>
     
-    <div class="novel-grid">
-      
-      <!-- The Lekki Headmaster -->
-      <div class="novel-card">
-        <div class="novel-badge">Current</div>
-        <div class="novel-cover-container">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop" alt="The Lekki Headmaster" class="novel-cover">
-        </div>
-        <h4 class="novel-title">The Lekki Headmaster</h4>
-        <div class="novel-tags">
-          <span class="tag-jamb">JAMB</span>
-          <span class="tag-eng">ENG</span>
-        </div>
-        <div class="novel-actions">
-          <button class="btn-action">Summary</button>
-          <button class="btn-action btn-primary">Past Questions</button>
-        </div>
-      </div>
-
-      <!-- The Marriage of Anansewa -->
-      <div class="novel-card">
-        <div class="novel-badge">Current</div>
-        <div class="novel-cover-container">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=300&auto=format&fit=crop" alt="The Marriage of Anansewa" class="novel-cover">
-        </div>
-        <h4 class="novel-title">The Marriage of Anansewa</h4>
-        <div class="novel-tags">
-          <span class="tag-jamb">JAMB</span>
-          <span class="tag-eng">ENG</span>
-        </div>
-        <div class="novel-actions">
-          <button class="btn-action">Summary</button>
-          <button class="btn-action btn-primary">Past Questions</button>
-        </div>
-      </div>
-
-      <!-- Sweet Sixteen -->
-      <div class="novel-card">
-        <div class="novel-cover-container">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=300&auto=format&fit=crop" alt="Sweet Sixteen" class="novel-cover">
-        </div>
-        <h4 class="novel-title">Sweet Sixteen</h4>
-        <div class="novel-tags">
-          <span class="tag-jamb">JAMB</span>
-          <span class="tag-eng">ENG</span>
-        </div>
-        <div class="novel-actions">
-          <button class="btn-action">Summary</button>
-          <button class="btn-action">Past Questions</button>
-        </div>
-      </div>
-
-      <!-- In Dependence -->
-      <div class="novel-card">
-        <div class="novel-cover-container">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=300&auto=format&fit=crop" alt="In Dependence" class="novel-cover">
-        </div>
-        <h4 class="novel-title">In Dependence</h4>
-        <div class="novel-tags">
-          <span class="tag-jamb">JAMB</span>
-          <span class="tag-eng">ENG</span>
-        </div>
-        <div class="novel-actions">
-          <button class="btn-action">Summary</button>
-          <button class="btn-action">Past Questions</button>
-        </div>
-      </div>
-
-      <!-- The Life Changer -->
-      <div class="novel-card">
-        <div class="novel-cover-container">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1495640388908-05fa85288e61?q=80&w=300&auto=format&fit=crop" alt="The Life Changer" class="novel-cover">
-        </div>
-        <h4 class="novel-title">The Life Changer</h4>
-        <div class="novel-tags">
-          <span class="tag-jamb">JAMB</span>
-          <span class="tag-eng">ENG</span>
-        </div>
-        <div class="novel-actions">
-          <button class="btn-action">Summary</button>
-          <button class="btn-action">Past Questions</button>
-        </div>
-      </div>
-      
-    </div>
     </div><!-- end container -->
         </main><!-- end main-content -->
       </div><!-- end content-area -->
     </div><!-- end main-wrapper -->
   </div><!-- end app -->
+
+  <script>
+    function downloadNovelWithAd() {
+      const btn = document.getElementById('btn-download');
+      const status = document.getElementById('dl-status');
+      
+      btn.disabled = true;
+      btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Loading Ad...`;
+      status.innerText = "Please wait, initializing secure ad network...";
+      status.style.color = "var(--text-secondary)";
+
+      const triggerDownload = () => {
+        status.innerText = "Download starting...";
+        status.style.color = "#10b981";
+        btn.innerHTML = `✅ Downloaded!`;
+        
+        // Trigger file download
+        const a = document.createElement('a');
+        a.href = "/assets/country/nigeria/novel/lekki-headmaster.pdf";
+        a.download = "The_Lekki_Headmaster_JAMB.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download Again`;
+        }, 3000);
+      };
+
+      if (typeof show_8562140 === 'function') {
+        show_8562140().then(() => {
+          triggerDownload();
+        }).catch(e => {
+          console.warn("Ad error:", e);
+          status.innerText = "Ad network error. Giving you the file anyway!";
+          triggerDownload();
+        });
+      } else {
+        // Fallback if adblocker is active or script not loaded
+        status.innerText = "Ad blocker detected, proceeding to download...";
+        setTimeout(triggerDownload, 1500);
+      }
+    }
+  </script>
+  <style>
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
 
   <script defer src="/components/topbar.js"></script>
   <script defer src="/components/nav.js"></script>

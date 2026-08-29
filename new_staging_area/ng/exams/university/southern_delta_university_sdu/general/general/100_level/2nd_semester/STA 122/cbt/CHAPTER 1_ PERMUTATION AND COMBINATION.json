@@ -6,35 +6,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the correct mathematical definition of the factorial of a non-negative integer $n$, denoted as $n!$?",
-        "explanation": "The factorial of a non-negative integer $n$, denoted by $n!$, is defined as the product of all positive integers from $1$ to $n$.",
+        "question_text": "<p>The <b>correct mathematical definition</b> of the factorial of a non-negative integer <i>n</i>, denoted as <i>n!</i>, is:</p>",
+        "explanation": "<p>The factorial of a non-negative integer <i>n</i>, denoted by <i>n!</i>, is defined as the <b>product</b> of all positive integers from <i>1</i> to <i>n</i>.</p><p>For example, <i>5!</i> = 5 \u00d7 4 \u00d7 3 \u00d7 2 \u00d7 1 = 120.</p>",
         "options": [
             {
                 "option_id": "320514",
                 "tag": "a",
-                "text": "The sum of all positive integers up to $n$.",
+                "text": "The sum of all positive integers up to <i>n</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "312328",
                 "tag": "b",
-                "text": "The product of all positive integers from $1$ to $n$.",
+                "text": "The product of all positive integers from <i>1</i> to <i>n</i>.",
                 "is_correct": true
             },
             {
                 "option_id": "315544",
                 "tag": "c",
-                "text": "The product of all non-negative integers up to $n$.",
+                "text": "The product of all non-negative integers up to <i>n</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "130870",
                 "tag": "d",
-                "text": "The square of all positive integers from $1$ to $n$.",
+                "text": "The square of all positive integers from <i>1</i> to <i>n</i>.",
                 "is_correct": false
             }
         ],
-        "question_number": 2
+        "question_number": 2,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,19 +44,19 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "By mathematical convention, what is the value of $0!$?",
-        "explanation": "The factorial of $0$ is defined as $0! = 1$ by convention. This ensures that factorial formulas, like combinations and permutations, remain valid when zero is involved.",
+        "question_text": "<p>By <b>mathematical convention</b>, what is the value of <i>0!</i>?</p>",
+        "explanation": "<p>The <b>factorial of <i>0</i></b> is defined as <i>0!</i> = <i>1</i> by convention. This ensures that <b>factorial formulas</b>, like combinations and permutations, remain valid when zero is involved.</p>",
         "options": [
             {
                 "option_id": "513246",
                 "tag": "a",
-                "text": "$0$",
+                "text": "<i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "270812",
                 "tag": "b",
-                "text": "$1$",
+                "text": "<i>1</i>",
                 "is_correct": true
             },
             {
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 7
+        "question_number": 7,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following equations correctly relates $n!$ to $(n-1)!$?",
-        "explanation": "Since $n! = n \\times (n-1) \\times (n-2) \\dots 1$ and $(n-1)! = (n-1) \\times (n-2) \\dots 1$, it follows that $n! = n(n-1)!$.",
+        "question_text": "<p>Which of the following equations correctly relates <b>n!</b> to <b>(n-1)!</b>?</p>",
+        "explanation": "<p>Since <i>n!</i> = n \u00d7 <i>(n-1)</i> \u00d7 <i>(n-2)</i> \u00d7 ... \u00d7 1 and <i>(n-1)!</i> = <i>(n-1)</i> \u00d7 <i>(n-2)</i> \u00d7 ... \u00d7 1, it follows that <i>n!</i> = n \u00d7 <i>(n-1)!</i>.</p>",
         "options": [
             {
                 "option_id": "230399",
                 "tag": "a",
-                "text": "$n! = (n-1)! + n$",
+                "text": "<i>n!</i> = <i>(n-1)!</i> + n",
                 "is_correct": false
             },
             {
                 "option_id": "274734",
                 "tag": "b",
-                "text": "$n! = n \\times (n-1)!$",
+                "text": "<i>n!</i> = n \u00d7 <i>(n-1)!</i>",
                 "is_correct": true
             },
             {
                 "option_id": "618788",
                 "tag": "c",
-                "text": "$n! = (n+1)! / n$",
+                "text": "<i>n!</i> = <i>(n+1)!</i> / n",
                 "is_correct": false
             },
             {
                 "option_id": "998023",
                 "tag": "d",
-                "text": "$n! = (n-1)! / n$",
+                "text": "<i>n!</i> = <i>(n-1)!</i> / n",
                 "is_correct": false
             }
         ],
-        "question_number": 13
+        "question_number": 13,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Simplify the factorial expression $\\frac{(n+3)!}{(n+1)!}$.",
-        "explanation": "Expanding the numerator, $(n+3)! = (n+3)(n+2)(n+1)!$. Dividing by $(n+1)!$ gives $(n+3)(n+2) = n^2 + 5n + 6$.",
+        "question_text": "<p>Simplify the factorial expression <b><i>\\frac{(n+3)!}{(n+1)!}</i></b>.</p>",
+        "explanation": "<p>Expanding the numerator, <b><i>(n+3)! = (n+3)(n+2)(n+1)!.</i></b> Dividing by <b><i>(n+1)!</i></b> gives <b><i>(n+3)(n+2) = n<sup>2</sup> + 5n + 6.</i></b></p>",
         "options": [
             {
                 "option_id": "103742",
                 "tag": "a",
-                "text": "$n+3$",
+                "text": "<i>n</i>+3",
                 "is_correct": false
             },
             {
                 "option_id": "253553",
                 "tag": "b",
-                "text": "$n^2 + 5n + 6$",
+                "text": "<i>n</i><sup>2</sup> + 5<i>n</i> + 6",
                 "is_correct": true
             },
             {
                 "option_id": "252628",
                 "tag": "c",
-                "text": "$(n+3)!$",
+                "text": "(<i>n</i>+3)!",
                 "is_correct": false
             },
             {
                 "option_id": "278559",
                 "tag": "d",
-                "text": "$n+2$",
+                "text": "<i>n</i>+2",
                 "is_correct": false
             }
         ],
-        "question_number": 19
+        "question_number": 19,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,35 +158,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Simplify the factorial expression $\\frac{n!}{(n-2)!}$.",
-        "explanation": "Expanding $n! = n(n-1)(n-2)!$. When divided by $(n-2)!$, the terms cancel out, leaving $n(n-1)$.",
+        "question_text": "<p>Simplify the factorial expression <b><i>n!</i></b> / <b><i>(n-2)!</i></b>.</p>",
+        "explanation": "<p>Expanding <b><i>n!</i></b> = <b><i>n</i>(n-1)(n-2)!</b>. When divided by <b><i>(n-2)!</i></b>, the terms cancel out, leaving <b><i>n</i>(n-1)</b>.</p>",
         "options": [
             {
                 "option_id": "302145",
                 "tag": "a",
-                "text": "$n(n-1)$",
+                "text": "<b><i>n</i>(n-1)</b>",
                 "is_correct": true
             },
             {
                 "option_id": "222628",
                 "tag": "b",
-                "text": "$n^2 - 1$",
+                "text": "<b><i>n</i><sup>2</sup> - 1</b>",
                 "is_correct": false
             },
             {
                 "option_id": "467041",
                 "tag": "c",
-                "text": "$n$",
+                "text": "<b><i>n</i></b>",
                 "is_correct": false
             },
             {
                 "option_id": "295461",
                 "tag": "d",
-                "text": "$n-1$",
+                "text": "<b><i>n</i> - 1</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 25
+        "question_number": 25,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "When selecting distinct items where the order of arrangement does NOT matter, which mathematical concept is used?",
-        "explanation": "In situations where the identity of the components counts rather than the order in which they are arranged, we speak of combination.",
+        "question_text": "<p>When selecting <b>distinct items</b> where the order of arrangement does <i>not</i> matter, which mathematical concept is used?</p>",
+        "explanation": "<p><b>Combination</b> is the correct concept when the order of selection does not matter. It focuses on the <i>identity</i> of the items rather than their arrangement.</p>",
         "options": [
             {
                 "option_id": "245403",
                 "tag": "a",
-                "text": "Permutation",
+                "text": "<b>Permutation</b>",
                 "is_correct": false
             },
             {
                 "option_id": "335203",
                 "tag": "b",
-                "text": "Combination",
+                "text": "<b>Combination</b>",
                 "is_correct": true
             },
             {
                 "option_id": "155147",
                 "tag": "c",
-                "text": "Factorial",
+                "text": "<b>Factorial</b>",
                 "is_correct": false
             },
             {
                 "option_id": "795295",
                 "tag": "d",
-                "text": "Probability",
+                "text": "<b>Probability</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 31
+        "question_number": 31,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,35 +234,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the formula for calculating the number of combinations of $r$ items from $n$ distinct items, denoted as $^nC_r$?",
-        "explanation": "The formula for a combination is $^nC_r = \\frac{n!}{r!(n-r)!}$.",
+        "question_text": "<p>What is the formula for calculating the number of <b>combinations</b> of <i>r</i> items from <i>n</i> distinct items, denoted as <sup>n</sup>C<sub>r</sub>?</p>",
+        "explanation": "<p>The formula for a <b>combination</b> is <sup>n</sup>C<sub>r</sub> = <i>n!</i> / <i>r!</i>(<i>n</i> - <i>r</i>)!.</p>",
         "options": [
             {
                 "option_id": "241571",
                 "tag": "a",
-                "text": "$\\frac{n!}{(n-r)!}$",
+                "text": "<i>n!</i> / (<i>n</i> - <i>r</i>)!",
                 "is_correct": false
             },
             {
                 "option_id": "331857",
                 "tag": "b",
-                "text": "$\\frac{n!}{r!(n-r)!}$",
+                "text": "<i>n!</i> / <i>r!</i>(<i>n</i> - <i>r</i>)!",
                 "is_correct": true
             },
             {
                 "option_id": "864006",
                 "tag": "c",
-                "text": "$\\frac{n!}{r!}$",
+                "text": "<i>n!</i> / <i>r!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "112299",
                 "tag": "d",
-                "text": "$\\frac{r!(n-r)!}{n!}$",
+                "text": "<i>r!</i>(<i>n</i> - <i>r</i>)! / <i>n!</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 37
+        "question_number": 37,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following identities represents the symmetric property of combinations?",
-        "explanation": "The symmetric property states that selecting $r$ items to keep is the same as selecting $n-r$ items to leave behind, hence $^nC_r = ^nC_{n-r}$.",
+        "question_text": "<p>Which of the following identities represents the <b>symmetric property</b> of combinations?</p>",
+        "explanation": "<p>The <b>symmetric property</b> states that selecting <i>r</i> items to keep is the same as selecting <i>n-r</i> items to leave behind, hence <i><sup>n</sup>C<sub>r</sub></i> = <i><sup>n</sup>C<sub>n-r</sub></i>.</p>",
         "options": [
             {
                 "option_id": "219668",
                 "tag": "a",
-                "text": "$^nC_r = ^nC_{r-1}$",
+                "text": "<i><sup>n</sup>C<sub>r</sub></i> = <i><sup>n</sup>C<sub>r-1</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "409416",
                 "tag": "b",
-                "text": "$^nC_r = ^{n-1}C_r$",
+                "text": "<i><sup>n</sup>C<sub>r</sub></i> = <i><sup>n-1</sup>C<sub>r</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "661197",
                 "tag": "c",
-                "text": "$^nC_r = ^nC_{n-r}$",
+                "text": "<i><sup>n</sup>C<sub>r</sub></i> = <i><sup>n</sup>C<sub>n-r</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "130899",
                 "tag": "d",
-                "text": "$^nC_r = ^rC_n$",
+                "text": "<i><sup>n</sup>C<sub>r</sub></i> = <i><sup>r</sup>C<sub>n</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 44
+        "question_number": 44,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If $^nC_x = ^nC_y$, which of the following MUST be true?",
-        "explanation": "From the symmetric property of combinations, if $^nC_x = ^nC_y$, then either the chosen amounts are the same ($x = y$) or they are complements ($x + y = n$).",
+        "question_text": "<p>If <b><i>n</i>C<sub><i>x</sub></b> = <b><i>n</i>C<sub><i>y</sub></b>, which of the following <b>MUST</b> be true?</p>",
+        "explanation": "<p>From the <b>symmetric property of combinations</b>, if <b><i>n</i>C<sub><i>x</sub></b> = <b><i>n</i>C<sub><i>y</sub></b>, then either the chosen amounts are the same (<b><i>x</i> = <i>y</i></b>) or they are complements (<b><i>x</i> + <i>y</i> = <i>n</i></b>).</p>",
         "options": [
             {
                 "option_id": "151678",
                 "tag": "a",
-                "text": "$x = y$ only",
+                "text": "<b><i>x</i> = <i>y</i></b> only",
                 "is_correct": false
             },
             {
                 "option_id": "163627",
                 "tag": "b",
-                "text": "$x + y = n$ only",
+                "text": "<b><i>x</i> + <i>y</i> = <i>n</i></b> only",
                 "is_correct": false
             },
             {
                 "option_id": "131543",
                 "tag": "c",
-                "text": "Either $x = y$ or $x + y = n$",
+                "text": "Either <b><i>x</i> = <i>y</i></b> or <b><i>x</i> + <i>y</i> = <i>n</i></b>",
                 "is_correct": true
             },
             {
                 "option_id": "234073",
                 "tag": "d",
-                "text": "$x - y = n$",
+                "text": "<b><i>x</i> - <i>y</i> = <i>n</i></b>",
                 "is_correct": false
             }
         ],
-        "question_number": 50
+        "question_number": 50,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A permutation is defined as an arrangement of items where:",
-        "explanation": "A permutation is an ordered arrangement of items. The arrangements 'ab' and 'ba' are different permutations.",
+        "question_text": "<p>A <b>permutation</b> is defined as an arrangement of items where:</p>",
+        "explanation": "<p>A permutation is an <b>ordered arrangement</b> of items. The arrangements <i>ab</i> and <i>ba</i> are different permutations.</p>",
         "options": [
             {
                 "option_id": "220211",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 55
+        "question_number": 55,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -413,35 +423,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "How do you calculate the permutations of $n$ objects where some objects are not distinct (e.g., $p_1$ of one kind, $p_2$ of another)?",
-        "explanation": "The number of permutations of $n$ objects with identical items of kinds $p_1, p_2, \\dots, p_k$ is calculated by dividing the total permutations $n!$ by the permutations of identical objects: $\\frac{n!}{p_1! \\times p_2! \\dots p_k!}$.",
+        "question_text": "<p>How do you calculate the <b>permutations</b> of <i>n</i> objects where some objects are not distinct (e.g., <i>p<sub>1</sub></i> of one kind, <i>p<sub>2</sub></i> of another)?</p>",
+        "explanation": "<p>The number of permutations of <i>n</i> objects with identical items of kinds <i>p<sub>1</sub></i>, <i>p<sub>2</sub></i>, \u2026, <i>p<sub>k</sub></i> is calculated by dividing the total permutations <i>n!</i> by the permutations of identical objects:</p><p><b>n!</b> / (<b>p<sub>1</sub>!</b> \u00d7 <b>p<sub>2</sub>!</b> \u2026 <b>p<sub>k</sub>!</b>)</p>",
         "options": [
             {
                 "option_id": "314741",
                 "tag": "a",
-                "text": "$n! - (p_1! + p_2!)$",
+                "text": "<i>n!</i> - (<i>p<sub>1</sub>!</i> + <i>p<sub>2</sub>!</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "296934",
                 "tag": "b",
-                "text": "$\\frac{n!}{p_1! \\times p_2! \\dots p_k!}$",
+                "text": "<i>n!</i> / (<i>p<sub>1</sub>!</i> \u00d7 <i>p<sub>2</sub>!</i> \u2026 <i>p<sub>k</sub>!</i>)",
                 "is_correct": true
             },
             {
                 "option_id": "174176",
                 "tag": "c",
-                "text": "$n! \\times p_1! \\times p_2!$",
+                "text": "<i>n!</i> \u00d7 <i>p<sub>1</sub>!</i> \u00d7 <i>p<sub>2</sub>!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "317297",
                 "tag": "d",
-                "text": "$\\frac{n!}{(n - p_1 - p_2)!}$",
+                "text": "<i>n!</i> / (<i>n</i> - <i>p<sub>1</sub></i> - <i>p<sub>2</sub></i>)!",
                 "is_correct": false
             }
         ],
-        "question_number": 67
+        "question_number": 67,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +461,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can 5 Statistics textbooks, 3 Mathematics textbooks, and 4 Chemistry textbooks be arranged on a shelf so that textbooks of the same subject are kept together?",
-        "explanation": "First, arrange the 3 subjects (units) in $3!$ ways. Within each unit, Statistics books can be arranged in $5!$ ways, Mathematics in $3!$ ways, and Chemistry in $4!$ ways. Total = $3! \\times 5! \\times 3! \\times 4! = 103,680$ ways.",
+        "question_text": "<p>In how many ways can <b>5 Statistics textbooks</b>, <b>3 Mathematics textbooks</b>, and <b>4 Chemistry textbooks</b> be arranged on a shelf so that textbooks of the same subject are kept together?</p>",
+        "explanation": "<p>First, arrange the <b>3 subjects (units)</b> in <i>3!</i> ways. Within each unit, Statistics books can be arranged in <i>5!</i> ways, Mathematics in <i>3!</i> ways, and Chemistry in <i>4!</i> ways. Total = <i>3! \u00d7 5! \u00d7 3! \u00d7 4!</i> = 103,680 ways.</p>",
         "options": [
             {
                 "option_id": "198952",
                 "tag": "a",
-                "text": "$12!$",
+                "text": "<i>12!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "109440",
                 "tag": "b",
-                "text": "$5! \\times 3! \\times 4!$",
+                "text": "<i>5! \u00d7 3! \u00d7 4!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "709645",
                 "tag": "c",
-                "text": "$3! \\times 5! \\times 3! \\times 4!$",
+                "text": "<i>3! \u00d7 5! \u00d7 3! \u00d7 4!</i>",
                 "is_correct": true
             },
             {
                 "option_id": "142384",
                 "tag": "d",
-                "text": "$3 \\times 12!$",
+                "text": "<i>3 \u00d7 12!</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 73
+        "question_number": 73,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +499,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Suppose there are 8 chairs but only 3 spaces in a classroom. In how many different ways can the 8 chairs be arranged in the 3 available spaces?",
-        "explanation": "Since arrangement order matters in spaces, this is a permutation. $^8P_3 = \\frac{8!}{(8-3)!} = 8 \\times 7 \\times 6 = 336$ permutations.",
+        "question_text": "<p>Suppose there are <b>8 chairs</b> but only <b>3 spaces</b> in a classroom. In how many different ways can the 8 chairs be arranged in the 3 available spaces?</p>",
+        "explanation": "<p>Since arrangement order matters in spaces, this is a <b>permutation</b>. <i><sup>8</sup>P<sub>3</sub></i> = <i>\\frac{8!}{(8-3)!}</i> = 8 \u00d7 7 \u00d7 6 = <b>336</b> permutations.</p>",
         "options": [
             {
                 "option_id": "290900",
                 "tag": "a",
-                "text": "$336$",
+                "text": "<i>336</i>",
                 "is_correct": true
             },
             {
                 "option_id": "155870",
                 "tag": "b",
-                "text": "$56$",
+                "text": "<i>56</i>",
                 "is_correct": false
             },
             {
                 "option_id": "179782",
                 "tag": "c",
-                "text": "$24$",
+                "text": "<i>24</i>",
                 "is_correct": false
             },
             {
                 "option_id": "259310",
                 "tag": "d",
-                "text": "$512$",
+                "text": "<i>512</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 79
+        "question_number": 79,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,35 +537,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "An association wishes to appoint a Chairman, Vice-Chairman, Secretary, and Treasurer from a committee of 10. Calculate the number of ways the 4 positions can be filled.",
-        "explanation": "The positions are distinct, so order matters. Using permutations, $^{10}P_4 = \\frac{10!}{(10-4)!} = 10 \\times 9 \\times 8 \\times 7 = 5040$ ways.",
+        "question_text": "<p>An association wishes to appoint a <b>Chairman</b>, <b>Vice-Chairman</b>, <b>Secretary</b>, and <b>Treasurer</b> from a committee of 10. Calculate the number of ways the 4 positions can be filled.</p>",
+        "explanation": "<p>Since the positions are <b>distinct</b>, the order in which they are filled matters. This is a permutation problem. The number of ways to fill the 4 positions from 10 members is given by the permutation formula <i>P(10, 4)</i>, which is calculated as:</p><p><i>P(10, 4) = 10! / (10 - 4)! = 10 \u00d7 9 \u00d7 8 \u00d7 7 = 5040</i> ways.</p>",
         "options": [
             {
                 "option_id": "274729",
                 "tag": "a",
-                "text": "$210$",
+                "text": "210",
                 "is_correct": false
             },
             {
                 "option_id": "114050",
                 "tag": "b",
-                "text": "$5040$",
+                "text": "5040",
                 "is_correct": true
             },
             {
                 "option_id": "132243",
                 "tag": "c",
-                "text": "$10000$",
+                "text": "10000",
                 "is_correct": false
             },
             {
                 "option_id": "325248",
                 "tag": "d",
-                "text": "$40$",
+                "text": "40",
                 "is_correct": false
             }
         ],
-        "question_number": 85
+        "question_number": 85,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +575,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Solve for $n$ if $^nP_4 = 12 \\times ^nP_2$.",
-        "explanation": "$\\frac{n!}{(n-4)!} = 12 \\frac{n!}{(n-2)!}$. Expanding $(n-2)!$, we get $1 = \\frac{12}{(n-2)(n-3)}$. This gives $(n-2)(n-3) = 12 \\implies n^2 - 5n - 6 = 0$. Solving gives $n=6$ or $n=-1$. Since $n$ must be positive, $n=6$.",
+        "question_text": "<p>Solve for <i>n</i> if <b><sup>n</sup>P<sub>4</sub> = 12 \u00d7 <sup>n</sup>P<sub>2</sub></b>.</p>",
+        "explanation": "<p><b>Step 1:</b> Start with the given equation:</p> <p><b><sup>n</sup>P<sub>4</sub> = 12 \u00d7 <sup>n</sup>P<sub>2</sub></b></p> <p><b>Step 2:</b> Express the permutations in factorial form:</p> <p><b>n! / (n-4)! = 12 \u00d7 [n! / (n-2)!]</b></p> <p><b>Step 3:</b> Simplify by canceling <i>n!</i> from both sides:</p> <p><b>1 / (n-4)! = 12 / (n-2)!</b></p> <p><b>Step 4:</b> Rewrite <i>(n-2)!</i> as <i>(n-2)(n-3)(n-4)!</i>:</p> <p><b>1 = 12 / [(n-2)(n-3)]</b></p> <p><b>Step 5:</b> Multiply both sides by <i>(n-2)(n-3)</i>:</p> <p><b>(n-2)(n-3) = 12</b></p> <p><b>Step 6:</b> Expand and rearrange into a quadratic equation:</p> <p><b>n\u00b2 - 5n - 6 = 0</b></p> <p><b>Step 7:</b> Solve the quadratic equation:</p> <p><b>n = [5 \u00b1 \u221a(25 + 24)] / 2 = [5 \u00b1 7] / 2</b></p> <p><b>Solutions:</b> <i>n</i> = 6 or <i>n</i> = -1</p> <p><b>Step 8:</b> Since <i>n</i> must be a positive integer, the valid solution is <i>n</i> = 6.</p>",
         "options": [
             {
                 "option_id": "325458",
                 "tag": "a",
-                "text": "$n=4$",
+                "text": "<i>n</i>=4",
                 "is_correct": false
             },
             {
                 "option_id": "694448",
                 "tag": "b",
-                "text": "$n=5$",
+                "text": "<i>n</i>=5",
                 "is_correct": false
             },
             {
                 "option_id": "138318",
                 "tag": "c",
-                "text": "$n=6$",
+                "text": "<i>n</i>=6",
                 "is_correct": true
             },
             {
                 "option_id": "252830",
                 "tag": "d",
-                "text": "$n=7$",
+                "text": "<i>n</i>=7",
                 "is_correct": false
             }
         ],
-        "question_number": 91
+        "question_number": 91,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +613,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A Ministry of Finance has 8 field workers from which a 5-member task force will be formed. How many different task forces can be formed?",
-        "explanation": "Order doesn't matter for a task force, so we use combination: $^8C_5 = \\frac{8!}{5!(8-5)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$ combinations.",
+        "question_text": "<p>How many different 5-member task forces can be formed from a Ministry of Finance with <b>8 field workers</b>?</p>",
+        "explanation": "<p>Since the <b>order does not matter</b> for forming a task force, we use combinations. The number of ways to choose 5 workers from 8 is calculated as:</p><p><i>C</i>(8, 5) = <sup>8</sup>C<sub>5</sub> = <i>8!</i> / (<i>5!</i> \u00d7 (<i>8</i> \u2212 <i>5</i>)!) = (<i>8</i> \u00d7 <i>7</i> \u00d7 <i>6</i>) / (<i>3</i> \u00d7 <i>2</i> \u00d7 <i>1</i>) = <i>56</i> combinations.</p>",
         "options": [
             {
                 "option_id": "287225",
                 "tag": "a",
-                "text": "$56$",
+                "text": "<i>56</i>",
                 "is_correct": true
             },
             {
                 "option_id": "244168",
                 "tag": "b",
-                "text": "$336$",
+                "text": "336",
                 "is_correct": false
             },
             {
                 "option_id": "247129",
                 "tag": "c",
-                "text": "$40$",
+                "text": "40",
                 "is_correct": false
             },
             {
                 "option_id": "171200",
                 "tag": "d",
-                "text": "$6720$",
+                "text": "6720",
                 "is_correct": false
             }
         ],
-        "question_number": 97
+        "question_number": 97,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +651,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A company employing 14 women and 10 men is forming a 6-person safety committee. How many different combinations of people are possible overall?",
-        "explanation": "Total number of persons = $14 + 10 = 24$. We need a combination of 6 people: $^{24}C_6 = \\frac{24!}{6!18!} = 134,596$ combinations.",
+        "question_text": "<p> A company employing <b>14 women</b> and <b>10 men</b> is forming a <b>6-person</b> safety committee. How many different combinations of people are possible overall? </p>",
+        "explanation": "<p> Total number of persons = <b>14 + 10 = 24</b>. We need a combination of <b>6 people</b>: <sup>24</sup>C<sub>6</sub> = <i>24! / (6! \u00d7 18!)</i> = <b>134,596</b> combinations. </p>",
         "options": [
             {
                 "option_id": "257006",
                 "tag": "a",
-                "text": "$134,596$",
+                "text": "<i>134,596</i>",
                 "is_correct": true
             },
             {
                 "option_id": "113430",
                 "tag": "b",
-                "text": "$134,509$",
+                "text": "<i>134,509</i>",
                 "is_correct": false
             },
             {
                 "option_id": "305034",
                 "tag": "c",
-                "text": "$24,000$",
+                "text": "<i>24,000</i>",
                 "is_correct": false
             },
             {
                 "option_id": "101011",
                 "tag": "d",
-                "text": "$96,000$",
+                "text": "<i>96,000</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 103
+        "question_number": 103,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,35 +689,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A student must answer 10 questions, choosing at least 4 from Part A and at least 4 from Part B. If Part A has 6 questions and Part B has 7, in how many ways can the student choose 10 questions?",
-        "explanation": "Possibilities: (4 from A, 6 from B) + (5 from A, 5 from B) + (6 from A, 4 from B). Calculations: $(^6C_4 \\times ^7C_6) + (^6C_5 \\times ^7C_5) + (^6C_6 \\times ^7C_4) = (15 \\times 7) + (6 \\times 21) + (1 \\times 35) = 105 + 126 + 35 = 266$ ways.",
+        "question_text": "<p>In how many ways can a student choose <b>10 questions</b> under the following conditions?</p><p>A student must answer <b>10 questions</b>, choosing <b>at least 4 from Part A</b> and <b>at least 4 from Part B</b>. If Part A has <b>6 questions</b> and Part B has <b>7 questions</b>, in how many ways can the student choose 10 questions?</p>",
+        "explanation": "<p><b>Possibilities:</b> (4 from A, 6 from B) + (5 from A, 5 from B) + (6 from A, 4 from B).</p><p><b>Calculations:</b> <i>(<sup>6</sup>C<sub>4</sub> \u00d7 <sup>7</sup>C<sub>6</sub>) + (<sup>6</sup>C<sub>5</sub> \u00d7 <sup>7</sup>C<sub>5</sub>) + (<sup>6</sup>C<sub>6</sub> \u00d7 <sup>7</sup>C<sub>4</sub>)</i> = (15 \u00d7 7) + (6 \u00d7 21) + (1 \u00d7 35) = 105 + 126 + 35 = <b>266</b> ways.</p>",
         "options": [
             {
                 "option_id": "206648",
                 "tag": "a",
-                "text": "$266$",
+                "text": "266",
                 "is_correct": true
             },
             {
                 "option_id": "161956",
                 "tag": "b",
-                "text": "$300$",
+                "text": "300",
                 "is_correct": false
             },
             {
                 "option_id": "132539",
                 "tag": "c",
-                "text": "$105$",
+                "text": "105",
                 "is_correct": false
             },
             {
                 "option_id": "159861",
                 "tag": "d",
-                "text": "$126$",
+                "text": "126",
                 "is_correct": false
             }
         ],
-        "question_number": 109
+        "question_number": 109,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +727,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can we choose a committee from 4 men and 6 women such that it includes at least 2 men and exactly twice as many women as men?",
-        "explanation": "The options are: (2 men, 4 women) or (3 men, 6 women). Number of ways = $(^4C_2 \\times ^6C_4) + (^4C_3 \\times ^6C_6) = (6 \\times 15) + (4 \\times 1) = 90 + 4 = 94$ ways.",
+        "question_text": "<p>In how many ways can we choose a committee from <b>4 men</b> and <b>6 women</b> such that it includes <b>at least 2 men</b> and <b>exactly twice as many women as men</b>?</p>",
+        "explanation": "<p>The possible valid committees are: <b>(2 men, 4 women)</b> or <b>(3 men, 6 women)</b>.</p><p>Number of ways = <i>(^4C_2 \u00d7 ^6C_4) + (^4C_3 \u00d7 ^6C_6)</i> = <i>(6 \u00d7 15) + (4 \u00d7 1)</i> = <b>90 + 4 = 94</b> ways.</p>",
         "options": [
             {
                 "option_id": "860591",
                 "tag": "a",
-                "text": "$90$",
+                "text": "<i>90</i>",
                 "is_correct": false
             },
             {
                 "option_id": "249440",
                 "tag": "b",
-                "text": "$94$",
+                "text": "<i>94</i>",
                 "is_correct": true
             },
             {
                 "option_id": "332240",
                 "tag": "c",
-                "text": "$74$",
+                "text": "<i>74</i>",
                 "is_correct": false
             },
             {
                 "option_id": "183748",
                 "tag": "d",
-                "text": "$100$",
+                "text": "<i>100</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 115
+        "question_number": 115,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +765,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "How many committees of 5 persons including a chairperson can be selected from 12 persons?",
-        "explanation": "The chairperson can be selected in $12$ ways. The remaining 4 members are selected from the remaining 11 persons in $^{11}C_4$ ways ($330$). Total ways = $12 \\times 330 = 3960$ ways.",
+        "question_text": "<p>How many committees of <b>5 persons including a chairperson</b> can be selected from <b>12 persons</b>?</p>",
+        "explanation": "<p>The chairperson can be selected in <b>12</b> ways. The remaining 4 members are selected from the remaining 11 persons in <sup>11</sup>C<sub>4</sub> ways (<i>330</i>). Total ways = <b>12 \u00d7 330 = 3960</b> ways.</p>",
         "options": [
             {
                 "option_id": "286596",
                 "tag": "a",
-                "text": "$792$",
+                "text": "<i>792</i>",
                 "is_correct": false
             },
             {
                 "option_id": "506485",
                 "tag": "b",
-                "text": "$3960$",
+                "text": "<i>3960</i>",
                 "is_correct": true
             },
             {
                 "option_id": "693049",
                 "tag": "c",
-                "text": "$95040$",
+                "text": "<i>95040</i>",
                 "is_correct": false
             },
             {
                 "option_id": "304384",
                 "tag": "d",
-                "text": "$330$",
+                "text": "<i>330</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 121
+        "question_number": 121,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +803,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A group consists of 4 girls and 7 boys. In how many ways can a team of 5 members be selected if the team has NO girls?",
-        "explanation": "If the team has no girls, all 5 members must be chosen from the 7 boys. The number of ways is $^7C_5 = \\frac{7!}{5!2!} = 21$ ways.",
+        "question_text": "<p>A group consists of <b>4 girls</b> and <b>7 boys</b>. In how many ways can a team of 5 members be selected if the team has <i>NO girls</i>?</p>",
+        "explanation": "<p>If the team has no girls, all 5 members must be chosen from the <b>7 boys</b>. The number of ways is <i><sup>7</sup>C<sub>5</sub></i> = <i>\\frac{7!}{5!2!}</i> = <b>21</b> ways.</p>",
         "options": [
             {
                 "option_id": "106537",
                 "tag": "a",
-                "text": "$21$",
+                "text": "<b>21</b>",
                 "is_correct": true
             },
             {
                 "option_id": "128487",
                 "tag": "b",
-                "text": "$35$",
+                "text": "35",
                 "is_correct": false
             },
             {
                 "option_id": "155580",
                 "tag": "c",
-                "text": "$42$",
+                "text": "42",
                 "is_correct": false
             },
             {
                 "option_id": "950027",
                 "tag": "d",
-                "text": "$7$",
+                "text": "7",
                 "is_correct": false
             }
         ],
-        "question_number": 127
+        "question_number": 127,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +841,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A group consists of 4 girls and 7 boys. In how many ways can a team of 5 members be selected if the team has at least 3 girls?",
-        "explanation": "The possibilities are (3 girls, 2 boys) and (4 girls, 1 boy). Total ways = $(^4C_3 \\times ^7C_2) + (^4C_4 \\times ^7C_1) = (4 \\times 21) + (1 \\times 7) = 84 + 7 = 91$ ways.",
+        "question_text": "<p>A group consists of <b>4 girls</b> and <b>7 boys</b>. In how many ways can a team of 5 members be selected if the team has <i>at least 3 girls</i>?</p>",
+        "explanation": "<p>The possibilities are <b>(3 girls, 2 boys)</b> and <b>(4 girls, 1 boy)</b>. Total ways = <i>(<sup>4</sup>C<sub>3</sub> \u00d7 <sup>7</sup>C<sub>2</sub>) + (<sup>4</sup>C<sub>4</sub> \u00d7 <sup>7</sup>C<sub>1</sub>)</i> = <i>(4 \u00d7 21) + (1 \u00d7 7)</i> = <b>84 + 7 = 91</b> ways.</p>",
         "options": [
             {
                 "option_id": "143345",
                 "tag": "a",
-                "text": "$91$",
+                "text": "<i>91</i>",
                 "is_correct": true
             },
             {
                 "option_id": "397977",
                 "tag": "b",
-                "text": "$84$",
+                "text": "<i>84</i>",
                 "is_correct": false
             },
             {
                 "option_id": "151617",
                 "tag": "c",
-                "text": "$7$",
+                "text": "<i>7</i>",
                 "is_correct": false
             },
             {
                 "option_id": "135017",
                 "tag": "d",
-                "text": "$105$",
+                "text": "<i>105</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 133
+        "question_number": 133,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +879,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A committee of 4 is to be chosen from 3 women and 4 men. What is the total number of ways the committee can be chosen?",
-        "explanation": "The total number of people is $3 + 4 = 7$. To choose 4 people from 7 where order doesn't matter, we use $^7C_4 = \\frac{7!}{4!3!} = 35$ ways.",
+        "question_text": "<p>What is the total number of ways a committee of 4 can be chosen from 3 women and 4 men?</p>",
+        "explanation": "<p>The total number of people is <b>3 + 4 = 7</b>. To choose 4 people from 7 where order doesn't matter, we use <b>7C<sub>4</sub> = 7! / (4!3!) = 35</b> ways.</p>",
         "options": [
             {
                 "option_id": "244298",
                 "tag": "a",
-                "text": "$12$",
+                "text": "<i>12</i>",
                 "is_correct": false
             },
             {
                 "option_id": "363786",
                 "tag": "b",
-                "text": "$35$",
+                "text": "<i>35</i>",
                 "is_correct": true
             },
             {
                 "option_id": "199215",
                 "tag": "c",
-                "text": "$70$",
+                "text": "<i>70</i>",
                 "is_correct": false
             },
             {
                 "option_id": "419154",
                 "tag": "d",
-                "text": "$18$",
+                "text": "<i>18</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 139
+        "question_number": 139,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +917,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee consists of exactly 2 men and 2 women?",
-        "explanation": "Total possible combinations = $^7C_4 = 35$. Favorable combinations (2 men, 2 women) = $^4C_2 \\times ^3C_2 = 6 \\times 3 = 18$. Probability = $18/35 \\approx 0.514$.",
+        "question_text": "<p>A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee consists of <b>exactly 2 men and 2 women</b>?</p>",
+        "explanation": "<p>Total possible combinations = <sup>7</sup>C<sub>4</sub> = 35. Favorable combinations (2 men, 2 women) = <sup>4</sup>C<sub>2</sub> \u00d7 <sup>3</sup>C<sub>2</sub> = 6 \u00d7 3 = 18. Probability = 18/35 \u2248 <b>0.514</b>.</p>",
         "options": [
             {
                 "option_id": "294816",
                 "tag": "a",
-                "text": "$0.630$",
+                "text": "<i>0.630</i>",
                 "is_correct": false
             },
             {
                 "option_id": "104648",
                 "tag": "b",
-                "text": "$0.514$",
+                "text": "<i>0.514</i>",
                 "is_correct": true
             },
             {
                 "option_id": "191829",
                 "tag": "c",
-                "text": "$0.486$",
+                "text": "<i>0.486</i>",
                 "is_correct": false
             },
             {
                 "option_id": "991527",
                 "tag": "d",
-                "text": "$0.343$",
+                "text": "<i>0.343</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 145
+        "question_number": 145,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,35 +955,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee includes at least 2 women?",
-        "explanation": "P(at least 2 women) = P(2 women, 2 men) + P(3 women, 1 man). Favorable outcomes = $(^3C_2 \\times ^4C_2) + (^3C_3 \\times ^4C_1) = 18 + 4 = 22$. Probability = $22/35 \\approx 0.629$.",
+        "question_text": "<p> A committee of 4 is chosen from 3 women and 4 men. What is the probability that the committee includes <b>at least 2 women</b>? </p>",
+        "explanation": "<p> The probability of having <b>at least 2 women</b> is calculated as the sum of the probabilities of having exactly 2 women and 2 men, and exactly 3 women and 1 man. </p><p> Favorable outcomes = <i>(^3C_2 \u00d7 ^4C_2) + (^3C_3 \u00d7 ^4C_1)</i> = 18 + 4 = 22. </p><p> Probability = <i>22/35</i> \u2248 <b>0.629</b>. </p>",
         "options": [
             {
                 "option_id": "243654",
                 "tag": "a",
-                "text": "$0.514$",
+                "text": "<i>0.514</i>",
                 "is_correct": false
             },
             {
                 "option_id": "278067",
                 "tag": "b",
-                "text": "$0.629$",
+                "text": "<i>0.629</i>",
                 "is_correct": true
             },
             {
                 "option_id": "153087",
                 "tag": "c",
-                "text": "$0.114$",
+                "text": "<i>0.114</i>",
                 "is_correct": false
             },
             {
                 "option_id": "154168",
                 "tag": "d",
-                "text": "$0.886$",
+                "text": "<i>0.886</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 151
+        "question_number": 151,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,35 +993,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Evaluate the factorial expression: $6! / 4!$",
-        "explanation": "Using factorial expansion, $6! = 6 \\times 5 \\times 4!$. Therefore, $6! / 4! = 6 \\times 5 = 30$.",
+        "question_text": "<p>Evaluate the <b>factorial</b> expression: <i>6!</i> / <i>4!</i></p>",
+        "explanation": "<p>Using <b>factorial expansion</b>, <i>6!</i> = 6 \u00d7 5 \u00d7 <i>4!</i>. Therefore, <i>6!</i> / <i>4!</i> = 6 \u00d7 5 = <i>30</i>.</p>",
         "options": [
             {
                 "option_id": "992440",
                 "tag": "a",
-                "text": "$30$",
+                "text": "<i>30</i>",
                 "is_correct": true
             },
             {
                 "option_id": "307445",
                 "tag": "b",
-                "text": "$1.5$",
+                "text": "<i>1.5</i>",
                 "is_correct": false
             },
             {
                 "option_id": "187295",
                 "tag": "c",
-                "text": "$24$",
+                "text": "<i>24</i>",
                 "is_correct": false
             },
             {
                 "option_id": "105604",
                 "tag": "d",
-                "text": "$12$",
+                "text": "<i>12</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 157
+        "question_number": 157,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,35 +1031,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the value of $^5P_5$?",
-        "explanation": "$^nP_n$ is the number of ways to arrange $n$ distinct objects in $n$ spaces, which is $n!$. Thus, $^5P_5 = 5! = 120$.",
+        "question_text": "<p>What is the value of <i><sup>5</sup>P<sub>5</sub></i>?</p>",
+        "explanation": "<p><i><sup>n</sup>P<sub>n</sub></i> is the number of ways to arrange <b><i>n</i></b> distinct objects in <b><i>n</i></b> spaces, which is <i>n!</i>. Thus, <i><sup>5</sup>P<sub>5</sub> = 5! = 120</i>.</p>",
         "options": [
             {
                 "option_id": "465661",
                 "tag": "a",
-                "text": "$5$",
+                "text": "<i>5</i>",
                 "is_correct": false
             },
             {
                 "option_id": "155474",
                 "tag": "b",
-                "text": "$25$",
+                "text": "<i>25</i>",
                 "is_correct": false
             },
             {
                 "option_id": "299590",
                 "tag": "c",
-                "text": "$120$",
+                "text": "<i>120</i>",
                 "is_correct": true
             },
             {
                 "option_id": "804061",
                 "tag": "d",
-                "text": "$1$",
+                "text": "<i>1</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 164
+        "question_number": 164,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1069,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Calculate the value of $^8C_3$.",
-        "explanation": "$^8C_3 = \\frac{8!}{3!(8-3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
+        "question_text": "<p>Calculate the value of <b><sup>8</sup>C<sub>3</sub></b>.</p>",
+        "explanation": "<p><b><sup>8</sup>C<sub>3</sub></b> is calculated as:</p><p><b><sup>8</sup>C<sub>3</sub></b> = <i>\\frac{8!}{3!(8-3)!}</i> = <i>\\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1}</i> = <b>56</b>.</p>",
         "options": [
             {
                 "option_id": "273422",
                 "tag": "a",
-                "text": "$336$",
+                "text": "<i>336</i>",
                 "is_correct": false
             },
             {
                 "option_id": "290173",
                 "tag": "b",
-                "text": "$56$",
+                "text": "56",
                 "is_correct": true
             },
             {
                 "option_id": "647865",
                 "tag": "c",
-                "text": "$24$",
+                "text": "24",
                 "is_correct": false
             },
             {
                 "option_id": "195928",
                 "tag": "d",
-                "text": "$8$",
+                "text": "8",
                 "is_correct": false
             }
         ],
-        "question_number": 169
+        "question_number": 169,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1107,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If you have the word 'MATHEMATICS', how many unique permutations can be made from its letters?",
-        "explanation": "The word has 11 letters, with repetitions: 'M' appears twice, 'A' twice, and 'T' twice. Using permutations for non-distinct objects gives $\\frac{11!}{2!2!2!}$.",
+        "question_text": "<p>If you have the word <b>\u2018MATHEMATICS\u2019</b>, how many <i>unique</i> permutations can be made from its letters?</p>",
+        "explanation": "<p>The word has 11 letters, with repetitions: <b>\u2018M\u2019</b> appears twice, <b>\u2018A\u2019</b> twice, and <b>\u2018T\u2019</b> twice. Using permutations for non-distinct objects gives <i>11!</i><sub>2! \u00d7 2! \u00d7 2!</sub>.</p>",
         "options": [
             {
                 "option_id": "139852",
                 "tag": "a",
-                "text": "$\\frac{11!}{2! \\times 2! \\times 2!}$",
+                "text": "<i>11!</i><sub>2! \u00d7 2! \u00d7 2!</sub>",
                 "is_correct": true
             },
             {
                 "option_id": "352152",
                 "tag": "b",
-                "text": "$\\frac{11!}{2!}$",
+                "text": "<i>11!</i><sub>2!</sub>",
                 "is_correct": false
             },
             {
                 "option_id": "715748",
                 "tag": "c",
-                "text": "$11!$",
+                "text": "<i>11!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "201388",
                 "tag": "d",
-                "text": "$\\frac{11!}{3! \\times 2!}$",
+                "text": "<i>11!</i><sub>3! \u00d7 2!</sub>",
                 "is_correct": false
             }
         ],
-        "question_number": 175
+        "question_number": 175,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1145,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Solve for $n$ in the equation $^nC_2 = 10$.",
-        "explanation": "$^nC_2 = \\frac{n(n-1)}{2} = 10$. This simplifies to $n^2 - n - 20 = 0$. Factoring gives $(n-5)(n+4) = 0$. Since $n$ must be positive, $n = 5$.",
+        "question_text": "<p>Solve for <b>n</b> in the equation <sup>n</sup>C<sub>2</sub> = 10.</p>",
+        "explanation": "<p><sup>n</sup>C<sub>2</sub> = <i>n</i>(<i>n</i>\u22121)/2 = 10. This simplifies to <i>n</i><sup>2</sup> \u2212 <i>n</i> \u2212 20 = 0. Factoring gives (<i>n</i>\u22125)(<i>n</i>+4) = 0. Since <i>n</i> must be positive, <i>n</i> = 5.</p>",
         "options": [
             {
                 "option_id": "983313",
                 "tag": "a",
-                "text": "$n=4$",
+                "text": "<i>n</i>=4",
                 "is_correct": false
             },
             {
                 "option_id": "293396",
                 "tag": "b",
-                "text": "$n=5$",
+                "text": "<i>n</i>=5",
                 "is_correct": true
             },
             {
                 "option_id": "325563",
                 "tag": "c",
-                "text": "$n=6$",
+                "text": "<i>n</i>=6",
                 "is_correct": false
             },
             {
                 "option_id": "199535",
                 "tag": "d",
-                "text": "$n=10$",
+                "text": "<i>n</i>=10",
                 "is_correct": false
             }
         ],
-        "question_number": 181
+        "question_number": 181,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,35 +1183,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Evaluate $^7P_0$.",
-        "explanation": "By definition, $^nP_0 = \\frac{n!}{(n-0)!} = \\frac{n!}{n!} = 1$.",
+        "question_text": "<p>Evaluate <b><i>^7P_0</i></b>.</p>",
+        "explanation": "<p>By definition, <b><i>^nP_0</i></b> = <b><i>\\frac{n!}{(n-0)!}</i></b> = <b><i>\\frac{n!}{n!}</i></b> = <i>1</i>.</p>",
         "options": [
             {
                 "option_id": "230067",
                 "tag": "a",
-                "text": "$0$",
+                "text": "<i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "216643",
                 "tag": "b",
-                "text": "$1$",
+                "text": "<i>1</i>",
                 "is_correct": true
             },
             {
                 "option_id": "285540",
                 "tag": "c",
-                "text": "$7$",
+                "text": "<i>7</i>",
                 "is_correct": false
             },
             {
                 "option_id": "672462",
                 "tag": "d",
-                "text": "$5040$",
+                "text": "<i>5040</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 187
+        "question_number": 187,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,25 +1221,25 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following describes the fundamental difference between Permutation and Combination?",
-        "explanation": "In permutation, the arrangement 'ab' and 'ba' are different (order matters). In combination, selecting 'ab' is the same as 'ba' (identity counts, not order).",
+        "question_text": "<p>Which of the following describes the <b>fundamental difference</b> between <b>Permutation</b> and <b>Combination</b>?</p>",
+        "explanation": "<p><b>Permutation</b> considers the <b>order</b> of elements, meaning arrangements like 'ab' and 'ba' are distinct. In contrast, <b>Combination</b> focuses on the <b>selection</b> of elements where the order is irrelevant, so 'ab' is considered the same as 'ba'.</p>",
         "options": [
             {
                 "option_id": "668043",
                 "tag": "a",
-                "text": "Permutation deals with summing objects, combination deals with multiplying.",
+                "text": "Permutation deals with <i>summing</i> objects, combination deals with <i>multiplying</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "143051",
                 "tag": "b",
-                "text": "Permutation is used when order does not matter; Combination is used when order matters.",
+                "text": "Permutation is used when order <i>does not</i> matter; Combination is used when order <i>matters</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "303268",
                 "tag": "c",
-                "text": "Permutation is used when order matters; Combination is used when order does not matter.",
+                "text": "Permutation is used when order <i>matters</i>; Combination is used when order <i>does not</i> matter.",
                 "is_correct": true
             },
             {
@@ -1218,7 +1249,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 193
+        "question_number": 193,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1259,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Find the value of $r$ if $^5P_r = 60$.",
-        "explanation": "$^5P_r = \\frac{5!}{(5-r)!} = 60$. Since $5! = 120$, we have $\\frac{120}{(5-r)!} = 60$, which means $(5-r)! = 2$. Since $2! = 2$, $5-r = 2 \\implies r = 3$.",
+        "question_text": "<p>Find the value of <b><i>r</i></b> if <sup>5</sup><i>P</i><sub><i>r</i></sub> = 60.</p>",
+        "explanation": "<p><sup>5</sup><i>P</i><sub><i>r</i></sub> = <b><i>5!</i></b> / (5 - <i>r</i>)! = 60.</p><p>Since <b><i>5!</i></b> = 120, we have <b><i>120</i></b> / (5 - <i>r</i>)! = 60, which means (5 - <i>r</i>)! = 2.</p><p>Since <b>2!</b> = 2, 5 - <i>r</i> = 2 <b><i>\u27f9</i></b> <i>r</i> = 3.</p>",
         "options": [
             {
                 "option_id": "161370",
                 "tag": "a",
-                "text": "$r=2$",
+                "text": "<i>r</i> = 2",
                 "is_correct": false
             },
             {
                 "option_id": "221566",
                 "tag": "b",
-                "text": "$r=3$",
+                "text": "<i>r</i> = 3",
                 "is_correct": true
             },
             {
                 "option_id": "321590",
                 "tag": "c",
-                "text": "$r=4$",
+                "text": "<i>r</i> = 4",
                 "is_correct": false
             },
             {
                 "option_id": "130918",
                 "tag": "d",
-                "text": "$r=5$",
+                "text": "<i>r</i> = 5",
                 "is_correct": false
             }
         ],
-        "question_number": 199
+        "question_number": 199,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1297,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Simplify the expression $\\frac{n(n-1)!}{(n-1)}$.",
-        "explanation": "Since $n(n-1)! = n!$, this does not simplify well directly. But observing $(n-1)! = (n-1)(n-2)!$, the expression becomes $\\frac{n(n-1)(n-2)!}{(n-1)}$. The $(n-1)$ cancels out, leaving $n(n-2)!$.",
+        "question_text": "<p>Simplify the expression <b><i>\\frac{n(n-1)!}{(n-1)}</i></b>.</p>",
+        "explanation": "<p>Since <i>n(n-1)! = n!</i>, this does not simplify well directly. But observing <i>(n-1)! = (n-1)(n-2)!</i>, the expression becomes <i>\\frac{n(n-1)(n-2)!}{(n-1)}</i>. The <i>(n-1)</i> cancels out, leaving <b>n(n-2)!</b>.</p>",
         "options": [
             {
                 "option_id": "306307",
                 "tag": "a",
-                "text": "$n!$",
+                "text": "<b>n!</b>",
                 "is_correct": false
             },
             {
                 "option_id": "209744",
                 "tag": "b",
-                "text": "$n(n-2)!$",
+                "text": "<b>n(n-2)!</b>",
                 "is_correct": true
             },
             {
                 "option_id": "223904",
                 "tag": "c",
-                "text": "$(n-1)!$",
+                "text": "<b>(n-1)!</b>",
                 "is_correct": false
             },
             {
                 "option_id": "574526",
                 "tag": "d",
-                "text": "$(n-2)!$",
+                "text": "<b>(n-2)!</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 206
+        "question_number": 206,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,35 +1335,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Which of the following is equivalent to $^9C_6$?",
-        "explanation": "Using the symmetric property of combinations, $^nC_r = ^nC_{n-r}$. Thus, $^9C_6 = ^9C_{9-6} = ^9C_3$.",
+        "question_text": "<p>Which of the following is equivalent to <b><i>^9C_6</i></b>?</p>",
+        "explanation": "<p>Using the <b>symmetric property of combinations</b>, <i>^nC_r = ^nC_{n-r}</i>. Thus, <i>^9C_6 = ^9C_{9-6} = ^9C_3</i>.</p>",
         "options": [
             {
                 "option_id": "237806",
                 "tag": "a",
-                "text": "$^9C_3$",
+                "text": "<b><i>^9C_3</i></b>",
                 "is_correct": true
             },
             {
                 "option_id": "320018",
                 "tag": "b",
-                "text": "$^9P_6$",
+                "text": "<i>^9P_6</i>",
                 "is_correct": false
             },
             {
                 "option_id": "264524",
                 "tag": "c",
-                "text": "$^9C_2$",
+                "text": "<i>^9C_2</i>",
                 "is_correct": false
             },
             {
                 "option_id": "719365",
                 "tag": "d",
-                "text": "$^6C_9$",
+                "text": "<i>^6C_9</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 211
+        "question_number": 211,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,35 +1373,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "In how many ways can 4 distinct letters be arranged to form a password without repetition from the set 'ABCDEF'?",
-        "explanation": "The set has 6 letters. Choosing and arranging 4 distinct letters is a permutation: $^6P_4 = 6 \\times 5 \\times 4 \\times 3 = 360$ ways.",
+        "question_text": "<p>In how many ways can <b>4 distinct letters</b> be arranged to form a password without repetition from the set <i>'ABCDEF'</i>?</p>",
+        "explanation": "<p>This is a permutation problem because the order of the letters matters in a password. From the 6 available letters, we need to choose and arrange 4 distinct letters. The number of ways to do this is given by the permutation formula <b><i>n</i>P<sub>r</sub> = n! / (n - r)!</b>, where <i>n</i> is the total number of items and <i>r</i> is the number of items to arrange. Here, <i>n = 6</i> and <i>r = 4</i>, so <i>^6P_4 = 6 \u00d7 5 \u00d7 4 \u00d7 3 = 360</i> ways.</p>",
         "options": [
             {
                 "option_id": "212729",
                 "tag": "a",
-                "text": "$360$",
+                "text": "<b>360</b>",
                 "is_correct": true
             },
             {
                 "option_id": "258523",
                 "tag": "b",
-                "text": "$15$",
+                "text": "15",
                 "is_correct": false
             },
             {
                 "option_id": "212163",
                 "tag": "c",
-                "text": "$720$",
+                "text": "<b>720</b>",
                 "is_correct": false
             },
             {
                 "option_id": "240148",
                 "tag": "d",
-                "text": "$24$",
+                "text": "<b>24</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 217
+        "question_number": 217,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,35 +1411,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Evaluate $^7C_7$.",
-        "explanation": "Selecting all 7 items from a set of 7 can only be done in 1 way. By formula: $^7C_7 = \\frac{7!}{7!(7-7)!} = \\frac{1}{0!} = 1$.",
+        "question_text": "<p>Evaluate <b><sup>7</sup>C<sub>7</sub></b>.</p>",
+        "explanation": "<p>Selecting all 7 items from a set of 7 can only be done in <b>1 way</b>. By formula: <b><sup>7</sup>C<sub>7</sub></b> = <b><sup>7</sup>! / (7!(7-7)!)</b> = <b>1 / 0!</b> = <b>1</b>.</p>",
         "options": [
             {
                 "option_id": "216237",
                 "tag": "a",
-                "text": "$0$",
+                "text": "<b><sup>7</sup>C<sub>7</sub></b> = <i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "171658",
                 "tag": "b",
-                "text": "$1$",
+                "text": "<b><sup>7</sup>C<sub>7</sub></b> = <i>1</i>",
                 "is_correct": true
             },
             {
                 "option_id": "209399",
                 "tag": "c",
-                "text": "$7$",
+                "text": "<b><sup>7</sup>C<sub>7</sub></b> = <i>7</i>",
                 "is_correct": false
             },
             {
                 "option_id": "299439",
                 "tag": "d",
-                "text": "$5040$",
+                "text": "<b><sup>7</sup>C<sub>7</sub></b> = <i>5040</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 224
+        "question_number": 224,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1449,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a team of 4 is to be selected from 6 boys and 5 girls, how many teams can be formed if there are no restrictions?",
-        "explanation": "Total number of people = $11$. We need to select 4 people. Using combinations, $^{11}C_4 = \\frac{11!}{4!7!} = \\frac{11 \\times 10 \\times 9 \\times 8}{24} = 330$.",
+        "question_text": "<p>If a team of <b>4</b> is to be selected from <b>6 boys and 5 girls</b>, how many teams can be formed if there are <i>no restrictions</i>?</p>",
+        "explanation": "<p>Total number of people = <b>11</b>. We need to select <b>4</b> people. Using combinations, <sup>11</sup>C<sub>4</sub> = <i>11! / (4!7!)</i> = <i>(11 \u00d7 10 \u00d7 9 \u00d7 8) / 24</i> = <b>330</b>.</p>",
         "options": [
             {
                 "option_id": "185068",
                 "tag": "a",
-                "text": "$330$",
+                "text": "<b>330</b>",
                 "is_correct": true
             },
             {
                 "option_id": "904429",
                 "tag": "b",
-                "text": "$120$",
+                "text": "120",
                 "is_correct": false
             },
             {
                 "option_id": "208768",
                 "tag": "c",
-                "text": "$7920$",
+                "text": "7920",
                 "is_correct": false
             },
             {
                 "option_id": "162027",
                 "tag": "d",
-                "text": "$66$",
+                "text": "66",
                 "is_correct": false
             }
         ],
-        "question_number": 229
+        "question_number": 229,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1487,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If you are to determine the number of unique sequences that can be generated from the word 'STATISTICS', what kind of mathematical problem is this?",
-        "explanation": "Because the letters are being arranged into a sequence, it is a permutation. Because some letters repeat ('S', 'T', 'I'), it involves non-distinct objects.",
+        "question_text": "<p>If you are to determine the number of <b>unique sequences</b> that can be generated from the word <b>'STATISTICS'</b>, what kind of mathematical problem is this?</p>",
+        "explanation": "<p>Because the letters are being arranged into a sequence, it is a <b>permutation</b>. Because some letters repeat (<b>'S'</b>, <b>'T'</b>, <b>'I'</b>), it involves <b>non-distinct objects</b>.</p>",
         "options": [
             {
                 "option_id": "281613",
@@ -1477,7 +1515,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 235
+        "question_number": 235,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1525,8 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Find the value of $x$ if $10! = 10 \\times 9 \\times x!$.",
-        "explanation": "Since $10! = 10 \\times 9 \\times 8!$, matching terms gives $x! = 8!$, meaning $x = 8$.",
+        "question_text": "<p>Find the value of <b>$x$</b> if <b>$10! = 10 \\times 9 \\times x!$</b>.</p>",
+        "explanation": "<p>Since <b>$10! = 10 \\times 9 \\times 8!$</b>, matching terms gives <b>$x! = 8!$</b>, meaning <b>$x = 8$</b>.</p>",
         "options": [
             {
                 "option_id": "859409",
@@ -1514,7 +1553,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 241
+        "question_number": 241,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,35 +1563,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "How many ways can 3 letters be chosen from 'ALGEBRA' if order doesn't matter?",
-        "explanation": "There are 7 letters in 'ALGEBRA'. Choosing 3 letters without regard to order is a combination problem: $^7C_3 = \\frac{7!}{3!4!} = 35$.",
+        "question_text": "<p>How many ways can <b>3 letters</b> be chosen from <i>'ALGEBRA'</i> if order doesn't matter?</p>",
+        "explanation": "<p>There are <b>7 letters</b> in <i>'ALGEBRA'</i>. Choosing <b>3 letters</b> without regard to order is a combination problem: <b><sup>7</sup>C<sub>3</sub></b> = <b>7! / (3!4!)</b> = <b>35</b>.</p>",
         "options": [
             {
                 "option_id": "335630",
                 "tag": "a",
-                "text": "$35$",
+                "text": "<b>35</b>",
                 "is_correct": true
             },
             {
                 "option_id": "340185",
                 "tag": "b",
-                "text": "$210$",
+                "text": "210",
                 "is_correct": false
             },
             {
                 "option_id": "133112",
                 "tag": "c",
-                "text": "$21$",
+                "text": "21",
                 "is_correct": false
             },
             {
                 "option_id": "679863",
                 "tag": "d",
-                "text": "$7$",
+                "text": "7",
                 "is_correct": false
             }
         ],
-        "question_number": 247
+        "question_number": 247,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,35 +1601,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "A coach needs to select a captain and a vice-captain from a team of 11 players. How many ways can this be done?",
-        "explanation": "Since the positions are distinct, order matters. We use permutations: $^{11}P_2 = 11 \\times 10 = 110$ ways.",
+        "question_text": "<p> A coach needs to select a <b>captain</b> and a <b>vice-captain</b> from a team of 11 players. How many ways can this be done? </p>",
+        "explanation": "<p> Since the positions are distinct, <b>order matters</b>. We use permutations: <sup>11</sup>P<sub>2</sub> = 11 \u00d7 10 = <i>110</i> ways. </p>",
         "options": [
             {
                 "option_id": "104050",
                 "tag": "a",
-                "text": "$110$",
+                "text": "<i>110</i>",
                 "is_correct": true
             },
             {
                 "option_id": "477115",
                 "tag": "b",
-                "text": "$55$",
+                "text": "<i>55</i>",
                 "is_correct": false
             },
             {
                 "option_id": "212981",
                 "tag": "c",
-                "text": "$22$",
+                "text": "<i>22</i>",
                 "is_correct": false
             },
             {
                 "option_id": "531501",
                 "tag": "d",
-                "text": "$121$",
+                "text": "<i>121</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 253
+        "question_number": 253,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1639,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "What is the probability of selecting a combination of 3 girls from a group of 3 girls and 2 boys?",
-        "explanation": "Total ways to choose 3 people from 5 = $^5C_3 = 10$. Ways to choose 3 girls from 3 = $^3C_3 = 1$. Probability = $1 / 10 = 0.10$.",
+        "question_text": "<p>What is the probability of selecting a combination of <b>3 girls</b> from a group of 3 girls and 2 boys?</p>",
+        "explanation": "<p>Total ways to choose 3 people from 5 = <b><sup>5</sup>C<sub>3</sub></b> = 10. Ways to choose 3 girls from 3 = <b><sup>3</sup>C<sub>3</sub></b> = 1. Probability = 1 / 10 = <i>0.10</i>.</p>",
         "options": [
             {
                 "option_id": "314898",
                 "tag": "a",
-                "text": "$0.10$",
+                "text": "<i>0.10</i>",
                 "is_correct": true
             },
             {
                 "option_id": "140385",
                 "tag": "b",
-                "text": "$0.30$",
+                "text": "<i>0.30</i>",
                 "is_correct": false
             },
             {
                 "option_id": "337164",
                 "tag": "c",
-                "text": "$0.60$",
+                "text": "<i>0.60</i>",
                 "is_correct": false
             },
             {
                 "option_id": "324790",
                 "tag": "d",
-                "text": "$0.05$",
+                "text": "<i>0.05</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 259
+        "question_number": 259,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1677,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "How many 3-digit numbers can be formed using the digits 1, 2, 3, 4, 5 without repetition?",
-        "explanation": "Arranging 3 distinct digits out of 5 is a permutation: $^5P_3 = 5 \\times 4 \\times 3 = 60$.",
+        "question_text": "<p>How many <b>3-digit numbers</b> can be formed using the digits <b>1, 2, 3, 4, 5</b> without repetition?</p>",
+        "explanation": "<p>Arranging 3 distinct digits out of 5 is a permutation: <i>^5P_3 = 5 \u00d7 4 \u00d7 3 = 60</i>.</p>",
         "options": [
             {
                 "option_id": "266041",
                 "tag": "a",
-                "text": "$60$",
+                "text": "<i>60</i>",
                 "is_correct": true
             },
             {
                 "option_id": "858267",
                 "tag": "b",
-                "text": "$10$",
+                "text": "<i>10</i>",
                 "is_correct": false
             },
             {
                 "option_id": "185986",
                 "tag": "c",
-                "text": "$125$",
+                "text": "<i>125</i>",
                 "is_correct": false
             },
             {
                 "option_id": "207113",
                 "tag": "d",
-                "text": "$20$",
+                "text": "<i>20</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 265
+        "question_number": 265,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1715,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a group of 7 people is to be seated in a row of 7 chairs, how many arrangements are possible?",
-        "explanation": "Arranging 7 people in 7 chairs is a permutation $^7P_7$, which is $7! = 5040$.",
+        "question_text": "<p>If a group of <b>7 people</b> is to be seated in a row of <b>7 chairs</b>, how many arrangements are possible?</p>",
+        "explanation": "<p>Arranging <b>7 people</b> in <b>7 chairs</b> is a permutation <i>^7P_7</i>, which is <i>7!</i> = <i>5040</i>.</p>",
         "options": [
             {
                 "option_id": "229431",
                 "tag": "a",
-                "text": "$49$",
+                "text": "<i>49</i>",
                 "is_correct": false
             },
             {
                 "option_id": "128550",
                 "tag": "b",
-                "text": "$5040$",
+                "text": "<i>5040</i>",
                 "is_correct": true
             },
             {
                 "option_id": "314012",
                 "tag": "c",
-                "text": "$720$",
+                "text": "<i>720</i>",
                 "is_correct": false
             },
             {
                 "option_id": "241415",
                 "tag": "d",
-                "text": "$1$",
+                "text": "<i>1</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 271
+        "question_number": 271,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1753,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Simplify $\\frac{10!}{8!2!}$.",
-        "explanation": "This is equivalent to $^{10}C_2 = \\frac{10 \\times 9 \\times 8!}{8! \\times 2 \\times 1} = \\frac{90}{2} = 45$.",
+        "question_text": "<p>Simplify <i>\\frac{10!}{8!2!}</i>.</p>",
+        "explanation": "<p>This is equivalent to <i>^{10}C_2</i> = <i>\\frac{10 \\times 9 \\times 8!}{8! \\times 2 \\times 1}</i> = <i>\\frac{90}{2}</i> = <b>45</b>.</p>",
         "options": [
             {
                 "option_id": "169795",
                 "tag": "a",
-                "text": "$45$",
+                "text": "<b>45</b>",
                 "is_correct": true
             },
             {
                 "option_id": "149926",
                 "tag": "b",
-                "text": "$90$",
+                "text": "90",
                 "is_correct": false
             },
             {
                 "option_id": "517529",
                 "tag": "c",
-                "text": "$5$",
+                "text": "5",
                 "is_correct": false
             },
             {
                 "option_id": "211199",
                 "tag": "d",
-                "text": "$20$",
+                "text": "20",
                 "is_correct": false
             }
         ],
-        "question_number": 277
+        "question_number": 277,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,35 +1791,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "Solve the equation $^xP_1 = 15$.",
-        "explanation": "$^xP_1$ is the number of ways to choose and arrange 1 item from $x$ items, which is simply $x$. Therefore, $x = 15$.",
+        "question_text": "<p>Solve the equation <i><sup>x</sup>P<sub>1</sub></i> = 15.</p>",
+        "explanation": "<p><i><sup>x</sup>P<sub>1</sub></i> represents the number of ways to choose and arrange 1 item from <i>x</i> items, which simplifies to <i>x</i> itself. Therefore, setting <i><sup>x</sup>P<sub>1</sub></i> = 15 gives <i>x</i> = <b>15</b>.</p>",
         "options": [
             {
                 "option_id": "781600",
                 "tag": "a",
-                "text": "$x = 1$",
+                "text": "<i>x</i> = 1",
                 "is_correct": false
             },
             {
                 "option_id": "231576",
                 "tag": "b",
-                "text": "$x = 15$",
+                "text": "<i>x</i> = 15",
                 "is_correct": true
             },
             {
                 "option_id": "277447",
                 "tag": "c",
-                "text": "$x = 14$",
+                "text": "<i>x</i> = 14",
                 "is_correct": false
             },
             {
                 "option_id": "213122",
                 "tag": "d",
-                "text": "$x = 0$",
+                "text": "<i>x</i> = 0",
                 "is_correct": false
             }
         ],
-        "question_number": 283
+        "question_number": 283,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1829,36 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If 4 books are selected from 10 different books, what formula gives the number of selections?",
-        "explanation": "Since the order of the books does not matter in a selection, this is a combination. The formula is $^{10}C_4 = \\frac{10!}{4!(10-4)!} = \\frac{10!}{4!6!}$.",
+        "question_text": "<p>If <b>4 books</b> are selected from <b>10 different books</b>, what formula gives the number of selections?</p>",
+        "explanation": "<p>Since the <b>order of the books</b> does not matter in a selection, this is a <b>combination</b>. The formula is <sup>10</sup>C<sub>4</sub> = <i>10!</i> / <i>4!(10-4)!</i> = <i>10!</i> / <i>4!6!</i>.</p>",
         "options": [
             {
                 "option_id": "224121",
                 "tag": "a",
-                "text": "$\\frac{10!}{4!}$",
+                "text": "<i>10!</i>/<i>4!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "602736",
                 "tag": "b",
-                "text": "$\\frac{10!}{6!}$",
+                "text": "<i>10!</i>/<i>6!</i>",
                 "is_correct": false
             },
             {
                 "option_id": "489063",
                 "tag": "c",
-                "text": "$\\frac{10!}{4!6!}$",
+                "text": "<i>10!</i>/<i>4!6!</i>",
                 "is_correct": true
             },
             {
                 "option_id": "123506",
                 "tag": "d",
-                "text": "$10! - 4!$",
+                "text": "<i>10!</i> - <i>4!</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 289
+        "question_number": 289,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,34 +1867,35 @@
         "course_code": "STA 122",
         "course_title": "PROBABILTY",
         "question_type": "CBT",
-        "question_text": "If a student can choose exactly 2 questions to answer out of 5, what is the maximum number of different question pairs they can select?",
-        "explanation": "The order of answering doesn't matter, so it's a combination: $^5C_2 = \\frac{5!}{2!3!} = 10$.",
+        "question_text": "<p>If a student can choose <b>exactly 2 questions</b> to answer out of 5, what is the <b>maximum number of different question pairs</b> they can select?</p>",
+        "explanation": "<p>This is a combination problem because the <b>order of selection does not matter</b>. The formula for combinations is:</p><p>$^nC_k = \\frac{n!}{k!(n-k)!}$</p><p>Here, <i>n = 5</i> (total questions) and <i>k = 2</i> (questions to choose).</p><p>So, $^5C_2 = \\frac{5!}{2!3!} = \\frac{120}{2 \\times 6} = 10$.</p>",
         "options": [
             {
                 "option_id": "100034",
                 "tag": "a",
-                "text": "$10$",
+                "text": "<i>10</i>",
                 "is_correct": true
             },
             {
                 "option_id": "173972",
                 "tag": "b",
-                "text": "$20$",
+                "text": "<i>20</i>",
                 "is_correct": false
             },
             {
                 "option_id": "145978",
                 "tag": "c",
-                "text": "$5$",
+                "text": "<i>5</i>",
                 "is_correct": false
             },
             {
                 "option_id": "112703",
                 "tag": "d",
-                "text": "$25$",
+                "text": "<i>25</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 295
+        "question_number": 295,
+        "is_rewritten": true
     }
 ]

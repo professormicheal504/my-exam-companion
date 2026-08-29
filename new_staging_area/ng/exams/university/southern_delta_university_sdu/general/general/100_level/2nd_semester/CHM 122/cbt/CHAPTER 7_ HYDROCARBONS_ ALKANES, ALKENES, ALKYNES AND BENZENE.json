@@ -6,19 +6,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What are hydrocarbons?",
-        "explanation": "Hydrocarbons are organic compounds that consist only of hydrogen and carbon atoms.",
+        "question_text": "<p><b>Hydrocarbons</b> are a fundamental class of compounds in organic chemistry. <i>What defines them structurally?</i></p>",
+        "explanation": "<p>Hydrocarbons are defined as <b>organic compounds composed exclusively of hydrogen (<i>H</i>) and carbon (<i>C</i>)</b> atoms. They form the basis of many fuels, plastics, and other organic materials. The absence of other elements like oxygen distinguishes them from other organic compounds.</p>",
         "options": [
             {
                 "option_id": "218414",
                 "tag": "a",
-                "text": "Organic compounds consisting of carbon, hydrogen, and oxygen",
+                "text": "Organic compounds consisting of <b>carbon, hydrogen, and oxygen</b>",
                 "is_correct": false
             },
             {
                 "option_id": "134949",
                 "tag": "b",
-                "text": "Organic compounds that consist only of hydrogen and carbon atoms",
+                "text": "Organic compounds that consist <b>only of hydrogen and carbon atoms</b>",
                 "is_correct": true
             },
             {
@@ -30,11 +30,12 @@
             {
                 "option_id": "543683",
                 "tag": "d",
-                "text": "Compounds that contain water and carbon",
+                "text": "Compounds that contain <b>water and carbon</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 9
+        "question_number": 9,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following is the general formula for acyclic alkanes?",
-        "explanation": "Alkanes are saturated aliphatic hydrocarbons that contain only single bonds between carbon atoms, with the general formula \\( \\ce{C_nH_{2n+2}} \\).",
+        "question_text": "<p>Which of the following is the <b>general formula</b> for <b>acyclic alkanes</b>?</p>",
+        "explanation": "<p><b>Acyclic alkanes</b> are <i>saturated aliphatic hydrocarbons</i> that contain only single bonds between carbon atoms, with the general formula \\( \\ce{C_nH_{2n+2}} \\).</p>",
         "options": [
             {
                 "option_id": "618444",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 22
+        "question_number": 22,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Cycloalkanes (alicyclic hydrocarbons) have the general formula:",
-        "explanation": "Cycloalkanes have carbon atoms joined in a ring, losing two hydrogen atoms compared to acyclic alkanes, giving them the general formula \\( \\ce{C_nH_{2n}} \\).",
+        "question_text": "<p>Cycloalkanes (<i>alicyclic hydrocarbons</i>) have the general formula:</p>",
+        "explanation": "<p>Cycloalkanes have carbon atoms joined in a ring, losing <b>two hydrogen atoms</b> compared to acyclic alkanes, giving them the general formula <i>C<sub>n</sub>H<sub>2n</sub></i>.</p>",
         "options": [
             {
                 "option_id": "772474",
                 "tag": "a",
-                "text": "\\( \\ce{C_nH_{2n+2}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n+2</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "271162",
                 "tag": "b",
-                "text": "\\( \\ce{C_nH_{2n}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "978865",
                 "tag": "c",
-                "text": "\\( \\ce{C_nH_{2n-2}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n-2</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "173983",
                 "tag": "d",
-                "text": "\\( \\ce{C_nH_{2n+1}OH} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n+1</sub>OH</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 35
+        "question_number": 35,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanes are often referred to by the common name:",
-        "explanation": "Alkanes are also known as paraffins due to their low reactivity (parum affinis = little affinity).",
+        "question_text": "<p>Alkanes are often referred to by the <b>common name</b>:</p>",
+        "explanation": "<p>Alkanes are also known as <b>paraffins</b> due to their low reactivity (<i>parum affinis</i> = little affinity).</p>",
         "options": [
             {
                 "option_id": "207086",
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 48
+        "question_number": 48,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,8 +158,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following describes the polarity of alkanes?",
-        "explanation": "Alkanes are non-polar, meaning they do not have a permanent electric dipole moment.",
+        "question_text": "<p>Which of the following describes the <b>polarity</b> of alkanes?</p>",
+        "explanation": "<p>Alkanes are <b>non-polar</b>, meaning they do not have a permanent electric dipole moment.</p>",
         "options": [
             {
                 "option_id": "296916",
@@ -182,7 +186,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 61
+        "question_number": 61,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why do alkanes have low reactivity?",
-        "explanation": "Alkanes are relatively unreactive due to their stable molecular structure of fully saturated carbon-carbon single bonds.",
+        "question_text": "<p>Why do <b>alkanes</b> have low reactivity?</p>",
+        "explanation": "<p>Alkanes are relatively unreactive due to their <b>stable molecular structure</b> of fully <b>saturated carbon-carbon single bonds</b>. The absence of double or triple bonds and the strong single bonds contribute to their low reactivity.</p>",
         "options": [
             {
                 "option_id": "238830",
                 "tag": "a",
-                "text": "Because they are highly electronegative",
+                "text": "Because they are <i>highly electronegative</i>",
                 "is_correct": false
             },
             {
                 "option_id": "289452",
                 "tag": "b",
-                "text": "Due to their unstable double bonds",
+                "text": "Due to their <i>unstable double bonds</i>",
                 "is_correct": false
             },
             {
                 "option_id": "268134",
                 "tag": "c",
-                "text": "Due to their stable saturated molecular structure containing only strong single bonds",
+                "text": "Due to their <b>stable saturated molecular structure</b> containing only <b>strong single bonds</b>",
                 "is_correct": true
             },
             {
                 "option_id": "840767",
                 "tag": "d",
-                "text": "Because they easily form ions",
+                "text": "Because they <i>easily form ions</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 74
+        "question_number": 74,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following statements about the density of alkanes is true?",
-        "explanation": "The densities of alkanes are less than that of water, hence their specific gravities are less than 1.0, and they float on water.",
+        "question_text": "<p>Which of the following statements about the <b>density of alkanes</b> is true?</p>",
+        "explanation": "<p>The densities of alkanes are <i>less than</i> that of water, hence their <b>specific gravities are less than 1.0</b>, and they <b>float on water</b>.</p>",
         "options": [
             {
                 "option_id": "288206",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 87
+        "question_number": 87,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does branching affect the boiling point of an alkane?",
-        "explanation": "Branched chain compounds have lower boiling points than their straight chain isomers because branching decreases the surface area and weakens van der Waals forces.",
+        "question_text": "<p>How does <b>branching</b> affect the <b>boiling point</b> of an alkane?</p>",
+        "explanation": "<p><b>Branched chain</b> compounds have <i>lower</i> boiling points than their <b>straight chain</b> isomers because branching <b>decreases the surface area</b> and <b>weakens van der Waals forces</b>.</p>",
         "options": [
             {
                 "option_id": "373409",
                 "tag": "a",
-                "text": "Branched chain alkanes have higher boiling points than their straight chain isomers",
+                "text": "<b>Branched chain</b> alkanes have <i>higher</i> boiling points than their <b>straight chain</b> isomers",
                 "is_correct": false
             },
             {
                 "option_id": "274063",
                 "tag": "b",
-                "text": "Branched chain alkanes have lower boiling points than their straight chain isomers",
+                "text": "<b>Branched chain</b> alkanes have <i>lower</i> boiling points than their <b>straight chain</b> isomers",
                 "is_correct": true
             },
             {
                 "option_id": "195701",
                 "tag": "c",
-                "text": "Branching has no effect on boiling point",
+                "text": "Branching has <i>no effect</i> on boiling point",
                 "is_correct": false
             },
             {
                 "option_id": "828255",
                 "tag": "d",
-                "text": "Branching makes the alkane solid at room temperature",
+                "text": "Branching makes the alkane <b>solid</b> at room temperature",
                 "is_correct": false
             }
         ],
-        "question_number": 100
+        "question_number": 100,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the primary method used to separate crude petroleum into fractions of different boiling ranges?",
-        "explanation": "The first step in the refining of petroleum involves its separation into fractions of different boiling ranges by fractional distillation.",
+        "question_text": "<p>What is the primary method used to separate crude petroleum into fractions of different boiling ranges?</p>",
+        "explanation": "<p>The first step in the refining of petroleum involves its separation into fractions of different boiling ranges by <b>fractional distillation</b>.</p>",
         "options": [
             {
                 "option_id": "190184",
@@ -330,7 +338,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 113
+        "question_number": 113,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which compound is assigned an octane number of 100 on the octane scale?",
-        "explanation": "2,2,4-trimethylpentane (iso-octane), which is considered a good fuel, is given an octane number of 100.",
+        "question_text": "<p>The <b>octane number</b> is a standard measure of the performance of a fuel used in spark-ignition internal combustion engines. It compares the fuel's <b>anti-knocking quality</b> to a mixture of two reference fuels: <i>n-heptane</i> and <i>iso-octane</i>.</p><p>Which compound is assigned an octane number of <b>100</b> on the octane scale?</p>",
+        "explanation": "<p>The octane number scale ranges from 0 to 100, where <b>n-heptane</b> is assigned a value of 0 (poor anti-knocking quality) and <b>2,2,4-trimethylpentane (iso-octane)</b> is assigned a value of 100 (excellent anti-knocking quality).</p><p>This compound, commonly known as <i>iso-octane</i>, is used as the reference for the upper limit of the octane scale due to its high resistance to engine knocking.</p>",
         "options": [
             {
                 "option_id": "296344",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 126
+        "question_number": 126,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,13 +386,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which compound is assigned an octane number of zero because it is a very poor fuel?",
-        "explanation": "n-Heptane, a very poor fuel, is given an octane number of zero.",
+        "question_text": "<p>Which compound is assigned an <b>octane number</b> of zero because it is a <i>very poor fuel</i>?</p>",
+        "explanation": "<p><b>n-Heptane</b>, a very poor fuel, is given an octane number of zero.</p>",
         "options": [
             {
                 "option_id": "591990",
                 "tag": "a",
-                "text": "n-Heptane",
+                "text": "<b>n-Heptane</b>",
                 "is_correct": true
             },
             {
@@ -404,7 +414,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 139
+        "question_number": 139,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +424,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following generally increases the octane number of a hydrocarbon fuel?",
-        "explanation": "Branching of the hydrocarbon chain increases the octane number, resulting in better fuel quality.",
+        "question_text": "<p>The <b>octane number</b> is a measure of a fuel's resistance to knocking during combustion. Which of the following generally increases the octane number of a hydrocarbon fuel?</p>",
+        "explanation": "<p><b>Branching</b> of the hydrocarbon chain disrupts the smooth combustion process, reducing the tendency to knock. This structural change increases the octane number, improving the fuel's quality and performance.</p>",
         "options": [
             {
                 "option_id": "307470",
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 152
+        "question_number": 152,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,19 +462,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In diesel fuels, quality is expressed in terms of a number called:",
-        "explanation": "The quality of diesel fuel is expressed in terms of a number called cetane number.",
+        "question_text": "<p>The quality of <b>diesel fuels</b> is expressed in terms of a number called:</p>",
+        "explanation": "<p>The quality of diesel fuel is expressed in terms of a number called <b>cetane number</b>. This number indicates the fuel's ignition delay; the higher the cetane number, the shorter the delay and the more efficient the combustion.</p>",
         "options": [
             {
                 "option_id": "131421",
                 "tag": "a",
-                "text": "Octane number",
+                "text": "<i>Octane number</i>",
                 "is_correct": false
             },
             {
                 "option_id": "207917",
                 "tag": "b",
-                "text": "Cetane number",
+                "text": "<b>Cetane number</b>",
                 "is_correct": true
             },
             {
@@ -478,7 +490,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 165
+        "question_number": 165,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,8 +500,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The products of the complete combustion of an alkane are:",
-        "explanation": "Alkanes react with oxygen (combustion) to produce carbon dioxide and water. e.g., \\( \\ce{CH3CH2CH3 + 5O2 -> 3CO2 + 4H2O} \\).",
+        "question_text": "<p>The products of the <b>complete combustion</b> of an alkane are:</p>",
+        "explanation": "<p>Alkanes react with oxygen (<i>combustion</i>) to produce <b>carbon dioxide</b> and <b>water</b>. For example, <i>CH<sub>3</sub>CH<sub>2</sub>CH<sub>3</sub> + 5O<sub>2</sub> \u2192 3CO<sub>2</sub> + 4H<sub>2</sub>O</i>.</p>",
         "options": [
             {
                 "option_id": "333973",
@@ -515,7 +528,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 178
+        "question_number": 178,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which halogen is generally most reactive towards alkanes in a substitution reaction?",
-        "explanation": "As noted in the text, the reactivity of halogens with alkanes follows the order \\( \\ce{Cl2 > Br2} \\). (Fluorine is usually too reactive, but between Cl and Br, Cl is more reactive).",
+        "question_text": "<p>Which <b>halogen</b> is generally most reactive towards alkanes in a substitution reaction?</p>",
+        "explanation": "<p>As noted in the text, the reactivity of <b>halogens</b> with alkanes follows the order <i><b>Cl<sub>2</sub> > Br<sub>2</sub></b></i>. (Fluorine is usually too reactive, but between Cl and Br, Cl is more reactive).</p>",
         "options": [
             {
                 "option_id": "137588",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 191
+        "question_number": 191,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,8 +576,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The process of breaking down larger alkanes into smaller alkanes and alkenes is known as:",
-        "explanation": "Cracking is the process where alkanes are broken down to produce smaller alkanes and alkenes.",
+        "question_text": "<p>The process of breaking down larger alkanes into smaller alkanes and alkenes is known as:</p>",
+        "explanation": "<p><b>Cracking</b> is the process where alkanes are broken down to produce smaller alkanes and alkenes.</p>",
         "options": [
             {
                 "option_id": "604181",
@@ -589,7 +604,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 204
+        "question_number": 204,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +614,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which catalyst is typically used in the hydrogenation of unsaturated hydrocarbons (alkenes/alkynes) to form alkanes?",
-        "explanation": "Alkanes can be prepared by the hydrogenation of unsaturated hydrocarbons using platinum (Pt) or palladium (Pd) as a catalyst.",
+        "question_text": "<p>Which <b>catalyst</b> is typically used in the <b>hydrogenation</b> of <i>unsaturated hydrocarbons</i> (alkenes/alkynes) to form alkanes?</p>",
+        "explanation": "<p>Alkanes can be prepared by the hydrogenation of unsaturated hydrocarbons using <b>platinum (Pt)</b> or <b>palladium (Pd)</b> as a catalyst.</p>",
         "options": [
             {
                 "option_id": "283154",
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 217
+        "question_number": 217,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +652,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Wurtz reaction involves treating an alkyl halide with sodium in the presence of dry ether. The product formed is:",
-        "explanation": "In the Wurtz reaction, \\( \\ce{2RX + 2Na -> R-R + 2NaX} \\). It joins two alkyl groups to form a higher alkane.",
+        "question_text": "<p>The <b>Wurtz reaction</b> involves treating an alkyl halide with sodium in the presence of dry ether. The product formed is:</p>",
+        "explanation": "<p>In the Wurtz reaction, <i><b>2RX + 2Na -> R-R + 2NaX</b></i>. It joins two alkyl groups to form a higher <b>alkane</b>.</p>",
         "options": [
             {
                 "option_id": "339956",
@@ -663,7 +680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 230
+        "question_number": 230,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the active ingredient in soda lime used during the decarboxylation of sodium alkanoates?",
-        "explanation": "Soda lime is a mixture of NaOH and CaO. The active ingredient is NaOH, while CaO helps in keeping the reaction mixture porous.",
+        "question_text": "<p>What is the <b>active ingredient</b> in soda lime used during the decarboxylation of sodium alkanoates?</p>",
+        "explanation": "<p>Soda lime is a mixture of <b>NaOH</b> and <b>CaO</b>. The <b>active ingredient</b> is <b>NaOH</b>, while <b>CaO</b> helps in keeping the reaction mixture porous.</p>",
         "options": [
             {
                 "option_id": "634365",
@@ -690,17 +708,18 @@
             {
                 "option_id": "244650",
                 "tag": "c",
-                "text": "\\( \\ce{Na2CO3} \\)",
+                "text": "<i>Na<sub>2</sub>CO<sub>3</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "322148",
                 "tag": "d",
-                "text": "\\( \\ce{Ca(OH)2} \\)",
+                "text": "<i>Ca(OH)<sub>2</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 243
+        "question_number": 243,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,8 +728,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which method produces an alkane by electrolyzing a concentrated solution of a sodium or potassium salt of a carboxylic acid?",
-        "explanation": "When a concentrated solution of a sodium or potassium salt of a carboxylic acid is electrolyzed, an alkane is formed (Kolbe's Electrolytic Method).",
+        "question_text": "<p>Which method produces an <b>alkane</b> by electrolyzing a concentrated solution of a sodium or potassium salt of a carboxylic acid?</p>",
+        "explanation": "<p>When a concentrated solution of a sodium or potassium salt of a carboxylic acid is electrolyzed, an <b>alkane</b> is formed (<i>Kolbe's Electrolytic Method</i>).</p>",
         "options": [
             {
                 "option_id": "583646",
@@ -737,7 +756,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 256
+        "question_number": 256,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,8 +766,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkenes are unsaturated hydrocarbons with the general formula \\( \\ce{C_nH_{2n}} \\). They are also known as:",
-        "explanation": "Alkenes, also called olefins, are hydrocarbons which contain one or more carbon-carbon double bonds.",
+        "question_text": "<p>Alkenes are <b>unsaturated hydrocarbons</b> with the general formula <i><b><sub>C</sub><sub>n</sub>H<sub>2n</sub></b></i>. They are also known as:</p>",
+        "explanation": "<p>Alkenes, also called <b>olefins</b>, are hydrocarbons which contain one or more carbon-carbon double bonds.</p>",
         "options": [
             {
                 "option_id": "460435",
@@ -774,7 +794,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 269
+        "question_number": 269,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +804,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the general formula for alkynes?",
-        "explanation": "Alkynes are unsaturated hydrocarbons that contain triple bonds between carbon atoms and have the general formula \\( \\ce{C_nH_{2n-2}} \\).",
+        "question_text": "<p>What is the <b>general formula</b> for alkynes?</p>",
+        "explanation": "<p>Alkynes are <b>unsaturated hydrocarbons</b> that contain <b>triple bonds</b> between carbon atoms and have the general formula <i>C<sub>n</sub>H<sub>2n-2</sub></i>.</p>",
         "options": [
             {
                 "option_id": "227850",
                 "tag": "a",
-                "text": "\\( \\ce{C_nH_{2n}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "258916",
                 "tag": "b",
-                "text": "\\( \\ce{C_nH_{2n-2}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n-2</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "859914",
                 "tag": "c",
-                "text": "\\( \\ce{C_nH_{2n+2}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>2n+2</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "185676",
                 "tag": "d",
-                "text": "\\( \\ce{C_nH_{n}} \\)",
+                "text": "<i>C<sub>n</sub>H<sub>n</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 282
+        "question_number": 282,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,8 +842,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Why are alkenes and alkynes slightly more polar than alkanes?",
-        "explanation": "Alkenes and alkynes are weakly polar due to the presence of \\( \\text{sp}^2 \\) and sp hybridized carbon atoms, which are more electronegative than \\( \\text{sp}^3 \\) hybridized carbon atoms (s sp > sp2 > sp3).",
+        "question_text": "<p>Why are <b>alkenes</b> and <b>alkynes</b> slightly more polar than <b>alkanes</b>?</p>",
+        "explanation": "<p>Alkenes and alkynes are weakly polar due to the presence of <i>sp</i><sup>2</sup> and <i>sp</i> hybridized carbon atoms, which are more electronegative than <i>sp</i><sup>3</sup> hybridized carbon atoms (<i>s</i> > <i>sp</i><sup>2</sup> > <i>sp</i><sup>3</sup>).</p>",
         "options": [
             {
                 "option_id": "237955",
@@ -832,7 +854,7 @@
             {
                 "option_id": "445162",
                 "tag": "b",
-                "text": "\\( \\text{sp}^2 \\) and sp hybridized carbons are more electronegative than \\( \\text{sp}^3 \\) hybridized carbons",
+                "text": "<i>sp</i><sup>2</sup> and <i>sp</i> hybridized carbons are more electronegative than <i>sp</i><sup>3</sup> hybridized carbons",
                 "is_correct": true
             },
             {
@@ -848,7 +870,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 295
+        "question_number": 295,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +880,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The addition of bromine water to an unknown hydrocarbon results in rapid decolourisation. This indicates the presence of:",
-        "explanation": "Addition of bromine is extremely useful for detection of a carbon-carbon double or triple bond. Rapid decolourisation serves as a test for unsaturation.",
+        "question_text": "<p>The addition of <b>bromine water</b> to an unknown hydrocarbon results in rapid decolourisation. This indicates the presence of:</p>",
+        "explanation": "<p>Addition of bromine is extremely useful for detection of a <b>carbon-carbon double or triple bond</b>. <i>Rapid decolourisation</i> serves as a test for unsaturation.</p>",
         "options": [
             {
                 "option_id": "229856",
@@ -885,7 +908,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 308
+        "question_number": 308,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,8 +918,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "According to Markownikoff's rule, when a hydrogen halide (HX) adds to an unsymmetrical alkene, the negative part (X) attaches to the carbon atom with:",
-        "explanation": "Markownikoff's rule states that the negative part of the reagent goes to that carbon atom of the alkene which carries the lesser number of hydrogen atoms.",
+        "question_text": "<p>According to <b>Markownikoff's rule</b>, when a hydrogen halide (HX) adds to an unsymmetrical alkene, the negative part (X) attaches to the carbon atom with:</p>",
+        "explanation": "<p><b>Markownikoff's rule</b> states that the negative part of the reagent goes to that carbon atom of the alkene which carries the <i>lesser number of hydrogen atoms</i>.</p>",
         "options": [
             {
                 "option_id": "119992",
@@ -922,7 +946,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 321
+        "question_number": 321,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +956,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Markownikoff's rule is primarily based on the relative stability of which intermediate?",
-        "explanation": "Markownikoff's rule can be explained on the basis of the relative stabilities of carbocations which are in the order of tertiary > secondary > primary.",
+        "question_text": "<p>Markownikoff's rule is primarily based on the relative stability of which intermediate?</p>",
+        "explanation": "<p>Markownikoff's rule can be explained on the basis of the relative stabilities of <b>carbocations</b> which are in the order of tertiary > secondary > primary.</p>",
         "options": [
             {
                 "option_id": "376542",
@@ -959,7 +984,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 334
+        "question_number": 334,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the order of relative stability of carbocations?",
-        "explanation": "The relative stabilities of carbocations are of the order of tertiary > secondary > primary.",
+        "question_text": "<p>The order of <b>relative stability</b> of carbocations is determined by the number of alkyl groups attached to the positively charged carbon. These alkyl groups help to <i>delocalize</i> the positive charge through a process called <b>hyperconjugation</b>.</p>",
+        "explanation": "<p>The stability of carbocations follows the order: <b>tertiary > secondary > primary</b>. This is because tertiary carbocations have three alkyl groups that can participate in hyperconjugation, stabilizing the positive charge more effectively than secondary or primary carbocations, which have fewer alkyl groups.</p><p>For example, a tertiary carbocation like <b>(CH<sub>3</sub>)<sub>3</sub>C<sup>+</sup></b> is more stable than a secondary carbocation like <b>(CH<sub>3</sub>)<sub>2</sub>CH<sup>+</sup></sup></b>, which in turn is more stable than a primary carbocation like <b>CH<sub>3</sub>CH<sub>2</sub><sup>+</sup></b>.</p>",
         "options": [
             {
                 "option_id": "953549",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 347
+        "question_number": 347,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,8 +1032,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The addition of HBr to an unsymmetrical alkene in the presence of peroxides yields the anti-Markownikoff product. This is known as:",
-        "explanation": "In the presence of peroxide, the product obtained is contrary to Markownikoff's rule. This reversal is known as the peroxide effect (discovered by Kharasch and Mayo).",
+        "question_text": "<p>The addition of HBr to an <i>unsymmetrical alkene</i> in the presence of peroxides yields the <b>anti-Markownikoff product</b>. This is known as:</p>",
+        "explanation": "<p>In the presence of peroxide, the product obtained is contrary to <b>Markownikoff's rule</b>. This reversal is known as the <b>peroxide effect</b> (discovered by Kharasch and Mayo).</p>",
         "options": [
             {
                 "option_id": "114401",
@@ -1033,7 +1060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 360
+        "question_number": 360,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1070,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the reaction intermediate in the anti-Markownikoff addition of HBr to alkenes (the peroxide effect)?",
-        "explanation": "The reaction intermediate in anti-Markownikoff additions (peroxide effect) is a free radical rather than a carbocation.",
+        "question_text": "<p>What is the <b>reaction intermediate</b> in the <b>anti-Markownikoff addition</b> of HBr to alkenes (the <i>peroxide effect</i>)?</p>",
+        "explanation": "<p>The <b>reaction intermediate</b> in anti-Markownikoff additions (peroxide effect) is a <b>free radical</b> rather than a carbocation.</p>",
         "options": [
             {
                 "option_id": "273662",
@@ -1070,7 +1098,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 373
+        "question_number": 373,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1108,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Hydration of an alkene (addition of \\( \\ce{H2O} \\)) in the presence of an acid catalyst yields which class of compounds?",
-        "explanation": "Hydration reactions occur when \\( \\ce{H2O} \\) adds to alkenes in the presence of an acid catalyst to yield an alcohol.",
+        "question_text": "<p>Hydration of an alkene (addition of <i><b><sub>H</sub><sub>2</sub>O</b></i>) in the presence of an acid catalyst yields which class of compounds?</p>",
+        "explanation": "<p>Hydration reactions occur when <i><b><sub>H</sub><sub>2</sub>O</b></i> adds to alkenes in the presence of an acid catalyst to yield an <b>alcohol</b>.</p>",
         "options": [
             {
                 "option_id": "325333",
@@ -1107,7 +1136,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 386
+        "question_number": 386,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1146,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which reaction sequence accomplishes the Markownikoff hydration of an alkene without carbocation rearrangements, typically yielding higher amounts of alcohols?",
-        "explanation": "Oxymercuration-demercuration is another method used to accomplish Markownikoff's hydration of an alkene, usually giving a better yield of alcohols than addition of water with \\( \\ce{H2SO4} \\).",
+        "question_text": "<p>Which reaction sequence accomplishes the <b>Markownikoff hydration</b> of an alkene without carbocation rearrangements, typically yielding higher amounts of alcohols?</p>",
+        "explanation": "<p><b>Oxymercuration-demercuration</b> is another method used to accomplish Markownikoff's hydration of an alkene, usually giving a better yield of alcohols than addition of water with <i><b>H<sub>2</sub>SO<sub>4</sub></b></i>.</p>",
         "options": [
             {
                 "option_id": "518665",
@@ -1144,7 +1174,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 398
+        "question_number": 398,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,19 +1184,19 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Hydroboration of an alkene followed by oxidation yields an alcohol. This reaction is best described as:",
-        "explanation": "Hydroboration reaction is described as anti-Markownikoff's addition in a literal sense, yielding the less substituted alcohol.",
+        "question_text": "<p>Hydroboration of an alkene followed by oxidation yields an alcohol. This reaction is best described as:</p>",
+        "explanation": "<p>The <b>hydroboration</b> reaction proceeds via a concerted mechanism where boron and hydrogen add to the <i>same face</i> of the alkene. This results in the <b>anti-Markownikoff</b> addition, where the boron attaches to the <b>less substituted carbon</b> and hydrogen to the more substituted one. Subsequent oxidation replaces the boron with a hydroxyl group, yielding the <b>less substituted alcohol</b>.</p>",
         "options": [
             {
                 "option_id": "236395",
                 "tag": "a",
-                "text": "Markownikoff addition",
+                "text": "<b>Markownikoff</b> addition",
                 "is_correct": false
             },
             {
                 "option_id": "411219",
                 "tag": "b",
-                "text": "Anti-Markownikoff addition",
+                "text": "<i>Anti-Markownikoff</i> addition",
                 "is_correct": true
             },
             {
@@ -1181,7 +1212,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 410
+        "question_number": 410,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,8 +1222,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The cleavage of an alkene using ozone (\\( \\ce{O3} \\)) followed by hydrolysis is called:",
-        "explanation": "Ozonolysis consists of two separate reactions: oxidation of alkene by ozone to give an ozonide, and reduction of the ozonide to yield cleavage products like aldehydes or ketones.",
+        "question_text": "<p>The cleavage of an alkene using ozone (<i><b>O<sub>3</sub></b></i>) followed by hydrolysis is called:</p>",
+        "explanation": "<p><b>Ozonolysis</b> consists of two separate reactions: oxidation of alkene by ozone to give an ozonide, and reduction of the ozonide to yield cleavage products like aldehydes or ketones.</p>",
         "options": [
             {
                 "option_id": "407715",
@@ -1218,7 +1250,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 422
+        "question_number": 422,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,8 +1260,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which reagent is commonly used to convert an alkene to a diol (glycol) through hydroxylation?",
-        "explanation": "The most popular reagent used to convert an alkene to diol (glycols) is cold alkaline aqueous potassium permanganate (\\( \\ce{KMnO4} \\)) or osmium tetroxide (\\( \\ce{OsO4} \\)).",
+        "question_text": "<p>Which reagent is commonly used to convert an alkene to a diol (glycol) through hydroxylation?</p>",
+        "explanation": "<p>The most popular reagent used to convert an alkene to <b>diol (glycols)</b> is cold alkaline aqueous potassium permanganate (<i><b>KMnO<sub>4</sub></b></i>) or osmium tetroxide (<i><b>OsO<sub>4</sub></b></i>).</p>",
         "options": [
             {
                 "option_id": "325671",
@@ -1255,7 +1288,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 434
+        "question_number": 434,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,8 +1298,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the Diels-Alder reaction, a conjugated diene is treated with an unsaturated compound to yield a cyclic system. What is the unsaturated compound called?",
-        "explanation": "In Diels-Alder reaction, a conjugated diene is treated with an unsaturated compound called the dienophile (diene-lover).",
+        "question_text": "<p>In the <b>Diels-Alder reaction</b>, a conjugated diene is treated with an unsaturated compound to yield a cyclic system. What is the unsaturated compound called?</p>",
+        "explanation": "<p>The <b>Diels-Alder reaction</b> involves a conjugated diene reacting with an unsaturated compound known as the <b>dienophile</b> (literally, \"diene-lover\").</p>",
         "options": [
             {
                 "option_id": "111714",
@@ -1292,7 +1326,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 446
+        "question_number": 446,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1336,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Wittig reaction converts a carbonyl compound (aldehyde or ketone) into an alkene using a specific reagent. What is this reagent called?",
-        "explanation": "The phosphonium salt reacts with a strong base to give alkylidenetriphenylphosphorane (the phosphorous ylide) commonly known as the Wittig reagent.",
+        "question_text": "<p>The Wittig reaction converts a <b>carbonyl compound</b> (aldehyde or ketone) into an <b>alkene</b> using a specific reagent. What is this reagent called?</p>",
+        "explanation": "<p>The phosphonium salt reacts with a strong base to give <b>alkylidenetriphenylphosphorane</b> (the phosphorous ylide), commonly known as the <b>Wittig reagent</b>.</p>",
         "options": [
             {
                 "option_id": "292076",
@@ -1329,7 +1364,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 458
+        "question_number": 458,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1374,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Addition of halogens (like \\( \\ce{Br2} \\)) to an alkyne is stereoselective, yielding predominantly which isomer?",
-        "explanation": "The addition of halogens to ethyne is stereoselective; the predominant product is the trans isomer.",
+        "question_text": "<p>Addition of halogens (like <i><b>Br<sub>2</sub></b></i>) to an alkyne is stereoselective, yielding predominantly which isomer?</p>",
+        "explanation": "<p>The addition of halogens to ethyne is stereoselective; the predominant product is the <b>trans isomer</b>.</p>",
         "options": [
             {
                 "option_id": "128081",
@@ -1366,7 +1402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 470
+        "question_number": 470,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1412,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Hydration of an alkyne initially gives an unstable enol. This enol undergoes isomerization to give an aldehyde or ketone. What is this process called?",
-        "explanation": "Enols are very unstable and they isomerise (or tautomerise) to give aldehydes or ketones. This process is called keto-enol isomerism or keto-enol tautomerism.",
+        "question_text": "<p>Hydration of an alkyne initially gives an unstable <b>enol</b>. This enol undergoes isomerization to give an aldehyde or ketone. What is this process called?</p>",
+        "explanation": "<p><b>Enols</b> are very unstable and they isomerise (or tautomerise) to give aldehydes or ketones. This process is called <b>keto-enol isomerism</b> or <b>keto-enol tautomerism</b>.</p>",
         "options": [
             {
                 "option_id": "782436",
@@ -1403,7 +1440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 482
+        "question_number": 482,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What happens when an internal alkyne undergoes hydroboration-oxidation?",
-        "explanation": "Addition of borane to alkynes gives alkenyl boranes, which can be oxidized by basic hydrogen peroxide to ketones. Terminal alkynes give aldehydes.",
+        "question_text": "<p>What happens when an <b>internal alkyne</b> undergoes <b>hydroboration-oxidation</b>?</p>",
+        "explanation": "<p><b>Hydroboration-oxidation</b> of an internal alkyne proceeds via anti-Markovnikov addition of borane, followed by oxidation with basic hydrogen peroxide. This sequence converts the alkyne into an <i>enol</i>, which tautomerizes to a <b>ketone</b> as the final product.</p><p>In contrast, terminal alkynes yield <i>aldehydes</i> under the same conditions.</p>",
         "options": [
             {
                 "option_id": "116112",
                 "tag": "a",
-                "text": "It gives an aldehyde",
+                "text": "It gives an <i>aldehyde</i>",
                 "is_correct": false
             },
             {
                 "option_id": "279458",
                 "tag": "b",
-                "text": "It gives a ketone",
+                "text": "It gives a <i>ketone</i>",
                 "is_correct": true
             },
             {
                 "option_id": "174875",
                 "tag": "c",
-                "text": "It yields an alkane directly",
+                "text": "It yields an <i>alkane</i> directly",
                 "is_correct": false
             },
             {
                 "option_id": "308429",
                 "tag": "d",
-                "text": "It forms a diol",
+                "text": "It forms a <i>diol</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 494
+        "question_number": 494,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1488,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which catalyst selectively blocks the hydrogenation of an alkene formed from an alkyne, ensuring the reaction stops at the alkene stage?",
-        "explanation": "By using a poisoned catalyst (like Lindlar's catalyst - \\( \\ce{Pd-C/BaSO4} \\)), hydrogenation can be stopped at the alkene stage. It is stereoselective for cis-alkenes.",
+        "question_text": "<p>Which <b>catalyst</b> selectively blocks the hydrogenation of an <i>alkene</i> formed from an <i>alkyne</i>, ensuring the reaction stops at the alkene stage?</p>",
+        "explanation": "<p>By using a <b>poisoned catalyst</b> (like Lindlar's catalyst - <i>Pd-C/BaSO<sub>4</sub></i>), hydrogenation can be stopped at the <i>alkene</i> stage. It is <i>stereoselective</i> for <i>cis-alkenes</i>.</p>",
         "options": [
             {
                 "option_id": "241394",
@@ -1477,7 +1516,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 506
+        "question_number": 506,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "If you reduce an alkyne with sodium or lithium metal in liquid ammonia, what is the almost exclusive product?",
-        "explanation": "If we carry out the reduction of an alkyne with sodium metal or lithium metal in liquid ammonia, trans alkene is almost an exclusive product.",
+        "question_text": "<p>If you reduce an alkyne with <b>sodium</b> or <b>lithium</b> metal in liquid ammonia, what is the almost exclusive product?</p>",
+        "explanation": "<p>If we carry out the reduction of an alkyne with <b>sodium</b> metal or <b>lithium</b> metal in liquid ammonia, <i>trans</i> <b>alkene</b> is almost an exclusive product.</p>",
         "options": [
             {
                 "option_id": "219926",
                 "tag": "a",
-                "text": "An alkane",
+                "text": "An <b>alkane</b>",
                 "is_correct": false
             },
             {
                 "option_id": "121379",
                 "tag": "b",
-                "text": "A cis alkene",
+                "text": "A <i>cis</i> <b>alkene</b>",
                 "is_correct": false
             },
             {
                 "option_id": "115875",
                 "tag": "c",
-                "text": "A trans alkene",
+                "text": "A <i>trans</i> <b>alkene</b>",
                 "is_correct": true
             },
             {
                 "option_id": "324784",
                 "tag": "d",
-                "text": "A cycloalkene",
+                "text": "A <b>cycloalkene</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 518
+        "question_number": 518,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1564,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Dehydrohalogenation of an alkyl halide to prepare an alkene involves elimination of HX using a:",
-        "explanation": "The elimination is brought about by treating the alkyl halide with a strong base (like potassium hydroxide in alcoholic solution).",
+        "question_text": "<p>Dehydrohalogenation of an alkyl halide to prepare an alkene involves elimination of HX using a:</p>",
+        "explanation": "<p>The elimination is brought about by treating the alkyl halide with a <b>strong base</b> (like potassium hydroxide in alcoholic solution).</p>",
         "options": [
             {
                 "option_id": "909429",
@@ -1551,7 +1592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 530
+        "question_number": 530,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Dehydration of alcohols to prepare alkenes involves the elimination of a molecule of water and requires:",
-        "explanation": "Dehydration requires the presence of an acid (like sulphuric or phosphoric acid) and the application of heat to eliminate water.",
+        "question_text": "<p>The dehydration of alcohols to prepare alkenes involves the elimination of a molecule of water and requires:</p>",
+        "explanation": "<p>Dehydration requires the presence of an <b>acid</b> (like sulphuric or phosphoric acid) and the application of <b>heat</b> to eliminate water.</p>",
         "options": [
             {
                 "option_id": "119486",
@@ -1588,7 +1630,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 542
+        "question_number": 542,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,8 +1640,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What type of reaction is the halogenation, nitration, or sulfonation of benzene?",
-        "explanation": "Benzene reacts with electrophiles (such as nitronium or sulfonium ions) to produce substituted benzenes via electrophilic substitution.",
+        "question_text": "<p>What type of reaction is the <b>halogenation</b>, <b>nitration</b>, or <b>sulfonation</b> of benzene?</p>",
+        "explanation": "<p>Benzene reacts with <i>electrophiles</i> (such as nitronium or sulfonium ions) to produce substituted benzenes via <b>electrophilic substitution</b>.</p>",
         "options": [
             {
                 "option_id": "277274",
@@ -1625,7 +1668,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 554
+        "question_number": 554,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,13 +1678,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the Friedel-Crafts alkylation of benzene, what reagent and catalyst are typically used?",
-        "explanation": "Friedel-Crafts Alkylation involves reacting benzene with an alkyl halide in the presence of a Lewis acid catalyst (like \\( \\ce{Fe} \\) yielding \\( \\ce{FeCl3} \\) or \\( \\ce{AlCl3} \\)).",
+        "question_text": "<p>The <b>Friedel-Crafts alkylation</b> of benzene typically involves which <b>reagent</b> and <b>catalyst</b>?</p>",
+        "explanation": "<p>In the <b>Friedel-Crafts alkylation</b>, benzene reacts with an <b>alkyl halide</b> (e.g., RCl) in the presence of a <b>Lewis acid catalyst</b> such as <i>FeCl<sub>3</sub></i> or <i>AlCl<sub>3</sub></i>. These catalysts generate the electrophile required for the reaction to proceed.</p>",
         "options": [
             {
                 "option_id": "327860",
                 "tag": "a",
-                "text": "Alkyl halide (RCl) and a Lewis acid catalyst like \\( \\ce{FeCl3} \\) or \\( \\ce{AlCl3} \\)",
+                "text": "Alkyl halide (RCl) and a Lewis acid catalyst like <i>FeCl<sub>3</sub></i> or <i>AlCl<sub>3</sub></i>",
                 "is_correct": true
             },
             {
@@ -1662,7 +1706,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 566
+        "question_number": 566,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,8 +1716,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanols that contain two hydroxyl (-OH) groups in a molecule are known as:",
-        "explanation": "Alkanols that contain two hydroxyl groups in a molecule are known as dihydric alkanols or diols (e.g., Ethan-1,2-diol).",
+        "question_text": "<p>Alkanols that contain two <b>hydroxyl (-OH)</b> groups in a molecule are known as:</p>",
+        "explanation": "<p>Alkanols that contain two <b>hydroxyl groups</b> in a molecule are known as <b>dihydric alkanols</b> or <b>diols</b> (e.g., Ethan-1,2-diol).</p>",
         "options": [
             {
                 "option_id": "233580",
@@ -1699,7 +1744,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 578
+        "question_number": 578,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,8 +1754,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Alkanols containing three hydroxyl groups in a molecule are known as:",
-        "explanation": "Alkanols containing three hydroxyl groups in a molecule are known as trihydric alkanols or triols (e.g., Propan-1,2,3-triol).",
+        "question_text": "<p>Alkanols containing <b>three hydroxyl groups</b> in a molecule are known as:</p>",
+        "explanation": "<p>Alkanols containing <b>three hydroxyl groups</b> in a molecule are known as <b>trihydric alkanols</b> or <b>triols</b> (e.g., Propan-1,2,3-triol).</p>",
         "options": [
             {
                 "option_id": "144431",
@@ -1736,7 +1782,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 590
+        "question_number": 590,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1792,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethanol can be prepared by the fermentation of sugars (glucose/fructose). Which enzyme, found in yeast, catalyzes this conversion?",
-        "explanation": "The enzyme zymase, which is extremely effective in causing fermentation to ethanol, is found in yeast.",
+        "question_text": "<p>Ethanol can be prepared by the fermentation of sugars (<i>glucose/fructose</i>). Which enzyme, found in yeast, catalyzes this conversion?</p>",
+        "explanation": "<p>The enzyme <b>zymase</b>, which is extremely effective in causing fermentation to ethanol, is found in yeast.</p>",
         "options": [
             {
                 "option_id": "338131",
@@ -1773,7 +1820,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 602
+        "question_number": 602,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1830,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "During the fermentation of sugar, what gas is released alongside the production of ethanol?",
-        "explanation": "The fermentation equation is \\( \\ce{C6H12O6 -> 2C2H5OH + 2CO2} \\), producing ethanol and carbon dioxide.",
+        "question_text": "<p>During the fermentation of sugar, what gas is released alongside the production of ethanol?</p>",
+        "explanation": "<p>The fermentation equation is <i><b>C<sub>6</b>H<sub>12</sub>O<sub>6</sub> \u2192 2C<sub>2</sub>H<sub>5</sub>OH + 2CO<sub>2</sub></i></b>, producing ethanol and <b>carbon dioxide</b>.</p>",
         "options": [
             {
                 "option_id": "323362",
                 "tag": "a",
-                "text": "Oxygen",
+                "text": "<b>Oxygen</b>",
                 "is_correct": false
             },
             {
                 "option_id": "289866",
                 "tag": "b",
-                "text": "Hydrogen",
+                "text": "<b>Hydrogen</b>",
                 "is_correct": false
             },
             {
                 "option_id": "215743",
                 "tag": "c",
-                "text": "Carbon dioxide",
+                "text": "<b>Carbon dioxide</b>",
                 "is_correct": true
             },
             {
                 "option_id": "259661",
                 "tag": "d",
-                "text": "Methane",
+                "text": "<b>Methane</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 614
+        "question_number": 614,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,8 +1868,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "During the fermentation process, why does the conversion of sugar into ethanol not continue indefinitely?",
-        "explanation": "The conversion will not continue indefinitely because once the concentration of alcohol exceeds 14%, the action of zymase is prohibited (the yeast dies).",
+        "question_text": "<p>During the fermentation process, why does the conversion of sugar into ethanol <b>not continue indefinitely</b>?</p>",
+        "explanation": "<p>The conversion will not continue indefinitely because once the concentration of alcohol exceeds <b>14%</b>, the action of zymase is prohibited (the yeast dies).</p>",
         "options": [
             {
                 "option_id": "137299",
@@ -1847,6 +1896,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 626
+        "question_number": 626,
+        "is_rewritten": true
     }
 ]

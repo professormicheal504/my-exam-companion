@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rank & Rewards | My Exam Companion</title>
@@ -139,8 +136,8 @@
     .timeline-progress-line {
       position: absolute; top: 0; left: 40px; width: 4px; background: #2563eb;
       border-radius: 4px; z-index: 1;
-      /* Adjust height to show progress, e.g. level 4 out of 15 is roughly 25% */
-      height: 25%; 
+      height: 0%; 
+      transition: height 1s ease;
     }
 
     .level-node {
@@ -214,6 +211,67 @@
       .node-dot { width: 24px; height: 24px; font-size: 12px; border-width: 3px; }
       .level-node.final .node-dot { width: 32px; height: 32px; font-size: 16px; }
     }
+
+    /* ===========================
+       DARK MODE
+    =========================== */
+    :root[data-theme="dark"] body { background: var(--bg-base); }
+    :root[data-theme="dark"] .content-area,
+    :root[data-theme="dark"] .main-content {
+      background: var(--bg-base);
+    }
+    :root[data-theme="dark"] .status-card,
+    :root[data-theme="dark"] .node-content {
+      background: var(--bg-card);
+      border-color: var(--border);
+    }
+    :root[data-theme="dark"] .journey-title,
+    :root[data-theme="dark"] .status-title,
+    :root[data-theme="dark"] .level-name {
+      color: var(--text-primary);
+    }
+    :root[data-theme="dark"] .status-desc,
+    :root[data-theme="dark"] .level-desc {
+      color: var(--text-muted);
+    }
+    :root[data-theme="dark"] .timeline::before,
+    :root[data-theme="dark"] .progress-bar-container {
+      background: #334155 !important;
+    }
+    :root[data-theme="dark"] .node-dot {
+      background: var(--bg-card);
+      border-color: #334155;
+      color: var(--text-muted);
+    }
+    :root[data-theme="dark"] .level-node.completed .node-dot {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+    :root[data-theme="dark"] .level-node.current .node-dot {
+      background: var(--bg-card);
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+    :root[data-theme="dark"] .level-node.final .node-content {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, var(--bg-card) 100%);
+      border-color: #f59e0b;
+    }
+    :root[data-theme="dark"] .level-node.final .node-dot {
+      background: rgba(245, 158, 11, 0.2);
+    }
+    :root[data-theme="dark"] .status-card > div[style*="color: #111827"] {
+      color: var(--text-primary) !important;
+    }
+    :root[data-theme="dark"] .congrats-modal {
+      background: var(--bg-card);
+    }
+    :root[data-theme="dark"] .congrats-title {
+      color: var(--primary);
+    }
+    :root[data-theme="dark"] .congrats-desc {
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -228,11 +286,11 @@
       <div class="content-area">
         <main class="main-content">
           <div class="page-container">
-            
+
             <!-- PROMO BANNER -->
             <div class="promo-banner">
               <div class="promo-content">
-                <h1 class="promo-title">Win ₦300,000 Cash!</h1>
+                <h1 class="promo-title">Win $500 Cash!</h1>
                 <p class="promo-desc">Climb the ranks by taking CBT tests, answering trivia, and participating in group challenges. Reach the highest rank to claim the ultimate prize.</p>
               </div>
               <div class="promo-icon">🏆</div>
@@ -241,31 +299,20 @@
             <!-- CURRENT STATUS -->
             <div class="status-card">
               <div class="status-icon">🚀</div>
-              <div class="status-level">Level 4</div>
-              <div class="status-title">Apprentice Scholar</div>
-              <div class="status-desc">Keep learning! You are just a few challenges away from reaching Level 5.</div>
+              <div class="status-level">Level 1</div>
+              <div class="status-title">Novice</div>
+              <div class="status-desc">Just starting out on the journey. Take exams to progress!</div>
               
-              <!-- Horizontal Progress Bar (15 Levels) -->
-              <div class="progress-bar-container" style="margin-top: 24px; width: 100%; height: 16px; background: #f3f4f6; border-radius: 9999px; display: flex; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
-                <div style="flex: 1; background: #2563eb; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; background: #2563eb; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; background: #2563eb; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; background: #f59e0b; border-right: 2px solid #fff;"></div> <!-- Current Level 4 -->
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1; border-right: 2px solid #fff;"></div>
-                <div style="flex: 1;"></div>
+              <!-- Smooth Progress Bar -->
+              <div class="progress-bar-container" style="margin-top: 24px; width: 100%; height: 16px; background: #f3f4f6; border-radius: 9999px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                <div style="height: 100%; width: 0%; background: #2563eb; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);"></div>
               </div>
               <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase;">
                 <span>Level 1</span>
-                <span>Level 15 (Max)</span>
+                <span>Level 2</span>
+              </div>
+              <div style="margin-top: 16px; font-size: 16px; font-weight: 700; color: #111827;">
+                Total Points: <span class="status-points" style="color: #2563eb;">0</span>
               </div>
             </div>
 
@@ -276,8 +323,8 @@
               <div class="timeline-progress-line"></div>
 
               <!-- Level 1 -->
-              <div class="level-node completed">
-                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">1</div></div>
                 <div class="node-content">
                   <div class="level-name">1. Novice</div>
                   <div class="level-desc">Just starting out on the journey.</div>
@@ -285,8 +332,8 @@
               </div>
 
               <!-- Level 2 -->
-              <div class="level-node completed">
-                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">2</div></div>
                 <div class="node-content">
                   <div class="level-name">2. Beginner</div>
                   <div class="level-desc">Getting the hang of the questions.</div>
@@ -294,20 +341,20 @@
               </div>
 
               <!-- Level 3 -->
-              <div class="level-node completed">
-                <div class="node-icon-wrapper"><div class="node-dot">✓</div></div>
+              <div class="level-node">
+                <div class="node-icon-wrapper"><div class="node-dot">3</div></div>
                 <div class="node-content">
                   <div class="level-name">3. Learner</div>
                   <div class="level-desc">Consistent practice makes perfect.</div>
                 </div>
               </div>
 
-              <!-- Level 4 (CURRENT) -->
-              <div class="level-node current">
+              <!-- Level 4 -->
+              <div class="level-node">
                 <div class="node-icon-wrapper"><div class="node-dot">4</div></div>
                 <div class="node-content">
-                  <div class="level-name">4. Apprentice <span>🔥</span></div>
-                  <div class="level-desc">You are here! Keep pushing forward.</div>
+                  <div class="level-name">4. Apprentice</div>
+                  <div class="level-desc">Keep learning! You are just a few challenges away from reaching Level 5.</div>
                 </div>
               </div>
 
@@ -405,7 +452,7 @@
               <div class="level-node final">
                 <div class="node-icon-wrapper"><div class="node-dot">👑</div></div>
                 <div class="node-content">
-                  <div class="level-name">15. Supreme Genius <span class="level-reward">₦300,000</span></div>
+                  <div class="level-name">15. Supreme Genius <span class="level-reward">$500</span></div>
                   <div class="level-desc">The absolute peak. Claim your ultimate cash reward!</div>
                 </div>
               </div>
@@ -420,6 +467,203 @@
 
   <script defer src="../../components/topbar.js"></script>
   <script defer src="../../components/nav.js"></script>
-<script defer src="../../components/sidebar.js?v=6"></script>
+  <script defer src="../../components/sidebar.js?v=6"></script>
+  
+  <!-- DYNAMIC RANK LOGIC -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  <style>
+    /* CONGRATS POPUP */
+    .congrats-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .congrats-overlay.show { opacity: 1; pointer-events: auto; }
+    .congrats-modal {
+      background: #fff; border-radius: 24px; padding: 40px; text-align: center; max-width: 400px; width: 90%;
+      transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .congrats-overlay.show .congrats-modal { transform: scale(1); }
+    .congrats-icon { font-size: 64px; margin-bottom: 16px; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .congrats-title { font-size: 28px; font-weight: 800; color: #2563eb; margin-bottom: 8px; }
+    .congrats-desc { font-size: 16px; color: #6b7280; margin-bottom: 24px; }
+    .congrats-btn {
+      background: #2563eb; color: #fff; padding: 12px 24px; border-radius: 12px; font-weight: 700;
+      font-size: 16px; width: 100%; transition: background 0.2s; border: none; cursor: pointer;
+    }
+  </style>
+  
+  <div class="congrats-overlay" id="congrats-overlay">
+    <div class="congrats-modal">
+      <div class="congrats-icon">🏆</div>
+      <div class="congrats-title">Congratulations!</div>
+      <div class="congrats-desc" id="congrats-text">You have reached a new rank!</div>
+      <button class="congrats-btn" onclick="document.getElementById('congrats-overlay').classList.remove('show')">Keep Grinding</button>
+    </div>
+  </div>
+
+  <script>
+    const RANK_LEVELS = [
+      { level: 1, name: "Novice", minPoints: 0, desc: "Just starting out on the journey. Take exams to progress!" },
+      { level: 2, name: "Beginner", minPoints: 100, desc: "Getting the hang of the questions." },
+      { level: 3, name: "Learner", minPoints: 300, desc: "Consistent practice makes perfect." },
+      { level: 4, name: "Apprentice", minPoints: 800, desc: "Keep learning! You are just a few challenges away from reaching Level 5." },
+      { level: 5, name: "Adept", minPoints: 1500, desc: "Showing strong potential." },
+      { level: 6, name: "Challenger", minPoints: 2500, desc: "Ready for tougher questions." },
+      { level: 7, name: "Scholar", minPoints: 4500, desc: "Demonstrating broad knowledge." },
+      { level: 8, name: "Brainiac", minPoints: 7000, desc: "A step above the rest." },
+      { level: 9, name: "Expert", minPoints: 10000, desc: "Very high proficiency achieved." },
+      { level: 10, name: "Master", minPoints: 15000, desc: "Elite tier of students." },
+      { level: 11, name: "Grandmaster", minPoints: 25000, desc: "Unstoppable exam cruncher." },
+      { level: 12, name: "Elite", minPoints: 40000, desc: "Top 1% of the platform." },
+      { level: 13, name: "Champion", minPoints: 65000, desc: "Dominating all CBT challenges." },
+      { level: 14, name: "Legend", minPoints: 100000, desc: "A true myth in the making." },
+      { level: 15, name: "Supreme Genius", minPoints: 1000000, desc: "The absolute peak.", reward: "$500" }
+    ];
+
+    let globalPoints = 0;
+
+    async function initDynamicRank() {
+      if (typeof MECSupabase === 'undefined') {
+        setTimeout(initDynamicRank, 500);
+        return;
+      }
+      
+      const user = await MECSupabase.getCurrentUser();
+      if (!user) {
+        document.querySelector('.page-container').innerHTML = `
+          <div style="text-align: center; padding: 60px 20px;">
+            <div style="font-size: 48px; margin-bottom: 16px;">🚫</div>
+            <h2 style="font-size: 24px; font-weight: 800; color: #111827; margin-bottom: 8px;">Login Required</h2>
+            <p style="font-size: 15px; color: #6b7280; margin-bottom: 24px;">You must be logged in to view your rank and progress.</p>
+            <button class="btn-register" style="padding: 10px 24px; font-size: 14px;" onclick="if(window.MEC_NAV) window.MEC_NAV.href('login'); else window.location.href='../auth/login.html';">Login / Register</button>
+          </div>
+        `;
+        return;
+      }
+
+      const sb = MECSupabase.getSupabase();
+      const { data, error } = await sb.from('profiles')
+        .select('global_points')
+        .eq('id', user.id)
+        .single();
+
+      if (!error && data) {
+        globalPoints = data.global_points || 0;
+      }
+
+      renderDynamicRank();
+    }
+
+    function getLevelForPoints(points) {
+      let lv = RANK_LEVELS[0];
+      for (let i = 0; i < RANK_LEVELS.length; i++) {
+        if (points >= RANK_LEVELS[i].minPoints) lv = RANK_LEVELS[i];
+        else break;
+      }
+      return lv;
+    }
+
+    function renderDynamicRank() {
+      const currentLevelObj = getLevelForPoints(globalPoints);
+      const levelIndex = currentLevelObj.level - 1;
+
+      // 1. Update Status Card
+      const statusLevel = document.querySelector('.status-level');
+      const statusTitle = document.querySelector('.status-title');
+      const statusDesc = document.querySelector('.status-desc');
+      if (statusLevel) statusLevel.textContent = `Level ${currentLevelObj.level}`;
+      if (statusTitle) statusTitle.textContent = currentLevelObj.name;
+      if (statusDesc) statusDesc.textContent = currentLevelObj.desc;
+      const statusPoints = document.querySelector('.status-points');
+      if (statusPoints) statusPoints.textContent = globalPoints.toLocaleString();
+
+      // 2. Update Horizontal Bar (EXP Style)
+      const horizBarContainer = document.querySelector('.progress-bar-container');
+      if (horizBarContainer) {
+        // Calculate fraction
+        let fraction = 1;
+        let nextLevelObj = RANK_LEVELS[14];
+        if (levelIndex < 14) {
+          nextLevelObj = RANK_LEVELS[levelIndex + 1];
+          const ptsNeeded = nextLevelObj.minPoints - currentLevelObj.minPoints;
+          const ptsEarned = globalPoints - currentLevelObj.minPoints;
+          fraction = Math.min(1, Math.max(0, ptsEarned / ptsNeeded));
+        }
+        
+        horizBarContainer.innerHTML = `<div style="height: 100%; width: ${fraction * 100}%; background: #2563eb; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);"></div>`;
+        
+        // Update labels below the bar
+        const labelsContainer = horizBarContainer.nextElementSibling;
+        if (labelsContainer && labelsContainer.tagName === 'DIV') {
+          const spans = labelsContainer.querySelectorAll('span');
+          if (spans.length >= 2) {
+            spans[0].textContent = `Level ${currentLevelObj.level}`;
+            spans[1].textContent = levelIndex < 14 ? `Level ${nextLevelObj.level}` : 'Max Level';
+          }
+        }
+      }
+
+      // 3. Update Vertical Timeline Nodes
+      const levelNodes = document.querySelectorAll('.level-node');
+      levelNodes.forEach((node, idx) => {
+        node.classList.remove('completed', 'current');
+        const dot = node.querySelector('.node-dot');
+        if (idx < levelIndex) {
+          node.classList.add('completed');
+          if (dot) dot.innerHTML = '&#10003;'; // Checkmark ✓
+        } else if (idx === levelIndex) {
+          node.classList.add('current');
+          if (dot && idx !== 14) dot.textContent = (idx + 1).toString();
+        } else {
+          if (dot && idx !== 14) dot.textContent = (idx + 1).toString();
+        }
+      });
+
+      // 4. Update Vertical Timeline Progress Line
+      const progressLine = document.querySelector('.timeline-progress-line');
+      if (progressLine) {
+        if (levelIndex === 14) {
+          progressLine.style.height = '100%';
+        } else {
+          const nextLv = RANK_LEVELS[levelIndex + 1];
+          const ptsNeeded = nextLv.minPoints - currentLevelObj.minPoints;
+          const ptsEarned = globalPoints - currentLevelObj.minPoints;
+          const fraction = Math.min(1, Math.max(0, ptsEarned / ptsNeeded));
+          
+          const basePct = (levelIndex / 14) * 100;
+          const extraPct = fraction * (100 / 14);
+          progressLine.style.height = `${basePct + extraPct}%`;
+        }
+      }
+      
+      checkForLevelUps();
+    }
+
+    function checkForLevelUps() {
+      const storedRank = parseInt(localStorage.getItem('mec_global_rank_level_v3') || '1', 10);
+      const currentLvObj = getLevelForPoints(globalPoints);
+      const currentLv = currentLvObj.level;
+      
+      if (currentLv > storedRank && globalPoints > 0) {
+        document.getElementById('congrats-text').innerHTML = `You have reached <strong>${currentLvObj.name}</strong>!`;
+        document.getElementById('congrats-overlay').classList.add('show');
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }
+      }
+      
+      localStorage.setItem('mec_global_rank_level_v3', currentLv.toString());
+    }
+
+    document.addEventListener('DOMContentLoaded', initDynamicRank);
+  </script>
+
 </body>
 </html>

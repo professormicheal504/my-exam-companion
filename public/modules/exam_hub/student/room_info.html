@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Room Info - Exam Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  
+  <style>
+    /* Reset & Global */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    a { text-decoration: none; color: inherit; }
+    
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .content-area { display: flex; flex: 1; justify-content: center; align-items: flex-start; padding: 40px 24px; }
+    
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } .content-area { padding: 20px 16px; } }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text-muted);
+      margin-bottom: 24px; transition: color 0.2s;
+    }
+    .btn-back:hover { color: #2563eb; }
+
+    /* Info Card */
+    .info-card {
+      background: var(--bg-card); border: 1px solid var(--border, #ebebeb); border-radius: 20px;
+      width: 100%; max-width: 600px; padding: 40px; text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin: 0 auto;
+    }
+    [data-theme="dark"] .info-card { border-color: #333; }
+    
+    .room-title { font-size: 28px; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; }
+    .room-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.5; }
+    
+    .details-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; text-align: left; margin-bottom: 32px;
+    }
+    .detail-item {
+      background: var(--bg-base); border: 1px solid var(--border, #ebebeb); border-radius: 12px;
+      padding: 16px; display: flex; flex-direction: column; gap: 4px;
+    }
+    [data-theme="dark"] .detail-item { border-color: #444; }
+    .detail-item label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .detail-item p { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    
+    .subjects-list {
+      background: var(--bg-base); border: 1px solid var(--border, #ebebeb); border-radius: 12px;
+      padding: 20px; text-align: left; margin-bottom: 32px;
+    }
+    [data-theme="dark"] .subjects-list { border-color: #444; }
+    .subjects-list h4 { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: rgba(37, 99, 235, 0.1); color: #2563eb; padding: 6px 14px; border-radius: 999px;
+      font-size: 13px; font-weight: 600;
+    }
+    [data-theme="dark"] .tag { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+
+    .btn-start {
+      width: 100%; background: #2563eb; color: white; font-size: 16px; font-weight: 700;
+      padding: 18px; border-radius: 14px; transition: 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+    .btn-start:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); }
+
+    @media (max-width: 480px) {
+      .details-grid { grid-template-columns: 1fr; }
+      .info-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="/"></app-sidebar>
+    <div class="main-wrapper">
+      <app-topbar data-base="/"></app-topbar>
+      <main class="content-area">
+        <div style="width: 100%; max-width: 600px;">
+          <a href="home.html" class="btn-back">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Dashboard
+          </a>
+
+          <div class="info-card">
+            <h1 class="room-title">Mathematics 101 - JAMB Prep</h1>
+            <p class="room-subtitle">Taught by Prof. John Doe. Ensure you have a stable internet connection before starting.</p>
+            
+            <div class="details-grid">
+              <div class="detail-item">
+                <label>Time Window</label>
+                <p>10:00 AM - 12:00 PM</p>
+              </div>
+              <div class="detail-item">
+                <label>Duration</label>
+                <p>120 Minutes</p>
+              </div>
+              <div class="detail-item">
+                <label>Total Questions</label>
+                <p>50 Questions</p>
+              </div>
+              <div class="detail-item">
+                <label>Exam Type</label>
+                <p>CBT + Theory</p>
+              </div>
+            </div>
+
+            <div class="subjects-list">
+              <h4>Included Subjects</h4>
+              <div class="tags">
+                <span class="tag">Mathematics</span>
+                <span class="tag">Physics</span>
+              </div>
+            </div>
+
+            <button class="btn-start" onclick="window.location.href='exam_screen.html'">
+              Begin Examination
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js?v=6"></script>
+</body>
+</html>

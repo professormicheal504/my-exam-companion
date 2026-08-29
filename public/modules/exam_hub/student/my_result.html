@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMB CBT Result | My Exam Companion</title>
+  <meta name="description" content="Your JAMB CBT Simulator Result">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', Arial, sans-serif; font-size: 14px; background: var(--bg-base); min-height: 100vh; color: var(--text-primary); }
+    body { background: var(--bg-base); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 16px 120px; color: var(--text-primary); }
+
+    /* Action bar */
+    .action-bar { width: 100%; max-width: 860px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 12px; flex-wrap: wrap; }
+    .action-bar h2 { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .action-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-print { padding: 9px 20px; border-radius: 8px; background: #6366f1; color: white; font-size: 13px; font-weight: 600; cursor: pointer; border: none; display: flex; align-items: center; gap: 6px; transition: all 0.2s; font-family: inherit; box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25); }
+    .btn-print:hover { background: #4f46e5; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4); }
+    .btn-retake { padding: 9px 20px; border-radius: 8px; background: #2563eb; color: white; font-size: 13px; font-weight: 600; border: none; display: flex; align-items: center; gap: 6px; text-decoration: none; font-family: inherit; transition: all 0.2s; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25); }
+    .btn-retake:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); }
+    .btn-home { padding: 9px 20px; border-radius: 8px; background: #64748b; color: white; font-size: 13px; font-weight: 600; border: none; display: flex; align-items: center; gap: 6px; text-decoration: none; font-family: inherit; transition: all 0.2s; box-shadow: 0 2px 8px rgba(100, 116, 139, 0.25); }
+    .btn-home:hover { background: #475569; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(100, 116, 139, 0.4); }
+
+    /* Slip */
+    .slip-wrapper { width: 100%; max-width: 860px; }
+    .slip { background: var(--bg-card); border: 1px solid var(--border); padding: 40px 52px; color: var(--text-primary); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+
+    /* Header */
+    .slip-header { text-align: center; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 2px solid var(--text-primary); }
+    .slip-logo { width: 76px; height: 76px; object-fit: contain; margin: 0 auto 10px; display: block; }
+    .slip-header h1 { font-size: 24px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+
+    /* Info */
+    .slip-info { display: grid; grid-template-columns: 140px 1fr; row-gap: 7px; margin-bottom: 24px; font-size: 13.5px; }
+    .slip-info .lbl { color: var(--text-muted); font-weight: 400; }
+    .slip-info .val { font-weight: 700; color: var(--text-primary); word-break: break-word; }
+
+    /* Table */
+    .slip-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 13.5px; }
+    .slip-table thead tr { background: var(--bg-base); }
+    .slip-table th { text-align: left; padding: 10px 14px; font-weight: 700; border: 1px solid var(--border); color: var(--text-primary); }
+    .slip-table td { padding: 9px 14px; border: 1px solid var(--border); color: var(--text-primary); }
+    
+    /* Alternating subject row colors */
+    .slip-table tbody tr:nth-child(1) td { background: rgba(34, 197, 94, 0.12); } /* Light Green */
+    .slip-table tbody tr:nth-child(2) td { background: var(--bg-base); }          /* Theme Base */
+    .slip-table tbody tr:nth-child(3) td { background: rgba(34, 197, 94, 0.25); } /* Slightly Darker Green */
+    .slip-table tbody tr:nth-child(4) td { background: var(--bg-base); }          /* Theme Base */
+    
+    .slip-table tbody tr:nth-child(n+5):nth-child(odd) td { background: rgba(34, 197, 94, 0.12); }
+    .slip-table tbody tr:nth-child(n+5):nth-child(even) td { background: var(--bg-base); }
+    .slip-table .score-col { font-weight: 700; }
+
+    /* Total */
+    .total-row { text-align: center; font-size: 16px; font-weight: 500; margin: 8px 0 28px; }
+    .total-row strong { font-size: 22px; font-weight: 800; }
+    .perf-badge { display: inline-block; padding: 3px 12px; border-radius: 4px; font-size: 12.5px; font-weight: 700; margin-left: 10px; vertical-align: middle; }
+    .badge-excellent { background: #166534; color: white; }
+    .badge-good      { background: #1e3a8a; color: white; }
+    .badge-average   { background: #92400e; color: white; }
+    .badge-poor      { background: #7f1d1d; color: white; }
+
+    /* Footer */
+    .slip-credit { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 30px; padding-top: 20px; }
+
+    /* Print */
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body { background: var(--bg-card); padding: 0; }
+      .action-bar, .fixed-review-bar { display: none !important; }
+      .slip { border: none; box-shadow: none; padding: 20px 30px; margin: 0 auto; max-width: 100%; }
+    }
+
+    /* Fixed Review Bar */
+    .fixed-review-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.05);
+      z-index: 100;
+      border-top: 1px solid var(--border);
+    }
+    .btn-review-fixed {
+      background: #10b981;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      width: 100%;
+      max-width: 400px;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-review-fixed:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); }
+    .btn-review-fixed:active { transform: scale(0.98); }
+
+    .btn-analysis-fixed {
+      background: #2563eb;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s, transform 0.1s;
+      width: 100%;
+      max-width: 400px;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-analysis-fixed:hover { background: #960a01; }
+    .btn-analysis-fixed:active { transform: scale(0.98); }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      body { padding: 14px 8px 100px; }
+      .slip { padding: 20px 16px; }
+      .slip-header h1 { font-size: 15px; }
+      .slip-logo { width: 56px; height: 56px; }
+      .slip-info { grid-template-columns: 100px 1fr; font-size: 12px; row-gap: 5px; }
+      .slip-table th, .slip-table td { padding: 7px 9px; font-size: 12px; }
+      .total-row { font-size: 14px; }
+      .total-row strong { font-size: 18px; }
+      .action-btns { width: 100%; }
+      .btn-print, .btn-retake, .btn-home { font-size: 12px; padding: 8px 12px; flex: 1; justify-content: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+</head>
+<body>
+
+  <div class="action-bar">
+    <h2 id="result-action-title">📄 CBT Result Slip</h2>
+    <div class="action-btns">
+      <a id="btn-retake" href="room_info.html" class="btn-retake">🔄 Retake</a>
+      <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+      <a href="home.html" class="btn-home">🏠 Home</a>
+    </div>
+  </div>
+
+  <div class="slip-wrapper">
+    <div class="slip">
+      <div class="slip-header">
+        <img loading="lazy" src="../../../assets/images/jamb_logo.webp" alt="JAMB Logo" class="slip-logo" style="display:none;">
+        <h1 id="slip-title">JAMB 2025 UTME Results Notification</h1>
+      </div>
+
+      <div class="slip-info">
+        <span class="lbl">Name:</span>      <span class="val" id="info-name">Loading...</span>
+        <span class="lbl">Reg Number:</span><span class="val" id="info-reg">Loading...</span>
+        <span class="lbl">Exam Mode:</span> <span class="val" id="info-mode">Full Exam Mode</span>
+        <span class="lbl">Exam No:</span>   <span class="val" id="info-examno">Loading...</span>
+        <span class="lbl">Centre Name:</span><span class="val">www.myexamcompanion.com</span>
+        <span class="lbl">Avg Time/Q:</span><span class="val" id="info-avg-time">—</span>
+      </div>
+
+      <table class="slip-table">
+        <thead><tr><th>Subject</th><th>Score</th></tr></thead>
+        <tbody id="score-tbody"></tbody>
+      </table>
+
+      <div class="total-row">
+        Total Score: <strong id="total-score">—</strong>
+        <span class="perf-badge" id="perf-badge"></span>
+      </div>
+
+
+
+      <div class="slip-credit" id="slip-year-label">JAMB UTME 2025</div>
+    </div>
+  </div>
+
+  <!-- Fixed Review Bar -->
+  <div class="fixed-review-bar">
+    <button class="btn-review-fixed" onclick="startReview()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+      </svg>
+      Review Answers
+    </button>
+    <a href="#" class="btn-analysis-fixed" style="display:none;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+      </svg>
+      Deep Analysis
+    </a>
+  </div>
+
+  <script>
+    function startReview() {
+      localStorage.setItem('cbt_review', 'true');
+      const params = localStorage.getItem('cbt_query_params') || '';
+      window.location.href = 'exam_screen.html' + params;
+    }
+
+    let result = null;
+    try { result = JSON.parse(localStorage.getItem('cbt_result') || 'null'); } catch(e){}
+
+    if (!result) {
+      result = {
+        title: 'CBT Simulator',
+        year: 2025, mode: 'Full Exam Mode',
+        subjects: [
+          { name: 'Use of English', score: 46, total: 60 },
+          { name: 'Mathematics',    score: 38, total: 40 },
+        ],
+        totalScore: 84, maxScore: 100, isScaled: false,
+        regNo: 'SIM-2025-PRACTICE', examNo: '—'
+      };
+    }
+
+    const examTitle = result.title || `Exam`;
+    document.getElementById('slip-title').textContent = `${examTitle} Results Notification`;
+    document.getElementById('slip-year-label').textContent = `${examTitle} ${result.year}`;
+    document.getElementById('info-mode').textContent   = result.mode   || 'Full Exam Mode';
+
+    async function populateUserInfo() {
+      // 1. Generate random exam number (e.g. JAMB_26_48594YH)
+      const yr = new Date().getFullYear().toString().slice(-2);
+      const digits = Math.floor(10000 + Math.random() * 90000);
+      const letters = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + String.fromCharCode(65 + Math.floor(Math.random() * 26));
+      let prefix = "EXAM";
+      if (examTitle.toUpperCase().includes("JAMB")) prefix = "JAMB";
+      else prefix = examTitle.split(' ')[0].toUpperCase();
+      
+      document.getElementById('info-examno').textContent = `${prefix}_${yr}_${digits}${letters}`;
+
+      // 2. Fetch User from Supabase
+      if (typeof MECSupabase !== 'undefined') {
+        const user = await MECSupabase.getCurrentUser();
+        if (user) {
+          const name = user.user_metadata?.full_name || user.email?.split('@')[0] || 'Student';
+          let regNo = user.user_metadata?.exam_id || 'Not Provided';
+          
+          // Bug Fix: Fetch matric number from the profiles table
+          try {
+            const sb = typeof getSupabase === 'function' ? getSupabase() : null;
+            if (sb) {
+              const { data } = await sb.from('profiles').select('exam_id').eq('id', user.id).single();
+              if (data && data.exam_id) regNo = data.exam_id;
+            }
+          } catch(e) { console.error('Failed to fetch profile', e); }
+
+          document.getElementById('info-name').textContent = name;
+          document.getElementById('info-reg').textContent = regNo;
+          return;
+        }
+      }
+      
+      // Fallback for not logged in
+      document.getElementById('info-name').textContent = 'Practice Candidate';
+      document.getElementById('info-reg').textContent = result.regNo || '—';
+    }
+    populateUserInfo();
+
+    // Bug fix #10: use totalQuestions from resultData (was always 1 before)
+    const totalQ = result.totalQuestions || (result.subjects ? result.subjects.reduce((a,s) => a + (s.rawTotal || s.total || 0), 0) : 1) || 1;
+    const timeSpent = result.timeSpentSecs || 0;
+    const avgSecs = timeSpent / totalQ;
+    let avgStr = "—";
+    if (timeSpent > 0) {
+      if (avgSecs < 60) {
+        avgStr = Math.round(avgSecs) + " sec";
+      } else {
+        const m = Math.floor(avgSecs / 60);
+        const s = Math.round(avgSecs % 60);
+        avgStr = m + "m " + s + "s";
+      }
+    }
+    const avgEl = document.getElementById('info-avg-time');
+    if (avgEl) avgEl.textContent = avgStr;
+
+    const tbody = document.getElementById('score-tbody');
+    result.subjects.forEach(sub => {
+      const tr = document.createElement('tr');
+      const scoreDisplay = `${sub.score} / ${sub.total || '-'}`;
+      tr.innerHTML = `<td>${sub.name}</td><td class="score-col">${scoreDisplay}</td>`;
+      tbody.appendChild(tr);
+    });
+
+    const total = result.totalScore;
+    const max = result.maxScore || 100;
+    const pct   = Math.round((total / max) * 100);
+    document.getElementById('total-score').textContent = `${total} / ${max}`;
+
+    const badge = document.getElementById('perf-badge');
+    if      (pct >= 75) { badge.textContent = 'Excellent'; badge.className = 'perf-badge badge-excellent'; }
+    else if (pct >= 50) { badge.textContent = 'Good';      badge.className = 'perf-badge badge-good'; }
+    else if (pct >= 35) { badge.textContent = 'Average';   badge.className = 'perf-badge badge-average'; }
+    else                { badge.textContent = 'Needs Work';badge.className = 'perf-badge badge-poor'; }
+
+    // Save to Supabase (or localStorage if offline/not logged in)
+    async function saveResultToCloud() {
+      // Prevent double-saving if the page is refreshed
+      if (sessionStorage.getItem('cbt_result_saved')) return;
+      
+      const saveRes = await MECSupabase.saveExamResult(result);
+      if (saveRes.saved) {
+        if (typeof showToast !== 'undefined') showToast('Result saved to your history!', 'success');
+        sessionStorage.setItem('cbt_result_saved', 'true');
+      } else if (saveRes.pending) {
+        if (typeof showToast !== 'undefined') showToast('Result saved locally. Log in to sync to cloud.', 'success');
+        sessionStorage.setItem('cbt_result_saved', 'true');
+      } else if (saveRes.error) {
+        console.error('Failed to save result:', saveRes.error);
+        if (typeof showToast !== 'undefined') showToast('Failed to save result. Please try again later.', 'error');
+      }
+    }
+    
+    // Call the async function
+    saveResultToCloud();
+
+  </script>
+  <script src="../../../components/toast.js"></script>
+</body>
+</html>

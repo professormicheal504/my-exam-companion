@@ -6,35 +6,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following best defines an algorithm?",
-        "explanation": "An algorithm is defined as a step-by-step procedure designed to perform an operation which will lead to the desired result.",
+        "question_text": "<p>Which of the following best defines an <b>algorithm</b>?</p>",
+        "explanation": "<p>An <b>algorithm</b> is defined as a <b>step-by-step procedure</b> designed to perform an operation which will lead to the <i>desired result</i>.</p>",
         "options": [
             {
                 "option_id": "235186",
                 "tag": "a",
-                "text": "A programming language used to write code",
+                "text": "A <b>programming language</b> used to write code",
                 "is_correct": false
             },
             {
                 "option_id": "301951",
                 "tag": "b",
-                "text": "A step-by-step procedure designed to perform an operation and lead to a desired result",
+                "text": "A <b>step-by-step procedure</b> designed to perform an operation and lead to a <i>desired result</i>",
                 "is_correct": true
             },
             {
                 "option_id": "286401",
                 "tag": "c",
-                "text": "A graphical representation of a program",
+                "text": "A <b>graphical representation</b> of a program",
                 "is_correct": false
             },
             {
                 "option_id": "904459",
                 "tag": "d",
-                "text": "A table used for decision making",
+                "text": "A <b>table</b> used for decision making",
                 "is_correct": false
             }
         ],
-        "question_number": 2
+        "question_number": 2,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,35 +44,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following represents the correct order of the IPO cycle?",
-        "explanation": "The IPO cycle stands for Input-Process-Output. First, data is provided (Input), then the computer processes it (Process), and finally the result is displayed (Output).",
+        "question_text": "<p>Which of the following represents the correct order of the <b>IPO cycle</b>?</p>",
+        "explanation": "<p>The <b>IPO cycle</b> stands for <b>Input-Process-Output</b>. First, data is provided (<i>Input</i>), then the computer processes it (<i>Process</i>), and finally the result is displayed (<i>Output</i>).</p>",
         "options": [
             {
                 "option_id": "233573",
                 "tag": "a",
-                "text": "Output \u2192 Process \u2192 Input",
+                "text": "<b>Output</b> \u2192 <b>Process</b> \u2192 <b>Input</b>",
                 "is_correct": false
             },
             {
                 "option_id": "631329",
                 "tag": "b",
-                "text": "Process \u2192 Input \u2192 Output",
+                "text": "<b>Process</b> \u2192 <b>Input</b> \u2192 <b>Output</b>",
                 "is_correct": false
             },
             {
                 "option_id": "202290",
                 "tag": "c",
-                "text": "Input \u2192 Process \u2192 Output",
+                "text": "<b>Input</b> \u2192 <b>Process</b> \u2192 <b>Output</b>",
                 "is_correct": true
             },
             {
                 "option_id": "322101",
                 "tag": "d",
-                "text": "Input \u2192 Output \u2192 Process",
+                "text": "<b>Input</b> \u2192 <b>Output</b> \u2192 <b>Process</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 4
+        "question_number": 4,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,25 +82,25 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the algorithm to find the square of a number, which step correctly represents the process phase?",
-        "explanation": "The process phase involves computation. Multiplying `num \u00d7 num` to get `square` is the processing step. Input is the first step, and printing is the output step.",
+        "question_text": "<p>In the <b>algorithm</b> to find the <b>square of a number</b>, which step correctly represents the <b>process phase</b>?</p>",
+        "explanation": "<p>The <b>process phase</b> involves <b>computation</b>. Multiplying <code>num \u00d7 num</code> to get <code>square</code> is the <i>processing step</i>. <b>Input</b> is the first step, and <b>printing</b> is the <i>output step</i>.</p>",
         "options": [
             {
                 "option_id": "232605",
                 "tag": "a",
-                "text": "Input a number and store it in `num`",
+                "text": "Input a number and store it in <code>num</code>",
                 "is_correct": false
             },
             {
                 "option_id": "112147",
                 "tag": "b",
-                "text": "Print `square`",
+                "text": "Print <code>square</code>",
                 "is_correct": false
             },
             {
                 "option_id": "311166",
                 "tag": "c",
-                "text": "Compute `num \u00d7 num` and store it in `square`",
+                "text": "Compute <code>num \u00d7 num</code> and store it in <code>square</code>",
                 "is_correct": true
             },
             {
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 6
+        "question_number": 6,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,35 +120,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which property of an algorithm states that each step must lead to only one meaning?",
-        "explanation": "Definiteness means each step in an algorithm should be clear in all aspects and must lead to only one meaning \u2014 it must be unambiguous.",
+        "question_text": "<p>Which property of an <b>algorithm</b> states that each step must lead to only one meaning?</p>",
+        "explanation": "<p><b>Definiteness</b> means each step in an <b>algorithm</b> should be clear in all aspects and must lead to only one meaning \u2014 it must be <i>unambiguous</i>.</p>",
         "options": [
             {
                 "option_id": "281106",
                 "tag": "a",
-                "text": "Finiteness",
+                "text": "<b>Finiteness</b>",
                 "is_correct": false
             },
             {
                 "option_id": "585629",
                 "tag": "b",
-                "text": "Generality",
+                "text": "<b>Generality</b>",
                 "is_correct": false
             },
             {
                 "option_id": "474333",
                 "tag": "c",
-                "text": "Definiteness",
+                "text": "<b>Definiteness</b>",
                 "is_correct": true
             },
             {
                 "option_id": "260376",
                 "tag": "d",
-                "text": "Language Independence",
+                "text": "<b>Language Independence</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 8
+        "question_number": 8,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,35 +158,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which property of an algorithm ensures it must terminate after a finite number of steps?",
-        "explanation": "Finiteness means the algorithm must terminate in a finite number of steps. An algorithm that runs forever is not a valid algorithm.",
+        "question_text": "<p>Which property of an <b>algorithm</b> ensures it must <b>terminate</b> after a <i>finite</i> number of steps?</p>",
+        "explanation": "<p><b>Finiteness</b> means the <b>algorithm</b> must terminate in a finite number of steps. An algorithm that runs forever is not a valid algorithm.</p>",
         "options": [
             {
                 "option_id": "111132",
                 "tag": "a",
-                "text": "Definiteness",
+                "text": "<b>Definiteness</b>",
                 "is_correct": false
             },
             {
                 "option_id": "779947",
                 "tag": "b",
-                "text": "Finiteness",
+                "text": "<b>Finiteness</b>",
                 "is_correct": true
             },
             {
                 "option_id": "226955",
                 "tag": "c",
-                "text": "Generality",
+                "text": "<b>Generality</b>",
                 "is_correct": false
             },
             {
                 "option_id": "117912",
                 "tag": "d",
-                "text": "Well-Defined Outputs",
+                "text": "<b>Well-Defined Outputs</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 10
+        "question_number": 10,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which property of an algorithm means it can be implemented in any programming language and still produce the same output?",
-        "explanation": "Language Independence means the algorithm consists of plain instructions that can be implemented in any language, and the output will be the same as expected.",
+        "question_text": "<p>Which property of an <b>algorithm</b> means it can be implemented in <i>any programming language</i> and still produce the <b>same output</b>?</p>",
+        "explanation": "<p><b>Language Independence</b> means the <b>algorithm</b> consists of plain instructions that can be implemented in <i>any language</i>, and the <b>output</b> will be the same as expected.</p>",
         "options": [
             {
                 "option_id": "233017",
                 "tag": "a",
-                "text": "Generality",
+                "text": "<b>Generality</b>",
                 "is_correct": false
             },
             {
                 "option_id": "751396",
                 "tag": "b",
-                "text": "Definiteness",
+                "text": "<b>Definiteness</b>",
                 "is_correct": false
             },
             {
                 "option_id": "263035",
                 "tag": "c",
-                "text": "Finiteness",
+                "text": "<b>Finiteness</b>",
                 "is_correct": false
             },
             {
                 "option_id": "191418",
                 "tag": "d",
-                "text": "Language Independence",
+                "text": "<b>Language Independence</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 12
+        "question_number": 12,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,35 +234,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which property of an algorithm states that it must be complete in itself so that it can be used to solve problems of a specific type for any input data?",
-        "explanation": "Generality means the algorithm must be complete in itself so that it can be used to solve problems of a specific type for any input data.",
+        "question_text": "<p>Which property of an <b>algorithm</b> states that it must be <b>complete in itself</b> so that it can be used to solve problems of a specific type for <i>any</i> input data?</p>",
+        "explanation": "<p><b>Generality</b> means the <b>algorithm</b> must be <b>complete in itself</b> so that it can be used to solve problems of a specific type for <i>any</i> input data.</p>",
         "options": [
             {
                 "option_id": "135306",
                 "tag": "a",
-                "text": "Finiteness",
+                "text": "<b>Finiteness</b>",
                 "is_correct": false
             },
             {
                 "option_id": "233037",
                 "tag": "b",
-                "text": "Well-Defined Inputs",
+                "text": "<b>Well-Defined Inputs</b>",
                 "is_correct": false
             },
             {
                 "option_id": "178277",
                 "tag": "c",
-                "text": "Language Independence",
+                "text": "<b>Language Independence</b>",
                 "is_correct": false
             },
             {
                 "option_id": "156236",
                 "tag": "d",
-                "text": "Generality",
+                "text": "<b>Generality</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 14
+        "question_number": 14,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is listed as a DISADVANTAGE of using algorithms?",
-        "explanation": "A key disadvantage of algorithms is that writing one takes a long time, making it time-consuming. Also, branching and looping statements are difficult to show in algorithms.",
+        "question_text": "<p>Which of the following is listed as a <b>DISADVANTAGE</b> of using <b>algorithms</b>?</p>",
+        "explanation": "<p>A key <b>disadvantage</b> of <b>algorithms</b> is that <b>writing one takes a long time</b>, making it <b>time-consuming</b>. Also, branching and looping statements are difficult to show in algorithms.</p>",
         "options": [
             {
                 "option_id": "102489",
                 "tag": "a",
-                "text": "It is easy to understand",
+                "text": "It is <i>easy to understand</i>",
                 "is_correct": false
             },
             {
                 "option_id": "379271",
                 "tag": "b",
-                "text": "The problem is broken down into smaller pieces",
+                "text": "The problem is <i>broken down into smaller pieces</i>",
                 "is_correct": false
             },
             {
                 "option_id": "756517",
                 "tag": "c",
-                "text": "Writing an algorithm takes a long time and is time-consuming",
+                "text": "<b>Writing an algorithm takes a long time and is time-consuming</b>",
                 "is_correct": true
             },
             {
                 "option_id": "194753",
                 "tag": "d",
-                "text": "It provides a step-wise representation of a solution",
+                "text": "It provides a <i>step-wise representation of a solution</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 16
+        "question_number": 16,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the top-down approach to algorithm design, a complex algorithm is broken down into smaller units called:",
-        "explanation": "In the top-down approach, a complex algorithm is broken down into smaller fragments known as 'modules'. The process of breaking it down is called 'modularization'.",
+        "question_text": "<p>In the <b>top-down approach</b> to <b>algorithm design</b>, a <b>complex algorithm</b> is broken down into smaller units called:</p>",
+        "explanation": "<p>In the <b>top-down approach</b>, a <b>complex algorithm</b> is broken down into smaller fragments known as '<b>modules</b>'. The process of breaking it down is called '<b>modularization</b>'.</p>",
         "options": [
             {
                 "option_id": "167840",
                 "tag": "a",
-                "text": "Objects",
+                "text": "<i>Objects</i>",
                 "is_correct": false
             },
             {
                 "option_id": "513602",
                 "tag": "b",
-                "text": "Modules",
+                "text": "<b>Modules</b>",
                 "is_correct": true
             },
             {
                 "option_id": "492781",
                 "tag": "c",
-                "text": "Tables",
+                "text": "<i>Tables</i>",
                 "is_correct": false
             },
             {
                 "option_id": "136736",
                 "tag": "d",
-                "text": "Flowcharts",
+                "text": "<i>Flowcharts</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 18
+        "question_number": 18,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,35 +348,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "What is the process of breaking a complex algorithm into smaller and smaller modules in the top-down approach called?",
-        "explanation": "The process of breaking down a complex algorithm into smaller fragments (modules) until they can no longer be fragmented is called 'modularization'.",
+        "question_text": "<p>What is the process of breaking a <b>complex algorithm</b> into smaller and smaller <b>modules</b> in the <i>top-down approach</i> called?</p>",
+        "explanation": "<p>The process of breaking down a <b>complex algorithm</b> into smaller fragments (<b>modules</b>) until they can no longer be fragmented is called '<b>modularization</b>'.</p>",
         "options": [
             {
                 "option_id": "114496",
                 "tag": "a",
-                "text": "Decomposition",
+                "text": "<b>Decomposition</b>",
                 "is_correct": false
             },
             {
                 "option_id": "170565",
                 "tag": "b",
-                "text": "Abstraction",
+                "text": "<b>Abstraction</b>",
                 "is_correct": false
             },
             {
                 "option_id": "227529",
                 "tag": "c",
-                "text": "Modularization",
+                "text": "<b>Modularization</b>",
                 "is_correct": true
             },
             {
                 "option_id": "175485",
                 "tag": "d",
-                "text": "Encapsulation",
+                "text": "<b>Encapsulation</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 20
+        "question_number": 20,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,35 +386,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The top-down approach produces which type of output structure?",
-        "explanation": "The output of the top-down design approach is a tree-like structure chart, representing the hierarchy of modules.",
+        "question_text": "<p>The <b>top-down approach</b> produces which type of <b>output structure</b>?</p>",
+        "explanation": "<p>The output of the <b>top-down design approach</b> is a <b>tree-like structure chart</b>, representing the hierarchy of modules.</p>",
         "options": [
             {
                 "option_id": "213371",
                 "tag": "a",
-                "text": "A circular linked list",
+                "text": "<i>A</i> circular linked list",
                 "is_correct": false
             },
             {
                 "option_id": "118421",
                 "tag": "b",
-                "text": "A decision table",
+                "text": "<i>A</i> decision table",
                 "is_correct": false
             },
             {
                 "option_id": "181949",
                 "tag": "c",
-                "text": "A tree-like structure chart",
+                "text": "<i>A</i> <b>tree-like structure chart</b>",
                 "is_correct": true
             },
             {
                 "option_id": "181308",
                 "tag": "d",
-                "text": "A pseudocode document",
+                "text": "<i>A</i> pseudocode document",
                 "is_correct": false
             }
         ],
-        "question_number": 22
+        "question_number": 22,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,35 +424,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which approach to algorithm design is more suitable when a system needs to be designed from scratch and very specific details are unknown?",
-        "explanation": "The top-down approach is more suitable when the software needs to be designed from scratch and very specific details are unknown.",
+        "question_text": "<p>Which approach to <b>algorithm design</b> is more suitable when a system needs to be designed <i>from scratch</i> and <b>very specific details are unknown</b>?</p>",
+        "explanation": "<p>The <b>top-down approach</b> is more suitable when the software needs to be designed <i>from scratch</i> and <b>very specific details are unknown</b>.</p>",
         "options": [
             {
                 "option_id": "145887",
                 "tag": "a",
-                "text": "Bottom-Up Approach",
+                "text": "<b>Bottom-Up Approach</b>",
                 "is_correct": false
             },
             {
                 "option_id": "324477",
                 "tag": "b",
-                "text": "Top-Down Approach",
+                "text": "<b>Top-Down Approach</b>",
                 "is_correct": true
             },
             {
                 "option_id": "293412",
                 "tag": "c",
-                "text": "Divide and Conquer",
+                "text": "<b>Divide and Conquer</b>",
                 "is_correct": false
             },
             {
                 "option_id": "295203",
                 "tag": "d",
-                "text": "Object-Oriented Approach",
+                "text": "<b>Object-Oriented Approach</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 24
+        "question_number": 24,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the bottom-up approach, smaller problems are solved individually at the basic level and then integrated together. What is this process of building up called?",
-        "explanation": "In the bottom-up approach, large programs are built up from smaller programs, which is known as composition.",
+        "question_text": "<p>In the <b>bottom-up approach</b>, smaller problems are solved individually at the basic level and then integrated together. What is this process of building up called?</p>",
+        "explanation": "<p>In the <b>bottom-up approach</b>, large programs are built up from smaller programs, which is known as <b>composition</b>.</p>",
         "options": [
             {
                 "option_id": "113701",
                 "tag": "a",
-                "text": "Decomposition",
+                "text": "<i>Decomposition</i>",
                 "is_correct": false
             },
             {
                 "option_id": "334486",
                 "tag": "b",
-                "text": "Modularization",
+                "text": "<i>Modularization</i>",
                 "is_correct": false
             },
             {
                 "option_id": "237271",
                 "tag": "c",
-                "text": "Composition",
+                "text": "<b>Composition</b>",
                 "is_correct": true
             },
             {
                 "option_id": "291126",
                 "tag": "d",
-                "text": "Encapsulation",
+                "text": "<i>Encapsulation</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 26
+        "question_number": 26,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which type of programming languages primarily use the bottom-up approach?",
-        "explanation": "The bottom-up approach is used by Object-Oriented programming languages like C++, C#, Java, etc., while the top-down approach is mainly used by Structured programming languages like C and Fortran.",
+        "question_text": "<p>Which type of <b>programming languages</b> primarily use the <b>bottom-up approach</b>?</p>",
+        "explanation": "<p>The <b>bottom-up approach</b> is used by <b>Object-Oriented programming languages</b> like C++, C#, Java, etc., while the <b>top-down approach</b> is mainly used by <b>Structured programming languages</b> like C and Fortran.</p>",
         "options": [
             {
                 "option_id": "207613",
                 "tag": "a",
-                "text": "Structured programming languages like C and Fortran",
+                "text": "<b>Structured programming languages</b> like C and Fortran",
                 "is_correct": false
             },
             {
                 "option_id": "171585",
                 "tag": "b",
-                "text": "Assembly languages",
+                "text": "<b>Assembly languages</b>",
                 "is_correct": false
             },
             {
                 "option_id": "260958",
                 "tag": "c",
-                "text": "Object-Oriented programming languages like C++, C#, and Java",
+                "text": "<b>Object-Oriented programming languages</b> like C++, C#, and Java",
                 "is_correct": true
             },
             {
                 "option_id": "316930",
                 "tag": "d",
-                "text": "Scripting languages like HTML",
+                "text": "<b>Scripting languages</b> like <i>HTML</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 28
+        "question_number": 28,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,35 +538,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is an advantage of the BOTTOM-UP approach?",
-        "explanation": "In the bottom-up approach, each module is built and tested at an individual level (unit testing) prior to integrating them, making test conditions easier to create and results easier to observe.",
+        "question_text": "<p>Which of the following is an advantage of the <b>BOTTOM-UP</b> approach?</p>",
+        "explanation": "<p>In the <b>bottom-up approach</b>, each <b>module</b> is built and tested at an <i>individual level</i> (<b>unit testing</b>) prior to integrating them, making <b>test conditions</b> easier to create and results easier to observe.</p>",
         "options": [
             {
                 "option_id": "292517",
                 "tag": "a",
-                "text": "It is widely used in debugging and module documentation",
+                "text": "It is <i>widely used</i> in <b>debugging</b> and <b>module documentation</b>",
                 "is_correct": false
             },
             {
                 "option_id": "107207",
                 "tag": "b",
-                "text": "Each module is tested at an individual level prior to integration",
+                "text": "Each <b>module</b> is tested at an <i>individual level</i> prior to <b>integration</b>",
                 "is_correct": true
             },
             {
                 "option_id": "479167",
                 "tag": "c",
-                "text": "The output is a tree-like structure chart",
+                "text": "The output is a <b>tree-like structure chart</b>",
                 "is_correct": false
             },
             {
                 "option_id": "181478",
                 "tag": "d",
-                "text": "It is suitable when designing from scratch",
+                "text": "It is suitable when <i>designing from scratch</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 30
+        "question_number": 30,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which approach may contain more redundancy as it breaks a problem into smaller fragments and builds those sections separately?",
-        "explanation": "The top-down approach may contain redundancy as we break up the problem into smaller fragments and then build each section separately.",
+        "question_text": "<p>Which approach may contain <b>more redundancy</b> as it <b>breaks a problem into smaller fragments</b> and builds those sections <i>separately</i>?</p>",
+        "explanation": "<p>The <b>top-down approach</b> may contain <b>redundancy</b> as we <b>break up the problem into smaller fragments</b> and then build each section <i>separately</i>.</p>",
         "options": [
             {
                 "option_id": "276213",
                 "tag": "a",
-                "text": "Bottom-Up Approach",
+                "text": "<b>Bottom-Up Approach</b>",
                 "is_correct": false
             },
             {
                 "option_id": "290651",
                 "tag": "b",
-                "text": "Top-Down Approach",
+                "text": "<b>Top-Down Approach</b>",
                 "is_correct": true
             },
             {
                 "option_id": "128348",
                 "tag": "c",
-                "text": "Both approaches equally",
+                "text": "<b>Both approaches equally</b>",
                 "is_correct": false
             },
             {
                 "option_id": "526735",
                 "tag": "d",
-                "text": "Neither approach",
+                "text": "<b>Neither approach</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 32
+        "question_number": 32,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +614,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The efficiency of an algorithm is defined as the number of ________ used by the algorithm.",
-        "explanation": "The efficiency of an algorithm is defined as the number of computational resources used by the algorithm, measured primarily by time and space.",
+        "question_text": "<p>The <b>efficiency</b> of an <b>algorithm</b> is defined as the number of <b><i>_______</i></b> used by the algorithm.</p>",
+        "explanation": "<p>The <b>efficiency</b> of an <b>algorithm</b> is defined as the number of <b>computational resources</b> used by the algorithm, measured primarily by <b>time</b> and <b>space</b>.</p>",
         "options": [
             {
                 "option_id": "154727",
                 "tag": "a",
-                "text": "Lines of code",
+                "text": "<b>Lines of code</b>",
                 "is_correct": false
             },
             {
                 "option_id": "103325",
                 "tag": "b",
-                "text": "Comments",
+                "text": "<b>Comments</b>",
                 "is_correct": false
             },
             {
                 "option_id": "302902",
                 "tag": "c",
-                "text": "Computational resources",
+                "text": "<b>Computational resources</b>",
                 "is_correct": true
             },
             {
                 "option_id": "174647",
                 "tag": "d",
-                "text": "Programming languages",
+                "text": "<b>Programming languages</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 34
+        "question_number": 34,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The two main measures of efficiency for an algorithm are:",
-        "explanation": "The two main measures of algorithm efficiency are Time Complexity (the amount of time required to complete execution) and Space Complexity (the amount of memory space required).",
+        "question_text": "<p>The two main measures of <b>efficiency</b> for an <b>algorithm</b> are:</p>",
+        "explanation": "<p>The two main measures of <b>algorithm efficiency</b> are <b>Time Complexity</b> (the amount of <i>time</i> required to complete execution) and <b>Space Complexity</b> (the amount of <i>memory space</i> required).</p>",
         "options": [
             {
                 "option_id": "859002",
                 "tag": "a",
-                "text": "Speed and Accuracy",
+                "text": "<b>Speed</b> and <b>Accuracy</b>",
                 "is_correct": false
             },
             {
                 "option_id": "296616",
                 "tag": "b",
-                "text": "Time Complexity and Space Complexity",
+                "text": "<b>Time Complexity</b> and <b>Space Complexity</b>",
                 "is_correct": true
             },
             {
                 "option_id": "194445",
                 "tag": "c",
-                "text": "Input size and Output size",
+                "text": "<b>Input size</b> and <b>Output size</b>",
                 "is_correct": false
             },
             {
                 "option_id": "339935",
                 "tag": "d",
-                "text": "Readability and Portability",
+                "text": "<b>Readability</b> and <b>Portability</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 36
+        "question_number": 36,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,35 +690,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Time complexity of an algorithm represents:",
-        "explanation": "Time complexity represents the amount of time required to complete the execution of an algorithm, defined as a numerical function T(n).",
+        "question_text": "<p>The <b>time complexity</b> of an algorithm represents:</p>",
+        "explanation": "<p><b>Time complexity</b> represents the amount of <b>time</b> required to complete the <i>execution</i> of an algorithm, defined as a numerical function <i>T(n)</i>.</p>",
         "options": [
             {
                 "option_id": "208353",
                 "tag": "a",
-                "text": "The amount of memory space required by the algorithm",
+                "text": "The amount of <b>memory space</b> required by the algorithm",
                 "is_correct": false
             },
             {
                 "option_id": "730078",
                 "tag": "b",
-                "text": "The number of lines of code in the algorithm",
+                "text": "The number of <i>lines of code</i> in the algorithm",
                 "is_correct": false
             },
             {
                 "option_id": "269834",
                 "tag": "c",
-                "text": "The amount of time required to complete the execution of the algorithm",
+                "text": "The amount of <b>time</b> required to complete the <i>execution</i> of the algorithm",
                 "is_correct": true
             },
             {
                 "option_id": "151182",
                 "tag": "d",
-                "text": "The number of programmers needed to implement the algorithm",
+                "text": "The number of <i>programmers</i> needed to implement the algorithm",
                 "is_correct": false
             }
         ],
-        "question_number": 38
+        "question_number": 38,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Space complexity S(P) of any algorithm P is expressed as S(P) = C + S(I). What does 'C' represent?",
-        "explanation": "In S(P) = C + S(I), 'C' is the fixed part \u2014 the space required to store variables whose size is independent of the problem size (e.g., simple variables, constants, program size).",
+        "question_text": "<p>The <b>space complexity</b> <i>S(P)</i> of any algorithm <i>P</i> is expressed as <b>S(P) = C + S(I)</b>. What does <b>'C'</b> represent?</p>",
+        "explanation": "<p>In <b>S(P) = C + S(I)</b>, <b>'C'</b> is the <b>fixed part</b> \u2014 the space required to store variables whose size is <i>independent</i> of the problem size (e.g., simple variables, constants, program size).</p>",
         "options": [
             {
                 "option_id": "277621",
                 "tag": "a",
-                "text": "The variable part of space, depending on input size",
+                "text": "The <i>variable part</i> of space, depending on <b>input size</b>",
                 "is_correct": false
             },
             {
                 "option_id": "129111",
                 "tag": "b",
-                "text": "The fixed part \u2014 space required for variables whose size is independent of the problem size",
+                "text": "The <b>fixed part</b> \u2014 space required for variables whose size is <i>independent</i> of the problem size",
                 "is_correct": true
             },
             {
                 "option_id": "542933",
                 "tag": "c",
-                "text": "The total number of computations",
+                "text": "The <i>total number of computations</i>",
                 "is_correct": false
             },
             {
                 "option_id": "357281",
                 "tag": "d",
-                "text": "The number of recursive calls",
+                "text": "The <i>number of recursive calls</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 40
+        "question_number": 40,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which part of space complexity includes dynamic memory allocation and recursion stack space?",
-        "explanation": "The variable part S(I) is the space required to store variables whose size depends on the size of the problem, such as dynamic memory allocation and recursion stack space.",
+        "question_text": "<p>Which part of <b>space complexity</b> includes <b>dynamic memory allocation</b> and <b>recursion stack space</b>?</p>",
+        "explanation": "<p>The <b>variable part S(I)</b> is the space required to store variables whose size depends on the size of the problem, such as <b>dynamic memory allocation</b> and <b>recursion stack space</b>.</p>",
         "options": [
             {
                 "option_id": "720692",
                 "tag": "a",
-                "text": "Fixed part (C)",
+                "text": "<b>Fixed part (C)</b>",
                 "is_correct": false
             },
             {
                 "option_id": "958983",
                 "tag": "b",
-                "text": "Constant part",
+                "text": "<b>Constant part</b>",
                 "is_correct": false
             },
             {
                 "option_id": "317268",
                 "tag": "c",
-                "text": "Variable part S(I)",
+                "text": "<b>Variable part S(I)</b>",
                 "is_correct": true
             },
             {
                 "option_id": "196084",
                 "tag": "d",
-                "text": "Neither part",
+                "text": "<i>Neither part</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 42
+        "question_number": 42,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +804,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The best case analysis of an algorithm refers to the scenario in which:",
-        "explanation": "The best case refers to the scenario where an algorithm takes the least amount of time to execute, which occurs when the input is already in an optimal state.",
+        "question_text": "<p>The <b>best case analysis</b> of an algorithm refers to the scenario in which:</p>",
+        "explanation": "<p>The <b>best case</b> refers to the scenario where an algorithm takes the <b>least</b> amount of time to execute, which occurs when the input is already in an <i>optimal</i> state.</p>",
         "options": [
             {
                 "option_id": "323416",
                 "tag": "a",
-                "text": "The algorithm takes the maximum amount of time to execute",
+                "text": "The algorithm takes the <b>maximum</b> amount of time to execute",
                 "is_correct": false
             },
             {
                 "option_id": "105262",
                 "tag": "b",
-                "text": "The algorithm takes the least amount of time to execute for a given input",
+                "text": "The algorithm takes the <b>least</b> amount of time to execute for a given input",
                 "is_correct": true
             },
             {
                 "option_id": "176306",
                 "tag": "c",
-                "text": "The algorithm takes the expected (average) amount of time to execute",
+                "text": "The algorithm takes the <i>expected (average)</i> amount of time to execute",
                 "is_correct": false
             },
             {
                 "option_id": "103807",
                 "tag": "d",
-                "text": "The input is in the least favorable condition",
+                "text": "The input is in the <b>least favorable</b> condition",
                 "is_correct": false
             }
         ],
-        "question_number": 44
+        "question_number": 44,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The worst case analysis measures:",
-        "explanation": "Worst case analysis measures the maximum execution time required for a specific input. This occurs when the input is in the least favorable condition, causing the highest number of operations.",
+        "question_text": "<p>The <b>worst case analysis</b> measures:</p>",
+        "explanation": "<p><b>Worst case analysis</b> measures the <b>maximum execution time</b> required for a specific input. This occurs when the input is in the <i>least favorable</i> condition, causing the highest number of operations.</p>",
         "options": [
             {
                 "option_id": "147734",
                 "tag": "a",
-                "text": "The minimum execution time of an algorithm",
+                "text": "The <b>minimum</b> execution time of an algorithm",
                 "is_correct": false
             },
             {
                 "option_id": "230776",
                 "tag": "b",
-                "text": "The expected execution time for randomly chosen input",
+                "text": "The <i>expected</i> execution time for randomly chosen input",
                 "is_correct": false
             },
             {
                 "option_id": "162886",
                 "tag": "c",
-                "text": "The maximum execution time required for a specific (least favorable) input",
+                "text": "The <b>maximum</b> execution time required for a specific (<i>least favorable</i>) input",
                 "is_correct": true
             },
             {
                 "option_id": "323653",
                 "tag": "d",
-                "text": "The space used by the algorithm",
+                "text": "The <b>space</b> used by the algorithm",
                 "is_correct": false
             }
         ],
-        "question_number": 46
+        "question_number": 46,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +880,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which type of algorithm analysis measures the expected execution time for a randomly chosen input and provides a balanced perspective?",
-        "explanation": "Average case analysis measures the expected execution time for a randomly chosen input, providing a balanced perspective between best case and worst case.",
+        "question_text": "<p>Which type of <b>algorithm analysis</b> measures the <b>expected execution time</b> for a <i>randomly chosen input</i> and provides a <b>balanced perspective</b>?</p>",
+        "explanation": "<p><b>Average case analysis</b> measures the <b>expected execution time</b> for a <i>randomly chosen input</i>, providing a <b>balanced perspective</b> between <b>best case</b> and <b>worst case</b>.</p>",
         "options": [
             {
                 "option_id": "427016",
                 "tag": "a",
-                "text": "Best Case Analysis",
+                "text": "<b>Best Case Analysis</b>",
                 "is_correct": false
             },
             {
                 "option_id": "296223",
                 "tag": "b",
-                "text": "Worst Case Analysis",
+                "text": "<b>Worst Case Analysis</b>",
                 "is_correct": false
             },
             {
                 "option_id": "224484",
                 "tag": "c",
-                "text": "Average Case Analysis",
+                "text": "<b>Average Case Analysis</b>",
                 "is_correct": true
             },
             {
                 "option_id": "106000",
                 "tag": "d",
-                "text": "Space Complexity Analysis",
+                "text": "<b>Space Complexity Analysis</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 48
+        "question_number": 48,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +918,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following are the three ways algorithms can be represented?",
-        "explanation": "According to the text, algorithms can be represented using Flowcharts, Pseudocode, and Decision Tables.",
+        "question_text": "<p>Which of the following are the <b>three ways algorithms</b> can be <b>represented</b>?</p>",
+        "explanation": "<p>According to the text, <b>algorithms</b> can be <b>represented</b> using <b>Flowcharts</b>, <b>Pseudocode</b>, and <b>Decision Tables</b>.</p>",
         "options": [
             {
                 "option_id": "192294",
                 "tag": "a",
-                "text": "Pseudocode, Spreadsheet, and Database",
+                "text": "<i>Pseudocode</i>, <i>Spreadsheet</i>, and <i>Database</i>",
                 "is_correct": false
             },
             {
                 "option_id": "121363",
                 "tag": "b",
-                "text": "Flowchart, Pseudocode, and Decision Tables",
+                "text": "<i>Flowchart</i>, <i>Pseudocode</i>, and <i>Decision Tables</i>",
                 "is_correct": true
             },
             {
                 "option_id": "136482",
                 "tag": "c",
-                "text": "Flowchart, Binary Code, and Assembly Code",
+                "text": "<i>Flowchart</i>, <i>Binary Code</i>, and <i>Assembly Code</i>",
                 "is_correct": false
             },
             {
                 "option_id": "145681",
                 "tag": "d",
-                "text": "Decision Tables, HTML, and CSS",
+                "text": "<i>Decision Tables</i>, <i>HTML</i>, and <i>CSS</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 50
+        "question_number": 50,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,35 +956,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "A flowchart is best described as:",
-        "explanation": "Flowcharts are the graphical representation of algorithms \u2014 a visual picture which gives the steps of an algorithm and the flow of control between the various steps.",
+        "question_text": "<p>A <b>flowchart</b> is best described as:</p>",
+        "explanation": "<p><b>Flowcharts</b> are the <b>graphical representation</b> of <b>algorithms</b> \u2014 a <i>visual picture</i> which gives the steps of an algorithm and the <i>flow of control</i> between the various steps.</p>",
         "options": [
             {
                 "option_id": "290571",
                 "tag": "a",
-                "text": "A plain English description of algorithm steps",
+                "text": "A plain English description of <b>algorithm</b> steps",
                 "is_correct": false
             },
             {
                 "option_id": "223251",
                 "tag": "b",
-                "text": "A tabular representation of decision conditions",
+                "text": "A tabular representation of <b>decision conditions</b>",
                 "is_correct": false
             },
             {
                 "option_id": "365863",
                 "tag": "c",
-                "text": "A graphical/visual representation of an algorithm showing steps and flow of control",
+                "text": "A <b>graphical/visual representation</b> of an <b>algorithm</b> showing steps and <i>flow of control</i>",
                 "is_correct": true
             },
             {
                 "option_id": "229108",
                 "tag": "d",
-                "text": "A formal programming language",
+                "text": "A <b>formal programming language</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 52
+        "question_number": 52,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,35 +994,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "According to ANSI rules for flowcharting, a flowchart can have:",
-        "explanation": "One of the ANSI rules for flowcharting states that a flowchart can have only one start point and one end point.",
+        "question_text": "<p>According to <b>ANSI rules for flowcharting</b>, a <b>flowchart</b> can have:</p>",
+        "explanation": "<p>One of the <b>ANSI rules for flowcharting</b> states that a <b>flowchart</b> can have <i>only one</i> start point and <i>one</i> end point.</p>",
         "options": [
             {
                 "option_id": "486250",
                 "tag": "a",
-                "text": "Multiple start points and multiple end points",
+                "text": "<b>Multiple</b> start points and <b>multiple</b> end points",
                 "is_correct": false
             },
             {
                 "option_id": "208147",
                 "tag": "b",
-                "text": "Only one start point and one end point",
+                "text": "<b>Only one</b> start point and <b>one</b> end point",
                 "is_correct": true
             },
             {
                 "option_id": "469247",
                 "tag": "c",
-                "text": "Multiple start points but only one end point",
+                "text": "<b>Multiple</b> start points but <b>only one</b> end point",
                 "is_correct": false
             },
             {
                 "option_id": "140654",
                 "tag": "d",
-                "text": "Only one start point but multiple end points",
+                "text": "<b>Only one</b> start point but <b>multiple</b> end points",
                 "is_correct": false
             }
         ],
-        "question_number": 54
+        "question_number": 54,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,35 +1032,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In a flowchart, the steps should follow which direction?",
-        "explanation": "According to ANSI flowcharting rules, the steps in a flowchart should follow top-to-bottom.",
+        "question_text": "<p>In a <b>flowchart</b>, the steps should follow which direction?</p>",
+        "explanation": "<p>According to <b>ANSI flowcharting rules</b>, the steps in a flowchart should follow <i>top-to-bottom</i>.</p>",
         "options": [
             {
                 "option_id": "278533",
                 "tag": "a",
-                "text": "Bottom-to-top",
+                "text": "<b>Bottom-to-top</b>",
                 "is_correct": false
             },
             {
                 "option_id": "828184",
                 "tag": "b",
-                "text": "Left-to-right",
+                "text": "<b>Left-to-right</b>",
                 "is_correct": false
             },
             {
                 "option_id": "153314",
                 "tag": "c",
-                "text": "Top-to-bottom",
+                "text": "<b>Top-to-bottom</b>",
                 "is_correct": true
             },
             {
                 "option_id": "135237",
                 "tag": "d",
-                "text": "Right-to-left",
+                "text": "<b>Right-to-left</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 56
+        "question_number": 56,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,35 +1070,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In a flowchart, the decision symbol should have:",
-        "explanation": "The decision symbol should have one flow line connecting to the previous symbol but two flow lines connecting to the next symbol for each possible solution (e.g., Yes/No, True/False).",
+        "question_text": "<p>In a <b>flowchart</b>, the <b>decision symbol</b> should have:</p>",
+        "explanation": "<p>The <b>decision symbol</b> in a flowchart should have <b>one</b> flow line connecting to the previous symbol but <b>two</b> flow lines connecting to the next symbol for each possible solution (e.g., <i>Yes/No</i>, <i>True/False</i>).</p>",
         "options": [
             {
                 "option_id": "203806",
                 "tag": "a",
-                "text": "One flow line in and one flow line out",
+                "text": "<b>One</b> flow line in and <b>one</b> flow line out",
                 "is_correct": false
             },
             {
                 "option_id": "101152",
                 "tag": "b",
-                "text": "Two flow lines in and one flow line out",
+                "text": "<b>Two</b> flow lines in and <b>one</b> flow line out",
                 "is_correct": false
             },
             {
                 "option_id": "189506",
                 "tag": "c",
-                "text": "One flow line connecting to the previous symbol and two flow lines to the next symbol",
+                "text": "<b>One</b> flow line connecting to the previous symbol and <b>two</b> flow lines to the next symbol",
                 "is_correct": true
             },
             {
                 "option_id": "115338",
                 "tag": "d",
-                "text": "Three flow lines out",
+                "text": "<b>Three</b> flow lines out",
                 "is_correct": false
             }
         ],
-        "question_number": 58
+        "question_number": 58,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1108,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is a DISADVANTAGE of flowcharts?",
-        "explanation": "A key disadvantage is that if alterations are required, the flowchart may require re-drawing completely. Also, complex logic makes flowcharts complex and clumsy.",
+        "question_text": "<p>Which of the following is a <b>DISADVANTAGE</b> of <b>flowcharts</b>?</p>",
+        "explanation": "<p>A key <b>disadvantage</b> is that if <b>alterations</b> are required, the <b>flowchart</b> may require <i>re-drawing completely</i>. Also, <b>complex logic</b> makes flowcharts <i>complex and clumsy</i>.</p>",
         "options": [
             {
                 "option_id": "553821",
                 "tag": "a",
-                "text": "Flowcharts are a good way of communicating logic to all concerned",
+                "text": "<i>Flowcharts</i> are a <b>good way of communicating logic</b> to all concerned",
                 "is_correct": false
             },
             {
                 "option_id": "710334",
                 "tag": "b",
-                "text": "Alterations may require the entire flowchart to be redrawn",
+                "text": "<b>Alterations</b> may require the <i>entire flowchart</i> to be <b>redrawn</b>",
                 "is_correct": true
             },
             {
                 "option_id": "100364",
                 "tag": "c",
-                "text": "They enable effective analysis of problems",
+                "text": "They enable <b>effective analysis of problems</b>",
                 "is_correct": false
             },
             {
                 "option_id": "239946",
                 "tag": "d",
-                "text": "They serve as good program documentation",
+                "text": "They serve as <b>good program documentation</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 60
+        "question_number": 60,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1146,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Pseudocode is described as representing an algorithm in:",
-        "explanation": "Pseudocode represents an algorithm in English-language statements. It is intended for human reading and cannot be executed directly by the computer.",
+        "question_text": "<p><b>Pseudocode</b> is described as representing an <b>algorithm</b> in:</p>",
+        "explanation": "<p><b>Pseudocode</b> represents an <b>algorithm</b> in <b>English-language statements</b>. It is intended for <i>human reading</i> and cannot be executed directly by the computer.</p>",
         "options": [
             {
                 "option_id": "476772",
                 "tag": "a",
-                "text": "Binary format",
+                "text": "<b>Binary</b> format",
                 "is_correct": false
             },
             {
                 "option_id": "318412",
                 "tag": "b",
-                "text": "Graphical format using symbols",
+                "text": "<b>Graphical</b> format using <i>symbols</i>",
                 "is_correct": false
             },
             {
                 "option_id": "231393",
                 "tag": "c",
-                "text": "English-language statements intended for human reading",
+                "text": "<b>English-language</b> statements intended for <i>human reading</i>",
                 "is_correct": true
             },
             {
                 "option_id": "748922",
                 "tag": "d",
-                "text": "Machine code that can be directly executed by a computer",
+                "text": "<b>Machine code</b> that can be <i>directly executed</i> by a computer",
                 "is_correct": false
             }
         ],
-        "question_number": 62
+        "question_number": 62,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,35 +1184,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "The word 'pseudo' in pseudocode means:",
-        "explanation": "The word 'pseudo' means 'not real,' so 'pseudocode' means 'not real code'. It is not actual executable code but a description of what the code should do.",
+        "question_text": "<p>The word <b>'pseudo'</b> in <b>pseudocode</b> means:</p>",
+        "explanation": "<p>The word <b>'pseudo'</b> means <b>'not real'</b>, so <b>pseudocode</b> means <b>'not real code'</b>. It is not actual executable code but a description of what the code should do.</p>",
         "options": [
             {
                 "option_id": "319782",
                 "tag": "a",
-                "text": "Real",
+                "text": "<i>Real</i>",
                 "is_correct": false
             },
             {
                 "option_id": "206184",
                 "tag": "b",
-                "text": "Complex",
+                "text": "<i>Complex</i>",
                 "is_correct": false
             },
             {
                 "option_id": "310192",
                 "tag": "c",
-                "text": "Not real",
+                "text": "<b>Not real</b>",
                 "is_correct": true
             },
             {
                 "option_id": "323587",
                 "tag": "d",
-                "text": "Graphical",
+                "text": "<i>Graphical</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 64
+        "question_number": 64,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1222,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In pseudocode, which keyword is used to obtain input from a user?",
-        "explanation": "The keyword INPUT is used in pseudocode to obtain an input from a user.",
+        "question_text": "<p>In <b>pseudocode</b>, which keyword is used to obtain <b>input</b> from a user?</p>",
+        "explanation": "<p>The keyword <b>INPUT</b> is used in <b>pseudocode</b> to obtain an <i>input</i> from a user.</p>",
         "options": [
             {
                 "option_id": "144704",
                 "tag": "a",
-                "text": "COMPUTE",
+                "text": "<b>COMPUTE</b>",
                 "is_correct": false
             },
             {
                 "option_id": "678441",
                 "tag": "b",
-                "text": "PRINT",
+                "text": "<b>PRINT</b>",
                 "is_correct": false
             },
             {
                 "option_id": "151822",
                 "tag": "c",
-                "text": "BEGIN",
+                "text": "<b>BEGIN</b>",
                 "is_correct": false
             },
             {
                 "option_id": "129181",
                 "tag": "d",
-                "text": "INPUT",
+                "text": "<b>INPUT</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 66
+        "question_number": 66,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1260,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In pseudocode, which keyword is used to present a result or output?",
-        "explanation": "The keyword PRINT is used in pseudocode to present a result or an output to the user.",
+        "question_text": "<p>In <b>pseudocode</b>, which keyword is used to present a <b>result</b> or <b>output</b>?</p>",
+        "explanation": "<p>The keyword <b>PRINT</b> is used in <b>pseudocode</b> to present a <i>result</i> or an <i>output</i> to the user.</p>",
         "options": [
             {
                 "option_id": "251599",
                 "tag": "a",
-                "text": "INPUT",
+                "text": "<b>INPUT</b>",
                 "is_correct": false
             },
             {
                 "option_id": "256581",
                 "tag": "b",
-                "text": "COMPUTE",
+                "text": "<b>COMPUTE</b>",
                 "is_correct": false
             },
             {
                 "option_id": "891266",
                 "tag": "c",
-                "text": "PRINT",
+                "text": "<b>PRINT</b>",
                 "is_correct": true
             },
             {
                 "option_id": "951102",
                 "tag": "d",
-                "text": "BEGIN",
+                "text": "<b>BEGIN</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 68
+        "question_number": 68,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1298,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In pseudocode, which keyword is used to process instructions entered by a user?",
-        "explanation": "The keyword COMPUTE is used in pseudocode to process an instruction entered by a user.",
+        "question_text": "<p>In <b>pseudocode</b>, which <b>keyword</b> is used to <i>process</i> instructions entered by a user?</p>",
+        "explanation": "<p>The keyword <b>COMPUTE</b> is used in <b>pseudocode</b> to <i>process</i> an instruction entered by a user.</p>",
         "options": [
             {
                 "option_id": "238657",
                 "tag": "a",
-                "text": "INPUT",
+                "text": "<b>INPUT</b>",
                 "is_correct": false
             },
             {
                 "option_id": "320693",
                 "tag": "b",
-                "text": "PRINT",
+                "text": "<b>PRINT</b>",
                 "is_correct": false
             },
             {
                 "option_id": "223084",
                 "tag": "c",
-                "text": "COMPUTE",
+                "text": "<b>COMPUTE</b>",
                 "is_correct": true
             },
             {
                 "option_id": "488815",
                 "tag": "d",
-                "text": "IF",
+                "text": "<b>IF</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 70
+        "question_number": 70,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,35 +1336,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Consider the pseudocode: `IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'`. What will this print if number = 7?",
-        "explanation": "7 MOD 2 = 1 (not 0), so the condition is False. The ELSE branch executes, printing 'Odd'.",
+        "question_text": "<p>Consider the pseudocode: <code>IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'</code>. What will this print if <b>number = 7</b>?</p>",
+        "explanation": "<p><b>7 MOD 2</b> equals <b>1</b> (not 0), so the condition evaluates to <b>False</b>. The <code>ELSE</code> branch executes, printing <i>'Odd'</i>.</p>",
         "options": [
             {
                 "option_id": "326847",
                 "tag": "a",
-                "text": "Even",
+                "text": "<i>Even</i>",
                 "is_correct": false
             },
             {
                 "option_id": "335204",
                 "tag": "b",
-                "text": "Odd",
+                "text": "<i>Odd</i>",
                 "is_correct": true
             },
             {
                 "option_id": "234365",
                 "tag": "c",
-                "text": "0",
+                "text": "<i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "866347",
                 "tag": "d",
-                "text": "Nothing",
+                "text": "<i>Nothing</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 72
+        "question_number": 72,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,35 +1374,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Consider the pseudocode: `IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'`. What will this print if number = 10?",
-        "explanation": "10 MOD 2 = 0, so the condition is True. The IF branch executes, printing 'Even'.",
+        "question_text": "<p>Consider the pseudocode: <code>IF number MOD 2 = 0 THEN PRINT 'Even' ELSE PRINT 'Odd'</code>. What will this print if <b>number = 10</b>?</p>",
+        "explanation": "<p><b>10 MOD 2 = 0</b>, so the condition is <b>True</b>. The <b>IF</b> branch executes, printing <i>'Even'</i>.</p>",
         "options": [
             {
                 "option_id": "321793",
                 "tag": "a",
-                "text": "Odd",
+                "text": "<i>Odd</i>",
                 "is_correct": false
             },
             {
                 "option_id": "162638",
                 "tag": "b",
-                "text": "0",
+                "text": "<i>0</i>",
                 "is_correct": false
             },
             {
                 "option_id": "114468",
                 "tag": "c",
-                "text": "10",
+                "text": "<i>10</i>",
                 "is_correct": false
             },
             {
                 "option_id": "293664",
                 "tag": "d",
-                "text": "Even",
+                "text": "<i>Even</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 74
+        "question_number": 74,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,35 +1412,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In a loop-based pseudocode that accepts 5 numbers and finds their average, the loop continues WHILE count < 5. What does the variable 'count' track?",
-        "explanation": "The variable `count` is incremented by 1 each time a number is entered (count = count + 1), tracking how many numbers have been inputted so far.",
+        "question_text": "<p>In a <b>loop-based pseudocode</b> that accepts <b>5 numbers</b> and finds their <b>average</b>, the loop continues <b>WHILE count &lt; 5</b>. What does the variable <b>'count'</b> track?</p>",
+        "explanation": "<p>The variable <b>count</b> is <i>incremented by 1</i> each time a number is entered (<b>count = count + 1</b>), tracking how many numbers have been <b>inputted so far</b>.</p>",
         "options": [
             {
                 "option_id": "518462",
                 "tag": "a",
-                "text": "The sum of the numbers",
+                "text": "The <b>sum</b> of the numbers",
                 "is_correct": false
             },
             {
                 "option_id": "288514",
                 "tag": "b",
-                "text": "The average",
+                "text": "The <b>average</b>",
                 "is_correct": false
             },
             {
                 "option_id": "266128",
                 "tag": "c",
-                "text": "The number of inputs entered so far",
+                "text": "The <b>number of inputs entered so far</b>",
                 "is_correct": true
             },
             {
                 "option_id": "233653",
                 "tag": "d",
-                "text": "The current input number",
+                "text": "The <b>current input number</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 76
+        "question_number": 76,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the pseudocode for finding the average of 5 numbers, the average is computed as:",
-        "explanation": "After 5 numbers have been summed up, the average is computed as sum / 5.",
+        "question_text": "<p>In the <b>pseudocode</b> for finding the <b>average</b> of <b>5 numbers</b>, the average is computed as:</p>",
+        "explanation": "<p>After <b>5 numbers</b> have been summed up, the <b>average</b> is computed as <b>sum / 5</b>.</p>",
         "options": [
             {
                 "option_id": "303596",
                 "tag": "a",
-                "text": "sum \u00d7 5",
+                "text": "<b>sum</b> \u00d7 5",
                 "is_correct": false
             },
             {
                 "option_id": "812598",
                 "tag": "b",
-                "text": "sum / count",
+                "text": "<b>sum</b> / <i>count</i>",
                 "is_correct": false
             },
             {
                 "option_id": "538075",
                 "tag": "c",
-                "text": "sum / 5",
+                "text": "<b>sum</b> / 5",
                 "is_correct": true
             },
             {
                 "option_id": "257044",
                 "tag": "d",
-                "text": "count / 5",
+                "text": "<i>count</i> / 5",
                 "is_correct": false
             }
         ],
-        "question_number": 78
+        "question_number": 78,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the algorithm that categorizes a person based on age, what category is assigned if Age < 13?",
-        "explanation": "In the age categorization algorithm: If Age < 13, the person is categorized as a 'Child'.",
+        "question_text": "<p>In the <b>algorithm</b> that categorizes a person based on <b>age</b>, what category is assigned if <b>Age &lt; 13</b>?</p>",
+        "explanation": "<p>In the <b>age categorization algorithm</b>: If <b>Age &lt; 13</b>, the person is categorized as a <b>'Child'</b>.</p>",
         "options": [
             {
                 "option_id": "282781",
                 "tag": "a",
-                "text": "Teenager",
+                "text": "<i>Teenager</i>",
                 "is_correct": false
             },
             {
                 "option_id": "318967",
                 "tag": "b",
-                "text": "Adult",
+                "text": "<i>Adult</i>",
                 "is_correct": false
             },
             {
                 "option_id": "205875",
                 "tag": "c",
-                "text": "Child",
+                "text": "<b>Child</b>",
                 "is_correct": true
             },
             {
                 "option_id": "294442",
                 "tag": "d",
-                "text": "Senior",
+                "text": "<i>Senior</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 80
+        "question_number": 80,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the age categorization algorithm, what category is assigned if Age >= 13 but Age < 20?",
-        "explanation": "If Age >= 13 but Age < 20, the person is a 'Teenager'. This is checked in the ELSE IF branch of the algorithm.",
+        "question_text": "<p>In the <b>age categorization algorithm</b>, what category is assigned if <b>Age &ge; 13</b> but <b>Age &lt; 20</b>?</p>",
+        "explanation": "<p>If <b>Age &ge; 13</b> but <b>Age &lt; 20</b>, the person is categorized as a <b>'Teenager'</b>. This is determined in the <i>ELSE IF</i> branch of the algorithm.</p>",
         "options": [
             {
                 "option_id": "758673",
                 "tag": "a",
-                "text": "Child",
+                "text": "<i>Child</i>",
                 "is_correct": false
             },
             {
                 "option_id": "245731",
                 "tag": "b",
-                "text": "Adult",
+                "text": "<i>Adult</i>",
                 "is_correct": false
             },
             {
                 "option_id": "728152",
                 "tag": "c",
-                "text": "Senior",
+                "text": "<i>Senior</i>",
                 "is_correct": false
             },
             {
                 "option_id": "261192",
                 "tag": "d",
-                "text": "Teenager",
+                "text": "<i>Teenager</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 82
+        "question_number": 82,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,19 +1564,19 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the Dragons and Wizards card game algorithm, if the card drawn is a HEART with a NUMBER value, which team gets a point?",
-        "explanation": "According to the rules: 'If the card drawn is a heart which is a number, Team WIZARDS gets a point.'",
+        "question_text": "<p>In the <b>Dragons and Wizards</b> card game algorithm, if the card drawn is a <b>HEART</b> with a <b>NUMBER</b> value, which team gets a point?</p>",
+        "explanation": "<p>According to the rules: 'If the card drawn is a <i>heart</i> which is a <i>number</i>, Team <b>WIZARDS</b> gets a point.'</p>",
         "options": [
             {
                 "option_id": "235320",
                 "tag": "a",
-                "text": "DRAGONS",
+                "text": "<b>DRAGONS</b>",
                 "is_correct": false
             },
             {
                 "option_id": "294074",
                 "tag": "b",
-                "text": "WIZARDS",
+                "text": "<b>WIZARDS</b>",
                 "is_correct": true
             },
             {
@@ -1551,7 +1592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 84
+        "question_number": 84,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,35 +1602,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In the Dragons and Wizards card game algorithm, if the card drawn is a DIAMOND, which team gets a point?",
-        "explanation": "According to the rules: 'If the card drawn is a diamond or a club, Team DRAGONS gets a point.'",
+        "question_text": "<p>In the <b>Dragons and Wizards</b> card game algorithm, if the card drawn is a <b>DIAMOND</b>, which team gets a point?</p>",
+        "explanation": "<p>According to the rules: 'If the card drawn is a <b>diamond</b> or a <b>club</b>, Team <b>DRAGONS</b> gets a point.'</p>",
         "options": [
             {
                 "option_id": "100286",
                 "tag": "a",
-                "text": "WIZARDS",
+                "text": "<b>WIZARDS</b>",
                 "is_correct": false
             },
             {
                 "option_id": "716189",
                 "tag": "b",
-                "text": "Neither team",
+                "text": "<i>Neither team</i>",
                 "is_correct": false
             },
             {
                 "option_id": "250143",
                 "tag": "c",
-                "text": "Both teams",
+                "text": "<i>Both teams</i>",
                 "is_correct": false
             },
             {
                 "option_id": "156132",
                 "tag": "d",
-                "text": "DRAGONS",
+                "text": "<b>DRAGONS</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 86
+        "question_number": 86,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is an ADVANTAGE of using pseudocode over flowcharts?",
-        "explanation": "A key advantage of pseudocode is that it can be converted to a program using any programming language, unlike flowcharts and decision tables.",
+        "question_text": "<p>Which of the following is an <b>ADVANTAGE</b> of using <b>pseudocode</b> over <b>flowcharts</b>?</p>",
+        "explanation": "<p>A key <b>advantage</b> of <b>pseudocode</b> is that it can be <b>converted to a program</b> using <i>any programming language</i>, unlike <b>flowcharts</b> and <b>decision tables</b>.</p>",
         "options": [
             {
                 "option_id": "134313",
                 "tag": "a",
-                "text": "Pseudocode provides a graphical representation",
+                "text": "<i>Pseudocode</i> provides a <b>graphical representation</b>",
                 "is_correct": false
             },
             {
                 "option_id": "229569",
                 "tag": "b",
-                "text": "Pseudocode can be converted to a program using any programming language",
+                "text": "<i>Pseudocode</i> can be <b>converted to a program</b> using <i>any programming language</i>",
                 "is_correct": true
             },
             {
                 "option_id": "243224",
                 "tag": "c",
-                "text": "Pseudocode is more difficult to write than a flowchart",
+                "text": "<i>Pseudocode</i> is <b>more difficult to write</b> than a <i>flowchart</i>",
                 "is_correct": false
             },
             {
                 "option_id": "143241",
                 "tag": "d",
-                "text": "Pseudocode uses standard symbols",
+                "text": "<i>Pseudocode</i> uses <b>standard symbols</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 88
+        "question_number": 88,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is a DISADVANTAGE of pseudocode?",
-        "explanation": "A disadvantage of pseudocode is that it does not provide a graphical representation of an algorithm; therefore, it might be difficult to understand complex logic in a pseudocode.",
+        "question_text": "<p>Which of the following is a <b>DISADVANTAGE</b> of <b>pseudocode</b>?</p>",
+        "explanation": "<p>A <b>disadvantage</b> of <b>pseudocode</b> is that it does not provide a <b>graphical representation</b> of an algorithm; therefore, it might be difficult to understand <i>complex logic</i> in pseudocode.</p>",
         "options": [
             {
                 "option_id": "113062",
                 "tag": "a",
-                "text": "It is easy and fast to write",
+                "text": "<b>It is easy and fast to write</b>",
                 "is_correct": false
             },
             {
                 "option_id": "202574",
                 "tag": "b",
-                "text": "Errors can be detected easily",
+                "text": "<b>Errors can be detected easily</b>",
                 "is_correct": false
             },
             {
                 "option_id": "185957",
                 "tag": "c",
-                "text": "It does not provide a graphical representation, making complex logic hard to understand",
+                "text": "<b>It does not provide a graphical representation</b>, making <i>complex logic</i> hard to understand",
                 "is_correct": true
             },
             {
                 "option_id": "303344",
                 "tag": "d",
-                "text": "Changes can be made easily without rewriting other steps",
+                "text": "<b>Changes can be made easily without rewriting other steps</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 90
+        "question_number": 90,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1716,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Decision Tables are used as an alternative tool to simplify which type of tasks?",
-        "explanation": "Decision Tables are used as an alternative tool to simplify decision-making tasks (tasks involving lots of branching) that are involved in a process.",
+        "question_text": "<p><b>Decision Tables</b> are used as an alternative tool to simplify which type of tasks?</p>",
+        "explanation": "<p><b>Decision Tables</b> are used as an alternative tool to simplify <b>decision-making tasks</b> (tasks involving <i>lots of branching</i>) that are involved in a process.</p>",
         "options": [
             {
                 "option_id": "194754",
                 "tag": "a",
-                "text": "Tasks involving arithmetic operations only",
+                "text": "Tasks involving <b>arithmetic operations</b> only",
                 "is_correct": false
             },
             {
                 "option_id": "265942",
                 "tag": "b",
-                "text": "Tasks involving lots of branching/decision-making",
+                "text": "Tasks involving <i>lots of branching/decision-making</i>",
                 "is_correct": true
             },
             {
                 "option_id": "146433",
                 "tag": "c",
-                "text": "Tasks involving only sequential steps",
+                "text": "Tasks involving only <b>sequential steps</b>",
                 "is_correct": false
             },
             {
                 "option_id": "260483",
                 "tag": "d",
-                "text": "Tasks involving graphical user interfaces",
+                "text": "Tasks involving <b>graphical user interfaces</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 92
+        "question_number": 92,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "A Decision Table consists of four components. Which component lists the conditions based on which a decision is made?",
-        "explanation": "The Condition Stub component consists of the conditions based on which a decision is made.",
+        "question_text": "<p>A <b>Decision Table</b> consists of four components. Which component lists the <b>conditions</b> based on which a decision is made?</p>",
+        "explanation": "<p>The <b>Condition Stub</b> component consists of the <b>conditions</b> based on which a decision is made.</p>",
         "options": [
             {
                 "option_id": "224072",
                 "tag": "a",
-                "text": "Action Stub",
+                "text": "<i>Action Stub</i>",
                 "is_correct": false
             },
             {
                 "option_id": "100199",
                 "tag": "b",
-                "text": "Action Taken",
+                "text": "<i>Action Taken</i>",
                 "is_correct": false
             },
             {
                 "option_id": "275814",
                 "tag": "c",
-                "text": "Condition Applied",
+                "text": "<i>Condition Applied</i>",
                 "is_correct": false
             },
             {
                 "option_id": "154935",
                 "tag": "d",
-                "text": "Condition Stub",
+                "text": "<b>Condition Stub</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 94
+        "question_number": 94,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,35 +1792,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "In a Decision Table, the Condition Applied component uses which symbols to indicate whether a condition is satisfied or not?",
-        "explanation": "The Condition Applied component contains the condition alternatives: Y for the satisfied condition and N for the unsatisfied condition.",
+        "question_text": "<p>In a <b>Decision Table</b>, the <b>Condition Applied</b> component uses which symbols to indicate whether a condition is <i>satisfied</i> or not?</p>",
+        "explanation": "<p>The <b>Condition Applied</b> component contains the condition alternatives: <b>Y</b> for the <i>satisfied</i> condition and <b>N</b> for the <i>unsatisfied</i> condition.</p>",
         "options": [
             {
                 "option_id": "103397",
                 "tag": "a",
-                "text": "0 and 1",
+                "text": "<b>0</b> and <b>1</b>",
                 "is_correct": false
             },
             {
                 "option_id": "119341",
                 "tag": "b",
-                "text": "Y and N",
+                "text": "<b>Y</b> and <b>N</b>",
                 "is_correct": true
             },
             {
                 "option_id": "340116",
                 "tag": "c",
-                "text": "True and False",
+                "text": "<b>True</b> and <b>False</b>",
                 "is_correct": false
             },
             {
                 "option_id": "167010",
                 "tag": "d",
-                "text": "Pass and Fail",
+                "text": "<b>Pass</b> and <b>Fail</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 96
+        "question_number": 96,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1830,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "Which of the following is an ADVANTAGE of using Decision Tables?",
-        "explanation": "Decision tables are easier to document than flowcharts. A decision table for a complex condition can be represented on a single page, whereas a flowchart for the same problem could extend over multiple pages.",
+        "question_text": "<p>Which of the following is an <b>ADVANTAGE</b> of using <b>Decision Tables</b>?</p>",
+        "explanation": "<p><b>Decision tables</b> are easier to document than <b>flowcharts</b>. A decision table for a <b>complex condition</b> can be represented on a <i>single page</i>, whereas a flowchart for the same problem could extend over <i>multiple pages</i>.</p>",
         "options": [
             {
                 "option_id": "179365",
                 "tag": "a",
-                "text": "They can show the complete sequence of steps to accomplish a task",
+                "text": "They can show the <i>complete sequence of steps</i> to accomplish a task",
                 "is_correct": false
             },
             {
                 "option_id": "997208",
                 "tag": "b",
-                "text": "Beginners prefer them to flowcharts",
+                "text": "<b>Beginners</b> prefer them to <b>flowcharts</b>",
                 "is_correct": false
             },
             {
                 "option_id": "131702",
                 "tag": "c",
-                "text": "A complex condition can be represented on a single page, which could take multiple pages as a flowchart",
+                "text": "A <b>complex condition</b> can be represented on a <i>single page</i>, which could take <i>multiple pages</i> as a <b>flowchart</b>",
                 "is_correct": true
             },
             {
                 "option_id": "940500",
                 "tag": "d",
-                "text": "They provide a graphical representation",
+                "text": "They provide a <b>graphical representation</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 98
+        "question_number": 98,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,35 +1868,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "What does the 'running time of an operation' refer to in algorithm analysis?",
-        "explanation": "The running time of an operation can be defined as the number of computer instructions executed per operation.",
+        "question_text": "<p>In <b>algorithm analysis</b>, what does the term <b>'running time of an operation'</b> refer to?</p>",
+        "explanation": "<p>The <b>running time of an operation</b> in algorithm analysis is defined as the <b>number of computer instructions executed per operation</b>.</p>",
         "options": [
             {
                 "option_id": "704711",
                 "tag": "a",
-                "text": "The physical speed of the computer processor",
+                "text": "The <i>physical speed</i> of the computer processor",
                 "is_correct": false
             },
             {
                 "option_id": "305437",
                 "tag": "b",
-                "text": "The number of computer instructions executed per operation",
+                "text": "The <b>number of computer instructions executed per operation</b>",
                 "is_correct": true
             },
             {
                 "option_id": "224849",
                 "tag": "c",
-                "text": "The time it takes a programmer to write the algorithm",
+                "text": "The time it takes a <i>programmer</i> to write the algorithm",
                 "is_correct": false
             },
             {
                 "option_id": "718297",
                 "tag": "d",
-                "text": "The size of the input data",
+                "text": "The <i>size</i> of the input data",
                 "is_correct": false
             }
         ],
-        "question_number": 100
+        "question_number": 100,
+        "is_rewritten": true
     },
     {
         "order_id": "51",
@@ -1856,35 +1906,36 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "A programmer writes a pseudocode where a WHILE loop runs as long as `num != 0`. The user enters numbers, summing them, and stops when they enter 0. This type of loop is best described as a:",
-        "explanation": "A loop that continues until a specific 'sentinel' value (in this case 0) is entered is known as a sentinel-controlled loop. The value 0 signals the end of input.",
+        "question_text": "<p>A programmer writes a pseudocode where a <b>WHILE</b> loop runs as long as <b><code>num != 0</code></b>. The user enters numbers, summing them, and stops when they enter <b>0</b>. This type of loop is best described as a:</p>",
+        "explanation": "<p>A loop that continues until a specific <b>'sentinel'</b> value (in this case <b>0</b>) is entered is known as a <b>sentinel-controlled loop</b>. The value <b>0</b> signals the end of input.</p>",
         "options": [
             {
                 "option_id": "157584",
                 "tag": "a",
-                "text": "Count-controlled loop",
+                "text": "<b>Count-controlled</b> loop",
                 "is_correct": false
             },
             {
                 "option_id": "156854",
                 "tag": "b",
-                "text": "Sentinel-controlled loop (loops until a specific 'stop' value is entered)",
+                "text": "<b>Sentinel-controlled</b> loop (loops until a specific <i>'stop'</i> value is entered)",
                 "is_correct": true
             },
             {
                 "option_id": "707619",
                 "tag": "c",
-                "text": "Infinite loop",
+                "text": "<b>Infinite</b> loop",
                 "is_correct": false
             },
             {
                 "option_id": "162725",
                 "tag": "d",
-                "text": "Fixed-iteration loop",
+                "text": "<b>Fixed-iteration</b> loop",
                 "is_correct": false
             }
         ],
-        "question_number": 101
+        "question_number": 101,
+        "is_rewritten": true
     },
     {
         "order_id": "52",
@@ -1893,34 +1944,35 @@
         "course_code": "COS 122",
         "course_title": "INTRODUCTION TO PROBLEM SOLVING",
         "question_type": "CBT",
-        "question_text": "An algorithm is being analyzed and is found to take the same amount of time regardless of whether the input is sorted, partially sorted, or randomly arranged. This algorithm's best case, average case, and worst case are all the same. This type of complexity is called:",
-        "explanation": "When an algorithm takes the same amount of time regardless of the input (all three cases are equal), it runs in constant time, denoted O(1) in Big-O notation.",
+        "question_text": "<p>An <b>algorithm</b> is being analyzed and is found to take the <b>same amount of time</b> regardless of whether the input is <b>sorted</b>, <b>partially sorted</b>, or <b>randomly arranged</b>. This algorithm's <b>best case</b>, <b>average case</b>, and <b>worst case</b> are all the same. This type of <b>complexity</b> is called:</p>",
+        "explanation": "<p>When an <b>algorithm</b> takes the <b>same amount of time</b> regardless of the input (all three cases are equal), it runs in <b>constant time</b>, denoted <i>O(1)</i> in <b>Big-O notation</b>.</p>",
         "options": [
             {
                 "option_id": "290808",
                 "tag": "a",
-                "text": "Linear time",
+                "text": "<b>Linear time</b>",
                 "is_correct": false
             },
             {
                 "option_id": "196747",
                 "tag": "b",
-                "text": "Quadratic time",
+                "text": "<b>Quadratic time</b>",
                 "is_correct": false
             },
             {
                 "option_id": "107592",
                 "tag": "c",
-                "text": "Constant time \u2014 O(1)",
+                "text": "<b>Constant time</b> &mdash; <i>O(1)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "161419",
                 "tag": "d",
-                "text": "Exponential time",
+                "text": "<b>Exponential time</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 102
+        "question_number": 102,
+        "is_rewritten": true
     }
 ]

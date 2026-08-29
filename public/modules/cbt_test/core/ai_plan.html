@@ -2,9 +2,20 @@
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Study Agent  My Exam Companion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+    <title>AI Study Plan - My Exam Companion</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../../../components/supabase.js"></script>
     <meta name="description" content="Your AI-powered study tutor for JAMB, WAEC, and NECO prep.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +23,9 @@
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="../../../components/topbar.css">
+    <link rel="stylesheet" href="../../../components/dark-mode.css">
     <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
     <style>
         /* ------------------------------------------
@@ -33,6 +46,19 @@
             --radius-xl: 20px;
             --radius-lg: 14px;
             --radius-full: 999px;
+            --chat-bubble-user: #fafafa;
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --input-bg: #1e293b;
+            --chip-bg: #1e293b;
+            --chip-border: #334155;
+            --chat-bubble-user: #334155;
         }
 
         /* ------------------------------------------
@@ -53,6 +79,8 @@
             min-height: 100vh;
             height: 100vh;
             overflow: hidden;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         /* ------------------------------------------
@@ -65,6 +93,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            overflow-x: hidden;
+            max-width: 100vw;
             background: var(--bg);
         }
 
@@ -228,6 +258,8 @@
             bottom: 0;
             background: var(--bg);
             z-index: 10;
+            /* Ensure input is always above the iOS/Android virtual keyboard */
+            padding-bottom: max(24px, env(safe-area-inset-bottom));
         }
 
         .input-card {
@@ -324,7 +356,7 @@
         }
 
         .toolbar-icon-btn:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(128, 128, 128, 0.15);
             color: var(--text-primary);
         }
 
@@ -395,12 +427,13 @@
             display: none;
             flex-direction: column;
             gap: 24px;
-            padding: 20px 40px;
+            padding: 20px 24px;
             flex: 1;
             overflow-y: auto;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             width: 100%;
+            overflow-x: hidden;
         }
         
         .chat-container.active {
@@ -419,9 +452,9 @@
         }
 
         .chat-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px; /* Square with rounded corners like Claude */
             background: var(--bg-card);
             border: 1px solid var(--border);
             display: flex;
@@ -433,24 +466,24 @@
         }
 
         .chat-msg.user .chat-avatar {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
+            background: var(--text-primary);
+            color: var(--bg);
+            border-color: var(--text-primary);
         }
 
         .chat-bubble {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 16px 20px;
-            border-radius: 16px;
-            font-size: 15px;
-            line-height: 1.6;
+            background: transparent; /* Claude typically doesn't have a bubble for AI */
+            padding: 4px 0;
+            font-size: 16px;
+            line-height: 1.7;
             color: var(--text-primary);
-            box-shadow: var(--shadow-sm);
+            max-width: calc(100% - 48px);
         }
 
         .chat-msg.user .chat-bubble {
-            background: #fafafa;
+            background: var(--chat-bubble-user); /* Subtle background for user */
+            padding: 12px 16px;
+            border-radius: 12px;
             border-bottom-right-radius: 4px;
         }
 
@@ -462,6 +495,8 @@
         .chat-bubble strong { font-weight: 600; }
         .chat-bubble ul, .chat-bubble ol { padding-left: 20px; margin: 12px 0; }
         .chat-bubble li { margin-bottom: 6px; }
+        .chat-bubble p { margin-bottom: 12px; line-height: 1.6; }
+        .chat-bubble p:last-child { margin-bottom: 0; }
         
         /* Markdown Tables */
         .chat-bubble table {
@@ -476,7 +511,7 @@
             text-align: left;
         }
         .chat-bubble th {
-            background: #f8fafc;
+            background: var(--bg);
             font-weight: 600;
         }
 
@@ -506,20 +541,23 @@
             text-align: left;
             padding: 12px 16px;
             margin: 8px 0;
-            background: var(--bg);
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 8px;
             cursor: pointer;
             font-family: inherit;
             font-size: 14px;
+            color: var(--text-primary);
             transition: all 0.2s;
         }
         .quiz-btn:hover {
             border-color: var(--accent);
-            background: #fff5f5;
+            background: var(--bg);
         }
         .quiz-btn.correct { background: #ecfdf5; border-color: #10b981; color: #065f46; }
         .quiz-btn.wrong { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
+        :root[data-theme="dark"] .quiz-btn:not(.correct):not(.wrong) { background: #1e293b; color: #f1f5f9; border-color: #334155; }
+        :root[data-theme="dark"] .quiz-btn:not(.correct):not(.wrong):hover { background: #273548; border-color: var(--accent); }
 
         /* ------------------------------------------
            RESPONSIVE  Tablet = 768px
@@ -562,8 +600,12 @@
             }
 
             .input-section {
-                padding: 0 14px 20px;
-                gap: 12px;
+                padding: 0 10px max(16px, env(safe-area-inset-bottom));
+                gap: 10px;
+            }
+
+            .input-card {
+                max-width: 100%;
             }
 
             /* Hide model selector text on very small screens */
@@ -571,8 +613,20 @@
                 display: none;
             }
 
+            /* Ensure send + mic buttons are always fully visible */
+            .toolbar-icon-btn {
+                width: 36px;
+                height: 36px;
+                flex-shrink: 0;
+            }
+
+            .input-toolbar {
+                padding: 8px 10px 10px;
+            }
+
             .chips {
                 gap: 8px;
+                padding-bottom: 4px;
             }
 
             .chip {
@@ -593,11 +647,111 @@
                 display: none;
             }
         }
+        .ad-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .ad-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .ad-modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .ad-modal-overlay.active .ad-modal {
+            transform: translateY(0);
+        }
+
+        .ad-modal h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .ad-modal p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .ad-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: var(--radius-full);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .ad-btn:hover {
+            background: #1d4ed8;
+        }
+
+        #vast-video-container {
+            display: none;
+            width: 100%;
+            margin-bottom: 20px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #vast-video-container video {
+            width: 100%;
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <app-sidebar data-base="/"></app-sidebar>
+
+    <!-- Ad Modal Overlay -->
+    <div class="ad-modal-overlay" id="ad-modal">
+        <div class="ad-modal">
+            <i class="ph ph-lock-key" style="font-size: 48px; color: var(--accent); margin-bottom: 16px;"></i>
+            <h2>Premium Tutor Locked</h2>
+            <p>Your free session has expired. Watch a short video ad to unlock another 1 hour of premium AI tutoring.</p>
+            
+            <div id="vast-video-container" style="min-height: 250px;">
+                <div class="mec-ad-slot" id="vast-ad-slot" data-zone="video_vast"></div>
+                <div id="ad-status" style="color:white; padding:8px; font-size:14px; text-align:center;">Loading Ad...</div>
+            </div>
+
+            <button class="ad-btn" id="watch-ad-btn">
+                <i class="ph ph-play-circle"></i> Watch Ad to Unlock
+            </button>
+        </div>
+    </div>
 
     <div class="app-container">
 
@@ -674,7 +828,8 @@
 
     <script defer src="../../../components/topbar.js"></script>
     <script defer src="../../../components/nav.js"></script>
-<script defer src="../../../components/sidebar.js?v=6"></script>
+    <script defer src="../../../components/sidebar.js?v=6"></script>
+    <script defer src="../../../components/ad_manager.js"></script>
     <script>
         const textarea = document.getElementById('chat-input');
         const sendBtn = document.getElementById('send-btn');
@@ -682,33 +837,92 @@
         const heroSection = document.querySelector('.hero');
         const quickChips = document.getElementById('quick-chips');
 
+        // --- TOKEN LOGIC ---
+        function checkToken() {
+            const tokenExpiry = localStorage.getItem('ai_tutor_token_expiry');
+            const now = Date.now();
+            if (!tokenExpiry || now > parseInt(tokenExpiry)) {
+                document.getElementById('ad-modal').classList.add('active');
+                textarea.disabled = true;
+                sendBtn.disabled = true;
+            } else {
+                document.getElementById('ad-modal').classList.remove('active');
+                textarea.disabled = false;
+                sendBtn.disabled = false;
+            }
+        }
+        
+        // Initial token check
+        checkToken();
+        setInterval(checkToken, 60000); // Re-check every minute
+
+        // VAST Player via Hilltop / MECAdManager
+        document.getElementById('watch-ad-btn').addEventListener('click', function() {
+            this.style.display = 'none';
+            const vidContainer = document.getElementById('vast-video-container');
+            vidContainer.style.display = 'block';
+            
+            // Inject the Hilltop Ad
+            const slot = document.getElementById('vast-ad-slot');
+            if (window.MECAdManager) {
+                window.MECAdManager.injectSlot(slot);
+            }
+            
+            const adStatus = document.getElementById('ad-status');
+            adStatus.innerText = "Ad is playing... Please wait 15 seconds to unlock.";
+
+            let remaining = 15;
+            const timer = setInterval(() => {
+                remaining--;
+                if (remaining > 0) {
+                    adStatus.innerText = `Ad closes in ${remaining}s`;
+                } else {
+                    clearInterval(timer);
+                    // Grant 1 hour token
+                    localStorage.setItem('ai_tutor_token_expiry', Date.now() + (60 * 60 * 1000));
+                    checkToken();
+                    vidContainer.style.display = 'none';
+                    this.style.display = 'flex';
+                    setPrompt('Hello! I have unlocked my premium hour.');
+                }
+            }, 1000);
+        });
+
         // State parsing
         let examState = null;
         let weakTopics = [];
-        let failedQuestions = [];
+        let examContextString = "No recent exam data found.";
+        
         try { 
-            examState = JSON.parse(localStorage.getItem('cbt_exam_state')); 
+            // Load cbt_result instead of state
+            examState = JSON.parse(localStorage.getItem('cbt_result')); 
             if (examState && examState.questions) {
                 const topicScores = {};
                 examState.questions.forEach((q, i) => {
                     const t = q.topic || 'General Concepts';
                     if (!topicScores[t]) topicScores[t] = { correct: 0, total: 0 };
                     topicScores[t].total++;
+                    
                     let isCorrect = false;
                     if (q.isGridIn) {
                         const ua = (examState.answers[i]||'').toString().trim().toLowerCase();
                         const ca = (q.correctAnswer||'').toString().trim().toLowerCase();
                         if (ua === ca && ua !== '') isCorrect = true;
                     } else {
-                        if (examState.answers[i] === q.correct) isCorrect = true;
+                        if (examState.answers[i] == q.correct) isCorrect = true;
                     }
                     if (isCorrect) topicScores[t].correct++;
-                    else failedQuestions.push(q);
                 });
+                
                 for (let t in topicScores) {
                     weakTopics.push({ topic: t, score: (topicScores[t].correct / topicScores[t].total)*100 });
                 }
                 weakTopics.sort((a,b) => a.score - b.score);
+                
+                // Build context string for Mistral
+                examContextString = `Student recently took an exam: ${examState.title || 'Practice Exam'}\n` +
+                                    `Total Score: ${examState.totalScore} / ${examState.maxScore}\n` +
+                                    `Weakest Topics: ${weakTopics.slice(0, 3).map(w => w.topic + ' ('+Math.round(w.score)+'%)').join(', ')}`;
             }
         } catch(e) {}
 
@@ -723,32 +937,48 @@
         let subText = 'your exams today.';
         if (weakTopics.length > 0 && weakTopics[0].score < 50) {
             subText = `Let's tackle your weakest spot: <strong>${weakTopics[0].topic}</strong>.`;
-            // Proactive active recall
-            setTimeout(() => {
-                const promptMsg = `Welcome back! I noticed you struggled with **${weakTopics[0].topic}** in your recent exam.\n\nBefore we dive into anything else, can you briefly explain the core concept behind it in your own words?`;
-                addMessage(promptMsg, 'ai', true);
-            }, 600);
         } else if (weakTopics.length > 0) {
             subText = `You're doing great! Let's aim for 100% next time.`;
         }
         document.querySelector('.hero__title').innerHTML = phrase + '<br><em>' + subText + '</em>';
 
-        // 2. Dynamic Chips
-        if (weakTopics.length > 0) {
-            const worst = weakTopics[0].topic;
-            quickChips.innerHTML = `
-                <button class="chip" onclick="setPrompt('Generate a 3-day study plan targeting ${worst}')"><i class="ph ph-calendar-check"></i> Study Plan for ${worst}</button>
-                <button class="chip" onclick="setPrompt('Quiz me on ${worst}')"><i class="ph ph-graduation-cap"></i> Quiz: ${worst}</button>
-                <button class="chip" onclick="setPrompt('Explain ${worst} with a simple analogy')"><i class="ph ph-lightbulb"></i> Explain Concept</button>
-                <button class="chip" onclick="setPrompt('Socratic Review: Pick a question I failed')"><i class="ph ph-brain"></i> Socratic Review</button>
-            `;
-        } else {
-            quickChips.innerHTML = `
-                <button class="chip" onclick="setPrompt('Generate a general study plan')"><i class="ph ph-calendar"></i> Study Plan</button>
-                <button class="chip" onclick="setPrompt('Quiz me randomly')"><i class="ph ph-graduation-cap"></i> Random Quiz</button>
-                <button class="chip" onclick="setPrompt('Give me exam tips')"><i class="ph ph-lightbulb"></i> Exam Tips</button>
-            `;
-        }
+        // 2. Dynamic 20 Features Chips
+        const allFeatures = [
+            { t: 'Interactive Quiz', p: 'Give me a short interactive quiz with 3 multiple-choice questions about [TOPIC]', i: 'ph-graduation-cap' },
+            { t: 'Socratic Tutor', p: 'Help me understand [TOPIC] using the Socratic method. Ask me guiding questions.', i: 'ph-brain' },
+            { t: 'Explain Like I\'m 5', p: 'Explain [TOPIC] as if I am a 5-year-old using simple analogies.', i: 'ph-baby' },
+            { t: 'Study Schedule', p: 'Generate a 3-day study plan for [TOPIC] in a clean markdown table.', i: 'ph-calendar-check' },
+            { t: 'Math/Physics Formula', p: 'Give me the most important formulas for [TOPIC] and explain them.', i: 'ph-math-operations' },
+            { t: 'Mermaid Flowchart', p: 'Generate a mermaid.js flowchart summarizing [TOPIC].', i: 'ph-tree-structure' },
+            { t: 'Flashcards', p: 'Create 5 flashcards for [TOPIC]. Format them clearly.', i: 'ph-cards' },
+            { t: 'Mnemonic Creator', p: 'Create a catchy acronym or mnemonic to help me remember the key points of [TOPIC].', i: 'ph-lightbulb' },
+            { t: 'Essay Grading', p: 'I want to paste an essay on [TOPIC]. Can you grade it and give feedback?', i: 'ph-pencil-line' },
+            { t: 'Topic Summary', p: 'Summarize the most important aspects of [TOPIC] in bullet points.', i: 'ph-list-bullets' },
+            { t: 'Past Question', p: 'Give me an example of a past exam question related to [TOPIC].', i: 'ph-file-text' },
+            { t: 'Weakness Target', p: 'Let\'s review my weakest topics and do a focused study session.', i: 'ph-target' },
+            { t: 'Exam Timer Mock', p: 'Run a timed rapid-fire question session on [TOPIC] (1 minute per question).', i: 'ph-timer' },
+            { t: 'Motivation', p: 'I am feeling overwhelmed with studying. Give me some motivation.', i: 'ph-sparkle' },
+            { t: 'Daily Challenge', p: 'Give me a challenging "Question of the Day" for [TOPIC].', i: 'ph-trophy' },
+            { t: 'Voice Dictation Mode', p: 'I will speak my answers. Please analyze my spoken response on [TOPIC].', i: 'ph-microphone-stage' },
+            { t: 'Read Aloud Format', p: 'Explain [TOPIC] in a highly conversational format suitable for text-to-speech.', i: 'ph-speaker-high' },
+            { t: 'Pomodoro Study', p: 'Help me run a Pomodoro session. Give me material to read for 25 minutes.', i: 'ph-clock-countdown' },
+            { t: 'Export Note Prep', p: 'Generate a comprehensive cheat sheet for [TOPIC] that I can export to PDF.', i: 'ph-file-pdf' },
+            { t: 'Exam Strategies', p: 'What are the best test-taking strategies for multiple-choice questions?', i: 'ph-strategy' }
+        ];
+
+        let displayTopic = weakTopics.length > 0 ? weakTopics[0].topic : 'General Concepts';
+        
+        // Pick 4 random features
+        const shuffled = allFeatures.sort(() => 0.5 - Math.random());
+        const selectedFeatures = shuffled.slice(0, 4);
+
+        quickChips.innerHTML = selectedFeatures.map(f => {
+            let prompt = f.p.replace('[TOPIC]', displayTopic);
+            // Escape quotes
+            prompt = prompt.replace(/'/g, "\\'");
+            return `<button class="chip" onclick="setPrompt('${prompt}')"><i class="ph ${f.i}"></i> ${f.t}</button>`;
+        }).join('');
+
 
         /* -- Auto-grow & Send -- */
         textarea.addEventListener('input', function () {
@@ -770,13 +1000,17 @@
             handleSend();
         }
 
-        const initialPrompt = localStorage.getItem('ai_initial_prompt');
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlPrompt = urlParams.get('prompt');
+        const initialPrompt = urlPrompt || localStorage.getItem('ai_initial_prompt');
         if (initialPrompt) {
             setPrompt(initialPrompt);
             localStorage.removeItem('ai_initial_prompt');
+            if (urlPrompt) window.history.replaceState({}, document.title, window.location.pathname);
         }
 
         let isTyping = false;
+        let chatHistory = [];
 
         function handleSend() {
             const text = textarea.value.trim();
@@ -790,32 +1024,46 @@
             chatContainer.classList.add('active');
             
             addMessage(text, 'user');
-            isTyping = true;
             
+            chatHistory.push({ role: "user", content: text });
+            
+            isTyping = true;
             const typingId = showTyping();
             
-            setTimeout(() => {
-                document.getElementById(typingId).remove();
-                generateAIResponse(text);
-                isTyping = false;
-            }, 1500 + Math.random() * 1000); // Simulate network latency
+            // Call the real Mistral API endpoint
+            generateAIResponse(typingId);
         }
 
-        function addMessage(text, sender, parseMarkdown = false) {
+        function addMessage(text, sender) {
             heroSection.style.display = 'none';
             chatContainer.classList.add('active');
             const msg = document.createElement('div');
             msg.className = `chat-msg ${sender}`;
             
             let content = text;
-            if (parseMarkdown) {
-                // simple markdown parsing for mock
-                content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                content = content.replace(/\n\n/g, '<br><br>');
-                content = content.replace(/\n- (.*?)(?=\n|$)/g, '<li>$1</li>');
-                if (content.includes('<li>')) content = content.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
+            if (sender === 'ai') {
+                // Pre-process custom QUIZ blocks before markdown
+                // Expected format: [QUIZ] Question | OptA | OptB | OptC | OptD | CorrectIndex [/QUIZ]
+                content = text.replace(/\[QUIZ\]([\s\S]*?)\[\/QUIZ\]/g, function(match, quizContent) {
+                    const parts = quizContent.split('|').map(s => s.trim());
+                    if (parts.length >= 6) {
+                        const question = parts[0];
+                        const opts = [parts[1], parts[2], parts[3], parts[4]];
+                        const correctIdx = parseInt(parts[5]);
+                        let html = `<div style="background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:16px; margin:16px 0;">`;
+                        html += `<strong>${question}</strong><div style="margin-top:12px;">`;
+                        opts.forEach((opt, idx) => {
+                            html += `<button class="quiz-btn" onclick="handleQuizAnswer(this, ${idx}, ${correctIdx})">${opt}</button>`;
+                        });
+                        html += `</div></div>`;
+                        return html;
+                    }
+                    return match;
+                });
+                
+                content = marked.parse(content);
             }
-
+            
             msg.innerHTML = `
                 <div class="chat-avatar">${sender === 'user' ? 'U' : '<i class="ph ph-robot"></i>'}</div>
                 <div class="chat-bubble">${content}</div>
@@ -823,6 +1071,20 @@
             chatContainer.appendChild(msg);
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
+
+        // Global function to handle inline quiz buttons
+        window.handleQuizAnswer = function(btn, selectedIdx, correctIdx) {
+            const container = btn.parentElement;
+            const buttons = container.querySelectorAll('.quiz-btn');
+            buttons.forEach(b => b.disabled = true); // lock answers
+            
+            if (selectedIdx === correctIdx) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons[correctIdx].classList.add('correct');
+            }
+        };
 
         function showTyping() {
             const id = 'typing-' + Date.now();
@@ -842,218 +1104,47 @@
             return id;
         }
 
-        // Quiz State
-        let isQuizMode = false;
-        let currentQuizQuestions = [];
-        let currentQuizIndex = 0;
-        let currentQuizScore = 0;
-        let selectedQuizOption = null;
-        let waitingForConfirmation = false;
-
-        /* -- MOCK AI ENGINE -- */
-        async function generateAIResponse(prompt) {
-            const p = prompt.toLowerCase();
-            let responseHtml = "";
-
-            if (isQuizMode) {
-                handleQuizInteraction(p);
-                return;
-            }
-
-            if (p.includes("study plan")) {
-                const topic = weakTopics.length > 0 ? weakTopics[0].topic : "General Topics";
-                responseHtml = `Here is a highly targeted 3-day action plan to master **${topic}**, since our analytics show you scored lower in this area recently:\n\n
-                <table>
-                    <tr><th>Day</th><th>Focus Area</th><th>Actionable Step</th></tr>
-                    <tr><td>Day 1</td><td>Core Concepts</td><td>Read the summary notes and watch the recommended video on ${topic}.</td></tr>
-                    <tr><td>Day 2</td><td>Practice Questions</td><td>Take a 10-question custom quiz focusing strictly on ${topic}.</td></tr>
-                    <tr><td>Day 3</td><td>Mock Test Integration</td><td>Take a full mock exam to see if your score improves.</td></tr>
-                </table>\n\nAre you ready to commit to Day 1 today?`;
-                addMessage(responseHtml, 'ai', true);
-            } 
-            else if (p.includes("quiz me")) {
-                const topic = weakTopics.length > 0 ? weakTopics[0].topic : "General Topics";
-                addMessage(`Alright, let's fetch some questions on **${topic}** from the database...`, 'ai', true);
-                await startQuizMode(topic);
-            }
-            else if (p.includes("socratic") || p.includes("failed")) {
-                if (failedQuestions.length > 0) {
-                    const q = failedQuestions[Math.floor(Math.random() * failedQuestions.length)];
-                    responseHtml = `Let's review this question you got wrong in the exam:\n\n**Question:** ${q.text}\n\nInstead of me just giving you the answer, tell me what your thought process was when you picked your option. What made it seem correct at the time?`;
-                } else {
-                    responseHtml = `You actually didn't fail any questions in your last logged exam! Great job. Is there anything else you want to review?`;
-                }
-            }
-            else if (p.includes("explain")) {
-                responseHtml = `Imagine it like building a house. The foundational concepts are your concrete base. Without a solid base, the walls (advanced topics) will eventually crack under pressure.\n\nDoes that analogy help clarify it for you?`;
-            }
-            else {
-                responseHtml = `I'm an AI study agent tailored to your exam profile! I can generate personalized **Study Plans**, run **Remedial Quizzes**, or do a **Socratic Review** of questions you failed. How can I help you today?`;
-            }
-
-            addMessage(responseHtml, 'ai', true);
-        }
-
-        async function startQuizMode(topic) {
+        /* -- TRUE MISTRAL AI ENGINE -- */
+        async function generateAIResponse(typingId) {
             try {
-                // Determine subject and year from recent exam state, or fallback
-                let subjectStr = "english_language";
-                let yearStr = "1979";
-                if (examState && examState.questions && examState.questions.length > 0) {
-                    const q0 = examState.questions[0];
-                    if (q0.subject) {
-                        subjectStr = q0.subject.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                // Ensure the AI knows to format quizzes
+                const sysPromptEnhancement = `\n\nCRITICAL SYSTEM INSTRUCTION: If giving a multiple choice quiz, strictly use this format: [QUIZ] Question Text | Option 0 | Option 1 | Option 2 | Option 3 | CorrectOptionIndex [/QUIZ]. For example: [QUIZ] What is 2+2? | 3 | 4 | 5 | 6 | 1 [/QUIZ]. Do not use standard markdown for quizzes.`;
+                
+                const sb = MECSupabase.getSupabase();
+                const { data, error } = await sb.functions.invoke('chat-agent', {
+                    body: {
+                        messages: chatHistory,
+                        examContext: examContextString + sysPromptEnhancement
                     }
-                    if (q0.exam_year) {
-                        yearStr = q0.exam_year;
-                    }
-                }
+                });
 
-                const contentPath = `content/exams/nigeria/jamb/${subjectStr}/objective/${yearStr}.json`;
-                const fallbackPaths = [
-                    `/new_staging_area/${contentPath}`,
-                    `/public/new_staging_area/${contentPath}`,
-                    `../../../new_staging_area/${contentPath}`
-                ];
-                
-                let data = null;
-                for (const path of fallbackPaths) {
-                    try {
-                        const res = await fetch(path);
-                        if (res.ok) {
-                            data = await res.json();
-                            break;
-                        }
-                    } catch(e) {}
-                }
-                
-                if (!data) throw new Error("Database not found");
-                
-                // Filter questions matching the topic
-                const allQuestions = Object.values(data);
-                let matched = allQuestions.filter(q => (q.topic || '').toLowerCase() === topic.toLowerCase());
-                
-                // If not enough, fallback to any question in that subject
-                if (matched.length < 10) {
-                    matched = allQuestions;
-                }
-                
-                // Shuffle and pick 10
-                matched.sort(() => 0.5 - Math.random());
-                currentQuizQuestions = matched.slice(0, 10);
-                
-                if (currentQuizQuestions.length === 0) {
-                    addMessage("Sorry, I couldn't find any questions in the database right now.", 'ai', false);
-                    isQuizMode = false;
+                document.getElementById(typingId).remove();
+                isTyping = false;
+
+                if (error) {
+                    let errDetails = error.message;
+                    if (error.context && typeof error.context.json === 'function') {
+                        try {
+                            const errBody = await error.context.json();
+                            errDetails = errBody.error || JSON.stringify(errBody);
+                        } catch (e) {}
+                    }
+                    console.error("AI chat-agent Error Details:", errDetails);
+                    addMessage("Oops! " + (errDetails || "My connection to the server dropped."), 'ai');
                     return;
                 }
 
-                isQuizMode = true;
-                currentQuizIndex = 0;
-                currentQuizScore = 0;
-                waitingForConfirmation = false;
-                
-                addMessage(`I found ${currentQuizQuestions.length} questions. Let's begin!`, 'ai', false);
-                setTimeout(() => renderQuizQuestion(), 800);
-
-            } catch(e) {
-                addMessage(`Error fetching from database. Let's try something else.`, 'ai', false);
-                isQuizMode = false;
-            }
-        }
-
-        function renderQuizQuestion() {
-            waitingForConfirmation = false;
-            selectedQuizOption = null;
-            const q = currentQuizQuestions[currentQuizIndex];
-            
-            let html = `**Question ${currentQuizIndex + 1} of ${currentQuizQuestions.length}:**<br>${q.question_text || q.text}<br><br>`;
-            
-            q.options.forEach((opt, idx) => {
-                // Using onclick to set global selected option and visually highlight
-                html += `<button class="quiz-btn" id="opt-${idx}" onclick="window.selectQuizOption(${idx})">${opt.tag.toUpperCase()}) ${opt.text}</button>`;
-            });
-
-            addMessage(html, 'ai', true);
-        }
-
-        // Exposed globally for the inline onclick handler
-        window.selectQuizOption = function(idx) {
-            if (!isQuizMode) return;
-            
-            // Remove previous selection highlight
-            document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected', 'active'));
-            const btn = document.getElementById(`opt-${idx}`);
-            if (btn) btn.classList.add('selected');
-            
-            selectedQuizOption = idx;
-            
-            if (!waitingForConfirmation) {
-                waitingForConfirmation = true;
-                // Add a confirmation prompt in a new bubble
-                addMessage(`You selected option ${currentQuizQuestions[currentQuizIndex].options[idx].tag.toUpperCase()}. Are you sure you want to confirm your answer? <br><br>
-                <button class="quiz-btn" style="border-color:var(--accent); color:var(--accent);" onclick="window.confirmQuizAnswer()">Yes, Confirm</button>`, 'ai', true);
-            }
-        };
-
-        window.confirmQuizAnswer = function() {
-            if (!waitingForConfirmation || selectedQuizOption === null) return;
-            waitingForConfirmation = false;
-
-            const q = currentQuizQuestions[currentQuizIndex];
-            const isCorrect = q.options[selectedQuizOption].is_correct;
-            const correctOpt = q.options.find(o => o.is_correct);
-            
-            if (isCorrect) currentQuizScore++;
-
-            let feedback = isCorrect ? `<span style="color:green; font-weight:bold;">? Correct!</span><br><br>` : `<span style="color:red; font-weight:bold;">? Incorrect.</span> The correct answer was ${correctOpt.tag.toUpperCase()}.<br><br>`;
-            
-            if (q.explanation && q.explanation.trim() !== '') {
-                feedback += `**Explanation:**<br>${q.explanation}<br><br>`;
-            } else {
-                feedback += `**Explanation:**<br>No detailed explanation available for this question.<br><br>`;
-            }
-
-            // 5 second timer to auto-advance
-            feedback += `<br><em style="color:var(--text-muted); font-size: 13px;"><i class="ph ph-hourglass-high spin"></i> Loading next question in 5 seconds...</em>`;
-            
-            addMessage(feedback, 'ai', true);
-            
-            // Auto advance
-            setTimeout(() => {
-                // Check if user hasn't explicitly exited quiz mode during the wait
-                if (isQuizMode) {
-                    window.nextQuizQuestion();
-                }
-            }, 5000);
-        };
-
-        window.nextQuizQuestion = function() {
-            currentQuizIndex++;
-            if (currentQuizIndex < currentQuizQuestions.length) {
-                renderQuizQuestion();
-            } else {
-                // End Quiz
-                addMessage(`**Quiz Complete!** ??<br><br>You scored ${currentQuizScore} out of ${currentQuizQuestions.length}.<br><br>Type anything to continue chatting, or ask for another quiz!`, 'ai', true);
-                isQuizMode = false;
-            }
-        };
-
-        function handleQuizInteraction(text) {
-            // If they type something while in quiz mode
-            if (text.includes("exit") || text.includes("stop")) {
-                isQuizMode = false;
-                addMessage("Quiz ended early. What would you like to do next?", 'ai', false);
-                return;
-            }
-            if (waitingForConfirmation) {
-                if (text === "yes" || text === "confirm") {
-                    window.confirmQuizAnswer();
+                if (data && data.text) {
+                    chatHistory.push({ role: "assistant", content: data.text });
+                    addMessage(data.text, 'ai');
                 } else {
-                    addMessage("Please select an option and click Confirm, or type 'exit' to quit.", 'ai', false);
+                    addMessage("I'm sorry, I couldn't formulate a response right now.", 'ai');
                 }
-            } else {
-                addMessage("Please select an option from the choices above.", 'ai', false);
+            } catch (err) {
+                document.getElementById(typingId)?.remove();
+                isTyping = false;
+                addMessage("Oops! Network error. Make sure you are connected to the internet.", 'ai');
+                console.error(err);
             }
         }
 

@@ -4,7 +4,16 @@
  */
 
 const EXAM_RULES = {
-  getRules: function(examId) {
+  getRules: function(examConfig) {
+    // If examConfig is an object and has embedded rules, use them directly
+    if (examConfig && typeof examConfig === 'object' && examConfig.rules) {
+      return examConfig.rules;
+    }
+    
+    // Fallback for legacy calls where examConfig might be a string (examId)
+    // or an object without rules
+    const examId = typeof examConfig === 'string' ? examConfig : (examConfig?.exam_id || '');
+
     if (examId.includes('jamb')) {
       return {
         selectionType: 'jamb_style',
@@ -30,7 +39,7 @@ const EXAM_RULES = {
     } else if (examId.includes('sat')) {
       return {
         selectionType: 'all_compulsory',
-        totalSubjectsAllowed: 'all',
+        totalSubjectsAllowed: 999, // 'all' — numeric sentinel so loops work correctly
         timeCalculation: 'fixed',
         totalTimeMinutes: 180, // Typical SAT duration
         questionLimits: {

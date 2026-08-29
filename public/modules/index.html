@@ -2,23 +2,37 @@
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
+  <meta name="c5447d568e66e6b4d09a1da547673e94663ce87b" content="c5447d568e66e6b4d09a1da547673e94663ce87b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>my exam companion – CBT Practice, Past Questions, Scholarships & News</title>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description"
     content="Nigeria's #1 education platform for CBT practice, past questions, scholarships and exam news.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../components/topbar.css">
-  <link rel="stylesheet" href="../components/sidebar.css?v=4">
-  <link rel="stylesheet" href="../components/footer.css">
+  <link rel="stylesheet" href="../components/topbar.css?v=2">
+  <link rel="stylesheet" href="../components/dark-mode.css">
+  <link rel="stylesheet" href="../components/sidebar.css?v=5">
+  <link rel="stylesheet" href="../components/footer.css?v=2">
+  <!-- Supabase Core Component (required for topbar.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../components/supabase.js"></script>
+  
   <script src="../components/nav.js" defer></script>
-  <script src="../components/topbar.js?v=3" defer></script>
-  <script src="../components/sidebar.js?v=10" defer></script>
-  <script src="../components/footer.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../components/topbar.js?v=4" defer></script>
+  <script src="../components/sidebar.js?v=11" defer></script>
+  <script src="../components/footer.js?v=2" defer></script>
   <script>
     // Initialize Supabase so it can parse OAuth tokens from the URL hash after a redirect
     const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
@@ -76,8 +90,8 @@
     }
 
     body {
-      background: #f7f7f8;
-      color: #131212;
+      background: var(--bg-base);
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -182,12 +196,12 @@
     .section-title {
       font-size: 15px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       letter-spacing: -0.02em;
     }
 
     .section-menu {
-      color: #9ca3af;
+      color: var(--text-muted);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -211,8 +225,8 @@
     }
 
     .test-card {
-      background: white;
-      border: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px 16px;
       display: flex;
@@ -263,20 +277,20 @@
     .test-card__name {
       font-size: 13px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 3px;
     }
 
     .test-card__desc {
       font-size: 11.5px;
-      color: #9ca3af;
+      color: var(--text-muted);
       line-height: 1.4;
     }
 
     /* ---- Your Feed ---- */
     .feed-section {
-      background: white;
-      border: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 28px;
@@ -288,13 +302,13 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 18px;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid var(--border);
     }
 
     .feed-header__title {
       font-size: 14px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
     }
 
     .feed-header__customize {
@@ -302,7 +316,7 @@
       align-items: center;
       gap: 6px;
       font-size: 12px;
-      color: #9ca3af;
+      color: var(--text-muted);
       cursor: pointer;
       padding: 4px 8px;
       border-radius: 6px;
@@ -319,7 +333,7 @@
 
     .feed-body p {
       font-size: 12px;
-      color: #9ca3af;
+      color: var(--text-muted);
       margin-bottom: 12px;
     }
 
@@ -336,8 +350,8 @@
       border-radius: 8px;
       font-size: 13px;
       font-family: inherit;
-      color: #131212;
-      background: white;
+      color: var(--text-primary);
+      background: var(--bg-card);
       appearance: none;
       cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -386,14 +400,14 @@
       font-weight: 500;
       cursor: pointer;
       background: #f5f5f5;
-      color: #6b7280;
+      color: var(--text-muted);
       border: 1px solid transparent;
       transition: all 0.15s;
     }
 
     .pq-tab:hover {
       background: #ebebeb;
-      color: #131212;
+      color: var(--text-primary);
     }
 
     .pq-tab.active {
@@ -408,8 +422,8 @@
     }
 
     .pq-card {
-      background: white;
-      border: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
       cursor: pointer;
@@ -430,13 +444,13 @@
     .pq-card__name {
       font-size: 12.5px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 2px;
     }
 
     .pq-card__count {
       font-size: 11px;
-      color: #9ca3af;
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
 
@@ -456,7 +470,7 @@
 
     .pq-tag--jamb {
       background: #f5f5f5;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
     .pq-tag--waec {
@@ -481,8 +495,8 @@
     }
 
     .news-card {
-      background: white;
-      border: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
@@ -530,7 +544,7 @@
     .news-card__title {
       font-size: 12.5px;
       font-weight: 700;
-      color: #131212;
+      color: var(--text-primary);
       line-height: 1.4;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -578,7 +592,7 @@
       width: 280px;
       flex-shrink: 0;
       border-left: 1px solid #f0f0f0;
-      background: white;
+      background: var(--bg-card);
       padding: 20px 16px;
       position: sticky;
       top: 58px;
@@ -598,7 +612,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #6b7280;
+      color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -619,7 +633,7 @@
       display: flex;
       gap: 10px;
       padding: 10px 0;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
       transition: background 0.1s;
     }
@@ -679,7 +693,7 @@
     .event-card__title {
       font-size: 12px;
       font-weight: 600;
-      color: #131212;
+      color: var(--text-primary);
       line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -715,7 +729,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-bottom: 12px;
     }
 
@@ -724,7 +738,7 @@
       align-items: center;
       gap: 10px;
       padding: 8px 0;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
     }
 
@@ -797,8 +811,8 @@
     }
 
     .discuss-card {
-      background: white;
-      border: 1px solid #f0f0f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px 16px;
       margin-bottom: 8px;
@@ -837,14 +851,14 @@
     .discuss-card__question {
       font-size: 12.5px;
       font-weight: 600;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 4px;
       line-height: 1.4;
     }
 
     .discuss-card__meta {
       font-size: 11px;
-      color: #9ca3af;
+      color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -858,6 +872,80 @@
       text-transform: uppercase;
       background: #fff3e0;
       color: #e65100;
+    }
+    /* ═══════════════════════════════════════════════════════
+       DARK MODE
+    ═══════════════════════════════════════════════════════ */
+    :root[data-theme="dark"] body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+    }
+    /* Change Exam Category to Blue */
+    :root[data-theme="dark"] .section-title {
+      color: var(--primary-dk);
+    }
+    :root[data-theme="dark"] .feed-header__title,
+    :root[data-theme="dark"] .feed-post__author-name,
+    :root[data-theme="dark"] .feed-post__title,
+    :root[data-theme="dark"] .stat-value,
+    :root[data-theme="dark"] .test-card__name,
+    :root[data-theme="dark"] .events-title,
+    :root[data-theme="dark"] .event-card__title,
+    :root[data-theme="dark"] .event-card__day,
+    :root[data-theme="dark"] .quick-link-item__text,
+    :root[data-theme="dark"] .news-card__title,
+    :root[data-theme="dark"] .discuss-card__question {
+      color: var(--text-primary);
+    }
+    :root[data-theme="dark"] .section-menu,
+    :root[data-theme="dark"] .feed-post__time,
+    :root[data-theme="dark"] .feed-post__snippet,
+    :root[data-theme="dark"] .feed-post__stat,
+    :root[data-theme="dark"] .stat-label,
+    :root[data-theme="dark"] .test-card__desc,
+    :root[data-theme="dark"] .event-card__month,
+    :root[data-theme="dark"] .event-card__meta,
+    :root[data-theme="dark"] .events-discover,
+    :root[data-theme="dark"] .discuss-card__meta {
+      color: var(--text-muted);
+    }
+    :root[data-theme="dark"] .test-card,
+    :root[data-theme="dark"] .feed-section,
+    :root[data-theme="dark"] .right-sidebar,
+    :root[data-theme="dark"] .event-card,
+    :root[data-theme="dark"] .quick-link-item,
+    :root[data-theme="dark"] .news-card,
+    :root[data-theme="dark"] .discuss-card,
+    :root[data-theme="dark"] .right-card {
+      background: var(--bg-card);
+      border-color: var(--border);
+    }
+    :root[data-theme="dark"] .feed-header,
+    :root[data-theme="dark"] .feed-post,
+    :root[data-theme="dark"] .right-card__header,
+    :root[data-theme="dark"] .ranking-item,
+    :root[data-theme="dark"] .news-card,
+    :root[data-theme="dark"] .discuss-card {
+      border-color: var(--border);
+    }
+    :root[data-theme="dark"] .section-menu:hover,
+    :root[data-theme="dark"] .test-card:hover,
+    :root[data-theme="dark"] .feed-post:hover,
+    :root[data-theme="dark"] .ranking-item:hover,
+    :root[data-theme="dark"] .news-card:hover,
+    :root[data-theme="dark"] .discuss-card:hover,
+    :root[data-theme="dark"] .quick-link-item:hover,
+    :root[data-theme="dark"] .event-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border);
+    }
+    :root[data-theme="dark"] .test-card__icon--dark {
+      background: rgba(255,255,255, 0.1);
+    }
+    :root[data-theme="dark"] .feed-post__thumb,
+    :root[data-theme="dark"] .event-card__date-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border);
     }
   </style>
 </head>
@@ -940,7 +1028,7 @@
                     Rank:</div>
                 </div>
                 <div style="font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-                  Scholar</div>
+                  Novice</div>
               </div>
 
               <!-- Balance Badge -->
@@ -965,7 +1053,7 @@
                     Bal:</div>
                 </div>
                 <div style="font-size: 14px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-                  ₦12,500</div>
+                  ₦0</div>
               </div>
 
               <!-- Matric Badge (Glassmorphism - Strict Single Row) -->
@@ -1000,11 +1088,61 @@
             </div>
           </div>
 
+          <!-- Active Exam Resume Banner -->
+          <div id="resume-banner-container" style="display:none; margin-bottom:24px;">
+            <div style="
+              background: linear-gradient(to right, #fff, #f8fafc);
+              border: 1px solid #e2e8f0;
+              border-left: 4px solid #f59e0b;
+              border-radius: 12px;
+              padding: 16px 20px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 16px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            ">
+              <div>
+                <h3 style="font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Exam in Progress
+                </h3>
+                <p style="font-size: 13px; color: #64748b; margin: 0;">You have an active <strong id="resume-exam-title">CBT Exam</strong> session that was not submitted.</p>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <button id="btn-discard-exam" style="
+                  background: #f1f5f9;
+                  color: #475569;
+                  border: 1px solid #cbd5e1;
+                  padding: 8px 16px;
+                  border-radius: 8px;
+                  font-size: 13px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.2s;
+                " onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='#f1f5f9'">Discard</button>
+                <button id="btn-resume-exam" style="
+                  background: #f59e0b;
+                  color: white;
+                  border: none;
+                  padding: 8px 20px;
+                  border-radius: 8px;
+                  font-size: 13px;
+                  font-weight: 700;
+                  cursor: pointer;
+                  transition: all 0.2s;
+                  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+                " onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">Resume Now →</button>
+              </div>
+            </div>
+          </div>
+
           <!-- Banner 1 -->
-          <div class="ad-banner-wrapper">
-            <a href="#" class="ad-banner-img">
-              <img src="../assets/banners/banner_1.webp" alt="Learning Rewards – Help Others Learn, Earn Rewards" loading="lazy">
-            </a>
+          <div class="ad-banner-wrapper mec-ad-banner-inline">
+            <div class="ad-banner-img" style="cursor: default;">
+              <img src="../assets/banners/banner_1.webp" alt="Loading Advertisement..." loading="lazy">
+            </div>
           </div>
 
           <!-- Dynamic Exam Sections -->
@@ -1047,122 +1185,323 @@
           </div>
 
           <!-- Banner 3 -->
-          <div class="ad-banner-wrapper">
-            <a href="#" class="ad-banner-img">
-              <img src="../assets/banners/banner_3.webp" alt="WhatsApp Group For Your School – Join Now" loading="lazy">
-            </a>
+          <div class="ad-banner-wrapper mec-ad-banner-inline">
+            <div class="ad-banner-img" style="cursor: default;">
+              <img src="../assets/banners/banner_3.webp" alt="Loading Advertisement..." loading="lazy">
+            </div>
           </div>
 
-          <!-- News -->
-          <div class="news-section">
+          <!-- ── Education News Feed (Facebook-style) ─────────────────── -->
+          <div class="fb-news-section">
             <div class="section-header">
-              <h2 class="section-title">Education News</h2>
-              <span style="font-size:12px;font-weight:600;color:#2563eb;cursor:pointer;">All news →</span>
+              <h2 class="section-title">📰 Education News</h2>
+              <span id="news-page-indicator" style="font-size:12px;font-weight:600;color:#64748b;"></span>
             </div>
-            <div class="news-grid">
-              <div class="news-card news-card--featured" onclick="window.location.href='blog/content.html'">
-                <div class="news-card__thumb" style="background:linear-gradient(135deg,#f3f2f2,#e0e0e0);">
-                  📰
-                  <span class="news-card__cat">JAMB</span>
-                </div>
-                <div class="news-card__body">
-                  <div class="news-card__title">JAMB 2025 UTME Registration Deadline Extended – Key Dates and How to
-                    Register</div>
-                  <div class="news-card__meta">
-                    <span class="news-card__date">July 10, 2025</span>
-                    <span class="news-card__stats">
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                    </span>
-                  </div>
-                </div>
+
+            <!-- Feed container -->
+            <div id="fb-news-feed">
+              <!-- Skeleton loaders while fetching -->
+              <div class="fb-skeleton-card">
+                <div class="fb-sk-header"><div class="fb-sk-avatar"></div><div class="fb-sk-meta"><div class="fb-sk-line" style="width:60%"></div><div class="fb-sk-line" style="width:35%"></div></div></div>
+                <div class="fb-sk-line" style="width:90%"></div><div class="fb-sk-line" style="width:75%"></div><div class="fb-sk-img"></div>
               </div>
-              <div class="news-card" onclick="window.location.href='blog/content.html'">
-                <div class="news-card__thumb" style="background:linear-gradient(135deg,#eaeafc,#d8d7f8);">
-                  📅
-                  <span class="news-card__cat">WAEC</span>
-                </div>
-                <div class="news-card__body">
-                  <div class="news-card__title">WAEC 2025 Timetable Released: Full Schedule for SSCE Candidates</div>
-                  <div class="news-card__meta">
-                    <span class="news-card__date">July 8, 2025</span>
-                    <span class="news-card__stats">
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 54</span>
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 12</span>
-                    </span>
-                  </div>
-                </div>
+              <div class="fb-skeleton-card">
+                <div class="fb-sk-header"><div class="fb-sk-avatar"></div><div class="fb-sk-meta"><div class="fb-sk-line" style="width:55%"></div><div class="fb-sk-line" style="width:30%"></div></div></div>
+                <div class="fb-sk-line" style="width:85%"></div><div class="fb-sk-line" style="width:60%"></div><div class="fb-sk-img"></div>
               </div>
-              <div class="news-card" onclick="window.location.href='blog/content.html'">
-                <div class="news-card__thumb" style="background:linear-gradient(135deg,#f3f9dc,#e0f0a0);">
-                  🎓
-                  <span class="news-card__cat">Scholarship</span>
-                </div>
-                <div class="news-card__body">
-                  <div class="news-card__title">FG Opens Application for 2025 Bilateral Education Agreement (BEA)
-                    Scholarship</div>
-                  <div class="news-card__meta">
-                    <span class="news-card__date">July 6, 2025</span>
-                    <span class="news-card__stats">
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 389</span>
-                      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 94</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div id="fb-news-pagination" style="display:none; display:flex; gap:12px; margin-top:20px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+              <button id="btn-news-prev" onclick="newsGoToPage(newsCurrentPage - 1)" style="
+                display:flex; align-items:center; gap:6px; padding:10px 20px;
+                background:var(--bg-card); border:1.5px solid var(--border); border-radius:10px;
+                font-size:13px; font-weight:700; color:var(--text-muted); cursor:pointer;
+                transition:all 0.2s; font-family:inherit;
+              " onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+                ← Previous
+              </button>
+              <div id="fb-page-dots" style="display:flex; gap:6px; align-items:center;"></div>
+              <button id="btn-news-next" onclick="newsGoToPage(newsCurrentPage + 1)" style="
+                display:flex; align-items:center; gap:6px; padding:10px 20px;
+                background:#2563eb; border:1.5px solid #2563eb; border-radius:10px;
+                font-size:13px; font-weight:700; color:white; cursor:pointer;
+                transition:all 0.2s; font-family:inherit;
+              " onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                Next →
+              </button>
             </div>
           </div>
 
-          <!-- Banner 2 -->
-          <div class="ad-banner-wrapper">
-            <a href="#" class="ad-banner-img">
-              <img src="../assets/banners/banner_2.webp" alt="Refer & Earn – Invite Friends, Earn Rewards" loading="lazy">
-            </a>
-          </div>
+          <style>
+            /* ── Facebook-style News Feed ──────────────────────────────── */
+            .fb-news-section { margin-bottom: 32px; }
 
-          <!-- Discuss -->
-          <div class="discuss-section">
-            <div class="section-header">
-              <h2 class="section-title">Discuss</h2>
-              <span style="font-size:12px;font-weight:600;color:#2563eb;cursor:pointer;">View all →</span>
-            </div>
+            .fb-post-card {
+              background: var(--bg-card);
+              border: 1px solid var(--border);
+              border-radius: 16px;
+              margin-bottom: 16px;
+              overflow: hidden;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+              transition: box-shadow 0.25s ease, transform 0.25s ease;
+              animation: fbFadeIn 0.4s ease;
+            }
+            .fb-post-card:hover {
+              box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+              transform: translateY(-2px);
+            }
+            @keyframes fbFadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
 
-            <div class="discuss-card">
-              <div class="discuss-card__avatar">A</div>
-              <div class="discuss-card__body">
-                <div class="discuss-card__question">Please how do I calculate the limiting reagent in Chemistry moles? I
-                  need help with JAMB 2024 Q14.</div>
-                <div class="discuss-card__meta">
-                  <span class="discuss-card__tag">Chemistry</span>
-                  <span>12 answers · 2h ago</span>
-                </div>
-              </div>
-            </div>
+            .fb-post-header {
+              display: flex; align-items: center; gap: 12px;
+              padding: 16px 20px 0;
+            }
+            .fb-post-avatar {
+              width: 42px; height: 42px; border-radius: 50%;
+              background: linear-gradient(135deg, #2563eb, #7c3aed);
+              display: flex; align-items: center; justify-content: center;
+              color: white; font-size: 16px; font-weight: 800; flex-shrink: 0;
+            }
+            .fb-post-meta { flex: 1; min-width: 0; }
+            .fb-post-source {
+              font-size: 14px; font-weight: 700; color: var(--text-primary);
+              white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            }
+            .fb-post-time { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+            .fb-post-cat {
+              font-size: 10px; font-weight: 800; text-transform: uppercase;
+              letter-spacing: 0.06em; padding: 2px 8px; border-radius: 99px;
+              background: #eff6ff; color: #2563eb; flex-shrink: 0;
+            }
 
-            <div class="discuss-card">
-              <div class="discuss-card__avatar" style="background:linear-gradient(135deg,#1d4ed8,#60a5fa);">O</div>
-              <div class="discuss-card__body">
-                <div class="discuss-card__question">What are the differences between prokaryotic and eukaryotic cells?
-                  WAEC likely question.</div>
-                <div class="discuss-card__meta">
-                  <span class="discuss-card__tag" style="background:#e8f5e9;color:#16a34a;">Biology</span>
-                  <span>8 answers · 5h ago</span>
-                </div>
-              </div>
-            </div>
+            .fb-post-body { padding: 12px 20px; }
+            .fb-post-title {
+              font-size: 15px; font-weight: 700; color: var(--text-primary);
+              line-height: 1.45; margin-bottom: 6px;
+            }
+            .fb-post-desc {
+              font-size: 13px; color: var(--text-muted); line-height: 1.6;
+              display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+            }
 
-            <div class="discuss-card">
-              <div class="discuss-card__avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">F</div>
-              <div class="discuss-card__body">
-                <div class="discuss-card__question">Can someone break down the demand and supply curve for Economics
-                  JAMB 2025?</div>
-                <div class="discuss-card__meta">
-                  <span class="discuss-card__tag" style="background:#eff6ff;color:#1d4ed8;">Economics</span>
-                  <span>5 answers · 1d ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            .fb-post-img {
+              width: 100%; max-height: 240px; object-fit: cover;
+              border-top: 1px solid var(--border); display: block;
+            }
+
+            .fb-post-stats {
+              display: flex; align-items: center; justify-content: space-between;
+              padding: 8px 20px; font-size: 12px; color: var(--text-muted);
+              border-bottom: 1px solid var(--border);
+            }
+
+            .fb-post-actions {
+              display: flex; gap: 0;
+            }
+            .fb-action-btn {
+              flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+              padding: 10px 8px; font-size: 13px; font-weight: 600; color: var(--text-muted);
+              cursor: pointer; transition: all 0.2s; background: none; border: none;
+              font-family: inherit; border-radius: 0;
+            }
+            .fb-action-btn:hover { background: var(--bg-base); color: #2563eb; }
+            .fb-action-btn.liked { color: #ef4444; }
+            .fb-action-btn svg { width: 17px; height: 17px; }
+
+            .fb-read-more {
+              display: inline-block; margin: 0 20px 16px; padding: 8px 18px;
+              background: #eff6ff; color: #2563eb; border-radius: 8px;
+              font-size: 12px; font-weight: 700; text-decoration: none;
+              transition: all 0.2s;
+            }
+            .fb-read-more:hover { background: #2563eb; color: white; }
+
+            /* Skeleton loaders */
+            .fb-skeleton-card {
+              background: var(--bg-card); border: 1px solid var(--border);
+              border-radius: 16px; padding: 16px 20px; margin-bottom: 16px;
+            }
+            .fb-sk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+            .fb-sk-avatar { width: 42px; height: 42px; border-radius: 50%; background: #f0f0f0; animation: fbPulse 1.5s infinite; flex-shrink: 0; }
+            .fb-sk-meta { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+            .fb-sk-line { height: 13px; background: #f0f0f0; border-radius: 4px; animation: fbPulse 1.5s infinite; margin-bottom: 6px; }
+            .fb-sk-img { height: 160px; background: #f0f0f0; border-radius: 10px; margin-top: 10px; animation: fbPulse 1.5s infinite; }
+            @keyframes fbPulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
+
+            /* Dark mode overrides */
+            [data-theme="dark"] .fb-post-cat { background: rgba(37,99,235,0.15); color: #60a5fa; }
+            [data-theme="dark"] .fb-read-more { background: rgba(37,99,235,0.15); color: #60a5fa; }
+            [data-theme="dark"] .fb-read-more:hover { background: #2563eb; color: white; }
+            [data-theme="dark"] .fb-sk-avatar,
+            [data-theme="dark"] .fb-sk-line,
+            [data-theme="dark"] .fb-sk-img { background: #334155; }
+          </style>
+
+          <script>
+            (function () {
+              const ARTICLES_PER_PAGE = 5;
+              const JSDELIVR_URL = 'https://cdn.jsdelivr.net/gh/professormicheal504/my-exam-companion@main/public/data/news.json';
+              const LOCAL_URL   = '../data/news.json';
+
+              let allArticles    = [];
+              let newsCurrentPage = 1; // expose to global
+              window.newsCurrentPage = 1;
+
+              function timeAgo(dateStr) {
+                const date = new Date(dateStr.replace(' ', 'T') + (dateStr.includes('T') ? '' : 'Z'));
+                if (isNaN(date)) return 'Recently';
+                const diff = Math.floor((Date.now() - date) / 1000);
+                if (diff < 60)   return 'just now';
+                if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+                if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+                return `${Math.floor(diff / 86400)}d ago`;
+              }
+
+              function initials(str) {
+                return (str || '?').trim()[0].toUpperCase();
+              }
+
+              // Generate stable like count from title hash
+              function fakeCount(title, mod, base) {
+                let h = 0;
+                for (let i = 0; i < title.length; i++) h = (h * 31 + title.charCodeAt(i)) | 0;
+                return base + Math.abs(h % mod);
+              }
+
+              function renderFeed(page) {
+                window.newsCurrentPage = page;
+                const feed = document.getElementById('fb-news-feed');
+                const totalPages = Math.ceil(allArticles.length / ARTICLES_PER_PAGE);
+                const start = (page - 1) * ARTICLES_PER_PAGE;
+                const slice = allArticles.slice(start, start + ARTICLES_PER_PAGE);
+
+                feed.innerHTML = '';
+                slice.forEach((a, i) => {
+                  const card = document.createElement('div');
+                  card.className = 'fb-post-card';
+                  card.style.animationDelay = `${i * 0.07}s`;
+
+                  const likes    = fakeCount(a.title, 800, 40);
+                  const comments = fakeCount(a.title + 'c', 150, 5);
+                  const shares   = fakeCount(a.title + 's', 80, 2);
+                  const srcInit  = initials(a.source);
+                  const srcColor = ['#2563eb,#7c3aed','#0891b2,#059669','#dc2626,#f59e0b','#7c3aed,#ec4899'][Math.abs(a.source.charCodeAt(0)) % 4];
+
+                  card.innerHTML = `
+                    <div class="fb-post-header">
+                      <div class="fb-post-avatar" style="background:linear-gradient(135deg,${srcColor})">${srcInit}</div>
+                      <div class="fb-post-meta">
+                        <div class="fb-post-source">${a.source}</div>
+                        <div class="fb-post-time">🕐 ${timeAgo(a.published)}</div>
+                      </div>
+                      <span class="fb-post-cat">${a.category}</span>
+                    </div>
+                    <div class="fb-post-body">
+                      <div class="fb-post-title">${a.title}</div>
+                      ${a.description ? `<div class="fb-post-desc">${a.description}</div>` : ''}
+                    </div>
+                    ${a.image ? `<img class="fb-post-img" src="${a.image}" alt="${a.title}" loading="lazy" onerror="this.style.display='none'">` : ''}
+                    <div class="fb-post-stats">
+                      <span>👍 ${likes.toLocaleString()} likes</span>
+                      <span>${comments} comments · ${shares} shares</span>
+                    </div>
+                    <div class="fb-post-actions">
+                      <button class="fb-action-btn" id="like-btn-${start+i}" onclick="toggleLike(this, ${start+i})">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        Like
+                      </button>
+                      <button class="fb-action-btn" onclick="this.textContent='✏️ Coming soon'">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        Comment
+                      </button>
+                      <button class="fb-action-btn" onclick="shareArticle('${encodeURIComponent(a.url)}','${encodeURIComponent(a.title)}')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        Share
+                      </button>
+                    </div>
+                    <a href="${a.url}" target="_blank" rel="noopener" class="fb-read-more">Read full article →</a>
+                  `;
+                  feed.appendChild(card);
+                });
+
+                // Update pagination
+                document.getElementById('news-page-indicator').textContent = `Page ${page} of ${totalPages}`;
+                const pag = document.getElementById('fb-news-pagination');
+                pag.style.display = totalPages > 1 ? 'flex' : 'none';
+                document.getElementById('btn-news-prev').disabled = page === 1;
+                document.getElementById('btn-news-prev').style.opacity = page === 1 ? '0.4' : '1';
+                document.getElementById('btn-news-next').disabled = page === totalPages;
+                document.getElementById('btn-news-next').style.opacity = page === totalPages ? '0.4' : '1';
+
+                // Dot indicators
+                const dots = document.getElementById('fb-page-dots');
+                dots.innerHTML = '';
+                for (let p = 1; p <= totalPages; p++) {
+                  const dot = document.createElement('div');
+                  dot.style.cssText = `width:${p===page?'20px':'8px'};height:8px;border-radius:99px;transition:all 0.3s;cursor:pointer;background:${p===page?'#2563eb':'#d1d5db'}`;
+                  dot.onclick = () => newsGoToPage(p);
+                  dots.appendChild(dot);
+                }
+              }
+
+              window.newsGoToPage = function(page) {
+                const totalPages = Math.ceil(allArticles.length / ARTICLES_PER_PAGE);
+                if (page < 1 || page > totalPages) return;
+                renderFeed(page);
+                document.querySelector('.fb-news-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              };
+
+              window.toggleLike = function(btn, idx) {
+                btn.classList.toggle('liked');
+                const isLiked = btn.classList.contains('liked');
+                btn.style.color = isLiked ? '#ef4444' : '';
+                btn.querySelector('svg').setAttribute('fill', isLiked ? '#ef4444' : 'none');
+              };
+
+              window.shareArticle = function(encodedUrl, encodedTitle) {
+                const url   = decodeURIComponent(encodedUrl);
+                const title = decodeURIComponent(encodedTitle);
+                if (navigator.share) {
+                  navigator.share({ title, url }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                  }).catch(() => window.open(url, '_blank'));
+                }
+              };
+
+              async function loadNews() {
+                try {
+                  // Try jsDelivr CDN first (cached globally)
+                  let res = await fetch(JSDELIVR_URL).catch(() => null);
+                  if (!res || !res.ok) {
+                    res = await fetch(LOCAL_URL);
+                  }
+                  const data = await res.json();
+                  allArticles = data.articles || [];
+                  if (allArticles.length) {
+                    renderFeed(1);
+                  } else {
+                    document.getElementById('fb-news-feed').innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:32px">No news available right now. Check back soon!</p>';
+                  }
+                } catch (err) {
+                  console.error('[NewsFeed]', err);
+                  document.getElementById('fb-news-feed').innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:32px">⚠️ Could not load news. Please check your connection.</p>';
+                }
+              }
+
+              // Load when DOM is ready
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadNews);
+              } else {
+                loadNews();
+              }
+            })();
+          </script>
+
+
+
 
         </main>
 
@@ -1319,7 +1658,7 @@
       let config;
 
       // Show loading state
-      container.innerHTML = '<div style="padding:16px;color:#9ca3af;font-size:13px;">Loading exams...</div>';
+      container.innerHTML = '<div style="padding:16px;color: var(--text-muted);font-size:13px;">Loading exams...</div>';
 
       try {
         // Try local new_staging_area first, then fall back to Cloudflare R2
@@ -1392,17 +1731,35 @@
                       setupPath = `/public${setupPath}`;
                     }
                     
+                    const logoParam = mod.logo ? `&logo=${encodeURIComponent(mod.logo)}` : '';
                     if (cat.id === 'university') {
                       a.href = setupPath;
                     } else {
-                      a.href = `${setupPath}?exam_id=${mod.id}`;
+                      const dataSource = mod.data_source ? `&data_source=${encodeURIComponent(mod.data_source)}` : '';
+                      a.href = `${setupPath}?exam_id=${mod.id}${dataSource}${logoParam}`;
                     }
                     a.style.textDecoration = 'none';
                     a.style.color = 'inherit';
 
+                     // Map exam_body → relative logo path (relative to /modules/)
+                     const LOGO_MAP = {
+                       'jamb': '../assets/country/nigeria/jamb.png',
+                       'waec': '../assets/country/nigeria/waec.png',
+                       'neco': '../assets/country/nigeria/neco.png',
+                       'sat':  '../assets/country/usa/sat.png',
+                       'southern_delta_university_sdu': '../assets/country/nigeria/southern_delta_university.webp',
+                       'southern_delta_university': '../assets/country/nigeria/southern_delta_university.webp',
+                     };
+                     const logoSrc = LOGO_MAP[mod.exam_body] || null;
+                     const hasLogo = !!logoSrc;
+                     const iconHtml = hasLogo
+                       ? `<img src="${logoSrc}" alt="${mod.display_name}" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">`
+                       : (mod.icon || '📝');
+                     const iconClass = hasLogo ? 'test-card__icon' : `test-card__icon ${colorClass}`;
+
                     a.innerHTML = `
                       <div class="test-card">
-                        <div class="test-card__icon ${colorClass}">${mod.icon || '📝'}</div>
+                        <div class="${iconClass}">${iconHtml}</div>
                         <div class="test-card__body">
                           <div class="test-card__name">${mod.display_name}</div>
                           <div class="test-card__desc">Practice ${mod.display_name} in a real CBT exam environment.</div>
@@ -1437,6 +1794,75 @@
       document.addEventListener('country-changed', (e) => {
         loadCountryModules(e.detail.code);
       });
+
+      // Check for active CBT exam session
+      const activeStateStr = localStorage.getItem('cbt_active_state');
+      if (activeStateStr) {
+        try {
+          const activeState = JSON.parse(activeStateStr);
+          if (activeState.exam_id) {
+            const container = document.getElementById('resume-banner-container');
+            const titleEl = document.getElementById('resume-exam-title');
+            
+            // Format title
+            titleEl.textContent = activeState.exam_id.toUpperCase().replace(/_/g, ' ');
+            container.style.display = 'block';
+
+            document.getElementById('btn-discard-exam').addEventListener('click', () => {
+              if (confirm('Are you sure you want to discard your current exam progress?')) {
+                localStorage.removeItem('cbt_active_state');
+                container.style.display = 'none';
+              }
+            });
+
+            document.getElementById('btn-resume-exam').addEventListener('click', () => {
+              // Redirect to cbt_player with the saved query params
+              window.location.href = `./cbt_test/core/cbt_player.html${activeState.queryParams || '?exam_id=' + activeState.exam_id}`;
+            });
+          }
+        } catch (e) {
+          console.error("Failed to parse active state", e);
+        }
+      }
+      // First-time Country Selection Modal Logic
+      const hasSelectedCountry = localStorage.getItem('mec_country_selected');
+      if (!hasSelectedCountry) {
+        const modalHtml = `
+          <div id="first-time-country-modal" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+            <div style="background: var(--bg-card); width: 90%; max-width: 400px; border-radius: 16px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);">
+              <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--text-primary);">Welcome! 👋</h2>
+              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Please select your country to continue.</p>
+              <div style="background: #fff3e0; border-left: 4px solid #f97316; padding: 12px; border-radius: 4px; margin-bottom: 20px;">
+                <p style="font-size: 12.5px; color: #9a3412; margin: 0; font-weight: 500;">
+                  <strong>Note:</strong> Selecting the wrong country means you may not see the exams you are looking for!
+                </p>
+              </div>
+              <select id="first-time-country-select" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); font-size: 15px; font-weight: 500; background: var(--bg-base); color: var(--text-primary); outline: none; margin-bottom: 20px; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22none%22 stroke=%22currentColor%22 viewBox=%220 0 24 24%22 xmlns=%22http://www.w3.org/2000/svg%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222%22 d=%22M19 9l-7 7-7-7%22></path></svg>'); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px;">
+                <option value="ng">Nigeria (NG)</option>
+                <option value="gh">Ghana (GH)</option>
+                <option value="us">United States (US)</option>
+              </select>
+              <button id="btn-save-country" style="width: 100%; padding: 14px; background: #2563eb; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s;">Continue</button>
+            </div>
+          </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        
+        document.getElementById('btn-save-country').addEventListener('click', () => {
+          const selected = document.getElementById('first-time-country-select').value;
+          localStorage.setItem('mec_country', selected);
+          localStorage.setItem('mec_country_selected', 'true');
+          
+          document.getElementById('first-time-country-modal').remove();
+          
+          // Trigger the app-wide change
+          document.dispatchEvent(new CustomEvent('country-changed', { detail: { code: selected } }));
+          
+          // Try to sync the topbar selector if it's there
+          const topbarSelect = document.querySelector('app-topbar')?.shadowRoot?.querySelector('#country-select');
+          if (topbarSelect) topbarSelect.value = selected;
+        });
+      }
     });
   </script>
 </body>

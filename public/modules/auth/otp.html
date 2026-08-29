@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verify OTP – My Exam Companion</title>
@@ -14,7 +23,7 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: #f9fafb;
+      background: var(--bg-base);
       background-image: 
         radial-gradient(at 0% 0%, rgba(183, 12, 1, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(183, 12, 1, 0.15) 0px, transparent 50%);
@@ -66,13 +75,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7280;
+      color: var(--text-muted);
       text-decoration: none;
       transition: background 0.15s;
     }
     .btn-close:hover {
       background: #e5e7eb;
-      color: #131212;
+      color: var(--text-primary);
     }
     .modal-header {
       text-align: center;
@@ -81,12 +90,12 @@
     .modal-title {
       font-size: 24px;
       font-weight: 800;
-      color: #131212;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
     .modal-subtitle {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
       line-height: 1.5;
     }
     .form-group {
@@ -113,7 +122,7 @@
     }
     .otp-input:focus {
       border-color: #2563eb;
-      background: #fff;
+      background: var(--bg-card);
     }
     .btn-primary {
       width: 100%;
@@ -135,7 +144,7 @@
       text-align: center;
       margin-top: 24px;
       font-size: 13.5px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
     .auth-links button {
       color: #2563eb;
@@ -150,6 +159,8 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../components/supabase.js"></script>
+  <link rel="stylesheet" href="../../components/dark-mode.css">
 </head>
 <body>
   <div class="modal-overlay">
@@ -211,14 +222,12 @@
       });
     });
 
-    const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = window.MECSupabase.getSupabase();
 
     async function handleVerify() {
       const email = localStorage.getItem('authEmail');
       if (!email) {
-        alert('No email found. Please go back and try logging in again.');
+        showToast('No email found. Please go back and try logging in again.', 'error');
         return;
       }
 
@@ -227,7 +236,7 @@
       inputs.forEach(input => token += input.value);
       
       if (token.length !== 6) {
-        alert('Please enter all 6 digits.');
+        showToast('Please enter all 6 digits.', 'error');
         return;
       }
 
@@ -244,11 +253,14 @@
 
         if (error) throw error;
 
-        alert('Verification Successful! Please complete your profile.');
-        window.location.href = 'fill_form.html';
+        showToast('Verification Successful! Please complete your profile.', 'success');
+        setTimeout(() => window.location.href = 'fill_form.html', 1000);
       } catch (error) {
-        alert('Invalid OTP: ' + error.message);
+        showToast('Invalid OTP: ' + error.message, 'error');
         console.error(error);
+        // Clear fields on error
+        inputs.forEach(input => input.value = '');
+        inputs[0].focus();
       } finally {
         const btn = document.querySelector('.btn-primary');
         btn.disabled = false;

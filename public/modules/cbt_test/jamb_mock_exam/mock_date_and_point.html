@@ -1,7 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>JAMB Mock Exam - Schedule & Credits</title>
@@ -16,6 +25,7 @@
 
     <!-- Sidebar Component -->
     <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
   <link rel="stylesheet" href="/components/sidebar.css">
     <script defer src="/components/topbar.js"></script>
   <script defer src="/components/nav.js"></script>
@@ -165,7 +175,7 @@
         }
 
         .next-exam-badge {
-            background: #ffffff;
+            background: var(--bg-card);
             border: 1px solid #fecaca;
             padding: 16px 24px;
             border-radius: var(--radius-lg);
@@ -360,7 +370,7 @@
             margin-right: 8px;
             margin-bottom: 8px;
             border: 1px solid var(--border);
-            background: #fff;
+            background: var(--bg-card);
             border-radius: 4px;
             cursor: pointer;
         }
@@ -372,6 +382,47 @@
 </head>
 
 <body>
+
+  <!-- ── Coming Soon Overlay ──────────────────────────────────────────── -->
+  <div style="
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  ">
+    <div style="
+      background: #ffffff; border-radius: 24px;
+      padding: 48px 40px; max-width: 420px; width: 100%;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+      animation: csPopIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    ">
+      <div style="font-size: 64px; margin-bottom: 16px; line-height: 1;">🚀</div>
+      <h2 style="font-size: 26px; font-weight: 800; color: #0f172a; margin: 0 0 10px; letter-spacing: -0.5px;">Coming Soon</h2>
+      <p style="font-size: 15px; color: #64748b; line-height: 1.6; margin: 0 0 28px;">
+        JAMB Mock Exam is currently under development. We're working hard to bring you a realistic mock exam experience. Stay tuned!
+      </p>
+      <a href="javascript:history.back()" style="
+        display: inline-flex; align-items: center; gap: 8px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white; text-decoration: none; padding: 12px 28px;
+        border-radius: 12px; font-size: 14px; font-weight: 700;
+        box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+        transition: opacity 0.2s;
+      " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        ← Go Back
+      </a>
+    </div>
+  </div>
+  <style>
+    @keyframes csPopIn {
+      from { opacity:0; transform: scale(0.85); }
+      to   { opacity:1; transform: scale(1); }
+    }
+  </style>
+
 
     <app-sidebar data-base="/" data-active="test"></app-sidebar>
 
@@ -397,13 +448,12 @@
             <!-- Schedule Banner -->
             <div class="dash-card schedule-banner">
                 <div class="sb-content">
-                    <h2>Official Exam Schedule</h2>
-                    <p>Mock exams are exclusively held every <strong>Tuesday</strong> and
-                        <strong>Saturday</strong>.<br>Ensure you have an active exam credit to join on these days.</p>
+                    <h2>Mock Exam</h2>
+                    <p>Practice anytime! Take a full mock exam to test your readiness across all your selected subjects.</p>
                 </div>
                 <div class="next-exam-badge">
-                    <div class="neb-label">Next Upcoming Exam</div>
-                    <div class="neb-date" id="ui-next-date">Calculating...</div>
+                    <div class="neb-label">Status</div>
+                    <div class="neb-date" id="ui-next-date" style="color: #10b981;">Open Now ✓</div>
                 </div>
             </div>
 
@@ -449,7 +499,7 @@
         /* ── STATE ── */
         // For demo purposes, we allow overriding the current date for testing
         let simulatedDate = null;
-        let examCredits = 0; // Load from localStorage in a real app
+        let examCredits = 1; // Testing mode: always has credits
 
         function getNow() {
             return simulatedDate ? new Date(simulatedDate) : new Date();
@@ -486,16 +536,10 @@
         }
 
         function updateUI() {
-            const now = getNow();
-            const nextExam = getNextExamDate(now);
-
-            // Update Schedule Banner
-            document.getElementById('ui-next-date').textContent = nextExam.isToday ? "Today!" : formatDate(nextExam.date);
-
             // Update Wallet
             document.getElementById('ui-credit-balance').textContent = examCredits;
 
-            // Update Action Area
+            // Update Action Area — always open for testing
             const icon = document.getElementById('ui-status-icon');
             const msg = document.getElementById('ui-action-msg');
             const sub = document.getElementById('ui-action-sub');
@@ -507,31 +551,11 @@
             btn.disabled = false;
             btn.textContent = 'Join Mock Exam Room';
 
-            if (examCredits <= 0) {
-                // No credits
-                icon.classList.add('error');
-                icon.textContent = '💳';
-                msg.textContent = 'Insufficient Exam Credits';
-                sub.textContent = 'You need at least 1 exam credit to participate in the Mock Exam. Please purchase a credit to proceed.';
-                btn.textContent = 'Purchase Credit to Join';
-                btn.disabled = true;
-            }
-            else if (!nextExam.isToday) {
-                // Has credits, wrong day
-                icon.classList.add('wait');
-                icon.textContent = '⏳';
-                msg.textContent = 'Exam Room is Closed';
-                sub.textContent = `The next mock exam is scheduled for ${formatDate(nextExam.date)}. Check back then!`;
-                btn.textContent = 'Locked Until Exam Day';
-                btn.disabled = true;
-            }
-            else {
-                // Has credits, and today is the day!
-                icon.classList.add('ready');
-                icon.textContent = '🎯';
-                msg.textContent = 'Exam Room is Open!';
-                sub.textContent = 'You have an active credit and the exam room is ready. Good luck!';
-            }
+            // Always open — no day restriction during testing
+            icon.classList.add('ready');
+            icon.textContent = '🎯';
+            msg.textContent = 'Exam Room is Open!';
+            sub.textContent = 'Select your subjects and start the mock exam. Questions are randomly selected from past years.';
         }
 
         /* ── ACTIONS ── */

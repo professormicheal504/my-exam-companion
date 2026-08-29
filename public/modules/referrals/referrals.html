@@ -1,166 +1,151 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Refer & Earn – My Exam Companion</title>
+  <title>Refer &amp; Earn - My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
   <link rel="stylesheet" href="../../components/sidebar.css?v=4">
   <style>
-    /* ---- Reset & Global ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    html { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); }
     body { min-height: 100vh; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; -webkit-appearance: none; appearance: none; }
-    
+
     :root {
+      --bg-base: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-muted: #64748b;
       --primary: #2563eb;
       --primary-dk: #1d4ed8;
       --success: #10b981;
       --warning: #f59e0b;
-      --gray-light: #f3f4f6;
-      --gray-border: #e5e7eb;
-      --gray-text: #6b7280;
+      --gray-border: #e2e8f0;
+      --gray-text: #64748b;
     }
 
-    /* ==============================
-       APP SHELL — Sidebar Layout
-    ============================== */
     .app { display: flex; min-height: 100vh; }
     .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; overflow-x: hidden; }
     @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
     @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; margin: 0 auto; width: 100%; min-width: 0; max-width: 100%; }
 
-    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; max-width: 1000px; margin: 0 auto; width: 100%; min-width: 0; max-width: 100%; }
-
-    /* ==============================
-       PAGE HEADER
-    ============================== */
     .page-header { margin-bottom: 32px; }
-    .page-header__title { font-size: 28px; font-weight: 800; color: #131212; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; letter-spacing: -0.02em; }
     .page-header__desc { font-size: 15px; color: var(--gray-text); line-height: 1.5; font-weight: 500; }
 
-    /* ==============================
-       CODE & STATS SECTION
-    ============================== */
-    .top-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; min-width: 0; max-width: 100%;
-    }
-
-    .info-card {
-      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 0; max-width: 100%;
-    }
-    .info-card h2 { font-size: 18px; font-weight: 800; margin-bottom: 16px; color: #111827; }
+    .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; min-width: 0; }
+    .info-card { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); min-width: 0; }
+    .info-card h2 { font-size: 18px; font-weight: 800; margin-bottom: 16px; color: var(--text-primary); }
     .info-card p { font-size: 14px; color: var(--gray-text); margin-bottom: 24px; line-height: 1.5; }
 
-    /* Referral Code Display */
-    .code-box {
-      display: flex; align-items: stretch; background: #fafafa; border: 2px dashed #d1d5db;
-      border-radius: 12px; overflow: hidden; margin-bottom: 16px;
-    }
-    .code-text {
-      flex: 1; font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: 2px;
-      padding: 16px 20px; display: flex; align-items: center; justify-content: center;
-    }
-    .btn-copy {
-      background: var(--primary); color: #ffffff !important; font-size: 14px; font-weight: 700;
-      padding: 0 24px; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
-    }
+    .code-box { display: flex; align-items: stretch; background: var(--bg-elevated); border: 2px dashed var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+    .code-text { flex: 1; font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: 3px; padding: 16px 20px; display: flex; align-items: center; justify-content: center; }
+    .btn-copy { background: var(--primary); color: #fff !important; font-size: 14px; font-weight: 700; padding: 0 24px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
     .btn-copy:hover { background: var(--primary-dk); }
     .btn-copy.copied { background: var(--success); }
 
-    /* Stats Grid */
-    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .stat-box {
-      background: #fafafa; padding: 20px; border-radius: 12px; border: 1px solid var(--gray-border);
-      display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center;
-    }
-    .stat-num { font-size: 36px; font-weight: 800; color: #111827; margin-bottom: 4px; line-height: 1; }
-    .stat-lbl { font-size: 13px; font-weight: 600; color: var(--gray-text); text-transform: uppercase; }
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .stat-box { background: var(--bg-elevated); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; }
+    .stat-num { font-size: 36px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; line-height: 1; }
+    .stat-lbl { font-size: 12px; font-weight: 600; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.04em; }
 
-    /* ==============================
-       REFERRALS TABLE
-    ============================== */
-    .table-card {
-      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 0; max-width: 100%; overflow: hidden;
-    }
-    .table-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #111827; }
+    .referrer-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; }
+    .referrer-box .rb-label { font-size: 12px; font-weight: 600; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.04em; }
+    .referrer-box .rb-value { font-size: 16px; font-weight: 800; color: var(--success); margin-top: 2px; }
 
+    .table-card { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); overflow: hidden; }
+    .table-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: var(--text-primary); }
     .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .ref-table { width: 100%; border-collapse: collapse; min-width: 500px; }
-    .ref-table th {
-      text-align: left; padding: 16px; font-size: 13px; font-weight: 700; color: var(--gray-text);
-      text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--gray-border);
-    }
-    .ref-table td {
-      padding: 16px; border-bottom: 1px solid #f3f4f6; font-size: 15px; font-weight: 600; color: #111827;
-    }
+    .ref-table { width: 100%; border-collapse: collapse; min-width: 480px; }
+    .ref-table th { text-align: left; padding: 14px 16px; font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--border); }
+    .ref-table td { padding: 14px 16px; border-bottom: 1px solid var(--bg-elevated); font-size: 14px; font-weight: 600; color: var(--text-primary); }
     .ref-table tr:last-child td { border-bottom: none; }
-    
+    .ref-table tr:hover td { background: var(--bg-elevated); }
+
     .user-col { display: flex; align-items: center; gap: 12px; }
-    .user-avatar {
-      width: 36px; height: 36px; border-radius: 50%; background: #fff1f2; color: var(--primary);
-      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
-    }
+    .user-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(37,99,235,0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
 
-    .badge {
-      display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 99px;
-      font-size: 12px; font-weight: 700;
-    }
-    .badge.apprentice { background: #ecfdf5; color: var(--success); }
-    .badge.scholar { background: #fef2f2; color: var(--primary); }
-    .badge.novice { background: #fffbeb; color: var(--warning); }
+    .badge { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 700; }
+    .badge.novice     { background: rgba(245,158,11,0.1);  color: #d97706; }
+    .badge.beginner   { background: rgba(245,158,11,0.1);  color: #d97706; }
+    .badge.learner    { background: rgba(245,158,11,0.1);  color: #d97706; }
+    .badge.apprentice { background: rgba(16,185,129,0.12); color: #059669; }
+    .badge.adept      { background: rgba(139,92,246,0.12); color: #7c3aed; }
+    .badge.challenger { background: rgba(139,92,246,0.12); color: #7c3aed; }
+    .badge.scholar    { background: rgba(37,99,235,0.12);  color: #2563eb; }
+    .badge.brainiac   { background: rgba(16,185,129,0.15); color: #059669; }
+    .badge.expert     { background: rgba(16,185,129,0.15); color: #059669; }
+    .badge.master     { background: rgba(249,115,22,0.12); color: #ea580c; }
+    .badge.grandmaster{ background: rgba(249,115,22,0.12); color: #ea580c; }
+    .badge.elite      { background: rgba(239,68,68,0.12);  color: #dc2626; }
+    .badge.champion   { background: rgba(239,68,68,0.12);  color: #dc2626; }
+    .badge.legend     { background: rgba(234,179,8,0.15);  color: #b45309; }
+    .badge.supremegenius { background: linear-gradient(90deg,rgba(234,179,8,0.2),rgba(239,68,68,0.2)); color: #92400e; }
 
-    /* ==============================
-       MOBILE RESPONSIVENESS
-    ============================== */
-    @media (max-width: 900px) {
-      .top-grid { grid-template-columns: 1fr; }
-    }
+    .state-box { text-align: center; padding: 40px 20px; color: var(--gray-text); font-size: 15px; font-weight: 500; }
+    .state-icon { font-size: 40px; margin-bottom: 12px; }
+
+    .tip-box { background: rgba(37,99,235,0.07); border: 1px solid rgba(37,99,235,0.18); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--text-primary); font-weight: 500; line-height: 1.5; }
+    .tip-box strong { color: var(--primary); }
+
+    /* Dark mode specific overrides */
+    [data-theme="dark"] .code-box { background: #263548 !important; border-color: #334155 !important; }
+    [data-theme="dark"] .stat-box { background: #263548 !important; border-color: #334155 !important; }
+    [data-theme="dark"] .referrer-box { background: #263548 !important; border-color: #334155 !important; }
+    [data-theme="dark"] .tip-box { background: rgba(59,130,246,0.1) !important; border-color: rgba(59,130,246,0.25) !important; }
+    [data-theme="dark"] .ref-table td { border-bottom-color: #1e293b !important; }
+    [data-theme="dark"] .ref-table tr:hover td { background: #263548 !important; }
+    [data-theme="dark"] .ref-table th { border-bottom-color: #334155 !important; }
+
+    @media (max-width: 900px) { .top-grid { grid-template-columns: 1fr; } }
     @media (max-width: 600px) {
       .content-area { padding: 20px 16px 80px; }
       .page-header__title { font-size: 24px; }
       .info-card, .table-card { padding: 20px; }
       .stats-row { grid-template-columns: 1fr; }
-      .code-box { flex-direction: column; border: 1px solid var(--gray-border); }
-      .btn-copy { padding: 16px; }
+      .code-box { flex-direction: column; }
+      .btn-copy { padding: 14px; justify-content: center; }
     }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- LEFT SIDEBAR -->
     <app-sidebar data-base="../../" data-active="reward_referrals"></app-sidebar>
-
-    <!-- MAIN WRAPPER -->
     <div class="main-wrapper">
       <app-topbar data-base="../../"></app-topbar>
-
       <main class="content-area">
         <div class="page-header">
-          <h1 class="page-header__title">Refer & Earn</h1>
-          <p class="page-header__desc">Invite your friends to use My Exam Companion and unlock monetization rewards once they reach the Apprentice rank.</p>
+          <h1 class="page-header__title">Refer &amp; Earn</h1>
+          <p class="page-header__desc">Invite your friends to use My Exam Companion. Unlock monetization rewards once enough of them reach Apprentice rank.</p>
         </div>
-        
+
         <div class="top-grid">
           <!-- Referral Code Card -->
           <div class="info-card">
             <h2>Your Unique Code</h2>
             <p>Share this code with your friends. They must enter it during sign-up for you to get the credit.</p>
-            
             <div class="code-box">
-              <div class="code-text" id="refCodeText">MEC-9A4B7C</div>
+              <div class="code-text" id="refCodeText">—</div>
               <button class="btn-copy" id="btnCopy" onclick="copyCode()">Copy Code</button>
             </div>
-            
-            <p style="margin-bottom:0; font-size:13px;">
-              <span style="color: var(--primary); font-weight:700;">Tip:</span> You need 10 friends to reach the Apprentice rank to unlock your earnings gateway!
-            </p>
+            <div class="tip-box">
+              <strong>Tip:</strong> You need to refer 50 users and have 20 reach Apprentice rank to unlock your earnings gateway!
+            </div>
           </div>
 
           <!-- Stats Card -->
@@ -168,12 +153,18 @@
             <h2>Performance Snapshot</h2>
             <div class="stats-row">
               <div class="stat-box">
-                <div class="stat-num">12</div>
+                <div class="stat-num" id="statTotal">—</div>
                 <div class="stat-lbl">Total Friends Invited</div>
               </div>
               <div class="stat-box">
-                <div class="stat-num" style="color: var(--primary);">8</div>
+                <div class="stat-num" id="statApprentice" style="color:var(--success);">—</div>
                 <div class="stat-lbl">Reached Apprentice</div>
+              </div>
+            </div>
+            <div class="referrer-box">
+              <div>
+                <div class="rb-label">Your Referral Code Was Used By</div>
+                <div class="rb-value" id="statReferredBy">—</div>
               </div>
             </div>
           </div>
@@ -191,68 +182,12 @@
                   <th>Current Rank</th>
                 </tr>
               </thead>
-              <tbody>
-                
-                <tr>
-                  <td>
-                    <div class="user-col">
-                      <div class="user-avatar">CD</div>
-                      Chinedu D.
-                    </div>
-                  </td>
-                  <td>Oct 12, 2026</td>
-                  <td><span class="badge scholar">Scholar</span></td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div class="user-col">
-                      <div class="user-avatar">AO</div>
-                      Aisha O.
-                    </div>
-                  </td>
-                  <td>Oct 14, 2026</td>
-                  <td><span class="badge apprentice">Apprentice</span></td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div class="user-col">
-                      <div class="user-avatar">FM</div>
-                      Favour M.
-                    </div>
-                  </td>
-                  <td>Oct 15, 2026</td>
-                  <td><span class="badge apprentice">Apprentice</span></td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div class="user-col">
-                      <div class="user-avatar">IP</div>
-                      Ibrahim P.
-                    </div>
-                  </td>
-                  <td>Oct 18, 2026</td>
-                  <td><span class="badge novice">Novice</span></td>
-                </tr>
-                
-                <tr>
-                  <td>
-                    <div class="user-col">
-                      <div class="user-avatar">GK</div>
-                      Grace K.
-                    </div>
-                  </td>
-                  <td>Oct 20, 2026</td>
-                  <td><span class="badge novice">Novice</span></td>
-                </tr>
-
+              <tbody id="referralsBody">
+                <tr><td colspan="3"><div class="state-box"><div class="state-icon">&#9203;</div>Loading your referrals...</div></td></tr>
               </tbody>
             </table>
           </div>
         </div>
-
       </main>
     </div>
   </div>
@@ -260,17 +195,132 @@
   <script>
     function copyCode() {
       const code = document.getElementById('refCodeText').innerText;
+      if (!code || code === 'Loading...' || code === '—') return;
       navigator.clipboard.writeText(code).then(() => {
         const btn = document.getElementById('btnCopy');
         btn.innerText = 'Copied! ✓';
         btn.classList.add('copied');
-        
-        setTimeout(() => {
-          btn.innerText = 'Copy Code';
-          btn.classList.remove('copied');
-        }, 2000);
+        setTimeout(() => { btn.innerText = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
       });
     }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  <script>
+    const RANK_LEVELS = [
+      { level:1,  name:'Novice',        minPoints:0 },
+      { level:2,  name:'Beginner',      minPoints:100 },
+      { level:3,  name:'Learner',       minPoints:300 },
+      { level:4,  name:'Apprentice',    minPoints:800 },
+      { level:5,  name:'Adept',         minPoints:1500 },
+      { level:6,  name:'Challenger',    minPoints:2500 },
+      { level:7,  name:'Scholar',       minPoints:4500 },
+      { level:8,  name:'Brainiac',      minPoints:7000 },
+      { level:9,  name:'Expert',        minPoints:10000 },
+      { level:10, name:'Master',        minPoints:15000 },
+      { level:11, name:'Grandmaster',   minPoints:25000 },
+      { level:12, name:'Elite',         minPoints:40000 },
+      { level:13, name:'Champion',      minPoints:65000 },
+      { level:14, name:'Legend',        minPoints:100000 },
+      { level:15, name:'Supreme Genius',minPoints:1000000 }
+    ];
+
+    function getRankForPoints(pts) {
+      let rank = RANK_LEVELS[0];
+      for (const r of RANK_LEVELS) { if (pts >= r.minPoints) rank = r; else break; }
+      return rank;
+    }
+
+    function badgeCls(rankName) {
+      return (rankName || '').toLowerCase().replace(/\s+/g,'');
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '—';
+      return new Date(iso).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    }
+
+    function getInitials(name) {
+      if (!name) return '??';
+      const p = name.trim().split(/\s+/);
+      return p.length === 1 ? p[0].slice(0,2).toUpperCase() : (p[0][0]+p[p.length-1][0]).toUpperCase();
+    }
+
+    async function initReferrals() {
+      if (typeof MECSupabase === 'undefined') { setTimeout(initReferrals, 300); return; }
+
+      const user = await MECSupabase.getCurrentUser();
+      if (!user) {
+        document.querySelector('.content-area').innerHTML = `
+          <div style="text-align:center;padding:80px 20px;">
+            <div style="font-size:48px;margin-bottom:16px;">&#128274;</div>
+            <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Login Required</h2>
+            <p style="font-size:15px;color:var(--gray-text);margin-bottom:24px;">You must be logged in to see your referral data.</p>
+            <button onclick="window.location.href='../auth/login.html'"
+              style="background:var(--primary);color:#fff;padding:12px 28px;border-radius:12px;font-size:15px;font-weight:700;border:none;cursor:pointer;">
+              Login / Register
+            </button>
+          </div>`;
+        return;
+      }
+
+      const sb = MECSupabase.getSupabase();
+
+      // Fetch current user profile
+      const { data: profile, error: pErr } = await sb
+        .from('profiles')
+        .select('referral_code, referred_by, full_name, global_points')
+        .eq('id', user.id)
+        .single();
+
+      if (pErr || !profile) {
+        document.getElementById('refCodeText').textContent = 'N/A';
+        document.getElementById('statTotal').textContent = '0';
+        document.getElementById('statApprentice').textContent = '0';
+        document.getElementById('statReferredBy').textContent = 'None';
+        document.getElementById('referralsBody').innerHTML =
+          '<tr><td colspan="3"><div class="state-box"><div class="state-icon">&#9888;&#65039;</div>Could not load profile data.</div></td></tr>';
+        return;
+      }
+
+      const myCode = profile.referral_code || '—';
+      document.getElementById('refCodeText').textContent = myCode;
+      document.getElementById('statReferredBy').textContent = profile.referred_by || 'None';
+
+      // Fetch all referred users
+      let referrals = [];
+      if (myCode !== '—') {
+        const { data: refs } = await sb
+          .from('profiles')
+          .select('id, full_name, global_points, created_at')
+          .eq('referred_by', myCode)
+          .order('created_at', { ascending: false });
+        if (refs) referrals = refs;
+      }
+
+      const apprenticeCount = referrals.filter(r => getRankForPoints(r.global_points || 0).level >= 4).length;
+      document.getElementById('statTotal').textContent = referrals.length;
+      document.getElementById('statApprentice').textContent = apprenticeCount;
+
+      const tbody = document.getElementById('referralsBody');
+      if (referrals.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3"><div class="state-box"><div class="state-icon">&#128101;</div>No referrals yet. Share your code to get started!</div></td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = referrals.map(r => {
+        const rank = getRankForPoints(r.global_points || 0);
+        const initials = getInitials(r.full_name);
+        return `<tr>
+          <td><div class="user-col"><div class="user-avatar">${initials}</div>${r.full_name || 'User'}</div></td>
+          <td>${formatDate(r.created_at)}</td>
+          <td><span class="badge ${badgeCls(rank.name)}">${rank.name}</span></td>
+        </tr>`;
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', initReferrals);
   </script>
 
   <script src="../../components/nav.js" defer></script>

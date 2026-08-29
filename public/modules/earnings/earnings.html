@@ -1,250 +1,378 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Earnings Gateway – My Exam Companion</title>
+  <title>Earnings Gateway - My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
   <link rel="stylesheet" href="../../components/sidebar.css?v=4">
   <style>
-    /* ---- Reset & Global ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; background: #f7f7f8; color: #131212; }
+    html { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); }
     body { min-height: 100vh; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
-    
+
     :root {
+      --bg-base: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-muted: #64748b;
       --primary: #2563eb;
       --primary-dk: #1d4ed8;
       --success: #10b981;
       --warning: #f59e0b;
-      --gray-light: #f3f4f6;
-      --gray-border: #e5e7eb;
-      --gray-text: #6b7280;
+      --gray-border: #e2e8f0;
+      --gray-text: #64748b;
     }
 
-    /* ==============================
-       APP SHELL — Sidebar Layout
-    ============================== */
     .app { display: flex; min-height: 100vh; }
     .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0; overflow-x: hidden; }
     @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
     @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; margin: 0 auto; width: 100%; min-width: 0; max-width: 100%; }
 
-    .content-area { padding: 32px 24px 60px; flex: 1; overflow-y: auto; overflow-x: hidden; max-width: 1000px; margin: 0 auto; width: 100%; min-width: 0; }
-
-    /* ==============================
-       PAGE HEADER
-    ============================== */
     .page-header { margin-bottom: 32px; }
-    .page-header__title { font-size: 28px; font-weight: 800; color: #131212; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header__title { font-size: 28px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; letter-spacing: -0.02em; }
     .page-header__desc { font-size: 15px; color: var(--gray-text); line-height: 1.5; font-weight: 500; }
 
-    /* ==============================
-       GATEWAY TRACKER CARD
-    ============================== */
-    .gateway-card {
-      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 32px;
-    }
-    .gateway-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #111827; }
+    /* Gateway Requirements Card */
+    .gateway-card { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 32px; }
+    .gateway-card h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: var(--text-primary); }
 
     .checklist { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
-    .check-item {
-      display: flex; align-items: flex-start; gap: 16px; background: #fafafa; padding: 16px 20px;
-      border-radius: 12px; border: 1px solid var(--gray-border);
-    }
-    .check-item.done { border-color: #a7f3d0; background: #ecfdf5; }
-    
-    .check-icon {
-      width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 800; flex-shrink: 0;
-    }
-    .check-item.done .check-icon { background: var(--success); color: white; }
+    .check-item { display: flex; align-items: flex-start; gap: 16px; background: var(--bg-elevated); padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border); transition: border-color 0.3s; }
+    .check-item.done { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.06); }
+    .check-item.pending { border-color: var(--border); }
+    .check-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .check-item.done    .check-icon { background: var(--success); color: white; }
     .check-item.pending .check-icon { background: var(--warning); color: white; }
-    
-    .check-text { font-size: 15px; font-weight: 600; color: #374151; line-height: 1.5; }
-    .check-text strong { color: #111827; }
+    .check-body { flex: 1; }
+    .check-text { font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.5; }
     .check-meta { font-size: 13px; color: var(--gray-text); margin-top: 4px; font-weight: 500; }
+    .check-progress { margin-top: 10px; }
+    .mini-bar-wrap { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; margin-bottom: 4px; }
+    .mini-bar-fill { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+    .mini-bar-fill.green  { background: var(--success); }
+    .mini-bar-fill.blue   { background: var(--primary); }
+    .mini-bar-fill.orange { background: var(--warning); }
 
-    .progress-bar-wrap { height: 8px; background: var(--gray-border); border-radius: 99px; overflow: hidden; margin-bottom: 12px; }
-    .progress-bar-fill { height: 100%; background: var(--primary); width: 100%; border-radius: 99px; transition: width 0.5s ease; }
-    .progress-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: #374151; }
+    .progress-bar-wrap { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; margin-bottom: 12px; }
+    .progress-bar-fill { height: 100%; background: var(--primary); border-radius: 99px; transition: width 0.6s ease; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-primary); }
 
-    /* ==============================
-       EARNINGS DASHBOARD
-    ============================== */
+    /* Dashboard section */
     .dashboard-wrapper { position: relative; }
-    
-    /* Lock Overlay */
     .locked-overlay {
-      position: absolute; inset: 0; background: rgba(255,255,255,0.7); backdrop-filter: blur(4px);
+      position: absolute; inset: 0; background: rgba(248,250,252,0.82); backdrop-filter: blur(6px);
       z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      border-radius: 20px; padding: 24px; text-align: center; border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 20px; padding: 24px; text-align: center; border: 1px solid var(--border);
     }
-    .locked-icon { font-size: 48px; margin-bottom: 16px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); }
-    .locked-title { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px; }
-    .locked-desc { font-size: 14px; color: var(--gray-text); max-width: 400px; line-height: 1.5; font-weight: 500; }
+    .locked-icon { font-size: 52px; margin-bottom: 16px; }
+    .locked-title { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+    .locked-desc { font-size: 14px; color: var(--gray-text); max-width: 400px; line-height: 1.6; font-weight: 500; }
 
-    .dashboard-grid {
-      display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;
-    }
-    
-    .dash-card {
-      background: white; border-radius: 20px; border: 1px solid var(--gray-border); padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-    .dash-card h3 { font-size: 16px; font-weight: 700; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .dashboard-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
+    .dash-card { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .dash-card h3 { font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
 
-    /* Balance Info */
-    .bal-amount { font-size: 40px; font-weight: 800; color: #111827; line-height: 1; margin-bottom: 8px; }
+    .bal-amount { font-size: 40px; font-weight: 800; color: var(--text-primary); line-height: 1; margin-bottom: 8px; }
     .bal-data { font-size: 18px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
-    .bal-data-icon { background: #fff1f2; padding: 4px 8px; border-radius: 6px; }
-    
-    .withdraw-rule { font-size: 13px; color: var(--gray-text); background: #f9fafb; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-weight: 600; border: 1px solid var(--gray-border); }
-    
-    .btn-withdraw {
-      width: 100%; background: var(--primary); color: white; font-size: 15px; font-weight: 700;
-      padding: 16px; border-radius: 12px; transition: all 0.2s ease; border: none; cursor: pointer;
-    }
-    .btn-withdraw:hover { background: var(--primary-dk); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(183,12,1,0.2); }
-    .btn-withdraw:active { transform: translateY(0); }
-    
-    .payout-note { font-size: 12px; color: var(--gray-text); margin-top: 16px; text-align: center; line-height: 1.5; }
+    .bal-data-icon { background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 6px; font-size: 16px; }
+    .withdraw-rule { font-size: 13px; color: var(--gray-text); background: var(--bg-elevated); padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-weight: 600; border: 1px solid var(--border); line-height: 1.5; }
+    .btn-withdraw { width: 100%; background: var(--primary); color: white; font-size: 15px; font-weight: 700; padding: 16px; border-radius: 12px; transition: all 0.2s ease; border: none; cursor: pointer; }
+    .btn-withdraw:hover:not(:disabled) { background: var(--primary-dk); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37,99,235,0.25); }
+    .btn-withdraw:disabled { opacity: 0.5; cursor: not-allowed; }
+    .payout-note { font-size: 12px; color: var(--gray-text); margin-top: 16px; text-align: center; line-height: 1.6; }
 
-    /* Earning Sources */
     .sources-list { display: flex; flex-direction: column; gap: 12px; }
-    .source-item {
-      display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; background: #fafafa; border: 1px solid var(--gray-border);
-    }
-    .source-icon { width: 32px; height: 32px; border-radius: 8px; background: #fff1f2; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .source-text { font-size: 14px; font-weight: 600; color: #111827; }
+    .source-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; background: var(--bg-elevated); border: 1px solid var(--border); }
+    .source-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(37,99,235,0.1); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .source-text { font-size: 14px; font-weight: 600; color: var(--text-primary); }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .dashboard-grid { grid-template-columns: 1fr; }
-    }
+    /* Dark mode specific overrides */
+    [data-theme="dark"] .locked-overlay { background: rgba(15,23,42,0.85) !important; border-color: #334155 !important; }
+    [data-theme="dark"] .check-item { background: #263548 !important; border-color: #334155 !important; }
+    [data-theme="dark"] .check-item.done { border-color: rgba(16,185,129,0.35) !important; background: rgba(16,185,129,0.08) !important; }
+    [data-theme="dark"] .withdraw-rule { background: #1e293b !important; border-color: #334155 !important; }
+    [data-theme="dark"] .source-item { background: #263548 !important; border-color: #334155 !important; }
+    [data-theme="dark"] .mini-bar-wrap { background: #334155 !important; }
+
+    @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
     @media (max-width: 600px) {
       .content-area { padding: 20px 16px 80px; }
       .page-header__title { font-size: 24px; }
-      .gateway-card { padding: 20px; }
-      .dash-card { padding: 20px; }
-      .check-item { flex-direction: column; gap: 12px; }
+      .gateway-card, .dash-card { padding: 20px; }
+      .check-item { flex-direction: row; }
     }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- LEFT SIDEBAR -->
     <app-sidebar data-base="../../" data-active="reward_earnings"></app-sidebar>
-
-    <!-- MAIN WRAPPER -->
     <div class="main-wrapper">
       <app-topbar data-base="../../"></app-topbar>
-
       <main class="content-area">
         <div class="page-header">
           <h1 class="page-header__title">Monetization Gateway</h1>
-          <p class="page-header__desc">Track your eligibility to start earning real cash and free data from your content.</p>
+          <p class="page-header__desc">Track your eligibility to start earning real cash and free data. Complete all three requirements to unlock your earnings.</p>
         </div>
-        
+
         <!-- Eligibility Tracker -->
         <div class="gateway-card">
           <h2>Eligibility Requirements</h2>
-          
           <div class="checklist">
-            <!-- Req 1: User Rank -->
-            <div class="check-item done">
-              <div class="check-icon">✓</div>
-              <div class="check-text">
-                Achieve the <strong>Scholar</strong> rank yourself.
-                <div class="check-meta">You are currently a Scholar.</div>
+            <!-- Req 1: Scholar Rank -->
+            <div class="check-item pending" id="req1Item">
+              <div class="check-icon" id="req1Icon">1</div>
+              <div class="check-body">
+                <div class="check-text">Achieve the <strong>Scholar</strong> rank yourself.</div>
+                <div class="check-meta" id="req1Meta">Loading your rank...</div>
+                <div class="check-progress" id="req1Progress" style="display:none;">
+                  <div class="mini-bar-wrap"><div class="mini-bar-fill blue" id="req1Bar" style="width:0%"></div></div>
+                </div>
               </div>
             </div>
-            
-            <!-- Req 2: Total Referrals -->
-            <div class="check-item done">
-              <div class="check-icon">✓</div>
-              <div class="check-text">
-                Refer at least <strong>10 users</strong> using your code.
-                <div class="check-meta">12 / 10 Users Referred</div>
+
+            <!-- Req 2: Refer 50 users -->
+            <div class="check-item pending" id="req2Item">
+              <div class="check-icon" id="req2Icon">2</div>
+              <div class="check-body">
+                <div class="check-text">Refer at least <strong>50 users</strong> using your code.</div>
+                <div class="check-meta" id="req2Meta">Loading...</div>
+                <div class="check-progress">
+                  <div class="mini-bar-wrap"><div class="mini-bar-fill green" id="req2Bar" style="width:0%"></div></div>
+                </div>
               </div>
             </div>
-            
-            <!-- Req 3: Referral Ranks -->
-            <div class="check-item done">
-              <div class="check-icon">✓</div>
-              <div class="check-text">
-                Each of your referred users must pass the <strong>Apprentice</strong> rank.
-                <div class="check-meta">10 / 10 Referrals reached Apprentice rank</div>
+
+            <!-- Req 3: 20 reach Apprentice -->
+            <div class="check-item pending" id="req3Item">
+              <div class="check-icon" id="req3Icon">3</div>
+              <div class="check-body">
+                <div class="check-text">Have <strong>20 referrals</strong> reach the <strong>Apprentice</strong> rank.</div>
+                <div class="check-meta" id="req3Meta">Loading...</div>
+                <div class="check-progress">
+                  <div class="mini-bar-wrap"><div class="mini-bar-fill orange" id="req3Bar" style="width:0%"></div></div>
+                </div>
               </div>
             </div>
           </div>
-          
+
           <!-- Overall Progress -->
           <div>
             <div class="progress-bar-wrap">
-              <div class="progress-bar-fill"></div>
+              <div class="progress-bar-fill" id="overallBar" style="width:0%"></div>
             </div>
             <div class="progress-label">
               <span>Overall Progress</span>
-              <span style="color: var(--primary);">100%</span>
+              <span style="color:var(--primary);" id="overallPct">0%</span>
             </div>
           </div>
         </div>
 
-        <!-- Unlocked Dashboard -->
-        <div class="dashboard-wrapper">
-          <!-- The overlay has been removed to open the blur path -->
-          
+        <!-- Dashboard (locked by default, unlocked dynamically) -->
+        <div class="dashboard-wrapper" id="dashWrapper">
+          <div class="locked-overlay" id="lockedOverlay">
+            <div class="locked-icon">&#128274;</div>
+            <div class="locked-title">Not Unlocked Yet</div>
+            <div class="locked-desc" id="lockedDesc">Complete all three eligibility requirements above to unlock your earnings dashboard.</div>
+          </div>
+
           <div class="dashboard-grid">
             <!-- Balance Card -->
             <div class="dash-card">
               <h3>Available Balance</h3>
-              <div class="bal-amount">₦12,500</div>
+              <div class="bal-amount" id="balAmount">$0.000</div>
               <div class="bal-data">
-                <span class="bal-data-icon">📶</span> + 15GB Free Data
+                <span class="bal-data-icon">&#128246;</span>
+                <span id="balData">0MB Free Data</span>
               </div>
-              
               <div class="withdraw-rule">
-                ⚠️ Minimum Withdrawal: <strong>₦10,000</strong> & <strong>10GB Free Data</strong>
+                &#9888;&#65039; Minimum Withdrawal: <strong>$10.00</strong> &amp; <strong>10GB Free Data</strong>
               </div>
-              
-              <button class="btn-withdraw">Request Payout</button>
+              <button class="btn-withdraw" id="btnWithdraw" disabled>Request Payout</button>
               <p class="payout-note">Payouts are automatically processed at the end of the month.<br>You can also request a manual payout once you hit the minimum.</p>
             </div>
-            
+
             <!-- Earning Sources Card -->
             <div class="dash-card">
               <h3>Earning Sources</h3>
-              <p style="font-size: 13px; color: var(--gray-text); margin-bottom: 16px; line-height: 1.5;">Once unlocked, you will earn from the following content engagements:</p>
-              
+              <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;line-height:1.6;">Once unlocked, you will earn from the following content engagements:</p>
               <div class="sources-list">
                 <div class="source-item">
-                  <div class="source-icon">📝</div>
+                  <div class="source-icon">&#128221;</div>
                   <div class="source-text">Mock Exams</div>
                 </div>
                 <div class="source-item">
-                  <div class="source-icon">🎯</div>
+                  <div class="source-icon">&#127919;</div>
                   <div class="source-text">Predicted Questions (JAMB, WAEC, NECO)</div>
                 </div>
                 <div class="source-item">
-                  <div class="source-icon">🧠</div>
+                  <div class="source-icon">&#129504;</div>
                   <div class="source-text">Trivia (JAMB, WAEC, NECO)</div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
 
       </main>
     </div>
   </div>
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  <script>
+    const RANK_LEVELS = [
+      { level:1,  name:'Novice',        minPoints:0 },
+      { level:2,  name:'Beginner',      minPoints:100 },
+      { level:3,  name:'Learner',       minPoints:300 },
+      { level:4,  name:'Apprentice',    minPoints:800 },
+      { level:5,  name:'Adept',         minPoints:1500 },
+      { level:6,  name:'Challenger',    minPoints:2500 },
+      { level:7,  name:'Scholar',       minPoints:4500 },
+      { level:8,  name:'Brainiac',      minPoints:7000 },
+      { level:9,  name:'Expert',        minPoints:10000 },
+      { level:10, name:'Master',        minPoints:15000 },
+      { level:11, name:'Grandmaster',   minPoints:25000 },
+      { level:12, name:'Elite',         minPoints:40000 },
+      { level:13, name:'Champion',      minPoints:65000 },
+      { level:14, name:'Legend',        minPoints:100000 },
+      { level:15, name:'Supreme Genius',minPoints:1000000 }
+    ];
+
+    function getRankForPoints(pts) {
+      let rank = RANK_LEVELS[0];
+      for (const r of RANK_LEVELS) { if (pts >= r.minPoints) rank = r; else break; }
+      return rank;
+    }
+
+    function markDone(itemId, iconId) {
+      document.getElementById(itemId).classList.replace('pending','done');
+      document.getElementById(iconId).textContent = '\u2713';
+    }
+
+    function setBar(barId, pct) {
+      document.getElementById(barId).style.width = Math.min(100, Math.round(pct)) + '%';
+    }
+
+    async function initEarnings() {
+      if (typeof MECSupabase === 'undefined') { setTimeout(initEarnings, 300); return; }
+
+      const user = await MECSupabase.getCurrentUser();
+      if (!user) {
+        document.querySelector('.content-area').innerHTML = `
+          <div style="text-align:center;padding:80px 20px;">
+            <div style="font-size:48px;margin-bottom:16px;">&#128274;</div>
+            <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Login Required</h2>
+            <p style="font-size:15px;color:var(--gray-text);margin-bottom:24px;">You must be logged in to view your earnings eligibility.</p>
+            <button onclick="window.location.href='../auth/login.html'"
+              style="background:var(--primary);color:#fff;padding:12px 28px;border-radius:12px;font-size:15px;font-weight:700;border:none;cursor:pointer;">
+              Login / Register
+            </button>
+          </div>`;
+        return;
+      }
+
+      const sb = MECSupabase.getSupabase();
+
+      // Fetch user profile
+      const { data: profile } = await sb
+        .from('profiles')
+        .select('referral_code, global_points, rank_level')
+        .eq('id', user.id)
+        .single();
+
+      const userPts   = profile ? (profile.global_points || 0) : 0;
+      const myCode    = profile ? (profile.referral_code  || '') : '';
+      const userRank  = getRankForPoints(userPts);
+      const isScholar = userRank.level >= 7;  // Scholar = level 7
+
+      // Req 1: Scholar rank
+      const scholarPts = 4500;
+      const req1Pct = Math.min(100, (userPts / scholarPts) * 100);
+      document.getElementById('req1Meta').textContent = isScholar
+        ? `You are currently a ${userRank.name}. Requirement met!`
+        : `${userPts.toLocaleString()} / 4,500 points — currently ${userRank.name}`;
+      if (!isScholar) {
+        document.getElementById('req1Progress').style.display = 'block';
+        setBar('req1Bar', req1Pct);
+      }
+      if (isScholar) markDone('req1Item', 'req1Icon');
+
+      // Fetch referrals
+      let referrals = [];
+      if (myCode) {
+        const { data: refs } = await sb
+          .from('profiles')
+          .select('global_points')
+          .eq('referred_by', myCode);
+        if (refs) referrals = refs;
+      }
+
+      const totalRefs      = referrals.length;
+      const apprenticeRefs = referrals.filter(r => getRankForPoints(r.global_points || 0).level >= 4).length;
+      const req2Done = totalRefs >= 50;
+      const req3Done = apprenticeRefs >= 20;
+
+      // Req 2: 50 referrals
+      document.getElementById('req2Meta').textContent = `${totalRefs} / 50 Users Referred`;
+      setBar('req2Bar', (totalRefs / 50) * 100);
+      if (req2Done) markDone('req2Item', 'req2Icon');
+
+      // Req 3: 20 referrals at Apprentice+
+      document.getElementById('req3Meta').textContent = `${apprenticeRefs} / 20 Referrals reached Apprentice`;
+      setBar('req3Bar', (apprenticeRefs / 20) * 100);
+      if (req3Done) markDone('req3Item', 'req3Icon');
+
+      // Overall progress
+      const metCount = [isScholar, req2Done, req3Done].filter(Boolean).length;
+      const overallPct = Math.round((metCount / 3) * 100);
+      document.getElementById('overallBar').style.width = overallPct + '%';
+      document.getElementById('overallPct').textContent = overallPct + '%';
+
+      // Read accumulated balance from localStorage
+      const currentCash = parseFloat(localStorage.getItem('mec_earnings_cash') || '0').toFixed(3);
+      const currentData = parseInt(localStorage.getItem('mec_earnings_data') || '0', 10);
+
+      // Unlock dashboard if all 3 met
+      const allDone = isScholar && req2Done && req3Done;
+      if (allDone) {
+        document.getElementById('lockedOverlay').style.display = 'none';
+        document.getElementById('btnWithdraw').disabled = false;
+        
+        document.getElementById('balAmount').textContent = '$' + currentCash;
+        document.getElementById('balData').textContent   = currentData + 'MB Free Data';
+      } else {
+        // Build a helpful locked message
+        const missing = [];
+        if (!isScholar)  missing.push('reach Scholar rank');
+        if (!req2Done)   missing.push(`refer ${50 - totalRefs} more user${(50-totalRefs)===1?'':'s'}`);
+        if (!req3Done)   missing.push(`get ${20 - apprenticeRefs} more referral${(20-apprenticeRefs)===1?'':'s'} to Apprentice`);
+        document.getElementById('lockedDesc').textContent =
+          'Still needed: ' + missing.join('; ') + '.';
+        
+        document.getElementById('balAmount').textContent = '$' + currentCash;
+        document.getElementById('balData').textContent   = currentData + 'MB Free Data';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initEarnings);
+  </script>
+
   <script src="../../components/nav.js" defer></script>
   <script src="../../components/sidebar.js?v=12" defer></script>
   <script src="../../components/topbar.js" defer></script>

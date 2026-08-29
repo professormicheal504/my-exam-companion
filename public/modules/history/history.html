@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>History & Analysis – My Exam Companion</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=6">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    .page-content { padding: 32px 40px; max-width: 1100px; margin: 0 auto; width: 100%; }
+    @media (max-width: 768px) { .page-content { padding: 24px 20px; } }
+
+    .page-header { margin-bottom: 32px; }
+    .page-title { font-size: 28px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-muted); }
+
+    /* Overview Stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .stat-card { background: var(--bg-card); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; border: 1px solid var(--border); }
+    .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; }
+    .icon-blue { background: #2563eb; }
+    .icon-green { background: #16a34a; }
+    .icon-purple { background: #9333ea; }
+    .stat-info { display: flex; flex-direction: column; }
+    .stat-val { font-size: 24px; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+    .stat-lbl { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+
+    /* Layout: Main History + Sidebar (Weaknesses) */
+    .layout-grid { display: grid; grid-template-columns: 1fr 340px; gap: 32px; }
+    @media (max-width: 900px) { .layout-grid { grid-template-columns: 1fr; } }
+
+    /* Filters */
+    .filters-bar { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .filter-select { padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); font-size: 14px; font-weight: 500; color: var(--text-primary); outline: none; cursor: pointer; }
+    .filter-select:focus { border-color: #2563eb; }
+
+    /* History List */
+    .history-list { display: flex; flex-direction: column; gap: 16px; }
+    .history-card { background: var(--bg-card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; position: relative; display: flex; flex-direction: column; gap: 16px; }
+    .history-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--border); }
+    
+    .hc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .hc-title-area { display: flex; flex-direction: column; gap: 4px; }
+    .hc-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+    .hc-meta { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+    .hc-meta span { display: inline-flex; align-items: center; gap: 4px; }
+    
+    .hc-score-area { text-align: right; }
+    .hc-score { font-size: 20px; font-weight: 800; color: var(--text-primary); line-height: 1; margin-bottom: 6px; }
+    
+    .perf-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-excellent { background: #dcfce7; color: #166534; }
+    .badge-good      { background: #dbeafe; color: #1e40af; }
+    .badge-average   { background: #fef3c7; color: #92400e; }
+    .badge-poor      { background: #fee2e2; color: #b91c1c; }
+
+    [data-theme="dark"] .badge-excellent { background: rgba(22,163,74,0.2); color: #4ade80; }
+    [data-theme="dark"] .badge-good      { background: rgba(37,99,235,0.2); color: #60a5fa; }
+    [data-theme="dark"] .badge-average   { background: rgba(234,179,8,0.2); color: #facc15; }
+    [data-theme="dark"] .badge-poor      { background: rgba(239,68,68,0.2); color: #f87171; }
+
+    .hc-subjects { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--border); }
+    .hc-subject-tag { background: var(--bg-base); color: var(--text-primary); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
+    .hc-subject-tag.weak { background: rgba(239,68,68,0.12); color: #ef4444; }
+    .hc-subject-tag .score { font-weight: 800; }
+
+    .hc-actions { display: flex; justify-content: flex-end; margin-top: -10px; }
+    .btn-review { background: var(--bg-base); color: var(--text-primary); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; }
+    .btn-review:hover { background: var(--border); color: var(--text-primary); }
+
+    /* Weakness Panel */
+    .weakness-panel { background: var(--bg-card); border-radius: 12px; padding: 24px; border: 1px solid var(--border); height: max-content; }
+    .wp-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .wp-title svg { color: #ef4444; }
+    .wp-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+    
+    .weak-list { display: flex; flex-direction: column; gap: 12px; }
+    .weak-item { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: var(--bg-base); border-radius: 8px; border: 1px solid var(--border); }
+    .wi-header { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .wi-score { color: #ef4444; font-weight: 700; }
+    .wi-bar-bg { width: 100%; height: 6px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .wi-bar-fill { height: 100%; background: #ef4444; border-radius: 4px; }
+
+    /* State messages */
+    .state-message { text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); }
+    .state-message svg { margin-bottom: 16px; color: var(--text-muted); }
+    .state-message h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+    .state-message p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+    .btn-primary { background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; }
+
+    /* Loader */
+    .loader { display: none; text-align: center; padding: 40px; }
+    .loader.active { display: block; }
+    .spinner { display: inline-block; width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: #2563eb; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../" data-active="history"></app-sidebar>
+    <div class="main-wrapper">
+      <app-topbar data-base="../../"></app-topbar>
+      
+      <div class="page-content">
+        <div class="page-header">
+          <h1 class="page-title">Exam History & Analysis</h1>
+          <p class="page-desc">Track your performance over time and identify areas for improvement.</p>
+        </div>
+
+        <div id="unauth-state" class="state-message" style="display: none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          <h3>Log In to Track History</h3>
+          <p>Your exam results are saved securely to your account. Log in to view your detailed history and weaknesses.</p>
+          <a href="../auth/login.html" class="btn-primary">Log In / Sign Up</a>
+        </div>
+
+        <div id="auth-content" style="display: none;">
+          <!-- Stats -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon icon-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-val" id="stat-total">0</span>
+                <span class="stat-lbl">Exams Taken</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon icon-purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-val" id="stat-avg">0%</span>
+                <span class="stat-lbl">Average Score</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon icon-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.25 18a.75.75 0 0 0 0 1.5c5.4 0 10.6 0 16 0a.75.75 0 0 0 0-1.5H2.25Z"/><path d="M12 2.25c-1.07 0-1.928.981-1.748 2.03l.942 5.485-4.526-2.613a1.8 1.8 0 0 0-2.69 1.954l2.128 7.394H17.9l2.128-7.394a1.8 1.8 0 0 0-2.69-1.954l-4.526 2.613.942-5.485C13.928 3.23 13.07 2.25 12 2.25Z"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-val" id="stat-best">0%</span>
+                <span class="stat-lbl">Best Score</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="layout-grid">
+            <div class="main-col">
+              <div class="filters-bar" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; align-items:center;">
+                <div style="display:flex; gap:10px;">
+                  <select id="filter-period" class="filter-select" onchange="loadHistory()">
+                    <option value="all">All Time</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                  </select>
+                  <select id="filter-body" class="filter-select" onchange="loadHistory()">
+                    <option value="all">All Exams</option>
+                    <option value="JAMB">JAMB</option>
+                    <option value="WAEC">WAEC</option>
+                    <option value="NECO">NECO</option>
+                    <option value="POST-UTME">POST-UTME</option>
+                  </select>
+                </div>
+                <div class="friend-search-bar" style="display:flex; gap:10px;">
+                  <input type="text" id="friend-matric" class="filter-select" placeholder="Friend's Matric No..." style="width:160px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-surface); color: var(--text-primary);" />
+                  <button class="btn-primary" onclick="searchFriend()" style="padding: 6px 12px; font-size: 13px;">Check</button>
+                  <button id="btn-my-history" class="btn-primary" onclick="loadHistory()" style="display:none; padding: 6px 12px; font-size: 13px; background: #6b7280; border:none;">My History</button>
+                </div>
+              </div>
+              <div id="friend-info" style="display:none; margin-bottom: 20px; padding: 12px 16px; background: var(--bg-surface); border: 1px solid var(--primary); border-radius: 8px; color: var(--primary); font-weight:500;">
+                Viewing History for: <strong id="friend-name"></strong>
+              </div>
+
+              <div id="loader" class="loader"><div class="spinner"></div></div>
+              
+              <div id="history-container" class="history-list"></div>
+              
+              <div id="empty-state" class="state-message" style="display: none;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <h3>No Exams Found</h3>
+                <p>You haven't taken any exams matching these filters.</p>
+                <a href="../cbt_test/core/setup.html" class="btn-primary">Take an Exam</a>
+              </div>
+            </div>
+
+            <div class="side-col">
+              <div class="weakness-panel">
+                <div class="wp-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  Subject Weaknesses
+                </div>
+                <p class="wp-desc">Subjects where you consistently score below 50%. Focus your study time here.</p>
+                <div id="weakness-list" class="weak-list">
+                  <!-- JS populated -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="../../components/topbar.js" type="module"></script>
+  <script defer src="../../components/sidebar.js" type="module"></script>
+  
+  <script>
+    let examHistory = [];
+    
+    document.addEventListener('DOMContentLoaded', async () => {
+      const user = await MECSupabase.getCurrentUser();
+      if (!user) {
+        document.getElementById('unauth-state').style.display = 'block';
+        return;
+      }
+      document.getElementById('auth-content').style.display = 'block';
+      loadHistory();
+    });
+
+    async function loadHistory() {
+      // Reset UI to own history
+      document.getElementById('friend-matric').value = '';
+      document.getElementById('btn-my-history').style.display = 'none';
+      document.getElementById('friend-info').style.display = 'none';
+
+      const loader = document.getElementById('loader');
+      const container = document.getElementById('history-container');
+      const emptyState = document.getElementById('empty-state');
+      
+      container.innerHTML = '';
+      emptyState.style.display = 'none';
+      loader.classList.add('active');
+
+      const period = document.getElementById('filter-period').value;
+      const body = document.getElementById('filter-body').value;
+
+      const { rows, error } = await MECSupabase.getUserHistory({ period, exam_body: body, limit: 100 });
+      loader.classList.remove('active');
+
+      if (error || rows.length === 0) {
+        emptyState.style.display = 'block';
+        updateStats([]);
+        updateWeaknesses([]);
+        return;
+      }
+
+      examHistory = rows;
+      updateStats(rows);
+      updateWeaknesses(rows);
+      renderList(rows);
+    }
+
+    async function searchFriend() {
+      const matric = document.getElementById('friend-matric').value.trim();
+      if (!matric) return;
+
+      const loader = document.getElementById('loader');
+      const container = document.getElementById('history-container');
+      const emptyState = document.getElementById('empty-state');
+      
+      container.innerHTML = '';
+      emptyState.style.display = 'none';
+      loader.classList.add('active');
+
+      const period = document.getElementById('filter-period').value;
+      const body = document.getElementById('filter-body').value;
+
+      const { rows, error, profile } = await MECSupabase.getFriendHistory(matric, { period, exam_body: body, limit: 100 });
+      loader.classList.remove('active');
+
+      if (error === 'friend_not_found') {
+        emptyState.innerHTML = `
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <h3>Friend Not Found</h3>
+          <p>No user found with the matric number: ${matric}</p>
+        `;
+        emptyState.style.display = 'block';
+        updateStats([]);
+        updateWeaknesses([]);
+        document.getElementById('btn-my-history').style.display = 'inline-block';
+        return;
+      }
+
+      document.getElementById('btn-my-history').style.display = 'inline-block';
+
+      if (profile) {
+        document.getElementById('friend-info').style.display = 'block';
+        document.getElementById('friend-name').textContent = profile.full_name || matric;
+      }
+
+      if (error || rows.length === 0) {
+        emptyState.innerHTML = `
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <h3>No Exams Found</h3>
+          <p>This user hasn't taken any exams matching these filters.</p>
+        `;
+        emptyState.style.display = 'block';
+        updateStats([]);
+        updateWeaknesses([]);
+        return;
+      }
+
+      // Reset empty state in case it was modified
+      emptyState.innerHTML = `
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <h3>No Exams Found</h3>
+        <p>You haven't taken any exams matching these filters.</p>
+        <a href="../cbt_test/core/setup.html" class="btn-primary">Take an Exam</a>
+      `;
+
+      examHistory = rows;
+      updateStats(rows);
+      updateWeaknesses(rows);
+      renderList(rows);
+    }
+
+    function updateStats(rows) {
+      document.getElementById('stat-total').textContent = rows.length;
+      if (rows.length === 0) {
+        document.getElementById('stat-avg').textContent = '0%';
+        document.getElementById('stat-best').textContent = '0%';
+        return;
+      }
+      let sum = 0, best = 0;
+      rows.forEach(r => {
+        sum += parseFloat(r.percentage || 0);
+        if (r.percentage > best) best = r.percentage;
+      });
+      document.getElementById('stat-avg').textContent = Math.round(sum / rows.length) + '%';
+      document.getElementById('stat-best').textContent = Math.round(best) + '%';
+    }
+
+    function updateWeaknesses(rows) {
+      const list = document.getElementById('weakness-list');
+      list.innerHTML = '';
+      if (rows.length === 0) {
+        list.innerHTML = '<div style="font-size:13px;color: var(--text-muted);text-align:center;padding:10px;">Not enough data yet.</div>';
+        return;
+      }
+
+      const subjStats = {};
+      rows.forEach(row => {
+        (row.subjects || []).forEach(s => {
+          if (!subjStats[s.name]) subjStats[s.name] = { score: 0, total: 0 };
+          subjStats[s.name].score += s.score;
+          subjStats[s.name].total += s.total;
+        });
+      });
+
+      const weak = [];
+      for (const [name, data] of Object.entries(subjStats)) {
+        if (data.total > 0) {
+          const pct = Math.round((data.score / data.total) * 100);
+          if (pct < 50) weak.push({ name, pct });
+        }
+      }
+
+      weak.sort((a, b) => a.pct - b.pct);
+
+      if (weak.length === 0) {
+        list.innerHTML = '<div style="font-size:13px;color:#16a34a;text-align:center;padding:10px;font-weight:600;">No glaring weaknesses! Keep it up.</div>';
+        return;
+      }
+
+      weak.slice(0, 5).forEach(w => {
+        list.innerHTML += `
+          <div class="weak-item">
+            <div class="wi-header">
+              <span>${w.name}</span>
+              <span class="wi-score">${w.pct}%</span>
+            </div>
+            <div class="wi-bar-bg"><div class="wi-bar-fill" style="width: ${w.pct}%"></div></div>
+          </div>
+        `;
+      });
+    }
+
+    function getBadge(pct) {
+      if (pct >= 75) return '<span class="perf-badge badge-excellent">Excellent</span>';
+      if (pct >= 50) return '<span class="perf-badge badge-good">Good</span>';
+      if (pct >= 35) return '<span class="perf-badge badge-average">Average</span>';
+      return '<span class="perf-badge badge-poor">Needs Work</span>';
+    }
+
+    function renderList(rows) {
+      const container = document.getElementById('history-container');
+      rows.forEach((row, i) => {
+        const d = new Date(row.created_at);
+        const dateStr = d.toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' }) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        let subjHtml = (row.subjects || []).map(s => {
+          const pct = s.total > 0 ? (s.score / s.total) : 0;
+          return `<div class="hc-subject-tag ${pct < 0.5 ? 'weak' : ''}">
+            ${s.name} <span class="score">${s.score}/${s.total}</span>
+          </div>`;
+        }).join('');
+
+        const timeStr = row.time_spent_secs > 0 
+          ? Math.round(row.time_spent_secs/60) + 'm ' + (row.time_spent_secs%60) + 's'
+          : '--';
+
+        const title = row.exam_body ? `${row.exam_body} ${row.year}` : `Exam ${row.year}`;
+
+        // Embed the row JSON as data attr for the review function
+        // Note: encodeURIComponent does not escape single quotes, so we manually replace them with %27 to prevent breaking the onclick attribute
+        const reviewDataStr = encodeURIComponent(JSON.stringify(row.review_data || {})).replace(/'/g, "%27");
+
+        container.innerHTML += `
+          <div class="history-card">
+            <div class="hc-top">
+              <div class="hc-title-area">
+                <div class="hc-title">${title}</div>
+                <div class="hc-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${dateStr}</span>
+                  <span style="margin-left: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${timeStr}</span>
+                </div>
+              </div>
+              <div class="hc-score-area">
+                <div class="hc-score">${row.total_score} / ${row.max_score}</div>
+                ${getBadge(row.percentage)}
+              </div>
+            </div>
+            <div class="hc-subjects">${subjHtml}</div>
+            
+            ${row.review_data && row.review_data.questions && row.review_data.questions.length > 0 ? `
+              <div class="hc-actions">
+                <button class="btn-review" onclick="reviewExam('${reviewDataStr}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  Review Exam
+                </button>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+    }
+
+    function reviewExam(encodedData) {
+      try {
+        const reviewData = JSON.parse(decodeURIComponent(encodedData));
+        if (!reviewData.questions || reviewData.questions.length === 0) {
+          alert('Review data is missing for this older exam.');
+          return;
+        }
+
+        const stateToSave = {
+          answers: reviewData.answers || [],
+          flags: [],
+          questions: reviewData.questions
+        };
+
+        localStorage.setItem('cbt_exam_state', JSON.stringify(stateToSave));
+        localStorage.setItem('cbt_review', 'true');
+        
+        let qParams = reviewData.queryParams || '';
+        if (!qParams) qParams = '?review=true';
+        
+        window.location.href = '../cbt_test/core/cbt_player.html' + qParams;
+      } catch (e) {
+        console.error('Error parsing review data', e);
+        alert('Could not load review data.');
+      }
+    }
+  </script>
+</body>
+</html>

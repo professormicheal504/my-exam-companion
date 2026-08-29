@@ -1,14 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education Blog – News, Tips & Updates | My Exam Companion</title>
     <meta name="description"
         content="Stay updated with the latest JAMB news, scholarship opportunities, exam tips, and study strategies on My Exam Companion's education blog.">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%23b70c01'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +27,7 @@
 
     <!-- App Shell -->
     <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
     <link rel="stylesheet" href="../../components/sidebar.css?v=4">
     <link rel="stylesheet" href="../../components/footer.css">
 
@@ -40,7 +50,7 @@
 
         body {
             background: #f5f5f5;
-            color: #131212;
+            color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -105,7 +115,7 @@
             font-weight: 900;
             letter-spacing: -0.02em;
             text-transform: uppercase;
-            color: #131212;
+            color: var(--text-primary);
         }
 
         .blog-header__actions {
@@ -142,7 +152,7 @@
             justify-content: center;
             border-radius: 8px;
             background: #efefef;
-            color: #131212;
+            color: var(--text-primary);
             cursor: pointer;
             transition: background 0.15s;
             border: none;
@@ -212,7 +222,7 @@
             font-weight: 700;
             cursor: pointer;
             border: 1.5px solid #e0e0e0;
-            background: #fff;
+            background: var(--bg-card);
             color: #555;
             transition: all 0.15s;
             white-space: nowrap;
@@ -325,7 +335,7 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: #131212;
+            color: var(--text-primary);
         }
 
         .section-block__more {
@@ -356,7 +366,7 @@
 
         /* == Card Base ============================================== */
         .card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -410,7 +420,7 @@
         .card__title {
             font-size: 13.5px;
             font-weight: 800;
-            color: #131212;
+            color: var(--text-primary);
             line-height: 1.32;
             letter-spacing: -0.01em;
             flex: 1;
@@ -473,7 +483,7 @@
 
         /* == List Card (horizontal) ================================= */
         .list-card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -529,7 +539,7 @@
         .list-card__title {
             font-size: 13px;
             font-weight: 700;
-            color: #131212;
+            color: var(--text-primary);
             line-height: 1.35;
             flex: 1;
             display: -webkit-box;
@@ -578,7 +588,7 @@
 
         /* == Wide Card ============================================== */
         .wide-card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -617,7 +627,7 @@
         .wide-card__title {
             font-size: 14px;
             font-weight: 800;
-            color: #131212;
+            color: var(--text-primary);
             line-height: 1.3;
         }
 
@@ -694,7 +704,7 @@
         }
 
         .topic-pill {
-            background: #fff;
+            background: var(--bg-card);
             border: 1.5px solid #e8e8e8;
             border-radius: 10px;
             padding: 10px;
@@ -727,13 +737,13 @@
         .topic-pill__label {
             font-size: 10.5px;
             font-weight: 700;
-            color: #131212;
+            color: var(--text-primary);
             line-height: 1.2;
         }
 
         /* == Ad Slot ================================================ */
         .ad-slot {
-            background: #fff;
+            background: var(--bg-card);
             border: 1.5px dashed #e0e0e0;
             border-radius: 12px;
             display: flex;
@@ -934,109 +944,13 @@
                     </div>
                 </a>
 
-                <!-- Browse Topics -->
-                <div class="section-block">
+                <!-- Browse Topics (dynamic) -->
+                <div class="section-block" id="browseTopicsBlock">
                     <div class="section-block__header">
                         <span class="section-block__name">Browse Topics</span>
-                        <a href="content.html" class="section-block__more">All topics <svg xmlns="http://www.w3.org/2000/svg"
-                                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></a>
                     </div>
-                    <div class="topic-grid">
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#fff0ef;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
-                                    <path d="M18 14h-8" />
-                                    <path d="M15 18h-5" />
-                                    <path d="M10 6h8v4h-8V6z" />
-                                </svg></div>
-                            <span class="topic-pill__label">JAMB News</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#f0fdf4;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                                </svg></div>
-                            <span class="topic-pill__label">Scholarships</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#eff6ff;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                                </svg></div>
-                            <span class="topic-pill__label">Study Tips</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#fefce8;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                    <polyline points="9 22 9 12 15 12 15 22" />
-                                </svg></div>
-                            <span class="topic-pill__label">Admission</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#fdf4ff;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="8" y="2" width="8" height="4" rx="1" />
-                                    <path
-                                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                                    <path d="M12 11h4" />
-                                    <path d="M12 16h4" />
-                                    <path d="M8 11h.01" />
-                                    <path d="M8 16h.01" />
-                                </svg></div>
-                            <span class="topic-pill__label">Post-UTME</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#fff7ed;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="3" y1="22" x2="21" y2="22" />
-                                    <line x1="6" y1="18" x2="6" y2="11" />
-                                    <line x1="10" y1="18" x2="10" y2="11" />
-                                    <line x1="14" y1="18" x2="14" y2="11" />
-                                    <line x1="18" y1="18" x2="18" y2="11" />
-                                    <polygon points="12 2 20 7 4 7" />
-                                </svg></div>
-                            <span class="topic-pill__label">University</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#f0fdfa;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="2" y="7" width="20" height="14" rx="2" />
-                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                                </svg></div>
-                            <span class="topic-pill__label">Career</span>
-                        </div>
-                        <div class="topic-pill" role="button" tabindex="0">
-                            <div class="topic-pill__icon" style="background:#fff0ef;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polygon points="23 7 16 12 23 17 23 7" />
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-                                </svg></div>
-                            <span class="topic-pill__label">Videos</span>
-                        </div>
+                    <div class="topic-grid" id="dynamicTopicGrid">
+                        <!-- Populated by JS from real article topics -->
                     </div>
                 </div>
 
@@ -1050,424 +964,194 @@
                     Advertisement
                 </div>
 
-                <!-- JAMB & Exams Section -->
-                <div class="section-block">
-                    <div class="section-block__header">
-                        <span class="section-block__name">JAMB &amp; Exams</span>
-                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
-                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></a>
-                    </div>
-                    <div class="featured-row featured-row--asymmetric">
-                        <!-- Large card -->
-                        <a href="content.html" class="card card--large">
-                            <div class="card__img-wrap" style="aspect-ratio:4/3;">
-                                <img class="card__img"
-                                    src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80&auto=format&fit=crop"
-                                    alt="Student studying with books" loading="lazy">
-                                <div class="card__menu" role="button" aria-label="More options">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="card__body">
-                                <span class="card__tag">#Study Tips</span>
-                                <p class="card__title">5 Proven Techniques to Score 300+ in JAMB Without Cramming</p>
-                                <div class="card__source">
-                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
-                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg></div>
-                                    <span class="card__source-name">MEC Study Lab</span>
-                                    <span class="card__source-time">3h ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                  </div>
-                            </div>
-                        </a>
-
-                        <!-- Right list cards -->
-                        <div style="display:flex;flex-direction:column;gap:8px;">
-                            <a href="content.html" class="list-card">
-                                <div class="list-card__img-wrap">
-                                    <img class="list-card__img"
-                                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&q=80&auto=format&fit=crop"
-                                        alt="JAMB registration" loading="lazy">
-                                </div>
-                                <div class="list-card__body">
-                                    <span class="list-card__tag">#JAMB</span>
-                                    <p class="list-card__title">Complete Step-by-Step JAMB 2026 Registration Guide</p>
-                                    <div class="list-card__source">
-                                        <span class="list-card__source-name">MEC News</span>
-                                        <span class="list-card__source-time">5h ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                      </div>
-                                </div>
-                                <div class="list-card__menu" role="button" aria-label="More options">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                    </svg>
-                                </div>
-                            </a>
-
-                            <a href="content.html" class="list-card">
-                                <div class="list-card__img-wrap">
-                                    <img class="list-card__img"
-                                        src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=300&q=80&auto=format&fit=crop"
-                                        alt="Exam books" loading="lazy">
-                                </div>
-                                <div class="list-card__body">
-                                    <span class="list-card__tag">#Syllabus</span>
-                                    <p class="list-card__title">JAMB 2026 Syllabus: Major Topics Added &amp; Removed</p>
-                                    <div class="list-card__source">
-                                        <span class="list-card__source-name">MEC News</span>
-                                        <span class="list-card__source-time">1d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                      </div>
-                                </div>
-                                <div class="list-card__menu" role="button" aria-label="More options">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                    </svg>
-                                </div>
-                            </a>
-
-                            <a href="content.html" class="list-card">
-                                <div class="list-card__img-wrap">
-                                    <img class="list-card__img"
-                                        src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=300&q=80&auto=format&fit=crop"
-                                        alt="CBT practice" loading="lazy">
-                                    <div class="play-badge">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                            viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <polygon points="5 3 19 12 5 21 5 3" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="list-card__body">
-                                    <span class="list-card__tag">#CBT Video</span>
-                                    <p class="list-card__title">Watch: How to Handle CBT Exam Pressure — Expert Tips</p>
-                                    <div class="list-card__source">
-                                        <span class="list-card__source-name">MEC Video</span>
-                                        <span class="list-card__source-time">2d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                      </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Scholarships -->
-                <div class="section-block">
-                    <div class="section-block__header">
-                        <span class="section-block__name">Scholarships</span>
-                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
-                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></a>
-                    </div>
-                    <div class="featured-row">
-                        <a href="content.html" class="card">
-                            <div class="card__img-wrap" style="aspect-ratio:3/2;">
-                                <img class="card__img"
-                                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80&auto=format&fit=crop"
-                                    alt="University scholarship" loading="lazy">
-                                <div class="card__menu" role="button" aria-label="More options"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                    </svg></div>
-                            </div>
-                            <div class="card__body">
-                                <span class="card__tag">#Scholarship</span>
-                                <p class="card__title">NNPC/Total Undergraduate Scholarship 2026 — Apply Now Before
-                                    Deadline</p>
-                                <div class="card__source">
-                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
-                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg></div>
-                                    <span class="card__source-name">MEC Scholarships</span>
-                                    <span class="card__source-time">6h ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                  </div>
-                            </div>
-                        </a>
-                        <a href="content.html" class="card">
-                            <div class="card__img-wrap" style="aspect-ratio:3/2;">
-                                <img class="card__img"
-                                    src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&q=80&auto=format&fit=crop"
-                                    alt="Students scholarship" loading="lazy">
-                                <div class="card__menu" role="button" aria-label="More options"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                    </svg></div>
-                            </div>
-                            <div class="card__body">
-                                <span class="card__tag">#Scholarship</span>
-                                <p class="card__title">MTN Foundation Scholarship: Requirements, Eligibility &amp; How
-                                    to Apply</p>
-                                <div class="card__source">
-                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
-                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg></div>
-                                    <span class="card__source-name">MEC Scholarships</span>
-                                    <span class="card__source-time">1d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                  </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Admission News: Wide Cards -->
-                <div class="section-block">
-                    <div class="section-block__header">
-                        <span class="section-block__name">Admission News</span>
-                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
-                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></a>
-                    </div>
-
-                    <div class="wide-card">
-                        <div class="wide-card__color-bar"></div>
-                        <div class="wide-card__body">
-                            <div class="wide-card__label">Urgent</div>
-                            <p class="wide-card__title">UNILAG Post-UTME Screening — Complete Schedule Released for
-                                2025/2026</p>
-                            <p class="wide-card__desc">The University of Lagos released its full screening timetable for
-                                all faculties. Candidates must upload credentials online before appearing.</p>
-                            <div class="wide-card__footer">
-                                <span class="wide-card__tag-pill">Admission</span>
-                                <span class="wide-card__time">4h ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                              </div>
-                        </div>
-                        <div class="wide-card__img-wrap">
-                            <img class="wide-card__img"
-                                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=300&q=80&auto=format&fit=crop"
-                                alt="University campus" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="wide-card">
-                        <div class="wide-card__color-bar" style="background:#0284c7;"></div>
-                        <div class="wide-card__body">
-                            <div class="wide-card__label" style="color:#0284c7;">Policy</div>
-                            <p class="wide-card__title">Federal Govt Approves New Admission Quota for Science Students
-                            </p>
-                            <p class="wide-card__desc">Universities are now mandated to admit a minimum of 60% science
-                                students to boost STEM education in Nigeria.</p>
-                            <div class="wide-card__footer">
-                                <span class="wide-card__tag-pill"
-                                    style="background:#e0f2fe;color:#0284c7;">Policy</span>
-                                <span class="wide-card__time">Yesterday</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                              </div>
-                        </div>
-                        <div class="wide-card__img-wrap">
-                            <img class="wide-card__img"
-                                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300&q=80&auto=format&fit=crop"
-                                alt="Science education" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="wide-card">
-                        <div class="wide-card__color-bar" style="background:#16a34a;"></div>
-                        <div class="wide-card__body">
-                            <div class="wide-card__label" style="color:#16a34a;">Good News</div>
-                            <p class="wide-card__title">JAMB Introduces Direct Entry for Top UTME Scorers — No Post-UTME
-                                Required</p>
-                            <p class="wide-card__desc">Candidates who score 320 and above in UTME may now gain direct
-                                admission without Post-UTME in participating universities.</p>
-                            <div class="wide-card__footer">
-                                <span class="wide-card__tag-pill" style="background:#f0fdf4;color:#16a34a;">JAMB
-                                    Policy</span>
-                                <span class="wide-card__time">2d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                              </div>
-                        </div>
-                        <div class="wide-card__img-wrap">
-                            <img class="wide-card__img"
-                                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=300&q=80&auto=format&fit=crop"
-                                alt="Graduating students" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mid-page Ad -->
-                <div class="ad-slot ad-slot--rectangle" aria-label="Advertisement">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                        stroke="#d0d0d0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <path d="M3 9h18M9 21V9" />
-                    </svg>
-                    Advertisement
-                </div>
-
-                <!-- Study Tips -->
-                <div class="section-block">
-                    <div class="section-block__header">
-                        <span class="section-block__name">Study Tips</span>
-                        <a href="content.html" class="section-block__more">More <svg xmlns="http://www.w3.org/2000/svg" width="12"
-                                height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></a>
-                    </div>
-                    <div class="featured-row">
-                        <a href="content.html" class="card">
-                            <div class="card__img-wrap" style="aspect-ratio:16/10;">
-                                <img class="card__img"
-                                    src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=500&q=80&auto=format&fit=crop"
-                                    alt="Student reading" loading="lazy">
-                            </div>
-                            <div class="card__body">
-                                <span class="card__tag">#Study Tips</span>
-                                <p class="card__title">The Pomodoro Method: How Nigerian Students Use It to Read More
-                                    Effectively</p>
-                                <div class="card__source">
-                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
-                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg></div>
-                                    <span class="card__source-name">MEC Tips</span>
-                                    <span class="card__source-time">3d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                  </div>
-                            </div>
-                        </a>
-                        <a href="content.html" class="card">
-                            <div class="card__img-wrap" style="aspect-ratio:16/10;">
-                                <img class="card__img"
-                                    src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=80&auto=format&fit=crop"
-                                    alt="AI study tools" loading="lazy">
-                            </div>
-                            <div class="card__body">
-                                <span class="card__tag">#AI &amp; Tech</span>
-                                <p class="card__title">7 AI Tools That Can Help You Prepare for JAMB &amp; WAEC in 2026
-                                </p>
-                                <div class="card__source">
-                                    <div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8"
-                                            height="8" viewBox="0 0 24 24" fill="white" stroke="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg></div>
-                                    <span class="card__source-name">MEC Tech</span>
-                                    <span class="card__source-time">5d ago</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                                  </div>
-                            </div>
-                        </a>
+                <!-- Dynamic Article Sections by Topic -->
+                <div id="dynamicArticleSections">
+                    <div style="padding: 40px 24px; text-align:center; color:#999;">
+                        <div style="width:32px;height:32px;border:3px solid #e5e7eb;border-top-color:#e52828;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 12px;"></div>
+                        Loading articles...
                     </div>
                 </div>
 
                 <!-- Load More -->
                 <div class="more-btn-wrap">
-                    <button class="more-btn" id="load-more-btn" aria-label="Load more articles">
+                    <button class="more-btn" id="load-more-btn" aria-label="Load more articles" style="display:none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9" />
                         </svg>
-                        More from Education
+                        Load More
                     </button>
                 </div>
+
+
 
             </div><!-- /content-area -->
             <app-footer data-base="../../"></app-footer>
         </div><!-- /main-wrapper -->
     </div><!-- /app -->
 
-    <!-- Scripts -->
     <script src="../../components/nav.js" defer></script>
     <script src="../../components/topbar.js" defer></script>
     <script src="../../components/sidebar.js?v=10" defer></script>
     <script src="../../components/footer.js" defer></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../../components/supabase.js"></script>
+    <style>
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
     <script>
-        /* Category tab switching */
-        document.querySelectorAll('.cat-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.cat-tab').forEach(t => {
-                    t.classList.remove('active');
-                    t.setAttribute('aria-selected', 'false');
-                });
-                tab.classList.add('active');
-                tab.setAttribute('aria-selected', 'true');
-            });
-        });
+      const TOPIC_CONFIG = {
+        'Scholarships': { bg: '#f0fdf4', stroke: '#16a34a', icon: '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>' },
+        'Admission':    { bg: '#fefce8', stroke: '#ca8a04', icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
+        'Study Tips':   { bg: '#eff6ff', stroke: '#2563eb', icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>' },
+        'Post-UTME':    { bg: '#fdf4ff', stroke: '#9333ea', icon: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>' },
+        'University':   { bg: '#fff7ed', stroke: '#ea580c', icon: '<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/>' },
+        'Career':       { bg: '#f0fdfa', stroke: '#0d9488', icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>' },
+      };
+      const DEFAULT_TOPIC = { bg: '#f9fafb', stroke: '#6b7280', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>' };
 
-        /* Load more — spinner demo */
-        document.getElementById('load-more-btn').addEventListener('click', function () {
-            const btn = this;
-            const spinnerSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin .7s linear infinite"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>`;
-            btn.innerHTML = `${spinnerSvg} Loading...`;
-            btn.disabled = true;
-            setTimeout(() => {
-                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> More from Education`;
-                btn.disabled = false;
-            }, 1800);
+      let allPosts = [];
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        if (typeof window.MECSupabase === 'undefined') return;
+        const sb = window.MECSupabase.getSupabase();
+
+        const { data: posts } = await sb
+          .from('publisher_posts')
+          .select('id, title, thumbnail_url, topics, created_at')
+          .eq('status', 'approved')
+          .order('created_at', { ascending: false })
+          .limit(50);
+
+        allPosts = posts || [];
+
+        const container = document.getElementById('dynamicArticleSections');
+
+        if (allPosts.length === 0) {
+          container.innerHTML = '<p style="padding:40px 24px;color:#999;text-align:center;">No approved articles yet. Check back soon!</p>';
+          document.getElementById('browseTopicsBlock').style.display = 'none';
+          return;
+        }
+
+        // Update hero card with latest post
+        updateHeroCard(allPosts[0]);
+
+        // Build Browse Topics from actual topics used in posts
+        buildTopicGrid(allPosts);
+
+        // Render article sections grouped by topic
+        renderSections(allPosts);
+
+        // Category tab filtering
+        document.querySelectorAll('.cat-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            document.querySelectorAll('.cat-tab').forEach(t => {
+              t.classList.remove('active');
+              t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            const filter = tab.textContent.trim();
+            const filtered = filter === 'All'
+              ? allPosts
+              : allPosts.filter(p => p.topics && p.topics.some(t => t.toLowerCase() === filter.toLowerCase()));
+            renderSections(filtered);
+          });
         });
+      });
+
+      function updateHeroCard(post) {
+        const heroEl = document.getElementById('hero-article');
+        if (!heroEl || !post) return;
+        heroEl.href = 'content.html?id=' + post.id;
+        const img = heroEl.querySelector('.hero-card__img');
+        if (img && post.thumbnail_url) { img.src = post.thumbnail_url; img.alt = post.title; }
+        const tag = heroEl.querySelector('.hero-card__tag');
+        if (tag) tag.textContent = post.topics && post.topics.length ? '#' + post.topics[0].toUpperCase() : '#ARTICLE';
+        const title = heroEl.querySelector('.hero-card__title');
+        if (title) title.textContent = post.title;
+        const time = heroEl.querySelector('.hero-card__meta span:nth-child(2)');
+        if (time) time.textContent = timeAgo(post.created_at);
+      }
+
+      function buildTopicGrid(posts) {
+        const topicSet = new Set();
+        posts.forEach(p => { if (p.topics) p.topics.forEach(t => topicSet.add(t)); });
+        const topics = Array.from(topicSet);
+        const grid = document.getElementById('dynamicTopicGrid');
+        if (!grid || topics.length === 0) {
+          document.getElementById('browseTopicsBlock').style.display = 'none';
+          return;
+        }
+        grid.innerHTML = topics.map(topic => {
+          const cfg = TOPIC_CONFIG[topic] || DEFAULT_TOPIC;
+          return '<div class="topic-pill" role="button" tabindex="0" onclick="filterByTopic(\'' + topic + '\')">' +
+            '<div class="topic-pill__icon" style="background:' + cfg.bg + ';">' +
+              '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="' + cfg.stroke + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + cfg.icon + '</svg>' +
+            '</div>' +
+            '<span class="topic-pill__label">' + topic + '</span>' +
+          '</div>';
+        }).join('');
+      }
+
+      function filterByTopic(topic) {
+        document.querySelectorAll('.cat-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        const filtered = allPosts.filter(p => p.topics && p.topics.some(t => t.toLowerCase() === topic.toLowerCase()));
+        renderSections(filtered);
+        document.querySelector('.content-area').scrollTop = 0;
+      }
+
+      function renderSections(posts) {
+        const container = document.getElementById('dynamicArticleSections');
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="padding:40px 24px;color:#999;text-align:center;">No articles found for this topic.</p>';
+          return;
+        }
+        const groups = {};
+        posts.forEach(p => {
+          const topic = (p.topics && p.topics.length) ? p.topics[0] : 'General';
+          if (!groups[topic]) groups[topic] = [];
+          groups[topic].push(p);
+        });
+        container.innerHTML = Object.entries(groups).map(function([topic, topicPosts]) {
+          const cards = topicPosts.slice(0, 4).map(function(p, i) {
+            const tag = (p.topics && p.topics.length) ? p.topics[0] : 'Article';
+            const date = timeAgo(p.created_at);
+            const imgHtml = p.thumbnail_url
+              ? '<img class="card__img" src="' + p.thumbnail_url + '" alt="' + p.title.replace(/"/g, '') + '" loading="lazy">'
+              : '<div class="card__img" style="background:#f3f4f6;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa;">No image</div>';
+            const cls = i === 0 ? 'card card--large' : 'card';
+            const ratio = i === 0 ? '4/3' : '16/10';
+            return '<a href="content.html?id=' + p.id + '" class="' + cls + '">' +
+              '<div class="card__img-wrap" style="aspect-ratio:' + ratio + ';">' + imgHtml + '</div>' +
+              '<div class="card__body">' +
+                '<span class="card__tag">#' + tag.toUpperCase() + '</span>' +
+                '<p class="card__title">' + p.title + '</p>' +
+                '<div class="card__source">' +
+                  '<div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>' +
+                  '<span class="card__source-name">MyExamHub</span>' +
+                  '<span class="card__source-time">' + date + '</span>' +
+                '</div>' +
+              '</div>' +
+            '</a>';
+          }).join('');
+          return '<div class="section-block">' +
+            '<div class="section-block__header"><span class="section-block__name">' + topic.toUpperCase() + '</span></div>' +
+            '<div class="featured-row featured-row--asymmetric">' + cards + '</div>' +
+          '</div>';
+        }).join('');
+      }
+
+      function timeAgo(dateStr) {
+        const diff = Date.now() - new Date(dateStr).getTime();
+        const mins = Math.floor(diff / 60000);
+        if (mins < 60) return mins + 'm ago';
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24) return hrs + 'h ago';
+        const days = Math.floor(hrs / 24);
+        if (days < 7) return days + 'd ago';
+        return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
     </script>
 </body>
-
 </html>
-

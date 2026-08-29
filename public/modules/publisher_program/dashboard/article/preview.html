@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview Post</title>
@@ -21,7 +30,7 @@
 
         /* ── App Header ── */
         .app-header {
-            background: #fff;
+            background: var(--bg-card);
             padding: 12px 20px;
             display: flex;
             justify-content: space-between;
@@ -51,7 +60,7 @@
 
         /* ── Frame base (no default border — each mode sets its own) ── */
         .preview-frame {
-            background: #fff;
+            background: var(--bg-card);
             box-shadow: 0 4px 24px rgba(0,0,0,0.12);
             overflow: hidden;
             transition: all 0.35s ease;
@@ -106,7 +115,7 @@
         .dot:nth-child(2) { background: #ffbd2e; }
         .dot:nth-child(3) { background: #27c93f; }
         .pc-address-bar {
-            flex: 1; height: 22px; background: #fff;
+            flex: 1; height: 22px; background: var(--bg-card);
             border-radius: 4px; margin-left: 12px;
             border: 1px solid #ccc;
             display: flex; align-items: center;
@@ -119,7 +128,7 @@
         .preview-content {
             flex: 1;
             overflow-y: auto;
-            background: #fff;
+            background: var(--bg-card);
             scroll-behavior: smooth;
             /* Ensure the content scrolls inside the frame */
             -webkit-overflow-scrolling: touch;
@@ -136,7 +145,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 24px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             position: sticky;
@@ -167,7 +176,7 @@
             font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(28px, 6vw, 44px);
             font-weight: 900;
-            color: #000;
+            color: var(--text-primary);
             line-height: 1.15;
             margin-bottom: 24px;
         }
@@ -220,7 +229,7 @@
             line-height: 56px;
             float: left;
             margin: 8px 12px 0 0;
-            color: #000;
+            color: var(--text-primary);
             font-weight: 900;
         }
         .article-body p { margin-bottom: 28px; }
@@ -228,7 +237,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 800;
-            color: #000;
+            color: var(--text-primary);
             margin: 48px 0 20px;
             line-height: 1.25;
         }
@@ -243,7 +252,7 @@
             font-style: italic;
             font-weight: 700;
             line-height: 1.35;
-            color: #000;
+            color: var(--text-primary);
         }
         @media (max-width: 600px) {
             .article-body blockquote { margin: 40px 0; padding: 24px 0; font-size: 22px; }
@@ -277,9 +286,9 @@
             border-radius: 99px;
             font-size: 14.5px;
             font-weight: 600;
-            color: #4b5563;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
+            color: var(--text-muted);
+            background: var(--bg-base);
+            border: 1px solid var(--border);
         }
         .interaction-btn svg { width: 18px; height: 18px; }
 
@@ -301,7 +310,7 @@
         .device-tabs {
             display: flex;
             gap: 8px;
-            background: #fff;
+            background: var(--bg-card);
             padding: 6px;
             border-radius: 30px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -354,6 +363,7 @@
         }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     </style>
+  <link rel="stylesheet" href="../../../../components/dark-mode.css">
 </head>
 <body>
 
@@ -459,15 +469,53 @@
 
     <div class="toast" id="toast">Article published successfully!</div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../../../../components/supabase.js"></script>
     <script>
         /* ── Load Data ── */
-        document.getElementById('pTitle').textContent = sessionStorage.getItem('post_title') || 'Untitled Post';
-        document.getElementById('pBody').innerHTML = sessionStorage.getItem('post_content') || '<p>No content provided.</p>';
-        
-        const thumb = sessionStorage.getItem('post_thumbnail');
-        if (thumb) {
-            document.getElementById('pHero').style.display = 'block';
-            document.getElementById('pThumb').src = thumb;
+        const urlParams = new URLSearchParams(window.location.search);
+        const viewUrl = urlParams.get('viewUrl');
+
+        if (viewUrl) {
+            // View Mode: Fetch the raw HTML (since jsDelivr returns text/plain for security) and inject via srcdoc
+            document.querySelector('.preview-content').innerHTML = `<div style="text-align:center; padding: 40px; color: #666;">Loading article...</div>`;
+            
+            fetch(viewUrl)
+                .then(res => res.text())
+                .then(html => {
+                    const iframe = document.createElement('iframe');
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.border = 'none';
+                    iframe.style.borderRadius = '0 0 32px 32px';
+                    iframe.style.background = '#fff';
+                    iframe.style.display = 'block';
+                    iframe.srcdoc = html; // srcdoc forces the browser to render the raw string as HTML!
+                    
+                    const container = document.querySelector('.preview-content');
+                    container.innerHTML = '';
+                    container.appendChild(iframe);
+                })
+                .catch(err => {
+                    document.querySelector('.preview-content').innerHTML = `<div style="padding: 20px; color: red;">Failed to load preview.</div>`;
+                });
+            
+            // Hide the publish button since it's already published
+            document.getElementById('submitBtn').style.display = 'none';
+            
+            // Change back button to point to dashboard
+            const backBtn = document.querySelector('.btn-back');
+            if (backBtn) backBtn.href = '../dashboard.html';
+        } else {
+            // Draft Mode: Display the draft from sessionStorage
+            document.getElementById('pTitle').textContent = sessionStorage.getItem('post_title') || 'Untitled Post';
+            document.getElementById('pBody').innerHTML = sessionStorage.getItem('post_content') || '<p>No content provided.</p>';
+            
+            const thumb = sessionStorage.getItem('post_thumbnail');
+            if (thumb) {
+                document.getElementById('pHero').style.display = 'block';
+                document.getElementById('pThumb').src = thumb;
+            }
         }
 
         /* ── Switch Modes ── */
@@ -482,21 +530,51 @@
         }
 
         /* ── Submit ── */
-        function submitArticle() {
+        async function submitArticle() {
             const btn = document.getElementById('submitBtn');
             btn.textContent = 'Publishing...';
             btn.disabled = true;
 
-            setTimeout(() => {
+            try {
+                const title = sessionStorage.getItem('post_title') || 'Untitled Post';
+                const content = sessionStorage.getItem('post_content') || '';
+                const topicsStr = sessionStorage.getItem('post_topics');
+                const topics = topicsStr ? JSON.parse(topicsStr) : [];
+                const thumbnail_url = sessionStorage.getItem('post_thumbnail') || null;
+
+                const supabaseClient = window.MECSupabase.getSupabase();
+                const { data, error } = await supabaseClient.functions.invoke('post-submission', {
+                    body: { title, content, topics, thumbnail_url }
+                });
+
+                if (error) throw error;
+
                 const toast = document.getElementById('toast');
+                toast.textContent = 'Article published successfully! ✓';
+                toast.style.background = '#16a34a';
                 toast.classList.add('show');
                 btn.textContent = 'Published ✓';
                 btn.style.background = '#16a34a';
 
+                sessionStorage.removeItem('post_title');
+                sessionStorage.removeItem('post_content');
+                sessionStorage.removeItem('post_topics');
+                sessionStorage.removeItem('post_thumbnail');
+
                 setTimeout(() => {
                     window.location.href = '../dashboard.html';
                 }, 1500);
-            }, 1000);
+            } catch (err) {
+                console.error(err);
+                const toast = document.getElementById('toast');
+                toast.textContent = 'Error: ' + (err.message || 'Failed to publish');
+                toast.style.background = '#e52828';
+                toast.classList.add('show');
+                btn.textContent = 'Publish Article';
+                btn.disabled = false;
+                
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
         }
     </script>
 </body>

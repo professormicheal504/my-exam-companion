@@ -6,35 +6,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "An atom consists of a nucleus surrounded by electrons. What is the maximum number of electrons that can occupy the principal quantum shell with $n = 3$?",
-        "explanation": "The maximum number of electrons in any principal quantum shell is given by the formula $2n^2$, where $n$ is the principal quantum number. For $n = 3$: $2(3)^2 = 2 \\times 9 = 18$. So the M-shell (n = 3) can hold a maximum of 18 electrons. For n = 1: 2 electrons; n = 2: 8 electrons; n = 4: 32 electrons.",
+        "question_text": "<p>An atom consists of a nucleus surrounded by electrons. What is the <b>maximum number of electrons</b> that can occupy the principal quantum shell with <i>n</i> = 3?</p>",
+        "explanation": "<p>The maximum number of electrons in any principal quantum shell is given by the formula <i>2n<sup>2</sup></i>, where <i>n</i> is the principal quantum number. For <i>n</i> = 3: <i>2(3)<sup>2</sup></i> = 2 \u00d7 9 = 18. So the M-shell (<i>n</i> = 3) can hold a maximum of 18 electrons. For <i>n</i> = 1: 2 electrons; <i>n</i> = 2: 8 electrons; <i>n</i> = 4: 32 electrons.</p>",
         "options": [
             {
                 "option_id": "320428",
                 "tag": "a",
-                "text": "8",
+                "text": "<b>8</b>",
                 "is_correct": false
             },
             {
                 "option_id": "960203",
                 "tag": "b",
-                "text": "18",
+                "text": "<b>18</b>",
                 "is_correct": true
             },
             {
                 "option_id": "335248",
                 "tag": "c",
-                "text": "32",
+                "text": "<b>32</b>",
                 "is_correct": false
             },
             {
                 "option_id": "932121",
                 "tag": "d",
-                "text": "2",
+                "text": "<b>2</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 3
+        "question_number": 3,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Using the formula $2n^2$ for maximum electrons per shell, how many electrons can the K-shell ($n = 1$) and L-shell ($n = 2$) hold respectively?",
-        "explanation": "Using $2n^2$: For the K-shell ($n = 1$): $2(1)^2 = 2$ electrons. For the L-shell ($n = 2$): $2(2)^2 = 2 \\times 4 = 8$ electrons. The principal quantum number $n$ determines the main energy level and the letter designation: $n=1 \\Rightarrow$ K-shell, $n=2 \\Rightarrow$ L-shell, $n=3 \\Rightarrow$ M-shell, $n=4 \\Rightarrow$ N-shell.",
+        "question_text": "<p>Using the formula <b>$2n^2$</b> for maximum electrons per shell, how many electrons can the K-shell (<i>n = 1</i>) and L-shell (<i>n = 2</i>) hold respectively?</p>",
+        "explanation": "<p>Using <b>$2n^2$</b>: For the K-shell (<i>n = 1</i>): <b>$2(1)^2 = 2$</b> electrons. For the L-shell (<i>n = 2</i>): <b>$2(2)^2 = 2 \\times 4 = 8$</b> electrons. The principal quantum number <i>n</i> determines the main energy level and the letter designation: <i>n=1</i> <b>\u21d2</b> K-shell, <i>n=2</i> <b>\u21d2</b> L-shell, <i>n=3</i> <b>\u21d2</b> M-shell, <i>n=4</i> <b>\u21d2</b> N-shell.</p>",
         "options": [
             {
                 "option_id": "320233",
@@ -71,7 +72,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 16
+        "question_number": 16,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,8 +82,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The azimuthal (subsidiary) quantum number $\\ell$ defines the sub-energy levels within a principal shell. What type of orbital corresponds to $\\ell = 1$?",
-        "explanation": "The azimuthal quantum number $\\ell$ takes values from 0 to $(n-1)$ and determines the orbital type: $\\ell = 0 \\Rightarrow$ s-orbital, $\\ell = 1 \\Rightarrow$ p-orbital, $\\ell = 2 \\Rightarrow$ d-orbital, $\\ell = 3 \\Rightarrow$ f-orbital. The p-orbital has a characteristic dumbbell shape and can hold up to 6 electrons across its three orientations ($p_x, p_y, p_z$).",
+        "question_text": "<p>The <b>azimuthal (subsidiary) quantum number</b> <i>\u2113</i> defines the sub-energy levels within a principal shell. What type of orbital corresponds to <i>\u2113</i> = 1?</p>",
+        "explanation": "<p>The azimuthal quantum number <i>\u2113</i> takes values from 0 to <i>(n-1)</i> and determines the orbital type: <i>\u2113</i> = 0 \u21d2 <b>s-orbital</b>, <i>\u2113</i> = 1 \u21d2 <b>p-orbital</b>, <i>\u2113</i> = 2 \u21d2 <b>d-orbital</b>, <i>\u2113</i> = 3 \u21d2 <b>f-orbital</b>. The <b>p-orbital</b> has a characteristic dumbbell shape and can hold up to 6 electrons across its three orientations (<i>p<sub>x</sub></i>, <i>p<sub>y</sub></i>, <i>p<sub>z</sub></i>).</p>",
         "options": [
             {
                 "option_id": "161470",
@@ -108,7 +110,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 29
+        "question_number": 29,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "For the principal quantum number $n = 2$, how many total orbitals are present?",
-        "explanation": "The number of orbitals in a principal shell is given by $n^2$. For $n = 2$: $n^2 = 4$ orbitals. These are: one 2s orbital ($\\ell = 0$) and three 2p orbitals ($\\ell = 1$: $2p_x, 2p_y, 2p_z$). For $n = 3$, there are $3^2 = 9$ orbitals: one 3s, three 3p, and five 3d orbitals.",
+        "question_text": "<p>For the principal quantum number <b><i>n</i> = 2</b>, how many total orbitals are present?</p>",
+        "explanation": "<p>The number of orbitals in a principal shell is given by <b><i>n</i><sup>2</sup></b>. For <b><i>n</i> = 2</b>: <b><i>n</i><sup>2</sup> = 4</b> orbitals. These are: one 2s orbital (<b><i>\u2113</i> = 0</b>) and three 2p orbitals (<b><i>\u2113</i> = 1</b>: 2p<sub><i>x</i></sub>, 2p<sub><i>y</i></sub>, 2p<sub><i>z</i></sub>). For <b><i>n</i> = 3</b>, there are <b><i>3</i><sup>2</sup> = 9</b> orbitals: one 3s, three 3p, and five 3d orbitals.</p>",
         "options": [
             {
                 "option_id": "254677",
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 42
+        "question_number": 42,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,8 +158,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The magnetic quantum number $m_\\ell$ defines the orientation of orbitals in an external magnetic field. For $\\ell = 2$ (a d-orbital), how many possible values does $m_\\ell$ have?",
-        "explanation": "The magnetic quantum number $m_\\ell$ ranges from $-\\ell$ to $+\\ell$ including zero. For $\\ell = 2$: $m_\\ell = -2, -1, 0, +1, +2$ \u00e2\u20ac\u201d that is 5 possible values. Each value corresponds to a different spatial orientation of the d-orbital. This is why there are five d-orbitals: $d_{xy}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{z^2}$.",
+        "question_text": "<p>The <b>magnetic quantum number</b> <i>m<sub>\u2113</sub></i> defines the orientation of orbitals in an external magnetic field. For <i>\u2113</i> = 2 (a <b>d-orbital</b>), how many possible values does <i>m<sub>\u2113</sub></i> have?</p>",
+        "explanation": "<p>The magnetic quantum number <i>m<sub>\u2113</sub></i> ranges from <i>-\u2113</i> to <i>+\u2113</i> including zero. For <i>\u2113</i> = 2: <i>m<sub>\u2113</sub></i> = -2, -1, 0, +1, +2 \u2014 that is <b>5 possible values</b>.</p><p>Each value corresponds to a different spatial orientation of the d-orbital. This is why there are five d-orbitals: <i>d<sub>xy</sub></i>, <i>d<sub>xz</sub></i>, <i>d<sub>yz</sub></i>, <i>d<sub>x<sup>2</sup>-y<sup>2</sup></sub></i>, <i>d<sub>z<sup>2</sup></sub></i>.</p>",
         "options": [
             {
                 "option_id": "296760",
@@ -182,7 +186,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 55
+        "question_number": 55,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The spin quantum number $m_s$ describes electron spin. What are its possible values?",
-        "explanation": "The spin quantum number $m_s$ can only take two values: $+\\frac{1}{2}$ (spin-up, clockwise) and $-\\frac{1}{2}$ (spin-down, anticlockwise). This represents the two possible spin orientations of an electron about its own axis. Since each orbital can hold at most two electrons with opposite spins, the spin quantum number is fundamental to the Pauli Exclusion Principle.",
+        "question_text": "<p>The spin quantum number <b><i>m<sub>s</sub></i></b> describes electron spin. What are its possible values?</p>",
+        "explanation": "<p>The spin quantum number <b><i>m<sub>s</sub></i></b> can only take two values: <b><i>+</i>\u00bd</b> (spin-up, clockwise) and <b><i>-</i>\u00bd</b> (spin-down, anticlockwise). This represents the two possible spin orientations of an electron about its own axis. Since each orbital can hold at most two electrons with opposite spins, the spin quantum number is fundamental to the <b>Pauli Exclusion Principle</b>.</p>",
         "options": [
             {
                 "option_id": "247627",
                 "tag": "a",
-                "text": "$0$ and $+1$",
+                "text": "<i>0</i> and <i>+1</i>",
                 "is_correct": false
             },
             {
                 "option_id": "283621",
                 "tag": "b",
-                "text": "$-1$ and $+1$",
+                "text": "<i>-1</i> and <i>+1</i>",
                 "is_correct": false
             },
             {
                 "option_id": "330817",
                 "tag": "c",
-                "text": "$-\\frac{1}{2}$ and $+\\frac{1}{2}$",
+                "text": "<i>-</i>\u00bd and <i>+</i>\u00bd",
                 "is_correct": true
             },
             {
                 "option_id": "104975",
                 "tag": "d",
-                "text": "$-2$ and $+2$",
+                "text": "<i>-2</i> and <i>+2</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 68
+        "question_number": 68,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Pauli Exclusion Principle states which of the following?",
-        "explanation": "The Pauli Exclusion Principle states that no two electrons in an atom can have the same identical set of all four quantum numbers ($n, \\ell, m_\\ell, m_s$). This means each electron in an atom is unique. A direct consequence is that each orbital can hold a maximum of two electrons, and those two electrons must have opposite spins ($m_s = +\\frac{1}{2}$ and $m_s = -\\frac{1}{2}$).",
+        "question_text": "<p>The <b>Pauli Exclusion Principle</b> states which of the following?</p>",
+        "explanation": "<p>The <b>Pauli Exclusion Principle</b> states that no two electrons in an atom can have the same identical set of all four quantum numbers (<i>n</i>, <i>\u2113</i>, <i>m<sub>\u2113</sub></i>, <i>m<sub>s</sub></i>). This means each electron in an atom is unique. A direct consequence is that each orbital can hold a maximum of two electrons, and those two electrons must have opposite spins (<i>m<sub>s</sub></i> = +\u00bd and <i>m<sub>s</sub></i> = -\u00bd).</p>",
         "options": [
             {
                 "option_id": "242545",
@@ -252,11 +258,12 @@
             {
                 "option_id": "246270",
                 "tag": "d",
-                "text": "The number of orbitals in a shell is given by $n^2$",
+                "text": "The number of orbitals in a shell is given by <i>n</i><sup>2</sup>",
                 "is_correct": false
             }
         ],
-        "question_number": 81
+        "question_number": 81,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The Aufbau Principle governs electron configuration. According to this principle, what is the correct order for filling the 4s and 3d subshells?",
-        "explanation": "The Aufbau Principle states that electrons occupy orbitals of lower energy before filling orbitals of higher energy. The correct order of filling is: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p ...$. Importantly, $4s$ has lower energy than $3d$ and is filled first. This is why potassium (K) has configuration $[Ar]4s^1$ rather than $[Ar]3d^1$.",
+        "question_text": "<p>The <b>Aufbau Principle</b> governs electron configuration. According to this principle, what is the correct order for filling the <i>4s</i> and <i>3d</i> subshells?</p>",
+        "explanation": "<p>The <b>Aufbau Principle</b> states that electrons occupy orbitals of lower energy before filling orbitals of higher energy. The correct order of filling is: <i>1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p</i> ... . Importantly, <i>4s</i> has lower energy than <i>3d</i> and is filled first. This is why potassium (K) has configuration [<i>Ar</i>]<i>4s<sup>1</sup></i> rather than [<i>Ar</i>]<i>3d<sup>1</sup></i>.</p>",
         "options": [
             {
                 "option_id": "181007",
                 "tag": "a",
-                "text": "$3d$ fills before $4s$",
+                "text": "<i>3d</i> fills before <i>4s</i>",
                 "is_correct": false
             },
             {
                 "option_id": "912004",
                 "tag": "b",
-                "text": "$4s$ fills before $3d$",
+                "text": "<i>4s</i> fills before <i>3d</i>",
                 "is_correct": true
             },
             {
                 "option_id": "249734",
                 "tag": "c",
-                "text": "$3d$ and $4s$ fill simultaneously",
+                "text": "<i>3d</i> and <i>4s</i> fill simultaneously",
                 "is_correct": false
             },
             {
                 "option_id": "448292",
                 "tag": "d",
-                "text": "Neither $3d$ nor $4s$ fills until after $4p$",
+                "text": "Neither <i>3d</i> nor <i>4s</i> fills until after <i>4p</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 94
+        "question_number": 94,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Hund's Rule of Maximum Multiplicity states which of the following about filling degenerate orbitals?",
-        "explanation": "Hund's Rule states that electrons will occupy degenerate (equal energy) orbitals singly with parallel spins before any pairing occurs. For example, the three 2p orbitals ($2p_x, 2p_y, 2p_z$) are first occupied one electron each (all with the same spin direction) before any pairing occurs. This minimizes electron-electron repulsion and gives the atom its most stable configuration.",
+        "question_text": "<p><b>Hund's Rule of Maximum Multiplicity</b> states which of the following about filling <i>degenerate orbitals</i>?</p>",
+        "explanation": "<p><b>Hund's Rule</b> states that electrons will occupy <i>degenerate</i> (equal energy) orbitals singly with parallel spins before any pairing occurs. For example, the three 2p orbitals (<i>2p<sub>x</sub>, 2p<sub>y</sub>, 2p<sub>z</sub></i>) are first occupied one electron each (all with the same spin direction) before any pairing occurs. This minimizes electron-electron repulsion and gives the atom its most stable configuration.</p>",
         "options": [
             {
                 "option_id": "518748",
@@ -330,7 +338,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 107
+        "question_number": 107,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the ground state of carbon ($Z = 6$), its electron configuration is $1s^2 2s^2 2p_x^1 2p_y^1 2p_z^0$. How many unpaired electrons does carbon have in this state?",
-        "explanation": "In the ground state, carbon has the configuration $1s^2 2s^2 2p_x^1 2p_y^1 2p_z^0$. The two $2s$ electrons are paired. By Hund's Rule, the two 2p electrons each occupy separate orbitals ($2p_x$ and $2p_y$) with parallel spins, leaving $2p_z$ empty. Therefore, carbon has exactly 2 unpaired electrons in the ground state, giving it a valency of 2 in the ground state \u00e2\u20ac\u201d though it typically exhibits a valency of 4 in organic compounds due to excitation.",
+        "question_text": "<p>In the ground state of carbon (<b>Z = 6</b>), its electron configuration is <i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>0</sup></i>. How many unpaired electrons does carbon have in this state?</p>",
+        "explanation": "<p>In the ground state, carbon has the configuration <i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>0</sup></i>. The two <i>2s</i> electrons are paired. By <b>Hund's Rule</b>, the two <i>2p</i> electrons each occupy separate orbitals (<i>2p<sub>x</sub></i> and <i>2p<sub>y</sub></i>) with parallel spins, leaving <i>2p<sub>z</sub></i> empty. Therefore, carbon has exactly <b>2 unpaired electrons</b> in the ground state, giving it a valency of 2 in the ground state \u2014 though it typically exhibits a valency of 4 in organic compounds due to excitation.</p>",
         "options": [
             {
                 "option_id": "480045",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 120
+        "question_number": 120,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,8 +386,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When carbon undergoes excitation before forming covalent bonds, what happens to its electron configuration?",
-        "explanation": "In the ground state carbon has configuration $1s^2 2s^2 2p_x^1 2p_y^1 2p_z^0$ with only 2 unpaired electrons. To form 4 bonds, carbon acquires energy to promote one of the paired $2s$ electrons to the empty $2p_z$ orbital, giving the excited state: $1s^2 2s^1 2p_x^1 2p_y^1 2p_z^1$. Now carbon has 4 unpaired electrons (one $2s$ and three $2p$), enabling it to form 4 covalent bonds through hybridization.",
+        "question_text": "<p>When carbon undergoes excitation before forming covalent bonds, what happens to its electron configuration?</p>",
+        "explanation": "<p>In the ground state carbon has configuration <i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>0</sup></i> with only <b>2 unpaired electrons</b>. To form 4 bonds, carbon acquires energy to promote one of the paired <i>2s</i> electrons to the empty <i>2p<sub>z</sub></i> orbital, giving the excited state: <i>1s<sup>2</sup> 2s<sup>1</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>1</sup></i>. Now carbon has <b>4 unpaired electrons</b> (one <i>2s</i> and three <i>2p</i>), enabling it to form 4 covalent bonds through hybridization.",
         "options": [
             {
                 "option_id": "400015",
@@ -388,7 +398,7 @@
             {
                 "option_id": "324749",
                 "tag": "b",
-                "text": "One 2s electron is promoted to the empty $2p_z$ orbital, giving 4 unpaired electrons",
+                "text": "One 2s electron is promoted to the empty <i>2p<sub>z</sub></i> orbital, giving 4 unpaired electrons",
                 "is_correct": true
             },
             {
@@ -400,11 +410,12 @@
             {
                 "option_id": "480746",
                 "tag": "d",
-                "text": "Carbon loses two electrons to become $C^{2+}$",
+                "text": "Carbon loses two electrons to become <i>C<sup>2+</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 133
+        "question_number": 133,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,35 +424,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "$sp^3$ hybridization in carbon involves mixing which set of atomic orbitals?",
-        "explanation": "$sp^3$ hybridization involves the mixing of one $2s$ orbital and three $2p$ orbitals ($2p_x, 2p_y, 2p_z$) of a carbon atom. This mixing produces four equivalent $sp^3$ hybrid orbitals. These four orbitals point toward the corners of a regular tetrahedron with bond angles of $109\u00c2\u00b028'$. Carbon uses $sp^3$ hybrid orbitals in saturated compounds like alkanes, for example methane ($CH_4$).",
+        "question_text": "<p><b>$sp^3$</b> hybridization in carbon involves mixing which set of atomic orbitals?</p>",
+        "explanation": "<p><b>$sp^3$</b> hybridization involves the mixing of one <i>$2s$</i> orbital and three <i>$2p$</i> orbitals (<i>$2p_x, 2p_y, 2p_z$</i>) of a carbon atom. This mixing produces four equivalent <b>$sp^3$</b> hybrid orbitals. These four orbitals point toward the corners of a regular tetrahedron with bond angles of <b>$109\u00b028'$</b>. Carbon uses <b>$sp^3$</b> hybrid orbitals in saturated compounds like alkanes, for example methane (<i>$CH_4$</i>).</p>",
         "options": [
             {
                 "option_id": "109272",
                 "tag": "a",
-                "text": "One $s$ and one $p$ orbital",
+                "text": "One <i>$s$</i> and one <i>$p$</i> orbital",
                 "is_correct": false
             },
             {
                 "option_id": "284847",
                 "tag": "b",
-                "text": "One $s$ and two $p$ orbitals",
+                "text": "One <i>$s$</i> and two <i>$p$</i> orbitals",
                 "is_correct": false
             },
             {
                 "option_id": "164891",
                 "tag": "c",
-                "text": "One $s$ and three $p$ orbitals",
+                "text": "One <i>$s$</i> and three <i>$p$</i> orbitals",
                 "is_correct": true
             },
             {
                 "option_id": "157171",
                 "tag": "d",
-                "text": "Two $s$ and two $p$ orbitals",
+                "text": "Two <i>$s$</i> and two <i>$p$</i> orbitals",
                 "is_correct": false
             }
         ],
-        "question_number": 146
+        "question_number": 146,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In methane ($CH_4$), carbon is $sp^3$ hybridized. What is the bond angle in the methane molecule?",
-        "explanation": "Methane ($CH_4$) has $sp^3$ hybridized carbon. The four $sp^3$ hybrid orbitals are directed toward the corners of a regular tetrahedron, giving a tetrahedral geometry with a bond angle of $109\u00c2\u00b028'$ (approximately $109.5\u00c2\u00b0$). Each $sp^3$ hybrid orbital of carbon overlaps with the $1s$ orbital of a hydrogen atom to form four $\\sigma$ (sigma) bonds: $sp^3$-$s$ sigma bonds.",
+        "question_text": "<p>In methane (<i>CH<sub>4</sub></i>), carbon is <b><i>sp<sup>3</sup></i></b> hybridized. What is the bond angle in the methane molecule?</p>",
+        "explanation": "<p>Methane (<i>CH<sub>4</sub></i>) has <b><i>sp<sup>3</sup></i></b> hybridized carbon. The four <b><i>sp<sup>3</sup></i></b> hybrid orbitals are directed toward the corners of a regular tetrahedron, giving a tetrahedral geometry with a bond angle of <b>109\u00b028'</b> (approximately <b>109.5\u00b0</b>). Each <b><i>sp<sup>3</sup></i></b> hybrid orbital of carbon overlaps with the <i>1s</i> orbital of a hydrogen atom to form four <b>\u03c3 (sigma)</b> bonds: <i>sp<sup>3</sup>-s</i> sigma bonds.</p>",
         "options": [
             {
                 "option_id": "267003",
                 "tag": "a",
-                "text": "$90\u00c2\u00b0$",
+                "text": "90\u00b0",
                 "is_correct": false
             },
             {
                 "option_id": "632500",
                 "tag": "b",
-                "text": "$120\u00c2\u00b0$",
+                "text": "120\u00b0",
                 "is_correct": false
             },
             {
                 "option_id": "189232",
                 "tag": "c",
-                "text": "$180\u00c2\u00b0$",
+                "text": "180\u00b0",
                 "is_correct": false
             },
             {
                 "option_id": "245867",
                 "tag": "d",
-                "text": "$109\u00c2\u00b028'$",
+                "text": "109\u00b028'",
                 "is_correct": true
             }
         ],
-        "question_number": 160
+        "question_number": 160,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "$sp^2$ hybridization involves the mixing of one $s$ and two $p$ orbitals. What geometry and bond angle does this produce?",
-        "explanation": "$sp^2$ hybridization involves mixing one $2s$ orbital and two $2p$ orbitals to form three equivalent $sp^2$ hybrid orbitals. These three orbitals are arranged in a trigonal planar geometry with bond angles of $120\u00c2\u00b0$. The remaining unhybridized $2p_z$ orbital is perpendicular to this plane and participates in $\\pi$ bond formation. Alkenes like ethene ($C_2H_4$) are $sp^2$ hybridized.",
+        "question_text": "<p><b>$sp^2$</b> hybridization involves the mixing of one <b>$s$</b> and two <b>$p$</b> orbitals. What geometry and bond angle does this produce?</p>",
+        "explanation": "<p><b>$sp^2$</b> hybridization involves mixing one <i>$2s$</i> orbital and two <i>$2p$</i> orbitals to form three equivalent <b>$sp^2$</b> hybrid orbitals. These three orbitals are arranged in a <b>trigonal planar geometry</b> with bond angles of <b>$120\u00b0$</b>. The remaining unhybridized <i>$2p_z$</i> orbital is perpendicular to this plane and participates in <b>$\\pi$</b> bond formation. Alkenes like ethene (<i>$C_2H_4$</i>) are <b>$sp^2$</b> hybridized.</p>",
         "options": [
             {
                 "option_id": "235325",
                 "tag": "a",
-                "text": "Tetrahedral geometry, $109.5\u00c2\u00b0$",
+                "text": "Tetrahedral geometry, <b>$109.5\u00b0$</b>",
                 "is_correct": false
             },
             {
                 "option_id": "287429",
                 "tag": "b",
-                "text": "Linear geometry, $180\u00c2\u00b0$",
+                "text": "Linear geometry, <b>$180\u00b0$</b>",
                 "is_correct": false
             },
             {
                 "option_id": "195862",
                 "tag": "c",
-                "text": "Trigonal planar geometry, $120\u00c2\u00b0$",
+                "text": "Trigonal planar geometry, <b>$120\u00b0$</b>",
                 "is_correct": true
             },
             {
                 "option_id": "319954",
                 "tag": "d",
-                "text": "Bent geometry, $104.5\u00c2\u00b0$",
+                "text": "Bent geometry, <b>$104.5\u00b0$</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 172
+        "question_number": 172,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,35 +538,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In ethene ($C_2H_4$), the double bond between the two carbon atoms consists of which combination of bonds?",
-        "explanation": "In ethene ($C_2H_4$), each carbon is $sp^2$ hybridized. The $C=C$ double bond consists of: (1) One $\\sigma$ (sigma) bond \u00e2\u20ac\u201d formed by the end-to-end ($sp^2$-$sp^2$) overlap of hybrid orbitals along the internuclear axis, and (2) One $\\pi$ (pi) bond \u00e2\u20ac\u201d formed by the lateral (sideways) overlap of the unhybridized $2p_z$ orbitals of both carbon atoms, which are perpendicular to the molecular plane.",
+        "question_text": "<p>In ethene (<i>C<sub>2</sub>H<sub>4</sub></i>), the double bond between the two carbon atoms consists of which combination of bonds?</p>",
+        "explanation": "<p>In ethene (<i>C<sub>2</sub>H<sub>4</sub></i>), each carbon is <b>sp<sup>2</sup></b> hybridized. The <i>C=C</i> double bond consists of: (1) One <b>\u03c3 (sigma)</b> bond \u2014 formed by the end-to-end (<b>sp<sup>2</sup>-sp<sup>2</sup></b>) overlap of hybrid orbitals along the internuclear axis, and (2) One <b>\u03c0 (pi)</b> bond \u2014 formed by the lateral (sideways) overlap of the unhybridized <i>2p<sub>z</sub></i> orbitals of both carbon atoms, which are perpendicular to the molecular plane.</p>",
         "options": [
             {
                 "option_id": "186959",
                 "tag": "a",
-                "text": "Two sigma bonds",
+                "text": "Two <b>sigma</b> bonds",
                 "is_correct": false
             },
             {
                 "option_id": "221984",
                 "tag": "b",
-                "text": "One sigma bond and one pi bond",
+                "text": "One <b>sigma</b> bond and one <b>pi</b> bond",
                 "is_correct": true
             },
             {
                 "option_id": "180908",
                 "tag": "c",
-                "text": "One pi bond only",
+                "text": "One <b>pi</b> bond only",
                 "is_correct": false
             },
             {
                 "option_id": "251348",
                 "tag": "d",
-                "text": "Two pi bonds",
+                "text": "Two <b>pi</b> bonds",
                 "is_correct": false
             }
         ],
-        "question_number": 185
+        "question_number": 185,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In $sp$ hybridization (as in ethyne, $C_2H_2$), which orbitals are mixed, and what geometry results?",
-        "explanation": "$sp$ hybridization involves mixing one $2s$ orbital and one $2p$ orbital to form two equivalent $sp$ hybrid orbitals. These two orbitals are oriented $180\u00c2\u00b0$ apart, giving a linear geometry. The remaining two unhybridized $2p_y$ and $2p_z$ orbitals overlap laterally with those of the other carbon atom to form two $\\pi$ bonds. Thus, the triple bond in ethyne ($C_2H_2$) consists of one $\\sigma$ bond and two $\\pi$ bonds.",
+        "question_text": "<p>In <i>$sp$</i> hybridization (as in ethyne, <i>$C_2H_2$</i>), which orbitals are mixed, and what geometry results?</p>",
+        "explanation": "<p><b>$sp$ hybridization</b> involves mixing one <i>$2s$</i> orbital and one <i>$2p$</i> orbital to form two equivalent <i>$sp$</i> hybrid orbitals. These two orbitals are oriented <b>$180\u00b0$</b> apart, giving a <b>linear geometry</b>. The remaining two unhybridized <i>$2p_y$</i> and <i>$2p_z$</i> orbitals overlap laterally with those of the other carbon atom to form two <b>$\\pi$ bonds</b>. Thus, the triple bond in ethyne (<i>$C_2H_2$</i>) consists of one <b>$\\sigma$ bond</b> and two <b>$\\pi$ bonds</b>.</p>",
         "options": [
             {
                 "option_id": "284378",
                 "tag": "a",
-                "text": "One $s$ + three $p$ orbitals; tetrahedral geometry",
+                "text": "One <i>$s$</i> + three <i>$p$</i> orbitals; tetrahedral geometry",
                 "is_correct": false
             },
             {
                 "option_id": "661064",
                 "tag": "b",
-                "text": "One $s$ + two $p$ orbitals; trigonal planar geometry",
+                "text": "One <i>$s$</i> + two <i>$p$</i> orbitals; trigonal planar geometry",
                 "is_correct": false
             },
             {
                 "option_id": "807780",
                 "tag": "c",
-                "text": "One $s$ + one $p$ orbital; linear geometry with $180\u00c2\u00b0$ bond angle",
+                "text": "One <i>$s$</i> + one <i>$p$</i> orbital; linear geometry with <i>$180\u00b0$</i> bond angle",
                 "is_correct": true
             },
             {
                 "option_id": "188241",
                 "tag": "d",
-                "text": "Two $s$ + one $p$ orbital; bent geometry",
+                "text": "Two <i>$s$</i> + one <i>$p$</i> orbital; bent geometry",
                 "is_correct": false
             }
         ],
-        "question_number": 198
+        "question_number": 198,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +614,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The triple bond in ethyne ($C_2H_2$) is represented as $H-C \\equiv C-H$. How many sigma ($\\sigma$) bonds and pi ($\\pi$) bonds does the $C \\equiv C$ triple bond contain?",
-        "explanation": "The $C \\equiv C$ triple bond in ethyne consists of: (1) One $\\sigma$ bond \u00e2\u20ac\u201d formed by end-to-end overlap of $sp$ hybrid orbitals along the internuclear axis, and (2) Two $\\pi$ bonds \u00e2\u20ac\u201d formed by lateral overlap of the two unhybridized $2p_y$ and $2p_z$ orbitals of each carbon atom. Thus: single bond = 1 $\\sigma$; double bond = 1 $\\sigma$ + 1 $\\pi$; triple bond = 1 $\\sigma$ + 2 $\\pi$.",
+        "question_text": "<p>The triple bond in ethyne (<i>C<sub>2</sub>H<sub>2</sub></i>) is represented as <i>H-C\u2261C-H</i>. How many <b>sigma (\u03c3)</b> bonds and <b>pi (\u03c0)</b> bonds does the <i>C\u2261C</i> triple bond contain?</p>",
+        "explanation": "<p>A <b>triple bond</b> consists of one <b>sigma (\u03c3)</b> bond and two <b>pi (\u03c0)</b> bonds. Specifically, the <i>C\u2261C</i> triple bond in ethyne is formed by:</p><p>(1) One <b>\u03c3 bond</b>, created by the end-to-end overlap of <i>sp</i> hybrid orbitals along the internuclear axis, and</p><p>(2) Two <b>\u03c0 bonds</b>, formed by the lateral overlap of the two unhybridized <i>2p<sub>y</sub></i> and <i>2p<sub>z</sub></i> orbitals of each carbon atom.</p><p>This follows the general pattern for bonds: a single bond has 1 \u03c3, a double bond has 1 \u03c3 + 1 \u03c0, and a triple bond has 1 \u03c3 + 2 \u03c0.</p>",
         "options": [
             {
                 "option_id": "115399",
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 212
+        "question_number": 212,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +652,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "A sigma ($\\sigma$) bond is formed by which type of orbital overlap?",
-        "explanation": "A sigma ($\\sigma$) bond is formed by end-to-end (head-on or axial) overlap of bonding orbitals directly along the internuclear axis. This includes: $s$-$s$ overlap (e.g., $H_2$), $s$-$p$ overlap (e.g., $H$-$C$ bond), and $p$-$p$ overlap along the axis. Sigma bonds are the strongest type of covalent bond and are always present in all covalent bonds (single, double, and triple bonds each contain at least one $\\sigma$ bond).",
+        "question_text": "<p>A <b>sigma</b> (<i>\u03c3</i>) bond is formed by which type of orbital overlap?</p>",
+        "explanation": "<p>A <b>sigma</b> (<i>\u03c3</i>) bond is formed by <b>end-to-end (head-on or axial) overlap</b> of bonding orbitals directly along the <b>internuclear axis</b>. This includes: <i>s</i>-<i>s</i> overlap (e.g., H<sub>2</sub>), <i>s</i>-<i>p</i> overlap (e.g., H-C bond), and <i>p</i>-<i>p</i> overlap along the axis. <b>Sigma bonds</b> are the strongest type of covalent bond and are always present in all covalent bonds (single, double, and triple bonds each contain at least one <i>\u03c3</i> bond).</p>",
         "options": [
             {
                 "option_id": "108996",
@@ -663,7 +680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 224
+        "question_number": 224,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,8 +690,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "A pi ($\\pi$) bond is formed by which type of orbital overlap?",
-        "explanation": "A pi ($\\pi$) bond is formed by the lateral (sideways) overlap of atomic orbitals whose axes remain parallel to each other and perpendicular to the internuclear axis. Pi bonds are weaker than sigma bonds because the lateral overlap is less effective than the direct head-on overlap. Pi bonds are found in double bonds (one $\\pi$) and triple bonds (two $\\pi$ bonds), always in addition to the sigma bond.",
+        "question_text": "<p>A pi (<b>\u03c0</b>) bond is formed by which type of orbital overlap?</p>",
+        "explanation": "<p>A pi (<b>\u03c0</b>) bond is formed by the lateral (sideways) overlap of atomic orbitals whose axes remain parallel to each other and perpendicular to the internuclear axis. <i>Pi bonds are weaker than sigma bonds</i> because the lateral overlap is less effective than the direct head-on overlap. Pi bonds are found in double bonds (one <b>\u03c0</b>) and triple bonds (two <b>\u03c0</b> bonds), always in addition to the sigma bond.",
         "options": [
             {
                 "option_id": "173147",
@@ -700,7 +718,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 237
+        "question_number": 237,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Bond length is defined as the equilibrium distance between nuclei of two bonded atoms. For a covalent molecule AB, how is bond length expressed?",
-        "explanation": "Bond length for a covalent molecule AB is the sum of the covalent radii of atoms A and B: $d = r_A + r_B$. It is measured in angstroms ($\\text{\u00c3\u2026}$) or picometres (pm). Bond length decreases as bond order increases: single bonds are longest, triple bonds are shortest. This is because higher bond orders (more electron density between nuclei) pull the atoms closer together.",
+        "question_text": "<p><b>Bond length</b> is defined as the equilibrium distance between nuclei of two bonded atoms. For a covalent molecule AB, how is bond length expressed?</p>",
+        "explanation": "<p><b>Bond length</b> for a covalent molecule AB is the sum of the covalent radii of atoms A and B: <i>d</i> = <i>r<sub>A</sub></i> + <i>r<sub>B</sub></i>. It is measured in angstroms (<i>\u00c5</i>) or picometres (pm). <b>Bond length</b> decreases as bond order increases: single bonds are longest, triple bonds are shortest. This is because higher bond orders (more electron density between nuclei) pull the atoms closer together.</p>",
         "options": [
             {
                 "option_id": "132733",
                 "tag": "a",
-                "text": "$d = r_A - r_B$",
+                "text": "<i>d</i> = <i>r<sub>A</sub></i> - <i>r<sub>B</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "174850",
                 "tag": "b",
-                "text": "$d = r_A + r_B$",
+                "text": "<i>d</i> = <i>r<sub>A</sub></i> + <i>r<sub>B</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "860614",
                 "tag": "c",
-                "text": "$d = \\frac{r_A}{r_B}$",
+                "text": "<i>d</i> = <i>r<sub>A</sub></i> / <i>r<sub>B</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "122754",
                 "tag": "d",
-                "text": "$d = r_A \\times r_B$",
+                "text": "<i>d</i> = <i>r<sub>A</sub></i> \u00d7 <i>r<sub>B</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 250
+        "question_number": 250,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,8 +766,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The bond energies for carbon-carbon bonds are given as: single bond = $349 \\text{ kJ mol}^{-1}$, double bond = $681 \\text{ kJ mol}^{-1}$, triple bond = $815 \\text{ kJ mol}^{-1}$. Which conclusion can be drawn from these values?",
-        "explanation": "The data clearly shows that bond energy increases with bond order: $C-C = 349 \\text{ kJ mol}^{-1}$ (single, 1 $\\sigma$) $< C=C = 681 \\text{ kJ mol}^{-1}$ (double, 1 $\\sigma$ + 1 $\\pi$) $< C \\equiv C = 815 \\text{ kJ mol}^{-1}$ (triple, 1 $\\sigma$ + 2 $\\pi$). Higher bond order also means shorter bond length, as more electrons between the nuclei pull them closer together. Sigma bonds contribute more to bond strength than pi bonds.",
+        "question_text": "<p>The bond energies for carbon-carbon bonds are given as: <b>single bond</b> = <i>349 kJ mol<sup>-1</sup></i>, <b>double bond</b> = <i>681 kJ mol<sup>-1</sup></i>, <b>triple bond</b> = <i>815 kJ mol<sup>-1</sup></i>. Which conclusion can be drawn from these values?</p>",
+        "explanation": "<p>The data clearly shows that bond energy increases with bond order: <b>C-C</b> = <i>349 kJ mol<sup>-1</sup></i> (single, 1 \u03c3) &lt; <b>C=C</b> = <i>681 kJ mol<sup>-1</sup></i> (double, 1 \u03c3 + 1 \u03c0) &lt; <b>C\u2261C</b> = <i>815 kJ mol<sup>-1</sup></i> (triple, 1 \u03c3 + 2 \u03c0). <b>Higher bond order</b> also means <b>shorter bond length</b>, as more electrons between the nuclei pull them closer together. <b>Sigma bonds</b> contribute more to bond strength than <b>pi bonds</b>.</p>",
         "options": [
             {
                 "option_id": "225214",
@@ -774,7 +794,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 263
+        "question_number": 263,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,8 +804,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Hydrogen bonding occurs between hydrogen and highly electronegative atoms. Which of the following sets of atoms can form hydrogen bonds with hydrogen?",
-        "explanation": "Hydrogen bonding is a dipole-dipole interaction that occurs when hydrogen is bonded to a highly electronegative atom \u00e2\u20ac\u201d specifically fluorine (F), oxygen (O), or nitrogen (N). These atoms are small enough and electronegative enough to create a strong partial positive charge ($\\delta+$) on hydrogen, allowing it to form a hydrogen bond with an electronegative atom on another molecule. Hydrogen bonding explains why water, HF, and ammonia have anomalously high boiling points.",
+        "question_text": "<p>Hydrogen bonding occurs between hydrogen and highly electronegative atoms. Which of the following sets of atoms can form hydrogen bonds with hydrogen?</p>",
+        "explanation": "<p>Hydrogen bonding is a <b>dipole-dipole interaction</b> that occurs when hydrogen is bonded to a highly electronegative atom \u2014 specifically <b>fluorine (F)</b>, <b>oxygen (O)</b>, or <b>nitrogen (N)</b>. These atoms are small enough and electronegative enough to create a strong partial positive charge (<i>\u03b4+</i>) on hydrogen, allowing it to form a hydrogen bond with an electronegative atom on another molecule. Hydrogen bonding explains why water, HF, and ammonia have anomalously high boiling points.",
         "options": [
             {
                 "option_id": "921660",
@@ -811,7 +832,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 276
+        "question_number": 276,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,8 +842,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Ethanol ($CH_3CH_2OH$, bp = $78.3\u00c2\u00b0C$) has a higher boiling point than methoxymethane ($CH_3OCH_3$, bp = $-24.8\u00c2\u00b0C$) despite having the same molecular mass. What best explains this?",
-        "explanation": "Ethanol has an $O-H$ group capable of forming hydrogen bonds ($O-H \\cdots O$) between molecules, requiring significantly more energy to break these intermolecular attractions during vaporization \u00e2\u20ac\u201d hence its higher boiling point of $78.3\u00c2\u00b0C$. Methoxymethane ($CH_3OCH_3$) has no $O-H$ bond and cannot form hydrogen bonds; it relies only on weaker dipole-dipole and van der Waals forces, hence its much lower boiling point of $-24.8\u00c2\u00b0C$.",
+        "question_text": "<p>Ethanol (<b>CH<sub>3</sub>CH<sub>2</sub>OH</b>, bp = <b>78.3\u00b0C</b>) has a higher boiling point than methoxymethane (<b>CH<sub>3</sub>OCH<sub>3</sub></b>, bp = <b>-24.8\u00b0C</b>) despite having the same molecular mass. What best explains this?</p>",
+        "explanation": "<p>Ethanol has an <b>O-H</b> group capable of forming hydrogen bonds (<b>O-H\u00b7\u00b7\u00b7O</b>) between molecules, requiring significantly more energy to break these intermolecular attractions during vaporization\u2014hence its higher boiling point of <b>78.3\u00b0C</b>. Methoxymethane (<b>CH<sub>3</sub>OCH<sub>3</sub></b>) has no <b>O-H</b> bond and cannot form hydrogen bonds; it relies only on weaker dipole-dipole and van der Waals forces, hence its much lower boiling point of <b>-24.8\u00b0C</b>.</p>",
         "options": [
             {
                 "option_id": "147425",
@@ -832,7 +854,7 @@
             {
                 "option_id": "217304",
                 "tag": "b",
-                "text": "Ethanol molecules form hydrogen bonds ($O-H \\cdots O$) between molecules, requiring more energy to vaporize",
+                "text": "Ethanol molecules form hydrogen bonds (O-H\u00b7\u00b7\u00b7O) between molecules, requiring more energy to vaporize",
                 "is_correct": true
             },
             {
@@ -848,7 +870,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 289
+        "question_number": 289,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,35 +880,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Electronegativity is the ability of an atom to attract bonding electrons in a molecule. What is the correct order of electronegativity for elements commonly encountered in organic chemistry?",
-        "explanation": "The correct order of electronegativity for elements in organic chemistry is: $F > O > Cl > N > Br > C > H$. Fluorine is the most electronegative element of all. This order explains why bonds involving fluorine are the most polar, and why carbon-fluorine bonds are among the strongest in organic chemistry. Electronegativity differences between bonded atoms determine whether a bond is nonpolar covalent, polar covalent, or ionic.",
+        "question_text": "<p><b>Electronegativity</b> is the ability of an atom to attract bonding electrons in a molecule. What is the correct order of electronegativity for elements commonly encountered in organic chemistry?</p>",
+        "explanation": "<p>The correct order of electronegativity for elements in organic chemistry is: <i>F > O > Cl > N > Br > C > H</i>. Fluorine is the <b>most electronegative</b> element of all. This order explains why bonds involving fluorine are the <b>most polar</b>, and why carbon-fluorine bonds are among the <b>strongest</b> in organic chemistry. <b>Electronegativity differences</b> between bonded atoms determine whether a bond is nonpolar covalent, polar covalent, or ionic.</p>",
         "options": [
             {
                 "option_id": "294348",
                 "tag": "a",
-                "text": "$C > N > O > F$",
+                "text": "<i>C > N > O > F</i>",
                 "is_correct": false
             },
             {
                 "option_id": "253700",
                 "tag": "b",
-                "text": "$H > C > N > O > F$",
+                "text": "<i>H > C > N > O > F</i>",
                 "is_correct": false
             },
             {
                 "option_id": "180274",
                 "tag": "c",
-                "text": "$F > O > Cl > N > Br > C > H$",
+                "text": "<i>F > O > Cl > N > Br > C > H</i>",
                 "is_correct": true
             },
             {
                 "option_id": "210596",
                 "tag": "d",
-                "text": "$Br > Cl > F > O > N > C > H$",
+                "text": "<i>Br > Cl > F > O > N > C > H</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 302
+        "question_number": 302,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +918,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Dipole moment ($\\mu$) is defined as the product of charge and distance of separation. What is the correct mathematical expression for dipole moment?",
-        "explanation": "Dipole moment is defined as: $\\mu = Q \\times r$, where $Q$ is the magnitude of the charge (in coulombs) and $r$ is the distance between the centers of positive and negative charge (in metres). Dipole moment is measured in Debye (D) units, where $1 \\text{ D} = 3.33564 \\times 10^{-30} \\text{ C\u00c2\u00b7m}$. It is a vector quantity pointing from the positive charge toward the negative (electronegative) end of the molecule.",
+        "question_text": "<p>Dipole moment (<b>\u03bc</b>) is defined as the product of charge and distance of separation. What is the correct mathematical expression for dipole moment?</p>",
+        "explanation": "<p>Dipole moment is defined as: <i>\u03bc</i> = Q \u00d7 r, where <b>Q</b> is the magnitude of the charge (in coulombs) and <b>r</b> is the distance between the centers of positive and negative charge (in metres). Dipole moment is measured in Debye (D) units, where 1 D = 3.33564 \u00d7 10<sup>-30</sup> C\u00b7m. It is a <b>vector</b> quantity pointing from the positive charge toward the negative (electronegative) end of the molecule.</p>",
         "options": [
             {
                 "option_id": "241900",
                 "tag": "a",
-                "text": "$\\mu = Q + r$",
+                "text": "<i>\u03bc</i> = Q + r",
                 "is_correct": false
             },
             {
                 "option_id": "108030",
                 "tag": "b",
-                "text": "$\\mu = \\frac{Q}{r}$",
+                "text": "<i>\u03bc</i> = Q / r",
                 "is_correct": false
             },
             {
                 "option_id": "241350",
                 "tag": "c",
-                "text": "$\\mu = Q \\times r$",
+                "text": "<i>\u03bc</i> = Q \u00d7 r",
                 "is_correct": true
             },
             {
                 "option_id": "408802",
                 "tag": "d",
-                "text": "$\\mu = Q - r$",
+                "text": "<i>\u03bc</i> = Q - r",
                 "is_correct": false
             }
         ],
-        "question_number": 315
+        "question_number": 315,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +956,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The conversion factor for dipole moment from Debye to SI units is $1 \\text{ D} = 3.33564 \\times 10^{-30} \\text{ C\u00c2\u00b7m}$. What do the units 'C' and 'm' represent?",
-        "explanation": "In the dipole moment conversion $1 \\text{ D} = 3.33564 \\times 10^{-30} \\text{ C\u00c2\u00b7m}$, 'C' stands for Coulombs (SI unit of electric charge) and 'm' stands for metres (SI unit of length). The Debye (D) is the commonly used unit for molecular dipole moments in chemistry. A bond with greater charge separation or longer bond distance will have a larger dipole moment, indicating greater polarity.",
+        "question_text": "<p>The conversion factor for dipole moment from Debye to SI units is <i>1 D = 3.33564 \u00d7 10<sup>-30</sup> C\u00b7m</i>. What do the units <b>'C'</b> and <b>'m'</b> represent?</p>",
+        "explanation": "<p>In the dipole moment conversion <i>1 D = 3.33564 \u00d7 10<sup>-30</sup> C\u00b7m</i>, <b>'C'</b> stands for <b>Coulombs</b> (SI unit of electric charge) and <b>'m'</b> stands for <b>metres</b> (SI unit of length). The Debye (D) is the commonly used unit for molecular dipole moments in chemistry. A bond with greater charge separation or longer bond distance will have a larger dipole moment, indicating greater polarity.</p>",
         "options": [
             {
                 "option_id": "244682",
@@ -959,7 +984,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 328
+        "question_number": 328,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When a non-polar covalent bond is formed between two identical atoms like $H_2$, $O_2$, $N_2$, or $F_2$, what happens to the shared electron pair?",
-        "explanation": "In a nonpolar covalent bond (e.g., $H-H$, $O=O$, $N \\equiv N$, $F-F$), the bonded atoms are identical and therefore have the same electronegativity. As a result, the shared electron pair is attracted equally by both nuclei and is located exactly midway between them. There is no charge separation, so the bond has zero dipole moment ($\\mu = 0$) and is classified as a nonpolar covalent bond.",
+        "question_text": "<p>When a <b>non-polar covalent bond</b> is formed between two identical atoms like <i>H<sub>2</sub></i>, <i>O<sub>2</sub></i>, <i>N<sub>2</sub></i>, or <i>F<sub>2</sub></i>, what happens to the shared electron pair?</p>",
+        "explanation": "<p>In a <b>nonpolar covalent bond</b> (e.g., <i>H-H</i>, <i>O=O</i>, <i>N\u2261N</i>, <i>F-F</i>), the bonded atoms are identical and therefore have the same electronegativity. As a result, the shared electron pair is attracted equally by both nuclei and is located exactly midway between them. There is no charge separation, so the bond has zero dipole moment (\u03bc = 0) and is classified as a <b>nonpolar covalent bond</b>.</p>",
         "options": [
             {
                 "option_id": "288384",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 341
+        "question_number": 341,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,8 +1032,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In a polar covalent bond such as $H-F$, which atom bears the partial negative charge ($\\delta^-$) and why?",
-        "explanation": "In $H-F$, there is a large difference in electronegativity ($F = 4.0$, $H = 2.1$ on the Pauling scale). Fluorine, being more electronegative, pulls the shared electron pair closer to itself, acquiring a partial negative charge ($\\delta^-$). Hydrogen, having lost electron density, acquires a partial positive charge ($\\delta^+$). This bond polarisation is written as $^{\\delta+}H - F^{\\delta-}$ and is the basis of polarity and dipole moment in covalent molecules.",
+        "question_text": "<p>In a <b>polar covalent bond</b> such as <i>H-F</i>, which atom bears the <b>partial negative charge</b> (<i>\u03b4<sup>-</sup></i>) and why?</p>",
+        "explanation": "<p>In <i>H-F</i>, there is a large difference in <b>electronegativity</b> (<i>F = 4.0</i>, <i>H = 2.1</i> on the Pauling scale). Fluorine, being more electronegative, pulls the shared electron pair closer to itself, acquiring a <b>partial negative charge</b> (<i>\u03b4<sup>-</sup></i>). Hydrogen, having lost electron density, acquires a <b>partial positive charge</b> (<i>\u03b4<sup>+</sup></i>). This bond polarisation is written as <i>\u03b4<sup>+</sup>H - F<sup>\u03b4-</sup></i> and is the basis of <b>polarity</b> and <b>dipole moment</b> in covalent molecules.</p>",
         "options": [
             {
                 "option_id": "255667",
@@ -1033,7 +1060,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 354
+        "question_number": 354,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1070,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the inductive effect in organic chemistry?",
-        "explanation": "The inductive effect refers to the permanent polarisation of sigma bonds in a carbon chain caused by an electron-withdrawing or electron-donating group attached to the chain. This effect is transmitted through the chain of carbon atoms and decreases in strength with increasing distance from the source. For example, in chloroethane ($CH_3CH_2Cl$), the electronegative chlorine atom withdraws electron density from the adjacent carbon chain, creating a permanent dipole.",
+        "question_text": "<p>The <b>inductive effect</b> in organic chemistry refers to:</p>",
+        "explanation": "<p>The <b>inductive effect</b> refers to the <i>permanent polarisation</i> of sigma bonds in a carbon chain caused by an electron-withdrawing or electron-donating group attached to the chain. This effect is transmitted through the chain of carbon atoms and decreases in strength with increasing distance from the source. For example, in chloroethane (<i>CH<sub>3</sub>CH<sub>2</sub>Cl</i>), the electronegative chlorine atom withdraws electron density from the adjacent carbon chain, creating a permanent dipole.</p>",
         "options": [
             {
                 "option_id": "318738",
@@ -1070,7 +1098,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 367
+        "question_number": 367,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1108,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The $-I$ effect (negative inductive effect) is caused by which type of substituent?",
-        "explanation": "The $-I$ effect (negative inductive effect) is produced by electron-withdrawing groups \u00e2\u20ac\u201d typically electronegative atoms such as halogens ($F, Cl, Br, I$), nitro groups ($-NO_2$), or carbonyl groups. These groups pull electron density away from the carbon chain toward themselves, creating a positive charge ($\\delta+$) on the adjacent carbon atoms. The effect diminishes as you move further along the chain from the electronegative substituent.",
+        "question_text": "<p>The <b>$-I$ effect</b> (negative inductive effect) is caused by which type of substituent?</p>",
+        "explanation": "<p>The <b>$-I$ effect</b> (negative inductive effect) is produced by <i>electron-withdrawing groups</i> \u2014 typically electronegative atoms such as halogens (<i>F, Cl, Br, I</i>), nitro groups (<i>\u2013NO<sub>2</sub></i>), or carbonyl groups. These groups pull electron density away from the carbon chain toward themselves, creating a positive charge (<i>\u03b4+</i>) on the adjacent carbon atoms. The effect diminishes as you move further along the chain from the electronegative substituent.</p>",
         "options": [
             {
                 "option_id": "187926",
@@ -1097,7 +1126,7 @@
             {
                 "option_id": "256284",
                 "tag": "c",
-                "text": "Non-polar groups such as $CH_4$",
+                "text": "Non-polar groups such as <i>CH<sub>4</sub></i>",
                 "is_correct": false
             },
             {
@@ -1107,7 +1136,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 380
+        "question_number": 380,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,8 +1146,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The $+I$ effect (positive inductive effect) is caused by which type of substituent?",
-        "explanation": "The $+I$ effect (positive inductive effect) is produced by electron-donating groups, particularly alkyl groups such as methyl ($-CH_3$), ethyl ($-C_2H_5$), and other branched alkyl chains. These groups push electron density into the carbon chain, creating a partial negative charge on adjacent carbons. The $+I$ effect increases with the size and degree of branching of the alkyl group: tertiary > secondary > primary.",
+        "question_text": "<p>The <b>$+I$ effect</b> (positive inductive effect) is caused by which type of substituent?</p>",
+        "explanation": "<p>The <b>$+I$ effect</b> (positive inductive effect) is produced by electron-donating groups, particularly alkyl groups such as methyl (<i>\u2212CH<sub>3</sub></i>), ethyl (<i>\u2212C<sub>2</sub>H<sub>5</sub></i>), and other branched alkyl chains. These groups push electron density into the carbon chain, creating a partial negative charge on adjacent carbons. The <b>$+I$ effect</b> increases with the size and degree of branching of the alkyl group: tertiary > secondary > primary.</p>",
         "options": [
             {
                 "option_id": "194443",
@@ -1128,23 +1158,24 @@
             {
                 "option_id": "326134",
                 "tag": "b",
-                "text": "Electron-donating groups such as alkyl groups ($-CH_3$, $-C_2H_5$)",
+                "text": "Electron-donating groups such as alkyl groups (<i>\u2212CH<sub>3</sub></i>, <i>\u2212C<sub>2</sub>H<sub>5</sub></i>)",
                 "is_correct": true
             },
             {
                 "option_id": "338017",
                 "tag": "c",
-                "text": "Carbonyl groups ($-C=O$)",
+                "text": "Carbonyl groups (<i>\u2212C=O</i>)",
                 "is_correct": false
             },
             {
                 "option_id": "136888",
                 "tag": "d",
-                "text": "Nitro groups ($-NO_2$)",
+                "text": "Nitro groups (<i>\u2212NO<sub>2</sub></i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 392
+        "question_number": 392,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1184,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Benzene has the molecular formula $C_6H_6$ and is represented by the Kekul\u00c3\u00a9 structure. Why does the Kekul\u00c3\u00a9 structure NOT fully represent benzene's true electronic structure?",
-        "explanation": "The Kekul\u00c3\u00a9 structure of benzene depicts alternating single and double bonds ($C-C$ and $C=C$), implying three 'fixed' double bonds. However, this does not reflect reality: in benzene, all six pi electrons are delocalised equally over all six carbon atoms in the ring. No single bond is 'longer' than a double bond \u00e2\u20ac\u201d all C-C bond lengths are equal at approximately 1.40 \u00c3\u2026, intermediate between a single bond (1.54 \u00c3\u2026) and double bond (1.34 \u00c3\u2026). This delocalisation is described by the resonance concept.",
+        "question_text": "<p>Benzene has the molecular formula <i>C<sub>6</sub>H<sub>6</sub></i> and is represented by the <b>Kekul\u00e9 structure</b>. Why does the Kekul\u00e9 structure <b>NOT</b> fully represent benzene's true electronic structure?</p>",
+        "explanation": "<p>The Kekul\u00e9 structure of benzene depicts alternating single and double bonds (<i>C-C</i> and <i>C=C</i>), implying three 'fixed' double bonds. However, this does not reflect reality: in benzene, all six pi electrons are <b>delocalised equally</b> over all six carbon atoms in the ring. No single bond is 'longer' than a double bond\u2014all <i>C-C</i> bond lengths are equal at approximately 1.40 \u00c5, intermediate between a single bond (1.54 \u00c5) and double bond (1.34 \u00c5). This delocalisation is described by the <b>resonance concept</b>.</p>",
         "options": [
             {
                 "option_id": "259184",
@@ -1177,11 +1208,12 @@
             {
                 "option_id": "235561",
                 "tag": "d",
-                "text": "The Kekul\u00c3\u00a9 structure shows benzene as having only 5 carbons",
+                "text": "The Kekul\u00e9 structure shows benzene as having only 5 carbons",
                 "is_correct": false
             }
         ],
-        "question_number": 404
+        "question_number": 404,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,8 +1222,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What does the concept of resonance in organic chemistry explain about benzene?",
-        "explanation": "Resonance theory (introduced in 1945 to explain benzene's structure) states that benzene exists as a resonance hybrid of two equivalent Kekul\u00c3\u00a9 structures. The pi electrons are not fixed between specific pairs of carbons but are delocalised around the entire ring. This delocalisation stabilises benzene ('resonance stabilisation') and gives each C-C bond a bond order of $1.5$ \u00e2\u20ac\u201d intermediate between a single (order 1) and double bond (order 2). The modern representation uses a circle inside the hexagon to show this.",
+        "question_text": "<p><b>Resonance</b> in organic chemistry explains the stability and bonding in benzene by describing its electronic structure. What does this concept specifically explain about benzene?</p>",
+        "explanation": "<p><b>Resonance theory</b> explains that benzene is a <b>resonance hybrid</b> of two equivalent Kekul\u00e9 structures. The <i>pi electrons</i> are not localized between specific carbon atoms but are <b>delocalised</b> across the entire ring. This delocalisation stabilizes benzene (termed <b>resonance stabilisation</b>) and results in each C-C bond having a bond order of <b>1.5</b>\u2014a value between that of a single bond (order 1) and a double bond (order 2). The modern depiction of benzene uses a circle inside a hexagon to represent this delocalised electron cloud.</p>",
         "options": [
             {
                 "option_id": "206182",
@@ -1202,7 +1234,7 @@
             {
                 "option_id": "945469",
                 "tag": "b",
-                "text": "Benzene rapidly oscillates between two equivalent structures where pi electrons are delocalised over all six carbons, giving each C-C bond a bond order of 1.5",
+                "text": "Benzene rapidly oscillates between two equivalent structures where <i>pi electrons are delocalised</i> over all six carbons, giving each C-C bond a bond order of 1.5",
                 "is_correct": true
             },
             {
@@ -1218,7 +1250,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 416
+        "question_number": 416,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,35 +1260,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Benzene ($C_6H_6$) consists of $sp^2$ hybridized carbon atoms. What is the hybridization of each carbon atom in benzene, and what angle do the bonds make?",
-        "explanation": "Each carbon atom in benzene is $sp^2$ hybridized. The three $sp^2$ hybrid orbitals of each carbon overlap with adjacent carbons and one hydrogen in a trigonal planar arrangement with $120\u00c2\u00b0$ bond angles. The remaining unhybridized $2p_z$ orbital on each carbon (perpendicular to the molecular plane) overlaps laterally with adjacent $2p_z$ orbitals, creating the delocalised pi electron system above and below the benzene ring.",
+        "question_text": "<p>Benzene (<i>C<sub>6</sub>H<sub>6</sub></i>) consists of <b>sp<sup>2</sup></b> hybridized carbon atoms. What is the hybridization of each carbon atom in benzene, and what angle do the bonds make?</p>",
+        "explanation": "<p>Each carbon atom in benzene is <b>sp<sup>2</sup></b> hybridized. The three <b>sp<sup>2</sup></b> hybrid orbitals of each carbon overlap with adjacent carbons and one hydrogen in a trigonal planar arrangement with <b>120\u00b0</b> bond angles. The remaining unhybridized <i>2p<sub>z</sub></i> orbital on each carbon (perpendicular to the molecular plane) overlaps laterally with adjacent <i>2p<sub>z</sub></i> orbitals, creating the delocalised pi electron system above and below the benzene ring.</p>",
         "options": [
             {
                 "option_id": "547905",
                 "tag": "a",
-                "text": "$sp^3$ hybridization, $109.5\u00c2\u00b0$",
+                "text": "<b>sp<sup>3</sup></b> hybridization, 109.5\u00b0",
                 "is_correct": false
             },
             {
                 "option_id": "289060",
                 "tag": "b",
-                "text": "$sp$ hybridization, $180\u00c2\u00b0$",
+                "text": "<b>sp</b> hybridization, 180\u00b0",
                 "is_correct": false
             },
             {
                 "option_id": "179011",
                 "tag": "c",
-                "text": "$sp^2$ hybridization, $120\u00c2\u00b0$",
+                "text": "<b>sp<sup>2</sup></b> hybridization, 120\u00b0",
                 "is_correct": true
             },
             {
                 "option_id": "513642",
                 "tag": "d",
-                "text": "$sp^3d$ hybridization, $90\u00c2\u00b0$",
+                "text": "<b>sp<sup>3</sup>d</b> hybridization, 90\u00b0",
                 "is_correct": false
             }
         ],
-        "question_number": 428
+        "question_number": 428,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,13 +1298,13 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the shape of an s-orbital?",
-        "explanation": "The s-orbital is spherically symmetrical in shape \u00e2\u20ac\u201d it looks like a sphere centred on the nucleus. This means the probability of finding an electron in an s-orbital is the same at all directions at a given distance from the nucleus. In contrast, p-orbitals have a dumbbell shape, d-orbitals have a double dumbbell (or cloverleaf) shape, and f-orbitals have even more complex geometries.",
+        "question_text": "<p>What is the shape of an <b>s-orbital</b>?</p>",
+        "explanation": "<p>The <b>s-orbital</b> is <b>spherically symmetrical</b> in shape \u2014 it looks like a sphere centred on the nucleus. This means the probability of finding an electron in an s-orbital is the same in all directions at a given distance from the nucleus.</p><p>In contrast, <b>p-orbitals</b> have a <i>dumbbell shape</i>, <b>d-orbitals</b> have a <i>double dumbbell (or cloverleaf) shape</i>, and <b>f-orbitals</b> have even more complex geometries.</p>",
         "options": [
             {
                 "option_id": "305465",
                 "tag": "a",
-                "text": "Dumbbell-shaped",
+                "text": "<i>Dumbbell-shaped</i>",
                 "is_correct": false
             },
             {
@@ -1282,17 +1316,18 @@
             {
                 "option_id": "280372",
                 "tag": "c",
-                "text": "Double dumbbell-shaped",
+                "text": "<i>Double dumbbell-shaped</i>",
                 "is_correct": false
             },
             {
                 "option_id": "178831",
                 "tag": "d",
-                "text": "Toroidal (donut) shape",
+                "text": "<i>Toroidal (donut) shape</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 440
+        "question_number": 440,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,35 +1336,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the shape of a p-orbital, and how many p-orbitals exist in the 2p subshell?",
-        "explanation": "A p-orbital has a dumbbell shape \u00e2\u20ac\u201d two lobes on opposite sides of the nucleus, separated by a node at the nucleus. There are three 2p-orbitals: $2p_x$, $2p_y$, and $2p_z$, each oriented along one of the three perpendicular Cartesian axes (x, y, z). All three 2p-orbitals have the same energy (they are degenerate) but different spatial orientations. Together, they can hold up to $3 \\times 2 = 6$ electrons.",
+        "question_text": "<p>A p-orbital has a distinct shape, and the 2p subshell contains a specific number of p-orbitals. What are they?</p>",
+        "explanation": "<p>A <b>p-orbital</b> is characterized by its <i>dumbbell shape</i>, featuring two lobes on opposite sides of the nucleus, separated by a node at the nucleus. In the 2p subshell, there are exactly <b>three p-orbitals</b>: <i>2p<sub>x</sub></i>, <i>2p<sub>y</sub></i>, and <i>2p<sub>z</sub></i>. These orbitals are oriented along the three perpendicular Cartesian axes (x, y, and z). All three 2p-orbitals are <i>degenerate</i>, meaning they have the same energy level but differ in spatial orientation. Collectively, they can accommodate up to 6 electrons (2 electrons per orbital).</p>",
         "options": [
             {
                 "option_id": "263223",
                 "tag": "a",
-                "text": "Spherical shape; one p-orbital",
+                "text": "<b>Spherical</b> shape; one p-orbital",
                 "is_correct": false
             },
             {
                 "option_id": "120697",
                 "tag": "b",
-                "text": "Dumbbell shape; three p-orbitals oriented along the x, y, and z axes",
+                "text": "<i>Dumbbell</i> shape; three p-orbitals oriented along the <i>x</i>, <i>y</i>, and <i>z</i> axes",
                 "is_correct": true
             },
             {
                 "option_id": "118191",
                 "tag": "c",
-                "text": "Double dumbbell shape; five p-orbitals",
+                "text": "<b>Double dumbbell</b> shape; five p-orbitals",
                 "is_correct": false
             },
             {
                 "option_id": "157924",
                 "tag": "d",
-                "text": "Toroidal shape; seven p-orbitals",
+                "text": "<b>Toroidal</b> shape; seven p-orbitals",
                 "is_correct": false
             }
         ],
-        "question_number": 452
+        "question_number": 452,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,8 +1374,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How many hybrid orbitals are formed in $sp^2$ hybridization, and what happens to the remaining unhybridized orbital?",
-        "explanation": "In $sp^2$ hybridization, one $2s$ and two $2p$ orbitals mix to form three $sp^2$ hybrid orbitals (for sigma bonding). The third $2p$ orbital (the $2p_z$) is not involved in hybridization \u00e2\u20ac\u201d it remains unhybridized and perpendicular to the plane of the $sp^2$ orbitals. This unhybridized $2p_z$ orbital participates in lateral (pi bond) overlap with the $2p_z$ orbital of another atom to form the $\\pi$ bond, as seen in alkenes like ethene ($C_2H_4$).",
+        "question_text": "<p>How many <b>hybrid orbitals</b> are formed in <i>sp<sup>2</sup></i> hybridization, and what happens to the remaining unhybridized orbital?</p>",
+        "explanation": "<p>In <i>sp<sup>2</sup></i> hybridization, one <i>2s</i> and two <i>2p</i> orbitals mix to form three <i>sp<sup>2</sup></i> hybrid orbitals (for sigma bonding). The third <i>2p</i> orbital (the <i>2p<sub>z</sub></i>) is not involved in hybridization \u2014 it remains unhybridized and perpendicular to the plane of the <i>sp<sup>2</sup></i> orbitals. This unhybridized <i>2p<sub>z</sub></i> orbital participates in lateral (pi bond) overlap with the <i>2p<sub>z</sub></i> orbital of another atom to form the <b>\u03c0 bond</b>, as seen in alkenes like ethene (<i>C<sub>2</sub>H<sub>4</sub></i>).</p>",
         "options": [
             {
                 "option_id": "327371",
@@ -1356,7 +1392,7 @@
             {
                 "option_id": "121565",
                 "tag": "c",
-                "text": "3 hybrid orbitals are formed; the remaining $2p_z$ orbital forms a pi bond through lateral overlap",
+                "text": "3 hybrid orbitals are formed; the remaining <i>2p<sub>z</sub></i> orbital forms a pi bond through lateral overlap",
                 "is_correct": true
             },
             {
@@ -1366,7 +1402,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 464
+        "question_number": 464,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1412,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Bond dissociation energy (D) differs from bond energy (E). What is bond dissociation energy?",
-        "explanation": "Bond dissociation energy (D) is defined as the energy required to break a specific bond in a polyatomic gaseous molecule by homolytic cleavage \u00e2\u20ac\u201d where each atom takes one electron from the shared pair, producing neutral free radicals. For example, $CH_4 \\rightarrow CH_3 \\cdot + H \\cdot$ gives the first C-H bond dissociation energy. Bond energy (E) is different \u00e2\u20ac\u201d it is the average energy to break ALL bonds of the same type across the molecule.",
+        "question_text": "<p><b>Bond dissociation energy (D)</b> differs from <b>bond energy (E)</b>. What is <b>bond dissociation energy</b>?</p>",
+        "explanation": "<p><b>Bond dissociation energy (D)</b> is defined as the energy required to break a specific bond in a polyatomic gaseous molecule by <i>homolytic cleavage</i> \u2014 where each atom takes one electron from the shared pair, producing neutral free radicals. For example, <i>CH<sub>4</sub> \u2192 CH<sub>3</sub>\u00b7 + H\u00b7</i> gives the first C\u2013H bond dissociation energy.</p><p><b>Bond energy (E)</b> is different \u2014 it is the <i>average</i> energy to break <i>all</i> bonds of the same type across the molecule.</p>",
         "options": [
             {
                 "option_id": "510953",
@@ -1403,7 +1440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 476
+        "question_number": 476,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the s-p (or $s$-$p$) overlapping to form a sigma bond, which pair of orbitals is involved?",
-        "explanation": "In $s$-$p$ overlapping, the spherical $s$-orbital of one atom overlaps directly (end-to-end or head-on) with one lobe of the dumbbell-shaped $p$-orbital of another atom along the internuclear axis. This forms a sigma ($\\sigma$) bond. This type of overlap occurs, for example, in the C-H bonds of organic molecules where the $sp^3$ (or $sp^2$ or $sp$) hybrid orbital of carbon overlaps with the $1s$ orbital of hydrogen.",
+        "question_text": "<p>In the <b>s-p</b> (or <i>s</i>-<i>p</i>) overlapping to form a sigma bond, which pair of orbitals is involved?</p>",
+        "explanation": "<p>In <i>s</i>-<i>p</i> overlapping, the spherical <b>s</b>-orbital of one atom overlaps directly (end-to-end or head-on) with one lobe of the dumbbell-shaped <b>p</b>-orbital of another atom along the internuclear axis. This forms a sigma (<b>\u03c3</b>) bond. This type of overlap occurs, for example, in the C-H bonds of organic molecules where the <i>sp</i><sup>3</sup> (or <i>sp</i><sup>2</sup> or <i>sp</i>) hybrid orbital of carbon overlaps with the <i>1s</i> orbital of hydrogen.</p>",
         "options": [
             {
                 "option_id": "325013",
                 "tag": "a",
-                "text": "Two p-orbitals overlapping laterally",
+                "text": "Two <b>p</b>-orbitals overlapping laterally",
                 "is_correct": false
             },
             {
                 "option_id": "275117",
                 "tag": "b",
-                "text": "One s-orbital of one atom overlapping end-to-end with a p-orbital of another atom",
+                "text": "One <b>s</b>-orbital of one atom overlapping end-to-end with a <b>p</b>-orbital of another atom",
                 "is_correct": true
             },
             {
                 "option_id": "674631",
                 "tag": "c",
-                "text": "Two s-orbitals overlapping sideways",
+                "text": "Two <b>s</b>-orbitals overlapping sideways",
                 "is_correct": false
             },
             {
                 "option_id": "218108",
                 "tag": "d",
-                "text": "A d-orbital overlapping with an f-orbital",
+                "text": "A <b>d</b>-orbital overlapping with an <b>f</b>-orbital",
                 "is_correct": false
             }
         ],
-        "question_number": 488
+        "question_number": 488,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1488,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is an atomic orbital as defined in quantum mechanics?",
-        "explanation": "According to wave mechanics (quantum theory), an atomic orbital is defined as the region in space about the nucleus where there is a high probability (not certainty) of finding an electron. Unlike the Bohr model, which described fixed circular orbits, the quantum mechanical model describes orbitals as probability distributions. The shape of an orbital (s, p, d, f) defines the spatial region of high electron probability.",
+        "question_text": "<p>What is an <b>atomic orbital</b> as defined in quantum mechanics?</p>",
+        "explanation": "<p>According to <b>wave mechanics</b> (quantum theory), an atomic orbital is defined as the <i>region in space about the nucleus</i> where there is a <b>high probability</b> (not certainty) of finding an electron. Unlike the <b>Bohr model</b>, which described fixed circular orbits, the quantum mechanical model describes orbitals as <b>probability distributions</b>. The shape of an orbital (s, p, d, f) defines the spatial region of high electron probability.",
         "options": [
             {
                 "option_id": "842352",
@@ -1477,7 +1516,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 500
+        "question_number": 500,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1526,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In hybridization, the number of hybrid orbitals formed is equal to:",
-        "explanation": "A fundamental principle of hybridization is that the number of hybrid orbitals formed always equals the number of atomic orbitals that are mixed. For example: $sp^3$ \u00e2\u20ac\u201d 4 atomic orbitals (1s + 3p) form 4 hybrid orbitals; $sp^2$ \u00e2\u20ac\u201d 3 atomic orbitals (1s + 2p) form 3 hybrid orbitals; $sp$ \u00e2\u20ac\u201d 2 atomic orbitals (1s + 1p) form 2 hybrid orbitals. This ensures conservation of the total number of orbitals.",
+        "question_text": "<p>In hybridization, the number of hybrid orbitals formed is equal to:</p>",
+        "explanation": "<p>A fundamental principle of hybridization is that the number of hybrid orbitals formed always equals the number of atomic orbitals that are mixed. For example: <i>sp</i><sup>3</sup> \u2014 4 atomic orbitals (1<i>s</i> + 3<i>p</i>) form 4 hybrid orbitals; <i>sp</i><sup>2</sup> \u2014 3 atomic orbitals (1<i>s</i> + 2<i>p</i>) form 3 hybrid orbitals; <i>sp</i> \u2014 2 atomic orbitals (1<i>s</i> + 1<i>p</i>) form 2 hybrid orbitals. This ensures conservation of the total number of orbitals.</p>",
         "options": [
             {
                 "option_id": "859108",
@@ -1510,11 +1550,12 @@
             {
                 "option_id": "144056",
                 "tag": "d",
-                "text": "The principal quantum number $n$ of the atom",
+                "text": "The principal quantum number <i>n</i> of the atom",
                 "is_correct": false
             }
         ],
-        "question_number": 512
+        "question_number": 512,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1564,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Which of the following statements correctly compares sigma ($\\sigma$) and pi ($\\pi$) bonds?",
-        "explanation": "Sigma ($\\sigma$) bonds are formed by end-to-end (head-on/axial) overlap of orbitals directly along the internuclear axis. Pi ($\\pi$) bonds are formed by lateral (sideways) overlap of orbitals parallel to each other and perpendicular to the internuclear axis. Because head-on overlap is more effective than lateral overlap, sigma bonds are stronger than pi bonds. This is why double bonds are not twice as strong as single bonds \u00e2\u20ac\u201d the pi bond component is weaker.",
+        "question_text": "<p>Which of the following statements correctly <i>compares</i> <b>sigma (<i>\u03c3</i>)</b> and <b>pi (<i>\u03c0</i>)</b> bonds?</p>",
+        "explanation": "<p><b>Sigma (<i>\u03c3</i>)</b> bonds are formed by end-to-end (head-on/axial) overlap of orbitals directly along the internuclear axis. <b>Pi (<i>\u03c0</i>)</b> bonds are formed by lateral (sideways) overlap of orbitals parallel to each other and perpendicular to the internuclear axis. Because head-on overlap is more effective than lateral overlap, <b>sigma bonds are stronger than pi bonds</b>. This is why double bonds are not twice as strong as single bonds\u2014the pi bond component is weaker.</p>",
         "options": [
             {
                 "option_id": "112552",
@@ -1551,7 +1592,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 524
+        "question_number": 524,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "For the principal shell $n = 4$ (N-shell), what is the maximum number of electrons it can accommodate using the formula $2n^2$?",
-        "explanation": "Using the formula $2n^2$ for the maximum electrons in a shell, for $n = 4$ (N-shell): $2(4)^2 = 2 \\times 16 = 32$ electrons. The N-shell can therefore accommodate a maximum of 32 electrons. For reference: K-shell ($n=1$): 2 electrons; L-shell ($n=2$): 8; M-shell ($n=3$): 18; N-shell ($n=4$): 32.",
+        "question_text": "<p>For the <b>principal shell</b> <i>n</i> = 4 (N-shell), what is the <b>maximum number of electrons</b> it can accommodate using the formula <i>2n<sup>2</sup></i>?</p>",
+        "explanation": "<p>Using the formula <i>2n<sup>2</sup></i> for the <b>maximum electrons</b> in a shell, for <i>n</i> = 4 (N-shell):</p><p><i>2(4)<sup>2</sup> = 2 \u00d7 16 = 32</i> electrons. The N-shell can therefore accommodate a <b>maximum of 32 electrons</b>.</p><p>For reference:</p><p>K-shell (<i>n</i>=1): 2 electrons;</p><p>L-shell (<i>n</i>=2): 8;</p><p>M-shell (<i>n</i>=3): 18;</p><p>N-shell (<i>n</i>=4): 32.</p>",
         "options": [
             {
                 "option_id": "340072",
@@ -1588,7 +1630,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 536
+        "question_number": 536,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "How does resonance stabilisation affect the C-C bond order in benzene compared to a typical single and double bond?",
-        "explanation": "In benzene, the pi electrons are delocalised over all six carbon atoms equally. This means each C-C bond is neither purely single (bond order 1) nor purely double (bond order 2), but has an intermediate bond order of $1.5$. This is calculated as: $\\frac{3 \\text{ double bonds} + 3 \\text{ single bonds}}{6 \\text{ bonds}} = \\frac{9}{6} = 1.5$. This delocalization (resonance stabilisation) makes benzene more stable than a theoretical cyclohexatriene with fixed double bonds.",
+        "question_text": "<p>How does <b>resonance stabilisation</b> affect the C-C bond order in benzene compared to a typical single and double bond?</p>",
+        "explanation": "<p>In benzene, the <i>pi electrons</i> are <b>delocalised</b> over all six carbon atoms equally. This means each C-C bond is neither purely single (bond order 1) nor purely double (bond order 2), but has an intermediate bond order of <b>1.5</b>. This is calculated as: <i>(3 double bonds + 3 single bonds) / 6 bonds = 9 / 6 = 1.5</i>. This <b>delocalization (resonance stabilisation)</b> makes benzene more stable than a theoretical cyclohexatriene with fixed double bonds.</p>",
         "options": [
             {
                 "option_id": "156253",
                 "tag": "a",
-                "text": "Bond order is 2.0, same as a double bond",
+                "text": "Bond order is <b>2.0</b>, same as a double bond",
                 "is_correct": false
             },
             {
                 "option_id": "167771",
                 "tag": "b",
-                "text": "Bond order is 1.0, same as a single bond",
+                "text": "Bond order is <b>1.0</b>, same as a single bond",
                 "is_correct": false
             },
             {
                 "option_id": "199168",
                 "tag": "c",
-                "text": "Bond order is 1.5, intermediate between a single bond (1) and double bond (2)",
+                "text": "Bond order is <b>1.5</b>, intermediate between a single bond (1) and double bond (2)",
                 "is_correct": true
             },
             {
                 "option_id": "320149",
                 "tag": "d",
-                "text": "Bond order is 3.0, same as a triple bond",
+                "text": "Bond order is <b>3.0</b>, same as a triple bond",
                 "is_correct": false
             }
         ],
-        "question_number": 548
+        "question_number": 548,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1678,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "When the magnetic quantum number for an electron in a p-orbital is $m_\\ell = 0$ (with $\\ell = 1$), which specific p-orbital does this correspond to?",
-        "explanation": "For a p-orbital ($\\ell = 1$), the magnetic quantum number $m_\\ell$ can take values $-1, 0, +1$, corresponding to three different orientations: $m_\\ell = -1 \\Rightarrow p_x$ (or $p_y$ depending on convention); $m_\\ell = 0 \\Rightarrow p_z$ (along the z-axis); $m_\\ell = +1 \\Rightarrow p_y$ (or $p_x$). The $m_\\ell = 0$ orbital is conventionally assigned to the $p_z$ orbital, which points along the z-axis and is the orbital commonly involved in pi bond formation in hybridization.",
+        "question_text": "<p>When the <b>magnetic quantum number</b> for an electron in a p-orbital is <i>m<sub>\u2113</sub></i> = 0 (with <i>\u2113</i> = 1), which specific p-orbital does this correspond to?</p>",
+        "explanation": "<p>For a p-orbital (<i>\u2113</i> = 1), the <b>magnetic quantum number</b> <i>m<sub>\u2113</sub></i> can take values -1, 0, +1, corresponding to three different orientations: <i>m<sub>\u2113</sub></i> = -1 \u21d2 <i>p<sub>x</sub></i> (or <i>p<sub>y</sub></i> depending on convention); <i>m<sub>\u2113</sub></i> = 0 \u21d2 <i>p<sub>z</sub></i> (along the z-axis); <i>m<sub>\u2113</sub></i> = +1 \u21d2 <i>p<sub>y</sub></i> (or <i>p<sub>x</sub></i>). The <i>m<sub>\u2113</sub></i> = 0 orbital is conventionally assigned to the <i>p<sub>z</sub></i> orbital, which points along the z-axis and is the orbital commonly involved in pi bond formation in hybridization.</p>",
         "options": [
             {
                 "option_id": "120901",
                 "tag": "a",
-                "text": "$p_x$ orbital",
+                "text": "<i>p<sub>x</sub></i> orbital",
                 "is_correct": false
             },
             {
                 "option_id": "320121",
                 "tag": "b",
-                "text": "$p_y$ orbital",
+                "text": "<i>p<sub>y</sub></i> orbital",
                 "is_correct": false
             },
             {
                 "option_id": "813524",
                 "tag": "c",
-                "text": "$p_z$ orbital",
+                "text": "<i>p<sub>z</sub></i> orbital",
                 "is_correct": true
             },
             {
                 "option_id": "116046",
                 "tag": "d",
-                "text": "$p_s$ orbital",
+                "text": "<i>p<sub>s</sub></i> orbital",
                 "is_correct": false
             }
         ],
-        "question_number": 560
+        "question_number": 560,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1716,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "What is the correct excited state electron configuration of carbon that enables it to form 4 covalent bonds?",
-        "explanation": "Carbon's ground state is $1s^2 2s^2 2p_x^1 2p_y^1 2p_z^0$ (2 unpaired electrons). Upon excitation, one of the paired $2s$ electrons is promoted to the empty $2p_z$ orbital, giving the excited state: $1s^2 2s^1 2p_x^1 2p_y^1 2p_z^1$. Now all four outer orbitals ($2s, 2p_x, 2p_y, 2p_z$) each contain one unpaired electron, enabling carbon to form 4 covalent bonds through hybridization.",
+        "question_text": "<p>What is the <b>correct excited state electron configuration</b> of carbon that enables it to form <b>4 covalent bonds</b>?</p>",
+        "explanation": "<p>Carbon's ground state is <i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>0</sup></i> (2 unpaired electrons). Upon excitation, one of the paired <i>2s</i> electrons is promoted to the empty <i>2p<sub>z</sub></i> orbital, giving the excited state: <i>1s<sup>2</sup> 2s<sup>1</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>1</sup></i>. Now all four outer orbitals (<i>2s, 2p<sub>x</sub>, 2p<sub>y</sub>, 2p<sub>z</sub></i>) each contain one unpaired electron, enabling carbon to form 4 covalent bonds through hybridization.</p>",
         "options": [
             {
                 "option_id": "144002",
                 "tag": "a",
-                "text": "$1s^2 2s^2 2p_x^1 2p_y^1 2p_z^0$",
+                "text": "<i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>0</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "264831",
                 "tag": "b",
-                "text": "$1s^2 2s^0 2p_x^2 2p_y^1 2p_z^1$",
+                "text": "<i>1s<sup>2</sup> 2s<sup>0</sup> 2p<sub>x</sub><sup>2</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "111628",
                 "tag": "c",
-                "text": "$1s^2 2s^1 2p_x^1 2p_y^1 2p_z^1$",
+                "text": "<i>1s<sup>2</sup> 2s<sup>1</sup> 2p<sub>x</sub><sup>1</sup> 2p<sub>y</sub><sup>1</sup> 2p<sub>z</sub><sup>1</sup></i>",
                 "is_correct": true
             },
             {
                 "option_id": "400935",
                 "tag": "d",
-                "text": "$1s^2 2s^2 2p_x^2 2p_y^0 2p_z^0$",
+                "text": "<i>1s<sup>2</sup> 2s<sup>2</sup> 2p<sub>x</sub><sup>2</sup> 2p<sub>y</sub><sup>0</sup> 2p<sub>z</sub><sup>0</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 572
+        "question_number": 572,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,25 +1754,25 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The overlapping of two p-orbitals directly (head-on, along the internuclear axis) forms which type of bond?",
-        "explanation": "When two p-orbitals overlap directly along the internuclear axis (head-on/axial overlap), the result is a sigma ($\\sigma$) bond \u00e2\u20ac\u201d specifically a $p$-$p$ sigma bond. This is the same type of bond as $s$-$s$ and $s$-$p$ sigma bonds; the distinguishing feature is head-on overlap along the bond axis. In contrast, when p-orbitals overlap laterally (sideways, with their axes parallel and perpendicular to the internuclear axis), a pi ($\\pi$) bond is formed.",
+        "question_text": "<p>The overlapping of two <b>p-orbitals</b> directly (head-on, along the internuclear axis) forms which type of bond?</p>",
+        "explanation": "<p>When two <b>p-orbitals</b> overlap directly along the internuclear axis (head-on or axial overlap), the result is a <b>sigma (\u03c3)</b> bond\u2014specifically a <i>p\u2013p sigma bond</i>. This is the same type of bond as <i>s\u2013s</i> and <i>s\u2013p</i> sigma bonds; the distinguishing feature is head-on overlap along the bond axis. In contrast, when <b>p-orbitals</b> overlap laterally (sideways, with their axes parallel and perpendicular to the internuclear axis), a <b>pi (\u03c0)</b> bond is formed.</p>",
         "options": [
             {
                 "option_id": "103739",
                 "tag": "a",
-                "text": "A pi ($\\pi$) bond",
+                "text": "A <i>pi</i> (<b>\u03c0</b>) bond",
                 "is_correct": false
             },
             {
                 "option_id": "121165",
                 "tag": "b",
-                "text": "A delta ($\\delta$) bond",
+                "text": "A <i>delta</i> (<b>\u03b4</b>) bond",
                 "is_correct": false
             },
             {
                 "option_id": "152653",
                 "tag": "c",
-                "text": "A sigma ($\\sigma$) bond",
+                "text": "A <i>sigma</i> (<b>\u03c3</b>) bond",
                 "is_correct": true
             },
             {
@@ -1736,7 +1782,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 584
+        "question_number": 584,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1792,8 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "The azimuthal quantum number for a given shell with principal quantum number $n$ takes values from 0 to $(n-1)$. For $n = 4$, what is the maximum value of $\\ell$?",
-        "explanation": "The azimuthal quantum number $\\ell$ takes integer values from 0 to $(n-1)$. For $n = 4$: $\\ell = 0, 1, 2, 3$ \u00e2\u20ac\u201d so the maximum value is $\\ell = 3$, which corresponds to the f-orbital. The four subshells present in the N-shell ($n=4$) are: $4s$ ($\\ell=0$), $4p$ ($\\ell=1$), $4d$ ($\\ell=2$), and $4f$ ($\\ell=3$). Each type of subshell has a distinct number of orbitals: s=1, p=3, d=5, f=7.",
+        "question_text": "<p>The <b>azimuthal quantum number</b> for a given shell with principal quantum number <i>n</i> takes values from 0 to <i>(n-1)</i>. For <i>n</i> = 4, what is the maximum value of <b>\u2113</b>?</p>",
+        "explanation": "<p>The azimuthal quantum number <b>\u2113</b> takes integer values from 0 to <i>(n-1)</i>. For <i>n</i> = 4: <b>\u2113</b> = 0, 1, 2, 3 \u2014 so the <b>maximum value</b> is <b>\u2113</b> = 3, which corresponds to the <i>f</i>-orbital.</p><p>The four subshells present in the N-shell (<i>n</i>=4) are: <i>4s</i> (<b>\u2113</b>=0), <i>4p</i> (<b>\u2113</b>=1), <i>4d</i> (<b>\u2113</b>=2), and <i>4f</i> (<b>\u2113</b>=3). Each type of subshell has a distinct number of orbitals: <i>s</i>=1, <i>p</i>=3, <i>d</i>=5, <i>f</i>=7.</p>",
         "options": [
             {
                 "option_id": "122237",
@@ -1773,7 +1820,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 596
+        "question_number": 596,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1830,36 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "In the formation of a double bond in ethene ($H_2C=CH_2$), the $sp^2$-$sp^2$ sigma bond between the two carbons and the remaining pi bond arise from which overlaps respectively?",
-        "explanation": "In ethene's $C=C$ double bond: (1) The $\\sigma$ bond is formed by direct (head-on, end-to-end) overlap of an $sp^2$ hybrid orbital from one carbon with an $sp^2$ hybrid orbital from the other carbon \u00e2\u20ac\u201d this is the $sp^2$-$sp^2$ sigma bond along the internuclear axis. (2) The $\\pi$ bond is formed by lateral (sideways) overlap of the unhybridized $2p_z$ orbitals from each carbon atom, which are parallel to each other and perpendicular to the molecular plane, creating electron density above and below the sigma bond axis.",
+        "question_text": "<p>In the formation of a double bond in ethene (<i>H<sub>2</sub>C=CH<sub>2</sub></i>), the <b><i>sp<sup>2</sup></i>-<i>sp<sup>2</sup></i> sigma bond</b> between the two carbons and the remaining <b>pi bond</b> arise from which overlaps respectively?</p>",
+        "explanation": "<p>In ethene's <i>C=C</i> double bond: (1) The <b><i>\u03c3</i></b> bond is formed by direct (head-on, end-to-end) overlap of an <i>sp<sup>2</sup></i> hybrid orbital from one carbon with an <i>sp<sup>2</sup></i> hybrid orbital from the other carbon \u2014 this is the <b><i>sp<sup>2</sup></i>-<i>sp<sup>2</sup></i> sigma bond</b> along the internuclear axis. (2) The <b><i>\u03c0</i></b> bond is formed by lateral (sideways) overlap of the unhybridized <i>2p<sub>z</sub></i> orbitals from each carbon atom, which are parallel to each other and perpendicular to the molecular plane, creating electron density above and below the sigma bond axis.</p>",
         "options": [
             {
                 "option_id": "997505",
                 "tag": "a",
-                "text": "Lateral overlap of $sp^2$ orbitals, and head-on overlap of $2p_z$ orbitals",
+                "text": "Lateral overlap of <i>sp<sup>2</sup></i> orbitals, and head-on overlap of <i>2p<sub>z</sub></i> orbitals",
                 "is_correct": false
             },
             {
                 "option_id": "133676",
                 "tag": "b",
-                "text": "Head-on overlap of $sp^2$ orbitals (sigma), and lateral overlap of unhybridized $2p_z$ orbitals (pi)",
+                "text": "Head-on overlap of <i>sp<sup>2</sup></i> orbitals (sigma), and lateral overlap of unhybridized <i>2p<sub>z</sub></i> orbitals (pi)",
                 "is_correct": true
             },
             {
                 "option_id": "309262",
                 "tag": "c",
-                "text": "Both sigma and pi bonds from head-on overlap of $sp^2$ orbitals",
+                "text": "Both sigma and pi bonds from head-on overlap of <i>sp<sup>2</sup></i> orbitals",
                 "is_correct": false
             },
             {
                 "option_id": "815623",
                 "tag": "d",
-                "text": "Both bonds from lateral overlap of $2p_z$ orbitals",
+                "text": "Both bonds from lateral overlap of <i>2p<sub>z</sub></i> orbitals",
                 "is_correct": false
             }
         ],
-        "question_number": 608
+        "question_number": 608,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,34 +1868,35 @@
         "course_code": "CHM 122",
         "course_title": "ORGANIC CHEMISTRY",
         "question_type": "CBT",
-        "question_text": "Bond length is expressed in angstroms ($\\text{\u00c3\u2026}$) or picometres (pm). What is the relationship between these two units?",
-        "explanation": "$1 \\text{ \u00c3\u2026} = 10^{-10} \\text{ m}$ and $1 \\text{ pm} = 10^{-12} \\text{ m}$. Therefore: $1 \\text{ \u00c3\u2026} = \\frac{10^{-10}}{10^{-12}} \\text{ pm} = 100 \\text{ pm}$. So 1 angstrom equals 100 picometres. For example, the average C-C bond length in $C_{60}$ fullerene (1.44 \u00c3\u2026) equals 144 pm. Bond lengths are typically in the range 100\u00e2\u20ac\u201c300 pm (1\u00e2\u20ac\u201c3 \u00c3\u2026) for covalent bonds in organic molecules.",
+        "question_text": "<p>Bond length is expressed in angstroms (<b>\u00c5</b>) or picometres (<b>pm</b>). What is the <i>relationship</i> between these two units?</p>",
+        "explanation": "<p>1 <b>\u00c5</b> = 10<sup>-10</sup> <b>m</b> and 1 <b>pm</b> = 10<sup>-12</sup> <b>m</b>. Therefore:</p><p>1 <b>\u00c5</b> = <b>10<sup>-10</sup></b> / <b>10<sup>-12</sup></b> <b>pm</b> = 100 <b>pm</b>.</p><p>So 1 angstrom equals 100 picometres. For example, the average C-C bond length in <i>C<sub>60</sub></i> fullerene (1.44 <b>\u00c5</b>) equals 144 <b>pm</b>. Bond lengths are typically in the range 100\u2013300 <b>pm</b> (1\u20133 <b>\u00c5</b>) for covalent bonds in organic molecules.</p>",
         "options": [
             {
                 "option_id": "898555",
                 "tag": "a",
-                "text": "$1\\text{ \u00c3\u2026} = 10 \\text{ pm}$",
+                "text": "1 <b>\u00c5</b> = 10 <b>pm</b>",
                 "is_correct": false
             },
             {
                 "option_id": "215259",
                 "tag": "b",
-                "text": "$1\\text{ \u00c3\u2026} = 100 \\text{ pm}$",
+                "text": "1 <b>\u00c5</b> = 100 <b>pm</b>",
                 "is_correct": true
             },
             {
                 "option_id": "189464",
                 "tag": "c",
-                "text": "$1\\text{ \u00c3\u2026} = 1000 \\text{ pm}$",
+                "text": "1 <b>\u00c5</b> = 1000 <b>pm</b>",
                 "is_correct": false
             },
             {
                 "option_id": "212679",
                 "tag": "d",
-                "text": "$1\\text{ \u00c3\u2026} = 0.1 \\text{ pm}$",
+                "text": "1 <b>\u00c5</b> = 0.1 <b>pm</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 619
+        "question_number": 619,
+        "is_rewritten": true
     }
 ]

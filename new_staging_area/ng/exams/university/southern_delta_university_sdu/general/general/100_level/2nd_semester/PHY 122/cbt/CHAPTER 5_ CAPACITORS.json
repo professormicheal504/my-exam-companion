@@ -6,8 +6,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A surface on which the electric potential has the same value at every point is called:",
-        "explanation": "An equipotential surface contains all points that have the same electric potential. No net work is done on a charge moving along an equipotential surface, since the potential energy remains constant.",
+        "question_text": "<p>A surface on which the <b>electric potential</b> has the same value at every point is called:</p>",
+        "explanation": "<p>An <b>equipotential surface</b> contains all points that have the same electric potential. No net work is done on a charge moving along an <b>equipotential surface</b>, since the potential energy remains constant.</p>",
         "options": [
             {
                 "option_id": "970721",
@@ -34,7 +34,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 5
+        "question_number": 5,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,8 +44,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The SI unit of electric potential energy is:",
-        "explanation": "Electric potential energy, like all forms of energy, is measured in Joules (J). It is a scalar quantity representing the work done by the electric field.",
+        "question_text": "<p>The SI unit of <b>electric potential energy</b> is:</p>",
+        "explanation": "<p><b>Electric potential energy</b>, like all forms of energy, is measured in <b>Joules (J)</b>. It is a scalar quantity representing the work done by the electric field.</p>",
         "options": [
             {
                 "option_id": "222197",
@@ -67,11 +68,12 @@
             {
                 "option_id": "149892",
                 "tag": "d",
-                "text": "Ohms (\u03a9)",
+                "text": "Ohms (<i>\u03a9</i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 12
+        "question_number": 12,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,8 +82,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The SI unit of electric potential (voltage) is:",
-        "explanation": "Electric potential is measured in Volts (V). One Volt equals one Joule per Coulomb (1 V = 1 J/C), which comes from the definition \\(V = U/q_0\\).",
+        "question_text": "<p>The <b>SI unit</b> of electric potential (voltage) is:</p>",
+        "explanation": "<p>Electric potential is measured in <b>Volts (V)</b>. One Volt equals one Joule per Coulomb (1 V = 1 J/C), which comes from the definition <i>V = U/q<sub>0</sub></i>.</p>",
         "options": [
             {
                 "option_id": "206054",
@@ -98,7 +100,7 @@
             {
                 "option_id": "556336",
                 "tag": "c",
-                "text": "Ohms (\u03a9)",
+                "text": "Ohms (<i>\u03a9</i>)",
                 "is_correct": false
             },
             {
@@ -108,7 +110,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 19
+        "question_number": 19,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy is equivalent to:",
-        "explanation": "The electric potential energy \\(U = W_{ab}\\) is equivalent to the work done on the test charge by the electric field when moving it from one point to another. \\(U = q_0 Ed\\) in a uniform field.",
+        "question_text": "<p>The <b>electric potential energy</b> is equivalent to:</p>",
+        "explanation": "<p>The <b>electric potential energy</b> \\(U = W_{ab}\\) is equivalent to the <i>work done</i> on the test charge by the electric field when moving it from one point to another. \\(U = q_0 Ed\\) in a uniform field.</p>",
         "options": [
             {
                 "option_id": "102883",
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 26
+        "question_number": 26,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,35 +158,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The work done by a uniform electric field \\(E\\) on a charge \\(q_0\\) moved a distance \\(d\\) is:",
-        "explanation": "Work done by the electric force: \\(W = Fd = q_0 E d\\). This work equals the decrease in electric potential energy: \\(W_{ab} = U_a - U_b = -\\Delta U\\).",
+        "question_text": "<p>The work done by a <b>uniform electric field</b> <i>E</i> on a charge <i>q<sub>0</sub></i> moved a distance <i>d</i> is:</p>",
+        "explanation": "<p>Work done by the electric force: <i>W</i> = <i>Fd</i> = <i>q<sub>0</sub></i> <i>E</i> <i>d</i>. This work equals the decrease in electric potential energy: <i>W<sub>ab</sub></i> = <i>U<sub>a</sub></i> - <i>U<sub>b</sub></i> = -<i>\u0394U</i>.</p>",
         "options": [
             {
                 "option_id": "877479",
                 "tag": "a",
-                "text": "\\(W = q_0 E / d\\)",
+                "text": "<i>W</i> = <i>q<sub>0</sub></i> <i>E</i> / <i>d</i>",
                 "is_correct": false
             },
             {
                 "option_id": "318954",
                 "tag": "b",
-                "text": "\\(W = q_0 E d\\)",
+                "text": "<i>W</i> = <i>q<sub>0</sub></i> <i>E</i> <i>d</i>",
                 "is_correct": true
             },
             {
                 "option_id": "277314",
                 "tag": "c",
-                "text": "\\(W = E d / q_0\\)",
+                "text": "<i>W</i> = <i>E</i> <i>d</i> / <i>q<sub>0</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "329496",
                 "tag": "d",
-                "text": "\\(W = q_0^2 E d\\)",
+                "text": "<i>W</i> = <i>q<sub>0</sub></i><sup>2</sup> <i>E</i> <i>d</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 33
+        "question_number": 33,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "If a charged particle moves from point \\(a\\) (potential energy \\(U_a\\)) to point \\(b\\) (potential energy \\(U_b\\)), the work done by the field is:",
-        "explanation": "The work done by the electric field when moving a charge from \\(a\\) to \\(b\\) is \\(W_{ab} = U_a - U_b = -(U_b - U_a) = -\\Delta U\\). The negative sign means if potential energy decreases, the field does positive work.",
+        "question_text": "<p>The work done by the electric field when a charged particle moves from point <i>a</i> (with potential energy <b><i>U<sub>a</sub></i></b>) to point <i>b</i> (with potential energy <b><i>U<sub>b</sub></i></b>) is:</p>",
+        "explanation": "<p>The work done by the electric field when moving a charge from <i>a</i> to <i>b</i> is <i>W<sub>ab</sub></i> = <i>U<sub>a</sub></i> - <i>U<sub>b</sub></i> = -(<i>U<sub>b</sub></i> - <i>U<sub>a</sub></i>) = -<i>\u0394U</i>. The negative sign indicates that if the potential energy decreases, the field does <b>positive work</b>.</p>",
         "options": [
             {
                 "option_id": "671070",
                 "tag": "a",
-                "text": "\\(W_{ab} = U_a + U_b\\)",
+                "text": "<i>W<sub>ab</sub></i> = <i>U<sub>a</sub></i> + <i>U<sub>b</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "209613",
                 "tag": "b",
-                "text": "\\(W_{ab} = U_b - U_a\\)",
+                "text": "<i>W<sub>ab</sub></i> = <i>U<sub>b</sub></i> - <i>U<sub>a</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "763093",
                 "tag": "c",
-                "text": "\\(W_{ab} = U_a - U_b = -\\Delta U\\)",
+                "text": "<i>W<sub>ab</sub></i> = <i>U<sub>a</sub></i> - <i>U<sub>b</sub></i> = -<i>\u0394U</i>",
                 "is_correct": true
             },
             {
                 "option_id": "532102",
                 "tag": "d",
-                "text": "\\(W_{ab} = -(U_a + U_b)\\)",
+                "text": "<i>W<sub>ab</sub></i> = -(<i>U<sub>a</sub></i> + <i>U<sub>b</sub></i>)",
                 "is_correct": false
             }
         ],
-        "question_number": 40
+        "question_number": 40,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "If the potential energy of a charged particle decreases as it moves, the electric field does ________ work.",
-        "explanation": "When the electric potential energy decreases (\\(\\Delta U < 0\\)), the work done by the field is positive: \\(W = -\\Delta U > 0\\). The field does positive work when the charge moves in the same direction as the electric force.",
+        "question_text": "<p>If the <b>potential energy</b> of a charged particle decreases as it moves, the electric field does ________ work.</p>",
+        "explanation": "<p>When the electric potential energy decreases (<i>\\(\\Delta U < 0\\)</i>), the work done by the field is positive: <i>\\(W = -\\Delta U > 0\\)</i>. The field does <b>positive work</b> when the charge moves in the same direction as the electric force.</p>",
         "options": [
             {
                 "option_id": "159195",
@@ -256,7 +262,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 47
+        "question_number": 47,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,35 +272,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy at infinity is taken to be:",
-        "explanation": "By convention, the electric potential energy at infinity is defined as zero. This allows us to define the potential energy at any other point as the work done moving the charge from infinity to that point.",
+        "question_text": "<p>The electric potential energy at infinity is taken to be:</p>",
+        "explanation": "<p>By convention, the <b>electric potential energy</b> at infinity is defined as <b>zero</b>. This allows us to define the potential energy at any other point as the work done moving the charge from infinity to that point.</p>",
         "options": [
             {
                 "option_id": "558293",
                 "tag": "a",
-                "text": "Negative",
+                "text": "<i>Negative</i>",
                 "is_correct": false
             },
             {
                 "option_id": "267420",
                 "tag": "b",
-                "text": "Maximum",
+                "text": "<i>Maximum</i>",
                 "is_correct": false
             },
             {
                 "option_id": "226175",
                 "tag": "c",
-                "text": "Positive",
+                "text": "<i>Positive</i>",
                 "is_correct": false
             },
             {
                 "option_id": "324309",
                 "tag": "d",
-                "text": "Zero",
+                "text": "<b>Zero</b>",
                 "is_correct": true
             }
         ],
-        "question_number": 54
+        "question_number": 54,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,35 +310,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy at a point where a test charge \\(q_0\\) is at distance \\(r\\) from source charge \\(q\\) is:",
-        "explanation": "The electric potential energy of a test charge \\(q_0\\) at distance \\(r\\) from source charge \\(q\\) is \\(U = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q \\cdot q_0}{r}\\). Unlike the Coulomb force, \\(U\\) depends on \\(1/r\\) (not \\(1/r^2\\)).",
+        "question_text": "<p>The electric potential energy at a point where a test charge <i>q<sub>0</sub></i> is at distance <i>r</i> from source charge <i>q</i> is:</p>",
+        "explanation": "<p>The electric potential energy of a test charge <i>q<sub>0</sub></i> at distance <i>r</i> from source charge <i>q</i> is <b><i>U</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i><i>\\frac{q \\cdot q_0}{r}</i></b>. Unlike the Coulomb force, <i>U</i> depends on <b>1/<i>r</i></b> (not 1/<i>r</i><sup>2</sup>).</p>",
         "options": [
             {
                 "option_id": "110059",
                 "tag": "a",
-                "text": "\\(U = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q}{r^2}\\)",
+                "text": "<i>U</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i> <i>\\frac{q}{r^2}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "197119",
                 "tag": "b",
-                "text": "\\(U = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q \\cdot q_0}{r}\\)",
+                "text": "<i>U</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i> <i>\\frac{q \\cdot q_0}{r}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "306752",
                 "tag": "c",
-                "text": "\\(U = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q \\cdot q_0}{r^2}\\)",
+                "text": "<i>U</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i> <i>\\frac{q \\cdot q_0}{r^2}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "721691",
                 "tag": "d",
-                "text": "\\(U = q_0 E r\\)",
+                "text": "<i>U</i> = <i>q<sub>0</sub></i> <i>E r</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 61
+        "question_number": 61,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,8 +348,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy \\(U\\) between two charges is POSITIVE when:",
-        "explanation": "\\(U = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q \\cdot q_0}{r}\\). If \\(q\\) and \\(q_0\\) have the SAME sign, their product is positive, giving \\(U > 0\\). This means work must be done AGAINST the field to bring them together (repulsion).",
+        "question_text": "<p>The electric potential energy <b><i>U</i></b> between two charges is <b>POSITIVE</b> when:</p>",
+        "explanation": "<p>The formula for electric potential energy is <b><i>U = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q \\cdot q_0}{r}</i></b>. If <b><i>q</i></b> and <b><i>q_0</i></b> have the <b>SAME sign</b>, their product is positive, resulting in <b><i>U > 0</i></b>. This indicates that work must be done <i>against</i> the electric field to bring the charges together due to <b>repulsion</b>.</p>",
         "options": [
             {
                 "option_id": "801079",
@@ -367,7 +376,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 68
+        "question_number": 68,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,35 +386,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy \\(U\\) between two charges is NEGATIVE when:",
-        "explanation": "When \\(q\\) and \\(q_0\\) have OPPOSITE signs, their product is negative, giving \\(U < 0\\). This negative energy means the system is bound \u2014 work must be done to separate the charges.",
+        "question_text": "<p>The electric potential energy <b>U</b> between two charges is NEGATIVE when:</p>",
+        "explanation": "<p>When <b>q</b> and <b>q<sub>0</sub></b> have OPPOSITE signs, their product is negative, giving <b>U &lt; 0</b>. This negative energy means the system is <b>bound</b> \u2014 work must be done to separate the charges.</p>",
         "options": [
             {
                 "option_id": "146715",
                 "tag": "a",
-                "text": "Both charges have the same sign",
+                "text": "Both charges have the <i>same sign</i>",
                 "is_correct": false
             },
             {
                 "option_id": "229086",
                 "tag": "b",
-                "text": "The charges are far apart",
+                "text": "The charges are <i>far apart</i>",
                 "is_correct": false
             },
             {
                 "option_id": "101560",
                 "tag": "c",
-                "text": "The charges have opposite signs",
+                "text": "The charges have <i>opposite signs</i>",
                 "is_correct": true
             },
             {
                 "option_id": "134306",
                 "tag": "d",
-                "text": "Both charges are positive",
+                "text": "Both charges are <i>positive</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 75
+        "question_number": 75,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +424,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential \\(V\\) at a point is defined as:",
-        "explanation": "Electric potential \\(V = U/q_0\\) is the electric potential energy per unit charge, or equivalently, the work done per unit positive charge to bring a charge from infinity to that point. SI unit: Volts (V = J/C).",
+        "question_text": "<p>The electric potential <b>V</b> at a point is defined as:</p>",
+        "explanation": "<p>Electric potential <b>V = U/q<sub>0</sub></b> is the electric potential energy per unit charge, or equivalently, the work done per unit positive charge to bring a charge from infinity to that point. SI unit: Volts (V = J/C).</p>",
         "options": [
             {
                 "option_id": "294781",
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 82
+        "question_number": 82,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,35 +462,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential \\(V\\) at a distance \\(r\\) from a point charge \\(q\\) is:",
-        "explanation": "The electric potential at distance \\(r\\) from a point charge \\(q\\) is \\(V = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r} = kq/r\\). Note: \\(V \\propto 1/r\\) (not \\(1/r^2\\) as for \\(E\\)).",
+        "question_text": "<p>The electric potential <b><i>V</i></b> at a distance <b><i>r</i></b> from a point charge <b><i>q</i></b> is:</p>",
+        "explanation": "<p>The electric potential at distance <b><i>r</i></b> from a point charge <b><i>q</i></b> is <i>V</i> = <sub>4\u03c0<i>\u03b5</i><sub>0</sub></sub><sup>1</sup> <i>q</i>/<i>r</i> = <i>kq</i>/<i>r</i>. Note: <b><i>V</i> \u221d 1/<i>r</i></b> (not 1/<i>r</i><sup>2</sup> as for <b><i>E</i></b>).</p>",
         "options": [
             {
                 "option_id": "236347",
                 "tag": "a",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r^2}\\)",
+                "text": "<i>V</i> = <sub>4\u03c0<i>\u03b5</i><sub>0</sub></sub><sup>1</sup> <i>q</i>/<i>r</i><sup>2</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "162694",
                 "tag": "b",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r}\\)",
+                "text": "<i>V</i> = <sub>4\u03c0<i>\u03b5</i><sub>0</sub></sub><sup>1</sup> <i>q</i>/<i>r</i>",
                 "is_correct": true
             },
             {
                 "option_id": "266099",
                 "tag": "c",
-                "text": "\\(V = kq \\cdot r\\)",
+                "text": "<i>V</i> = <i>kq</i> \u00b7 <i>r</i>",
                 "is_correct": false
             },
             {
                 "option_id": "107593",
                 "tag": "d",
-                "text": "\\(V = \\frac{q}{4\\pi\\varepsilon_0 r^2}\\)",
+                "text": "<i>V</i> = <i>q</i>/<sub>4\u03c0<i>\u03b5</i><sub>0</sub></sub><i>r</i><sup>2</sup>",
                 "is_correct": false
             }
         ],
-        "question_number": 89
+        "question_number": 89,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,35 +500,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Calculate the electric potential at a point 6.0 cm from a point charge of \\(+12\\) nC. (\\(k = 9\\times10^9\\) N\u00b7m\u00b2/C\u00b2)",
-        "explanation": "\\(V = kq/r = (9\\times10^9 \\times 12\\times10^{-9})/0.06 = 108/0.06 = 1800\\) V.",
+        "question_text": "<p>Calculate the <b>electric potential</b> at a point <i>6.0 cm</i> from a point charge of <i>+12 nC</i>. (<i>k = 9\u00d710<sup>9</sup> N\u00b7m<sup>2</sup>/C<sup>2</sup></i>)</p>",
+        "explanation": "<p>The formula for electric potential is <b>V = kq/r</b>. Substituting the given values:</p><p><i>V = (9\u00d710<sup>9</sup> \u00d7 12\u00d710<sup>-9</sup>)/0.06 = 108/0.06 = 1800</i> V.</p>",
         "options": [
             {
                 "option_id": "299700",
                 "tag": "a",
-                "text": "\\(18\\) V",
+                "text": "<i>18</i> V",
                 "is_correct": false
             },
             {
                 "option_id": "191154",
                 "tag": "b",
-                "text": "\\(180\\) V",
+                "text": "<i>180</i> V",
                 "is_correct": false
             },
             {
                 "option_id": "314220",
                 "tag": "c",
-                "text": "\\(1800\\) V",
+                "text": "<i>1800</i> V",
                 "is_correct": true
             },
             {
                 "option_id": "991038",
                 "tag": "d",
-                "text": "\\(18000\\) V",
+                "text": "<i>18000</i> V",
                 "is_correct": false
             }
         ],
-        "question_number": 96
+        "question_number": 96,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Electric potential is a ________ quantity, while electric field is a ________ quantity.",
-        "explanation": "Electric potential \\(V\\) is a SCALAR quantity (it has magnitude only, no direction). Electric field \\(\\vec{E}\\) is a VECTOR quantity (it has both magnitude and direction).",
+        "question_text": "<p>Electric potential is a <b>scalar</b> quantity, while electric field is a <b>vector</b> quantity.</p>",
+        "explanation": "<p>Electric potential \\(V\\) is a <b>scalar</b> quantity (it has magnitude only, no direction). Electric field \\(\\vec{E}\\) is a <b>vector</b> quantity (it has both magnitude and direction).</p>",
         "options": [
             {
                 "option_id": "229152",
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 103
+        "question_number": 103,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The total electric potential at a point due to several point charges \\(q_1, q_2, q_3, \\ldots\\) at distances \\(r_1, r_2, r_3, \\ldots\\) is:",
-        "explanation": "By superposition, \\(V = \\frac{1}{4\\pi\\varepsilon_0}\\sum_i \\frac{q_i}{r_i}\\). Since potential is a scalar, we simply add the individual potentials algebraically (including signs).",
+        "question_text": "<p>The total electric potential at a point due to several point charges <i>q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub>, \u2026</i> at distances <i>r<sub>1</sub>, r<sub>2</sub>, r<sub>3</sub>, \u2026</i> is:</p>",
+        "explanation": "<p>By superposition, <i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}\\sum_i \\frac{q_i}{r_i}</i>. Since <b>potential is a scalar</b>, we simply add the individual potentials algebraically (including signs).",
         "options": [
             {
                 "option_id": "539182",
                 "tag": "a",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q_1}{r_1^2} + \\frac{q_2}{r_2^2} + \\cdots\\right)\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i><i>\\left(\\frac{q_1}{r_1^2} + \\frac{q_2}{r_2^2} + \\cdots\\right)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "339555",
                 "tag": "b",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q_1}{r_1} + \\frac{q_2}{r_2} + \\frac{q_3}{r_3} + \\cdots\\right)\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i><i>\\left(\\frac{q_1}{r_1} + \\frac{q_2}{r_2} + \\frac{q_3}{r_3} + \\cdots\\right)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "263107",
                 "tag": "c",
-                "text": "\\(V = \\frac{q_1 q_2 q_3}{4\\pi\\varepsilon_0 r}\\)",
+                "text": "<i>V</i> = <i>\\frac{q_1 q_2 q_3}{4\\pi\\varepsilon_0 r}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "205027",
                 "tag": "d",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0}\\sum \\frac{q_i}{r_i^2}\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0}</i><i>\\sum \\frac{q_i}{r_i^2}</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 110
+        "question_number": 110,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,35 +614,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Two charges \\(q_1 = +12\\) nC and \\(q_2 = -12\\) nC are 10 cm apart. Point Y is 6 cm from \\(q_1\\) and 4 cm from \\(q_2\\). The potential at Y due to \\(q_1\\) is: (\\(k = 9\\times10^9\\) N\u00b7m\u00b2/C\u00b2)",
-        "explanation": "\\(V_1 = kq_1/r_1 = (9\\times10^9 \\times 12\\times10^{-9})/0.06 = 108/0.06 = 1800\\) V. Positive because \\(q_1\\) is positive.",
+        "question_text": "<p>Two charges <i><b>q<sub>1</sub> = +12</b></i> nC and <i><b>q<sub>2</sub> = -12</b></i> nC are 10 cm apart. Point Y is 6 cm from <i><b>q<sub>1</sub></b></i> and 4 cm from <i><b>q<sub>2</sub></b></i>. The potential at Y due to <i><b>q<sub>1</sub></b></i> is: (<i><b>k = 9\u00d710<sup>9</sup></b></i> N\u00b7m\u00b2/C\u00b2)</p>",
+        "explanation": "<p>The potential at point Y due to <b>q<sub>1</sub></b> is calculated using the formula for electric potential: <b>V = kq/r</b>. Substituting the given values:</p><p><b>V<sub>1</sub> = (9\u00d710<sup>9</sup> \u00d7 12\u00d710<sup>-9</sup>)/0.06 = 108/0.06 = 1800</b> V.</p><p>The potential is positive because <b>q<sub>1</sub></b> is a positive charge.</p>",
         "options": [
             {
                 "option_id": "128966",
                 "tag": "a",
-                "text": "\\(2700\\) V",
+                "text": "<i><b>2700</b></i> V",
                 "is_correct": false
             },
             {
                 "option_id": "196718",
                 "tag": "b",
-                "text": "\\(-1800\\) V",
+                "text": "<i><b>-1800</b></i> V",
                 "is_correct": false
             },
             {
                 "option_id": "237725",
                 "tag": "c",
-                "text": "\\(1800\\) V",
+                "text": "<i><b>1800</b></i> V",
                 "is_correct": true
             },
             {
                 "option_id": "320440",
                 "tag": "d",
-                "text": "\\(900\\) V",
+                "text": "<i><b>900</b></i> V",
                 "is_correct": false
             }
         ],
-        "question_number": 117
+        "question_number": 117,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,35 +652,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The potential at Y due to \\(q_2 = -12\\) nC, which is 4 cm from Y, is: (\\(k = 9\\times10^9\\) N\u00b7m\u00b2/C\u00b2)",
-        "explanation": "\\(V_2 = kq_2/r_2 = (9\\times10^9 \\times (-12\\times10^{-9}))/0.04 = -108/0.04 = -2700\\) V. Negative because \\(q_2\\) is negative.",
+        "question_text": "<p>The potential at Y due to <b>q<sub>2</sub> = -12</b> nC, which is 4 cm from Y, is: (<b>k = 9\u00d710<sup>9</sup></b> N\u00b7m<sup>2</sup>/C<sup>2</sup>)</p>",
+        "explanation": "<p><i>V<sub>2</sub> = kq<sub>2</sub>/r<sub>2</sub> = (9\u00d710<sup>9</sup> \u00d7 (-12\u00d710<sup>-9</sup>))/0.04 = -108/0.04 = -2700</i> V. Negative because <b>q<sub>2</sub></b> is negative.</p>",
         "options": [
             {
                 "option_id": "234785",
                 "tag": "a",
-                "text": "\\(+2700\\) V",
+                "text": "<b>+2700</b> V",
                 "is_correct": false
             },
             {
                 "option_id": "329976",
                 "tag": "b",
-                "text": "\\(-2700\\) V",
+                "text": "<b>-2700</b> V",
                 "is_correct": true
             },
             {
                 "option_id": "681217",
                 "tag": "c",
-                "text": "\\(-1800\\) V",
+                "text": "<b>-1800</b> V",
                 "is_correct": false
             },
             {
                 "option_id": "100243",
                 "tag": "d",
-                "text": "\\(+900\\) V",
+                "text": "<b>+900</b> V",
                 "is_correct": false
             }
         ],
-        "question_number": 124
+        "question_number": 124,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,35 +690,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The total electric potential at point Y (from the previous problem) is:",
-        "explanation": "\\(V_Y = V_1 + V_2 = 1800 + (-2700) = -900\\) V. Since potential is a scalar, we simply add algebraically: the negative result indicates the influence of the negative charge dominates at Y.",
+        "question_text": "<p>The total electric potential at point Y (from the previous problem) is:</p>",
+        "explanation": "<p>The total electric potential at point Y is calculated as <b><i>V<sub>Y</sub> = V<sub>1</sub> + V<sub>2</sub> = 1800 + (-2700) = -900</i></b> V.</p><p>Since electric potential is a <b>scalar</b> quantity, we add the contributions algebraically. The negative result indicates that the influence of the <b>negative charge</b> dominates at point Y.</p>",
         "options": [
             {
                 "option_id": "157983",
                 "tag": "a",
-                "text": "\\(+4500\\) V",
+                "text": "<i>+4500</i> V",
                 "is_correct": false
             },
             {
                 "option_id": "177246",
                 "tag": "b",
-                "text": "\\(-4500\\) V",
+                "text": "<i>-4500</i> V",
                 "is_correct": false
             },
             {
                 "option_id": "282439",
                 "tag": "c",
-                "text": "\\(+900\\) V",
+                "text": "<i>+900</i> V",
                 "is_correct": false
             },
             {
                 "option_id": "311511",
                 "tag": "d",
-                "text": "\\(-900\\) V",
+                "text": "<i>-900</i> V",
                 "is_correct": true
             }
         ],
-        "question_number": 131
+        "question_number": 131,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The potential energy associated with a charge \\(q_0 = +4.0\\) nC placed at point Y where \\(V_Y = -900\\) V is:",
-        "explanation": "\\(U = q_0 V_Y = 4.0\\times10^{-9} \\times (-900) = -3.6\\times10^{-6}\\) J. The negative sign indicates the charge is in an attractive potential well.",
+        "question_text": "<p>The potential energy associated with a charge <b><i>q<sub>0</sub> = +4.0</i></b> nC placed at point Y where <b><i>V<sub>Y</sub> = -900</i></b> V is:</p>",
+        "explanation": "<p>The potential energy <b><i>U</i></b> is calculated using the formula <b><i>U = q<sub>0</sub> V<sub>Y</sub></i></b>. Substituting the given values:</p><p><i>U = 4.0 \u00d7 10<sup>-9</sup> \u00d7 (-900) = -3.6 \u00d7 10<sup>-6</sup></i> J.</p><p>The negative sign indicates that the charge is in an <b>attractive potential well</b>, meaning it is bound to the point Y.</p>",
         "options": [
             {
                 "option_id": "134899",
                 "tag": "a",
-                "text": "\\(-3.6 \\times 10^{-3}\\) J",
+                "text": "<i>-3.6 \u00d7 10<sup>-3</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "195971",
                 "tag": "b",
-                "text": "\\(+3.6 \\times 10^{-6}\\) J",
+                "text": "<i>+3.6 \u00d7 10<sup>-6</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "134450",
                 "tag": "c",
-                "text": "\\(-3.6 \\times 10^{-6}\\) J",
+                "text": "<i>-3.6 \u00d7 10<sup>-6</sup></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "283466",
                 "tag": "d",
-                "text": "\\(+3.6 \\times 10^{-3}\\) J",
+                "text": "<i>+3.6 \u00d7 10<sup>-3</sup></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 138
+        "question_number": 138,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -746,35 +766,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A point charge \\(Q_1 = 2\\,\\mu\\text{C}\\) is at \\(x = 20\\) cm. The work done by an external force bringing \\(Q_2 = 1.5\\,\\mu\\text{C}\\) from infinity to \\(x = 70\\) cm is: (\\(k = 9\\times10^9\\) N\u00b7m\u00b2/C\u00b2, separation \\(r = 0.50\\) m)",
-        "explanation": "\\(W = U = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Q_1 Q_2}{r} = \\frac{9\\times10^9 \\times 2\\times10^{-6} \\times 1.5\\times10^{-6}}{0.50} = \\frac{27\\times10^{-3}}{0.5} = 0.054\\) J \\(= 5.4\\times10^{-2}\\) J.",
+        "question_text": "<p>A point charge <b>Q<sub>1</sub> = 2&nbsp;<i>&mu;</i>C</b> is at <i>x</i> = 20 cm. The work done by an external force bringing <b>Q<sub>2</sub> = 1.5&nbsp;<i>&mu;</i>C</b> from infinity to <i>x</i> = 70 cm is: (<i>k</i> = 9\u00d710<sup>9</sup> N\u00b7m<sup>2</sup>/C<sup>2</sup>, separation <i>r</i> = 0.50 m)</p>",
+        "explanation": "<p>The work done equals the change in potential energy: <b>W = U = k\u00b7(Q<sub>1</sub>Q<sub>2</sub>/r)</b>.</p><p>Substitute values: <b>W = (9\u00d710<sup>9</sup>)\u00b7(2\u00d710<sup>-6</sup>\u00b71.5\u00d710<sup>-6</sup>)/0.50</b>.</p><p>Simplify: <b>W = (27\u00d710<sup>-3</sup>)/0.5 = 0.054 J = 5.4\u00d710<sup>-2</sup> J</b>.</p>",
         "options": [
             {
                 "option_id": "187175",
                 "tag": "a",
-                "text": "\\(5.4 \\times 10^{-3}\\) J",
+                "text": "<i>5.4 \u00d7 10<sup>-3</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "926973",
                 "tag": "b",
-                "text": "\\(5.4\\) J",
+                "text": "<i>5.4</i> J",
                 "is_correct": false
             },
             {
                 "option_id": "237957",
                 "tag": "c",
-                "text": "\\(5.4 \\times 10^{-2}\\) J",
+                "text": "<i>5.4 \u00d7 10<sup>-2</sup></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "675664",
                 "tag": "d",
-                "text": "\\(5.4 \\times 10^{-5}\\) J",
+                "text": "<i>5.4 \u00d7 10<sup>-5</sup></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 145
+        "question_number": 145,
+        "is_rewritten": true
     },
     {
         "order_id": "22",
@@ -783,35 +804,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The potential difference \\(V_{ab}\\) between two points \\(a\\) and \\(b\\) is defined as:",
-        "explanation": "The potential difference \\(V_{ab} = V_a - V_b\\) is the potential at \\(a\\) minus the potential at \\(b\\). It represents the work done per unit charge to move a positive test charge from \\(b\\) to \\(a\\).",
+        "question_text": "<p>The potential difference <b><i>V<sub>ab</sub></i></b> between two points <i>a</i> and <i>b</i> is defined as:</p>",
+        "explanation": "<p>The potential difference <b><i>V<sub>ab</sub></i> = <i>V<sub>a</sub></i> - <i>V<sub>b</sub></i></b> is the potential at <i>a</i> minus the potential at <i>b</i>. It represents the work done per unit charge to move a positive test charge from <i>b</i> to <i>a</i>.</p>",
         "options": [
             {
                 "option_id": "759836",
                 "tag": "a",
-                "text": "\\(V_{ab} = V_a + V_b\\)",
+                "text": "<i>V<sub>ab</sub></i> = <i>V<sub>a</sub></i> + <i>V<sub>b</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "205543",
                 "tag": "b",
-                "text": "\\(V_{ab} = V_b - V_a\\)",
+                "text": "<i>V<sub>ab</sub></i> = <i>V<sub>b</sub></i> - <i>V<sub>a</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "314104",
                 "tag": "c",
-                "text": "\\(V_{ab} = V_a - V_b\\)",
+                "text": "<i>V<sub>ab</sub></i> = <i>V<sub>a</sub></i> - <i>V<sub>b</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "301985",
                 "tag": "d",
-                "text": "\\(V_{ab} = (V_a \\times V_b)/q_0\\)",
+                "text": "<i>V<sub>ab</sub></i> = (<i>V<sub>a</sub></i> \u00d7 <i>V<sub>b</sub></i>)/<i>q<sub>0</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 152
+        "question_number": 152,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,35 +842,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "In a uniform electric field, the relationship between the electric field \\(E\\) and the potential difference \\(V\\) over a distance \\(d\\) is:",
-        "explanation": "In a uniform field: \\(V = Ed\\) and therefore \\(E = V/d\\). This also means the electric field can be expressed in Volts per metre (V/m), equivalent to N/C.",
+        "question_text": "<p>In a uniform electric field, the relationship between the electric field <b><i>E</i></b> and the potential difference <b><i>V</i></b> over a distance <b><i>d</i></b> is:</p>",
+        "explanation": "<p>In a uniform field: <i>V</i> = <i>Ed</i> and therefore <i>E</i> = <i>V</i>/<i>d</i>. This also means the electric field can be expressed in Volts per metre (V/m), equivalent to N/C.</p>",
         "options": [
             {
                 "option_id": "326907",
                 "tag": "a",
-                "text": "\\(E = V \\times d\\)",
+                "text": "<i>E</i> = <i>V</i> \u00d7 <i>d</i>",
                 "is_correct": false
             },
             {
                 "option_id": "157800",
                 "tag": "b",
-                "text": "\\(E = V/d\\)",
+                "text": "<i>E</i> = <i>V</i>/<i>d</i>",
                 "is_correct": true
             },
             {
                 "option_id": "270655",
                 "tag": "c",
-                "text": "\\(E = d/V\\)",
+                "text": "<i>E</i> = <i>d</i>/<i>V</i>",
                 "is_correct": false
             },
             {
                 "option_id": "423056",
                 "tag": "d",
-                "text": "\\(E = V^2/d\\)",
+                "text": "<i>E</i> = <i>V</i><sup>2</sup>/<i>d</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 159
+        "question_number": 159,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +880,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The alternative unit for the electric field, derived from the relationship \\(E = V/d\\), is:",
-        "explanation": "Since \\(E = V/d\\), the electric field can be measured in Volt per metre (V/m), which is equivalent to Newton per Coulomb (N/C). Both are correct SI units for the electric field.",
+        "question_text": "<p>The alternative unit for the electric field, derived from the relationship <b><i>E = V/d</i></b>, is:</p>",
+        "explanation": "<p>Since <b><i>E = V/d</i></b>, the electric field can be measured in <b>Volt per metre (V/m)</b>, which is equivalent to <b>Newton per Coulomb (N/C)</b>. Both are correct SI units for the electric field.</p>",
         "options": [
             {
                 "option_id": "326831",
@@ -885,7 +908,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 166
+        "question_number": 166,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +918,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "One electron volt (1 eV) is equal to:",
-        "explanation": "One electron volt is the energy gained by an electron (charge \\(e = 1.602\\times10^{-19}\\) C) when accelerated through a potential difference of 1 V: \\(1\\,\\text{eV} = 1.602\\times10^{-19}\\text{ C} \\times 1\\text{ V} = 1.602\\times10^{-19}\\) J.",
+        "question_text": "<p>One <b>electron volt (1 eV)</b> is equal to:</p>",
+        "explanation": "<p>One electron volt is the energy gained by an electron (charge <i>e = 1.602 \u00d7 10<sup>-19</sup></i> C) when accelerated through a potential difference of 1 V: <i>1 eV = 1.602 \u00d7 10<sup>-19</sup> C \u00d7 1 V = 1.602 \u00d7 10<sup>-19</sup></i> J.</p>",
         "options": [
             {
                 "option_id": "285253",
                 "tag": "a",
-                "text": "\\(9.0 \\times 10^9\\) J",
+                "text": "<i>9.0 \u00d7 10<sup>9</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "306089",
                 "tag": "b",
-                "text": "\\(8.85 \\times 10^{-12}\\) J",
+                "text": "<i>8.85 \u00d7 10<sup>-12</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "247518",
                 "tag": "c",
-                "text": "\\(3.00 \\times 10^8\\) J",
+                "text": "<i>3.00 \u00d7 10<sup>8</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "175361",
                 "tag": "d",
-                "text": "\\(1.602 \\times 10^{-19}\\) J",
+                "text": "<i>1.602 \u00d7 10<sup>-19</sup></i> J",
                 "is_correct": true
             }
         ],
-        "question_number": 173
+        "question_number": 173,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +956,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electron volt (eV) is defined as the energy gained by a particle of charge \\(e\\) when it moves through a potential difference of:",
-        "explanation": "One electron volt (1 eV) is the energy acquired by a particle carrying charge \\(e = 1.602\\times10^{-19}\\) C when it is accelerated through a potential difference of exactly 1 Volt. \\(1\\,\\text{eV} = e \\times 1\\text{ V}\\).",
+        "question_text": "<p>The <b>electron volt (eV)</b> is defined as the energy gained by a particle of charge \\(e\\) when it moves through a potential difference of:</p>",
+        "explanation": "<p>One electron volt (1 eV) is the energy acquired by a particle carrying charge \\(e = 1.602\\times10^{-19}\\) C when it is accelerated through a <b>potential difference of exactly 1 Volt</b>. <i>1 eV = e \u00d7 1 V</i>.</p>",
         "options": [
             {
                 "option_id": "254805",
@@ -959,7 +984,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 180
+        "question_number": 180,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,8 +994,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electron volt can be used as a unit for:",
-        "explanation": "The electron volt (eV) can be used as a unit for ANY form of energy, not just electric potential energy. It is commonly used in atomic physics, nuclear physics, and particle physics for convenience.",
+        "question_text": "<p>The <b>electron volt</b> can be used as a unit for:</p>",
+        "explanation": "<p>The <b>electron volt (eV)</b> can be used as a unit for <i>any form of energy</i>, not just electric potential energy. It is commonly used in atomic physics, nuclear physics, and particle physics for convenience.</p>",
         "options": [
             {
                 "option_id": "134620",
@@ -996,7 +1022,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 187
+        "question_number": 187,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,35 +1032,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "An instrument used to measure the potential difference between two points is called a:",
-        "explanation": "A Voltmeter (or Potentiometer) measures the potential difference (voltage) between two points. An Ammeter measures current, a Rheostat is a variable resistor, and a Galvanometer measures small currents.",
+        "question_text": "<p>An instrument used to measure the <b>potential difference</b> between two points is called a:</p>",
+        "explanation": "<p>A <b>Voltmeter (or Potentiometer)</b> measures the <b>potential difference (voltage)</b> between two points. An <b>Ammeter</b> measures current, a <b>Rheostat</b> is a variable resistor, and a <b>Galvanometer</b> measures small currents.</p>",
         "options": [
             {
                 "option_id": "153964",
                 "tag": "a",
-                "text": "Ammeter",
+                "text": "<b>Ammeter</b>",
                 "is_correct": false
             },
             {
                 "option_id": "274179",
                 "tag": "b",
-                "text": "Rheostat",
+                "text": "<b>Rheostat</b>",
                 "is_correct": false
             },
             {
                 "option_id": "293320",
                 "tag": "c",
-                "text": "Potentiometer (or Voltmeter)",
+                "text": "<b>Potentiometer (or Voltmeter)</b>",
                 "is_correct": true
             },
             {
                 "option_id": "146215",
                 "tag": "d",
-                "text": "Galvanometer",
+                "text": "<b>Galvanometer</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 194
+        "question_number": 194,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,8 +1070,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The amount of work per unit charge required to move a charge from infinity to a given point in an electric field is known as:",
-        "explanation": "Electric potential (electrostatic potential) at a point is the work done per unit positive charge to bring a test charge from infinity to that point: \\(V = W/q_0 = U/q_0\\). SI unit: Volts (V = J/C).",
+        "question_text": "<p>The amount of work per unit charge required to move a charge from infinity to a given point in an electric field is known as:</p>",
+        "explanation": "<p><b>Electric potential</b> (also called <b>electrostatic potential</b>) at a point is the work done per unit positive charge to bring a test charge from infinity to that point: <i>V = W/q<sub>0</sub> = U/q<sub>0</sub></i>. The SI unit is the <b>Volt</b> (V = J/C).</p>",
         "options": [
             {
                 "option_id": "238199",
@@ -1070,7 +1098,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 201
+        "question_number": 201,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,8 +1108,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy at a point is defined as the work done moving a charged particle from ________ to that point.",
-        "explanation": "By convention, we define electric potential energy at a point as the work done to bring a charge from INFINITY (where \\(U = 0\\)) to that point. This gives a well-defined reference.",
+        "question_text": "<p>The electric potential energy at a point is defined as the work done moving a charged particle from <b>where</b> to that point.</p>",
+        "explanation": "<p>By convention, we define electric potential energy at a point as the work done to bring a charge from <b><i>INFINITY</i></b> (where \\(U = 0\\)) to that point. This gives a well-defined reference.</p>",
         "options": [
             {
                 "option_id": "299571",
@@ -1107,7 +1136,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 208
+        "question_number": 208,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,13 +1146,13 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following statements about equipotential surfaces is FALSE?",
-        "explanation": "Statement A is FALSE. An equipotential surface has the SAME potential at EVERY point on it \u2014 not different potentials. The name 'equipotential' literally means 'equal potential'.",
+        "question_text": "<p>Which of the following statements about <b>equipotential surfaces</b> is FALSE?</p>",
+        "explanation": "<p>Statement A is FALSE. An <b>equipotential surface</b> has the <b>SAME potential</b> at <b>EVERY point</b> on it \u2014 not different potentials. The name <i>'equipotential'</i> literally means <i>'equal potential'</i>.</p>",
         "options": [
             {
                 "option_id": "336133",
                 "tag": "a",
-                "text": "Equipotential surfaces contain points that are at different potentials",
+                "text": "Equipotential surfaces contain points that are at <i>different</i> potentials",
                 "is_correct": true
             },
             {
@@ -1144,7 +1174,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 215
+        "question_number": 215,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1184,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "No net work is done on a charged particle when it moves between two points on the same equipotential surface. This is because:",
-        "explanation": "On an equipotential surface, \\(V = \\text{constant}\\), so \\(\\Delta V = 0\\) and \\(\\Delta U = q_0 \\Delta V = 0\\). Since work done \\(= -\\Delta U = 0\\), no net work is done on the charge.",
+        "question_text": "<p>No net work is done on a charged particle when it moves between two points on the same <b>equipotential surface</b>. This is because:</p>",
+        "explanation": "<p>On an <b>equipotential surface</b>, <i>V = constant</i>, so <i>\u0394V = 0</i> and <i>\u0394U = q<sub>0</sub>\u0394V = 0</i>. Since work done <i>= \u2212\u0394U = 0</i>, no net work is done on the charge.</p>",
         "options": [
             {
                 "option_id": "315318",
@@ -1181,7 +1212,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 222
+        "question_number": 222,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,8 +1222,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Equipotential surfaces are closer together in regions where the electric field is:",
-        "explanation": "Closely spaced equipotential surfaces indicate a large potential gradient, which corresponds to a strong (large magnitude) electric field: \\(E = -dV/dl\\). Where surfaces are far apart, the field is weaker.",
+        "question_text": "<p><b>Equipotential surfaces</b> are closer together in regions where the electric field is:</p>",
+        "explanation": "<p><i>Closely spaced equipotential surfaces</i> indicate a large <b>potential gradient</b>, which corresponds to a <b>strong (large magnitude) electric field</b>: <i>E = -dV/dl</i>. Where surfaces are far apart, the field is weaker.</p>",
         "options": [
             {
                 "option_id": "251491",
@@ -1218,7 +1250,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 229
+        "question_number": 229,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,25 +1260,25 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When all charges are at rest, the surface of a conductor is:",
-        "explanation": "In electrostatic equilibrium, the surface of a conductor is ALWAYS an equipotential surface, and all points in the interior are at the same potential as the surface. If it weren't, charges would move until equilibrium is reached.",
+        "question_text": "<p>When all charges are at rest, the surface of a conductor is:</p>",
+        "explanation": "<p>In electrostatic equilibrium, the surface of a conductor is <b>always</b> an <b>equipotential surface</b>, and all points in the interior are at the same potential as the surface. If it weren't, charges would move until equilibrium is reached.</p>",
         "options": [
             {
                 "option_id": "287149",
                 "tag": "a",
-                "text": "Always at zero potential",
+                "text": "Always at <b>zero potential</b>",
                 "is_correct": false
             },
             {
                 "option_id": "318105",
                 "tag": "b",
-                "text": "Always an equipotential surface",
+                "text": "Always an <b>equipotential surface</b>",
                 "is_correct": true
             },
             {
                 "option_id": "225168",
                 "tag": "c",
-                "text": "Always at a different potential from its interior",
+                "text": "Always at a <i>different</i> potential from its interior",
                 "is_correct": false
             },
             {
@@ -1255,7 +1288,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 236
+        "question_number": 236,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1298,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The relationship between the electric field \\(\\vec{E}\\) and the electric potential \\(V\\) is:",
-        "explanation": "The electric field is the NEGATIVE gradient of the potential: \\(\\vec{E} = -\\nabla V\\). In one dimension: \\(E = -dV/dr\\). The negative sign means \\(\\vec{E}\\) points from HIGH potential to LOW potential.",
+        "question_text": "<p>The relationship between the electric field <b><i>E</i></b> and the electric potential <b><i>V</i></b> is:</p>",
+        "explanation": "<p>The electric field is the <b>NEGATIVE</b> gradient of the potential: <b><i>E</i></b> = -<i>\u2207V</i>. In one dimension: <i>E</i> = -<i>dV/dr</i>. The negative sign means <b><i>E</i></b> points from <b>HIGH</b> potential to <b>LOW</b> potential.</p>",
         "options": [
             {
                 "option_id": "193887",
                 "tag": "a",
-                "text": "\\(\\vec{E} = \\nabla V\\)",
+                "text": "<b><i>E</i></b> = <i>\u2207V</i>",
                 "is_correct": false
             },
             {
                 "option_id": "131524",
                 "tag": "b",
-                "text": "\\(\\vec{E} = +\\frac{dV}{dl}\\)",
+                "text": "<b><i>E</i></b> = +<i>dV/dl</i>",
                 "is_correct": false
             },
             {
                 "option_id": "285379",
                 "tag": "c",
-                "text": "\\(V = \\nabla \\vec{E}\\)",
+                "text": "<i>V</i> = <i>\u2207 E</i>",
                 "is_correct": false
             },
             {
                 "option_id": "258516",
                 "tag": "d",
-                "text": "\\(\\vec{E} = -\\nabla V\\)",
+                "text": "<b><i>E</i></b> = -<i>\u2207V</i>",
                 "is_correct": true
             }
         ],
-        "question_number": 243
+        "question_number": 243,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,8 +1336,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The rate of change of electric potential with respect to displacement is called the:",
-        "explanation": "The potential gradient is \\(-dV/dl\\) (or \\(-\\nabla V\\)), which equals the electric field \\(\\vec{E}\\). A steep potential gradient means a strong electric field.",
+        "question_text": "<p>The <b>rate of change</b> of electric potential with respect to displacement is called the:</p>",
+        "explanation": "<p>The <b>potential gradient</b> is \\(-dV/dl\\) (or \\(-\\nabla V\\)), which equals the electric field \\(\\vec{E}\\). <i>A steep potential gradient means a strong electric field.</i></p>",
         "options": [
             {
                 "option_id": "129577",
@@ -1329,7 +1364,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 250
+        "question_number": 250,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,35 +1374,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The relationship between the electric field components and the potential gradient in three dimensions is:",
-        "explanation": "The electric field is: \\(\\vec{E} = -\\nabla V = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)\\). The negative sign is crucial \u2014 \\(\\vec{E}\\) points in the direction of DECREASING potential.",
+        "question_text": "<p>The relationship between the <b>electric field</b> components and the <b>potential gradient</b> in three dimensions is:</p>",
+        "explanation": "<p>The electric field is given by the negative gradient of the potential: <i>\\vec{E} = -\\nabla V = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)</i>. The <b>negative sign</b> is crucial because the <b>electric field</b> points in the direction of <i>decreasing</i> potential.</p>",
         "options": [
             {
                 "option_id": "315601",
                 "tag": "a",
-                "text": "\\(\\vec{E} = \\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\)",
+                "text": "<i>\\vec{E} = \\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "132431",
                 "tag": "b",
-                "text": "\\(\\vec{E} = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)\\)",
+                "text": "<i>\\vec{E} = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "132562",
                 "tag": "c",
-                "text": "\\(\\vec{E} = V \\times \\nabla\\)",
+                "text": "<i>\\vec{E} = V \\times \\nabla</i>",
                 "is_correct": false
             },
             {
                 "option_id": "244257",
                 "tag": "d",
-                "text": "\\(\\vec{E} = -(V_x + V_y + V_z)\\)",
+                "text": "<i>\\vec{E} = -(V_x + V_y + V_z)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 257
+        "question_number": 257,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1412,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric field always points in the direction of:",
-        "explanation": "Since \\(\\vec{E} = -\\nabla V\\), the field points in the direction of DECREASING potential (from higher to lower potential). This is analogous to gravity pointing downhill (in the direction of decreasing gravitational potential).",
+        "question_text": "<p>The electric field always points in the direction of:</p>",
+        "explanation": "<p>Since <b>\\<vec{E} = -\\nabla V\\></b>, the field points in the direction of <b>DECREASING potential</b> <i>(from higher to lower potential)</i>. This is analogous to gravity pointing downhill <i>(in the direction of decreasing gravitational potential)</i>.</p>",
         "options": [
             {
                 "option_id": "157290",
@@ -1387,13 +1424,13 @@
             {
                 "option_id": "278867",
                 "tag": "b",
-                "text": "Decreasing electric potential (from high to low potential)",
+                "text": "Decreasing electric potential <i>(from high to low potential)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "214606",
                 "tag": "c",
-                "text": "Constant electric potential (along equipotential surfaces)",
+                "text": "Constant electric potential <i>(along equipotential surfaces)</i>",
                 "is_correct": false
             },
             {
@@ -1403,7 +1440,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 264
+        "question_number": 264,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,35 +1450,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The potential energy between a proton and an electron in a sodium atom of radius \\(5.9 \\times 10^{-10}\\) m is: (\\(k = 9\\times10^9\\) N\u00b7m\u00b2/C\u00b2, \\(e = 1.602\\times10^{-19}\\) C)",
-        "explanation": "\\(U = k\\frac{q_p q_e}{r} = \\frac{9\\times10^9 \\times (1.602\\times10^{-19}) \\times (-1.602\\times10^{-19})}{5.9\\times10^{-10}} \\approx -3.93\\times10^{-19}/5.9\\times10^{-10} \\approx -6.66\\times10^{-19}\\) J. (Textbook gives \\(-5.28\\times10^{-7}\\) J \u2014 depends on the exact radius used.)",
+        "question_text": "<p>The potential energy between a proton and an electron in a sodium atom of radius <i><b>5.9 \u00d7 10<sup>-10</sup></b></i> m is: (<i><b>k = 9\u00d710<sup>9</sup></b></i> N\u00b7m\u00b2/C\u00b2, <i><b>e = 1.602\u00d710<sup>-19</sup></b></i> C)</p>",
+        "explanation": "<p>The potential energy <i><b>U</b></i> between two charges is given by the formula:</p><p><i><b>U = k (q<sub>p</sub> q<sub>e</sub> / r)</b></i>, where <i><b>q<sub>p</sub></b></i> is the proton charge (+<i><b>e</b></i>), <i><b>q<sub>e</sub></b></i> is the electron charge (\u2212<i><b>e</b></i>), <i><b>k</b></i> is Coulomb\u2019s constant, and <i><b>r</b></i> is the separation distance.</p><p>Substituting the values:</p><p><i><b>U = (9\u00d710<sup>9</sup>) \u00d7 [(1.602\u00d710<sup>\u221219</sup>) \u00d7 (\u22121.602\u00d710<sup>\u221219</sup>)] / (5.9\u00d710<sup>\u221210</sup>)</b></i></p><p>This simplifies to:</p><p><i><b>U \u2248 \u22123.93\u00d710<sup>\u221219</sup> / 5.9\u00d710<sup>\u221210</sup> \u2248 \u22126.66\u00d710<sup>\u221219</sup></b></i> J.</p><p>However, the textbook approximation yields <i><b>\u22125.28\u00d710<sup>\u22127</sup></b></i> J, which depends on the exact radius used.</p>",
         "options": [
             {
                 "option_id": "269114",
                 "tag": "a",
-                "text": "\\(-5.28 \\times 10^{-7}\\) J",
+                "text": "<i><b>\u22125.28 \u00d7 10<sup>\u22127</sup></b></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "243832",
                 "tag": "b",
-                "text": "\\(+5.28 \\times 10^{-7}\\) J",
+                "text": "<i><b>+5.28 \u00d7 10<sup>\u22127</sup></b></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "741317",
                 "tag": "c",
-                "text": "\\(-5.28 \\times 10^{-10}\\) J",
+                "text": "<i><b>\u22125.28 \u00d7 10<sup>\u221210</sup></b></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "160900",
                 "tag": "d",
-                "text": "\\(+5.28 \\times 10^{-19}\\) J",
+                "text": "<i><b>+5.28 \u00d7 10<sup>\u221219</sup></b></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 271
+        "question_number": 271,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,35 +1488,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A 12.0 V motorcycle battery can move 5000 C of charge. The energy it can deliver is:",
-        "explanation": "Energy \\(= qV = 5000\\text{ C} \\times 12.0\\text{ V} = 60{,}000\\text{ J} = 6.00\\times10^4\\) J.",
+        "question_text": "<p>An <b>automotive battery</b> rated at <b>12.0 V</b> can move <b>5000 C</b> of charge. How much <b>energy</b> can it deliver?</p>",
+        "explanation": "<p>Use the formula <b>Energy = charge \u00d7 voltage</b>:</p><p><i>E = qV = 5000 C \u00d7 12.0 V = 60,000 J = 6.00 \u00d7 10<sup>4</sup> J</i>.</p>",
         "options": [
             {
                 "option_id": "647859",
                 "tag": "a",
-                "text": "\\(6.00 \\times 10^3\\) J",
+                "text": "<i>6.00 \u00d7 10<sup>3</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "172627",
                 "tag": "b",
-                "text": "\\(6.00 \\times 10^4\\) J",
+                "text": "<i>6.00 \u00d7 10<sup>4</sup></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "445041",
                 "tag": "c",
-                "text": "\\(417\\) J",
+                "text": "<i>417</i> J",
                 "is_correct": false
             },
             {
                 "option_id": "218827",
                 "tag": "d",
-                "text": "\\(6.00 \\times 10^2\\) J",
+                "text": "<i>6.00 \u00d7 10<sup>2</sup></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 278
+        "question_number": 278,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,35 +1526,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A 12.0 V car battery can move 60,000 C of charge. The energy it can deliver is:",
-        "explanation": "Energy \\(= qV = 60{,}000\\text{ C} \\times 12.0\\text{ V} = 720{,}000\\text{ J} = 7.20\\times10^5\\) J. The car battery stores 12 times more energy than the motorcycle battery.",
+        "question_text": "<p>A <b>12.0 V</b> car battery can move <b>60,000 C</b> of charge. The energy it can deliver is:</p>",
+        "explanation": "<p><b>Energy</b> is calculated using the formula <b>E = qV</b>, where <b>q</b> is the charge and <b>V</b> is the voltage.</p><p>Substituting the given values: <b>E = 60,000 C \u00d7 12.0 V = 720,000 J = 7.20 \u00d7 10<sup>5</sup></i> J</b>.</p><p>Thus, the car battery can deliver <b>7.20 \u00d7 10<sup>5</sup></i> J</b> of energy.</p>",
         "options": [
             {
                 "option_id": "114121",
                 "tag": "a",
-                "text": "\\(7.20 \\times 10^4\\) J",
+                "text": "<i>7.20 \u00d7 10<sup>4</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "145720",
                 "tag": "b",
-                "text": "\\(5.00 \\times 10^3\\) J",
+                "text": "<i>5.00 \u00d7 10<sup>3</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "486725",
                 "tag": "c",
-                "text": "\\(7.20 \\times 10^5\\) J",
+                "text": "<i>7.20 \u00d7 10<sup>5</sup></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "396806",
                 "tag": "d",
-                "text": "\\(7.20 \\times 10^6\\) J",
+                "text": "<i>7.20 \u00d7 10<sup>6</sup></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 285
+        "question_number": 285,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,35 +1564,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "How much work is done on a charge of \\(9.63 \\times 10^4\\) C moved from point A (\\(V_A = +10\\) V) to point B (\\(V_B = -4\\) V)?",
-        "explanation": "\\(W = q(V_A - V_B) = 9.63\\times10^4 \\times (10 - (-4)) = 9.63\\times10^4 \\times 14 = 1.348\\times10^6\\) J (done BY the field). Work done BY external agent \\(= -W_{field} = -1.35\\times10^6\\) J (external agent does negative work when moving charge in field's direction).",
+        "question_text": "<p>How much work is done on a charge of <b><i><sub>9.63 \u00d7 10<sup>4</sup></sub></i></b> C moved from point A (<b>V<sub>A</sub> = +10</b> V) to point B (<b>V<sub>B</sub> = -4</b> V)?</p>",
+        "explanation": "<p>The work done by an external agent to move a charge <i>q</i> from point A to point B is given by <b><i>W = q(V<sub>A</sub> \u2212 V<sub>B</sub>)</i></b>.</p><p>Substituting the given values:</p><p><i>W = (9.63 \u00d7 10<sup>4</sup> C) \u00d7 (10 V \u2212 (\u22124 V))</i></p><p><i>= (9.63 \u00d7 10<sup>4</sup>) \u00d7 14</i></p><p><i>= 1.3482 \u00d7 10<sup>6</sup></i> J (work done <b>by the field</b>).</p><p>Work done <b>by the external agent</b> is the negative of the field's work, so:</p><p><i>W<sub>external</sub> = \u22121.35 \u00d7 10<sup>6</sup></i> J (since the external agent does negative work when moving the charge in the direction of the field).</p>",
         "options": [
             {
                 "option_id": "331136",
                 "tag": "a",
-                "text": "\\(-1.35 \\times 10^6\\) J",
+                "text": "<i><sub>\u22121.35 \u00d7 10<sup>6</sup></sub></i> J",
                 "is_correct": true
             },
             {
                 "option_id": "303272",
                 "tag": "b",
-                "text": "\\(+9.63 \\times 10^5\\) J",
+                "text": "<i>+9.63 \u00d7 10<sup>5</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "913384",
                 "tag": "c",
-                "text": "\\(+1.35 \\times 10^6\\) J",
+                "text": "<i>+1.35 \u00d7 10<sup>6</sup></i> J",
                 "is_correct": false
             },
             {
                 "option_id": "187056",
                 "tag": "d",
-                "text": "\\(-9.63 \\times 10^5\\) J",
+                "text": "<i>\u22129.63 \u00d7 10<sup>5</sup></i> J",
                 "is_correct": false
             }
         ],
-        "question_number": 292
+        "question_number": 292,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,8 +1602,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The amount of energy a single electron gains after being accelerated through 1 Volt of electricity is called:",
-        "explanation": "The electron volt (eV) is defined as the energy gained by a single electron when accelerated through a potential difference of 1 V: \\(1\\,\\text{eV} = 1.602\\times10^{-19}\\) J.",
+        "question_text": "<p>The amount of energy a single electron gains after being accelerated through 1 Volt of electricity is called:</p>",
+        "explanation": "<p>The <b>electron volt (eV)</b> is defined as the energy gained by a single electron when accelerated through a potential difference of 1 V: <i>1 eV = 1.602 \u00d7 10<sup>-19</sup> J</i>.</p>",
         "options": [
             {
                 "option_id": "243196",
@@ -1588,7 +1630,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 299
+        "question_number": 299,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1640,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential for a continuous charge distribution along a line is given by:",
-        "explanation": "For a continuous charge distribution, the charge is divided into small elements \\(dq\\), each contributing \\(dV = \\frac{1}{4\\pi\\varepsilon_0}\\frac{dq}{r}\\). Total: \\(V = \\frac{1}{4\\pi\\varepsilon_0}\\int\\frac{dq}{r}\\). Note \\(1/r\\) not \\(1/r^2\\), because potential is a scalar.",
+        "question_text": "<p>The electric potential for a continuous charge distribution along a line is given by:</p>",
+        "explanation": "<p>For a continuous charge distribution, the charge is divided into small elements <i>dq</i>, each contributing <i>dV = \\frac{1}{4\\pi\\varepsilon_0}\\frac{dq}{r}</i>. The total potential is the integral of these contributions: <i>V = \\frac{1}{4\\pi\\varepsilon_0}\\int\\frac{dq}{r}</i>. Note that the integrand uses <i>1/r</i> rather than <i>1/r^2</i> because electric potential is a <b>scalar</b> quantity, unlike electric field which depends on <i>1/r^2</i>.</p>",
         "options": [
             {
                 "option_id": "250327",
                 "tag": "a",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0} \\int \\frac{dq}{r^2}\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0} \\int \\frac{dq}{r^2}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "651289",
                 "tag": "b",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0} \\int \\frac{dq}{r}\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0} \\int \\frac{dq}{r}</i>",
                 "is_correct": true
             },
             {
                 "option_id": "253287",
                 "tag": "c",
-                "text": "\\(V = \\frac{q_0}{4\\pi\\varepsilon_0 r}\\)",
+                "text": "<i>V</i> = <i>\\frac{q_0}{4\\pi\\varepsilon_0 r}</i>",
                 "is_correct": false
             },
             {
                 "option_id": "609237",
                 "tag": "d",
-                "text": "\\(V = \\frac{1}{4\\pi\\varepsilon_0} \\int r\\, dq\\)",
+                "text": "<i>V</i> = <i>\\frac{1}{4\\pi\\varepsilon_0} \\int r\\, dq</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 306
+        "question_number": 306,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,8 +1678,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The work done by the electric field when a positive charge moves in the SAME direction as the electric force is:",
-        "explanation": "When a positive charge moves in the same direction as the electric force (\\(\\vec{F} = q_0\\vec{E}\\)), the work done by the field is POSITIVE: \\(W = Fd\\cos(0\u00b0) = Fd > 0\\). The potential energy decreases.",
+        "question_text": "<p>The work done by the electric field when a <b>positive charge</b> moves in the <b>same direction</b> as the electric force is:</p>",
+        "explanation": "<p>When a positive charge moves in the same direction as the electric force (<i>\\vec{F} = q_0\\vec{E}</i>), the work done by the field is <b>POSITIVE</b>: <i>W = Fd\\cos(0\u00b0) = Fd > 0</i>. The potential energy decreases.</p>",
         "options": [
             {
                 "option_id": "273389",
@@ -1662,7 +1706,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 313
+        "question_number": 313,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,8 +1716,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential energy INCREASES (is positive) when work is done:",
-        "explanation": "Potential energy increases when an external agent does positive work AGAINST the field (moving the charge opposite to the electric force). This is analogous to lifting an object upward against gravity.",
+        "question_text": "<p>The <b>electric potential energy</b> INCREASES (is positive) when work is done:</p>",
+        "explanation": "<p><b>Potential energy</b> increases when an external agent does positive work <i>against</i> the field (moving the charge opposite to the electric force). This is analogous to lifting an object upward against gravity.</p>",
         "options": [
             {
                 "option_id": "433317",
@@ -1699,7 +1744,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 320
+        "question_number": 320,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1754,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A 12.0 V car battery powers a 30.0 W headlight. The number of electrons passing through it each second is approximately: (\\(e = 1.602\\times10^{-19}\\) C)",
-        "explanation": "Power \\(P = IV\\), so current \\(I = P/V = 30/12 = 2.5\\) A. Charge per second \\(= 2.5\\) C/s. Number of electrons \\(= 2.5/(1.602\\times10^{-19}) \\approx 1.56\\times10^{19}\\) electrons/s.",
+        "question_text": "<p> A <b>12.0 V</b> car battery powers a <b>30.0 W</b> headlight. The number of electrons passing through it each second is approximately: (<i>e = 1.602\u00d710<sup>-19</sup> C</i>)</p>",
+        "explanation": "<p>Power <i>P = IV</i>, so current <i>I = P/V = 30/12 = 2.5</i> A. Charge per second <i>= 2.5</i> C/s. Number of electrons <i>= 2.5/(1.602\u00d710<sup>-19</sup>) \u2248 <b>1.56\u00d710<sup>19</sup></b> electrons/s.</p>",
         "options": [
             {
                 "option_id": "176959",
                 "tag": "a",
-                "text": "\\(1.56 \\times 10^{19}\\) electrons/s",
+                "text": "<i>1.56 \u00d7 10<sup>19</sup></i> electrons/s",
                 "is_correct": true
             },
             {
                 "option_id": "284333",
                 "tag": "b",
-                "text": "\\(1.56 \\times 10^{17}\\) electrons/s",
+                "text": "<i>1.56 \u00d7 10<sup>17</sup></i> electrons/s",
                 "is_correct": false
             },
             {
                 "option_id": "677493",
                 "tag": "c",
-                "text": "\\(2.50\\) electrons/s",
+                "text": "<i>2.50</i> electrons/s",
                 "is_correct": false
             },
             {
                 "option_id": "749109",
                 "tag": "d",
-                "text": "\\(2.50 \\times 10^{19}\\) electrons/s",
+                "text": "<i>2.50 \u00d7 10<sup>19</sup></i> electrons/s",
                 "is_correct": false
             }
         ],
-        "question_number": 327
+        "question_number": 327,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1782,35 +1829,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Two adjacent equipotential surfaces have a potential gradient between them. Electrons would flow from the region of:",
-        "explanation": "Electrons carry negative charge, so they flow from the region of LOWER potential to HIGHER potential (opposite to conventional current, which flows from high to low). This flow continues until both regions reach the same potential.",
+        "question_text": "<p>Two adjacent <b>equipotential surfaces</b> have a <b>potential gradient</b> between them. Electrons would flow from the region of:</p>",
+        "explanation": "<p>Electrons carry negative charge, so they flow from the region of <b>lower potential</b> to <b>higher potential</b> (opposite to conventional current, which flows from high to low). This flow continues until both regions reach the same potential.</p>",
         "options": [
             {
                 "option_id": "291789",
                 "tag": "a",
-                "text": "Higher potential to lower potential",
+                "text": "<b>Higher</b> potential to <b>lower</b> potential",
                 "is_correct": false
             },
             {
                 "option_id": "861806",
                 "tag": "b",
-                "text": "Lower potential to higher potential",
+                "text": "<b>Lower</b> potential to <b>higher</b> potential",
                 "is_correct": true
             },
             {
                 "option_id": "332212",
                 "tag": "c",
-                "text": "Higher charge density to lower charge density",
+                "text": "<b>Higher</b> charge density to <b>lower</b> charge density",
                 "is_correct": false
             },
             {
                 "option_id": "313244",
                 "tag": "d",
-                "text": "Lower field strength to higher field strength",
+                "text": "<b>Lower</b> field strength to <b>higher</b> field strength",
                 "is_correct": false
             }
         ],
-        "question_number": 341
+        "question_number": 341,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,19 +1867,19 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The electric potential due to several point charges is the ________ sum of the individual potentials.",
-        "explanation": "Since electric potential is a SCALAR, the total potential from multiple charges is the ALGEBRAIC (scalar) sum of individual potentials: \\(V_{total} = V_1 + V_2 + V_3 + \\cdots\\). This is simpler than vector addition required for electric fields.",
+        "question_text": "<p>The electric potential due to several point charges is the <b>______</b> sum of the individual potentials.</p>",
+        "explanation": "<p>Since electric potential is a <b>SCALAR</b>, the total potential from multiple charges is the <b>ALGEBRAIC (scalar)</b> sum of individual potentials: <i>V<sub>total</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub> + &middot;&middot;&middot;</i>. This is simpler than vector addition required for electric fields.</p>",
         "options": [
             {
                 "option_id": "160437",
                 "tag": "a",
-                "text": "Vector",
+                "text": "<b>Vector</b>",
                 "is_correct": false
             },
             {
                 "option_id": "600805",
                 "tag": "b",
-                "text": "Cross-product",
+                "text": "<i>Cross-product</i>",
                 "is_correct": false
             },
             {
@@ -1847,6 +1895,7 @@
                 "is_correct": false
             }
         ],
-        "question_number": 348
+        "question_number": 348,
+        "is_rewritten": true
     }
 ]

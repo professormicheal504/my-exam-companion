@@ -764,5 +764,14 @@
                 "2008"
             ]
         }
-    ]
+    ],
+    "rules": {
+        "selectionType": "any_optional",
+        "totalSubjectsAllowed": 4,
+        "timeCalculation": "per_subject",
+        "timePerSubjectMinutes": 50,
+        "questionLimits": {
+            "default": 50
+        }
+    }
 }

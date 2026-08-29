@@ -6,8 +6,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "What is the definition of electric current?",
-        "explanation": "Electric current is defined as the net charge flowing through a given area per unit time, mathematically \\( I = \\frac{dQ}{dt} \\).",
+        "question_text": "<p>What is the definition of <b>electric current</b>?</p>",
+        "explanation": "<p><b>Electric current</b> is defined as the <i>net charge</i> flowing through a given area per unit time, mathematically <i>I = dQ/dt</i>.</p>",
         "options": [
             {
                 "option_id": "234872",
@@ -34,7 +34,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 6
+        "question_number": 6,
+        "is_rewritten": true
     },
     {
         "order_id": "2",
@@ -43,25 +44,25 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The SI unit of electric current is the Ampere (A). What is 1 Ampere equivalent to?",
-        "explanation": "1 Ampere is equivalent to 1 Coulomb per second (\\( 1\\text{ A} = 1\\text{ C/s} \\)). From Ohm's law, \\( I = \\frac{V}{R} \\), so it is also 1 Volt per ohm.",
+        "question_text": "<p>The SI unit of electric current is the <b>Ampere (A)</b>. What is 1 Ampere equivalent to?</p>",
+        "explanation": "<p>1 Ampere is equivalent to 1 Coulomb per second (<i>1 A = 1 C/s</i>). From Ohm's law, <i>I = V/R</i>, so it is also 1 Volt per ohm.</p>",
         "options": [
             {
                 "option_id": "453061",
                 "tag": "a",
-                "text": "1 Joule per second",
+                "text": "1 <b>Joule</b> per second",
                 "is_correct": false
             },
             {
                 "option_id": "115592",
                 "tag": "b",
-                "text": "1 Coulomb per second",
+                "text": "1 <b>Coulomb</b> per second",
                 "is_correct": false
             },
             {
                 "option_id": "244040",
                 "tag": "c",
-                "text": "1 Volt per ohm",
+                "text": "1 <b>Volt</b> per <i>ohm</i>",
                 "is_correct": false
             },
             {
@@ -71,7 +72,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 13
+        "question_number": 13,
+        "is_rewritten": true
     },
     {
         "order_id": "3",
@@ -80,35 +82,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following statements about the direction of electric current is correct?",
-        "explanation": "Current flows in the direction of flow of positive charges, and this direction is opposite to that of the flow of electrons through a conductor. Note that current is a scalar quantity.",
+        "question_text": "<p>Which of the following statements about the <b>direction of electric current</b> is correct?</p>",
+        "explanation": "<p><b>Electric current</b> is defined as the flow of <b>positive charges</b>, and this direction is conventionally considered opposite to the flow of electrons (which are negatively charged). It is important to note that electric current is a <b>scalar quantity</b>, not a vector, meaning it does not have a direction in space but follows the path of least resistance in a conductor.</p>",
         "options": [
             {
                 "option_id": "152400",
                 "tag": "a",
-                "text": "It flows in the same direction as the flow of electrons.",
+                "text": "<i>It flows in the same direction as the flow of electrons.</i>",
                 "is_correct": false
             },
             {
                 "option_id": "284665",
                 "tag": "b",
-                "text": "It is a vector quantity that flows from negative to positive.",
+                "text": "<i>It is a vector quantity that flows from negative to positive.</i>",
                 "is_correct": false
             },
             {
                 "option_id": "229184",
                 "tag": "c",
-                "text": "It flows in the direction of flow of positive charges, which is opposite to that of electron flow.",
+                "text": "<i>It flows in the direction of flow of positive charges, which is opposite to that of electron flow.</i>",
                 "is_correct": true
             },
             {
                 "option_id": "136815",
                 "tag": "d",
-                "text": "It flows perpendicular to the electric field.",
+                "text": "<i>It flows perpendicular to the electric field.</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 20
+        "question_number": 20,
+        "is_rewritten": true
     },
     {
         "order_id": "4",
@@ -117,8 +120,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Current density (\\( J \\)) is defined as:",
-        "explanation": "Current density \\( J \\) is defined as the current per unit cross-sectional area (\\( J = \\frac{I}{A} \\)).",
+        "question_text": "<p><b>Current density</b> (<i>J</i>) is defined as:</p>",
+        "explanation": "<p><b>Current density</b> (<i>J</i>) is defined as the current per unit cross-sectional area (<i>J</i> = <i>I</i>/<i>A</i>).",
         "options": [
             {
                 "option_id": "107106",
@@ -145,7 +148,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 27
+        "question_number": 27,
+        "is_rewritten": true
     },
     {
         "order_id": "5",
@@ -154,19 +158,19 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "What is the SI unit of current density?",
-        "explanation": "Since current density is current divided by area, its SI unit is Ampere per square meter (A/m\\(^2\\)).",
+        "question_text": "<p><b>What is the SI unit of current density?</b></p>",
+        "explanation": "<p><i>Since current density is current divided by area, its SI unit is Ampere per square meter (A/m<sup>2</sup>).</i></p>",
         "options": [
             {
                 "option_id": "146666",
                 "tag": "a",
-                "text": "A/m\\(^3\\)",
+                "text": "A/m<sup>3</sup>",
                 "is_correct": false
             },
             {
                 "option_id": "164911",
                 "tag": "b",
-                "text": "A/m\\(^2\\)",
+                "text": "A/m<sup>2</sup>",
                 "is_correct": true
             },
             {
@@ -178,11 +182,12 @@
             {
                 "option_id": "331889",
                 "tag": "d",
-                "text": "A\\(\\cdot\\)m\\(^2\\)",
+                "text": "A\u00b7m<sup>2</sup>",
                 "is_correct": false
             }
         ],
-        "question_number": 34
+        "question_number": 34,
+        "is_rewritten": true
     },
     {
         "order_id": "6",
@@ -191,35 +196,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The relationship between electric current (\\( I \\)) and drift velocity (\\( v_d \\)) of charge carriers is given by:",
-        "explanation": "The current is given by \\( I = nqv_dA \\), where \\( n \\) is the concentration of moving charged particles, \\( q \\) is their charge, \\( v_d \\) is drift velocity, and \\( A \\) is the cross-sectional area.",
+        "question_text": "<p>The relationship between <b>electric current</b> (<i>I</i>) and <b>drift velocity</b> (<i>v<sub>d</sub></i>) of charge carriers is given by:</p>",
+        "explanation": "<p>The current is given by <i>I</i> = <i>nqv<sub>d</sub>A</i>, where <i>n</i> is the concentration of moving charged particles, <i>q</i> is their charge, <i>v<sub>d</sub></i> is drift velocity, and <i>A</i> is the cross-sectional area.</p>",
         "options": [
             {
                 "option_id": "331398",
                 "tag": "a",
-                "text": "\\( I = nqv_dA \\)",
+                "text": "<i>I</i> = <i>nqv<sub>d</sub>A</i>",
                 "is_correct": true
             },
             {
                 "option_id": "268950",
                 "tag": "b",
-                "text": "\\( I = \\frac{nqv_d}{A} \\)",
+                "text": "<i>I</i> = <i>nqv<sub>d</sub>/A</i>",
                 "is_correct": false
             },
             {
                 "option_id": "968134",
                 "tag": "c",
-                "text": "\\( I = nqA/v_d \\)",
+                "text": "<i>I</i> = <i>nqA/v<sub>d</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "866148",
                 "tag": "d",
-                "text": "\\( I = v_d / (nqA) \\)",
+                "text": "<i>I</i> = <i>v<sub>d</sub> / (nqA)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 41
+        "question_number": 41,
+        "is_rewritten": true
     },
     {
         "order_id": "7",
@@ -228,8 +234,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Resistivity (\\( \\rho \\)) of a material is the ratio of:",
-        "explanation": "Resistivity is the ratio of the magnitude of the electric field to the current density: \\( \\rho = \\frac{E}{J} \\).",
+        "question_text": "<p>Resistivity (<i>\u03c1</i>) of a material is the ratio of:</p>",
+        "explanation": "<p>Resistivity is the ratio of the magnitude of the <b>electric field</b> to the <b>current density</b>: <i>\u03c1</i> = <i>E</i>/<i>J</i>.</p>",
         "options": [
             {
                 "option_id": "841460",
@@ -256,7 +262,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 48
+        "question_number": 48,
+        "is_rewritten": true
     },
     {
         "order_id": "8",
@@ -265,25 +272,25 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "What is the SI unit of resistivity?",
-        "explanation": "The SI unit of resistivity (\\( \\rho \\)) is Ohm-meter (\\( \\Omega\\text{m} \\)).",
+        "question_text": "<p>What is the <b>SI unit</b> of <b>resistivity</b>?</p>",
+        "explanation": "<p>The <b>SI unit of resistivity</b> (<i>\u03c1</i>) is <b>Ohm-meter</b> (<i>\u03a9\u00b7m</i>).</p>",
         "options": [
             {
                 "option_id": "290485",
                 "tag": "a",
-                "text": "\\( \\Omega \\)",
+                "text": "<i>\u03a9</i>",
                 "is_correct": false
             },
             {
                 "option_id": "329026",
                 "tag": "b",
-                "text": "\\( \\Omega\\text{m} \\)",
+                "text": "<i>\u03a9</i>\u00b7m",
                 "is_correct": true
             },
             {
                 "option_id": "308514",
                 "tag": "c",
-                "text": "\\( (\\Omega\\text{m})^{-1} \\)",
+                "text": "<i>(\u03a9\u00b7m)</i><sup>-1</sup>",
                 "is_correct": false
             },
             {
@@ -293,7 +300,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 55
+        "question_number": 55,
+        "is_rewritten": true
     },
     {
         "order_id": "9",
@@ -302,8 +310,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The reciprocal of resistivity is called:",
-        "explanation": "The reciprocal of resistivity (\\( \\rho \\)) is conductivity (\\( \\sigma \\)), mathematically \\( \\sigma = \\frac{1}{\\rho} \\).",
+        "question_text": "<p>The reciprocal of <b>resistivity</b> is called:</p>",
+        "explanation": "<p>The reciprocal of <b>resistivity</b> (\\( \\rho \\)) is <b>conductivity</b> (\\( \\sigma \\)), mathematically \\( \\sigma = \\frac{1}{\\rho} \\).</p>",
         "options": [
             {
                 "option_id": "259623",
@@ -330,7 +338,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 62
+        "question_number": 62,
+        "is_rewritten": true
     },
     {
         "order_id": "10",
@@ -339,35 +348,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following describes materials with low values of resistivity?",
-        "explanation": "Materials with low values of resistivity have a low opposition to electric current flow and are therefore good conductors.",
+        "question_text": "<p>Which of the following describes materials with <b>low values of resistivity</b>?</p>",
+        "explanation": "<p>Materials with <b>low values of resistivity</b> have a <b>low opposition to electric current flow</b> and are therefore <i>good conductors</i>.</p>",
         "options": [
             {
                 "option_id": "204425",
                 "tag": "a",
-                "text": "They have a high opposition to current flow and are bad conductors.",
+                "text": "They have a <b>high opposition to current flow</b> and are <i>bad conductors</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "172524",
                 "tag": "b",
-                "text": "They are perfect insulators.",
+                "text": "They are <i>perfect insulators</i>.",
                 "is_correct": false
             },
             {
                 "option_id": "159627",
                 "tag": "c",
-                "text": "They have a low opposition to current flow and are good conductors.",
+                "text": "They have a <b>low opposition to current flow</b> and are <i>good conductors</i>.",
                 "is_correct": true
             },
             {
                 "option_id": "235673",
                 "tag": "d",
-                "text": "They have zero conductivity.",
+                "text": "They have <b>zero conductivity</b>.",
                 "is_correct": false
             }
         ],
-        "question_number": 69
+        "question_number": 69,
+        "is_rewritten": true
     },
     {
         "order_id": "11",
@@ -376,8 +386,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "How does the resistivity of a metallic conductor change with an increase in temperature?",
-        "explanation": "The resistivity of a metallic conductor increases with temperature according to the equation \\( \\rho_T = \\rho_0(1 + \\alpha(T - T_0)) \\).",
+        "question_text": "<p>The resistivity of a metallic conductor changes with an increase in temperature due to the increased thermal vibrations of the lattice ions, which scatter the electrons more frequently.</p>",
+        "explanation": "<p>The resistivity <b>(\u03c1)</b> of a metallic conductor typically <b>increases</b> with temperature. This is because higher temperatures cause the atoms in the metal to vibrate more, which increases the likelihood of collisions between electrons and atoms. These collisions impede the flow of electrons, thereby increasing resistivity. The relationship is often described by the equation:</p><p><i>\u03c1<sub>T</sub> = \u03c1<sub>0</sub>(1 + \u03b1(T - T<sub>0</sub>))</i></p><p>Where <i>\u03c1<sub>T</sub></i> is the resistivity at temperature <i>T</i>, <i>\u03c1<sub>0</sub></i> is the resistivity at a reference temperature <i>T<sub>0</sub></i>, and <i>\u03b1</i> is the temperature coefficient of resistivity.</p>",
         "options": [
             {
                 "option_id": "204195",
@@ -404,7 +414,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 76
+        "question_number": 76,
+        "is_rewritten": true
     },
     {
         "order_id": "12",
@@ -413,8 +424,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "How does the resistivity of a semiconductor change with an increase in temperature?",
-        "explanation": "For semiconductors, resistivity decreases with an increase in temperature, unlike metallic conductors.",
+        "question_text": "<p>How does the <b>resistivity</b> of a semiconductor change with an increase in <b>temperature</b>?</p>",
+        "explanation": "<p>For semiconductors, <b>resistivity decreases</b> with an increase in temperature, unlike metallic conductors.</p>",
         "options": [
             {
                 "option_id": "176967",
@@ -441,7 +452,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 83
+        "question_number": 83,
+        "is_rewritten": true
     },
     {
         "order_id": "13",
@@ -450,8 +462,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A thermometer which measures temperature by measuring the variation of resistivity of a small semiconductor crystal is called a:",
-        "explanation": "A thermometer which measures temperature by measuring the variation of resistivity of a small semiconductor crystal with temperature is called a Thermistor.",
+        "question_text": "<p>A thermometer which measures temperature by measuring the variation of <b>resistivity</b> of a small semiconductor crystal is called a:</p>",
+        "explanation": "<p>A thermometer which measures temperature by measuring the variation of <b>resistivity</b> of a small semiconductor crystal with temperature is called a <b>Thermistor</b>.</p>",
         "options": [
             {
                 "option_id": "312135",
@@ -478,7 +490,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 90
+        "question_number": 90,
+        "is_rewritten": true
     },
     {
         "order_id": "14",
@@ -487,8 +500,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The resistance of a conductor is:",
-        "explanation": "The resistance (\\( R \\)) of a conductor varies directly as its length (\\( L \\)) and inversely as its cross-sectional area (\\( A \\)), given by \\( R = \\rho \\frac{L}{A} \\).",
+        "question_text": "<p>The resistance of a conductor is:</p>",
+        "explanation": "<p>The resistance (<i>R</i>) of a conductor varies <b>directly</b> as its length (<i>L</i>) and <b>inversely</b> as its cross-sectional area (<i>A</i>), given by <i>R = \u03c1 (L/A)</i>.</p>",
         "options": [
             {
                 "option_id": "279932",
@@ -505,17 +518,18 @@
             {
                 "option_id": "171056",
                 "tag": "c",
-                "text": "Independent of the nature of the material",
+                "text": "Independent of the <b>nature of the material</b>",
                 "is_correct": false
             },
             {
                 "option_id": "105020",
                 "tag": "d",
-                "text": "Independent of temperature",
+                "text": "Independent of <b>temperature</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 97
+        "question_number": 97,
+        "is_rewritten": true
     },
     {
         "order_id": "15",
@@ -524,8 +538,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Ohm's law states that at a constant temperature, the current flowing through a metallic conductor is directly proportional to:",
-        "explanation": "Ohm's law states that at constant temperature, the current flowing through a metallic conductor is directly proportional to the potential difference between the ends of the conductor (\\( V = IR \\)).",
+        "question_text": "<p>Ohm's law states that at a constant temperature, the current flowing through a metallic conductor is directly proportional to:</p>",
+        "explanation": "<p>Ohm's law states that at constant temperature, the current flowing through a metallic conductor is directly proportional to the <b>potential difference</b> between the ends of the conductor (<i>V = IR</i>).",
         "options": [
             {
                 "option_id": "206066",
@@ -542,7 +556,7 @@
             {
                 "option_id": "136647",
                 "tag": "c",
-                "text": "The potential difference between the ends of the conductor",
+                "text": "The <b>potential difference</b> between the ends of the conductor",
                 "is_correct": true
             },
             {
@@ -552,7 +566,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 104
+        "question_number": 104,
+        "is_rewritten": true
     },
     {
         "order_id": "16",
@@ -561,35 +576,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Ohm's law can also be stated in terms of electric field (\\( E \\)) and current density (\\( J \\)) as:",
-        "explanation": "At constant temperature, the current density is directly proportional to the electric field: \\( E = J \\rho \\).",
+        "question_text": "<p>Ohm's law can also be stated in terms of electric field <i>(E)</i> and current density <i>(J)</i> as:</p>",
+        "explanation": "<p>At constant temperature, the current density is directly proportional to the electric field: <b><i>E</i> = <i>J</i> <i>\u03c1</i></b>.</p>",
         "options": [
             {
                 "option_id": "782255",
                 "tag": "a",
-                "text": "\\( E = J / \\rho \\)",
+                "text": "<i>E</i> = <i>J</i> / <i>\u03c1</i>",
                 "is_correct": false
             },
             {
                 "option_id": "230079",
                 "tag": "b",
-                "text": "\\( E = J \\rho \\)",
+                "text": "<i>E</i> = <i>J</i> <i>\u03c1</i>",
                 "is_correct": true
             },
             {
                 "option_id": "121677",
                 "tag": "c",
-                "text": "\\( J = E \\rho \\)",
+                "text": "<i>J</i> = <i>E</i> <i>\u03c1</i>",
                 "is_correct": false
             },
             {
                 "option_id": "285216",
                 "tag": "d",
-                "text": "\\( E = J \\sigma \\)",
+                "text": "<i>E</i> = <i>J</i> <i>\u03c3</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 111
+        "question_number": 111,
+        "is_rewritten": true
     },
     {
         "order_id": "17",
@@ -598,8 +614,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Materials which obey Ohm's law are called:",
-        "explanation": "Materials which obey Ohm's law are called Ohmic or linear conductors.",
+        "question_text": "<p>Materials which obey <b>Ohm's law</b> are called:</p>",
+        "explanation": "<p>Materials which obey Ohm's law are called <b>Ohmic</b> or <b>linear conductors</b>.</p>",
         "options": [
             {
                 "option_id": "217790",
@@ -626,7 +642,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 118
+        "question_number": 118,
+        "is_rewritten": true
     },
     {
         "order_id": "18",
@@ -635,8 +652,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Electromotive force (EMF) is defined as:",
-        "explanation": "EMF is the influence that makes current flow from a lower to a higher potential in a circuit (i.e., opposite to the electrostatic field).",
+        "question_text": "<p><b>Electromotive force (EMF)</b> is defined as:</p>",
+        "explanation": "<p><b>EMF</b> is the influence that makes current flow from a lower to a higher potential in a circuit (i.e., opposite to the electrostatic field).</p>",
         "options": [
             {
                 "option_id": "327593",
@@ -663,7 +680,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 125
+        "question_number": 125,
+        "is_rewritten": true
     },
     {
         "order_id": "19",
@@ -672,35 +690,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "What is the SI unit of electromotive force (EMF)?",
-        "explanation": "The SI unit of the EMF is volts (V), the same as potential difference.",
+        "question_text": "<p>The <b>SI unit</b> of <b>electromotive force (EMF)</b> is the unit used to measure the energy per unit charge provided by a source such as a battery or generator.</p>",
+        "explanation": "<p>The SI unit of EMF is <b>volts (V)</b>, which is equivalent to one <b>joule per coulomb</b>. This unit represents the amount of energy (in joules) transferred per unit of electric charge (in coulombs).</p>",
         "options": [
             {
                 "option_id": "345243",
                 "tag": "a",
-                "text": "Newtons (N)",
+                "text": "<i>Newtons (N)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "264729",
                 "tag": "b",
-                "text": "Joules (J)",
+                "text": "<i>Joules (J)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "226613",
                 "tag": "c",
-                "text": "Volts (V)",
+                "text": "<i>Volts (V)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "191077",
                 "tag": "d",
-                "text": "Amperes (A)",
+                "text": "<i>Amperes (A)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 132
+        "question_number": 132,
+        "is_rewritten": true
     },
     {
         "order_id": "20",
@@ -709,35 +728,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When current flows through a source of EMF (like a battery) with internal resistance \\( r \\), the terminal voltage (\\( V \\)) is given by:",
-        "explanation": "When current flows from the negative to the positive terminal (discharging), the terminal voltage is \\( V_{ab} = E - Ir \\), where \\( Ir \\) is the potential drop or lost voltage.",
+        "question_text": "<p>The terminal voltage (<b>V</b>) of a source of EMF (like a battery) with internal resistance <i>r</i> when current flows through it is given by:</p>",
+        "explanation": "<p>When current flows from the negative to the positive terminal (discharging), the terminal voltage is <i>V<sub>ab</sub></i> = <i>E</i> \u2212 <i>Ir</i>, where <i>Ir</i> represents the potential drop or lost voltage due to the internal resistance.</p>",
         "options": [
             {
                 "option_id": "411928",
                 "tag": "a",
-                "text": "\\( V = E + Ir \\)",
+                "text": "<i>V</i> = <i>E</i> + <i>Ir</i>",
                 "is_correct": false
             },
             {
                 "option_id": "229740",
                 "tag": "b",
-                "text": "\\( V = E - Ir \\)",
+                "text": "<i>V</i> = <i>E</i> \u2212 <i>Ir</i>",
                 "is_correct": true
             },
             {
                 "option_id": "274186",
                 "tag": "c",
-                "text": "\\( V = E \\cdot Ir \\)",
+                "text": "<i>V</i> = <i>E</i> \u00b7 <i>Ir</i>",
                 "is_correct": false
             },
             {
                 "option_id": "146464",
                 "tag": "d",
-                "text": "\\( V = E / Ir \\)",
+                "text": "<i>V</i> = <i>E</i> / <i>Ir</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 139
+        "question_number": 139,
+        "is_rewritten": true
     },
     {
         "order_id": "21",
@@ -783,8 +803,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "In a circuit, the term 'lost voltage' refers to:",
-        "explanation": "The lost voltage refers to the potential drop \\( Ir \\) due to the internal resistance of the battery.",
+        "question_text": "<p><b>Lost voltage</b> in a circuit refers to:</p>",
+        "explanation": "<p>The <b>lost voltage</b> refers to the potential drop <i>Ir</i> due to the <b>internal resistance</b> of the battery.</p>",
         "options": [
             {
                 "option_id": "133552",
@@ -795,7 +815,7 @@
             {
                 "option_id": "185920",
                 "tag": "b",
-                "text": "The voltage drop due to the internal resistance of the source (\\( Ir \\))",
+                "text": "The voltage drop due to the internal resistance of the source (<i>Ir</i>)",
                 "is_correct": true
             },
             {
@@ -811,7 +831,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 153
+        "question_number": 153,
+        "is_rewritten": true
     },
     {
         "order_id": "23",
@@ -820,8 +841,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When cells are arranged in series, the total EMF is:",
-        "explanation": "When cells are arranged in series, they assist each other. The total EMF is the sum of the individual EMFs (\\( E = E_1 + E_2 + ... \\)).",
+        "question_text": "<p>When cells are arranged in <b>series</b>, the total EMF is:</p>",
+        "explanation": "<p>When cells are arranged in series, they <i>assist each other</i>. The total EMF is the sum of the individual EMFs (<b>E = E<sub>1</sub> + E<sub>2</sub> + ...</b>).</p>",
         "options": [
             {
                 "option_id": "168490",
@@ -848,7 +869,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 160
+        "question_number": 160,
+        "is_rewritten": true
     },
     {
         "order_id": "24",
@@ -857,8 +879,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When identical cells of EMF \\( E \\) and internal resistance \\( r \\) are connected in parallel, the total EMF is:",
-        "explanation": "In a parallel arrangement of identical cells, the total EMF is the EMF of one of them (\\( E_T = E_1 = E_2 \\)).",
+        "question_text": "<p>When identical cells of EMF <i>E</i> and internal resistance <i>r</i> are connected in parallel, the total EMF is:</p>",
+        "explanation": "<p>In a parallel arrangement of identical cells, the total EMF is the EMF of one of them (<b><i>E<sub>T</sub> = E<sub>1</sub> = E<sub>2</sub></i></b>).</p>",
         "options": [
             {
                 "option_id": "415955",
@@ -869,7 +891,7 @@
             {
                 "option_id": "610926",
                 "tag": "b",
-                "text": "The EMF of one of the cells (\\( E \\))",
+                "text": "The EMF of one of the cells (<i>E</i>)",
                 "is_correct": true
             },
             {
@@ -881,11 +903,12 @@
             {
                 "option_id": "151953",
                 "tag": "d",
-                "text": "\\( E / n \\)",
+                "text": "<i>E</i> / <i>n</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 167
+        "question_number": 167,
+        "is_rewritten": true
     },
     {
         "order_id": "25",
@@ -894,35 +917,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When resistors are connected in series, which of the following is true?",
-        "explanation": "For resistors in series, the same current (\\( I \\)) flows through each resistor, and the equivalent resistance is \\( R_T = R_1 + R_2 + ... \\)",
+        "question_text": "<p>When resistors are connected in <b>series</b>, which of the following is true?</p>",
+        "explanation": "<p>For resistors in series, the <b>same current</b> (<i>I</i>) flows through each resistor, and the equivalent resistance is <i>R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub> + ...</i></p>",
         "options": [
             {
                 "option_id": "130167",
                 "tag": "a",
-                "text": "The potential difference across each resistor is the same.",
+                "text": "The <b>potential difference</b> across each resistor is the same.",
                 "is_correct": false
             },
             {
                 "option_id": "327809",
                 "tag": "b",
-                "text": "The same current flows through each resistor.",
+                "text": "The <b>same current</b> flows through each resistor.",
                 "is_correct": true
             },
             {
                 "option_id": "640258",
                 "tag": "c",
-                "text": "The equivalent resistance is less than the smallest individual resistance.",
+                "text": "The <b>equivalent resistance</b> is less than the smallest individual resistance.",
                 "is_correct": false
             },
             {
                 "option_id": "768687",
                 "tag": "d",
-                "text": "The total current is the sum of currents through each resistor.",
+                "text": "The <b>total current</b> is the sum of currents through each resistor.",
                 "is_correct": false
             }
         ],
-        "question_number": 174
+        "question_number": 174,
+        "is_rewritten": true
     },
     {
         "order_id": "26",
@@ -931,8 +955,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When resistors are connected in parallel, which of the following is true?",
-        "explanation": "When resistors are connected in parallel, the potential difference across each resistor is the same.",
+        "question_text": "<p>When resistors are connected in <b>parallel</b>, which of the following is true?</p>",
+        "explanation": "<p>When resistors are connected in parallel, the <b>potential difference</b> (voltage) across each resistor is the same. This is because all resistors share the same two nodes, so the voltage drop across them must be equal.</p>",
         "options": [
             {
                 "option_id": "284952",
@@ -959,7 +983,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 181
+        "question_number": 181,
+        "is_rewritten": true
     },
     {
         "order_id": "27",
@@ -968,35 +993,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The equivalent resistance (\\( R_T \\)) of three resistors \\( R_1, R_2, \\text{ and } R_3 \\) connected in parallel is given by:",
-        "explanation": "For a parallel arrangement, the reciprocal of the equivalent resistance is equal to the sum of the reciprocals of the individual resistances.",
+        "question_text": "<p>The equivalent resistance <b>(R<sub>T</sub>)</b> of three resistors <i>R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub></i> connected in parallel is given by:</p>",
+        "explanation": "<p>For a <b>parallel arrangement</b>, the reciprocal of the equivalent resistance is equal to the sum of the reciprocals of the individual resistances.</p>",
         "options": [
             {
                 "option_id": "141830",
                 "tag": "a",
-                "text": "\\( R_T = R_1 + R_2 + R_3 \\)",
+                "text": "<i>R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "454630",
                 "tag": "b",
-                "text": "\\( R_T = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} \\)",
+                "text": "<i>R<sub>T</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "167873",
                 "tag": "c",
-                "text": "\\( \\frac{1}{R_T} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} \\)",
+                "text": "<i>1/R<sub>T</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "296190",
                 "tag": "d",
-                "text": "\\( R_T = \\frac{R_1 R_2 R_3}{R_1 + R_2 + R_3} \\)",
+                "text": "<i>R<sub>T</sub> = (R<sub>1</sub>R<sub>2</sub>R<sub>3</sub>)/(R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 188
+        "question_number": 188,
+        "is_rewritten": true
     },
     {
         "order_id": "28",
@@ -1005,25 +1031,25 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Electrical power is defined as the electrical energy expended per second. It can be calculated using the formula:",
-        "explanation": "From \\( P = IV \\) and Ohm's law (\\( V = IR \\)), we can also write \\( P = I^2 R \\) and \\( P = \\frac{V^2}{R} \\).",
+        "question_text": "<p>Electrical power is defined as the <b>electrical energy expended per second</b>. It can be calculated using the formula:</p>",
+        "explanation": "<p>From <i>P = IV</i> and Ohm's law (<i>V = IR</i>), we can also write <i>P = I<sup>2</sup> R</i> and <i>P = V<sup>2</sup> / R</i>.</p>",
         "options": [
             {
                 "option_id": "115328",
                 "tag": "a",
-                "text": "\\( P = IV \\)",
+                "text": "<i>P = IV</i>",
                 "is_correct": false
             },
             {
                 "option_id": "107323",
                 "tag": "b",
-                "text": "\\( P = I^2 R \\)",
+                "text": "<i>P = I<sup>2</sup> R</i>",
                 "is_correct": false
             },
             {
                 "option_id": "131438",
                 "tag": "c",
-                "text": "\\( P = V^2 / R \\)",
+                "text": "<i>P = V<sup>2</sup> / R</i>",
                 "is_correct": false
             },
             {
@@ -1033,7 +1059,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 195
+        "question_number": 195,
+        "is_rewritten": true
     },
     {
         "order_id": "29",
@@ -1042,25 +1069,25 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "The SI unit of electrical power is:",
-        "explanation": "The SI unit of power is Watts (W) or Joules per second (J/s). Since \\( P = IV \\), it is also equivalent to Volt-Amperes.",
+        "question_text": "<p>The SI unit of <b>electrical power</b> is:</p>",
+        "explanation": "<p>The SI unit of power is <b>Watts (W)</b> or <b>Joules per second (J/s)</b>. Since <i>P = IV</i>, it is also equivalent to <b>Volt-Amperes</b>.</p>",
         "options": [
             {
                 "option_id": "946709",
                 "tag": "a",
-                "text": "Joules (J)",
+                "text": "<i>Joules (J)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "487863",
                 "tag": "b",
-                "text": "Watts (W) or Joules per second (J/s)",
+                "text": "<i>Watts (W)</i> or <i>Joules per second (J/s)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "744273",
                 "tag": "c",
-                "text": "Volt-Amperes (VA)",
+                "text": "<i>Volt-Amperes (VA)</i>",
                 "is_correct": false
             },
             {
@@ -1070,7 +1097,8 @@
                 "is_correct": true
             }
         ],
-        "question_number": 202
+        "question_number": 202,
+        "is_rewritten": true
     },
     {
         "order_id": "30",
@@ -1079,35 +1107,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A galvanometer can be converted into an ammeter to measure larger currents by connecting:",
-        "explanation": "A galvanometer is converted to an ammeter by connecting a resistor of low resistance in parallel, known as a shunt.",
+        "question_text": "<p>A galvanometer can be converted into an ammeter to measure larger currents by connecting:</p>",
+        "explanation": "<p>A galvanometer is converted to an ammeter by connecting a resistor of <b>low resistance</b> in parallel, known as a <b>shunt</b>. This shunt allows most of the current to bypass the galvanometer, protecting it while enabling the measurement of larger currents.</p>",
         "options": [
             {
                 "option_id": "286609",
                 "tag": "a",
-                "text": "A high resistance resistor in series",
+                "text": "A <b>high resistance</b> resistor in series",
                 "is_correct": false
             },
             {
                 "option_id": "117832",
                 "tag": "b",
-                "text": "A low resistance resistor (shunt) in parallel",
+                "text": "A <b>low resistance</b> resistor (shunt) in parallel",
                 "is_correct": true
             },
             {
                 "option_id": "331950",
                 "tag": "c",
-                "text": "A high resistance resistor (shunt) in parallel",
+                "text": "A <b>high resistance</b> resistor (shunt) in parallel",
                 "is_correct": false
             },
             {
                 "option_id": "402607",
                 "tag": "d",
-                "text": "A low resistance resistor in series",
+                "text": "A <b>low resistance</b> resistor in series",
                 "is_correct": false
             }
         ],
-        "question_number": 209
+        "question_number": 209,
+        "is_rewritten": true
     },
     {
         "order_id": "31",
@@ -1116,35 +1145,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A galvanometer can be converted into a voltmeter to measure potential difference by connecting:",
-        "explanation": "A galvanometer is converted to a voltmeter by connecting a high resistance resistor in series, known as a multiplier.",
+        "question_text": "<p>A galvanometer can be converted into a voltmeter to measure potential difference by connecting:</p>",
+        "explanation": "<p>A galvanometer is converted to a voltmeter by connecting a <b>high resistance</b> resistor in series, known as a <b>multiplier</b>.</p><p>This <i>high resistance</i> limits the current through the galvanometer, allowing it to measure larger potential differences without damage.</p>",
         "options": [
             {
                 "option_id": "222992",
                 "tag": "a",
-                "text": "A low resistance resistor in parallel",
+                "text": "A <b>low resistance</b> resistor in parallel",
                 "is_correct": false
             },
             {
                 "option_id": "127000",
                 "tag": "b",
-                "text": "A high resistance resistor (multiplier) in parallel",
+                "text": "A <b>high resistance</b> resistor (multiplier) in parallel",
                 "is_correct": false
             },
             {
                 "option_id": "113135",
                 "tag": "c",
-                "text": "A high resistance resistor (multiplier) in series",
+                "text": "A <b>high resistance</b> resistor (multiplier) in series",
                 "is_correct": true
             },
             {
                 "option_id": "873077",
                 "tag": "d",
-                "text": "A low resistance resistor in series",
+                "text": "A <b>low resistance</b> resistor in series",
                 "is_correct": false
             }
         ],
-        "question_number": 216
+        "question_number": 216,
+        "is_rewritten": true
     },
     {
         "order_id": "32",
@@ -1153,8 +1183,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Kirchhoff's Current Law (KCL) states that:",
-        "explanation": "Kirchhoff's Current Law (KCL) states that the total current or charge entering a junction or node is exactly equal to the charge leaving the node.",
+        "question_text": "<p><b>Kirchhoff's Current Law (KCL)</b> states that:</p>",
+        "explanation": "<p><b>Kirchhoff's Current Law (KCL)</b> states that the total current or charge entering a junction or node is exactly equal to the charge leaving the node. This law is based on the principle of conservation of electric charge, which implies that charge cannot accumulate at a node.</p>",
         "options": [
             {
                 "option_id": "241039",
@@ -1181,7 +1211,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 223
+        "question_number": 223,
+        "is_rewritten": true
     },
     {
         "order_id": "33",
@@ -1190,35 +1221,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Kirchhoff's Current Law (KCL) is based on the principle of conservation of:",
-        "explanation": "KCL is based on the Conservation of Charge, which implies that charge cannot accumulate at a node.",
+        "question_text": "<p>Kirchhoff's Current Law (KCL) is based on the principle of conservation of:</p>",
+        "explanation": "<p>KCL is based on the <b>Conservation of Charge</b>, which implies that <i>charge cannot accumulate at a node</i>.",
         "options": [
             {
                 "option_id": "256995",
                 "tag": "a",
-                "text": "Energy",
+                "text": "<b>Energy</b>",
                 "is_correct": false
             },
             {
                 "option_id": "432218",
                 "tag": "b",
-                "text": "Momentum",
+                "text": "<b>Momentum</b>",
                 "is_correct": false
             },
             {
                 "option_id": "167401",
                 "tag": "c",
-                "text": "Charge",
+                "text": "<b>Charge</b>",
                 "is_correct": true
             },
             {
                 "option_id": "145642",
                 "tag": "d",
-                "text": "Mass",
+                "text": "<b>Mass</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 230
+        "question_number": 230,
+        "is_rewritten": true
     },
     {
         "order_id": "34",
@@ -1227,8 +1259,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Kirchhoff's Voltage Law (KVL) states that:",
-        "explanation": "Kirchhoff's Voltage Law (KVL) states that the algebraic sum of all potential drops and EMFs along any closed path (loop) in a network is zero.",
+        "question_text": "<p><b>Kirchhoff's Voltage Law (KVL)</b> states that:</p>",
+        "explanation": "<p><b>Kirchhoff's Voltage Law (KVL)</b> states that the algebraic sum of all potential drops and EMFs along any closed path (loop) in a network is zero.</p>",
         "options": [
             {
                 "option_id": "213007",
@@ -1255,7 +1287,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 237
+        "question_number": 237,
+        "is_rewritten": true
     },
     {
         "order_id": "35",
@@ -1264,35 +1297,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Kirchhoff's Voltage Law (KVL) is based on the principle of conservation of:",
-        "explanation": "KVL is based on the Conservation of Energy, meaning the total energy supplied by EMFs equals the energy dissipated in the potential drops in a closed loop.",
+        "question_text": "<p>Kirchhoff's Voltage Law (KVL) is based on the principle of conservation of:</p>",
+        "explanation": "<p>KVL is based on the <b>Conservation of Energy</b>, meaning the total energy supplied by EMFs equals the energy dissipated in the potential drops in a closed loop.</p>",
         "options": [
             {
                 "option_id": "328546",
                 "tag": "a",
-                "text": "Charge",
+                "text": "<b>Charge</b>",
                 "is_correct": false
             },
             {
                 "option_id": "310952",
                 "tag": "b",
-                "text": "Energy",
+                "text": "<b>Energy</b>",
                 "is_correct": true
             },
             {
                 "option_id": "180990",
                 "tag": "c",
-                "text": "Momentum",
+                "text": "<b>Momentum</b>",
                 "is_correct": false
             },
             {
                 "option_id": "281992",
                 "tag": "d",
-                "text": "Power",
+                "text": "<b>Power</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 244
+        "question_number": 244,
+        "is_rewritten": true
     },
     {
         "order_id": "36",
@@ -1301,19 +1335,19 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When applying Kirchhoff's Voltage Law, what sign is given to the EMF when moving from the negative terminal to the positive terminal of a battery?",
-        "explanation": "Moving from the negative terminal to the positive terminal of a battery represents a rise in potential, so the EMF is considered positive (+E).",
+        "question_text": "<p>When applying <b>Kirchhoff's Voltage Law</b>, what sign is given to the <b>EMF</b> when moving from the negative terminal to the positive terminal of a battery?</p>",
+        "explanation": "<p>Moving from the negative terminal to the positive terminal of a battery represents a <i>rise in potential</i>, so the EMF is considered <b>positive</b> (+E).</p>",
         "options": [
             {
                 "option_id": "137481",
                 "tag": "a",
-                "text": "Negative, because it is a fall in potential",
+                "text": "<b>Negative</b>, because it is a fall in potential",
                 "is_correct": false
             },
             {
                 "option_id": "302043",
                 "tag": "b",
-                "text": "Positive, because it is a rise in potential",
+                "text": "<b>Positive</b>, because it is a rise in potential",
                 "is_correct": true
             },
             {
@@ -1329,7 +1363,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 251
+        "question_number": 251,
+        "is_rewritten": true
     },
     {
         "order_id": "37",
@@ -1338,19 +1373,19 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "When applying Kirchhoff's Voltage Law, the voltage drop across a resistor (IR) is considered negative when you move through the resistor in which direction?",
-        "explanation": "Moving in the same direction as the assumed current represents a fall in potential, so the voltage drop is considered negative (-IR).",
+        "question_text": "<p>When applying <b>Kirchhoff's Voltage Law</b>, the voltage drop across a resistor (<i>IR</i>) is considered negative when you move through the resistor in which direction?</p>",
+        "explanation": "<p>Moving in the <b>same direction</b> as the assumed current represents a fall in potential, so the voltage drop is considered negative (-<i>IR</i>).</p>",
         "options": [
             {
                 "option_id": "569389",
                 "tag": "a",
-                "text": "In the same direction as the assumed current",
+                "text": "In the <b>same direction</b> as the assumed current",
                 "is_correct": true
             },
             {
                 "option_id": "968588",
                 "tag": "b",
-                "text": "In the opposite direction of the assumed current",
+                "text": "In the <b>opposite direction</b> of the assumed current",
                 "is_correct": false
             },
             {
@@ -1366,7 +1401,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 258
+        "question_number": 258,
+        "is_rewritten": true
     },
     {
         "order_id": "38",
@@ -1375,8 +1411,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "If after solving a circuit problem using Kirchhoff's laws, the calculated value of a current has a negative sign, what does it indicate?",
-        "explanation": "A negative sign indicates that the actual direction of the current flow is opposite to the initially assumed direction.",
+        "question_text": "<p>If after solving a circuit problem using <b>Kirchhoff's laws</b>, the calculated value of a current has a negative sign, what does it indicate?</p>",
+        "explanation": "<p>A negative sign indicates that the <b>actual direction of the current flow</b> is opposite to the initially assumed direction.</p>",
         "options": [
             {
                 "option_id": "339385",
@@ -1403,7 +1439,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 265
+        "question_number": 265,
+        "is_rewritten": true
     },
     {
         "order_id": "39",
@@ -1412,19 +1449,19 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "In a closed loop where you encounter a battery moving from the positive terminal to the negative terminal, what sign should be assigned to the EMF?",
-        "explanation": "Moving from the positive terminal to the negative terminal represents a fall in potential, so the EMF is assigned a negative sign (-E).",
+        "question_text": "<p>In a closed loop where you encounter a battery moving from the <b>positive terminal</b> to the <b>negative terminal</b>, what sign should be assigned to the <b>EMF</b>?</p>",
+        "explanation": "<p>Moving from the positive terminal to the negative terminal represents a fall in potential, so the <b>EMF</b> is assigned a negative sign <i>(-E)</i>.</p>",
         "options": [
             {
                 "option_id": "508290",
                 "tag": "a",
-                "text": "Positive (+E)",
+                "text": "Positive <i>(+E)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "162677",
                 "tag": "b",
-                "text": "Negative (-E)",
+                "text": "Negative <i>(-E)</i>",
                 "is_correct": true
             },
             {
@@ -1440,7 +1477,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 272
+        "question_number": 272,
+        "is_rewritten": true
     },
     {
         "order_id": "40",
@@ -1449,8 +1487,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following describes a 'node' in an electrical circuit?",
-        "explanation": "A node generally refers to a connection or junction of two or more current-carrying paths or conductors.",
+        "question_text": "<p>A <b>node</b> in an electrical circuit is best described by which of the following?</p>",
+        "explanation": "<p>A <b>node</b> in an electrical circuit refers to a <i>connection or junction</i> where two or more current-carrying paths or components meet. It is not a closed path, internal resistance, or a point of maximum potential difference.</p>",
         "options": [
             {
                 "option_id": "236093",
@@ -1477,7 +1515,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 279
+        "question_number": 279,
+        "is_rewritten": true
     },
     {
         "order_id": "41",
@@ -1486,8 +1525,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following describes a 'loop' in an electrical circuit?",
-        "explanation": "A loop is defined as any closed path through a circuit where no node is encountered more than once.",
+        "question_text": "<p>A <b>loop</b> in an electrical circuit refers to which of the following?</p>",
+        "explanation": "<p>A <b>loop</b> is defined as any <i>closed path</i> through a circuit where no node is encountered more than once. This ensures a continuous flow of current without revisiting any junction.</p>",
         "options": [
             {
                 "option_id": "127072",
@@ -1498,7 +1537,7 @@
             {
                 "option_id": "210923",
                 "tag": "b",
-                "text": "Any closed path through a circuit where no node is encountered more than once.",
+                "text": "Any <i>closed path</i> through a circuit where no node is encountered more than once.",
                 "is_correct": true
             },
             {
@@ -1514,7 +1553,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 286
+        "question_number": 286,
+        "is_rewritten": true
     },
     {
         "order_id": "42",
@@ -1523,8 +1563,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "What happens to the total internal resistance when multiple identical cells are connected in series?",
-        "explanation": "When cells are arranged in series, the total internal resistance is the sum of the individual internal resistances (\\( r_{total} = r_1 + r_2 + ... \\)).",
+        "question_text": "<p>What happens to the <b>total internal resistance</b> when multiple identical cells are connected in series?</p>",
+        "explanation": "<p>When cells are arranged in series, the <b>total internal resistance</b> is the sum of the individual internal resistances (<i>r<sub>total</sub></i> = <i>r<sub>1</sub></i> + <i>r<sub>2</sub></i> + ...).</p>",
         "options": [
             {
                 "option_id": "293433",
@@ -1551,7 +1591,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 293
+        "question_number": 293,
+        "is_rewritten": true
     },
     {
         "order_id": "43",
@@ -1560,35 +1601,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "To find the resistance of a multiplier (\\( R_v \\)) used to convert a galvanometer into a voltmeter capable of measuring voltage \\( V \\), which formula is used?",
-        "explanation": "The resistance of the multiplier is given by \\( R_v = \\frac{V}{I_g} - R_g \\).",
+        "question_text": "<p>To find the resistance of a multiplier (<b>R<sub>v</sub></b>) used to convert a galvanometer into a voltmeter capable of measuring voltage <b>V</b>, which formula is used?</p>",
+        "explanation": "<p>The resistance of the multiplier is given by <i>R<sub>v</sub></i> = <i>V</i> / <i>I<sub>g</sub></i> - <i>R<sub>g</sub></i>.</p>",
         "options": [
             {
                 "option_id": "214413",
                 "tag": "a",
-                "text": "\\( R_v = \\frac{I_g R_g}{I - I_g} \\)",
+                "text": "<i>R<sub>v</sub></i> = <i>I<sub>g</sub> R<sub>g</sub></i> / <i>I</i> - <i>I<sub>g</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "242016",
                 "tag": "b",
-                "text": "\\( R_v = \\frac{V}{I_g} - R_g \\)",
+                "text": "<i>R<sub>v</sub></i> = <i>V</i> / <i>I<sub>g</sub></i> - <i>R<sub>g</sub></i>",
                 "is_correct": true
             },
             {
                 "option_id": "972234",
                 "tag": "c",
-                "text": "\\( R_v = \\frac{V - I_g}{R_g} \\)",
+                "text": "<i>R<sub>v</sub></i> = <i>V</i> - <i>I<sub>g</sub></i> / <i>R<sub>g</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "290013",
                 "tag": "d",
-                "text": "\\( R_v = I_g R_g + V \\)",
+                "text": "<i>R<sub>v</sub></i> = <i>I<sub>g</sub> R<sub>g</sub></i> + <i>V</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 300
+        "question_number": 300,
+        "is_rewritten": true
     },
     {
         "order_id": "44",
@@ -1597,35 +1639,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "To find the resistance of a shunt (\\( R_s \\)) used to convert a galvanometer into an ammeter capable of measuring current \\( I \\), which formula is used?",
-        "explanation": "The resistance of the shunt is given by the relation \\( R_s = \\frac{I_g R_g}{I - I_g} \\).",
+        "question_text": "<p>To find the resistance of a shunt <i>(R<sub>s</sub>)</i> used to convert a galvanometer into an ammeter capable of measuring current <i>(I)</i>, which formula is used?</p>",
+        "explanation": "<p>The resistance of the shunt is given by the relation <i>R<sub>s</sub></i> = <i>I<sub>g</sub> R<sub>g</sub></i> / <i>(I - I<sub>g</sub>)</i>.</p>",
         "options": [
             {
                 "option_id": "184966",
                 "tag": "a",
-                "text": "\\( R_s = \\frac{V}{I_g} - R_g \\)",
+                "text": "<i>R<sub>s</sub></i> = <i>V</i> / <i>I<sub>g</sub></i> - <i>R<sub>g</sub></i>",
                 "is_correct": false
             },
             {
                 "option_id": "311248",
                 "tag": "b",
-                "text": "\\( R_s = \\frac{I_g R_g}{I - I_g} \\)",
+                "text": "<i>R<sub>s</sub></i> = <i>I<sub>g</sub> R<sub>g</sub></i> / <i>(I - I<sub>g</sub>)</i>",
                 "is_correct": true
             },
             {
                 "option_id": "442426",
                 "tag": "c",
-                "text": "\\( R_s = I_g(I - R_g) \\)",
+                "text": "<i>R<sub>s</sub></i> = <i>I<sub>g</sub>(I - R<sub>g</sub>)</i>",
                 "is_correct": false
             },
             {
                 "option_id": "938704",
                 "tag": "d",
-                "text": "\\( R_s = \\frac{I - I_g}{I_g R_g} \\)",
+                "text": "<i>R<sub>s</sub></i> = <i>(I - I<sub>g</sub>)</i> / <i>I<sub>g</sub> R<sub>g</sub></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 307
+        "question_number": 307,
+        "is_rewritten": true
     },
     {
         "order_id": "45",
@@ -1634,35 +1677,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A circuit device made to have a specific value of opposition to the flow of current between its ends is called a:",
-        "explanation": "A circuit device made to have a specific value of resistance (opposition to current flow) is called a resistor.",
+        "question_text": "<p>A circuit device made to have a specific value of opposition to the flow of current between its ends is called a:</p>",
+        "explanation": "<p>A circuit device made to have a specific value of <b>resistance</b> (opposition to current flow) is called a <b>resistor</b>.</p>",
         "options": [
             {
                 "option_id": "114363",
                 "tag": "a",
-                "text": "Capacitor",
+                "text": "<b>Capacitor</b>",
                 "is_correct": false
             },
             {
                 "option_id": "861653",
                 "tag": "b",
-                "text": "Inductor",
+                "text": "<b>Inductor</b>",
                 "is_correct": false
             },
             {
                 "option_id": "209914",
                 "tag": "c",
-                "text": "Resistor",
+                "text": "<b>Resistor</b>",
                 "is_correct": true
             },
             {
                 "option_id": "264196",
                 "tag": "d",
-                "text": "Diode",
+                "text": "<b>Diode</b>",
                 "is_correct": false
             }
         ],
-        "question_number": 314
+        "question_number": 314,
+        "is_rewritten": true
     },
     {
         "order_id": "46",
@@ -1671,35 +1715,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A 100W lamp is connected to a 120V circuit. What is the current flowing through the lamp?",
-        "explanation": "Power \\( P = IV \\). Therefore, \\( I = P / V = 100\\text{W} / 120\\text{V} \\approx 0.83\\text{ A} \\).",
+        "question_text": "<p>What is the current flowing through a <b>100W</b> lamp connected to a <b>120V</b> circuit?</p>",
+        "explanation": "<p>The power <b>P</b> is given by the formula <b>P = IV</b>, where <b>I</b> is the current and <b>V</b> is the voltage. Rearranging to solve for current: <b>I = P / V</b>. Substituting the given values: <b>I = 100W / 120V \u2248 0.83A</b>.</p>",
         "options": [
             {
                 "option_id": "170320",
                 "tag": "a",
-                "text": "0.83 A",
+                "text": "0.83 <i>A</i>",
                 "is_correct": true
             },
             {
                 "option_id": "290341",
                 "tag": "b",
-                "text": "1.2 A",
+                "text": "1.2 <i>A</i>",
                 "is_correct": false
             },
             {
                 "option_id": "794954",
                 "tag": "c",
-                "text": "120 A",
+                "text": "120 <i>A</i>",
                 "is_correct": false
             },
             {
                 "option_id": "251374",
                 "tag": "d",
-                "text": "12000 A",
+                "text": "12000 <i>A</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 321
+        "question_number": 321,
+        "is_rewritten": true
     },
     {
         "order_id": "47",
@@ -1708,35 +1753,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A 100W lamp is connected to a 120V circuit. What is the resistance of its element?",
-        "explanation": "Resistance \\( R = \\frac{V^2}{P} = \\frac{120^2}{100} = \\frac{14400}{100} = 144\\, \\Omega \\).",
+        "question_text": "<p>Calculate the resistance of a lamp element when a <b>100W</b> lamp is connected to a <b>120V</b> circuit.</p>",
+        "explanation": "<p>The resistance <b>R</b> can be calculated using the formula:</p><p><b>R = V<sup>2</sup> / P</b>, where <b>V</b> is the voltage and <b>P</b> is the power.</p><p>Substituting the given values:</p><p><b>R = (120 V)<sup>2</sup> / 100 W = 14400 / 100 = 144 <i>&Omega;</i>.</b></p>",
         "options": [
             {
                 "option_id": "131546",
                 "tag": "a",
-                "text": "120 \\( \\Omega \\)",
+                "text": "120 <i>&Omega;</i>",
                 "is_correct": false
             },
             {
                 "option_id": "189781",
                 "tag": "b",
-                "text": "144 \\( \\Omega \\)",
+                "text": "144 <i>&Omega;</i>",
                 "is_correct": true
             },
             {
                 "option_id": "318718",
                 "tag": "c",
-                "text": "100 \\( \\Omega \\)",
+                "text": "100 <i>&Omega;</i>",
                 "is_correct": false
             },
             {
                 "option_id": "619906",
                 "tag": "d",
-                "text": "0.83 \\( \\Omega \\)",
+                "text": "0.83 <i>&Omega;</i>",
                 "is_correct": false
             }
         ],
-        "question_number": 328
+        "question_number": 328,
+        "is_rewritten": true
     },
     {
         "order_id": "48",
@@ -1745,8 +1791,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "An electric heater is operated by applying a potential difference of 50V to a wire of resistance 8 \\( \\Omega \\). What is the power rating of the heater?",
-        "explanation": "\\( P = \\frac{V^2}{R} = \\frac{50^2}{8} = \\frac{2500}{8} = 312.5\\text{ W} \\).",
+        "question_text": "<p>An electric heater is operated by applying a <b>potential difference</b> of 50V to a wire of resistance 8 <i><sup>\u03a9</sup></i>. What is the <b>power rating</b> of the heater?</p>",
+        "explanation": "<p><i><b>P</b></i> = <i><b>V</b><sup>2</sup>/R</i> = <i>50<sup>2</sup>/8</i> = <i>2500/8</i> = <b>312.5 W</b>.</p>",
         "options": [
             {
                 "option_id": "306039",
@@ -1773,7 +1819,8 @@
                 "is_correct": false
             }
         ],
-        "question_number": 335
+        "question_number": 335,
+        "is_rewritten": true
     },
     {
         "order_id": "49",
@@ -1782,35 +1829,36 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "A certain metallic conductor has a resistivity of \\( 1.7 \\times 10^{-8} \\, \\Omega\\text{m} \\). What is its conductivity?",
-        "explanation": "Conductivity \\( \\sigma = \\frac{1}{\\rho} = \\frac{1}{1.7 \\times 10^{-8}} \\approx 5.88 \\times 10^7 \\, (\\Omega\\text{m})^{-1} \\).",
+        "question_text": "<p> A certain metallic conductor has a resistivity of <b><i>1.7 \u00d7 10<sup>-8</sup> \u03a9m</i></b>. What is its <b>conductivity</b>? </p>",
+        "explanation": "<p> Conductivity is the reciprocal of resistivity. Mathematically, it is expressed as <b><i>\u03c3 = 1/\u03c1</i></b>. Given that the resistivity <b><i>\u03c1 = 1.7 \u00d7 10<sup>-8</sup> \u03a9m</i></b>, the conductivity is calculated as: </p> <p> <b><i>\u03c3 = 1 / (1.7 \u00d7 10<sup>-8</sup>) \u2248 5.88 \u00d7 10<sup>7</sup> (\u03a9m)<sup>-1</sup></i></b>. </p>",
         "options": [
             {
                 "option_id": "267670",
                 "tag": "a",
-                "text": "\\( 1.7 \\times 10^{-8} \\, (\\Omega\\text{m})^{-1} \\)",
+                "text": "<i>1.7 \u00d7 10<sup>-8</sup> (\u03a9m)<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "117612",
                 "tag": "b",
-                "text": "\\( 5.88 \\times 10^7 \\, (\\Omega\\text{m})^{-1} \\)",
+                "text": "<i>5.88 \u00d7 10<sup>7</sup> (\u03a9m)<sup>-1</sup></i>",
                 "is_correct": true
             },
             {
                 "option_id": "207899",
                 "tag": "c",
-                "text": "\\( 2.89 \\times 10^{-16} \\, (\\Omega\\text{m})^{-1} \\)",
+                "text": "<i>2.89 \u00d7 10<sup>-16</sup> (\u03a9m)<sup>-1</sup></i>",
                 "is_correct": false
             },
             {
                 "option_id": "229255",
                 "tag": "d",
-                "text": "\\( 1.7 \\times 10^8 \\, (\\Omega\\text{m})^{-1} \\)",
+                "text": "<i>1.7 \u00d7 10<sup>8</sup> (\u03a9m)<sup>-1</sup></i>",
                 "is_correct": false
             }
         ],
-        "question_number": 342
+        "question_number": 342,
+        "is_rewritten": true
     },
     {
         "order_id": "50",
@@ -1819,8 +1867,8 @@
         "course_code": "PHY 122",
         "course_title": "BASIC ELECTROLYSIS AND MAGNETISM",
         "question_type": "CBT",
-        "question_text": "Which of the following factors does NOT affect the resistance of a metallic conductor?",
-        "explanation": "Resistance depends on the length, cross-sectional area, nature of the material, and temperature. It is unaffected by the color of the insulation.",
+        "question_text": "<p>Which of the following factors does <b>NOT</b> affect the resistance of a metallic conductor?</p>",
+        "explanation": "<p>Resistance depends on the <b>length</b>, <b>cross-sectional area</b>, <b>nature of the material</b>, and <b>temperature</b>. It is unaffected by the <i>color of the insulation</i>.</p>",
         "options": [
             {
                 "option_id": "250647",
@@ -1847,6 +1895,7 @@
                 "is_correct": true
             }
         ],
-        "question_number": 349
+        "question_number": 349,
+        "is_rewritten": true
     }
 ]

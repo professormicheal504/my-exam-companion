@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publisher Hub - Onboarding</title>
@@ -8,12 +17,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fbfbfd;
-            --text-dark: #1d1d1f;
-            --text-gray: #86868b;
-            --primary-accent: #06c;
-            --primary-hover: #005bb5;
+            --bg-base: #f3f4f6;
+            --bg-card: #ffffff;
+            --text-primary: #111827;
+            --text-muted: #6b7280;
+            --primary-accent: #3b82f6;
+            --primary-hover: #2563eb;
             --hub-red: #ff3b30;
+            --border-color: #e5e7eb;
         }
 
         * {
@@ -24,13 +35,36 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
             overflow-x: hidden;
-            overflow-y: auto; /* Allow vertical scroll if content is too tall */
+            overflow-y: auto;
+        }
+
+        /* Responsive Card Wrapper */
+        .main-card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        @media (min-width: 640px) {
+            .main-card {
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                overflow: hidden;
+                flex: none;
+                min-height: auto;
+            }
         }
 
         /* Header / Logo */
@@ -47,25 +81,12 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: #1d1d1f;
+            color: var(--text-primary);
             letter-spacing: -0.5px;
         }
 
         .logo strong {
             font-weight: 700;
-        }
-
-        .logo-badge {
-            background-color: var(--hub-red);
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.2);
         }
 
         /* Slider Area */
@@ -99,7 +120,6 @@
 
         .slide.active {
             opacity: 1;
-
         }
 
         /* Illustrations */
@@ -125,15 +145,13 @@
             font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-primary);
         }
 
         .subtitle {
             font-size: 16px;
-            font-weight: 300;
-            color: var(--text-gray);
+            font-weight: 400;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
@@ -144,8 +162,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: linear-gradient(to top, var(--bg-color) 70%, rgba(251,251,253,0));
             z-index: 10;
+            background-color: var(--bg-card);
         }
 
         .pagination {
@@ -158,7 +176,7 @@
             width: 10px;
             height: 10px;
             border-radius: 5px;
-            background-color: #d2d2d7;
+            background-color: var(--border-color);
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             cursor: pointer;
         }
@@ -173,27 +191,27 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 400px;
-            padding: 18px 24px;
+            padding: 16px 24px;
             background-color: var(--primary-accent);
             color: white;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.2);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
         }
 
         .btn-primary:active {
-            transform: translateY(1px);
+            transform: scale(0.99);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
         }
 
         /* Animations */
@@ -213,9 +231,11 @@
         }
 
     </style>
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
 </head>
 <body>
 
+  <div class="main-card">
     <!-- Header -->
     <header class="header">
         <div class="logo">
@@ -274,7 +294,10 @@
         
         <button class="btn-primary" onclick="handleProceed()">Get Started</button>
     </div>
+  </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../../../components/supabase.js"></script>
     <script>
         const sliderTrack = document.getElementById('sliderTrack');
         const dots = document.querySelectorAll('.dot');
@@ -327,7 +350,30 @@
         sliderTrack.addEventListener('touchend', startAutoSlide);
 
         // Function for the 'Get Started' button
-        function handleProceed() {
+        async function handleProceed() {
+            try {
+                if (typeof window.MECSupabase !== 'undefined') {
+                    const user = await window.MECSupabase.getCurrentUser();
+                    if (user) {
+                        const sb = window.MECSupabase.getSupabase();
+                        const { data } = await sb
+                            .from('publishers')
+                            .select('id')
+                            .eq('user_id', user.id)
+                            .single();
+
+                        if (data) {
+                            // Publisher record exists — go to dashboard
+                            window.location.href = '../dashboard/dashboard.html';
+                            return;
+                        }
+                    }
+                }
+            } catch(e) {
+                console.warn('Publisher check failed:', e);
+            }
+
+            // No publisher record — go to onboarding
             window.location.href = '../profile/bio.html';
         }
 
