@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../components/topbar.css">
-  <link rel="stylesheet" href="../../components/sidebar.css?v=2">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
   <style>
     /* ===========================
        RESET & BASE
@@ -273,6 +273,16 @@
       color: var(--text-muted);
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="app">
@@ -465,9 +475,9 @@
     </div>
   </div>
 
-  <script defer src="../../components/topbar.js"></script>
+  <script defer src="../../components/topbar.js?v=4"></script>
   <script defer src="../../components/nav.js"></script>
-  <script defer src="../../components/sidebar.js?v=6"></script>
+  <script defer src="../../components/sidebar.js?v=20"></script>
   
   <!-- DYNAMIC RANK LOGIC -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -542,7 +552,7 @@
             <div style="font-size: 48px; margin-bottom: 16px;">🚫</div>
             <h2 style="font-size: 24px; font-weight: 800; color: #111827; margin-bottom: 8px;">Login Required</h2>
             <p style="font-size: 15px; color: #6b7280; margin-bottom: 24px;">You must be logged in to view your rank and progress.</p>
-            <button class="btn-register" style="padding: 10px 24px; font-size: 14px;" onclick="if(window.MEC_NAV) window.MEC_NAV.href('login'); else window.location.href='../auth/login.html';">Login / Register</button>
+            <button class="btn-register" style="padding: 10px 24px; font-size: 14px;" onclick="if(window.MEC_NAV) window.MEC_NAV.go('login'); else window.location.href='/login';">Login / Register</button>
           </div>
         `;
         return;

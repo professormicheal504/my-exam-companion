@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try { var t = localStorage.getItem('mec_theme') || 'light'; document.documentElement.setAttribute('data-theme', t); } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAT Prep 2024/2025 — Past Questions, CBT Practice & Study Guide</title>
+  <meta name="description" content="Prepare for SAT Prep with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.">
+  <meta name="keywords" content="SAT Prep, SAT Prep past questions, SAT Prep CBT practice, sat">
+  <link rel="canonical" href="https://www.myexamcompanion.com/us/landing/sat">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SAT Prep 2024/2025 — Past Questions, CBT Practice & Study Guide">
+  <meta property="og:description" content="Prepare for SAT Prep with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema Markup — Educational Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "SAT Prep Preparation",
+    "description": "Prepare for SAT Prep with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.",
+    "provider": {
+      "@type": "Organization",
+      "name": "My Exam Companion",
+      "url": "https://myexamcompanion.com"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NGN"
+      }
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
+  <link rel="stylesheet" href="../../components/footer.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 15px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 60%, #1d4ed8 100%);
+      color: white;
+      padding: 56px 32px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      color: white; padding: 6px 14px; border-radius: 999px; font-size: 12.5px;
+      font-weight: 600; letter-spacing: 0.03em; margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 620px; line-height: 1.65; margin-bottom: 32px; }
+    
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: #1e3a5f; padding: 14px 28px; border-radius: 12px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); text-decoration: none; }
+
+    /* ── Page layout ── */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* ── Ad slot ── */
+    .ad-slot {
+      background: var(--bg-card);
+      border: 1px dashed #d1d5db;
+      border-radius: 12px;
+      min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+      color: #9ca3af; font-size: 12px;
+      margin: 28px 0;
+      overflow: hidden;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 48px; }
+    .section h2 {
+      font-size: 22px; font-weight: 800; color: var(--text-primary);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 2px solid #e5e7eb;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section p { color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; font-size: 15px; }
+    .section ul, .section ol { padding-left: 20px; color: var(--text-muted); line-height: 1.9; font-size: 15px; }
+    .section ul li, .section ol li { margin-bottom: 6px; }
+    .section strong { color: var(--text-primary); }
+
+    /* ── CTA card ── */
+    .cta-card {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe; border-radius: 16px;
+      padding: 32px; text-align: center; margin: 40px 0;
+    }
+    [data-theme="dark"] .cta-card { background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.25); }
+    .cta-card h3 { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px; }
+    .cta-card p { color: var(--text-muted); margin-bottom: 20px; font-size: 14.5px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2563eb; color: white; padding: 13px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .cta-btn:hover { background: #1d4ed8; transform: translateY(-2px); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .breadcrumb a { color: #2563eb; }
+    .breadcrumb span { color: #d1d5db; }
+
+    @media (max-width: 600px) {
+      .page-body { padding: 24px 16px 48px; }
+      .hero { padding: 36px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">🎓 UNIVERSITY ENTRANCE</div>
+        <h1>SAT Prep 2024/2025<br><span>Past Questions &amp; Study Guide</span></h1>
+        <p>Everything you need to pass SAT Prep in one sitting — past questions, exam tips, and a free CBT simulator.</p>
+        <a href="/modules/cbt_test/core/setup.html?exam_id=usa%2Fsat&data_source=us%2Fexams%2Funiversity_entrance%2Fsat%2Findex.json" class="hero-cta">
+          🚀 Start Free CBT Practice
+        </a>
+      </div>
+    </div>
+
+    <main class="page-body">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/modules/index.html">Home</a>
+        <span>›</span>
+        Study Guides
+        <span>›</span>
+        SAT Prep
+      </nav>
+
+      <!-- Ad Slot 1 (Top) -->
+      <div class="ad-slot" id="ad-top">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+      <section class="section">
+  <h2><span class="icon">📋</span> What is SAT?</h2>
+  <p>The Scholastic Assessment Test (SAT) is a standardized, multiple-choice examination administered by the College Board to assess a student's college readiness. It is taken by millions of high school students in the United States and is a critical component of the undergraduate application process for most four-year universities.</p>
+  <p>First introduced in 1926, the SAT has evolved significantly over the decades to remain a fair and relevant measure of academic potential. Today, it serves as a universal benchmark that allows admissions officers to compare applicants from diverse educational backgrounds on an equal footing.</p>
+</section>
+
+<section class="section">
+  <h2><span class="icon">📚</span> Exam Format &amp; Subject Structure</h2>
+  <p>The digital SAT, which replaced the paper-based test in 2023, features adaptive modules that adjust question difficulty based on student performance. This streamlined format focuses on core competencies in Evidence-Based Reading and Writing, as well as Mathematics.</p>
+  <ul>
+    <li><strong>Format:</strong> Digital adaptive testing administered on a laptop or tablet</li>
+    <li><strong>Duration:</strong> 2 hours and 14 minutes (including a 10-minute break between sections)</li>
+    <li><strong>Number of Questions:</strong> 98 total questions (54 in Reading and Writing, 44 in Math)</li>
+    <li><strong>Subjects Tested:</strong> Evidence-Based Reading and Writing, and Mathematics</li>
+    <li><strong>Scoring:</strong> Composite score ranging from 400 to 1600, with each section scored from 200 to 800</li>
+  </ul>
+</section>
+<div class="ad-slot" id="ad-mid"><span>Advertisement</span></div>
+
+<section class="section">
+  <h2><span class="icon">🎯</span> Scoring &amp; Pass Mark</h2>
+  <p>Unlike many standardized tests, the SAT does not have a single official "pass" mark because it is used for college admissions rather than a certification of competence. However, a composite score of 1400 or above is generally considered competitive for top-tier universities, while a score above 1500 is often required for the most selective institutions. Students aiming for state universities or less selective colleges may target scores between 1100 and 1350, depending on the specific institution's median admitted student profile.</p>
+</section>
+
+<section class="section">
+  <h2><span class="icon">🏆</span> Expert Tips to Pass SAT</h2>
+  <ol>
+    <li>Master the use of the built-in Desmos calculator on the digital interface, as it can simplify complex mathematical problems and save valuable time during the Math section.</li>
+    <li>Practice active reading by highlighting key transitions and main ideas in passages, which helps in quickly identifying the correct answer for Reading and Writing questions.</li>
+    <li>Develop a consistent time management strategy by pacing yourself to ensure you do not spend too long on difficult questions, allowing time to review easier items at the end of each module.</li>
+    <li>Review official College Board practice tests thoroughly to understand the specific question patterns and writing styles, as third-party resources may not always reflect the exact difficulty level.</li>
+    <li>Focus on understanding the logic behind incorrect answers in practice questions to identify common traps and improve your critical thinking skills for the actual exam.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2><span class="icon">❓</span> Frequently Asked Questions</h2>
+  <p><strong>Q: When is SAT conducted?</strong><br>The SAT is administered on designated dates throughout the year, typically in January, March, May, June, August, October, and November. International test dates may differ slightly from those in the United States, so students should check the official College Board calendar for specific availability in their region.</p>
+  <p><strong>Q: How do I register for SAT?</strong><br>To register, students must create a College Board account on the official website and select an available test date and center. Registration fees must be paid online, and students should complete their registration at least three weeks before the test date to ensure a seat is secured.</p>
+  <p><strong>Q: Can I use past questions to prepare for SAT?</strong><br>Yes, using official past questions and practice tests is highly recommended as they provide the most accurate representation of the exam's content and difficulty. The College Board offers free digital practice tests and resources that are specifically designed to help students familiarize themselves with the adaptive testing format.</p>
+</section>
+
+      <!-- CTA Box -->
+      <div class="cta-card">
+        <h3>🚀 Practice with Real SAT Prep Past Questions</h3>
+        <p>Timed CBT simulator. Detailed explanations. Start free — no registration required.</p>
+        <a href="/modules/cbt_test/core/setup.html?exam_id=usa%2Fsat&data_source=us%2Fexams%2Funiversity_entrance%2Fsat%2Findex.json" class="cta-btn">
+          🎓 Start CBT Practice Now
+        </a>
+      </div>
+
+      <!-- Ad Slot 3 (Bottom) -->
+      <div class="ad-slot" id="ad-bottom">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+    </main>
+
+    <app-footer data-base="/"></app-footer>
+  </div>
+</div>
+
+<script defer src="../../components/topbar.js?v=4"></script>
+<script defer src="../../components/nav.js"></script>
+<script defer src="../../components/sidebar.js?v=20"></script>
+<script defer src="../../components/footer.js"></script>
+
+</body>
+</html>

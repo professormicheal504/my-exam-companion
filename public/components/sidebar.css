@@ -37,6 +37,40 @@ body.sidebar-closed .app-container {
 }
 
 /* ═══════════════════════════════════════════════════════
+   DESKTOP + TABLET — Reference v3 layout
+   Transparent sidebar on gray canvas, white rounded card
+═══════════════════════════════════════════════════════ */
+@media (min-width: 641px) {
+  body {
+    background-color: #F7F7F7;
+  }
+
+  /* Content card — white, floating on gray, rounded top-left */
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px;
+    background: var(--bg-card);
+    border-radius: 20px 0 0 0;
+    min-height: calc(100vh - 84px);
+    margin-top: 84px;
+  }
+
+  body.sidebar-closed .main-wrapper,
+  body.sidebar-closed .app-container {
+    margin-left: 0;
+    border-radius: 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .main-wrapper,
+  .app-container {
+    margin-left: 96px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
    SIDEBAR OVERLAY (mobile backdrop)
 ═══════════════════════════════════════════════════════ */
 .mec-sb-overlay {
@@ -59,7 +93,7 @@ body.sidebar-closed .app-container {
 }
 
 /* ═══════════════════════════════════════════════════════
-   SIDEBAR STRIP — 72px icon column
+   SIDEBAR STRIP — 72px icon column (mobile default)
 ═══════════════════════════════════════════════════════ */
 .mec-sidebar {
   position: fixed;
@@ -100,6 +134,26 @@ body.sidebar-closed .mec-sidebar {
 
   body.sidebar-mobile-open .mec-sidebar {
     transform: translateX(0);
+  }
+}
+
+/* Desktop + Tablet sidebar — reference v3 style */
+@media (min-width: 641px) {
+  .mec-sidebar {
+    top: 84px; /* below new taller topbar */
+    width: 120px;
+    background: transparent;
+    border-right: none;
+    box-shadow: none;
+    padding: 12px 0 0;
+    z-index: 100; /* below topbar (300) */
+  }
+}
+
+/* Tablet narrower sidebar */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-sidebar {
+    width: 96px;
   }
 }
 
@@ -167,6 +221,41 @@ body.sidebar-closed .mec-sidebar {
 /* Left active indicator — uses box-shadow so it never clips */
 .mec-sb-item.active {
   box-shadow: -3px 0 0 0 #2563eb;
+}
+
+/* Desktop + Tablet sidebar items — reference v3 style */
+@media (min-width: 641px) {
+  .mec-sb-item {
+    width: 100%;
+    min-height: auto;
+    gap: 5px;
+    padding: 22px 4px;
+    border-radius: 0;
+    color: #8b929b;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mec-sb-item:hover:not(.active) {
+    background: transparent;
+    color: #1a1a1a;
+  }
+
+  .mec-sb-item.active {
+    background: transparent;
+    color: #2563eb;
+    box-shadow: none;
+  }
+
+  .mec-sb-icon {
+    background: transparent !important;
+  }
+
+  .mec-sb-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
 }
 
 /* Icon container */
@@ -440,4 +529,114 @@ body.sidebar-closed .mec-sidebar {
 }
 :root[data-theme="dark"] .mec-flyout-div {
   background: var(--border);
+}
+/* ===============================================================
+   DESKTOP + TABLET � Reference v3 Final Overrides
+   Must stay LAST to win the cascade.
+================================================================ */
+@media (min-width: 641px) {
+
+  /* Sidebar strip */
+  .mec-sidebar {
+    background: transparent !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    top: 84px !important;
+    width: 120px !important;
+    padding: 12px 0 0 !important;
+    z-index: 100 !important;
+  }
+
+  /* Hide separators and bottom border */
+  .mec-sb-sep { display: none !important; }
+  .mec-sidebar__bottom { border-top: none !important; }
+
+  /* Nav items: full-width, tall, NO backgrounds at all */
+  .mec-sb-item,
+  .mec-sb-item:hover,
+  .mec-sb-item.active {
+    width: 100% !important;
+    min-height: auto !important;
+    gap: 6px !important;
+    padding: 20px 4px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Colors */
+  .mec-sb-item                  { color: #8b929b !important; }
+  .mec-sb-item:hover:not(.active){ color: #1a1a1a !important; }
+  .mec-sb-item.active            { color: #2563eb !important; }
+
+  /* Icon: no background, no border-radius */
+  .mec-sb-item .mec-sb-icon,
+  .mec-sb-item:hover .mec-sb-icon,
+  .mec-sb-item.active .mec-sb-icon {
+    background: transparent !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 0 !important;
+  }
+
+  /* SVG size */
+  .mec-sb-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Label */
+  .mec-sb-label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Hide hamburger + NEW badge */
+  .mec-sb-toggle { display: none !important; }
+  .mec-sb-new    { display: none !important; }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-sidebar { width: 96px !important; }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET � Consistent Sidebar Width
+   User requested sidebar width to be the same across all screens
+   (meaning tablet shouldn't shrink to 96px, it should stay 120px)
+================================================================ */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Override the 96px tablet rules to match desktop 120px */
+  .mec-sidebar {
+    width: 120px !important;
+  }
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px !important;
+  }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET � Final Layout Enforcer
+   Forces all pages to respect the 120px sidebar layout, overriding
+   any inline <style> blocks that try to force 72px width/margin.
+================================================================ */
+@media (min-width: 641px) {
+  /* Enforce Sidebar width */
+  .mec-sidebar {
+    width: 120px !important;
+    background: transparent !important;
+    border-right: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Enforce Content offset and card styling */
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px !important;
+    background: var(--bg-card) !important;
+    border-radius: 20px 0 0 0 !important;
+  }
 }

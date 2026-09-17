@@ -185,14 +185,24 @@
       text-decoration: underline;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="../../components/supabase.js"></script>
   <link rel="stylesheet" href="../../components/dark-mode.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="modal-overlay">
     <div class="modal-box">
-      <a href="../index.html" class="btn-close" aria-label="Close">
+      <a id="btn-close" href="/" onclick="if(window.MEC_NAV){event.preventDefault();window.MEC_NAV.go('home')}" class="btn-close" aria-label="Close">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
@@ -272,6 +282,26 @@
   </div>
 
   <script>
+    // Resolve post-auth destination: honour ?redirect= or fall back to index
+    function getRedirectUrl() {
+      const p = new URLSearchParams(window.location.search);
+      const r = p.get('redirect');
+      if (r) {
+        try {
+          // Safety: only allow same-origin redirects. Pass origin as base so relative paths like /wallet-dashboard work.
+          const parsed = new URL(decodeURIComponent(r), window.location.origin);
+          if (parsed.origin === window.location.origin) return parsed.href;
+        } catch(e) {
+          // If URL parsing fails, fall through to default
+        }
+      }
+      const cc = localStorage.getItem('mec_country') || 'ng';
+      return new URL('/' + cc, window.location.href).href;
+    }
+
+    // Wire up the close/cancel button to the redirect destination
+    document.getElementById('btn-close').href = getRedirectUrl();
+
     // Lazy getter: resolves Supabase at call-time, not parse-time.
     // This is obfuscator-safe and avoids TDZ (Temporal Dead Zone) errors.
     function getClient() { return window.MECSupabase.getSupabase(); }
@@ -289,7 +319,10 @@
         
         if (error) throw error;
         
-        window.location.href = new URL('../index.html', window.location.href).href;
+        // Wait to ensure Supabase persists the session to localStorage before redirecting
+        setTimeout(() => {
+          window.location.href = getRedirectUrl();
+        }, 1200);
       } catch (error) {
         showToast('Error: ' + error.message, 'error');
         console.error(error);
@@ -304,7 +337,7 @@
         const { error } = await getClient().auth.signInWithOAuth({
           provider: 'google',
           options: {
-            redirectTo: new URL('../index.html', window.location.href).href
+            redirectTo: getRedirectUrl()
           }
         });
         if (error) throw error;
@@ -393,7 +426,7 @@
 
         showToast("Password reset successfully! You are now logged in.", 'success');
         setTimeout(() => {
-          window.location.href = new URL('../index.html', window.location.href).href;
+          window.location.href = getRedirectUrl();
         }, 1500);
 
       } catch(err) {

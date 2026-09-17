@@ -158,15 +158,25 @@
     }
   </style>
   <link rel="stylesheet" href="../../../components/dark-mode.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
 
   <div class="action-bar">
     <h2 id="result-action-title">📄 CBT Result Slip</h2>
     <div class="action-btns">
-      <a id="btn-retake" href="setup.html" class="btn-retake">🔄 Retake</a>
+      <a id="btn-retake" href="javascript:void(0)" onclick="if(window.location.protocol === 'file:') window.location.href='setup.html'+window.location.search; else { const cc = window.location.pathname.split('/').filter(p=>p.length>0)[0]||'ng'; window.location.href='/'+cc+'/test'+window.location.search; }" class="btn-retake">🔄 Retake</a>
       <button class="btn-print" onclick="window.print()">🖨️ Print</button>
-      <a href="../../index.html" class="btn-home">🏠 Home</a>
+      <a href="/" onclick="if(window.MEC_NAV){event.preventDefault();window.MEC_NAV.go('home')}" class="btn-home">🏠 Home</a>
     </div>
   </div>
 
@@ -211,7 +221,7 @@
       </svg>
       Review Answers
     </button>
-    <a href="deep_analysis.html" class="btn-analysis-fixed">
+    <a href="javascript:void(0)" onclick="if(window.location.protocol === 'file:') window.location.href='deep_analysis.html'+window.location.search; else { const cc = window.location.pathname.split('/').filter(p=>p.length>0)[0]||'ng'; window.location.href='/'+cc+'/test/analysis'+window.location.search; }" class="btn-analysis-fixed">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
       </svg>
@@ -223,7 +233,16 @@
     function startReview() {
       localStorage.setItem('cbt_review', 'true');
       const params = localStorage.getItem('cbt_query_params') || '';
-      window.location.href = 'cbt_player.html' + params;
+      if (window.location.protocol === 'file:') {
+        window.location.href = 'cbt_player.html' + params;
+      } else {
+        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+        // params is a query string like ?exam_id=nigeria/neco&...
+        // Route it through the prefix /ng/test/ which serves cbt_player
+        const sp = new URLSearchParams(params.replace(/^\?/, ''));
+        const examId = sp.get('exam_id') || '';
+        window.location.href = `/${cc}/test/${examId}${params}`;
+      }
     }
 
     let result = null;

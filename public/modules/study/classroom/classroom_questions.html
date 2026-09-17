@@ -44,9 +44,9 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <link rel="stylesheet" href="../../../components/footer.css">
   <style>
     *,
@@ -99,6 +99,12 @@
       min-width: 0;
       max-width: calc(100% - 90px);
       overflow-x: hidden;
+      padding-top: 56px;
+    }
+    @media (min-width: 641px) {
+      .main-wrapper {
+        padding-top: 56px;
+      }
     }
 
     /* -- Content -- */
@@ -1836,6 +1842,16 @@
       background: #1d4ed8;
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 
 <body>
@@ -2050,8 +2066,8 @@
   </div>
 
   <script defer src="../../../components/nav.js"></script>
-  <script defer src="../../../components/sidebar.js?v=10"></script>
-  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/sidebar.js?v=20"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script defer src="../../../components/footer.js"></script>
   <script defer src="../../../components/ads.js"></script>
   <script>
@@ -2352,15 +2368,20 @@
     // -- Render a single question card --
     function renderQuestion(qData, index, startIndex) {
       const qKey = qData.qKey || '';
-      const explUrl = `classroom_discussion.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}&year=${encodeURIComponent(qData.exam_year || '')}&q=${encodeURIComponent(qKey)}`;
+      const explUrl = `/study/${EXAM_ID}/${SUBJECT}/${encodeURIComponent(qKey)}/discussion`;
       const isArabic = SUBJECT.toLowerCase() === 'arabic';
       const dirAttr = isArabic ? ' dir="rtl"' : '';
 
-      const options = (qData.options || []).map(opt => `
-        <div class="q-option" onclick="lockAnswer('${explUrl}', '${opt.tag || ''}', this)">
+      const options = (qData.options || []).map(opt => {
+        // Correct answer could be flagged on the option itself or stored in qData.answer
+        const isCorrect = (opt.is_correct === true || opt.is_correct === 1 || opt.is_correct === '1') 
+                          || (qData.answer && opt.tag && opt.tag.toLowerCase() === String(qData.answer).toLowerCase());
+        return `
+        <div class="q-option" onclick="lockAnswer('${explUrl}', '${opt.tag || ''}', this)" data-correct="${isCorrect ? 'true' : 'false'}">
           <span class="q-opt-letter">${opt.tag ? opt.tag.toUpperCase() : ''}</span>
           <span class="q-opt-text"${dirAttr}>${cleanHtml(opt.text || '')}</span>
-        </div>`).join('');
+        </div>`;
+      }).join('');
       let topicText = '';
       if (qData.topic) {
         topicText = Array.isArray(qData.topic) ? qData.topic.join(', ') : String(qData.topic);
@@ -3236,7 +3257,7 @@
     }
 
     function goToLogin() {
-      window.location.href = getBase() + '/modules/auth/login.html';
+      window.location.href = '/login';
     }
 
     // -- Reactions and sharing --
@@ -3246,12 +3267,19 @@
     window.lockAnswer = function (explUrl, tag, el) {
       if (!tag) return;
       showCustomConfirm(`Do you want to lock in option ${tag.toUpperCase()} as your final answer?`, () => {
-        // Real Mastery Tracking: read qId and topic from the card's data attributes
-        let isCorrect = false;
+        const card = el ? el.closest('.card') : null;
+        const qId = card ? card.dataset.qid : '';
+        const topic = card ? card.dataset.topic : '';
+
+        // Determine correct answer from data-correct attribute on the clicked option
+        const isCorrect = el ? el.dataset.correct === 'true' : false;
+
+        // Find the correct option element in this card
+        const allOpts = card ? card.querySelectorAll('.q-option') : [];
+        const correctOpt = Array.from(allOpts).find(o => o.dataset.correct === 'true');
+
+        // Mastery Tracking
         try {
-          const card = el ? el.closest('.card') : null;
-          const qId = card ? card.dataset.qid : '';
-          const topic = card ? card.dataset.topic : '';
           if (topic && qId) {
             const key = `mastery_completed_${EXAM_ID}_${topic}`;
             let completed = [];
@@ -3261,13 +3289,6 @@
               localStorage.setItem(key, JSON.stringify(completed));
             }
           }
-          // Determine if the locked answer is correct by reading the explanation URL
-          // The correct answer tag is embedded in explUrl as correct_answer param
-          try {
-            const epUrl = new URL(explUrl, window.location.origin);
-            const correctTag = epUrl.searchParams.get('correct_answer') || epUrl.searchParams.get('answer');
-            isCorrect = correctTag ? (tag.toLowerCase() === correctTag.toLowerCase()) : false;
-          } catch (e) { }
         } catch (e) { }
 
         // Record to Task Engine
@@ -3277,7 +3298,65 @@
           MECTasks.recordClassroomAnswer(isCorrect, _mecClassroomSession.total);
         }
 
-        window.location.href = `${explUrl}&locked_answer=${encodeURIComponent(tag)}`;
+        // --- ANSWER REVEAL ---
+        // Style all options: highlight correct green, selected wrong red
+        allOpts.forEach(opt => {
+          opt.style.pointerEvents = 'none'; // disable further clicks
+          opt.style.cursor = 'default';
+          if (opt.dataset.correct === 'true') {
+            opt.style.background = '#dcfce7';
+            opt.style.borderColor = '#16a34a';
+            opt.style.color = '#15803d';
+            const letter = opt.querySelector('.q-opt-letter');
+            if (letter) { letter.style.background = '#16a34a'; letter.style.color = '#fff'; }
+            if (opt !== el) {
+              // append correct badge
+              const badge = document.createElement('span');
+              badge.textContent = '✓ Correct Answer';
+              badge.style.cssText = 'margin-left:auto;font-size:11px;font-weight:700;color:#16a34a;white-space:nowrap;';
+              opt.appendChild(badge);
+            }
+          } else if (opt === el && !isCorrect) {
+            opt.style.background = '#fee2e2';
+            opt.style.borderColor = '#dc2626';
+            opt.style.color = '#b91c1c';
+            const letter = opt.querySelector('.q-opt-letter');
+            if (letter) { letter.style.background = '#dc2626'; letter.style.color = '#fff'; }
+            const badge = document.createElement('span');
+            badge.textContent = '✗ Wrong';
+            badge.style.cssText = 'margin-left:auto;font-size:11px;font-weight:700;color:#dc2626;white-space:nowrap;';
+            opt.appendChild(badge);
+          }
+        });
+
+        // Show a brief result banner inside the card
+        const banner = document.createElement('div');
+        banner.style.cssText = `
+          margin-top:14px;
+          padding:12px 16px;
+          border-radius:10px;
+          font-size:13px;
+          font-weight:700;
+          display:flex;
+          align-items:center;
+          gap:8px;
+          background:${isCorrect ? '#dcfce7' : '#fee2e2'};
+          color:${isCorrect ? '#15803d' : '#b91c1c'};
+          border:1px solid ${isCorrect ? '#86efac' : '#fca5a5'};
+          animation:fadeIn 0.2s ease;
+        `;
+        const correctLetterEl = correctOpt ? correctOpt.querySelector('.q-opt-letter') : null;
+        const correctLetter = correctLetterEl ? correctLetterEl.textContent.trim() : '?';
+        banner.innerHTML = isCorrect
+          ? `<span style="font-size:18px;">🎉</span> Correct! Navigating to discussion…`
+          : `<span style="font-size:18px;">❌</span> Wrong! The correct answer is <strong style="margin-left:4px;">${correctLetter}</strong>. Navigating to discussion…`;
+        const optionsWrapper = card ? card.querySelector('.q-options') : null;
+        if (optionsWrapper) optionsWrapper.after(banner);
+
+        // Navigate after a short delay so user sees the reveal
+        setTimeout(() => {
+          window.location.href = `${explUrl}#comments`;
+        }, 1800);
       });
     };
 
@@ -3463,15 +3542,13 @@
     const API_BASE = 'https://classroom-api.myexamcompanion.workers.dev/api';
 
     async function getAuthToken() {
-      // Read directly from Supabase's local storage session
-      const sessionStr = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
-      if (sessionStr) {
-        try {
-          const session = JSON.parse(sessionStr);
-          if (session && session.access_token) return session.access_token;
-        } catch (e) { console.error('Failed to parse session', e); }
+      try {
+        const sb = window.MECSupabase.getSupabase();
+        const { data: { session } } = await sb.auth.getSession();
+        return session ? session.access_token : null;
+      } catch (e) {
+        return null;
       }
-      return null;
     }
 
     window.submitReaction = async function (examId, questionId, reactionType) {

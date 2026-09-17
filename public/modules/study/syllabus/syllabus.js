@@ -13,6 +13,12 @@ let currentCountryCode = 'ng';
 let currentExamCode = 'jamb';
 let currentSubjectId = null;
 
+// Read clean URL params injected by Edge SSR (if present)
+const _cleanParams = (typeof window !== 'undefined' && window.MEC_SYLLABUS_PARAMS) || {};
+if (_cleanParams.country) currentCountryCode = _cleanParams.country;
+if (_cleanParams.exam)    currentExamCode    = _cleanParams.exam;
+if (_cleanParams.subject) currentSubjectId   = _cleanParams.subject;
+
 // DOM Elements
 const countrySelect = document.getElementById('country-select');
 const examTabsContainer = document.getElementById('exam-tabs');
@@ -37,12 +43,19 @@ async function init() {
         
         populateCountrySelect();
         
-        // Default to first country if available, else fallback to 'ng'
-        if (globalData.countries && globalData.countries.length > 0) {
-            const defaultCountry = globalData.countries.find(c => c.id === 'ng') || globalData.countries[0];
-            currentCountryCode = defaultCountry.id;
-            countrySelect.value = currentCountryCode;
+        // Use clean URL country if present, otherwise localStorage or first country
+        if (_cleanParams.country) {
+            currentCountryCode = _cleanParams.country;
+        } else {
+            const saved = localStorage.getItem('mec_country') || null;
+            if (saved && globalData.countries && globalData.countries.find(c => c.id === saved)) {
+                currentCountryCode = saved;
+            } else if (globalData.countries && globalData.countries.length > 0) {
+                const defaultCountry = globalData.countries.find(c => c.id === 'ng') || globalData.countries[0];
+                currentCountryCode = defaultCountry.id;
+            }
         }
+        countrySelect.value = currentCountryCode;
         
         await loadCountryData();
         
@@ -73,9 +86,13 @@ async function loadCountryData() {
         examTabsContainer.innerHTML = '';
         
         if (countryData.exams && countryData.exams.length > 0) {
-            // Default to jamb if available, else first exam
-            const defaultExam = countryData.exams.find(e => e.id === 'jamb') || countryData.exams[0];
-            currentExamCode = defaultExam.id;
+            // Use clean URL exam if present, otherwise default to jamb or first
+            if (_cleanParams.exam && countryData.exams.find(e => e.id === _cleanParams.exam)) {
+                currentExamCode = _cleanParams.exam;
+            } else {
+                const defaultExam = countryData.exams.find(e => e.id === 'jamb') || countryData.exams[0];
+                currentExamCode = defaultExam.id;
+            }
             
             countryData.exams.forEach(exam => {
                 const tab = document.createElement('div');
@@ -85,6 +102,8 @@ async function loadCountryData() {
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
                     currentExamCode = exam.id;
+                    // Push clean URL for exam switch
+                    history.pushState(null, '', `/syllabus/${currentCountryCode}/${currentExamCode}`);
                     loadExamData();
                 };
                 examTabsContainer.appendChild(tab);
@@ -99,6 +118,7 @@ async function loadCountryData() {
         }
     } catch (err) {
         console.error("Error loading country data:", err);
+        syllabusTextContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: #ef4444;">Failed to load ${currentCountryCode.toUpperCase()} exam index. (${err.message})</div>`;
     }
 }
 
@@ -112,32 +132,32 @@ async function loadExamData() {
         subjListMobile.innerHTML = '';
         
         if (examData.subjects && examData.subjects.length > 0) {
-            // Pick first subject by default
-            currentSubjectId = examData.subjects[0].id;
+            // Use clean URL subject if present, otherwise first subject
+            if (_cleanParams.subject && examData.subjects.find(s => s.id === _cleanParams.subject)) {
+                currentSubjectId = _cleanParams.subject;
+            } else {
+                currentSubjectId = examData.subjects[0].id;
+            }
             
             examData.subjects.forEach(subject => {
                 const itemHTML = `${subject.name} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
-                
-                // Desktop Item
+
                 const dItem = document.createElement('a');
-                dItem.href = '#';
+                dItem.href = `/syllabus/${currentCountryCode}/${currentExamCode}/${subject.id}`;
                 dItem.className = `qs-item ${subject.id === currentSubjectId ? 'active' : ''}`;
+                dItem.dataset.subjectId = subject.id;
                 dItem.innerHTML = itemHTML;
-                dItem.onclick = (e) => {
-                    e.preventDefault();
-                    setActiveSubject(subject.id);
-                };
+                dItem.onclick = (e) => { e.preventDefault(); setActiveSubject(subject.id); };
                 subjListDesktop.appendChild(dItem);
-                
-                // Mobile Item
+
                 const mItem = document.createElement('a');
-                mItem.href = '#';
+                mItem.href = `/syllabus/${currentCountryCode}/${currentExamCode}/${subject.id}`;
                 mItem.className = `qs-item ${subject.id === currentSubjectId ? 'active' : ''}`;
+                mItem.dataset.subjectId = subject.id;
                 mItem.innerHTML = itemHTML;
                 mItem.onclick = (e) => {
                     e.preventDefault();
                     setActiveSubject(subject.id);
-                    // close mobile panel
                     document.getElementById('subjToggle').classList.remove('open');
                     document.getElementById('subjPanel').classList.remove('open');
                 };
@@ -160,34 +180,19 @@ async function loadExamData() {
 
 function setActiveSubject(subjectId) {
     currentSubjectId = subjectId;
-    
-    // Update active class in lists
-    document.querySelectorAll('#subj-list-desktop .qs-item, #subj-list-mobile .qs-item').forEach(item => {
-        item.classList.remove('active');
+
+    [subjListDesktop, subjListMobile].forEach(list => {
+        list.querySelectorAll('.qs-item').forEach(item => {
+            item.classList.toggle('active', item.dataset.subjectId === subjectId);
+        });
     });
-    
-    // Find the clicked element index to activate both mobile and desktop (since they mirror each other)
-    // A more robust way:
-    const activeDesktop = Array.from(subjListDesktop.children).find(a => a.onclick.toString().includes(`setActiveSubject("${subjectId}")`));
-    const activeMobile = Array.from(subjListMobile.children).find(a => a.onclick.toString().includes(`setActiveSubject("${subjectId}")`));
-    
-    // For simplicity, we can just re-render or rely on closure. 
-    // Since we didn't store IDs in the DOM, let's just trigger a reload which will update active state if we wanted, 
-    // but the easiest is to re-render the list or just fetch the data.
-    
+
+    history.pushState(null, '', `/syllabus/${currentCountryCode}/${currentExamCode}/${subjectId}`);
     loadSubjectContent(subjectId);
 }
 
 async function loadSubjectContent(subjectId) {
     syllabusTextContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--text-muted);">Loading...</div>';
-    
-    // Update active UI classes
-    const index = Array.from(subjListDesktop.children).findIndex((el, i) => {
-        // Just checking the current logic: we need to match the subjectId
-        // we can fetch the exam index again from memory, or just store a map.
-        return true; 
-    });
-    // For now, let's just fetch and let the lists be (we can improve the active class logic later)
 
     try {
         const res = await fetch(`${R2_BASE_URL}/${currentCountryCode}/syllabus/${currentExamCode}/subjects/${subjectId}.json?t=${new Date().getTime()}`);

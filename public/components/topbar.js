@@ -170,30 +170,17 @@ class AppTopbar extends HTMLElement {
               }
               
               if (!data || data.length === 0) {
-                // If profile doesn't exist, redirect to fill_form.html (prevent infinite loop by checking path first)
-                if (!window.location.pathname.includes('fill_form.html')) {
-                  const publicIdx = window.location.pathname.indexOf('/public/');
-                  let redirectPath = '/modules/auth/fill_form.html';
-                  if (publicIdx !== -1) {
-                    redirectPath = window.location.pathname.substring(0, publicIdx + 8) + 'modules/auth/fill_form.html';
-                  } else {
-                    redirectPath = this.base + 'modules/auth/fill_form.html';
-                  }
-                  window.location.href = redirectPath;
+                // If profile doesn't exist, redirect to onboarding (clean URL)
+                if (!window.location.pathname.includes('fill_form.html') && window.location.pathname !== '/onboarding') {
+                  window.location.href = '/onboarding';
                 }
               } else {
                 // Profile exists!
                 
-                // If they somehow navigated to fill_form.html but already have a profile, redirect them home!
-                if (window.location.pathname.includes('fill_form.html')) {
-                  const publicIdx = window.location.pathname.indexOf('/public/');
-                  let redirectHome = '/modules/index.html';
-                  if (publicIdx !== -1) {
-                    redirectHome = window.location.pathname.substring(0, publicIdx + 8) + 'modules/index.html';
-                  } else {
-                    redirectHome = this.base + 'modules/index.html';
-                  }
-                  window.location.href = redirectHome;
+                // If they somehow navigated to fill_form.html or /onboarding but already have a profile, redirect home!
+                if (window.location.pathname.includes('fill_form.html') || window.location.pathname === '/onboarding') {
+                  const cc = localStorage.getItem('mec_country') || 'ng';
+                  window.location.href = '/' + cc;
                   return;
                 }
 
@@ -238,21 +225,22 @@ class AppTopbar extends HTMLElement {
     }
     // -------------------------
 
-    // Dynamically compute home URL for all environments (file://, local dev server, and production)
-    let homeUrl = '/modules/index.html';
+    // Compute home URL — always use clean country slug on production
+    const _homeCc = localStorage.getItem('mec_country') || 'ng';
+    let homeUrl;
     if (window.location.protocol === 'file:') {
+      // Local file:// — fall back to physical path
       const path = window.location.pathname;
       const publicIdx = path.indexOf('/public/');
-      if (publicIdx !== -1) {
-        homeUrl = 'file://' + path.substring(0, publicIdx + 8) + 'modules/index.html';
-      } else {
-        homeUrl = `${this.base}modules/index.html`;
-      }
+      homeUrl = publicIdx !== -1
+        ? 'file://' + path.substring(0, publicIdx + 8) + 'modules/index.html'
+        : `${this.base}modules/index.html`;
+    } else if (window.location.pathname.includes('/public/')) {
+      // Local dev server running from /public/
+      homeUrl = '/public/modules/index.html';
     } else {
-      // Smart routing: use /public/modules locally, /modules on Firebase/Production
-      if (window.location.pathname.includes('/public/')) {
-        homeUrl = '/public/modules/index.html';
-      }
+      // Production — use clean SEO slug
+      homeUrl = '/' + _homeCc;
     }
 
     this.innerHTML = `
@@ -357,8 +345,8 @@ class AppTopbar extends HTMLElement {
               </div>
             </div>
           ` : `
-            <a href="${this.base}modules/auth/login.html" class="mec-auth-login" style="padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--text-primary); border: 1px solid var(--border); background: var(--bg-card); text-decoration: none; white-space: nowrap; flex-shrink: 0;">Login</a>
-            <a href="${this.base}modules/auth/sign_up.html" class="mec-auth-signup" style="padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; color: white; background: #131212; border: 1px solid #131212; text-decoration: none; display: inline-block; white-space: nowrap; flex-shrink: 0;">Sign Up</a>
+            <a href="/login" class="mec-auth-login" style="padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--text-primary); border: 1px solid var(--border); background: var(--bg-card); text-decoration: none; white-space: nowrap; flex-shrink: 0;">Login</a>
+            <a href="/signup" class="mec-auth-signup" style="padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; color: white; background: #131212; border: 1px solid #131212; text-decoration: none; display: inline-block; white-space: nowrap; flex-shrink: 0;">Sign Up</a>
           `}
         </div>
       </nav>
@@ -404,9 +392,14 @@ class AppTopbar extends HTMLElement {
         'gh': 'ghana'
       };
 
-      // Restore saved country flag on load (Check URL first, then localStorage)
-      const urlParams = new URLSearchParams(window.location.search);
-      let urlCountry = urlParams.get('country');
+      // Restore saved country flag on load (Check URL path first, then query, then localStorage)
+      const pathParts = window.location.pathname.split('/').filter(p => p.length > 0);
+      let urlCountry = pathParts.length > 0 && countryMap[pathParts[0]] ? pathParts[0] : null;
+      
+      if (!urlCountry) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlCountry = urlParams.get('country');
+      }
       if (urlCountry && !countryMap[urlCountry] && urlCountry !== 'all') { urlCountry = null; }
       
       const savedCode = urlCountry || localStorage.getItem('mec_country') || 'ng';
@@ -439,13 +432,30 @@ class AppTopbar extends HTMLElement {
           }
           countryDropdown.style.display = 'none';
           
-          // Update URL dynamically
-          const url = new URL(window.location.href);
-          url.searchParams.set('country', code);
-          window.history.pushState({}, '', url);
-
-          // Dispatch event so pages can react without a full reload
-          document.dispatchEvent(new CustomEvent('country-changed', { detail: { code } }));
+          let currentPath = window.location.pathname;
+          
+          if (window.location.protocol === 'file:' || currentPath.endsWith('index.html')) {
+            if (typeof window.MEC_NAV !== 'undefined' && window.MEC_NAV.href) {
+                window.location.href = window.MEC_NAV.href('home', null, code);
+                return;
+            }
+          }
+          
+          const currentParts = currentPath.split('/').filter(p => p.length > 0);
+          const currentPrefix = currentParts.length > 0 ? currentParts[0] : '';
+          
+          if (['ng', 'gh', 'us'].includes(currentPrefix)) {
+             // Swap prefix
+             currentParts[0] = code;
+             window.location.href = '/' + currentParts.join('/');
+          } else {
+             // We are on a global page, go to the country home
+             if (typeof window.MEC_NAV !== 'undefined' && window.MEC_NAV.href) {
+                window.location.href = window.MEC_NAV.href('home', null, code);
+             } else {
+                window.location.href = '/' + code;
+             }
+          }
         });
       });
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,1147 +11,353 @@
     } catch(e) {}
   })();
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Blog – News, Tips & Updates | My Exam Companion</title>
-    <meta name="description"
-        content="Stay updated with the latest JAMB news, scholarship opportunities, exam tips, and study strategies on My Exam Companion's education blog.">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Study Tips, Exam Updates &amp; Guides | My Exam Companion</title>
+  <meta name="description" content="Practical study tips, exam registration updates, scholarship guides, and JAMB/WAEC news to help Nigerian students prepare with confidence.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://www.myexamcompanion.com/ng/blog">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap"
-        rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="My Exam Companion">
+  <meta property="og:title" content="Blog — Study Tips, Exam Updates & Guides | My Exam Companion">
+  <meta property="og:description" content="Practical study tips, exam registration updates, and guides to help you prepare with confidence.">
+  <meta property="og:url" content="https://www.myexamcompanion.com/ng/blog">
+  <meta property="og:image" content="https://www.myexamcompanion.com/assets/og-blog.png">
 
-    <!-- App Shell -->
-    <link rel="stylesheet" href="../../components/topbar.css">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — Study Tips & Exam Guides | My Exam Companion">
+  <meta name="twitter:description" content="Practical tips, exam news, and scholarship guides for Nigerian students.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "My Exam Companion Blog",
+    "description": "Study tips, exam updates, and guides for JAMB, WAEC, and NECO students.",
+    "url": "https://www.myexamcompanion.com/ng/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "My Exam Companion",
+      "logo": { "@type": "ImageObject", "url": "https://www.myexamcompanion.com/favicon.ico" }
+    }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- App Shell -->
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
-    <link rel="stylesheet" href="../../components/sidebar.css?v=4">
-    <link rel="stylesheet" href="../../components/footer.css">
-
-    <style>
-        /* == Reset ================================================== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            font-size: 14px;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            background: #f5f5f5;
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        ul,
-        ol {
-            list-style: none;
-        }
-
-        /* == App Shell =============================================== */
-        .app {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        .main-wrapper {
-            margin-left: 72px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        @media (max-width: 600px) {
-            .main-wrapper {
-                margin-left: 0;
-            }
-        }
-
-        /* == Content ================================================ */
-        .content-area {
-            flex: 1;
-            padding: 20px 16px 48px;
-            max-width: 960px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* == Page Header ============================================ */
-        .blog-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 2.5px solid #131212;
-        }
-
-        .blog-header__title {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-        }
-
-        .blog-header__actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .blog-header__btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 7px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.15s;
-            letter-spacing: 0.01em;
-        }
-
-        .blog-header__btn:hover {
-            background: #1d4ed8;
-        }
-
-        .blog-header__icon-btn {
-            width: 34px;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            background: #efefef;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: background 0.15s;
-            border: none;
-        }
-
-        .blog-header__icon-btn:hover {
-            background: #e0e0e0;
-        }
-
-        /* == Breaking Ticker ======================================== */
-        .ticker-wrap {
-            background: #131212;
-            border-radius: 10px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .ticker-label {
-            background: #2563eb;
-            color: white;
-            font-size: 9px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 3px 8px;
-            border-radius: 4px;
-            flex-shrink: 0;
-            white-space: nowrap;
-        }
-
-        .ticker-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .ticker-text span {
-            color: #ff6b6b;
-        }
-
-        /* == Category Tabs ========================================== */
-        .category-tabs {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 22px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding-bottom: 2px;
-        }
-
-        .category-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .cat-tab {
-            flex-shrink: 0;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1.5px solid #e0e0e0;
-            background: var(--bg-card);
-            color: #555;
-            transition: all 0.15s;
-            white-space: nowrap;
-            user-select: none;
-        }
-
-        .cat-tab:hover {
-            border-color: #2563eb;
-            color: #2563eb;
-        }
-
-        .cat-tab.active {
-            background: #2563eb;
-            color: white;
-            border-color: #2563eb;
-        }
-
-        /* == Hero Card ============================================== */
-        .hero-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 7;
-            border-radius: 14px;
-            overflow: hidden;
-            cursor: pointer;
-            margin-bottom: 6px;
-            display: block;
-            background: #1a1a1a;
-        }
-
-        .hero-card__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .hero-card:hover .hero-card__img {
-            transform: scale(1.03);
-        }
-
-        .hero-card__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.28) 55%, transparent 100%);
-        }
-
-        .hero-card__body {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-        }
-
-        .hero-card__tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #ff4d4d;
-            margin-bottom: 8px;
-        }
-
-        .hero-card__title {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(18px, 3vw, 26px);
-            font-weight: 800;
-            color: white;
-            line-height: 1.22;
-            letter-spacing: -0.01em;
-        }
-
-        .hero-card__meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-        }
-
-        .hero-card__meta-dot {
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        /* == Section Block ========================================== */
-        .section-block {
-            margin-top: 28px;
-            margin-bottom: 6px;
-        }
-
-        .section-block__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #131212;
-        }
-
-        .section-block__name {
-            font-size: 13px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-primary);
-        }
-
-        .section-block__more {
-            font-size: 11.5px;
-            font-weight: 700;
-            color: #2563eb;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            cursor: pointer;
-            transition: opacity 0.15s;
-        }
-
-        .section-block__more:hover {
-            opacity: 0.75;
-        }
-
-        /* == Grid Layouts =========================================== */
-        .featured-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .featured-row--asymmetric {
-            grid-template-columns: 1.5fr 1fr;
-        }
-
-        /* == Card Base ============================================== */
-        .card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.11);
-        }
-
-        .card__img-wrap {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .card__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease;
-        }
-
-        .card:hover .card__img {
-            transform: scale(1.04);
-        }
-
-        .card__body {
-            padding: 12px 13px 14px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card__tag {
-            font-size: 9.5px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #2563eb;
-            margin-bottom: 5px;
-        }
-
-        .card__title {
-            font-size: 13.5px;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1.32;
-            letter-spacing: -0.01em;
-            flex: 1;
-        }
-
-        .card--large .card__title {
-            font-size: 15px;
-        }
-
-        .card__source {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .card__source-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 3px;
-            background: #2563eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .card__source-name {
-            font-size: 10.5px;
-            font-weight: 600;
-            color: #888;
-        }
-
-        .card__source-time {
-            font-size: 10px;
-            color: #bbb;
-            font-weight: 500;
-        }
-
-        .card__menu {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 26px;
-            height: 26px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.15s;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
-        }
-
-        .card:hover .card__menu {
-            opacity: 1;
-        }
-
-        /* == List Card (horizontal) ================================= */
-        .list-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-            display: flex;
-            align-items: stretch;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-            position: relative;
-            margin-bottom: 8px;
-        }
-
-        .list-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .list-card__img-wrap {
-            width: 110px;
-            flex-shrink: 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .list-card__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease;
-        }
-
-        .list-card:hover .list-card__img {
-            transform: scale(1.05);
-        }
-
-        .list-card__body {
-            flex: 1;
-            padding: 12px 12px 12px 14px;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
-
-        .list-card__tag {
-            font-size: 9.5px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #2563eb;
-            margin-bottom: 4px;
-        }
-
-        .list-card__title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.35;
-            flex: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .list-card__source {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .list-card__source-name {
-            font-size: 10.5px;
-            font-weight: 600;
-            color: #888;
-        }
-
-        .list-card__source-time {
-            font-size: 10px;
-            color: #bbb;
-            font-weight: 500;
-        }
-
-        .list-card__menu {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 22px;
-            height: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.15s;
-            cursor: pointer;
-            color: #bbb;
-        }
-
-        .list-card:hover .list-card__menu {
-            opacity: 1;
-        }
-
-        /* == Wide Card ============================================== */
-        .wide-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            align-items: stretch;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-            margin-bottom: 8px;
-        }
-
-        .wide-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.11);
-        }
-
-        .wide-card__color-bar {
-            width: 5px;
-            flex-shrink: 0;
-            background: #2563eb;
-        }
-
-        .wide-card__body {
-            flex: 1;
-            padding: 14px 16px;
-        }
-
-        .wide-card__label {
-            font-size: 9px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #2563eb;
-            margin-bottom: 5px;
-        }
-
-        .wide-card__title {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .wide-card__desc {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-            line-height: 1.5;
-        }
-
-        .wide-card__footer {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .wide-card__tag-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 8px;
-            background: #fff0ef;
-            color: #2563eb;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .wide-card__time {
-            font-size: 10.5px;
-            color: #bbb;
-            font-weight: 500;
-        }
-
-        .wide-card__img-wrap {
-            width: 100px;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .wide-card__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-                /* == Card Stats ============================================ */
-        .card-stats {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: auto;
-            font-size: 11px;
-            font-weight: 600;
-            color: #999;
-        }
-        .hero-card__meta .card-stats {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        .card-stats span {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        /* == Topic Pills ============================================ */
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .topic-pill {
-            background: var(--bg-card);
-            border: 1.5px solid #e8e8e8;
-            border-radius: 10px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            transition: all 0.15s;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-        }
-
-        .topic-pill:hover {
-            border-color: #2563eb;
-            background: #fff8f8;
-            transform: translateY(-2px);
-        }
-
-        .topic-pill__icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .topic-pill__label {
-            font-size: 10.5px;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-
-        /* == Ad Slot ================================================ */
-        .ad-slot {
-            background: var(--bg-card);
-            border: 1.5px dashed #e0e0e0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 4px;
-            color: #ccc;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            padding: 18px;
-            margin-bottom: 20px;
-        }
-
-        .ad-slot--leaderboard {
-            height: 90px;
-        }
-
-        .ad-slot--rectangle {
-            height: 250px;
-        }
-
-        /* == Play Badge ============================================= */
-        .play-badge {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 36px;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(4px);
-        }
-
-        /* == More Button ============================================ */
-        .more-btn-wrap {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 8px;
-        }
-
-        .more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 11px 28px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: background 0.15s, transform 0.15s;
-        }
-
-        .more-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        .more-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        /* == Responsive ============================================= */
-        @media (max-width: 680px) {
-            .featured-row {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-row--asymmetric {
-                grid-template-columns: 1fr;
-            }
-
-            .topic-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .wide-card__img-wrap {
-                display: none;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .topic-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-card {
-                aspect-ratio: 4 / 3;
-            }
-        }
-
-        /* == Spinner ================================================ */
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../components/footer.css">
+
+  <style>
+    /* == Reset ================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg-base, #F7F7F7); color: var(--text-primary, #1a1a1a); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul, ol { list-style: none; }
+    button { background: none; border: none; cursor: pointer; font-family: inherit; }
+
+    /* == App Shell =============================================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 72px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* == Content area =========================================== */
+    .content { flex: 1; background: var(--bg-card, #fff); border-radius: 20px 0 0 0; padding: 32px 40px 80px; }
+    .wrap { max-width: 760px; margin: 0 auto; }
+
+    /* == Page header ============================================ */
+    .page-head { margin-bottom: 22px; }
+    .page-head h1 { font-size: 26px; font-weight: 800; margin: 0 0 6px; color: var(--text-primary); }
+    .page-head p { color: #8b929b; margin: 0; font-size: 14.5px; }
+
+    /* == Topic tabs ============================================= */
+    .topic-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 26px; padding-bottom: 18px;
+      border-bottom: 1px solid var(--border, #ececec);
+    }
+    .topic-tab {
+      font-size: 13.5px; font-weight: 600; padding: 8px 16px; border-radius: 999px;
+      border: 1px solid var(--border, #e5e5e5); background: var(--bg-card, #fff);
+      color: #6b7280; cursor: pointer; transition: all 0.15s;
+    }
+    .topic-tab:hover { border-color: #2563eb; color: #2563eb; }
+    .topic-tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    [data-theme="dark"] .topic-tab.active { background: #f8fafc; color: #0f172a; border-color: #f8fafc; }
+
+    .no-results { display: none; padding: 40px 0; text-align: center; color: #9aa0a6; font-size: 14.5px; }
+    .no-results.show { display: block; }
+
+    /* == Post card ============================================== */
+    .post-card {
+      border: 1px solid var(--border, #ececec); border-radius: 16px; overflow: hidden;
+      margin-bottom: 20px; background: var(--bg-card, #fff);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: block; color: inherit;
+    }
+    .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+    .thumb { height: 190px; position: relative; overflow: hidden; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .post-card:hover .thumb img { transform: scale(1.03); }
+    .thumb .tag {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(255,255,255,0.92); color: #2563eb;
+      font-size: 11.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+    }
+
+    .card-body { padding: 18px 20px 6px; }
+    .card-body h2 { font-size: 18px; margin: 0 0 8px; font-weight: 700; line-height: 1.35; color: var(--text-primary); }
+    .card-body p { margin: 0 0 12px; color: #6b7280; font-size: 14px; line-height: 1.5; }
+    .card-meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #9aa0a6; margin-bottom: 4px; }
+    .avatar-sm { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; }
+
+    /* == Engagement row ========================================= */
+    .eng-row {
+      display: flex; align-items: center; gap: 18px;
+      font-size: 13px; color: #6b7280;
+      padding: 12px 0; border-top: 1px solid var(--border, #f1f1f1); margin-top: 6px;
+    }
+    .eng-item { display: flex; align-items: center; gap: 6px; }
+    .eng-item svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+    .eng-item.like { color: #2563eb; }
+
+    /* == Loading / empty states ================================= */
+    .loading-state { padding: 60px 24px; text-align: center; color: #9aa0a6; font-size: 14.5px; }
+    .skeleton-card {
+      border-radius: 16px; overflow: hidden; margin-bottom: 20px;
+      background: var(--bg-card, #fff); border: 1px solid var(--border, #ececec);
+    }
+    .skel-thumb { height: 190px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+    .skel-body { padding: 18px 20px 20px; }
+    .skel-line { height: 14px; border-radius: 6px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; margin-bottom: 10px; }
+    .skel-line.short { width: 55%; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* == Mobile ================================================= */
+    @media (max-width: 640px) {
+      .content { border-radius: 0; padding: 22px 16px 60px; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="app">
-        <app-sidebar data-base="../../"></app-sidebar>
+<div class="app">
+  <!-- Sidebar web component -->
+  <app-sidebar data-base="../../"></app-sidebar>
 
-        <div class="main-wrapper">
-            <app-topbar data-base="../../"></app-topbar>
+  <div class="main-wrapper">
+    <!-- Topbar web component -->
+    <app-topbar data-base="../../"></app-topbar>
 
-            <div class="content-area">
+    <main class="content" id="main-content">
+      <div class="wrap">
 
-                <!-- Page Header -->
-                <div class="blog-header">
-                    <span class="blog-header__title">Education</span>
-                    <div class="blog-header__actions">
-                        <button class="blog-header__icon-btn" title="Search" aria-label="Search articles">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="m21 21-4.35-4.35" />
-                            </svg>
-                        </button>
-                        <button class="blog-header__icon-btn" title="Grid view" aria-label="Change layout">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7" />
-                                <rect x="14" y="3" width="7" height="7" />
-                                <rect x="14" y="14" width="7" height="7" />
-                                <rect x="3" y="14" width="7" height="7" />
-                            </svg>
-                        </button>
-                        <button class="blog-header__btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                            </svg>
-                            Follow
-                        </button>
-                    </div>
+        <div class="page-head">
+          <h1>Blog</h1>
+          <p>Study tips, exam updates, and guides &mdash; picked for you.</p>
+        </div>
+
+        <!-- Topic filter tabs -->
+        <nav class="topic-tabs" aria-label="Filter posts by topic" role="tablist" id="topicTabsNav">
+          <button class="topic-tab active" data-topic="all" role="tab" aria-selected="true">All</button>
+          <button class="topic-tab" data-topic="Study Tips" role="tab" aria-selected="false">Study Tips</button>
+          <button class="topic-tab" data-topic="Exam Updates" role="tab" aria-selected="false">Exam Updates</button>
+          <button class="topic-tab" data-topic="Guides" role="tab" aria-selected="false">Guides</button>
+          <button class="topic-tab" data-topic="Scholarships" role="tab" aria-selected="false">Scholarships</button>
+          <button class="topic-tab" data-topic="School News" role="tab" aria-selected="false">School News</button>
+        </nav>
+
+        <!-- Dynamic article list -->
+        <section aria-label="Blog posts" id="postList">
+          <!-- Skeleton placeholders while loading -->
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+        </section>
+
+        <p class="no-results" id="noResults" role="status">No posts in this topic yet &mdash; check back soon.</p>
+
+      </div>
+    </main>
+
+    <app-footer data-base="../../"></app-footer>
+  </div><!-- /main-wrapper -->
+</div><!-- /app -->
+
+<!-- Scripts -->
+<script src="../../components/nav.js" defer></script>
+<script src="../../components/topbar.js?v=4" defer></script>
+<script src="../../components/sidebar.js?v=20" defer></script>
+<script src="../../components/footer.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../components/supabase.js"></script>
+
+<script>
+  let allPosts = [];
+
+  function timeAgo(dateStr) {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 60) return mins + 'm ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + 'h ago';
+    const days = Math.floor(hrs / 24);
+    if (days < 7) return days + 'd ago';
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
+  function getReadTime(content) {
+    const words = (content || '').split(/\s+/).length;
+    return Math.max(1, Math.round(words / 200)) + ' min read';
+  }
+
+  function renderPosts(posts) {
+    const list = document.getElementById('postList');
+    const noResults = document.getElementById('noResults');
+    if (!posts || posts.length === 0) {
+      list.innerHTML = '';
+      noResults.classList.add('show');
+      return;
+    }
+    noResults.classList.remove('show');
+
+    // Determine clean link base (production vs local)
+    const isProduction = !window.location.protocol.startsWith('file') && !window.location.pathname.includes('/modules/');
+    const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+
+    list.innerHTML = posts.map(post => {
+      const topic = (post.topics && post.topics.length) ? post.topics[0] : 'Article';
+      const date = timeAgo(post.created_at);
+      const href = isProduction
+        ? `/${cc}/blog/${post.id}`
+        : `content.html?id=${post.id}`;
+      const img = post.thumbnail_url
+        ? `<img src="${post.thumbnail_url}" alt="${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy">`
+        : `<div style="width:100%;height:100%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aaa;">No image</div>`;
+
+      return `
+        <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
+          <a href="${href}" aria-label="${(post.title || '').replace(/"/g, '&quot;')}">
+            <div class="thumb">
+              ${img}
+              <span class="tag">${topic}</span>
+            </div>
+            <div class="card-body">
+              <h2 itemprop="headline">${post.title || 'Untitled'}</h2>
+              ${post.excerpt ? `<p itemprop="description">${post.excerpt}</p>` : ''}
+              <div class="card-meta">
+                ${post.author_avatar ? `<img class="avatar-sm" src="${post.author_avatar}" alt="${post.author_name || ''}" loading="lazy">` : ''}
+                <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span itemprop="name">${post.author_name || 'MEC Staff'}</span>
+                </span>
+                <span>&middot;</span>
+                <time itemprop="datePublished" datetime="${post.created_at || ''}">${date}</time>
+                <span>&middot;</span>
+                <span>${getReadTime(post.content)}</span>
+              </div>
+              <div class="eng-row" role="group" aria-label="Post stats">
+                <div class="eng-item like" aria-label="${post.likes_count || 0} likes">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>
+                  ${post.likes_count || 0}
                 </div>
-
-                <!-- Breaking News Ticker -->
-                <div class="ticker-wrap" aria-label="Breaking news">
-                    <span class="ticker-label">Breaking</span>
-                    <span class="ticker-text">JAMB releases <span>2026 UTME results</span> — Check your score now
-                        &nbsp;·&nbsp; Post-UTME screening dates announced for 14 universities &nbsp;·&nbsp; New
-                        scholarship portal opens for Nigerian students abroad</span>
+                <div class="eng-item" aria-label="${post.comments_count || 0} comments">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  ${post.comments_count || 0}
                 </div>
-
-                <!-- Category Tabs -->
-                <div class="category-tabs" role="tablist" aria-label="Blog categories">
-                    <button class="cat-tab active" role="tab" aria-selected="true">All</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">JAMB</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">Scholarships</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">Admission</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">Study Tips</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">Post-UTME</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">University</button>
-                    <button class="cat-tab" role="tab" aria-selected="false">Career</button>
+                <div class="eng-item" aria-label="${post.shares_count || 0} shares">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                  ${post.shares_count || 0}
                 </div>
+              </div>
+            </div>
+          </a>
+        </article>`;
+    }).join('');
+  }
 
-                <!-- Hero Card -->
-                <a href="content.html" class="hero-card" id="hero-article">
-                    <img loading="lazy" class="hero-card__img"
-                        src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=900&q=80&auto=format&fit=crop"
-                        alt="Students studying in a modern library" loading="eager">
-                    <div class="hero-card__overlay"></div>
-                    <div class="hero-card__body">
-                        <span class="hero-card__tag">#JAMB Update</span>
-                        <h1 class="hero-card__title">JAMB Raises Minimum Score Benchmark — What Every 2026 Candidate
-                            Must Know</h1>
-                        <div class="hero-card__meta">
-                            <span>My Exam Companion</span>
-                            <span class="hero-card__meta-dot"></span>
-                            <span>2 hrs ago</span>
-                            <span class="hero-card__meta-dot"></span>
-                            <span>4 min read</span>
-                              <div class="card-stats">
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.2k</span>
-                                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 342</span>
-                              </div>
-                          </div>
-                    </div>
-                </a>
+  document.addEventListener('DOMContentLoaded', async () => {
+    if (typeof window.MECSupabase === 'undefined') {
+      document.getElementById('postList').innerHTML = '<p class="loading-state">Unable to load posts right now. Please try again later.</p>';
+      return;
+    }
+    const sb = window.MECSupabase.getSupabase();
+    const { data: posts } = await sb
+      .from('publisher_posts')
+      .select('id, title, excerpt, thumbnail_url, topics, created_at, author_name, author_avatar, likes_count, comments_count, shares_count, content')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false })
+      .limit(50);
 
-                <!-- Browse Topics (dynamic) -->
-                <div class="section-block" id="browseTopicsBlock">
-                    <div class="section-block__header">
-                        <span class="section-block__name">Browse Topics</span>
-                    </div>
-                    <div class="topic-grid" id="dynamicTopicGrid">
-                        <!-- Populated by JS from real article topics -->
-                    </div>
-                </div>
+    allPosts = posts || [];
 
-                <!-- Ad Slot: Leaderboard -->
-                <div class="ad-slot ad-slot--leaderboard" aria-label="Advertisement">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="#d0d0d0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <path d="M3 9h18M9 21V9" />
-                    </svg>
-                    Advertisement
-                </div>
-
-                <!-- Dynamic Article Sections by Topic -->
-                <div id="dynamicArticleSections">
-                    <div style="padding: 40px 24px; text-align:center; color:#999;">
-                        <div style="width:32px;height:32px;border:3px solid #e5e7eb;border-top-color:#e52828;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 12px;"></div>
-                        Loading articles...
-                    </div>
-                </div>
-
-                <!-- Load More -->
-                <div class="more-btn-wrap">
-                    <button class="more-btn" id="load-more-btn" aria-label="Load more articles" style="display:none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                        Load More
-                    </button>
-                </div>
-
-
-
-            </div><!-- /content-area -->
-            <app-footer data-base="../../"></app-footer>
-        </div><!-- /main-wrapper -->
-    </div><!-- /app -->
-
-    <script src="../../components/nav.js" defer></script>
-    <script src="../../components/topbar.js" defer></script>
-    <script src="../../components/sidebar.js?v=10" defer></script>
-    <script src="../../components/footer.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-    <script src="../../components/supabase.js"></script>
-    <style>
-      @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
-    <script>
-      const TOPIC_CONFIG = {
-        'Scholarships': { bg: '#f0fdf4', stroke: '#16a34a', icon: '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>' },
-        'Admission':    { bg: '#fefce8', stroke: '#ca8a04', icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
-        'Study Tips':   { bg: '#eff6ff', stroke: '#2563eb', icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>' },
-        'Post-UTME':    { bg: '#fdf4ff', stroke: '#9333ea', icon: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>' },
-        'University':   { bg: '#fff7ed', stroke: '#ea580c', icon: '<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/>' },
-        'Career':       { bg: '#f0fdfa', stroke: '#0d9488', icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>' },
-      };
-      const DEFAULT_TOPIC = { bg: '#f9fafb', stroke: '#6b7280', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>' };
-
-      let allPosts = [];
-
-      document.addEventListener('DOMContentLoaded', async () => {
-        if (typeof window.MECSupabase === 'undefined') return;
-        const sb = window.MECSupabase.getSupabase();
-
-        const { data: posts } = await sb
-          .from('publisher_posts')
-          .select('id, title, thumbnail_url, topics, created_at')
-          .eq('status', 'approved')
-          .order('created_at', { ascending: false })
-          .limit(50);
-
-        allPosts = posts || [];
-
-        const container = document.getElementById('dynamicArticleSections');
-
-        if (allPosts.length === 0) {
-          container.innerHTML = '<p style="padding:40px 24px;color:#999;text-align:center;">No approved articles yet. Check back soon!</p>';
-          document.getElementById('browseTopicsBlock').style.display = 'none';
-          return;
+    // Fallback dummy content for preview
+    if (allPosts.length === 0) {
+      allPosts = [
+        {
+          id: 'dummy-1',
+          title: 'Five Ways to Actually Remember What You Study',
+          excerpt: 'Struggling to retain study material? Discover five science-backed memory techniques that help Nigerian students ace exams.',
+          thumbnail_url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80',
+          topics: ['Study Tips'],
+          created_at: new Date().toISOString(),
+          author_name: 'Amaka Okonkwo',
+          author_avatar: 'https://i.pravatar.cc/104?img=12',
+          likes_count: 1200,
+          comments_count: 340,
+          shares_count: 89,
+          content: 'dummy-1 content here'
+        },
+        {
+          id: 'dummy-2',
+          title: 'JAMB 2027 Registration Dates - What We Know So Far',
+          excerpt: 'Everything you need to know about the upcoming JAMB registration, including deadlines, required documents, and where to register.',
+          thumbnail_url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
+          topics: ['Exam Updates'],
+          created_at: new Date(Date.now() - 86400000 * 2).toISOString(),
+          author_name: 'MEC Editorial',
+          author_avatar: 'https://i.pravatar.cc/104?img=11',
+          likes_count: 450,
+          comments_count: 120,
+          shares_count: 45,
+          content: 'dummy-2 content here'
         }
+      ];
+    }
 
-        // Update hero card with latest post
-        updateHeroCard(allPosts[0]);
+    renderPosts(allPosts);
 
-        // Build Browse Topics from actual topics used in posts
-        buildTopicGrid(allPosts);
-
-        // Render article sections grouped by topic
-        renderSections(allPosts);
-
-        // Category tab filtering
-        document.querySelectorAll('.cat-tab').forEach(tab => {
-          tab.addEventListener('click', () => {
-            document.querySelectorAll('.cat-tab').forEach(t => {
-              t.classList.remove('active');
-              t.setAttribute('aria-selected', 'false');
-            });
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-            const filter = tab.textContent.trim();
-            const filtered = filter === 'All'
-              ? allPosts
-              : allPosts.filter(p => p.topics && p.topics.some(t => t.toLowerCase() === filter.toLowerCase()));
-            renderSections(filtered);
-          });
+    // Topic tab filtering
+    document.querySelectorAll('.topic-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.topic-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
         });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const topic = tab.dataset.topic;
+        const filtered = topic === 'all'
+          ? allPosts
+          : allPosts.filter(p => p.topics && p.topics.some(t => t.toLowerCase() === topic.toLowerCase()));
+        renderPosts(filtered);
       });
+    });
+  });
+</script>
 
-      function updateHeroCard(post) {
-        const heroEl = document.getElementById('hero-article');
-        if (!heroEl || !post) return;
-        heroEl.href = 'content.html?id=' + post.id;
-        const img = heroEl.querySelector('.hero-card__img');
-        if (img && post.thumbnail_url) { img.src = post.thumbnail_url; img.alt = post.title; }
-        const tag = heroEl.querySelector('.hero-card__tag');
-        if (tag) tag.textContent = post.topics && post.topics.length ? '#' + post.topics[0].toUpperCase() : '#ARTICLE';
-        const title = heroEl.querySelector('.hero-card__title');
-        if (title) title.textContent = post.title;
-        const time = heroEl.querySelector('.hero-card__meta span:nth-child(2)');
-        if (time) time.textContent = timeAgo(post.created_at);
-      }
-
-      function buildTopicGrid(posts) {
-        const topicSet = new Set();
-        posts.forEach(p => { if (p.topics) p.topics.forEach(t => topicSet.add(t)); });
-        const topics = Array.from(topicSet);
-        const grid = document.getElementById('dynamicTopicGrid');
-        if (!grid || topics.length === 0) {
-          document.getElementById('browseTopicsBlock').style.display = 'none';
-          return;
-        }
-        grid.innerHTML = topics.map(topic => {
-          const cfg = TOPIC_CONFIG[topic] || DEFAULT_TOPIC;
-          return '<div class="topic-pill" role="button" tabindex="0" onclick="filterByTopic(\'' + topic + '\')">' +
-            '<div class="topic-pill__icon" style="background:' + cfg.bg + ';">' +
-              '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="' + cfg.stroke + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + cfg.icon + '</svg>' +
-            '</div>' +
-            '<span class="topic-pill__label">' + topic + '</span>' +
-          '</div>';
-        }).join('');
-      }
-
-      function filterByTopic(topic) {
-        document.querySelectorAll('.cat-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-        const filtered = allPosts.filter(p => p.topics && p.topics.some(t => t.toLowerCase() === topic.toLowerCase()));
-        renderSections(filtered);
-        document.querySelector('.content-area').scrollTop = 0;
-      }
-
-      function renderSections(posts) {
-        const container = document.getElementById('dynamicArticleSections');
-        if (posts.length === 0) {
-          container.innerHTML = '<p style="padding:40px 24px;color:#999;text-align:center;">No articles found for this topic.</p>';
-          return;
-        }
-        const groups = {};
-        posts.forEach(p => {
-          const topic = (p.topics && p.topics.length) ? p.topics[0] : 'General';
-          if (!groups[topic]) groups[topic] = [];
-          groups[topic].push(p);
-        });
-        container.innerHTML = Object.entries(groups).map(function([topic, topicPosts]) {
-          const cards = topicPosts.slice(0, 4).map(function(p, i) {
-            const tag = (p.topics && p.topics.length) ? p.topics[0] : 'Article';
-            const date = timeAgo(p.created_at);
-            const imgHtml = p.thumbnail_url
-              ? '<img class="card__img" src="' + p.thumbnail_url + '" alt="' + p.title.replace(/"/g, '') + '" loading="lazy">'
-              : '<div class="card__img" style="background:#f3f4f6;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa;">No image</div>';
-            const cls = i === 0 ? 'card card--large' : 'card';
-            const ratio = i === 0 ? '4/3' : '16/10';
-            return '<a href="content.html?id=' + p.id + '" class="' + cls + '">' +
-              '<div class="card__img-wrap" style="aspect-ratio:' + ratio + ';">' + imgHtml + '</div>' +
-              '<div class="card__body">' +
-                '<span class="card__tag">#' + tag.toUpperCase() + '</span>' +
-                '<p class="card__title">' + p.title + '</p>' +
-                '<div class="card__source">' +
-                  '<div class="card__source-dot"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>' +
-                  '<span class="card__source-name">MyExamHub</span>' +
-                  '<span class="card__source-time">' + date + '</span>' +
-                '</div>' +
-              '</div>' +
-            '</a>';
-          }).join('');
-          return '<div class="section-block">' +
-            '<div class="section-block__header"><span class="section-block__name">' + topic.toUpperCase() + '</span></div>' +
-            '<div class="featured-row featured-row--asymmetric">' + cards + '</div>' +
-          '</div>';
-        }).join('');
-      }
-
-      function timeAgo(dateStr) {
-        const diff = Date.now() - new Date(dateStr).getTime();
-        const mins = Math.floor(diff / 60000);
-        if (mins < 60) return mins + 'm ago';
-        const hrs = Math.floor(mins / 60);
-        if (hrs < 24) return hrs + 'h ago';
-        const days = Math.floor(hrs / 24);
-        if (days < 7) return days + 'd ago';
-        return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      }
-    </script>
 </body>
 </html>

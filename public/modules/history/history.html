@@ -15,9 +15,9 @@
   <title>History & Analysis – My Exam Companion</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../components/sidebar.css?v=6">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
   
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="../../components/supabase.js"></script>
@@ -121,6 +121,16 @@
     .spinner { display: inline-block; width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: #2563eb; border-radius: 50%; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="app">
@@ -138,7 +148,7 @@
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
           <h3>Log In to Track History</h3>
           <p>Your exam results are saved securely to your account. Log in to view your detailed history and weaknesses.</p>
-          <a href="../auth/login.html" class="btn-primary">Log In / Sign Up</a>
+          <a href="/login" class="btn-primary">Log In / Sign Up</a>
         </div>
 
         <div id="auth-content" style="display: none;">
@@ -225,7 +235,7 @@
     </div>
   </div>
 
-  <script defer src="../../components/topbar.js" type="module"></script>
+  <script defer src="../../components/topbar.js?v=4" type="module"></script>
   <script defer src="../../components/sidebar.js" type="module"></script>
   
   <script>

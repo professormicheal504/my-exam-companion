@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <script>
@@ -14,9 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>University Entrance Exams – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <style>
     /* Reset & Global */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +150,16 @@
       .header-actions button { width: 100%; justify-content: center; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
 
@@ -226,11 +236,27 @@
 
   <script defer src="../../../components/nav.js"></script>
 <script defer src="../../../components/sidebar.js"></script>
-  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script>
     const universities = [
-      { id: 'southern_delta', name: 'Southern Delta University', short: 'SDU', icon: '🌴', questions: 1200, years: '2015 - 2023' },
-      { id: 'uniben', name: 'University of Benin (UNIBEN)', short: 'UNIBEN', icon: '🌿', questions: 2900, years: '2010 - 2023' },
+      {
+        id: 'southern_delta',
+        name: 'Southern Delta University',
+        short: 'SDU',
+        icon: '🌴',
+        questions: 1200,
+        years: '2015 - 2023',
+        setupPath: '../core/setup_premium.html?exam_id=nigeria%2Fsouthern_delta_university&data_source=ng%2Fexams%2Funiversity%2Fsouthern_delta_university_sdu%2Findex.json'
+      },
+      {
+        id: 'uniben',
+        name: 'University of Benin (UNIBEN)',
+        short: 'UNIBEN',
+        icon: '🌿',
+        questions: 2900,
+        years: '2010 - 2023',
+        setupPath: '../core/setup_premium.html?exam_id=nigeria%2Funiben_post_utme&data_source=ng%2Fexams%2Funiversity_entrance%2Fpost_utme%2Funiben%2Findex.json&logo=%2Fassets%2Fcountry%2Fnigeria%2Funiversity_of_benin.webp'
+      },
       { id: 'unilag', name: 'University of Lagos (UNILAG)', short: 'UNILAG', icon: '🏛️', questions: 3500, years: '2008 - 2023' },
       { id: 'delsu', name: 'Delta State University (DELSU)', short: 'DELSU', icon: '🎓', questions: 2100, years: '2012 - 2023' },
       { id: 'oau', name: 'Obafemi Awolowo University (OAU)', short: 'OAU', icon: '🏫', questions: 3100, years: '2005 - 2023' },
@@ -255,9 +281,14 @@
       list.forEach(uni => {
         const card = document.createElement('div');
         card.className = 'uni-card';
+        const hasRealData = !!uni.setupPath;
+        const btnLabel = hasRealData ? 'Practice Now' : 'Unlock Access ($1)';
+        const btnAction = hasRealData
+          ? `window.location.href='${uni.setupPath}'`
+          : `processPayment('${uni.short}')`;
         card.innerHTML = `
           <div class="price-tag">
-            $1 (₦1K)
+            ${hasRealData ? '🔓 Available' : '$1 (₦1K)'}
           </div>
           <div class="uni-icon">${uni.icon}</div>
           <h3 class="uni-name">${uni.name}</h3>
@@ -266,7 +297,7 @@
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ${uni.years}</span>
           </div>
           <div class="card-footer">
-            <button class="btn-primary" onclick="processPayment('${uni.short}')">Unlock Access ($1)</button>
+            <button class="btn-primary" onclick="${btnAction}">${btnLabel}</button>
           </div>
         `;
         grid.appendChild(card);
@@ -291,7 +322,6 @@
       if (item === 'request') {
         alert('Initializing payment gateway for $1 (₦1,000)...\nItem: University Request');
       } else {
-        // For the sake of the UI flow, we navigate directly to the subjects page
         window.location.href = 'available_subjects.html?uni=' + encodeURIComponent(item);
       }
     }

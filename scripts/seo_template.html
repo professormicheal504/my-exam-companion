@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try { var t = localStorage.getItem('mec_theme') || 'light'; document.documentElement.setAttribute('data-theme', t); } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="keywords" content="{{META_KEYWORDS}}">
+  <link rel="canonical" href="https://myexamcompanion.com/modules/landing/{{SLUG}}.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{META_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="website">
+
+  <!-- Schema Markup — Educational Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "{{EXAM_NAME}} Preparation",
+    "description": "{{META_DESCRIPTION}}",
+    "provider": {
+      "@type": "Organization",
+      "name": "My Exam Companion",
+      "url": "https://myexamcompanion.com"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NGN"
+      }
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../components/footer.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 15px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 60%, #1d4ed8 100%);
+      color: white;
+      padding: 56px 32px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      color: white; padding: 6px 14px; border-radius: 999px; font-size: 12.5px;
+      font-weight: 600; letter-spacing: 0.03em; margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 620px; line-height: 1.65; margin-bottom: 32px; }
+    
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: #1e3a5f; padding: 14px 28px; border-radius: 12px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); text-decoration: none; }
+
+    /* ── Page layout ── */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* ── Ad slot ── */
+    .ad-slot {
+      background: var(--bg-card);
+      border: 1px dashed #d1d5db;
+      border-radius: 12px;
+      min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+      color: #9ca3af; font-size: 12px;
+      margin: 28px 0;
+      overflow: hidden;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 48px; }
+    .section h2 {
+      font-size: 22px; font-weight: 800; color: var(--text-primary);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 2px solid #e5e7eb;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section p { color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; font-size: 15px; }
+    .section ul, .section ol { padding-left: 20px; color: var(--text-muted); line-height: 1.9; font-size: 15px; }
+    .section ul li, .section ol li { margin-bottom: 6px; }
+    .section strong { color: var(--text-primary); }
+
+    /* ── CTA card ── */
+    .cta-card {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe; border-radius: 16px;
+      padding: 32px; text-align: center; margin: 40px 0;
+    }
+    [data-theme="dark"] .cta-card { background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.25); }
+    .cta-card h3 { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px; }
+    .cta-card p { color: var(--text-muted); margin-bottom: 20px; font-size: 14.5px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2563eb; color: white; padding: 13px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .cta-btn:hover { background: #1d4ed8; transform: translateY(-2px); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .breadcrumb a { color: #2563eb; }
+    .breadcrumb span { color: #d1d5db; }
+
+    @media (max-width: 600px) {
+      .page-body { padding: 24px 16px 48px; }
+      .hero { padding: 36px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">{{EXAM_BADGE}}</div>
+        <h1>{{HERO_TITLE}}</h1>
+        <p>{{HERO_SUBTITLE}}</p>
+        <a href="{{CBT_LINK}}" class="hero-cta">
+          🚀 Start Free CBT Practice
+        </a>
+      </div>
+    </div>
+
+    <main class="page-body">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/modules/index.html">Home</a>
+        <span>›</span>
+        Study Guides
+        <span>›</span>
+        {{EXAM_NAME}}
+      </nav>
+
+      <!-- Ad Slot 1 (Top) -->
+      <div class="ad-slot" id="ad-top">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+      {{ARTICLE_HTML}}
+
+      <!-- CTA Box -->
+      <div class="cta-card">
+        <h3>🚀 Practice with Real {{EXAM_NAME}} Past Questions</h3>
+        <p>Timed CBT simulator. Detailed explanations. Start free — no registration required.</p>
+        <a href="{{CBT_LINK}}" class="cta-btn">
+          🎓 Start CBT Practice Now
+        </a>
+      </div>
+
+      <!-- Ad Slot 3 (Bottom) -->
+      <div class="ad-slot" id="ad-bottom">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+    </main>
+
+    <app-footer data-base="/"></app-footer>
+  </div>
+</div>
+
+<script defer src="../../components/topbar.js"></script>
+<script defer src="../../components/nav.js"></script>
+<script defer src="../../components/sidebar.js?v=6"></script>
+<script defer src="../../components/footer.js"></script>
+
+</body>
+</html>

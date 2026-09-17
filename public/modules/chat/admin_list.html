@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <script>
@@ -16,9 +16,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/components/topbar.css">
+  <link rel="stylesheet" href="/components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
-  <link rel="stylesheet" href="/components/sidebar.css?v=2">
+  <link rel="stylesheet" href="/components/sidebar.css?v=23">
   <style>
     /* ===========================
        RESET & BASE
@@ -110,6 +110,16 @@
       .chat-container { border-radius: 0; border: none; height: calc(100vh - 52px); }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="app">
@@ -131,53 +141,53 @@
             <!-- Online Admin 1 -->
             <a href="chat_admin.html?admin=sarah" class="admin-item">
               <div class="admin-avatar">
-                👩‍🏫
+                ?????
                 <div class="status-dot online"></div>
               </div>
               <div class="admin-info">
                 <div class="admin-name">Admin Sarah</div>
                 <span class="admin-role">Academic Tutor (Mathematics)</span>
               </div>
-              <div class="admin-action">💬</div>
+              <div class="admin-action">??</div>
             </a>
 
             <!-- Online Admin 2 -->
             <a href="chat_admin.html?admin=michael" class="admin-item">
               <div class="admin-avatar">
-                👨‍💻
+                ?????
                 <div class="status-dot online"></div>
               </div>
               <div class="admin-info">
                 <div class="admin-name">Admin Michael</div>
                 <span class="admin-role">Technical Support</span>
               </div>
-              <div class="admin-action">💬</div>
+              <div class="admin-action">??</div>
             </a>
 
             <!-- Offline Admin 1 -->
             <a href="chat_admin.html?admin=jessica" class="admin-item">
               <div class="admin-avatar" style="opacity: 0.7;">
-                👩‍💼
+                ?????
                 <div class="status-dot offline"></div>
               </div>
               <div class="admin-info">
                 <div class="admin-name">Admin Jessica</div>
                 <span class="admin-role">Billing & Subscriptions (Last seen: 2 hours ago)</span>
               </div>
-              <div class="admin-action">💬</div>
+              <div class="admin-action">??</div>
             </a>
 
             <!-- Offline Admin 2 -->
             <a href="chat_admin.html?admin=david" class="admin-item">
               <div class="admin-avatar" style="opacity: 0.7;">
-                👨‍🏫
+                ?????
                 <div class="status-dot offline"></div>
               </div>
               <div class="admin-info">
                 <div class="admin-name">Admin David</div>
                 <span class="admin-role">English Tutor (Offline)</span>
               </div>
-              <div class="admin-action">💬</div>
+              <div class="admin-action">??</div>
             </a>
 
           </div>
@@ -186,8 +196,8 @@
     </div>
   </div>
 
-  <script defer src="/components/topbar.js"></script>
+  <script defer src="/components/topbar.js?v=4"></script>
   <script defer src="/components/nav.js"></script>
-<script defer src="/components/sidebar.js?v=6"></script>
+<script defer src="/components/sidebar.js?v=20"></script>
 </body>
 </html>

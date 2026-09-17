@@ -1,12 +1,64 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const R2_BASE_URL = isLocal ? '../../../../new_staging_area' : 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
 
+const premiumAdStyles = `
+    .ad-container-premium {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: fit-content;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ad-container-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0,0,0,0.03);
+    }
+    .ad-container-premium::before {
+      content: 'ADVERTISEMENT';
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #9ca3af;
+      margin-bottom: 12px;
+      text-align: center;
+      width: 100%;
+    }
+    [data-theme="dark"] .ad-container-premium {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(51, 65, 85, 0.8);
+    }
+`;
+if (!document.getElementById('premium-ad-styles')) {
+    const styleEl = document.createElement('style');
+    styleEl.id = 'premium-ad-styles';
+    styleEl.innerHTML = premiumAdStyles;
+    document.head.appendChild(styleEl);
+}
+
 let allCourses = [];
 let institutionInfo = {};
 
 const urlParams = new URLSearchParams(window.location.search);
-const instId = urlParams.get('id');
-const countryCode = urlParams.get('c') || 'ng';
+// Support both clean URL (MEC_BROCHURE_PARAMS) and legacy query string
+let instId = (window.MEC_BROCHURE_PARAMS && window.MEC_BROCHURE_PARAMS.institution_id)
+  ? window.MEC_BROCHURE_PARAMS.institution_id
+  : urlParams.get('id');
+const countryCode = (window.MEC_BROCHURE_PARAMS && window.MEC_BROCHURE_PARAMS.country)
+  ? window.MEC_BROCHURE_PARAMS.country
+  : (urlParams.get('c') || 'ng');
 
 const searchInput = document.getElementById('searchInput');
 const courseList = document.getElementById('courseList');
@@ -96,7 +148,7 @@ function renderList(courses) {
     }
     
     let html = '';
-    courses.forEach(course => {
+    courses.forEach((course, index) => {
         const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -112,6 +164,17 @@ function renderList(courses) {
                 </button>
             </div>
         `;
+        
+        // Insert ad placeholder every 5 items
+        if ((index + 1) % 5 === 0 && index !== courses.length - 1) {
+            const adCount = Math.floor((index + 1) / 5);
+            const zone = adCount % 2 === 1 ? 'multitag_300x250' : 'multitag_300x250_2';
+            html += `
+              <div class="ad-container-premium" style="width: 100%; box-sizing: border-box;">
+                <div class="mec-ad-slot" data-zone="${zone}"></div>
+              </div>
+            `;
+        }
     });
     
     courseList.innerHTML = html;

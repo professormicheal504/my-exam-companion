@@ -2,6 +2,64 @@ const isLocal = window.location.hostname === 'localhost' || window.location.host
 const R2_BASE_URL = isLocal ? '../../../../new_staging_area' : 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
 let currentCountryCode = 'ng'; // Default to Nigeria for now
 
+function toSlug(name, id) {
+  const slugName = (name || 'institution')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .substring(0, 60);
+  return `${slugName}-${id}`;
+}
+
+const premiumAdStyles = `
+    .ad-container-premium {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: fit-content;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ad-container-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0,0,0,0.03);
+    }
+    .ad-container-premium::before {
+      content: 'ADVERTISEMENT';
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #9ca3af;
+      margin-bottom: 12px;
+      text-align: center;
+      width: 100%;
+    }
+    [data-theme="dark"] .ad-container-premium {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(51, 65, 85, 0.8);
+    }
+`;
+if (!document.getElementById('premium-ad-styles')) {
+    const styleEl = document.createElement('style');
+    styleEl.id = 'premium-ad-styles';
+    styleEl.innerHTML = premiumAdStyles;
+    document.head.appendChild(styleEl);
+}
+
 let allInstitutions = [];
 let filteredInstitutions = [];
 let currentPage = 1;
@@ -13,6 +71,14 @@ const ownershipFilter = document.getElementById('ownershipFilter');
 const searchInput = document.getElementById('searchInput');
 const institutionList = document.getElementById('institutionList');
 const paginationContainer = document.getElementById('pagination');
+
+// Read country from Edge Function params (clean URL) or URL query param
+if (window.MEC_BROCHURE_PARAMS && window.MEC_BROCHURE_PARAMS.country) {
+    currentCountryCode = window.MEC_BROCHURE_PARAMS.country;
+} else {
+    const _urlP = new URLSearchParams(window.location.search);
+    if (_urlP.get('c')) currentCountryCode = _urlP.get('c');
+}
 
 async function init() {
     try {
@@ -94,7 +160,7 @@ function renderList() {
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const paginatedItems = filteredInstitutions.slice(startIndex, endIndex);
     
-    paginatedItems.forEach(inst => {
+    paginatedItems.forEach((inst, index) => {
         const card = document.createElement('div');
         card.className = 'institution-card';
         
@@ -109,7 +175,7 @@ function renderList() {
                 <div class="institution-name">${fullName}</div>
                 <div style="margin-top: 4px;">${progBadge}</div>
             </div>
-            <a href="course.html?id=${inst.id}&c=${currentCountryCode}" class="btn-view-courses">
+            <a href="/${currentCountryCode}/study/brochure/${toSlug(inst.school_name, inst.id)}" class="btn-view-courses">
                 View Courses
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -118,6 +184,22 @@ function renderList() {
             </a>
         `;
         institutionList.appendChild(card);
+        
+        // Insert ad placeholder every 5 items
+        if ((index + 1) % 5 === 0 && index !== paginatedItems.length - 1) {
+            const adCount = Math.floor((index + 1) / 5);
+            const zone = adCount % 2 === 1 ? 'multitag_300x250' : 'multitag_300x250_2';
+            const adWrapper = document.createElement('div');
+            adWrapper.className = 'ad-container-premium';
+            adWrapper.style.cssText = 'width: 100%; box-sizing: border-box;';
+            
+            const adSlot = document.createElement('div');
+            adSlot.className = 'mec-ad-slot';
+            adSlot.setAttribute('data-zone', zone);
+            
+            adWrapper.appendChild(adSlot);
+            institutionList.appendChild(adWrapper);
+        }
     });
     
     renderPagination();

@@ -14,9 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Classroom | My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <link rel="stylesheet" href="../../../components/footer.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -191,6 +191,16 @@
       .subject-badge { margin-left: auto; font-size: 9px; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="app">
@@ -247,8 +257,8 @@
   </div>
 
   <script defer src="../../../components/nav.js"></script>
-<script defer src="../../../components/sidebar.js?v=10"></script>
-  <script defer src="../../../components/topbar.js"></script>
+<script defer src="../../../components/sidebar.js?v=20"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script defer src="../../../components/footer.js"></script>
   <script defer src="../../../components/ads.js"></script>
   <script defer src="../../../components/ad_manager.js"></script>
@@ -360,11 +370,12 @@
       const results = await Promise.all(fetches);
 
       // 3. Build allSubjects + tabs
-      results.forEach(({ mod, subjects }) => {
+      results.forEach(({ mod, subjects }, index) => {
         if (!subjects.length) return;
 
-        if (!currentExam) {
+        if (index === 0 && !currentExam) {
           currentExam = mod.id;
+          localStorage.setItem('mec_exam', currentExam);
         }
 
         // Add exam tab
@@ -394,6 +405,11 @@
           tabs.querySelectorAll('.exam-tab').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           currentExam = btn.dataset.exam;
+          localStorage.setItem('mec_exam', currentExam);
+          
+          const examSlug = currentExam.split('/')[1] || currentExam;
+          history.replaceState(null, '', `/${countryCode}/study/classroom/${examSlug}`);
+          
           renderSubjects();
         });
       });
@@ -429,7 +445,9 @@
         const iconUrl = `../../../icons/subjects/${iconFilename}`;
         // Strip "index.json" to get the base folder path for the exam data
         const dataBase = (subj.dataSource || '').replace(/\/index\.json$/, '');
-        const href = `/study/${subj.examId}/${encodeURIComponent(subj.id)}`;
+        const examSlug = subj.examId.split('/')[1] || subj.examId;
+        const countryCode = document.getElementById('countrySelect').value || 'ng';
+        const href = `/${countryCode}/study/classroom/${examSlug}/${encodeURIComponent(subj.id)}`;
 
         const card = document.createElement('a');
         card.href = href;

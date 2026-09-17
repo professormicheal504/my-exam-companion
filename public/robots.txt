@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myexamcompanion.pages.dev/sitemap.xml
+# Block auth and account-only pages from indexing
+Disallow: /login
+Disallow: /signup
+Disallow: /onboarding
+Disallow: /verify
+Disallow: /top-up/
+Disallow: /*/earnings
+Disallow: /*/task
+Disallow: /*/studio/
+
+# Block admin panels
+Disallow: /modules/admin_panel/
+
+Sitemap: https://myexamcompanion.com/sitemap.xml

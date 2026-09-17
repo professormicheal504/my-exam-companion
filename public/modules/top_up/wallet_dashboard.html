@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wallet – My Exam Companion</title>
+  <meta name="description" content="View your MEC wallet balance, top up your account, and track your transaction history.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%' y='50%' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    ul, ol { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Page Layout ── */
+    .main-content {
+      flex: 1;
+      padding: 28px 24px 60px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ── Page Header ── */
+    .page-header { margin-bottom: 28px; }
+    .page-header__title {
+      font-size: 26px; font-weight: 800; color: var(--text-primary);
+      letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .page-header__desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Wallet Hero Card ── */
+    .wallet-hero {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+      border-radius: 20px;
+      padding: 32px;
+      color: white;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+    }
+    .wallet-hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+    .wallet-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: 60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .wallet-hero__label {
+      font-size: 13px; font-weight: 600; opacity: 0.75;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+    .wallet-hero__balance {
+      font-size: 42px; font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 20px;
+    }
+    .wallet-hero__balance span { font-size: 22px; font-weight: 600; opacity: 0.8; vertical-align: top; margin-top: 8px; display: inline-block; }
+    .wallet-hero__meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .wallet-hero__pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+      backdrop-filter: blur(4px);
+    }
+    .wallet-hero__pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; }
+    .wallet-hero__actions {
+      display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .btn-topup {
+      background: #ffffff;
+      color: #2563eb;
+      font-size: 15px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 12px;
+      display: flex; align-items: center; gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .btn-topup:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+    .btn-topup svg { width: 18px; height: 18px; }
+    .btn-history {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      font-size: 14px; font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 12px;
+      display: flex; align-items: center; gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-history:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── Stats Row ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid #ebebeb;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .stat-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .stat-icon.blue { background: rgba(37,99,235,0.1); }
+    .stat-icon.green { background: rgba(16,185,129,0.1); }
+    .stat-icon.orange { background: rgba(245,158,11,0.1); }
+    .stat-body { min-width: 0; }
+    .stat-value { font-size: 20px; font-weight: 800; color: var(--text-primary); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    /* ── Section Card ── */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid #ebebeb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      margin-bottom: 20px;
+    }
+    .section-card__header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .section-card__title {
+      font-size: 16px; font-weight: 700; color: var(--text-primary);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-card__title .badge-num {
+      background: rgba(37,99,235,0.1); color: #2563eb;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+    }
+    .section-card__link {
+      font-size: 13px; color: #2563eb; font-weight: 600;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .section-card__link:hover { opacity: 0.7; }
+
+    /* ── Transaction List ── */
+    .txn-list { display: flex; flex-direction: column; gap: 1px; }
+    .txn-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f5f5f5;
+      transition: background 0.15s;
+    }
+    .txn-item:last-child { border-bottom: none; }
+    .txn-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .txn-icon.credit { background: rgba(16,185,129,0.1); }
+    .txn-icon.debit { background: rgba(239,68,68,0.1); }
+    .txn-icon.pending { background: rgba(245,158,11,0.1); }
+    .txn-body { flex: 1; min-width: 0; }
+    .txn-desc { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+    .txn-date { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .txn-amount { font-size: 15px; font-weight: 700; flex-shrink: 0; }
+    .txn-amount.credit { color: #10b981; }
+    .txn-amount.debit { color: #ef4444; }
+    .txn-amount.pending { color: #f59e0b; }
+    .txn-status-pill {
+      font-size: 11px; font-weight: 600; padding: 3px 8px;
+      border-radius: 99px; flex-shrink: 0;
+    }
+    .txn-status-pill.success { background: rgba(16,185,129,0.1); color: #10b981; }
+    .txn-status-pill.pending { background: rgba(245,158,11,0.1); color: #f59e0b; }
+    .txn-status-pill.failed { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+    /* ── Empty State ── */
+    .empty-state {
+      text-align: center; padding: 48px 24px;
+      color: var(--text-muted);
+    }
+    .empty-state__icon { font-size: 48px; margin-bottom: 12px; }
+    .empty-state__title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .empty-state__desc { font-size: 14px; line-height: 1.5; }
+
+    /* ── Quick Top-Up Shortcuts ── */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .quick-btn {
+      background: var(--bg-base);
+      border: 1.5px solid #ebebeb;
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      font-size: 14px; font-weight: 700; color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .quick-btn:hover {
+      border-color: #2563eb; color: #2563eb;
+      background: rgba(37,99,235,0.05);
+      transform: translateY(-1px);
+    }
+    .quick-btn .quick-sub { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+
+    /* ── Info Banner ── */
+    .info-banner {
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .info-banner__icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .info-banner__text { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .info-banner__text strong { color: var(--text-primary); font-weight: 700; }
+
+    /* ── Guest login notice ── */
+    .login-required-notice {
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.07);
+      color: var(--text-primary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .login-required-notice.show { display: flex; }
+    .login-required-notice strong { display: block; margin-bottom: 2px; }
+
+    /* ── Dark mode extras ── */
+    [data-theme="dark"] .wallet-hero { box-shadow: 0 8px 32px rgba(37,99,235,0.2); }
+    [data-theme="dark"] .stat-card,
+    [data-theme="dark"] .section-card { border-color: var(--border) !important; }
+    [data-theme="dark"] .txn-item { border-color: var(--border) !important; }
+    [data-theme="dark"] .quick-btn { background: var(--bg-elevated) !important; border-color: var(--border) !important; color: var(--text-primary) !important; }
+    [data-theme="dark"] .quick-btn:hover { border-color: var(--primary) !important; color: var(--primary-dk) !important; }
+    [data-theme="dark"] .info-banner { background: rgba(59,130,246,0.08) !important; border-color: rgba(59,130,246,0.2) !important; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .main-content { padding: 16px 12px 60px; }
+      .page-header__title { font-size: 22px; }
+      .wallet-hero { padding: 22px; }
+      .wallet-hero__balance { font-size: 34px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+
+    <main class="main-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-header__title">💳 My Wallet</h1>
+        <p class="page-header__desc">Manage your MEC wallet balance and fund your account to access premium features.</p>
+      </div>
+
+      <!-- Info Banner -->
+      <div class="info-banner">
+        <div class="info-banner__icon">ℹ️</div>
+        <div class="info-banner__text">
+          <strong>How it works:</strong> Top up your wallet with Paystack. Your balance is stored securely and used to access premium exams, AI features, and more. Funds settle instantly after payment confirmation.
+        </div>
+      </div>
+
+      <div class="login-required-notice" id="wallet-login-notice" role="status">
+        <div>
+          <strong>Login required to make a payment</strong>
+          Use the Login button in the top-right corner, then return to Top Up to continue.
+        </div>
+      </div>
+
+      <!-- Wallet Hero -->
+      <div class="wallet-hero">
+        <div class="wallet-hero__label">Available Balance</div>
+        <div class="wallet-hero__balance" id="wallet-balance">
+          <span>₦</span><span id="balance-amount">0.00</span>
+        </div>
+        <div class="wallet-hero__meta">
+          <div class="wallet-hero__pill">
+            <div class="dot"></div>
+            Active
+          </div>
+          <div class="wallet-hero__pill" id="last-topup-pill" style="display:none;">
+            Last top-up: <span id="last-topup-date">—</span>
+          </div>
+        </div>
+        <div class="wallet-hero__actions">
+          <button class="btn-topup" id="btn-topup" onclick="goToAmountEntry()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Top Up Wallet
+          </button>
+          <button class="btn-history" onclick="scrollToHistory()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="12 8 12 12 14 14"/><path d="M3.05 11a9 9 0 1 0 .5-3m-.5 3V8m0 3H6"/>
+            </svg>
+            History
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon blue">💰</div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-total-topup">₦0</div>
+            <div class="stat-label">Total Topped Up</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-txn-count">0</div>
+            <div class="stat-label">Transactions</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">⚡</div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-spent">₦0</div>
+            <div class="stat-label">Total Spent</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Top-Up Amounts -->
+      <div class="section-card">
+        <div class="section-card__header">
+          <div class="section-card__title">
+            <span class="badge-num">⚡</span>
+            Quick Top-Up
+          </div>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickTopup(500)">
+            ₦500
+            <div class="quick-sub">Starter</div>
+          </button>
+          <button class="quick-btn" onclick="quickTopup(1000)">
+            ₦1,000
+            <div class="quick-sub">Popular</div>
+          </button>
+          <button class="quick-btn" onclick="quickTopup(2000)">
+            ₦2,000
+            <div class="quick-sub">Value</div>
+          </button>
+          <button class="quick-btn" onclick="quickTopup(5000)">
+            ₦5,000
+            <div class="quick-sub">Premium</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Transaction History -->
+      <div class="section-card" id="history-section">
+        <div class="section-card__header">
+          <div class="section-card__title">
+            <span class="badge-num">📋</span>
+            Transaction History
+          </div>
+          <span class="section-card__link" onclick="loadMoreTransactions()">View All</span>
+        </div>
+        <div class="txn-list" id="txn-list">
+          <!-- Populated by JS -->
+          <div class="empty-state">
+            <div class="empty-state__icon">📭</div>
+            <div class="empty-state__title">No transactions yet</div>
+            <div class="empty-state__desc">Your top-up and spending history will appear here.</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script defer src="../../components/topbar.js?v=4"></script>
+<script defer src="../../components/nav.js"></script>
+<script defer src="../../components/sidebar.js?v=20"></script>
+<script>
+  // ── Helpers ─────────────────────────────────────────────────────────
+  function formatNaira(n) {
+    return '₦' + Number(n).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  // ── Wallet Data (from Supabase) ────────
+  async function renderWallet(user) {
+    if (!user) return;
+    const sb = MECSupabase.getSupabase();
+    
+    // Fetch balance
+    const { data: walletData } = await sb.from('wallets').select('balance').eq('user_id', user.id).single();
+    const balance = walletData ? walletData.balance : 0;
+    
+    // Fetch transactions
+    const { data: txnsData } = await sb.from('wallet_transactions').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(50);
+    const txns = txnsData || [];
+
+    // Hero balance
+    document.getElementById('balance-amount').textContent = Number(balance).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    // Stats
+    const credits = txns.filter(t => t.type === 'credit' && t.status === 'success');
+    const debits  = txns.filter(t => t.type === 'debit');
+    const totalIn = credits.reduce((s, t) => s + t.amount, 0);
+    const totalOut = debits.reduce((s, t) => s + t.amount, 0);
+
+    document.getElementById('stat-total-topup').textContent = formatNaira(totalIn);
+    document.getElementById('stat-txn-count').textContent = txns.length;
+    document.getElementById('stat-spent').textContent = formatNaira(totalOut);
+
+    // Last top-up pill
+    if (credits.length > 0) {
+      const last = credits[0]; // array is ordered by created_at desc from db
+      document.getElementById('last-topup-pill').style.display = 'flex';
+      document.getElementById('last-topup-date').textContent = formatDate(last.created_at);
+    }
+
+    // Render transactions (show last 10)
+    const list = document.getElementById('txn-list');
+    if (txns.length === 0) {
+      list.innerHTML = `<div class="empty-state">
+        <div class="empty-state__icon">📭</div>
+        <div class="empty-state__title">No transactions yet</div>
+        <div class="empty-state__desc">Your top-up and spending history will appear here.</div>
+      </div>`;
+      return;
+    }
+
+    const recent = [...txns].reverse().slice(0, 10);
+    list.innerHTML = recent.map(t => {
+      const isCredit = t.type === 'credit';
+      const isPending = t.status === 'pending';
+      const isFailed = t.status === 'failed';
+      const iconClass = isPending ? 'pending' : (isCredit ? 'credit' : 'debit');
+      const amtClass  = isPending ? 'pending' : (isCredit ? 'credit' : 'debit');
+      const icon      = isPending ? '⏳' : (isCredit ? '⬆️' : '⬇️');
+      const amtSign   = isCredit ? '+' : '-';
+      const statusClass = isPending ? 'pending' : (isFailed ? 'failed' : 'success');
+      const statusLabel = t.status.charAt(0).toUpperCase() + t.status.slice(1);
+      return `<div class="txn-item">
+        <div class="txn-icon ${iconClass}">${icon}</div>
+        <div class="txn-body">
+          <div class="txn-desc">${isCredit ? 'Wallet Top-Up' : 'Purchase'}</div>
+          <div class="txn-date">${formatDate(t.created_at)} · Ref: ${t.reference || '—'}</div>
+        </div>
+        <div class="txn-amount ${amtClass}">${amtSign}${formatNaira(t.amount)}</div>
+        <div class="txn-status-pill ${statusClass}">${statusLabel}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Navigation ───────────────────────────────────────────────────────
+  function goToAmountEntry(preset) {
+    let url = (window.MEC_NAV ? window.MEC_NAV.href('top_up_amount') : '/modules/top_up/amount_entry.html');
+    if (preset) url += (url.includes('?') ? '&' : '?') + 'amount=' + preset;
+    window.location.href = url;
+  }
+
+  function quickTopup(amount) { goToAmountEntry(amount); }
+
+  function scrollToHistory() {
+    document.getElementById('history-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function loadMoreTransactions() {
+    // In production, load all from Supabase
+    alert('Full history view coming soon!');
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', async () => {
+    let user = null;
+    try {
+      if (typeof MECSupabase !== 'undefined' && typeof MECSupabase.getCurrentUser === 'function') {
+        user = await MECSupabase.getCurrentUser();
+      }
+    } catch (e) {
+      // Guests can still view the wallet page without an active session.
+    }
+
+    const notice = document.getElementById('wallet-login-notice');
+    if (user) {
+      notice.classList.remove('show');
+      await renderWallet(user);
+    } else {
+      notice.classList.add('show');
+    }
+
+    // Check if returning from a successful payment
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('status') === 'success') {
+      // Show a toast
+      setTimeout(() => {
+        if (typeof window.mecToast === 'function') {
+          window.mecToast('✅ Wallet topped up successfully!', 'success');
+        } else {
+          const banner = document.createElement('div');
+          banner.style.cssText = `position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#10b981;color:white;padding:12px 24px;border-radius:12px;font-weight:700;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);`;
+          banner.textContent = '✅ Wallet topped up successfully!';
+          document.body.appendChild(banner);
+          setTimeout(() => banner.remove(), 4000);
+        }
+      }, 500);
+      // Clean the URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    if (params.get('status') === 'failed') {
+      setTimeout(() => {
+        const banner = document.createElement('div');
+        banner.style.cssText = `position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#ef4444;color:white;padding:12px 24px;border-radius:12px;font-weight:700;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);`;
+        banner.textContent = '❌ Payment failed. Please try again.';
+        document.body.appendChild(banner);
+        setTimeout(() => banner.remove(), 4000);
+      }, 500);
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <script>
@@ -17,9 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/components/topbar.css">
+    <link rel="stylesheet" href="/components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
-  <link rel="stylesheet" href="/components/sidebar.css?v=5">
+  <link rel="stylesheet" href="/components/sidebar.css?v=23">
     
     <style>
         :root {
@@ -63,7 +63,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        /* ─── HEADER ─── */
+        /* --- HEADER --- */
         .chat-header {
             display: flex;
             align-items: center;
@@ -93,7 +93,7 @@
         .bot-status { font-size: 12px; color: #10B981; font-weight: 500; display: flex; align-items: center; gap: 4px; }
         .bot-status::before { content: ''; width: 6px; height: 6px; background: #10B981; border-radius: 50%; }
 
-        /* ─── TIMELINE ─── */
+        /* --- TIMELINE --- */
         .chat-timeline {
             flex: 1;
             padding: 24px 20px;
@@ -164,7 +164,7 @@
         @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
 
 
-        /* ─── CHAT INPUT (FOOTER) ─── */
+        /* --- CHAT INPUT (FOOTER) --- */
         .chat-input-area {
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
@@ -208,6 +208,16 @@
         .chat-send-btn:active { transform: scale(0.95); }
 
     </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
 
@@ -220,7 +230,7 @@
     <!-- HEADER -->
     <header class="chat-header">
         <div class="header-left">
-            <div class="bot-avatar">👩‍🏫</div>
+            <div class="bot-avatar">?????</div>
             <div class="bot-info">
                 <div class="bot-name">Sarah (Tutor)</div>
                 <div class="bot-status">Online</div>
@@ -240,7 +250,7 @@
         <div class="msg-row incoming">
             <div class="sender-name">Sarah (Tutor)</div>
             <div class="bubble">
-                Hello! 👋 Welcome to My Exam Companion Support. I'm Sarah, your Academic Tutor. How can I help you today?
+                Hello! ?? Welcome to My Exam Companion Support. I'm Sarah, your Academic Tutor. How can I help you today?
             </div>
             <div class="msg-meta">10:02 AM</div>
         </div>
@@ -250,14 +260,14 @@
             <div class="bubble">
                 Hi Sarah! I'm having trouble understanding how to solve JAMB Mathematics questions on permutation and combination.
             </div>
-            <div class="msg-meta">10:04 AM <span class="tick">✓✓</span></div>
+            <div class="msg-meta">10:04 AM <span class="tick">??</span></div>
         </div>
 
         <!-- Admin message 2 -->
         <div class="msg-row incoming">
             <div class="sender-name">Sarah (Tutor)</div>
             <div class="bubble">
-                Great question! 😊 Permutation and combination is one of the most common topics in JAMB. Let me break it down for you.<br><br>
+                Great question! ?? Permutation and combination is one of the most common topics in JAMB. Let me break it down for you.<br><br>
                 <strong>Permutation (nPr)</strong> is used when <em>order matters</em>.<br>
                 <strong>Combination (nCr)</strong> is used when <em>order does NOT matter</em>.<br><br>
                 For example: How many ways can 3 students be chosen from a group of 10?
@@ -270,15 +280,15 @@
             <div class="bubble">
                 Oh I see! So for choosing, we use Combination?
             </div>
-            <div class="msg-meta">10:07 AM <span class="tick">✓✓</span></div>
+            <div class="msg-meta">10:07 AM <span class="tick">??</span></div>
         </div>
         
         <!-- Admin message 3 -->
         <div class="msg-row incoming">
             <div class="sender-name">Sarah (Tutor)</div>
             <div class="bubble">
-                Exactly! 🎉 You've got it. When the problem says "choose", "select", or "pick" — always use Combination (nCr).<br><br>
-                When it says "arrange", "rank", or "schedule" — always use Permutation (nPr).<br><br>
+                Exactly! ?? You've got it. When the problem says "choose", "select", or "pick" � always use Combination (nCr).<br><br>
+                When it says "arrange", "rank", or "schedule" � always use Permutation (nPr).<br><br>
                 Do you want me to walk you through a few past JAMB questions?
             </div>
             <div class="msg-meta">10:09 AM</div>
@@ -310,9 +320,9 @@
 </div>
 
 </div> <!-- End main-wrapper -->
-<script defer src="/components/topbar.js"></script>
+<script defer src="/components/topbar.js?v=4"></script>
   <script defer src="/components/nav.js"></script>
-<script defer src="/components/sidebar.js?v=6"></script>
+<script defer src="/components/sidebar.js?v=20"></script>
 <script>
     const timeline = document.getElementById('timeline');
     const chatInput = document.getElementById('chat-input');
@@ -348,7 +358,7 @@
         row.className = 'msg-row outgoing';
         row.innerHTML = `
             <div class="bubble">${text.replace(/\n/g, '<br>')}</div>
-            <div class="msg-meta">${now()} <span class="tick">✓✓</span></div>
+            <div class="msg-meta">${now()} <span class="tick">??</span></div>
         `;
         timeline.insertBefore(row, typingIndicator);
         chatInput.value = '';
@@ -366,7 +376,7 @@
                 adminRow.className = 'msg-row incoming';
                 adminRow.innerHTML = `
                     <div class="sender-name">Sarah (Tutor)</div>
-                    <div class="bubble">Thanks for your message! Our support team will respond shortly. In the meantime, feel free to explore the Study section for more resources. 📚</div>
+                    <div class="bubble">Thanks for your message! Our support team will respond shortly. In the meantime, feel free to explore the Study section for more resources. ??</div>
                     <div class="msg-meta">${now()}</div>
                 `;
                 timeline.insertBefore(adminRow, typingIndicator);

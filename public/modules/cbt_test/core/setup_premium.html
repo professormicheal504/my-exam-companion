@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>JAMB CBT Simulator Setup  Myschool.ng</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
+  <style>
+    /* ---- Reset & Global (copied from index.html) ---- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      font-size: 14px;
+    }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ==============================
+       APP SHELL  Sidebar Layout
+    ============================== */
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ==============================
+       MAIN WRAPPER
+    ============================== */
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      /* prevent horizontal overflow */
+    }
+
+    /* Tablet: shrunk sidebar */
+    @media (max-width: 768px) {
+      .main-wrapper {
+        margin-left: 80px;
+      }
+    }
+
+    /* Mobile: full-screen  sidebar is off-canvas */
+    @media (max-width: 600px) {
+      .main-wrapper {
+        margin-left: 0;
+      }
+
+      .topbar {
+        padding: 0 10px;
+        gap: 8px;
+      }
+
+      .topbar__logo {
+        flex-shrink: 0;
+      }
+
+      .topbar__logo img {
+        min-width: 90px !important;
+        height: 32px !important;
+      }
+
+      .topbar__search {
+        display: flex;
+        flex: 0 1 150px;
+        min-width: 80px;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
+      .topbar__search input {
+        font-size: 12px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+    }
+
+    /* ==============================
+       TOP BAR
+    ============================== */
+    .topbar {
+      height: 58px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      gap: 16px;
+    }
+
+    .topbar__logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .topbar__logo-myschool {
+      font-size: 22px;
+      font-weight: 800;
+      color: #2563eb;
+      letter-spacing: -0.04em;
+    }
+
+    .topbar__logo-ng {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .topbar__search {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f5f5;
+      border: 1px solid #ebebeb;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+
+    .topbar__search:focus-within {
+      border-color: #2563eb;
+      background: var(--bg-card);
+    }
+
+    .topbar__search input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .topbar__search input::placeholder {
+      color: #b0b0b0;
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-login {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: background 0.15s;
+    }
+
+    .btn-login:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-register {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: #131212;
+      border: 1px solid #131212;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-register:hover {
+      background: #2d2d2d;
+      transform: translateY(-1px);
+    }
+
+    /* ==============================
+       CONTENT AREA (main + right sidebar)
+    ============================== */
+    .content-area {
+      display: flex;
+      flex: 1;
+      gap: 0;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* prevent card overflow */
+      min-width: 0;
+    }
+
+    .right-sidebar {
+      width: 280px;
+      background: var(--bg-card);
+      border-left: 1px solid #f0f0f0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ==============================
+       PAGE SPECIFIC: CBT SIMULATOR SETUP
+    ============================== */
+    .page-header {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .page-header__title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .page-header__desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .setup-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid #ebebeb;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .setup-section {
+      margin-bottom: 24px;
+    }
+
+    .setup-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .setup-section__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .setup-section__title span {
+      background: rgba(37, 99, 235, 0.1);
+      color: #2563eb;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    [data-theme="dark"] .setup-section__title span {
+      background: rgba(59, 130, 246, 0.15) !important;
+      color: var(--primary-dk, #60a5fa) !important;
+    }
+
+    /* ---- Form Grid ---- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .form-select {
+      appearance: none;
+      background: var(--bg-base) url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 40px 12px 16px;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: inherit;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .form-select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(183, 12, 1, 0.1);
+      background-color: var(--bg-card);
+    }
+
+    .form-select:disabled {
+      background-color: var(--bg-base);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    /* ---- Exam Modes ---- */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .mode-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .mode-card:hover {
+      border-color: #d1d5db;
+      background: var(--bg-base);
+    }
+
+    .mode-card.selected {
+      border-color: #2563eb;
+      background: #fff0f0;
+    }
+
+    .mode-card__radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      flex-shrink: 0;
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .mode-card.selected .mode-card__radio {
+      border-color: #2563eb;
+    }
+
+    .mode-card.selected .mode-card__radio::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #2563eb;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mode-card__content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .mode-card.selected .mode-card__content h4 {
+      color: #2563eb;
+    }
+
+    .mode-card__content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ---- Submit Area ---- */
+    .submit-area {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-start {
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(183, 12, 1, 0.2);
+    }
+
+    .btn-start:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(183, 12, 1, 0.3);
+    }
+
+    /* ---- Right Sidebar Info ---- */
+    .info-card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .info-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-card p,
+    .info-card ul {
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .info-card ul {
+      list-style-type: disc;
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    .info-card ul li {
+      margin-bottom: 4px;
+    }
+
+    /* ==============================
+       MOBILE RESPONSIVE
+    ============================== */
+    @media (max-width: 1024px) {
+      .right-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-content {
+        padding: 12px 10px;
+      }
+
+      .page-header__title {
+        font-size: 20px;
+      }
+
+      .setup-card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .setup-card select,
+      .setup-card input {
+        max-width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-start {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar__actions {
+        display: none;
+      }
+    }
+
+    /* ---- Purchase Modal ---- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      animation: popIn 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .btn-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--bg-base);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: background 0.15s;
+    }
+    .btn-close:hover {
+      background: #e5e7eb;
+      color: var(--text-primary);
+    }
+    .modal-header {
+      text-align: center;
+    }
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .modal-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
+</head>
+
+<body>
+
+  <div class="app">
+    <!-- ============================
+       LEFT SIDEBAR (Web Component)
+  ============================ -->
+    <app-sidebar data-base="/"></app-sidebar>
+
+    <!-- ============================
+       MAIN WRAPPER
+  ============================ -->
+    <div class="main-wrapper">
+
+      <!-- TOP BAR -->
+      <app-topbar data-base="/"></app-topbar>
+
+      <!-- CONTENT AREA -->
+      <main class="content-area">
+
+        <!-- Center / Main Content -->
+        <section class="main-content">
+
+          <div class="page-header">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <img id="exam-logo" src="" alt="Exam Logo" style="height:60px; width:auto; display:none; border-radius:8px; object-fit:contain;">
+              <div>
+                <h1 class="page-header__title" id="page-title">CBT Simulator Setup</h1>
+                <p class="page-header__desc" id="page-desc">Configure your CBT exam environment.</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="purchased-banner" style="display: none; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; color: #065f46; align-items: center; gap: 12px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <h4 style="margin: 0; font-size: 15px; font-weight: 700;">Full Access Unlocked</h4>
+              <p style="margin: 4px 0 0; font-size: 13px;">You have successfully purchased this exam. Enjoy uninterrupted practice!</p>
+            </div>
+          </div>
+          <div id="unpaid-banner" style="display: flex; background: #fffbeb; border: 1px solid #fef3c7; border-radius: 8px; padding: 16px; margin-bottom: 24px; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <div>
+                <h4 style="margin: 0; font-size: 15px; font-weight: 700; color: #92400e;">Premium Content</h4>
+                <p style="margin: 4px 0 0; font-size: 13px; color: #b45309;">You are currently in Preview Mode. You can preview up to 5 questions. Buy full access for uninterrupted practice.</p>
+              </div>
+            </div>
+            <button onclick="purchasePremium()" style="background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Buy Exam for ₦500</button>
+          </div>
+
+          <div class="setup-card">
+
+            <!-- Faculty & Department Selection -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>1</span> Choose Faculty & Department</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Faculty</label>
+                  <select class="form-select" id="faculty-select" onchange="onFacultyChange()">
+                    <option value="" disabled selected>Loading faculties...</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Department</label>
+                  <select class="form-select" id="department-select" onchange="onDepartmentChange()" disabled>
+                    <option value="" disabled selected>Select a faculty first</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auto-selected Subjects -->
+            <div class="setup-section" id="auto-subjects-section" style="display: none;">
+              <h3 class="setup-section__title"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span> Auto-selected Subjects</h3>
+              <div class="form-grid" id="subject-checkboxes">
+                <!-- Filled dynamically -->
+              </div>
+            </div>
+
+            <!-- Exam Year -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>2</span> Select Exam Year</h3>
+              <div class="form-group" style="max-width: 400px;">
+                <select class="form-select" id="year-select">
+                  <option value="random" selected>Random (All Years)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Exam Mode -->
+            <div class="setup-section">
+              <h3 class="setup-section__title"><span>3</span> Select Exam Mode</h3>
+              <div class="mode-grid">
+
+                <div class="mode-card selected" onclick="selectMode(this)">
+                  <div class="mode-card__radio"></div>
+                  <div class="mode-card__content">
+                    <h4>Full Exam Mode</h4>
+                    <p>Standard timing. Answers are hidden until the end of the exam. Best for assessing true readiness.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="submit-area">
+              <button class="btn-start" onclick="startExam()">
+                🚀 Start CBT Exam
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Right Sidebar (Tips/Info) -->
+        <aside class="right-sidebar">
+
+          <div class="info-card">
+            <h4>💡 Quick Tips</h4>
+            <p>For the best simulation experience, ensure you are in a quiet environment free from distractions.</p>
+            <ul>
+              <li>Do not refresh the page during the exam.</li>
+              <li>Use the calculator tool provided in the CBT interface.</li>
+            </ul>
+          </div>
+
+          <div class="info-card" style="background: #fff8f1; border-color: #ffedd5;">
+            <h4>🏆 Leaderboard Challenge</h4>
+            <p>Join the weekly MyExamCompanion CBT challenge to win cash prizes and airtime!</p>
+          </div>
+
+        </aside>
+
+      </main>
+    </div><!-- end main-wrapper -->
+  </div><!-- end app -->
+
+  <!-- Purchase Modal -->
+  <div id="purchase-modal-overlay" class="modal-overlay" style="display: none;">
+    <div class="modal-box" id="purchase-modal-box">
+      <button class="btn-close" onclick="closePurchaseModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-header">
+        <h2 class="modal-title" id="purchase-modal-title">Unlock Exam</h2>
+        <p class="modal-subtitle" id="purchase-modal-desc">Loading your wallet balance...</p>
+      </div>
+      <div id="purchase-modal-actions" style="display: flex; gap: 12px; margin-top: 24px; flex-direction: column;">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script defer src="../../../components/topbar.js?v=4"></script>
+  <script defer src="../../../components/nav.js"></script>
+  <script defer src="../../../components/sidebar.js?v=20"></script>
+  <!-- exam_rules.js must NOT be defer so EXAM_RULES is available when DOMContentLoaded fires -->
+  <script src="../../../components/exam_rules.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  <script>
+    // Exam mode selection styling
+    function selectMode(element) {
+      document.querySelectorAll('.mode-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+
+    let EXAM_CONFIG = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const examId = urlParams.get('exam_id') || 'us_sat';
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Bug fix #22: Only clear stale states when navigating to a DIFFERENT exam
+      // Never wipe cbt_active_state that belongs to the current exam_id
+      const currentActiveStr = localStorage.getItem('cbt_active_state');
+      if (currentActiveStr) {
+        try {
+          const currentActive = JSON.parse(currentActiveStr);
+          const currentExamId = urlParams.get('exam_id') || '';
+          if (currentActive.exam_id !== currentExamId) {
+            // Different exam — safe to clear
+            localStorage.removeItem('cbt_active_state');
+          }
+          // Always clear review flag and old result on fresh setup
+        } catch(e) { localStorage.removeItem('cbt_active_state'); }
+      }
+      localStorage.removeItem('cbt_review');
+      localStorage.removeItem('cbt_result');
+      localStorage.removeItem('cbt_exam_state');
+      
+      const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+      const pageTitle = document.getElementById('page-title');
+      const pageDesc = document.getElementById('page-desc');
+      const subjectContainer = document.getElementById('subject-checkboxes');
+      const yearSelect = document.getElementById('year-select');
+
+      pageTitle.textContent = "Loading Exam Setup...";
+
+      try {
+        // data_source is the real R2 path (e.g. "ng/exams/university_entrance/jamb/index.json")
+        // exam_id is just the logical ID (e.g. "nigeria/jamb") — do NOT use it to build the fetch path
+        const dataSource = urlParams.get('data_source') || `content/exams/${examId}/index.json`;
+        let data = null;
+
+        const localPaths = [
+          `/new_staging_area/${dataSource}`,
+          `/public/new_staging_area/${dataSource}`,
+          `../../../new_staging_area/${dataSource}`,
+        ];
+        for (const localPath of localPaths) {
+          try {
+            const res = await fetch(localPath);
+            if (res.ok) {
+              const textRes = await res.text();
+              try {
+                data = JSON.parse(textRes);
+                break;
+              } catch (e) {
+                console.warn(`Local path ${localPath} returned non-JSON. Skipping.`);
+              }
+            }
+          } catch (e) { /* try next */ }
+        }
+
+        // Fallback to Cloudflare R2 (uses exact data_source path → always correct)
+        if (!data) {
+          const r2Url = `${R2_BASE_URL}/${dataSource}`;
+          const res = await fetch(r2Url);
+          if (!res.ok) throw new Error(`R2 fetch failed: ${res.status} for ${dataSource}`);
+          
+          const textResponse = await res.text();
+          try {
+            data = JSON.parse(textResponse);
+          } catch (err) {
+            console.error(`JSON Parse Error from R2 URL: ${r2Url}. Response text:`, textResponse.substring(0, 200));
+            throw new Error(`Failed to parse JSON from ${r2Url}. Check console for details.`);
+          }
+        }
+
+        EXAM_CONFIG = data;
+        
+        // Check if user has purchased this exam
+        try {
+          const user = await MECSupabase.getCurrentUser();
+          if (user) {
+            const { data: purchase } = await MECSupabase.getSupabase()
+              .from('exam_purchases')
+              .select('*')
+              .eq('user_id', user.id)
+              .eq('exam_id', examId)
+              .single();
+              
+            if (purchase) {
+              localStorage.setItem('premium_unlocked_' + examId, 'true');
+              document.getElementById('purchased-banner').style.display = 'flex';
+              document.getElementById('unpaid-banner').style.display = 'none';
+            } else {
+              localStorage.removeItem('premium_unlocked_' + examId);
+              document.getElementById('purchased-banner').style.display = 'none';
+              document.getElementById('unpaid-banner').style.display = 'flex';
+            }
+          } else {
+            localStorage.removeItem('premium_unlocked_' + examId);
+            document.getElementById('purchased-banner').style.display = 'none';
+            document.getElementById('unpaid-banner').style.display = 'flex';
+          }
+        } catch (e) {
+          console.log("Could not verify purchase status.", e);
+          localStorage.removeItem('premium_unlocked_' + examId);
+          document.getElementById('purchased-banner').style.display = 'none';
+          document.getElementById('unpaid-banner').style.display = 'flex';
+        }
+
+        // Update Title & Desc
+        document.title = `${data.display_name} CBT Simulator Setup`;
+        pageTitle.textContent = `${data.display_name} CBT Simulator Setup`;
+        pageDesc.textContent = `Configure your ${data.display_name} CBT exam environment. Select your subjects, choose your exam year, and begin your practice session.`;
+
+        // Show exam body logo using a relative path map (relative to /modules/cbt_test/core/)
+        const LOGO_MAP = {
+          'nigeria/jamb': '../../../assets/country/nigeria/jamb.png',
+          'nigeria/waec': '../../../assets/country/nigeria/waec.png',
+          'nigeria/neco': '../../../assets/country/nigeria/neco.png',
+          'usa/sat':      '../../../assets/country/usa/sat.png',
+        };
+        const logoEl = document.getElementById('exam-logo');
+        const logoSrc = LOGO_MAP[examId] || urlParams.get('logo') || null;
+        if (logoSrc) {
+          logoEl.src = logoSrc;
+          logoEl.style.display = 'block';
+          logoEl.onerror = () => { logoEl.style.display = 'none'; };
+        }
+
+        // Populate Faculties
+        if (data.faculties && data.faculties.length > 0) {
+          const facultySelect = document.getElementById('faculty-select');
+          facultySelect.innerHTML = '<option value="" disabled selected>-- Select Faculty --</option>' + 
+            data.faculties.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
+        } else {
+          document.getElementById('faculty-select').innerHTML = `<option disabled>No faculties found</option>`;
+        }
+
+      } catch (err) {
+        console.error("Error loading config:", err);
+        pageTitle.textContent = "Error Loading Exam Setup";
+        pageDesc.textContent = "Please check your network connection or try again later.";
+      }
+    });
+
+    function onFacultyChange() {
+      const facultyId = document.getElementById('faculty-select').value;
+      const deptSelect = document.getElementById('department-select');
+      const faculty = EXAM_CONFIG.faculties.find(f => f.id === facultyId);
+      
+      if (faculty && faculty.departments) {
+        deptSelect.innerHTML = '<option value="" disabled selected>-- Select Department --</option>' + 
+          faculty.departments.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+        deptSelect.disabled = false;
+      } else {
+        deptSelect.innerHTML = `<option disabled selected>No departments found</option>`;
+        deptSelect.disabled = true;
+      }
+      
+      document.getElementById('auto-subjects-section').style.display = 'none';
+      document.getElementById('subject-checkboxes').innerHTML = '';
+      updateYears();
+    }
+
+    function onDepartmentChange() {
+      const facultyId = document.getElementById('faculty-select').value;
+      const deptId = document.getElementById('department-select').value;
+      const faculty = EXAM_CONFIG.faculties.find(f => f.id === facultyId);
+      const department = faculty ? faculty.departments.find(d => d.id === deptId) : null;
+      
+      if (department && department.subject_combinations) {
+        let html = '';
+        department.subject_combinations.forEach((subId, index) => {
+          const sub = EXAM_CONFIG.subjects.find(s => s.id === subId) || { name: subId };
+          html += `
+            <div class="form-group">
+              <label>Subject ${index + 1}</label>
+              <select class="form-select subject-select" disabled data-value="${subId}">
+                <option selected value="${subId}">${sub.name}</option>
+              </select>
+            </div>
+          `;
+        });
+        document.getElementById('subject-checkboxes').innerHTML = html;
+        document.getElementById('auto-subjects-section').style.display = 'block';
+      }
+      updateYears();
+    }
+
+    function updateYears() {
+      const yearSelect = document.getElementById('year-select');
+      if (!EXAM_CONFIG) return;
+      
+      // Collect all currently selected subject IDs (including fixed/disabled ones)
+      const subjectsElements = document.querySelectorAll('.subject-select');
+      const selectedIds = [];
+      for (const el of subjectsElements) {
+        let val = el.value || el.getAttribute('data-value');
+        if (val && val !== '') selectedIds.push(val);
+      }
+      
+      if (selectedIds.length === 0) {
+        yearSelect.innerHTML = `<option disabled selected>Select a subject first</option>`;
+        return;
+      }
+      
+      // Build UNION of all years across every selected subject
+      // (player will pick nearest year per subject if exact year is missing)
+      const allYears = new Set();
+      for (const id of selectedIds) {
+        const subj = EXAM_CONFIG.subjects.find(s => s.id === id);
+        if (subj && subj.years) {
+          subj.years.forEach(y => allYears.add(String(y)));
+        }
+      }
+      
+      if (allYears.size === 0) {
+        yearSelect.innerHTML = `<option disabled selected>No years found</option>`;
+        return;
+      }
+      
+      // Sort descending (most recent first)
+      const sortedYears = Array.from(allYears).map(Number).sort((a, b) => b - a);
+      yearSelect.innerHTML = `<option value="random" selected>Random Year</option>` +
+        sortedYears.map(y => `<option value="${y}">${y}</option>`).join('');
+    }
+
+    function startExam() {
+      const subjectsElements = document.querySelectorAll('.subject-select');
+      const selected = [];
+      
+      subjectsElements.forEach(el => {
+        let val = el.value || el.getAttribute('data-value');
+        if (val && val !== '') {
+          selected.push(val.replace(`${examId}_`, ''));
+        }
+      });
+      
+      // Remove duplicates
+      const uniqueSubjects = Array.from(new Set(selected));
+      
+      if (uniqueSubjects.length === 0) {
+        return alert("Please select a Faculty and Department to load subjects.");
+      }
+      
+      const rules = EXAM_RULES.getRules(EXAM_CONFIG);
+
+      if (rules.selectionType === 'jamb_style') {
+        if (uniqueSubjects.length !== 4) {
+          return alert("For JAMB, you must select exactly 4 different subjects.");
+        }
+      } else if (rules.selectionType === 'any_optional') {
+        if (uniqueSubjects.length === 0) {
+          return alert("Please select at least one subject.");
+        }
+      } else if (rules.selectionType === 'all_compulsory') {
+        if (uniqueSubjects.length === 0) {
+          return alert("No subjects found for this exam.");
+        }
+      }
+      
+      const selectedSubjects = uniqueSubjects.join(',');
+      let year = document.getElementById('year-select').value;
+      
+      if (!year || year === "Select a subject first") {
+        return alert("Please select a valid year.");
+      }
+      
+      // Random year logic  pick from the union of all selected subjects' years
+      if (year === 'random') {
+        const allYears = new Set();
+        uniqueSubjects.forEach(id => {
+          const subj = EXAM_CONFIG.subjects.find(s => s.id === id);
+          if (subj && subj.years) subj.years.forEach(y => allYears.add(String(y)));
+        });
+        const yearList = Array.from(allYears);
+        year = yearList.length > 0
+          ? yearList[Math.floor(Math.random() * yearList.length)]
+          : '2024';
+      }
+      
+      // Preserve existing query params (e.g., data_source, logo)
+      const targetParams = new URLSearchParams(window.location.search);
+      targetParams.set('exam_id', examId);
+      targetParams.set('subject', selectedSubjects);
+      targetParams.set('year', year);
+      targetParams.set('premium', 'true');
+      
+      // Navigate to instruction page (use clean URL on production, relative on file://)
+      if (window.location.protocol === 'file:' || window.location.pathname.includes('/public/')) {
+        window.location.href = `instruction.html?${targetParams.toString()}`;
+      } else {
+        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+        window.location.href = `/${cc}/test/instruction?${targetParams.toString()}`;
+      }
+    }
+
+    /* ── Premium Purchase Redirect ───────────────────────────────────────── */
+    async function purchasePremium() {
+      try {
+        const user = await MECSupabase.getCurrentUser();
+        if (!user) {
+          // Redirect to login
+          const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
+          window.location.href = `/login?redirect=${redirectUrl}`;
+          return;
+        }
+
+        // Show modal loading state
+        document.getElementById('purchase-modal-overlay').style.display = 'flex';
+        document.getElementById('purchase-modal-title').innerText = 'Wallet Check';
+        document.getElementById('purchase-modal-desc').innerText = 'Checking your wallet balance...';
+        document.getElementById('purchase-modal-actions').innerHTML = '';
+
+        // Fetch balance
+        const { data: wallet, error } = await MECSupabase.getSupabase()
+          .from('wallets')
+          .select('balance')
+          .eq('user_id', user.id)
+          .single();
+
+        const balance = wallet ? parseFloat(wallet.balance) : 0;
+        
+        if (balance >= 500) {
+          // Sufficient funds
+          document.getElementById('purchase-modal-title').innerText = 'Confirm Purchase';
+          document.getElementById('purchase-modal-desc').innerHTML = `Your wallet balance: <b>₦${balance.toFixed(2)}</b><br><br>₦500.00 will be deducted for full exam access.`;
+          document.getElementById('purchase-modal-actions').innerHTML = `
+            <button class="btn-start" style="width: 100%; justify-content: center; background: #2563eb;" onclick="executePurchase()">Confirm Purchase</button>
+            <button class="btn-start" style="width: 100%; justify-content: center; background: transparent; color: #475569; border: 1px solid #cbd5e1; box-shadow: none;" onclick="closePurchaseModal()">Cancel</button>
+          `;
+        } else {
+          // Insufficient funds
+          document.getElementById('purchase-modal-title').innerText = 'Insufficient Funds';
+          document.getElementById('purchase-modal-desc').innerHTML = `Your wallet balance: <b>₦${balance.toFixed(2)}</b><br><br>You need at least ₦500 to unlock this exam.`;
+          const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
+          document.getElementById('purchase-modal-actions').innerHTML = `
+            <button class="btn-start" style="width: 100%; justify-content: center; background: #10b981;" onclick="window.location.href='../../top_up/amount_entry.html?redirect_back=${redirectUrl}&auto_amount=500&purpose=exam_unlock&exam_id=${encodeURIComponent(examId)}'">Top Up Wallet</button>
+            <button class="btn-start" style="width: 100%; justify-content: center; background: transparent; color: #475569; border: 1px solid #cbd5e1; box-shadow: none;" onclick="closePurchaseModal()">Cancel</button>
+          `;
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error checking wallet balance. Please try again.');
+        closePurchaseModal();
+      }
+    }
+
+    function closePurchaseModal() {
+      document.getElementById('purchase-modal-overlay').style.display = 'none';
+    }
+
+    async function executePurchase() {
+      try {
+        const btn = document.querySelector('#purchase-modal-actions button:first-child');
+        btn.innerText = 'Processing...';
+        btn.disabled = true;
+
+        const user = await MECSupabase.getCurrentUser();
+        if (!user) throw new Error('Not authenticated');
+
+        const sb = MECSupabase.getSupabase();
+        const reference = 'PURCHASE_' + Math.random().toString(36).substring(2, 18).toUpperCase();
+
+        // Call the secure Supabase RPC — deducts wallet and records purchase atomically
+        const { data: success, error: rpcError } = await sb.rpc('purchase_exam_with_wallet', {
+          x_user_id: user.id,
+          x_exam_id: examId,
+          x_amount: 500,
+          x_reference: reference
+        });
+
+        if (rpcError) {
+          throw new Error(rpcError.message || 'Purchase failed. Please try again.');
+        }
+
+        if (!success) {
+          throw new Error('Insufficient wallet balance.');
+        }
+
+        // Success!
+        closePurchaseModal();
+        localStorage.setItem('premium_unlocked_' + examId, 'true');
+        document.getElementById('purchased-banner').style.display = 'flex';
+        document.getElementById('unpaid-banner').style.display = 'none';
+
+        if (typeof showToast === 'function') {
+          showToast('✅ Exam Unlocked! Enjoy your practice.', 'success');
+        } else {
+          alert('✅ Exam Unlocked! Enjoy your practice.');
+        }
+
+      } catch (err) {
+        console.error(err);
+        alert('Error: ' + err.message);
+        closePurchaseModal();
+      }
+    }
+
+  </script>
+  <script src="../../../components/toast.js"></script>
+</body>
+
+</html>

@@ -55,6 +55,34 @@ app-topbar.topbar-hidden {
   font-family: 'Outfit', 'Inter', sans-serif;
 }
 
+/* Desktop + Tablet â€” taller transparent topbar (reference v3) */
+@media (min-width: 641px) {
+  app-topbar {
+    background: transparent;
+  }
+
+  .mec-topbar {
+    height: 84px;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    padding: 0 40px;
+    gap: 16px;
+  }
+
+  /* Hide hamburger on desktop â€” sidebar is always visible */
+  .mec-sb-toggle {
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-topbar {
+    padding: 0 20px;
+  }
+}
+
 /* Left cluster: [hamburger] [logo â€” expands to fill space] */
 .mec-topbar__left {
   display: flex;
@@ -502,4 +530,180 @@ app-topbar.topbar-hidden {
 :root[data-theme="dark"] .mec-theme-slider .moon-icon {
   opacity: 1;
   transform: rotate(0) scale(1);
+}
+
+/* ===============================================================
+   DESKTOP + TABLET — Final Topbar Overrides (must be LAST)
+   Using !important to beat all base rules above.
+================================================================ */
+@media (min-width: 641px) {
+  /* Transparent topbar wrapper */
+  app-topbar,
+  app-topbar.topbar-hidden + * { background: transparent !important; }
+
+  app-topbar { background: transparent !important; }
+
+  /* Topbar bar itself: tall, transparent, no border/shadow */
+  .mec-topbar {
+    height: 84px !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding: 0 40px !important;
+  }
+
+  /* Hide hamburger — sidebar always visible */
+  .mec-sb-toggle { display: none !important; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-topbar { padding: 0 20px !important; }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET — Topbar scroll fix
+   Transparent means content shows through when scrolling.
+   Use the page background color so it LOOKS transparent but
+   actually hides scroll content underneath.
+================================================================ */
+@media (min-width: 641px) {
+  app-topbar {
+    background: #F7F7F7 !important;
+  }
+  :root[data-theme="dark"] app-topbar {
+    background: var(--bg-base) !important;
+  }
+  .mec-topbar {
+    background: #F7F7F7 !important;
+  }
+  :root[data-theme="dark"] .mec-topbar {
+    background: var(--bg-base) !important;
+  }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET — Final Layout Polish
+   1. Topbar: solid gray background (not transparent)
+   2. Flyout (sub-sidebar): match sidebar gray background
+   3. Content card: top aligned with sidebar first item
+================================================================ */
+@media (min-width: 641px) {
+
+  /* -- 1. Topbar: solid gray to mask scroll + match sidebar -- */
+  app-topbar {
+    background: #F7F7F7 !important;
+  }
+  .mec-topbar {
+    height: 84px !important;
+    background: #F7F7F7 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding: 0 40px !important;
+  }
+  :root[data-theme="dark"] app-topbar { background: var(--bg-base) !important; }
+  :root[data-theme="dark"] .mec-topbar { background: var(--bg-base) !important; }
+
+  /* -- 2. Flyout (sub-sidebar): match sidebar gray -- */
+  .mec-flyout {
+    background: #F7F7F7 !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: 4px 4px 24px rgba(0,0,0,0.08) !important;
+    /* Align left edge flush with sidebar right edge */
+    margin-left: 0 !important;
+  }
+  :root[data-theme="dark"] .mec-flyout {
+    background: var(--bg-base) !important;
+    border-color: var(--border) !important;
+  }
+
+  /* -- 3. Content card: top aligns with sidebar first item --
+     Sidebar: top=84px + padding-top=12px = first item at 96px
+     Content card: margin-top=96px so top border-radius
+     starts exactly where Home icon starts               -- */
+  .main-wrapper,
+  .app-container {
+    margin-top: 96px !important;
+    min-height: calc(100vh - 96px) !important;
+  }
+
+  /* Remove extra top padding on desktop so content starts immediately */
+  .main-content {
+    padding-top: 12px !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-topbar { padding: 0 20px !important; }
+}
+
+
+/* ===============================================================
+   DESKTOP + TABLET — Align Content & Fix Topbar scrolling
+================================================================ */
+@media (min-width: 641px) {
+  /* Stop topbar from hiding on scroll */
+  app-topbar.topbar-hidden {
+    transform: none !important;
+  }
+
+  /* Bring content up to sit right under topbar (84px) */
+  .main-wrapper,
+  .app-container {
+    margin-top: 84px !important;
+    min-height: calc(100vh - 84px) !important;
+  }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET — Flyout Match (Sub-sidebar)
+================================================================ */
+@media (min-width: 641px) {
+  .mec-flyout {
+    background: #F7F7F7 !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: 4px 4px 24px rgba(0,0,0,0.08) !important;
+    margin-left: 0 !important;
+  }
+  :root[data-theme="dark"] .mec-flyout {
+    background: var(--bg-base) !important;
+    border-color: var(--border) !important;
+  }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET — Layout Fix: Topbar always fixed, content
+   starts exactly at 84px, rounded top corners on content card.
+================================================================ */
+@media (min-width: 641px) {
+
+  /* 1. Topbar: always fixed — never scrolls, never hides */
+  app-topbar {
+    position: fixed !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+  app-topbar.topbar-hidden {
+    transform: none !important;
+  }
+
+  /* 2. Main wrapper: start exactly where topbar ends (84px) */
+  .main-wrapper,
+  .app-container {
+    margin-top: 84px !important;
+    min-height: calc(100vh - 84px) !important;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  /* Dark mode: match dark bg on wrapper */
+  :root[data-theme="dark"] .main-wrapper,
+  :root[data-theme="dark"] .app-container {
+    background: var(--bg-base) !important;
+  }
+
+  /* 3. No extra top padding — content sits right at the top of wrapper */
+  .main-content {
+    padding-top: 0 !important;
+  }
 }

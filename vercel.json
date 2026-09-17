@@ -6,6 +6,25 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/wallet-dashboard", "destination": "/modules/top_up/wallet_dashboard.html" },
+    { "source": "/paystack-inline-checkout", "destination": "/modules/top_up/paystack_inline_checkout.html" },
+    { "source": "/amount-entry", "destination": "/modules/top_up/amount_entry.html" },
+    { "source": "/ng/study/classroom/(.*)", "destination": "/modules/study/classroom/classroom_questions.html" },
+    { "source": "/ng/study/classroom", "destination": "/modules/study/classroom/classroom_subject.html" },
+    { "source": "/ng/study/past-questions/(.*)", "destination": "/modules/study/study_past_questions/study_explanation.html" },
+    { "source": "/ng/study/past-questions", "destination": "/modules/study/study_past_questions/study_subject.html" },
+    { "source": "/ng/test/result", "destination": "/modules/cbt_test/core/result.html" },
+    { "source": "/ng/test/premium", "destination": "/modules/cbt_test/core/setup_premium.html" },
+    { "source": "/ng/test/(.*)", "destination": "/modules/cbt_test/core/cbt_player.html" },
+    { "source": "/ng/test", "destination": "/modules/cbt_test/core/setup.html" },
+    { "source": "/ng/blog/(.*)", "destination": "/modules/blog/content.html" },
+    { "source": "/ng/blog", "destination": "/modules/blog/categories.html" },
+    { "source": "/ng/(.*)", "destination": "/modules/$1" },
+    { "source": "/gh/(.*)", "destination": "/modules/$1" },
+    { "source": "/us/(.*)", "destination": "/modules/$1" },
+    { "source": "/ng", "destination": "/modules/index.html" },
+    { "source": "/gh", "destination": "/modules/index.html" },
+    { "source": "/us", "destination": "/modules/index.html" }
   ]
 }

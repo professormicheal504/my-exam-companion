@@ -18,9 +18,9 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <meta name="description" content="Setup your JAMB CBT Simulator exam. Choose 4 subjects and practice.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <style>
     /* ---- Reset & Global (copied from index.html) ---- */
     *,
@@ -578,6 +578,16 @@
       }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 
 <body>
@@ -681,9 +691,9 @@
     </div><!-- end main-wrapper -->
   </div><!-- end app -->
 
-  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script defer src="../../../components/nav.js"></script>
-  <script defer src="../../../components/sidebar.js?v=6"></script>
+  <script defer src="../../../components/sidebar.js?v=20"></script>
   <!-- exam_rules.js must NOT be defer so EXAM_RULES is available when DOMContentLoaded fires -->
   <script src="../../../components/exam_rules.js"></script>
   <script>
@@ -983,8 +993,13 @@
       targetParams.set('subject', selectedSubjects);
       targetParams.set('year', year);
       
-      // Navigate to instruction page
-      window.location.href = `instruction.html?${targetParams.toString()}`;
+      // Navigate to instruction page (use clean URL on production, relative on file://)
+      if (window.location.protocol === 'file:' || window.location.pathname.includes('/public/')) {
+        window.location.href = `instruction.html?${targetParams.toString()}`;
+      } else {
+        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+        window.location.href = `/${cc}/test/instruction?${targetParams.toString()}`;
+      }
     }
   </script>
 </body>

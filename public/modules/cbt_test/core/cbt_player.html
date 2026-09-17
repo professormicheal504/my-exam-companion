@@ -35,9 +35,9 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=6">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <script src="../../../components/exam_rules.js"></script>
 
   <style>
@@ -299,7 +299,7 @@
       background: var(--bg-base);
       color: var(--text-primary);
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: clip;
       display: flex;
       flex-direction: column;
     }
@@ -671,17 +671,22 @@
 
       .exam-header {
         top: 0 !important;
-        z-index: 1000 !important;
+        z-index: 100 !important;
       }
     }
 
 
 
+    /* Hide topbar hamburger in CBT Player */
+    #mec-sb-toggle, #btn-toggle-sidebar {
+      display: none !important;
+    }
+
     /* Exam Header */
     .exam-header {
       position: sticky;
-      top: 0;
-      z-index: 1000;
+      top: 56px;
+      z-index: 100;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -790,9 +795,15 @@
 
     /* Subject Tabs */
     .subject-tabs-container {
-      margin-bottom: 24px;
+      position: sticky;
+      top: 126px; /* 56px app-topbar + 70px exam-header */
+      z-index: 90;
       overflow-x: auto;
       scrollbar-width: none;
+      background: var(--bg-base);
+      padding-top: 12px;
+      margin-top: -12px;
+      padding-bottom: 24px;
     }
 
     .subject-tabs {
@@ -1399,9 +1410,20 @@
       display: block;
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 
 <body>
+  <app-topbar data-base="../../../"></app-topbar>
   <app-sidebar data-base="../../../"></app-sidebar>
   <div class="main-wrapper" id="question-container">
 
@@ -1639,6 +1661,13 @@
             style="width: 100%; padding: 16px; border-radius: 12px; border: 1px solid var(--border); font-size: 16px; outline: none; transition: border-color 0.2s;">
         </div>
 
+        <div id="premium-paywall" style="display: none; text-align: center; padding: 40px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 24px;">
+          <div style="font-size: 48px; margin-bottom: 16px;">🔒</div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Premium Content</h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5;">You've reached the end of the free preview. To continue practicing with the full exam, please purchase access for ₦500.</p>
+          <button class="btn-primary" onclick="purchasePremium()" style="padding: 14px 32px; font-size: 16px;">Buy Exam for ₦500</button>
+        </div>
+
         <div class="q-nav-controls" id="q-nav-controls">
           <button class="btn-secondary" id="qn-prev">Previous</button>
           <button class="btn-primary" id="qn-next">Next</button>
@@ -1763,7 +1792,7 @@
   </div>
 
   <script src="../../../components/nav.js"></script>
-  <script src="../../../components/topbar.js"></script>
+  <script src="../../../components/topbar.js?v=4"></script>
   <script src="../../../components/sidebar.js"></script>
 
 
@@ -2350,6 +2379,8 @@
             reviewMode = true;
             examStarted = true;
             examFinished = true;
+            $('exam-subject-tag').textContent = EXAM_DATA.subject;
+            $('exam-title-text').textContent = EXAM_DATA.title;
             hidePreloader();
             $('start-screen-overlay').classList.add('hidden');
             currentQ = 0;
@@ -2467,6 +2498,31 @@
     /* ── Render question ────────────────────────────────────────────────── */
     function renderQuestion() {
       const q = EXAM_DATA.questions[currentQ];
+
+      const searchParams = new URLSearchParams(window.location.search);
+      const isPremium = searchParams.get('premium') === 'true';
+      const currentExamId = searchParams.get('exam_id') || 'us_sat';
+      const isUnlocked = localStorage.getItem('premium_unlocked_' + currentExamId) === 'true';
+
+      if (isPremium && !isUnlocked && currentQ >= 5 && !reviewMode) {
+        $('question-card').style.display = 'none';
+        $('options-list').style.display = 'none';
+        if ($('grid-in-container')) $('grid-in-container').style.display = 'none';
+        if ($('passage-btn-container')) $('passage-btn-container').style.display = 'none';
+        if ($('premium-paywall')) $('premium-paywall').style.display = 'block';
+        
+        $('q-number-badge').textContent = `Premium Content`;
+        if (typeof updateNavControls === 'function') updateNavControls();
+        
+        document.querySelectorAll('.q-cell').forEach((cell, idx) => {
+          cell.classList.toggle('active', idx === currentQ);
+        });
+        return;
+      } else {
+        $('question-card').style.display = 'block';
+        $('options-list').style.display = '';
+        if ($('premium-paywall')) $('premium-paywall').style.display = 'none';
+      }
 
       // Update active subject tab based on currentQ
       if (EXAM_DATA.subjectMeta) {
@@ -2608,7 +2664,7 @@
       const arb = $('answer-review-box');
       if (reviewMode) {
         arb.classList.add('show');
-        const correctValStr = q.isGridIn ? q.correctAnswer : ['A', 'B', 'C', 'D'][q.correct];
+        const correctValStr = q.isGridIn ? q.correctAnswer : ['A', 'B', 'C', 'D', 'E'][q.correct];
         $('arb-correct-val').textContent = correctValStr;
         const explanationHtml = q.explanation || '';
         const isMissing = !explanationHtml || explanationHtml.includes('No explanation available');
@@ -2804,7 +2860,14 @@
       updateGrids();
 
       // Format math formulas robustly, then reveal
+      // Hard failsafe: always restore opacity after 3s, even if formatMath stalls
+      const _revealTimeout = setTimeout(() => {
+        $('question-card').style.opacity = '1';
+        $('options-list').style.opacity = '1';
+        if ($('grid-in-container')) $('grid-in-container').style.opacity = '1';
+      }, 3000);
       formatMath().then(() => {
+        clearTimeout(_revealTimeout);
         $('question-card').style.opacity = '1';
         $('options-list').style.opacity = '1';
         if ($('grid-in-container')) $('grid-in-container').style.opacity = '1';
@@ -2822,8 +2885,14 @@
         } catch (err) {
           console.log('MathJax error:', err);
         }
+        // Always resolves here — opacity will be restored by caller
+        return;
       } else {
-        if (mathJaxRetries > 20) return; // Bug fix #4: prevent infinite loop
+        if (mathJaxRetries > 20) {
+          // Bug fix #4: MathJax never loaded — resolve anyway so content is revealed
+          mathJaxRetries = 0;
+          return;
+        }
         mathJaxRetries++;
         // If MathJax isn't fully loaded yet, try again shortly
         await new Promise(resolve => setTimeout(resolve, 100));
@@ -2992,7 +3061,7 @@
         if (reviewMode) {
           const q = EXAM_DATA.questions[i];
           const userAns = (answers[i] || '').toString().trim().toLowerCase().replace(/,/g, '');
-          const correctAns = (q.correctAnswer || (q.correct !== undefined ? ['A','B','C','D'][q.correct] : '')).toString().trim().toLowerCase().replace(/,/g, '');
+          const correctAns = (q.correctAnswer || (q.correct !== undefined ? ['A','B','C','D','E'][q.correct] : '')).toString().trim().toLowerCase().replace(/,/g, '');
           
           let isCorrect = false;
           if (q.isGridIn) {
@@ -3182,11 +3251,21 @@
       }
 
       // Redirect to the new JAMB Result Slip page
-      window.location.href = './result.html' + window.location.search;
+      if (window.location.protocol === 'file:') {
+        window.location.href = 'result.html' + window.location.search;
+      } else {
+        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+        window.location.href = `/${cc}/test/result` + window.location.search;
+      }
     }
 
     function openDeepAnalysis() {
-      window.location.href = './deep_analysis.html';
+      if (window.location.protocol === 'file:') {
+        window.location.href = 'deep_analysis.html';
+      } else {
+        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+        window.location.href = `/${cc}/test/analysis`;
+      }
     }
 
     /* Submit buttons */
@@ -3225,7 +3304,12 @@
     if ($('quit-confirm')) {
       $('quit-confirm').addEventListener('click', () => {
         // Bug fix #7: preserve query params when quitting to instruction page
-        window.location.href = 'instruction.html' + window.location.search;
+        if (window.location.protocol === 'file:') {
+          window.location.href = 'instruction.html' + window.location.search;
+        } else {
+          const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
+          window.location.href = `/${cc}/test/instruction` + window.location.search;
+        }
       });
     }
 
@@ -3369,8 +3453,8 @@
     document.addEventListener('keydown', e => {
       if (examFinished || !examStarted) return;
       const key = e.key.toUpperCase();
-      if (['A', 'B', 'C', 'D'].includes(key)) {
-        const idx = ['A', 'B', 'C', 'D'].indexOf(key);
+      if (['A', 'B', 'C', 'D', 'E'].includes(key)) {
+        const idx = ['A', 'B', 'C', 'D', 'E'].indexOf(key);
         if (idx < EXAM_DATA.questions[currentQ].options.length) {
           answers[currentQ] = idx;
           renderQuestion();
@@ -3458,6 +3542,15 @@
     window.addEventListener('offline', updateNetworkStatus);
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (conn) conn.addEventListener('change', updateNetworkStatus);
+
+    /* ── Premium Purchase Redirect ───────────────────────────────────────── */
+    function purchasePremium() {
+      const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
+      const searchParams = new URLSearchParams(window.location.search);
+      const examId = searchParams.get('exam_id') || 'nigeria/uniben_post_utme';
+      
+      window.location.href = `../../top_up/amount_entry.html?redirect_back=${redirectUrl}&auto_amount=500&purpose=exam_unlock&exam_id=${encodeURIComponent(examId)}`;
+    }
 
   </script>
 </body>

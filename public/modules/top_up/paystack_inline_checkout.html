@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Secure Payment – My Exam Companion</title>
+  <meta name="description" content="Complete your secure MEC wallet top-up with Paystack.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%' y='50%' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
+  <!-- Paystack Inline JS — ALWAYS load from Paystack CDN -->
+  <script src="https://js.paystack.co/v2/inline.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../components/supabase.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 14px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Layout ── */
+    .main-content {
+      flex: 1; padding: 28px 24px 60px;
+      max-width: 640px; margin: 0 auto; width: 100%;
+    }
+
+    /* ── Back Nav ── */
+    .back-nav {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 14px; font-weight: 600;
+      margin-bottom: 24px; cursor: pointer; transition: color 0.15s; width: fit-content;
+    }
+    .back-nav:hover { color: var(--text-primary); }
+    .back-nav svg { width: 16px; height: 16px; }
+
+    /* ── Page Header ── */
+    .page-header { margin-bottom: 24px; }
+    .page-header__title { font-size: 26px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 4px; }
+    .page-header__desc { font-size: 14px; color: var(--text-muted); }
+
+    /* ── Step Indicator ── */
+    .steps-row { display: flex; align-items: center; gap: 0; margin-bottom: 28px; }
+    .step { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+    .step.active { color: #2563eb; }
+    .step.done { color: #10b981; }
+    .step__circle {
+      width: 28px; height: 28px; border-radius: 50%; border: 2px solid #d1d5db;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; transition: all 0.3s ease;
+    }
+    .step.active .step__circle { border-color: #2563eb; background: #2563eb; color: white; }
+    .step.done .step__circle { border-color: #10b981; background: #10b981; color: white; }
+    .step-line { flex: 1; height: 2px; background: #e5e7eb; margin: 0 8px; transition: background 0.3s ease; }
+    .step-line.done { background: #10b981; }
+
+    /* ── Payment Card ── */
+    .payment-card {
+      background: var(--bg-card);
+      border: 1px solid #ebebeb;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    /* ── Order Summary ── */
+    .order-summary {
+      background: var(--bg-base);
+      border: 1px solid #f0f0f0;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .order-summary__title {
+      font-size: 13px; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;
+    }
+    .order-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+    .order-row:not(:last-child) { border-bottom: 1px solid #f5f5f5; }
+    .order-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+    .order-value { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+    .order-row.total-row .order-label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+    .order-row.total-row .order-value { font-size: 18px; font-weight: 800; color: #2563eb; }
+
+    /* ── Paystack Launch Button ── */
+    .btn-launch-paystack {
+      width: 100%;
+      background: linear-gradient(135deg, #00C3F7 0%, #0080C0 100%);
+      color: white;
+      font-size: 16px; font-weight: 800;
+      padding: 18px 24px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0, 128, 192, 0.3);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .btn-launch-paystack:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,128,192,0.4);
+    }
+    .btn-launch-paystack:active { transform: translateY(0); }
+    .btn-launch-paystack:disabled {
+      background: #9ca3af; cursor: not-allowed;
+      box-shadow: none; transform: none;
+    }
+    .paystack-logo-txt {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .paystack-logo-txt .ps-blue { color: #00C3F7; }
+    .paystack-logo-txt .ps-dark { color: #1a2e4a; }
+
+    /* ── Processing Overlay ── */
+    .processing-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(255,255,255,0.9);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    [data-theme="dark"] .processing-overlay { background: rgba(15,23,42,0.9); }
+    .processing-overlay.show { display: flex; }
+    .spinner {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 4px solid #e5e7eb;
+      border-top-color: #2563eb;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .processing-label { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+    .processing-sub { font-size: 14px; color: var(--text-muted); }
+
+    /* ── Status Screens ── */
+    .status-screen {
+      display: none;
+      flex-direction: column; align-items: center;
+      padding: 48px 24px; text-align: center;
+    }
+    .status-screen.show { display: flex; }
+    .status-screen__icon { font-size: 72px; margin-bottom: 16px; }
+    .status-screen__title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+    .status-screen__desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 320px; margin-bottom: 28px; }
+    .status-screen__amount {
+      font-size: 32px; font-weight: 800; margin-bottom: 24px;
+    }
+    .status-screen__amount.green { color: #10b981; }
+    .status-screen__amount.orange { color: #f59e0b; }
+    .status-screen__amount.red { color: #ef4444; }
+
+    /* ── Status Buttons ── */
+    .btn-go-wallet {
+      background: #2563eb; color: white;
+      font-size: 15px; font-weight: 700;
+      padding: 14px 32px; border-radius: 12px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s; margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+    }
+    .btn-go-wallet:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-try-again {
+      color: #2563eb; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .btn-try-again:hover { opacity: 0.7; }
+
+    /* ── Ref tag ── */
+    .ref-tag {
+      background: var(--bg-base); border: 1px solid #e5e7eb;
+      border-radius: 8px; padding: 8px 14px;
+      font-size: 12px; color: var(--text-muted); font-family: monospace;
+      margin-bottom: 20px;
+    }
+
+    /* ── Guest login notice ── */
+    .login-required-notice {
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.07);
+      color: var(--text-primary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .login-required-notice.show { display: flex; }
+    .login-required-notice strong { display: block; margin-bottom: 2px; }
+
+    /* ── Trust Badges ── */
+    .trust-row { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    /* ── Dark mode ── */
+    [data-theme="dark"] .payment-card { border-color: var(--border) !important; }
+    [data-theme="dark"] .order-summary { background: var(--bg-elevated) !important; border-color: var(--border) !important; }
+    [data-theme="dark"] .order-row:not(:last-child) { border-color: var(--border) !important; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .main-content { padding: 16px 12px 60px; }
+      .payment-card { padding: 20px 16px; }
+      .steps-row span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+
+    <main class="main-content" id="main-content">
+
+      <!-- Back Navigation -->
+      <div class="back-nav" id="back-btn" onclick="goBack()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to Amount
+      </div>
+
+      <!-- Page Header -->
+      <div class="page-header" id="page-header">
+        <h1 class="page-header__title">Secure Payment</h1>
+        <p class="page-header__desc">Review your order and complete payment with Paystack.</p>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="steps-row" id="steps-row">
+        <div class="step done" id="step-1">
+          <div class="step__circle">✓</div>
+          <span>Amount</span>
+        </div>
+        <div class="step-line done" id="step-line-1"></div>
+        <div class="step active" id="step-2">
+          <div class="step__circle">2</div>
+          <span>Payment</span>
+        </div>
+        <div class="step-line" id="step-line-2"></div>
+        <div class="step" id="step-3">
+          <div class="step__circle">3</div>
+          <span>Done</span>
+        </div>
+      </div>
+
+      <div class="login-required-notice" id="checkout-login-notice" role="status">
+        <div>
+          <strong>Login required to make a payment</strong>
+          Use the Login button in the top-right corner, then return here to continue.
+        </div>
+      </div>
+
+      <!-- Payment Card (default view) -->
+      <div class="payment-card" id="payment-panel">
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <div class="order-summary__title">Order Summary</div>
+          <div class="order-row">
+            <span class="order-label">Wallet credit</span>
+            <span class="order-value" id="summary-amount">—</span>
+          </div>
+          <div class="order-row">
+            <span class="order-label">Processing fee</span>
+            <span class="order-value" id="summary-fee">—</span>
+          </div>
+          <div class="order-row total-row">
+            <span class="order-label">Total charge</span>
+            <span class="order-value" id="summary-total">—</span>
+          </div>
+        </div>
+
+        <!-- Launch Paystack -->
+        <button class="btn-launch-paystack" id="btn-pay" onclick="launchPaystack()" disabled>
+          🔒 Pay Securely with Paystack
+        </button>
+
+        <!-- Trust -->
+        <div class="trust-row">
+          <div class="trust-item"><span>🔒</span> 256-bit SSL</div>
+          <div class="trust-item"><span>🛡️</span> PCI-DSS Secure</div>
+          <div class="trust-item"><span>⚡</span> Instant Credit</div>
+        </div>
+
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="payment-card status-screen" id="success-screen">
+        <div class="status-screen__icon">🎉</div>
+        <div class="status-screen__title">Payment Successful!</div>
+        <div class="status-screen__amount green" id="success-amount">+₦0.00</div>
+        <div class="status-screen__desc">
+          Your wallet has been credited instantly. You can now use your balance to access premium features.
+        </div>
+        <div class="ref-tag" id="success-ref">Reference: —</div>
+        <button class="btn-go-wallet" onclick="goToDashboard('success')">
+          🏦 Go to My Wallet
+        </button>
+      </div>
+
+      <!-- PENDING SCREEN -->
+      <div class="payment-card status-screen" id="pending-screen">
+        <div class="status-screen__icon">⏳</div>
+        <div class="status-screen__title">Payment Processing</div>
+        <div class="status-screen__amount orange" id="pending-amount">₦0.00</div>
+        <div class="status-screen__desc">
+          Your payment is being confirmed. Bank transfers may take a few minutes. Your wallet will be credited automatically once confirmed.
+        </div>
+        <div class="ref-tag" id="pending-ref">Reference: —</div>
+        <button class="btn-go-wallet" onclick="goToDashboard()">
+          🏦 Back to Wallet
+        </button>
+      </div>
+
+      <!-- FAILED SCREEN -->
+      <div class="payment-card status-screen" id="failed-screen">
+        <div class="status-screen__icon">❌</div>
+        <div class="status-screen__title">Payment Failed</div>
+        <div class="status-screen__desc">
+          Something went wrong. Your card was <strong>not charged</strong>. Please try again or use a different payment method.
+        </div>
+        <button class="btn-go-wallet" onclick="retryPayment()">Try Again</button>
+        <button class="btn-try-again" onclick="goToDashboard()">Return to Wallet</button>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Processing Overlay -->
+<div class="processing-overlay" id="processing-overlay">
+  <div class="spinner"></div>
+  <div class="processing-label">Verifying payment…</div>
+  <div class="processing-sub">Please do not close this page</div>
+</div>
+
+<script defer src="../../components/topbar.js?v=4"></script>
+<script defer src="../../components/nav.js"></script>
+<script defer src="../../components/sidebar.js?v=20"></script>
+<script>
+  /* ═══════════════════════════════════════════════════════════════════
+     PAYSTACK INLINE CHECKOUT — MEC TOP-UP FLOW
+     ─────────────────────────────────────────────────────────────────
+     IMPORTANT POLICY NOTES:
+     ① The PUBLIC KEY is used here (safe for frontend).
+     ② The secret key MUST ONLY ever exist on your backend.
+     ③ In production, the reference must be generated server-side and
+        returned via an API call (/api/topup/init). Never trust a
+        reference the client generates for final verification.
+     ④ Final wallet credit happens ONLY after server-side webhook
+        verification (event: charge.success + signature check).
+  ═══════════════════════════════════════════════════════════════════ */
+
+  // ── Replace with your actual PUBLIC key (pk_live_xxx / pk_test_xxx) ──
+  const PAYSTACK_PUBLIC_KEY = 'pk_test_e438f3520ca9dbe8d4590dfd4048505dcd4df576';
+
+  // ── Read intent from session storage ─────────────────────────────────
+  let intent = null;
+  let currentUser = null;
+  try {
+    intent = JSON.parse(sessionStorage.getItem('mec_topup_intent') || 'null');
+  } catch(e) {}
+
+  function formatNaira(n) {
+    return '₦' + Number(n).toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function generateRef() {
+    /* In production, this MUST come from your server.
+       For demo: topup_<userId>_<timestamp>_<random> */
+    const ts = Date.now();
+    const rand = Math.random().toString(36).substring(2, 8).toUpperCase();
+    return `MEC_TOPUP_${ts}_${rand}`;
+  }
+
+  function getUserEmail() {
+    /* Pull from your auth session. */
+    try {
+      const session = JSON.parse(localStorage.getItem('mec_user') || '{}');
+      return session.email || '';
+    } catch { return ''; }
+  }
+
+  // ── Render Order Summary ──────────────────────────────────────────────
+  function renderSummary() {
+    if (!intent) {
+      goBack(); return;
+    }
+    document.getElementById('summary-amount').textContent = formatNaira(intent.amount);
+    document.getElementById('summary-fee').textContent    = formatNaira(intent.fee);
+    document.getElementById('summary-total').textContent  = formatNaira(intent.total);
+  }
+
+  // ── Launch Paystack Inline ─────────────────────────
+  let _pendingRef = null; // track if a payment was initiated (for bank transfer onClose)
+
+  function launchPaystack() {
+    if (!intent) { goBack(); return; }
+    if (!currentUser) {
+      document.getElementById('checkout-login-notice').classList.add('show');
+      document.getElementById('btn-pay').disabled = true;
+      return;
+    }
+    
+    // Determine the payment channel based on the selected method
+    let selectedChannels = ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'];
+    if (intent.method === 'bank_transfer') {
+      selectedChannels = ['bank_transfer'];
+    }
+
+    const ref = generateRef();
+    _pendingRef = null; // reset
+
+    const handler = PaystackPop.setup({
+      key: PAYSTACK_PUBLIC_KEY,
+      email: currentUser.email,
+      amount: intent.total * 100, // in kobo
+      currency: 'NGN',
+      channels: selectedChannels,
+      ref: ref,
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "User ID",
+            variable_name: "user_id",
+            value: currentUser.id
+          }
+        ]
+      },
+      callback: async function(response) {
+        // Called when Paystack confirms the payment (card payments get here immediately)
+        _pendingRef = null; // payment is confirmed, not pending
+        showProcessing(true);
+        try {
+          const { error } = await MECSupabase.getSupabase().rpc('increment_wallet_balance', {
+            x_user_id: currentUser.id,
+            x_amount: intent.amount,
+            x_reference: response.reference
+          });
+          
+          showProcessing(false);
+          
+          if (!error) {
+            showSuccess(response, intent);
+          } else {
+            console.error('RPC error after callback:', error);
+            showPending(response.reference);
+          }
+        } catch(e) {
+          showProcessing(false);
+          showPending(response.reference);
+        }
+      },
+      onClose: function() {
+        // For bank transfers: Paystack closes the modal while transfer is "pending"
+        // _pendingRef is set when the user gets to the "transfer sent" screen
+        // We detect this by checking if the user progressed past the initial modal
+        if (_pendingRef) {
+          // Bank transfer was initiated — show pending, not cancelled
+          showPending(_pendingRef);
+        } else {
+          // User closed before initiating — show cancelled toast
+          showCancelled();
+        }
+      }
+    });
+
+    // Monkey-patch: Paystack iframe postMessages when transfer is "sent"
+    // We listen for this to set _pendingRef before onClose fires
+    const _origOpen = handler.openIframe.bind(handler);
+    handler.openIframe = function() {
+      const msgHandler = (e) => {
+        try {
+          const d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+          // Paystack sends this when bank transfer is initiated by user
+          if (d && (d.event === 'payment.completed' || d.event === 'payment.pending' || d.status === 'send_otp' || d.status === 'pending')) {
+            _pendingRef = ref;
+          }
+        } catch (_) {}
+      };
+      window.addEventListener('message', msgHandler);
+      // Clean up after 10 minutes max
+      setTimeout(() => window.removeEventListener('message', msgHandler), 600000);
+      _origOpen();
+    };
+
+    handler.openIframe();
+  }
+
+
+  /* ── Verify & Credit (Simulates Webhook Callback) ──────────────────────
+     In production: We no longer do client-side crediting because it's unsafe.
+     The backend webhook securely updates the database.
+  ─────────────────────────────────────────────────────────────────────── */
+  function verifyAndCredit(transaction, intent) {
+    // Removed unsafe client-side credit logic.
+  }
+
+  // ── UI State Helpers ──────────────────────────────────────────────────
+  function hideAllScreens() {
+    document.getElementById('payment-panel').style.display   = 'none';
+    document.getElementById('back-btn').style.display        = 'none';
+    document.getElementById('page-header').style.display     = 'none';
+    ['success-screen','pending-screen','failed-screen'].forEach(id => {
+      document.getElementById(id).classList.remove('show');
+    });
+  }
+
+  function showProcessing(on) {
+    document.getElementById('processing-overlay').classList.toggle('show', on);
+  }
+
+  function showPending(reference) {
+    hideAllScreens();
+    document.getElementById('steps-row').style.display = 'flex'; // keep steps visible
+    document.getElementById('pending-amount').textContent = formatNaira(intent ? intent.amount : 0);
+    document.getElementById('pending-ref').textContent = 'Reference: ' + (reference || '—');
+    document.getElementById('pending-screen').classList.add('show');
+  }
+
+  function showSuccess(transaction, intent) {
+    hideAllScreens();
+
+    // Update step indicator
+    document.getElementById('step-2').className = 'step done';
+    document.getElementById('step-2').querySelector('.step__circle').textContent = '✓';
+    document.getElementById('step-line-2').classList.add('done');
+    document.getElementById('step-3').className = 'step done';
+    document.getElementById('step-3').querySelector('.step__circle').textContent = '✓';
+
+    document.getElementById('success-amount').textContent = '+' + formatNaira(intent.amount);
+    document.getElementById('success-ref').textContent = 'Reference: ' + transaction.reference;
+    
+    // Handle exam unlock specifically
+    if (intent.purpose === 'exam_unlock') {
+      // We do NOT insert into exam_purchases here. The user just topped up.
+      // They will complete the purchase back on setup_premium.html
+
+      // Add a custom redirect button
+      if (intent.redirect_back) {
+        const successScreen = document.getElementById('success-screen');
+        let goBtn = successScreen.querySelector('.btn-go-wallet');
+        if (goBtn) {
+          goBtn.textContent = 'Redirecting to Exam...';
+          goBtn.onclick = function() { window.location.href = intent.redirect_back; };
+        }
+        
+        // Auto-redirect after 2 seconds
+        setTimeout(() => {
+          window.location.href = intent.redirect_back;
+        }, 2000);
+      }
+    }
+
+    document.getElementById('success-screen').classList.add('show');
+  }
+
+  function showCancelled() {
+    // User dismissed popup — quietly restore normal state
+    // (no action needed, payment card is still visible)
+    const toast = document.createElement('div');
+    toast.style.cssText = `position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#f59e0b;color:white;padding:12px 24px;border-radius:12px;font-weight:700;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);`;
+    toast.textContent = '⚠️ Payment cancelled. No charge was made.';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
+  // ── Navigation ────────────────────────────────────────────────────────
+  function goBack() {
+    window.location.href = window.MEC_NAV ? window.MEC_NAV.href('top_up_amount') : '/modules/top_up/amount_entry.html';
+  }
+
+  function goToDashboard(status) {
+    const base = window.MEC_NAV ? window.MEC_NAV.href('top_up') : '/modules/top_up/wallet_dashboard.html';
+    window.location.href = base + (status ? '?status=' + status : '');
+  }
+
+  function retryPayment() {
+    goBack();
+  }
+
+  // ── Init ──────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', async () => {
+    let user = null;
+    try {
+      if (typeof MECSupabase !== 'undefined' && typeof MECSupabase.getCurrentUser === 'function') {
+        user = await MECSupabase.getCurrentUser();
+      }
+    } catch (e) {
+      // Guests can view the checkout page and choose to log in manually.
+    }
+
+    currentUser = user;
+    const notice = document.getElementById('checkout-login-notice');
+    const payButton = document.getElementById('btn-pay');
+
+    if (!intent) { goBack(); return; }
+    renderSummary();
+
+    if (currentUser) {
+      notice.classList.remove('show');
+      payButton.disabled = false;
+    } else {
+      notice.classList.add('show');
+      payButton.disabled = true;
+    }
+  });
+</script>
+</body>
+</html>

@@ -26,6 +26,7 @@ async function getCurrentUser() {
   try {
     const sb = getSupabase();
     if (!sb) return null;
+
     const { data: { user }, error } = await sb.auth.getUser();
     if (error) { console.warn('[MEC Supabase] getCurrentUser:', error.message); return null; }
     return user || null;

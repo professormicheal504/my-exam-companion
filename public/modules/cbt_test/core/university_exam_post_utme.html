@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Post UTME – Choose Your University | My Exam Companion</title>
+  <meta name="description" content="Practice Post UTME past questions for UNIBEN, UNILAG and more Nigerian universities in a real CBT environment.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%' y='50%' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../../../components/supabase.js"></script>
+  <script src="../../../components/nav.js" defer></script>
+  <script src="../../../components/topbar.js?v=4" defer></script>
+  <script src="../../../components/sidebar.js?v=20" defer></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      font-size: 14px;
+    }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+    ul, ol { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    .app { display: flex; min-height: 100vh; }
+
+    .main-wrapper {
+      margin-left: 90px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Content ── */
+    .content-area { display: flex; flex: 1; }
+
+    .main-content {
+      flex: 1;
+      padding: 28px 24px;
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    /* ── Page Hero ── */
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 10%;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .page-hero__inner { position: relative; z-index: 2; }
+
+    .page-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      padding: 5px 14px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+
+    .page-hero__title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .page-hero__desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      max-width: 500px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .page-hero__stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-stat__value {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .hero-stat__label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* ── Search & Filter bar ── */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 360px;
+      transition: border-color 0.15s;
+    }
+
+    .search-box:focus-within {
+      border-color: #2563eb;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .search-box input::placeholder { color: #aaa; }
+
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+      background: #eff6ff;
+    }
+
+    [data-theme="dark"] .filter-btn.active,
+    [data-theme="dark"] .filter-btn:hover {
+      background: rgba(37,99,235,0.15);
+    }
+
+    .result-count {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ── Section header ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .section-header__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .section-header__count {
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    [data-theme="dark"] .section-header__count {
+      background: rgba(37,99,235,0.2);
+    }
+
+    /* ── University Grid ── */
+    .uni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .uni-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .uni-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .uni-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      border-color: #2563eb;
+    }
+
+    .uni-card:hover::before { transform: scaleX(1); }
+
+    .uni-card__top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .uni-card__logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #f5f7ff;
+      padding: 4px;
+      flex-shrink: 0;
+      border: 1px solid #e8ecff;
+    }
+
+    .uni-card__logo-placeholder {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .uni-card__info { flex: 1; min-width: 0; }
+
+    .uni-card__name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .uni-card__abbr {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #eff6ff;
+      color: #2563eb;
+    }
+
+    [data-theme="dark"] .uni-card__abbr {
+      background: rgba(37,99,235,0.2);
+    }
+
+    .uni-card__meta {
+      display: flex;
+      gap: 12px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .uni-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .uni-card__cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .uni-card__cta-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .uni-card__arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    [data-theme="dark"] .uni-card__arrow { background: rgba(37,99,235,0.2); }
+
+    .uni-card:hover .uni-card__arrow {
+      background: #2563eb;
+      transform: translateX(3px);
+    }
+
+    .uni-card:hover .uni-card__arrow svg { stroke: white; }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state__icon { font-size: 48px; margin-bottom: 12px; }
+    .empty-state__title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .empty-state__desc { font-size: 13px; }
+
+    /* ── Skeleton ── */
+    .sk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .sk-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .sk-row { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+    .sk-circle { width: 52px; height: 52px; border-radius: 12px; background: var(--border); flex-shrink: 0; }
+    .sk-lines { flex: 1; }
+    .sk-line { height: 10px; border-radius: 5px; background: var(--border); margin-bottom: 8px; }
+    .sk-footer { height: 1px; background: var(--border); margin-bottom: 12px; }
+    .sk-cta { height: 10px; width: 50%; border-radius: 5px; background: var(--border); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ── Info banner ── */
+    .info-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 12.5px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+
+    [data-theme="dark"] .info-banner {
+      background: rgba(37,99,235,0.1);
+      border-color: rgba(37,99,235,0.3);
+      color: #93c5fd;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .main-content { padding: 16px 12px; }
+      .page-hero { padding: 24px 20px; }
+      .page-hero__title { font-size: 22px; }
+      .uni-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <app-sidebar data-base="../../../"></app-sidebar>
+
+    <div class="main-wrapper">
+      <app-topbar data-base="../../../"></app-topbar>
+
+      <div class="content-area">
+        <main class="main-content">
+
+          <!-- Hero -->
+          <div class="page-hero">
+            <div class="page-hero__inner">
+              <div class="page-hero__badge">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Post UTME Practice
+              </div>
+              <h1 class="page-hero__title">University Post UTME</h1>
+              <p class="page-hero__desc">Practice with real CBT-style past questions for top Nigerian universities. Select your school to begin.</p>
+              <div class="page-hero__stats">
+                <div class="hero-stat">
+                  <div class="hero-stat__value" id="stat-unis">—</div>
+                  <div class="hero-stat__label">Universities</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat__value">2010–2026</div>
+                  <div class="hero-stat__label">Year Range</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat__value">CBT Mode</div>
+                  <div class="hero-stat__label">Real Exam Feel</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="info-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Select your university below. You'll be taken to the setup page where you can choose your <strong>faculty</strong>, <strong>department</strong>, <strong>subjects</strong>, and <strong>year</strong> before starting your timed CBT session.</span>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="toolbar">
+            <div class="search-box">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="search-input" placeholder="Search universities…" autocomplete="off">
+            </div>
+            <span class="result-count" id="result-count"></span>
+          </div>
+
+          <!-- Grid -->
+          <div class="section-header">
+            <span class="section-header__title">Available Universities</span>
+            <span class="section-header__count" id="section-count">0</span>
+          </div>
+
+          <div id="uni-grid" class="uni-grid">
+            <!-- Skeleton loaders -->
+            <div class="sk-card">
+              <div class="sk-row"><div class="sk-circle"></div><div class="sk-lines"><div class="sk-line" style="width:70%"></div><div class="sk-line" style="width:40%"></div></div></div>
+              <div class="sk-footer"></div><div class="sk-cta"></div>
+            </div>
+            <div class="sk-card">
+              <div class="sk-row"><div class="sk-circle"></div><div class="sk-lines"><div class="sk-line" style="width:60%"></div><div class="sk-line" style="width:35%"></div></div></div>
+              <div class="sk-footer"></div><div class="sk-cta"></div>
+            </div>
+            <div class="sk-card">
+              <div class="sk-row"><div class="sk-circle"></div><div class="sk-lines"><div class="sk-line" style="width:75%"></div><div class="sk-line" style="width:45%"></div></div></div>
+              <div class="sk-footer"></div><div class="sk-cta"></div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const R2_BASE_URL = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
+
+    // Abbreviation map for known schools
+    const ABBR_MAP = {
+      'nigeria/uniben_post_utme': 'UNIBEN',
+      'nigeria/unilag_post_utme': 'UNILAG',
+      'nigeria/unn_post_utme':    'UNN',
+      'nigeria/oau_post_utme':    'OAU',
+      'nigeria/ui_post_utme':     'UI',
+      'nigeria/abu_post_utme':    'ABU',
+      'nigeria/futa_post_utme':   'FUTA',
+    };
+
+    const SUBJECTS_MAP = {
+      'nigeria/uniben_post_utme': '9 subjects',
+      'nigeria/unilag_post_utme': '10 subjects',
+    };
+
+    let allUniversities = [];
+
+    function buildSetupUrl(mod) {
+      const base = window.location.pathname.includes('/public/modules/')
+        ? '/public/modules/cbt_test/core/setup_premium.html'
+        : '/modules/cbt_test/core/setup_premium.html';
+
+      const params = new URLSearchParams({
+        exam_id: mod.id,
+        data_source: mod.data_source,
+        ...(mod.logo ? { logo: mod.logo } : {}),
+      });
+      return `${base}?${params.toString()}`;
+    }
+
+    function renderCard(mod) {
+      const abbr = ABBR_MAP[mod.id] || mod.exam_body?.toUpperCase() || '?';
+      const subjects = SUBJECTS_MAP[mod.id] || 'Multiple subjects';
+      const href = buildSetupUrl(mod);
+
+      // Logo
+      const logoHtml = mod.logo
+        ? `<img class="uni-card__logo" src="${mod.logo.replace(/^\//, '../../../')}" alt="${mod.display_name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        : '';
+      const placeholderStyle = mod.logo ? 'display:none;' : '';
+
+      return `
+        <a class="uni-card" href="${href}" id="card-${mod.id.replace(/\//g, '-')}">
+          <div class="uni-card__top">
+            ${logoHtml}
+            <div class="uni-card__logo-placeholder" style="${placeholderStyle}">🎓</div>
+            <div class="uni-card__info">
+              <div class="uni-card__name">${mod.display_name}</div>
+              <span class="uni-card__abbr">${abbr}</span>
+            </div>
+          </div>
+          <div class="uni-card__meta">
+            <div class="uni-card__meta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              ${subjects}
+            </div>
+            <div class="uni-card__meta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2010 – 2026
+            </div>
+          </div>
+          <div class="uni-card__cta">
+            <span class="uni-card__cta-text">Start Practice →</span>
+            <div class="uni-card__arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+        </a>`;
+    }
+
+    function renderGrid(list) {
+      const grid = document.getElementById('uni-grid');
+      const count = document.getElementById('section-count');
+      const resultCount = document.getElementById('result-count');
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1">
+            <div class="empty-state__icon">🔍</div>
+            <div class="empty-state__title">No universities found</div>
+            <div class="empty-state__desc">Try a different search term.</div>
+          </div>`;
+        count.textContent = '0';
+        resultCount.textContent = '';
+        return;
+      }
+
+      grid.innerHTML = list.map(renderCard).join('');
+      count.textContent = list.length;
+      resultCount.textContent = `${list.length} university${list.length === 1 ? '' : 'ies'}`;
+    }
+
+    function filterUniversities(query) {
+      if (!query) return allUniversities;
+      const q = query.toLowerCase();
+      return allUniversities.filter(m =>
+        m.display_name.toLowerCase().includes(q) ||
+        (ABBR_MAP[m.id] || '').toLowerCase().includes(q)
+      );
+    }
+
+    async function loadUniversities() {
+      let config;
+      try {
+        try {
+          const res = await fetch('../../../../new_staging_area/configs/ng.json');
+          if (!res.ok) throw new Error('local failed');
+          config = await res.json();
+        } catch {
+          const res = await fetch(`${R2_BASE_URL}/configs/ng.json`);
+          if (!res.ok) throw new Error('R2 failed');
+          config = await res.json();
+        }
+
+        // Filter only post_utme modules
+        const mods = (config.dashboard_modules || []).filter(m =>
+          m.data_source && m.data_source.includes('post_utme')
+        );
+
+        allUniversities = mods;
+        document.getElementById('stat-unis').textContent = mods.length;
+        renderGrid(mods);
+
+      } catch (err) {
+        console.error('Failed to load universities:', err);
+        document.getElementById('uni-grid').innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1">
+            <div class="empty-state__icon">⚠️</div>
+            <div class="empty-state__title">Failed to load</div>
+            <div class="empty-state__desc">Could not fetch university list. Please check your connection.</div>
+          </div>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUniversities();
+
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        renderGrid(filterUniversities(e.target.value.trim()));
+      });
+    });
+  </script>
+</body>
+
+</html>

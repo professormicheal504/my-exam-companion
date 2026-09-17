@@ -14,9 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Available Subjects – My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <style>
     /* Reset & Global */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -166,6 +166,16 @@
       .card-footer { flex-direction: column; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
 
@@ -243,7 +253,7 @@
 
   <script defer src="../../../components/nav.js"></script>
 <script defer src="../../../components/sidebar.js"></script>
-  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script>
     // Get University from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -264,6 +274,13 @@
       { id: 'econ', name: 'Economics', icon: '📈', questions: 280, time: '30 Mins', color: 'rgba(240, 253, 250, 1)', borderColor: 'rgba(153, 246, 228, 1)',
         svg: '<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>' }
     ];
+
+    // Premium university → setup_premium.html mapping
+    const PREMIUM_SETUP_MAP = {
+      'UNIBEN': '../core/setup_premium.html?exam_id=nigeria%2Funiben_post_utme&data_source=ng%2Fexams%2Funiversity_entrance%2Fpost_utme%2Funiben%2Findex.json&logo=%2Fassets%2Fcountry%2Fnigeria%2Funiversity_of_benin.webp',
+      'SDU':    '../core/setup_premium.html?exam_id=nigeria%2Fsouthern_delta_university&data_source=ng%2Fexams%2Funiversity%2Fsouthern_delta_university_sdu%2Findex.json',
+    };
+    const setupTarget = PREMIUM_SETUP_MAP[uniName.toUpperCase()] || '../core/setup.html';
 
     function renderSubjects() {
       const grid = document.getElementById('subjectGrid');
@@ -291,8 +308,7 @@
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ${sub.time}</span>
           </div>
           <div class="card-footer">
-            <button class="btn-secondary" onclick="window.location.href='../core/setup.html'">Practice Mode</button>
-            <button class="btn-primary" onclick="window.location.href='../core/cbt_player.html'">Start Exam</button>
+            <button class="btn-primary" onclick="window.location.href='${setupTarget}'" style="width:100%; justify-content:center;">Start Exam</button>
           </div>
         `;
         grid.appendChild(card);

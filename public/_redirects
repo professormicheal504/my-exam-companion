@@ -1,2 +1,143 @@
-/ /modules/ 302
+# -- R2 Proxy --
 /r2/* https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev/:splat 200
+
+# -- Country Entry Points (single file, country read from URL slug) --
+/     /modules/ 200
+/ng   /modules/ 200
+/ng/  /modules/ 200
+/gh   /modules/ 200
+/gh/  /modules/ 200
+/us   /modules/ 200
+/us/  /modules/ 200
+
+# -- Study (Exact matches & Wildcards) --
+/ng/study/classroom        /modules/study/classroom/classroom_subject 200
+/ng/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/ng/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/ng/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+/ng/study/novel            /modules/study/novel/novel 200
+/ng/study/syllabus         /modules/study/syllabus/syllabus 200
+/ng/study/brochure         /modules/study/brochure/brochure 200
+/ng/study/videos           /modules/study/topic_video/topic_video 200
+/ng/study/scholarships     /modules/study/scholarship/list_of_scholarship 200
+
+/gh/study/classroom        /modules/study/classroom/classroom_subject 200
+/gh/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/gh/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/gh/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+/gh/study/videos           /modules/study/topic_video/topic_video 200
+
+/us/study/classroom        /modules/study/classroom/classroom_subject 200
+/us/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/us/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/us/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+
+# -- Test / CBT (Exact matches & Wildcards) --
+/ng/test                   /modules/cbt_test/core/setup 200
+/ng/test/result            /modules/cbt_test/core/result 200
+/ng/test/analysis          /modules/cbt_test/core/deep_analysis 200
+/ng/test/jamb-mock         /modules/cbt_test/jamb_mock_exam/mock_date_and_point 200
+/ng/test/live-arena        /modules/cbt_test/live_quiz_arena/exam_body 200
+/ng/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/ng/test/secondary         /modules/cbt_test/secondary_school/all_classes 200
+/ng/test/post-utme         /modules/cbt_test/core/university_exam_post_utme 200
+/ng/test/university        /modules/cbt_test/university_exam/university_exam 200
+/ng/test/instruction       /modules/cbt_test/core/instruction 200
+/ng/test/premium           /modules/cbt_test/core/setup_premium 200
+/ng/test/*                 /modules/cbt_test/core/cbt_player 200
+
+/gh/test                   /modules/cbt_test/core/setup 200
+/gh/test/premium           /modules/cbt_test/core/setup_premium 200
+/gh/test/result            /modules/cbt_test/core/result 200
+/gh/test/instruction       /modules/cbt_test/core/instruction 200
+/gh/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/gh/test/*                 /modules/cbt_test/core/cbt_player 200
+
+/us/test                   /modules/cbt_test/core/setup 200
+/us/test/premium           /modules/cbt_test/core/setup_premium 200
+/us/test/result            /modules/cbt_test/core/result 200
+/us/test/instruction       /modules/cbt_test/core/instruction 200
+/us/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/us/test/*                 /modules/cbt_test/core/cbt_player 200
+
+# -- Blog (Exact matches & Wildcards) --
+/ng/blog                   /modules/blog/categories 200
+/ng/blog/*                 /modules/blog/content 200
+/gh/blog                   /modules/blog/categories 200
+/gh/blog/*                 /modules/blog/content 200
+/us/blog                   /modules/blog/categories 200
+/us/blog/*                 /modules/blog/content 200
+
+# -- Utility (country-scoped) --
+/ng/rank       /modules/rank/rank 200
+/ng/earnings   /modules/earnings/earnings 200
+/ng/task       /modules/task/task 200
+/ng/referral   /modules/referrals/referrals 200
+/ng/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/ng/pricing    /modules/pricing/pricing 200
+/ng/chat       /modules/chat/admin_list 200
+/ng/history    /modules/history/history 200
+
+/gh/rank       /modules/rank/rank 200
+/gh/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/gh/pricing    /modules/pricing/pricing 200
+
+/us/rank       /modules/rank/rank 200
+/us/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/us/pricing    /modules/pricing/pricing 200
+
+# -- Wallet / Top-Up (global, no country prefix) --
+/top-up            /modules/top_up/wallet_dashboard 200
+/top-up/add        /modules/top_up/amount_entry 200
+/top-up/checkout   /modules/top_up/paystack_inline_checkout 200
+
+# -- Auth (global) --
+/login       /modules/auth/login 200
+/signup      /modules/auth/sign_up 200
+/verify      /modules/auth/otp 200
+/onboarding  /modules/auth/fill_form 200
+
+# -- Legacy 301 Redirects (SEO & backward compatibility) --
+/pricing                    /ng/pricing 301
+/wallet-dashboard           /top-up 301
+/amount-entry               /top-up/add 301
+/paystack-inline-checkout   /top-up/checkout 301
+
+# Map old module paths to clean paths (fallback via 301)
+/modules/pricing            /ng/pricing 301
+/modules/auth/login.html    /login 301
+/modules/auth/sign_up.html  /signup 301
+/modules/auth/otp.html      /verify 301
+/modules/auth/fill_form.html /onboarding 301
+
+# NOTE: The /modules/* catch-all redirect was removed.
+# It was causing a redirect loop: /ng/ → /modules/index.html → /ng/index.html (404)
+# All /modules/* paths are now served as static files directly.
+
+# -- Landing Pages (country/landing/exam-body) --
+/ng/landing/jamb                    /modules/landing/nigeria-jamb 200
+/ng/landing/waec                    /modules/landing/nigeria-waec 200
+/ng/landing/neco                    /modules/landing/nigeria-neco 200
+/ng/landing/uniben-post-utme        /modules/landing/nigeria-uniben-post-utme 200
+/ng/landing/southern-delta-university /modules/landing/nigeria-southern-delta-university 200
+/gh/landing/waec                    /modules/landing/ghana-waec 200
+/us/landing/sat                     /modules/landing/usa-sat 200
+
+# -- Footer Pages (country-scoped) --
+/ng/about-us         /modules/footer/about_us 200
+/ng/contact-us       /modules/footer/contact_us 200
+/ng/privacy-policy   /modules/footer/privacy_policy 200
+/ng/terms-of-service /modules/footer/terms_of_service 200
+/ng/disclaimer       /modules/footer/disclaimer 200
+
+/gh/about-us         /modules/footer/about_us 200
+/gh/contact-us       /modules/footer/contact_us 200
+/gh/privacy-policy   /modules/footer/privacy_policy 200
+/gh/terms-of-service /modules/footer/terms_of_service 200
+/gh/disclaimer       /modules/footer/disclaimer 200
+
+/us/about-us         /modules/footer/about_us 200
+/us/contact-us       /modules/footer/contact_us 200
+/us/privacy-policy   /modules/footer/privacy_policy 200
+/us/terms-of-service /modules/footer/terms_of_service 200
+/us/disclaimer       /modules/footer/disclaimer 200

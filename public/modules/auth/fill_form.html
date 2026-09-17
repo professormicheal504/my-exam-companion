@@ -220,11 +220,21 @@
     }
   </style>
   <link rel="stylesheet" href="../../components/dark-mode.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="modal-overlay">
     <div class="modal-box">
-      <a href="../index.html" class="btn-close" aria-label="Close">
+      <a href="/" onclick="if(window.MEC_NAV){event.preventDefault();window.MEC_NAV.go('home')}" class="btn-close" aria-label="Close">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
@@ -591,7 +601,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="../../components/supabase.js"></script>
   <script>
     const supabaseClient = window.MECSupabase.getSupabase();
@@ -841,7 +851,7 @@
       const sbTokenStr = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
       if (!sbTokenStr) {
         showToast("You are not logged in! Please sign in first.", 'error');
-        window.location.href = 'login.html';
+        window.location.href = '/login';
         return;
       }
       const sessionObj = JSON.parse(sbTokenStr);
@@ -915,7 +925,7 @@
         if (error.code === '23503') {
            showToast("Your account no longer exists in the database. Please sign up or log in again.", 'error');
            localStorage.removeItem('sb-alwplfsqzrijxqujrpyu-auth-token');
-           window.location.href = 'login.html';
+           window.location.href = '/login';
            return;
         }
         showToast('Error: ' + error.message, 'error');
@@ -990,7 +1000,7 @@
            throw error;
         }
         
-        window.location.href = '../index.html';
+        window.location.href = '/' + (localStorage.getItem('mec_country') || 'ng');
       } catch (err) {
         console.error(err);
         showToast("Error saving referral: " + err.message, 'error');

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <script>
@@ -12,11 +12,11 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Class Subjects – My Exam Companion</title>
+  <title>Class Subjects � My Exam Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <style>
     /* Reset & Global */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -134,6 +134,16 @@
       .select-wrapper { width: 100%; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
 
@@ -188,7 +198,7 @@
 
   <script defer src="../../../components/nav.js"></script>
 <script defer src="../../../components/sidebar.js"></script>
-  <script defer src="../../../components/topbar.js"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script>
     // Get Class from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -196,15 +206,15 @@
     document.getElementById('class_display_name').innerText = className.toUpperCase();
 
     const allSubjects = [
-      { id: 'math', name: 'Mathematics', icon: '➗', term: 'All', questions: 350 },
-      { id: 'eng', name: 'English Language', icon: '📖', term: 'First', questions: 120 },
-      { id: 'eng2', name: 'English Language', icon: '📖', term: 'Second', questions: 120 },
-      { id: 'eng3', name: 'English Language', icon: '📖', term: 'Third', questions: 120 },
-      { id: 'bsci', name: 'Basic Science', icon: '🔬', term: 'All', questions: 280 },
-      { id: 'btech', name: 'Basic Technology', icon: '⚙️', term: 'First', questions: 100 },
-      { id: 'biz', name: 'Business Studies', icon: '💼', term: 'All', questions: 220 },
-      { id: 'civic', name: 'Civic Education', icon: '🇳🇬', term: 'Second', questions: 90 },
-      { id: 'agric', name: 'Agricultural Science', icon: '🌱', term: 'Third', questions: 110 }
+      { id: 'math', name: 'Mathematics', icon: '?', term: 'All', questions: 350 },
+      { id: 'eng', name: 'English Language', icon: '??', term: 'First', questions: 120 },
+      { id: 'eng2', name: 'English Language', icon: '??', term: 'Second', questions: 120 },
+      { id: 'eng3', name: 'English Language', icon: '??', term: 'Third', questions: 120 },
+      { id: 'bsci', name: 'Basic Science', icon: '??', term: 'All', questions: 280 },
+      { id: 'btech', name: 'Basic Technology', icon: '??', term: 'First', questions: 100 },
+      { id: 'biz', name: 'Business Studies', icon: '??', term: 'All', questions: 220 },
+      { id: 'civic', name: 'Civic Education', icon: '????', term: 'Second', questions: 90 },
+      { id: 'agric', name: 'Agricultural Science', icon: '??', term: 'Third', questions: 110 }
     ];
 
     function getTermBadgeInfo(term) {

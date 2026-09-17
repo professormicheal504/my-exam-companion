@@ -39,9 +39,9 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
-  <link rel="stylesheet" href="../../../components/topbar.css">
+  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=10">
+  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
   <link rel="stylesheet" href="../../../components/footer.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/components/supabase.js"></script>
@@ -411,6 +411,16 @@
     [data-theme="dark"] .cs-reply-indicator { background: #1e3a8a; border-color: #1e40af; color:#93c5fd; }
 
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 <body>
   <div class="app">
@@ -475,23 +485,32 @@
   </div>
 
   <script defer src="../../../components/nav.js"></script>
-<script defer src="../../../components/sidebar.js?v=10"></script>
-  <script defer src="../../../components/topbar.js"></script>
+<script defer src="../../../components/sidebar.js?v=20"></script>
+  <script defer src="../../../components/topbar.js?v=4"></script>
   <script defer src="../../../components/footer.js"></script>
   <script>
     const R2_BASE = 'https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev';
 
-    // -- Parse URL params --
+    // -- Parse URL params: prefer clean-URL injected values, fall back to query string --
+    const _cleanP = window.MEC_CLEAN_URL_PARAMS || {};
     const params  = new URLSearchParams(window.location.search);
-    const EXAM_ID = params.get('exam_id') || 'nigeria/jamb';
-    const SUBJECT = params.get('subject') || 'english_language';
-    const YEAR    = params.get('year') || '';
-    const Q_KEY   = params.get('q') || '';  // the JSON key of the question
-    const TYPE    = params.get('type') || 'objective';
-    
+    const EXAM_ID = _cleanP.exam_id  || params.get('exam_id') || 'nigeria/jamb';
+    const SUBJECT = _cleanP.subject  || params.get('subject') || 'english_language';
+    const Q_KEY   = _cleanP.q_key   || params.get('q') || '';  // the JSON key of the question
+    const TYPE    = _cleanP.type    || params.get('type') || 'objective';
+    // YEAR: prefer explicit value; fallback to extracting it from the Q_KEY prefix (format: '{year}_{rawKey}')
+    const _rawYear = _cleanP.year || params.get('year') || '';
+    const YEAR = _rawYear || (Q_KEY.match(/^(\d{4})_/) ? Q_KEY.match(/^(\d{4})_/)[1] : '');
+
+    // Helper: build a clean discussion URL for a given question key
+    function discussionUrl(key, extra) {
+      const base = `/study/${EXAM_ID}/${SUBJECT}/${encodeURIComponent(key)}/discussion`;
+      return extra ? `${base}?${extra}` : base;
+    }
+
     const API_Q_ID = Q_KEY.startsWith(SUBJECT) ? Q_KEY : `${SUBJECT}_${Q_KEY}`;
-    
-    let DATA_BASE = params.get('data_base') || null;
+
+    let DATA_BASE = _cleanP.data_base || params.get('data_base') || null;
 
     const EXAM_NAME = EXAM_ID.split('/').pop().toUpperCase();
 
@@ -607,7 +626,7 @@
 
     function buildNavUrl(key) {
       if (!key) return null;
-      return `classroom_discussion.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}&year=${encodeURIComponent(YEAR)}&q=${encodeURIComponent(key)}&type=${encodeURIComponent(TYPE)}`;
+      return discussionUrl(key);
     }
 
     function navigate(offset) {
@@ -620,7 +639,7 @@
       const prevKey = getAdjacentKey(-1);
       const nextKey = getAdjacentKey(1);
       const qIndex  = allKeys.indexOf(Q_KEY) + 1;
-      const isPollMode = new URLSearchParams(window.location.search).get('mode') === 'poll';
+      const isPollMode = (_cleanP.mode || new URLSearchParams(window.location.search).get('mode')) === 'poll';
 
       // Build options HTML
       const isArabic = SUBJECT.toLowerCase() === 'arabic';
@@ -655,9 +674,9 @@
       const correctOpt = (qData.options || []).find(o => o.is_correct);
       const correctLabel = correctOpt ? correctOpt.tag.toUpperCase() : '';
 
-      const backUrl = `classroom_questions.html?exam_id=${encodeURIComponent(EXAM_ID)}&subject=${encodeURIComponent(SUBJECT)}`;
+      const backUrl = `/study/${EXAM_ID}/${SUBJECT}`;
 
-      const lockedAnswer = new URLSearchParams(window.location.search).get('locked_answer');
+      const lockedAnswer = _cleanP.locked_answer || new URLSearchParams(window.location.search).get('locked_answer');
       let resultBanner = '';
       if (!isPollMode && lockedAnswer && correctOpt) {
         const isCorrect = lockedAnswer.toLowerCase() === correctOpt.tag.toLowerCase();
@@ -832,7 +851,7 @@
       }, 2000); // Award XP after 2 seconds of viewing
 
       if (!YEAR || !Q_KEY) {
-        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>?? Missing question parameters. <a href="classroom_subject.html" style="color:#2563eb;">Go back to subjects</a></p></div>`;
+        document.getElementById('pageContent').innerHTML = `<div class="state-box"><p>?? Missing question parameters. <a href="/study/${EXAM_ID}" style="color:#2563eb;">Go back to subjects</a></p></div>`;
         return;
       }
 
@@ -875,8 +894,11 @@
       const pageDesc  = `${examLabel} ${YEAR} ${subjectLabel} past question: "${cleanQuestion.slice(0, 100)}..." Correct answer: ${correctText}. ${cleanExplanation.slice(0, 100)}`;
 
       document.title = pageTitle;
-      document.getElementById('ogTitle').setAttribute('content', pageTitle);
-      document.getElementById('ogDesc').setAttribute('content', pageDesc);
+      const ogTitle = document.getElementById('ogTitle');
+      if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+      
+      const ogDesc = document.getElementById('ogDesc');
+      if (ogDesc) ogDesc.setAttribute('content', pageDesc);
 
       // Update meta description
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -884,7 +906,8 @@
 
       // Canonical URL
       const canonicalUrl = window.location.href.split('?')[0] + window.location.search;
-      document.getElementById('canonicalTag').setAttribute('href', canonicalUrl);
+      const canonicalTag = document.getElementById('canonicalTag');
+      if (canonicalTag) canonicalTag.setAttribute('href', canonicalUrl);
 
       // JSON-LD structured data (Schema.org QAPage + Question)
       const existingLd = document.getElementById('json-ld-qa');
@@ -1004,14 +1027,13 @@
     let commentsDataCache = [];
 
     async function getAuthToken() {
-      const sessionStr = localStorage.getItem('sb-alwplfsqzrijxqujrpyu-auth-token');
-      if (sessionStr) {
-        try {
-          const session = JSON.parse(sessionStr);
-          if (session && session.access_token) return session.access_token;
-        } catch (e) {}
+      try {
+        const sb = window.MECSupabase.getSupabase();
+        const { data: { session } } = await sb.auth.getSession();
+        return session ? session.access_token : null;
+      } catch (e) {
+        return null;
       }
-      return null;
     }
 
     function renderCommentTree(comments) {
@@ -1163,10 +1185,15 @@
       if (indicator) indicator.style.display = 'none';
     };
 
+    function goToLogin() {
+      const redirect = encodeURIComponent(window.location.href);
+      window.location.href = `/login?redirect=${redirect}`;
+    }
+
     window.toggleCommentReaction = async function(commentId, type) {
       const token = await getAuthToken();
       if (!token) {
-        window.location.href = '/modules/auth/login.html';
+        goToLogin();
         return;
       }
       try {
@@ -1225,7 +1252,7 @@
       if (!text && !audioUrl) return;
       const token = await getAuthToken();
       if (!token) {
-        window.location.href = '/modules/auth/login.html';
+        goToLogin();
         return;
       }
       try {
@@ -1290,9 +1317,9 @@
       const token = await getAuthToken();
       if (!token) {
          chatInput.placeholder = 'Sign In to Comment...';
-         chatInput.onclick = () => window.location.href = '/modules/auth/login.html';
+         chatInput.onclick = () => goToLogin();
          chatInput.readOnly = true;
-         chatSendBtn.onclick = (e) => { e.preventDefault(); window.location.href = '/modules/auth/login.html'; };
+         chatSendBtn.onclick = (e) => { e.preventDefault(); goToLogin(); };
       }
     }
     checkAuthUI();
@@ -1549,7 +1576,10 @@
           localStorage.removeItem('voted_' + pollId);
         } else {
           // Re-fetch to get exact counts after our vote
-          fetchAndRenderPollVotes(true);
+          await fetchAndRenderPollVotes(true);
+
+          // Navigate to explanation view (clean URL)
+          window.location.href = discussionUrl(Q_KEY, `locked_answer=${encodeURIComponent(optionTag)}`);
         }
       } catch (err) {
         console.error('Error submitting vote:', err);

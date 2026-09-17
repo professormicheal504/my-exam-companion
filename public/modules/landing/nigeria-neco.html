@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try { var t = localStorage.getItem('mec_theme') || 'light'; document.documentElement.setAttribute('data-theme', t); } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NECO 2024/2025 — Past Questions, CBT Practice & Study Guide</title>
+  <meta name="description" content="Prepare for NECO with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.">
+  <meta name="keywords" content="NECO, NECO past questions, NECO CBT practice, neco">
+  <link rel="canonical" href="https://www.myexamcompanion.com/ng/landing/neco">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NECO 2024/2025 — Past Questions, CBT Practice & Study Guide">
+  <meta property="og:description" content="Prepare for NECO with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema Markup — Educational Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "NECO Preparation",
+    "description": "Prepare for NECO with real past questions. Free CBT simulator, full exam guide, and expert tips to pass on your first attempt.",
+    "provider": {
+      "@type": "Organization",
+      "name": "My Exam Companion",
+      "url": "https://myexamcompanion.com"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NGN"
+      }
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
+  <link rel="stylesheet" href="../../components/footer.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 15px; }
+    body { background: var(--bg-base); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 90px; flex: 1; display: flex; flex-direction: column; }
+    @media (max-width: 768px) { .main-wrapper { margin-left: 80px; } }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 60%, #1d4ed8 100%);
+      color: white;
+      padding: 56px 32px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      color: white; padding: 6px 14px; border-radius: 999px; font-size: 12.5px;
+      font-weight: 600; letter-spacing: 0.03em; margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 620px; line-height: 1.65; margin-bottom: 32px; }
+    
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: #1e3a5f; padding: 14px 28px; border-radius: 12px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); text-decoration: none; }
+
+    /* ── Page layout ── */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* ── Ad slot ── */
+    .ad-slot {
+      background: var(--bg-card);
+      border: 1px dashed #d1d5db;
+      border-radius: 12px;
+      min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+      color: #9ca3af; font-size: 12px;
+      margin: 28px 0;
+      overflow: hidden;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 48px; }
+    .section h2 {
+      font-size: 22px; font-weight: 800; color: var(--text-primary);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 2px solid #e5e7eb;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section p { color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; font-size: 15px; }
+    .section ul, .section ol { padding-left: 20px; color: var(--text-muted); line-height: 1.9; font-size: 15px; }
+    .section ul li, .section ol li { margin-bottom: 6px; }
+    .section strong { color: var(--text-primary); }
+
+    /* ── CTA card ── */
+    .cta-card {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe; border-radius: 16px;
+      padding: 32px; text-align: center; margin: 40px 0;
+    }
+    [data-theme="dark"] .cta-card { background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.25); }
+    .cta-card h3 { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px; }
+    .cta-card p { color: var(--text-muted); margin-bottom: 20px; font-size: 14.5px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2563eb; color: white; padding: 13px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; transition: all 0.2s; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .cta-btn:hover { background: #1d4ed8; transform: translateY(-2px); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .breadcrumb a { color: #2563eb; }
+    .breadcrumb span { color: #d1d5db; }
+
+    @media (max-width: 600px) {
+      .page-body { padding: 24px 16px 48px; }
+      .hero { padding: 36px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <app-sidebar data-base="/"></app-sidebar>
+  <div class="main-wrapper">
+    <app-topbar data-base="/"></app-topbar>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">🏢 HIGH SCHOOL GRADUATE</div>
+        <h1>NECO 2024/2025<br><span>Past Questions &amp; Study Guide</span></h1>
+        <p>Everything you need to pass NECO in one sitting — past questions, exam tips, and a free CBT simulator.</p>
+        <a href="/modules/cbt_test/core/setup.html?exam_id=nigeria%2Fneco&data_source=ng%2Fexams%2Fhigh_school_graduate%2Fneco%2Findex.json&logo=%2Fassets%2Fcountry%2Fnigeria%2Fneco.png" class="hero-cta">
+          🚀 Start Free CBT Practice
+        </a>
+      </div>
+    </div>
+
+    <main class="page-body">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/modules/index.html">Home</a>
+        <span>›</span>
+        Study Guides
+        <span>›</span>
+        NECO
+      </nav>
+
+      <!-- Ad Slot 1 (Top) -->
+      <div class="ad-slot" id="ad-top">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+      <section class="section">
+  <h2><span class="icon">📋</span> What is NECO?</h2>
+  <p>The National Examinations Council (NECO) is an indigenous Nigerian examination body responsible for conducting the Senior School Certificate Examination (SSCE) for candidates in final-year secondary education. Established by the Federal Government, NECO assesses students' academic readiness for tertiary education and professional training across the nation. Obtaining credit passes in NECO is vital for securing university admission through JAMB and fulfilling entry requirements for polytechnics and colleges of education.</p>
+  <p>Created in April 1999 during General Abdulsalami Abubakar's administration, NECO emerged as a national alternative to the West African Examinations Council (WAEC), ensuring affordable and accessible standardized assessments across Nigeria.</p>
+</section>
+
+<section class="section">
+  <h2><span class="icon">📚</span> Exam Format & Subject Structure</h2>
+  <p>NECO SSCE evaluates candidates across science, arts, and commercial tracks through a comprehensive paper-based testing framework.</p>
+  <ul>
+    <li><strong>Format:</strong> Paper-based test (PBT) featuring Objective (Multiple Choice), Essay (Theory), and Practical components for vocational and science subjects.</li>
+    <li><strong>Duration:</strong> Varies by subject and paper type, typically lasting between 1 hour 30 minutes and 3 hours per session across a six-week timetable.</li>
+    <li><strong>Number of Questions:</strong> Usually 50 to 100 multiple-choice questions for Paper 1, alongside 4 to 6 structured theory or practical prompts for Paper 2 and Paper 3.</li>
+    <li><strong>Subjects Tested:</strong> Candidates register for 8 to 9 subjects, including compulsory core subjects (English Language, Mathematics, Civic Education) plus specialized electives like Physics, Financial Accounting, or Literature-in-English.</li>
+    <li><strong>Scoring:</strong> Evaluated on a 9-point grading scale (A1 to F9), combining raw marks from objective, theory, and practical or continuous assessment scores.</li>
+  </ul>
+</section>
+<div class="ad-slot" id="ad-mid"><span>Advertisement</span></div>
+</section>
+
+<section class="section">
+  <h2><span class="icon">🎯</span> Scoring & Pass Mark</h2>
+  <p>NECO grades candidate performance from A1 (Excellent), B2 (Very Good), B3 (Good), C4 (Credit), C5 (Credit), C6 (Credit), D7 (Pass), E8 (Pass), to F9 (Fail). A credit pass requires achieving a grade between A1 and C6. To secure admission into Nigerian universities, polytechnics, or colleges of education, candidates must achieve a minimum of five (5) credit passes (A1–C6), including compulsory English Language and Mathematics, in no more than two sittings.</p>
+</section>
+
+<section class="section">
+  <h2><span class="icon">🏆</span> Expert Tips to Pass NECO</h2>
+  <ol>
+    <li><strong>Align Preparation with the Official Syllabus:</strong> Base your daily study routine strictly on NECO's published subject syllabus to cover every mandatory topic and avoid studying irrelevant materials.</li>
+    <li><strong>Solve 10-Year Past Questions:</strong> Practice authentic NECO past papers to become familiar with paper structures, objective phrasing styles, and frequently repeated essay topics.</li>
+    <li><strong>Master Practical Science Apparatus:</strong> For science subjects like Physics, Chemistry, and Biology, memorize qualitative analysis tests, apparatus setups, and correct recording formats for practical exams.</li>
+    <li><strong>Develop Time Allocation Skills:</strong> Allocate set minutes per theory question during practice to ensure you leave enough time to review your answers before submitting.</li>
+    <li><strong>Focus on Legible Presentation:</strong> Format theory responses clearly with proper heading labels, clean diagrams, and organized bullet points to assist examiners during marking.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2><span class="icon">❓</span> Frequently Asked Questions</h2>
+  <p><strong>Q: When is NECO conducted?</strong><br>The NECO SSCE Internal for secondary school students runs annually from June to July, while the NECO SSCE External for private candidates takes place around November and December.</p>
+  <p><strong>Q: How do I register for NECO?</strong><br>School candidates must register directly through their NECO-accredited secondary schools, whereas private candidates complete online registration via designated registration centers and accredited cybercafés.</p>
+  <p><strong>Q: Can I use past questions to prepare for NECO?</strong><br>Yes, practicing past questions is essential because NECO frequently replicates structural formats and specific topic concepts across consecutive examination years. It builds familiarity, speeds up problem-solving, and boosts candidate confidence during the actual exam.</p>
+</section>
+
+      <!-- CTA Box -->
+      <div class="cta-card">
+        <h3>🚀 Practice with Real NECO Past Questions</h3>
+        <p>Timed CBT simulator. Detailed explanations. Start free — no registration required.</p>
+        <a href="/modules/cbt_test/core/setup.html?exam_id=nigeria%2Fneco&data_source=ng%2Fexams%2Fhigh_school_graduate%2Fneco%2Findex.json&logo=%2Fassets%2Fcountry%2Fnigeria%2Fneco.png" class="cta-btn">
+          🎓 Start CBT Practice Now
+        </a>
+      </div>
+
+      <!-- Ad Slot 3 (Bottom) -->
+      <div class="ad-slot" id="ad-bottom">
+        <!-- Google AdSense: Replace with your ad code -->
+        <span>Advertisement</span>
+      </div>
+
+    </main>
+
+    <app-footer data-base="/"></app-footer>
+  </div>
+</div>
+
+<script defer src="../../components/topbar.js?v=4"></script>
+<script defer src="../../components/nav.js"></script>
+<script defer src="../../components/sidebar.js?v=20"></script>
+<script defer src="../../components/footer.js"></script>
+
+</body>
+</html>

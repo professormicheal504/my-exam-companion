@@ -2,15 +2,103 @@
 <html lang="en">
 
 <head>
-<script>
-  /* Anti-flash: apply saved theme before first paint */
-  (function() {
-    try {
-      var t = localStorage.getItem('mec_theme') || 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    } catch(e) {}
-  })();
-</script>
+  <script>
+    /* ═══════════════════════════════════════════════════════
+       COUNTRY ROUTER  — runs before any other script
+       Goal: ensure URL is always /{cc} or /{cc}/path
+    ═══════════════════════════════════════════════════════ */
+    (function () {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var urlBefore = window.location.href;
+      
+      console.error('=========================================');
+      console.error('[MEC ROUTER ADVANCED DEBUG: START]');
+      console.error('Timestamp:', new Date().toISOString());
+      console.error('Full URL:', urlBefore);
+      console.error('Pathname:', path);
+      console.error('Search params:', search);
+      console.error('Referrer:', document.referrer);
+      console.error('LocalStorage mec_country:', localStorage.getItem('mec_country'));
+      console.error('LocalStorage mec_country_selected:', localStorage.getItem('mec_country_selected'));
+      console.error('History length:', window.history.length);
+
+      if (path.endsWith('/index.html') || path === '/index.html') {
+        var oldPath = path;
+        path = path.replace(/index\.html$/, '');
+        if (!path) path = '/';
+        console.error('[MEC Router] Stripped index.html from path. Was:', oldPath, 'Now:', path);
+      }
+
+      var VALID_CC = ['ng', 'gh', 'us'];
+      var segments = path.split('/').filter(Boolean);
+      var first    = segments[0] || '';
+
+      console.error('[MEC Router] Segments array:', segments);
+      console.error('[MEC Router] First segment:', first);
+
+      /* ── On a valid country route — store cc and stop ── */
+      if (VALID_CC.includes(first)) {
+        try { localStorage.setItem('mec_country', first); } catch(e) {}
+        console.error('[MEC Router] STOP — valid country route detected:', first);
+        return; /* STOP — we are exactly where we need to be */
+      }
+
+      /* ── On root "/" — show the country selection page; do NOT redirect ── */
+      if (path === '/' || path === '') {
+        document.documentElement.setAttribute('data-show-country-picker', 'true');
+        console.error('[MEC Router] ROOT "/" detected — showing country picker. NOT redirecting.');
+        return;
+      }
+
+      /* ── file: protocol (local dev) — stop ── */
+      if (window.location.protocol === 'file:') {
+        console.error('[MEC Router] STOP — file: protocol detected.');
+        return;
+      }
+
+      /* ── Ambiguous path — prepend the correct country prefix ── */
+      var cc;
+      try {
+        var stored = localStorage.getItem('mec_country');
+        if (VALID_CC.includes(stored)) cc = stored;
+        if (!cc) {
+          var lang = (navigator.language || '').toUpperCase();
+          if (lang.includes('-GH') || lang === 'GH') cc = 'gh';
+          else if (lang.includes('-US') || lang.startsWith('EN-US')) cc = 'us';
+        }
+        if (!cc) cc = 'ng';
+      } catch(e) { cc = 'ng'; }
+
+      var cleanPath = '/' + cc;
+      if (first && first !== 'modules') {
+        cleanPath = '/' + cc + '/' + segments.join('/');
+      }
+      
+      console.error('=========================================');
+      console.error('[MEC ROUTER ADVANCED DEBUG: REDIRECT TRIGGERED]');
+      console.error('Reason: Ambiguous path detected (missing country slug).');
+      console.error('Calculated cc:', cc);
+      console.error('Constructed cleanPath:', cleanPath);
+      console.error('Executing window.location.replace(' + cleanPath + ') in 500ms...');
+      console.error('Stack trace to see who called this:', new Error().stack);
+      console.error('=========================================');
+      
+      // Delay slightly so the console error has time to flush in devtools
+      setTimeout(function() {
+         window.location.replace(cleanPath);
+      }, 500);
+    })();
+
+    /* Anti-flash: apply saved theme before first paint */
+    (function () {
+      try {
+        var t = localStorage.getItem('mec_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="c5447d568e66e6b4d09a1da547673e94663ce87b" content="c5447d568e66e6b4d09a1da547673e94663ce87b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -21,42 +109,42 @@
     content="Nigeria's #1 education platform for CBT practice, past questions, scholarships and exam news.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../components/topbar.css?v=2">
+  <link rel="stylesheet" href="../components/topbar.css?v=13">
   <link rel="stylesheet" href="../components/dark-mode.css">
-  <link rel="stylesheet" href="../components/sidebar.css?v=5">
+  <link rel="stylesheet" href="../components/sidebar.css?v=23">
   <link rel="stylesheet" href="../components/footer.css?v=2">
   <!-- Supabase Core Component (required for topbar.js) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="../components/supabase.js"></script>
-  
+
   <script src="../components/nav.js" defer></script>
   <script src="../components/topbar.js?v=4" defer></script>
-  <script src="../components/sidebar.js?v=11" defer></script>
+  <script src="../components/sidebar.js?v=20" defer></script>
   <script src="../components/footer.js?v=2" defer></script>
   <script>
     // Initialize Supabase so it can parse OAuth tokens from the URL hash after a redirect
     const SUPABASE_URL = 'https://alwplfsqzrijxqujrpyu.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI';
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    
+
     // Listen for Supabase to finish parsing the session asynchronously
     supabaseClient.auth.onAuthStateChange((event, session) => {
       // Clean up the ugly URL hash after successful OAuth login
       if (window.location.hash.includes('access_token=')) {
         window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
       }
-      
+
       // Force the topbar to re-render now that the session is securely in localStorage
       const topbar = document.querySelector('app-topbar');
       if (topbar && typeof topbar.render === 'function') {
         topbar.render();
       }
     });
-    
+
     // Listen for the profile data to update the Welcome Card dynamically
     document.addEventListener('mec-profile-loaded', (e) => {
       const profile = e.detail;
-      
+
       // Update Name
       const nameEl = document.getElementById('welcome-name');
       if (nameEl && profile.display_name) {
@@ -64,11 +152,23 @@
         const capitalizedName = profile.display_name.charAt(0).toUpperCase() + profile.display_name.slice(1);
         nameEl.innerText = `Welcome back, ${capitalizedName}! 👋`;
       }
-      
+
       // Update Matric Number
       const matricEl = document.getElementById('welcome-matric');
       if (matricEl && profile.exam_id) {
         matricEl.innerText = profile.exam_id;
+      }
+
+      // Fetch Wallet Balance
+      if (profile.id && window.MECSupabase) {
+        const sb = window.MECSupabase.getSupabase();
+        sb.from('wallets').select('balance').eq('user_id', profile.id).single()
+          .then(({ data, error }) => {
+            const balEl = document.getElementById('index-wallet-balance');
+            if (balEl && data) {
+              balEl.innerText = `₦${Number(data.balance).toLocaleString('en-NG', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`;
+            }
+          });
       }
     });
   </script>
@@ -138,6 +238,21 @@
       min-height: 100vh;
     }
 
+    /* Desktop + Tablet  reference v3 floating card */
+    @media (min-width: 641px) {
+      body { background-color: #F7F7F7 !important; }
+      .main-wrapper {
+        margin-left: 120px !important;
+        margin-top: 84px !important;
+        background: var(--bg-card) !important;
+        border-radius: 20px 0 0 0 !important;
+        min-height: calc(100vh - 84px) !important;
+      }
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .main-wrapper { margin-left: 96px !important; }
+    }
+
 
     .content-area {
       display: flex;
@@ -169,13 +284,13 @@
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       background: #0e2212;
     }
 
     .ad-banner-img:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
     }
 
     .ad-banner-img img {
@@ -873,6 +988,7 @@
       background: #fff3e0;
       color: #e65100;
     }
+
     /* ═══════════════════════════════════════════════════════
        DARK MODE
     ═══════════════════════════════════════════════════════ */
@@ -880,10 +996,12 @@
       background: var(--bg-base);
       color: var(--text-primary);
     }
+
     /* Change Exam Category to Blue */
     :root[data-theme="dark"] .section-title {
       color: var(--primary-dk);
     }
+
     :root[data-theme="dark"] .feed-header__title,
     :root[data-theme="dark"] .feed-post__author-name,
     :root[data-theme="dark"] .feed-post__title,
@@ -897,6 +1015,7 @@
     :root[data-theme="dark"] .discuss-card__question {
       color: var(--text-primary);
     }
+
     :root[data-theme="dark"] .section-menu,
     :root[data-theme="dark"] .feed-post__time,
     :root[data-theme="dark"] .feed-post__snippet,
@@ -909,6 +1028,7 @@
     :root[data-theme="dark"] .discuss-card__meta {
       color: var(--text-muted);
     }
+
     :root[data-theme="dark"] .test-card,
     :root[data-theme="dark"] .feed-section,
     :root[data-theme="dark"] .right-sidebar,
@@ -920,6 +1040,7 @@
       background: var(--bg-card);
       border-color: var(--border);
     }
+
     :root[data-theme="dark"] .feed-header,
     :root[data-theme="dark"] .feed-post,
     :root[data-theme="dark"] .right-card__header,
@@ -928,6 +1049,7 @@
     :root[data-theme="dark"] .discuss-card {
       border-color: var(--border);
     }
+
     :root[data-theme="dark"] .section-menu:hover,
     :root[data-theme="dark"] .test-card:hover,
     :root[data-theme="dark"] .feed-post:hover,
@@ -939,15 +1061,27 @@
       background: rgba(255, 255, 255, 0.05);
       border-color: var(--border);
     }
+
     :root[data-theme="dark"] .test-card__icon--dark {
-      background: rgba(255,255,255, 0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
+
     :root[data-theme="dark"] .feed-post__thumb,
     :root[data-theme="dark"] .event-card__date-box {
       background: rgba(255, 255, 255, 0.1);
       border-color: var(--border);
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');
+  </script>
 </head>
 
 <body>
@@ -1004,7 +1138,8 @@
                 personalized learning hub is ready. Let's ace your exams today.</p>
             </div>
 
-            <div style="position: relative; z-index: 2; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; justify-content: flex-start; max-width: 100%; margin-top: 8px;">
+            <div
+              style="position: relative; z-index: 2; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; justify-content: flex-start; max-width: 100%; margin-top: 8px;">
 
               <!-- Rank Badge -->
               <div style="
@@ -1023,11 +1158,20 @@
                 white-space: nowrap;
               ">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" width="14" height="14"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                  <div style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" width="14" height="14">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                    <path d="M4 22h16" />
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                  </svg>
+                  <div
+                    style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
                     Rank:</div>
                 </div>
-                <div style="font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                <div
+                  style="font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
                   Novice</div>
               </div>
 
@@ -1048,11 +1192,18 @@
                 white-space: nowrap;
               ">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" width="14" height="14"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
-                  <div style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" width="14" height="14">
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <path d="M12 12h.01" />
+                    <path d="M17 12h.01" />
+                    <path d="M7 12h.01" />
+                  </svg>
+                  <div
+                    style="font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); font-weight: 700;">
                     Bal:</div>
                 </div>
-                <div style="font-size: 14px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                <div id="index-wallet-balance"
+                  style="font-size: 14px; font-weight: 800; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
                   ₦0</div>
               </div>
 
@@ -1104,11 +1255,16 @@
               box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             ">
               <div>
-                <h3 style="font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <h3
+                  style="font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
                   Exam in Progress
                 </h3>
-                <p style="font-size: 13px; color: #64748b; margin: 0;">You have an active <strong id="resume-exam-title">CBT Exam</strong> session that was not submitted.</p>
+                <p style="font-size: 13px; color: #64748b; margin: 0;">You have an active <strong
+                    id="resume-exam-title">CBT Exam</strong> session that was not submitted.</p>
               </div>
               <div style="display: flex; gap: 10px;">
                 <button id="btn-discard-exam" style="
@@ -1121,7 +1277,8 @@
                   font-weight: 600;
                   cursor: pointer;
                   transition: all 0.2s;
-                " onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='#f1f5f9'">Discard</button>
+                " onmouseover="this.style.background='#e2e8f0'"
+                  onmouseout="this.style.background='#f1f5f9'">Discard</button>
                 <button id="btn-resume-exam" style="
                   background: #f59e0b;
                   color: white;
@@ -1133,7 +1290,8 @@
                   cursor: pointer;
                   transition: all 0.2s;
                   box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
-                " onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">Resume Now →</button>
+                " onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">Resume Now
+                  →</button>
               </div>
             </div>
           </div>
@@ -1202,23 +1360,41 @@
             <div id="fb-news-feed">
               <!-- Skeleton loaders while fetching -->
               <div class="fb-skeleton-card">
-                <div class="fb-sk-header"><div class="fb-sk-avatar"></div><div class="fb-sk-meta"><div class="fb-sk-line" style="width:60%"></div><div class="fb-sk-line" style="width:35%"></div></div></div>
-                <div class="fb-sk-line" style="width:90%"></div><div class="fb-sk-line" style="width:75%"></div><div class="fb-sk-img"></div>
+                <div class="fb-sk-header">
+                  <div class="fb-sk-avatar"></div>
+                  <div class="fb-sk-meta">
+                    <div class="fb-sk-line" style="width:60%"></div>
+                    <div class="fb-sk-line" style="width:35%"></div>
+                  </div>
+                </div>
+                <div class="fb-sk-line" style="width:90%"></div>
+                <div class="fb-sk-line" style="width:75%"></div>
+                <div class="fb-sk-img"></div>
               </div>
               <div class="fb-skeleton-card">
-                <div class="fb-sk-header"><div class="fb-sk-avatar"></div><div class="fb-sk-meta"><div class="fb-sk-line" style="width:55%"></div><div class="fb-sk-line" style="width:30%"></div></div></div>
-                <div class="fb-sk-line" style="width:85%"></div><div class="fb-sk-line" style="width:60%"></div><div class="fb-sk-img"></div>
+                <div class="fb-sk-header">
+                  <div class="fb-sk-avatar"></div>
+                  <div class="fb-sk-meta">
+                    <div class="fb-sk-line" style="width:55%"></div>
+                    <div class="fb-sk-line" style="width:30%"></div>
+                  </div>
+                </div>
+                <div class="fb-sk-line" style="width:85%"></div>
+                <div class="fb-sk-line" style="width:60%"></div>
+                <div class="fb-sk-img"></div>
               </div>
             </div>
 
             <!-- Pagination Controls -->
-            <div id="fb-news-pagination" style="display:none; display:flex; gap:12px; margin-top:20px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+            <div id="fb-news-pagination"
+              style="display:none; display:flex; gap:12px; margin-top:20px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
               <button id="btn-news-prev" onclick="newsGoToPage(newsCurrentPage - 1)" style="
                 display:flex; align-items:center; gap:6px; padding:10px 20px;
                 background:var(--bg-card); border:1.5px solid var(--border); border-radius:10px;
                 font-size:13px; font-weight:700; color:var(--text-muted); cursor:pointer;
                 transition:all 0.2s; font-family:inherit;
-              " onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+              " onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb'"
+                onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
                 ← Previous
               </button>
               <div id="fb-page-dots" style="display:flex; gap:6px; align-items:center;"></div>
@@ -1235,7 +1411,9 @@
 
           <style>
             /* ── Facebook-style News Feed ──────────────────────────────── */
-            .fb-news-section { margin-bottom: 32px; }
+            .fb-news-section {
+              margin-bottom: 32px;
+            }
 
             .fb-post-card {
               background: var(--bg-card);
@@ -1243,108 +1421,266 @@
               border-radius: 16px;
               margin-bottom: 16px;
               overflow: hidden;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
               transition: box-shadow 0.25s ease, transform 0.25s ease;
               animation: fbFadeIn 0.4s ease;
             }
+
             .fb-post-card:hover {
-              box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
               transform: translateY(-2px);
             }
-            @keyframes fbFadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+            @keyframes fbFadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(12px);
+              }
+
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
 
             .fb-post-header {
-              display: flex; align-items: center; gap: 12px;
+              display: flex;
+              align-items: center;
+              gap: 12px;
               padding: 16px 20px 0;
             }
+
             .fb-post-avatar {
-              width: 42px; height: 42px; border-radius: 50%;
+              width: 42px;
+              height: 42px;
+              border-radius: 50%;
               background: linear-gradient(135deg, #2563eb, #7c3aed);
-              display: flex; align-items: center; justify-content: center;
-              color: white; font-size: 16px; font-weight: 800; flex-shrink: 0;
-            }
-            .fb-post-meta { flex: 1; min-width: 0; }
-            .fb-post-source {
-              font-size: 14px; font-weight: 700; color: var(--text-primary);
-              white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            }
-            .fb-post-time { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
-            .fb-post-cat {
-              font-size: 10px; font-weight: 800; text-transform: uppercase;
-              letter-spacing: 0.06em; padding: 2px 8px; border-radius: 99px;
-              background: #eff6ff; color: #2563eb; flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 16px;
+              font-weight: 800;
+              flex-shrink: 0;
             }
 
-            .fb-post-body { padding: 12px 20px; }
-            .fb-post-title {
-              font-size: 15px; font-weight: 700; color: var(--text-primary);
-              line-height: 1.45; margin-bottom: 6px;
+            .fb-post-meta {
+              flex: 1;
+              min-width: 0;
             }
+
+            .fb-post-source {
+              font-size: 14px;
+              font-weight: 700;
+              color: var(--text-primary);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .fb-post-time {
+              font-size: 12px;
+              color: var(--text-muted);
+              margin-top: 1px;
+            }
+
+            .fb-post-cat {
+              font-size: 10px;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              padding: 2px 8px;
+              border-radius: 99px;
+              background: #eff6ff;
+              color: #2563eb;
+              flex-shrink: 0;
+            }
+
+            .fb-post-body {
+              padding: 12px 20px;
+            }
+
+            .fb-post-title {
+              font-size: 15px;
+              font-weight: 700;
+              color: var(--text-primary);
+              line-height: 1.45;
+              margin-bottom: 6px;
+            }
+
             .fb-post-desc {
-              font-size: 13px; color: var(--text-muted); line-height: 1.6;
-              display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+              font-size: 13px;
+              color: var(--text-muted);
+              line-height: 1.6;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
             }
 
             .fb-post-img {
-              width: 100%; max-height: 240px; object-fit: cover;
-              border-top: 1px solid var(--border); display: block;
+              width: 100%;
+              max-height: 240px;
+              object-fit: cover;
+              border-top: 1px solid var(--border);
+              display: block;
             }
 
             .fb-post-stats {
-              display: flex; align-items: center; justify-content: space-between;
-              padding: 8px 20px; font-size: 12px; color: var(--text-muted);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 8px 20px;
+              font-size: 12px;
+              color: var(--text-muted);
               border-bottom: 1px solid var(--border);
             }
 
             .fb-post-actions {
-              display: flex; gap: 0;
+              display: flex;
+              gap: 0;
             }
+
             .fb-action-btn {
-              flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-              padding: 10px 8px; font-size: 13px; font-weight: 600; color: var(--text-muted);
-              cursor: pointer; transition: all 0.2s; background: none; border: none;
-              font-family: inherit; border-radius: 0;
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 6px;
+              padding: 10px 8px;
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--text-muted);
+              cursor: pointer;
+              transition: all 0.2s;
+              background: none;
+              border: none;
+              font-family: inherit;
+              border-radius: 0;
             }
-            .fb-action-btn:hover { background: var(--bg-base); color: #2563eb; }
-            .fb-action-btn.liked { color: #ef4444; }
-            .fb-action-btn svg { width: 17px; height: 17px; }
+
+            .fb-action-btn:hover {
+              background: var(--bg-base);
+              color: #2563eb;
+            }
+
+            .fb-action-btn.liked {
+              color: #ef4444;
+            }
+
+            .fb-action-btn svg {
+              width: 17px;
+              height: 17px;
+            }
 
             .fb-read-more {
-              display: inline-block; margin: 0 20px 16px; padding: 8px 18px;
-              background: #eff6ff; color: #2563eb; border-radius: 8px;
-              font-size: 12px; font-weight: 700; text-decoration: none;
+              display: inline-block;
+              margin: 0 20px 16px;
+              padding: 8px 18px;
+              background: #eff6ff;
+              color: #2563eb;
+              border-radius: 8px;
+              font-size: 12px;
+              font-weight: 700;
+              text-decoration: none;
               transition: all 0.2s;
             }
-            .fb-read-more:hover { background: #2563eb; color: white; }
+
+            .fb-read-more:hover {
+              background: #2563eb;
+              color: white;
+            }
 
             /* Skeleton loaders */
             .fb-skeleton-card {
-              background: var(--bg-card); border: 1px solid var(--border);
-              border-radius: 16px; padding: 16px 20px; margin-bottom: 16px;
+              background: var(--bg-card);
+              border: 1px solid var(--border);
+              border-radius: 16px;
+              padding: 16px 20px;
+              margin-bottom: 16px;
             }
-            .fb-sk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-            .fb-sk-avatar { width: 42px; height: 42px; border-radius: 50%; background: #f0f0f0; animation: fbPulse 1.5s infinite; flex-shrink: 0; }
-            .fb-sk-meta { flex: 1; display: flex; flex-direction: column; gap: 6px; }
-            .fb-sk-line { height: 13px; background: #f0f0f0; border-radius: 4px; animation: fbPulse 1.5s infinite; margin-bottom: 6px; }
-            .fb-sk-img { height: 160px; background: #f0f0f0; border-radius: 10px; margin-top: 10px; animation: fbPulse 1.5s infinite; }
-            @keyframes fbPulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
+
+            .fb-sk-header {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              margin-bottom: 14px;
+            }
+
+            .fb-sk-avatar {
+              width: 42px;
+              height: 42px;
+              border-radius: 50%;
+              background: #f0f0f0;
+              animation: fbPulse 1.5s infinite;
+              flex-shrink: 0;
+            }
+
+            .fb-sk-meta {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+            }
+
+            .fb-sk-line {
+              height: 13px;
+              background: #f0f0f0;
+              border-radius: 4px;
+              animation: fbPulse 1.5s infinite;
+              margin-bottom: 6px;
+            }
+
+            .fb-sk-img {
+              height: 160px;
+              background: #f0f0f0;
+              border-radius: 10px;
+              margin-top: 10px;
+              animation: fbPulse 1.5s infinite;
+            }
+
+            @keyframes fbPulse {
+
+              0%,
+              100% {
+                opacity: 1
+              }
+
+              50% {
+                opacity: 0.45
+              }
+            }
 
             /* Dark mode overrides */
-            [data-theme="dark"] .fb-post-cat { background: rgba(37,99,235,0.15); color: #60a5fa; }
-            [data-theme="dark"] .fb-read-more { background: rgba(37,99,235,0.15); color: #60a5fa; }
-            [data-theme="dark"] .fb-read-more:hover { background: #2563eb; color: white; }
+            [data-theme="dark"] .fb-post-cat {
+              background: rgba(37, 99, 235, 0.15);
+              color: #60a5fa;
+            }
+
+            [data-theme="dark"] .fb-read-more {
+              background: rgba(37, 99, 235, 0.15);
+              color: #60a5fa;
+            }
+
+            [data-theme="dark"] .fb-read-more:hover {
+              background: #2563eb;
+              color: white;
+            }
+
             [data-theme="dark"] .fb-sk-avatar,
             [data-theme="dark"] .fb-sk-line,
-            [data-theme="dark"] .fb-sk-img { background: #334155; }
+            [data-theme="dark"] .fb-sk-img {
+              background: #334155;
+            }
           </style>
 
           <script>
             (function () {
               const ARTICLES_PER_PAGE = 5;
               const JSDELIVR_URL = 'https://cdn.jsdelivr.net/gh/professormicheal504/my-exam-companion@main/public/data/news.json';
-              const LOCAL_URL   = '../data/news.json';
+              const LOCAL_URL = '../data/news.json';
 
-              let allArticles    = [];
+              let allArticles = [];
               let newsCurrentPage = 1; // expose to global
               window.newsCurrentPage = 1;
 
@@ -1352,7 +1688,7 @@
                 const date = new Date(dateStr.replace(' ', 'T') + (dateStr.includes('T') ? '' : 'Z'));
                 if (isNaN(date)) return 'Recently';
                 const diff = Math.floor((Date.now() - date) / 1000);
-                if (diff < 60)   return 'just now';
+                if (diff < 60) return 'just now';
                 if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
                 if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
                 return `${Math.floor(diff / 86400)}d ago`;
@@ -1382,11 +1718,11 @@
                   card.className = 'fb-post-card';
                   card.style.animationDelay = `${i * 0.07}s`;
 
-                  const likes    = fakeCount(a.title, 800, 40);
+                  const likes = fakeCount(a.title, 800, 40);
                   const comments = fakeCount(a.title + 'c', 150, 5);
-                  const shares   = fakeCount(a.title + 's', 80, 2);
-                  const srcInit  = initials(a.source);
-                  const srcColor = ['#2563eb,#7c3aed','#0891b2,#059669','#dc2626,#f59e0b','#7c3aed,#ec4899'][Math.abs(a.source.charCodeAt(0)) % 4];
+                  const shares = fakeCount(a.title + 's', 80, 2);
+                  const srcInit = initials(a.source);
+                  const srcColor = ['#2563eb,#7c3aed', '#0891b2,#059669', '#dc2626,#f59e0b', '#7c3aed,#ec4899'][Math.abs(a.source.charCodeAt(0)) % 4];
 
                   card.innerHTML = `
                     <div class="fb-post-header">
@@ -1407,7 +1743,7 @@
                       <span>${comments} comments · ${shares} shares</span>
                     </div>
                     <div class="fb-post-actions">
-                      <button class="fb-action-btn" id="like-btn-${start+i}" onclick="toggleLike(this, ${start+i})">
+                      <button class="fb-action-btn" id="like-btn-${start + i}" onclick="toggleLike(this, ${start + i})">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
                         Like
                       </button>
@@ -1439,31 +1775,31 @@
                 dots.innerHTML = '';
                 for (let p = 1; p <= totalPages; p++) {
                   const dot = document.createElement('div');
-                  dot.style.cssText = `width:${p===page?'20px':'8px'};height:8px;border-radius:99px;transition:all 0.3s;cursor:pointer;background:${p===page?'#2563eb':'#d1d5db'}`;
+                  dot.style.cssText = `width:${p === page ? '20px' : '8px'};height:8px;border-radius:99px;transition:all 0.3s;cursor:pointer;background:${p === page ? '#2563eb' : '#d1d5db'}`;
                   dot.onclick = () => newsGoToPage(p);
                   dots.appendChild(dot);
                 }
               }
 
-              window.newsGoToPage = function(page) {
+              window.newsGoToPage = function (page) {
                 const totalPages = Math.ceil(allArticles.length / ARTICLES_PER_PAGE);
                 if (page < 1 || page > totalPages) return;
                 renderFeed(page);
                 document.querySelector('.fb-news-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               };
 
-              window.toggleLike = function(btn, idx) {
+              window.toggleLike = function (btn, idx) {
                 btn.classList.toggle('liked');
                 const isLiked = btn.classList.contains('liked');
                 btn.style.color = isLiked ? '#ef4444' : '';
                 btn.querySelector('svg').setAttribute('fill', isLiked ? '#ef4444' : 'none');
               };
 
-              window.shareArticle = function(encodedUrl, encodedTitle) {
-                const url   = decodeURIComponent(encodedUrl);
+              window.shareArticle = function (encodedUrl, encodedTitle) {
+                const url = decodeURIComponent(encodedUrl);
                 const title = decodeURIComponent(encodedTitle);
                 if (navigator.share) {
-                  navigator.share({ title, url }).catch(() => {});
+                  navigator.share({ title, url }).catch(() => { });
                 } else {
                   navigator.clipboard.writeText(url).then(() => {
                     alert('Link copied to clipboard!');
@@ -1642,8 +1978,10 @@
             </div>
           </div>
         </aside>
-
       </div><!-- end content-area -->
+
+
+
       <app-footer data-base="../"></app-footer>
     </div><!-- end main-wrapper -->
   </div><!-- end app -->
@@ -1675,89 +2013,103 @@
         if (config && config.dashboard_modules) {
           container.innerHTML = '';
           const colors = ['orange', 'green', 'dark', 'lime'];
-          
+
           // Define category order and mapping
           const order = [
-             { id: 'university_entrance', title: 'University Entrance' },
-             { id: 'post_graduate', title: 'Post Graduate' },
-             { id: 'high_school_graduate', title: 'High School Graduate' },
-             { id: 'university', title: 'University' },
-             { id: 'other', title: 'Other' }
+            { id: 'university_entrance', title: 'University Entrance' },
+            { id: 'post_utme', title: 'Post UTME' },
+            { id: 'post_graduate', title: 'Post Graduate' },
+            { id: 'high_school_graduate', title: 'High School Graduate' },
+            { id: 'university', title: 'University' },
+            { id: 'other', title: 'Other' }
           ];
 
           // Group modules by their folder path
           const grouped = {};
           config.dashboard_modules.forEach(mod => {
-             let category = 'other';
-             if (mod.data_source) {
-                const parts = mod.data_source.split('/');
-                if (parts.length > 2 && parts[1] === 'exams') {
-                   category = parts[2];
+            let category = 'other';
+            if (mod.data_source) {
+              const parts = mod.data_source.split('/');
+              if (parts.length > 2 && parts[1] === 'exams') {
+                category = parts[2];
+                if (parts.length > 3 && parts[3] === 'post_utme') {
+                  category = 'post_utme';
                 }
-             }
-             if (!grouped[category]) grouped[category] = [];
-             grouped[category].push(mod);
+              }
+            }
+            if (!grouped[category]) grouped[category] = [];
+            grouped[category].push(mod);
           });
-          
+
           let foundAny = false;
 
           order.forEach(cat => {
-             if (grouped[cat.id] && grouped[cat.id].length > 0) {
-                 foundAny = true;
-                 
-                 // Create Section Header
-                 const sectionHeader = document.createElement('div');
-                 sectionHeader.className = 'section-header';
-                 sectionHeader.innerHTML = `
+            if (grouped[cat.id] && grouped[cat.id].length > 0) {
+              foundAny = true;
+
+              // Create Section Header
+              const sectionHeader = document.createElement('div');
+              sectionHeader.className = 'section-header';
+              sectionHeader.innerHTML = `
                    <h2 class="section-title">${cat.title}</h2>
                    <span class="section-menu">···</span>
                  `;
-                 container.appendChild(sectionHeader);
-                 
-                 // Create Grid
-                 const testGrid = document.createElement('div');
-                 testGrid.className = 'test-grid';
-                 
-                 grouped[cat.id].forEach((mod, index) => {
-                    const colorClass = `test-card__icon--${colors[index % colors.length]}`;
-                    const a = document.createElement('a');
+              container.appendChild(sectionHeader);
 
-                    // Smart routing
-                    let setupPath = cat.id === 'university' 
-                        ? '/modules/cbt_test/university_exam/university_exam.html' 
-                        : '/modules/cbt_test/core/setup.html';
-                        
-                    if (window.location.pathname.includes('/public/modules/')) {
-                      setupPath = `/public${setupPath}`;
-                    }
-                    
-                    const logoParam = mod.logo ? `&logo=${encodeURIComponent(mod.logo)}` : '';
-                    if (cat.id === 'university') {
-                      a.href = setupPath;
-                    } else {
-                      const dataSource = mod.data_source ? `&data_source=${encodeURIComponent(mod.data_source)}` : '';
-                      a.href = `${setupPath}?exam_id=${mod.id}${dataSource}${logoParam}`;
-                    }
-                    a.style.textDecoration = 'none';
-                    a.style.color = 'inherit';
+              // Create Grid
+              const testGrid = document.createElement('div');
+              testGrid.className = 'test-grid';
 
-                     // Map exam_body → relative logo path (relative to /modules/)
-                     const LOGO_MAP = {
-                       'jamb': '../assets/country/nigeria/jamb.png',
-                       'waec': '../assets/country/nigeria/waec.png',
-                       'neco': '../assets/country/nigeria/neco.png',
-                       'sat':  '../assets/country/usa/sat.png',
-                       'southern_delta_university_sdu': '../assets/country/nigeria/southern_delta_university.webp',
-                       'southern_delta_university': '../assets/country/nigeria/southern_delta_university.webp',
-                     };
-                     const logoSrc = LOGO_MAP[mod.exam_body] || null;
-                     const hasLogo = !!logoSrc;
-                     const iconHtml = hasLogo
-                       ? `<img src="${logoSrc}" alt="${mod.display_name}" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">`
-                       : (mod.icon || '📝');
-                     const iconClass = hasLogo ? 'test-card__icon' : `test-card__icon ${colorClass}`;
+              grouped[cat.id].forEach((mod, index) => {
+                const colorClass = `test-card__icon--${colors[index % colors.length]}`;
+                const a = document.createElement('a');
 
-                    a.innerHTML = `
+                // Smart routing
+                const cc = (window.MEC_NAV && window.MEC_NAV.getCountry) ? window.MEC_NAV.getCountry() : 'ng';
+                let setupPath = `/${cc}/test`;
+                let localPath = `/public/modules/cbt_test/core/setup.html`;
+                
+                if (cat.id === 'university') {
+                  setupPath = `/${cc}/test/university`;
+                  localPath = `/public/modules/cbt_test/university_exam/university_exam.html`;
+                } else if (cat.id === 'post_utme') {
+                  setupPath = `/${cc}/test/premium`;
+                  localPath = `/public/modules/cbt_test/core/setup_premium.html`;
+                }
+
+                if (window.location.pathname.includes('/public/modules/')) {
+                  setupPath = localPath;
+                }
+
+                const logoParam = mod.logo ? `&logo=${encodeURIComponent(mod.logo)}` : '';
+                if (cat.id === 'university') {
+                  a.href = setupPath;
+                } else {
+                  const dataSource = mod.data_source ? `&data_source=${encodeURIComponent(mod.data_source)}` : '';
+                  a.href = `${setupPath}?exam_id=${mod.id}${dataSource}${logoParam}`;
+                }
+                a.style.textDecoration = 'none';
+                a.style.color = 'inherit';
+
+                // Map exam_body → relative logo path (relative to /modules/)
+                const LOGO_MAP = {
+                  'jamb': '../assets/country/nigeria/jamb.png',
+                  'waec': '../assets/country/nigeria/waec.png',
+                  'neco': '../assets/country/nigeria/neco.png',
+                  'sat': '../assets/country/usa/sat.png',
+                  'southern_delta_university_sdu': '../assets/country/nigeria/southern_delta_university.webp',
+                  'southern_delta_university': '../assets/country/nigeria/southern_delta_university.webp',
+                  'uniben': '../assets/country/nigeria/university_of_benin.webp',
+                  'unilag': '../assets/country/nigeria/university_of_lagos.webp',
+                };
+                const logoSrc = LOGO_MAP[mod.exam_body] || null;
+                const hasLogo = !!logoSrc;
+                const iconHtml = hasLogo
+                  ? `<img src="${logoSrc}" alt="${mod.display_name}" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">`
+                  : (mod.icon || '📝');
+                const iconClass = hasLogo ? 'test-card__icon' : `test-card__icon ${colorClass}`;
+
+                a.innerHTML = `
                       <div class="test-card">
                         <div class="${iconClass}">${iconHtml}</div>
                         <div class="test-card__body">
@@ -1766,11 +2118,11 @@
                         </div>
                       </div>
                     `;
-                    testGrid.appendChild(a);
-                 });
-                 
-                 container.appendChild(testGrid);
-             }
+                testGrid.appendChild(a);
+              });
+
+              container.appendChild(testGrid);
+            }
           });
 
           if (!foundAny) {
@@ -1803,7 +2155,7 @@
           if (activeState.exam_id) {
             const container = document.getElementById('resume-banner-container');
             const titleEl = document.getElementById('resume-exam-title');
-            
+
             // Format title
             titleEl.textContent = activeState.exam_id.toUpperCase().replace(/_/g, ' ');
             container.style.display = 'block';
@@ -1817,48 +2169,96 @@
 
             document.getElementById('btn-resume-exam').addEventListener('click', () => {
               // Redirect to cbt_player with the saved query params
-              window.location.href = `./cbt_test/core/cbt_player.html${activeState.queryParams || '?exam_id=' + activeState.exam_id}`;
+              window.location.href = window.MEC_NAV.href('cbt_player') + (activeState.queryParams || '?exam_id=' + activeState.exam_id);
             });
           }
         } catch (e) {
           console.error("Failed to parse active state", e);
         }
       }
-      // First-time Country Selection Modal Logic
+      // ── Country Selection Logic ──────────────────────────────────────────
+      // Case 1: User landed on root "/" — show full-screen picker and redirect to /{cc}
+      // Case 2: First-time user on a country URL — show modal overlay (no redirect needed)
+      const isRootPicker  = document.documentElement.getAttribute('data-show-country-picker') === 'true';
       const hasSelectedCountry = localStorage.getItem('mec_country_selected');
-      if (!hasSelectedCountry) {
-        const modalHtml = `
-          <div id="first-time-country-modal" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
-            <div style="background: var(--bg-card); width: 90%; max-width: 400px; border-radius: 16px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);">
-              <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--text-primary);">Welcome! 👋</h2>
-              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Please select your country to continue.</p>
-              <div style="background: #fff3e0; border-left: 4px solid #f97316; padding: 12px; border-radius: 4px; margin-bottom: 20px;">
-                <p style="font-size: 12.5px; color: #9a3412; margin: 0; font-weight: 500;">
-                  <strong>Note:</strong> Selecting the wrong country means you may not see the exams you are looking for!
-                </p>
+
+      if (isRootPicker || !hasSelectedCountry) {
+        // Determine if we should redirect after selection or just load modules
+        const shouldRedirect = isRootPicker;
+
+        const COUNTRIES = [
+          { code: 'ng', flag: '🇳🇬', name: 'Nigeria',       desc: 'JAMB, WAEC, NECO, Post-UTME' },
+          { code: 'gh', flag: '🇬🇭', name: 'Ghana',         desc: 'WAEC BECE & WASSCE, Uni Entrance' },
+          { code: 'us', flag: '🇺🇸', name: 'United States', desc: 'SAT, ACT, AP Exams' },
+        ];
+
+        const optionsHtml = COUNTRIES.map(c => `
+          <option value="${c.code}">${c.flag} ${c.name} - ${c.desc}</option>
+        `).join('');
+
+        const pickerHtml = `
+          <div id="mec-country-picker" style="
+            position:fixed; inset:0; z-index:9999;
+            background:rgba(0,0,0,0.5); backdrop-filter:blur(4px);
+            display:flex; align-items:center; justify-content:center;
+            padding:20px;
+          ">
+            <div style="
+              background:var(--bg-card, #ffffff);
+              border:1px solid var(--border, #e2e8f0);
+              border-radius:16px; padding:32px;
+              width:100%; max-width:400px;
+              box-shadow:0 10px 25px rgba(0,0,0,0.1);
+              text-align:center; font-family:inherit;
+            ">
+              <div style="font-size:28px; margin-bottom:16px;">🌍</div>
+              <h1 style="font-size:20px;font-weight:700;color:var(--text-primary, #111827);margin:0 0 8px 0;">Select Your Region</h1>
+              <p style="font-size:14px;color:var(--text-muted, #6b7280);margin:0 0 24px 0;">Choose your country to access the relevant exams and curriculum.</p>
+              
+              <div style="text-align:left; margin-bottom: 24px;">
+                <select id="mec-country-select" style="
+                  width:100%; appearance:none;
+                  background: var(--bg-base, #f8fafc) url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E') no-repeat right 12px center;
+                  border: 1px solid var(--border, #e2e8f0);
+                  border-radius: 10px;
+                  padding: 12px 40px 12px 16px;
+                  font-size: 14px; color: var(--text-primary, #111827);
+                  outline: none; cursor:pointer; font-family:inherit;
+                ">
+                  ${optionsHtml}
+                </select>
               </div>
-              <select id="first-time-country-select" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); font-size: 15px; font-weight: 500; background: var(--bg-base); color: var(--text-primary); outline: none; margin-bottom: 20px; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22none%22 stroke=%22currentColor%22 viewBox=%220 0 24 24%22 xmlns=%22http://www.w3.org/2000/svg%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222%22 d=%22M19 9l-7 7-7-7%22></path></svg>'); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px;">
-                <option value="ng">Nigeria (NG)</option>
-                <option value="gh">Ghana (GH)</option>
-                <option value="us">United States (US)</option>
-              </select>
-              <button id="btn-save-country" style="width: 100%; padding: 14px; background: #2563eb; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s;">Continue</button>
+
+              <button id="mec-country-submit" style="
+                width:100%; padding:12px;
+                background:#2563eb; color:white;
+                border:none; border-radius:10px;
+                font-size:14px; font-weight:600;
+                cursor:pointer; transition:background 0.2s; font-family:inherit;
+              " onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                Continue
+              </button>
             </div>
           </div>
         `;
-        document.body.insertAdjacentHTML('beforeend', modalHtml);
-        
-        document.getElementById('btn-save-country').addEventListener('click', () => {
-          const selected = document.getElementById('first-time-country-select').value;
+
+        document.body.insertAdjacentHTML('beforeend', pickerHtml);
+
+        document.getElementById('mec-country-submit').addEventListener('click', () => {
+          const selected = document.getElementById('mec-country-select').value;
           localStorage.setItem('mec_country', selected);
           localStorage.setItem('mec_country_selected', 'true');
-          
-          document.getElementById('first-time-country-modal').remove();
-          
-          // Trigger the app-wide change
+          document.getElementById('mec-country-picker').remove();
+
+          if (shouldRedirect) {
+            // Root "/" — silently update URL to /{cc} using pushState.
+            // This avoids a server round-trip and the Cloudflare trailing-slash 404.
+            try { history.pushState({}, '', '/' + selected); } catch(e) {}
+          }
+
+          // Load modules and broadcast the country change (works for both cases)
+          loadCountryModules(selected);
           document.dispatchEvent(new CustomEvent('country-changed', { detail: { code: selected } }));
-          
-          // Try to sync the topbar selector if it's there
           const topbarSelect = document.querySelector('app-topbar')?.shadowRoot?.querySelector('#country-select');
           if (topbarSelect) topbarSelect.value = selected;
         });

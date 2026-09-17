@@ -68,7 +68,8 @@ const FLYOUT_IC = {
   tutor: _svg('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'),
   student: _svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
   // ── More
-  chat: _svg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),
+  wallet: _svg('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 13a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/><path d="M2 10h20"/>'),
+  chat: _svg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),  
   rank: _svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>'),
   friend_score: _svg('<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
   history: _svg('<polyline points="12 8 12 12 14 14"/><path d="M3.05 11a9 9 0 1 0 .5-3m-.5 3V8m0 3H6"/>'),
@@ -125,6 +126,13 @@ const MEC_MENUS = {
         items: [
           { id: 'chat', icon: FLYOUT_IC.chat, label: 'Chat', dim: true },
           { id: 'rank', icon: FLYOUT_IC.rank, label: 'Global Rank' },
+        ]
+      },
+      { divider: true },
+      {
+        title: 'Wallet',
+        items: [
+          { id: 'top_up', icon: FLYOUT_IC.wallet, label: 'Top Up Wallet', hl: true },
         ]
       },
       { divider: true },
@@ -199,6 +207,13 @@ class AppSidebar extends HTMLElement {
     // Falls back to the data-active attribute, then to 'home'.
     if (window.MEC_NAV) {
       this.activeId = window.MEC_NAV.getActiveSection();
+      // Top-up pages live under section 'more' in the route registry, which would
+      // highlight the "More" flyout button. Override to 'top_up' so the dedicated
+      // "Top Up" bottom item is highlighted instead.
+      const _topUpPageIds = ['top_up', 'top_up_amount', 'top_up_checkout'];
+      if (_topUpPageIds.includes(window.MEC_NAV.getActivePageId())) {
+        this.activeId = 'top_up';
+      }
     } else {
       this.activeId = this.getAttribute('data-active') || 'home';
     }
@@ -255,7 +270,7 @@ class AppSidebar extends HTMLElement {
         window.location.href = window.MEC_NAV.href('home');
       } else {
         // Fallback to home
-        window.location.href = this.base + 'modules/index.html';
+        window.location.href = window.MEC_NAV.href('home');
       }
     }
   }
@@ -313,6 +328,7 @@ class AppSidebar extends HTMLElement {
       more: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>`,
       ai_tutor: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="2" y="8" width="20" height="12" rx="2"/><path d="M6 8v4"/><path d="M18 8v4"/><path d="M8 16h8"/></svg>`,
       topup: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>`,
+      pricing: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`,
     };
 
     this.innerHTML = `
@@ -396,10 +412,20 @@ class AppSidebar extends HTMLElement {
 
         <!-- Bottom items -->
         <div class="mec-sidebar__bottom">
-          <div class="mec-sb-item mec-sb-item--topup" title="Topup">
+          <a href="${_h('pricing')}"
+             class="mec-sb-item ${_active('pricing')}"
+             data-id="pricing"
+             title="Pricing">
+            <div class="mec-sb-icon">${IC.pricing}</div>
+            <span class="mec-sb-label">Pricing</span>
+          </a>
+          <a href="${_h('top_up')}"
+             class="mec-sb-item mec-sb-item--topup ${_active('top_up')}"
+             data-id="top_up"
+             title="Top Up Wallet">
             <div class="mec-sb-icon">${IC.topup}</div>
-            <span class="mec-sb-label">Topup</span>
-          </div>
+            <span class="mec-sb-label">Top Up</span>
+          </a>
         </div>
       </aside>
     `;
@@ -512,7 +538,11 @@ class AppSidebar extends HTMLElement {
 
         if (config && config.dashboard_modules && config.dashboard_modules.length) {
           const filteredModules = config.dashboard_modules.filter(m => m.category !== 'university');
-          filteredModules.forEach((mod, i) => {
+          
+          const regularExams = filteredModules.filter(m => m.renderer !== 'cbt_premium_engine' || !m.data_source.includes('post_utme'));
+          const hasPostUtme = filteredModules.some(m => m.renderer === 'cbt_premium_engine' && m.data_source.includes('post_utme'));
+
+          regularExams.forEach((mod, i) => {
             if (i === 0) html += `<div class="mec-flyout-div"></div>`;
             const params = { exam_id: mod.id };
             if (mod.data_source) params.data_source = mod.data_source;
@@ -521,8 +551,16 @@ class AppSidebar extends HTMLElement {
             html += `<div class="mec-flyout-icon">${FLYOUT_IC.cbt_exam}</div>`;
             html += `<span>${mod.display_name} CBT Exam</span>`;
             html += `</a>`;
-            if (i < filteredModules.length - 1) html += `<div class="mec-flyout-div"></div>`;
+            if (i < regularExams.length - 1) html += `<div class="mec-flyout-div"></div>`;
           });
+
+          if (hasPostUtme) {
+            html += `<div class="mec-flyout-div"></div>`;
+            html += `<a href="${_mecHrefSafe('post_utme')}" class="mec-flyout-item">`;
+            html += `<div class="mec-flyout-icon">${FLYOUT_IC.post_utme}</div>`;
+            html += `<span>Post UTME</span>`;
+            html += `</a>`;
+          }
         }
 
         // University Exam — Nigeria only

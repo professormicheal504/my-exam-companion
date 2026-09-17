@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <script>
   /* Anti-flash: apply saved theme before first paint */
@@ -12,29 +13,42 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading Article... | MyExamHub</title>
-  <meta name="description" content="">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
+  <title>Blog Post | My Exam Companion</title>
+  <meta name="description" content="Read this article on My Exam Companion.">
+  <meta property="og:title" content="Blog Post">
+  <meta property="og:description" content="Read this article on My Exam Companion.">
   <meta property="og:type" content="article">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 
   <!-- App Shell -->
-  <link rel="stylesheet" href="../../components/topbar.css">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
   <link rel="stylesheet" href="../../components/sidebar.css?v=4">
   <link rel="stylesheet" href="../../components/footer.css">
 
+  <!-- JSON-LD Article Schema for Google -->
+  <script type="application/ld+json" id="seoSchema">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Blog Post",
+    "publisher": {
+      "@type": "Organization",
+      "name": "My Exam Companion",
+      "logo": { "@type": "ImageObject", "url": "https://www.myexamcompanion.com/favicon.ico" }
+    }
+  }
+  </script>
+
   <style>
     /* == Reset ================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
-    body { background: var(--bg-card); color: #111111; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg-base, #F7F7F7); color: var(--text-primary, #1a1a1a); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
     button { background: none; border: none; cursor: pointer; font-family: inherit; }
@@ -45,552 +59,205 @@
     @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
 
     /* == Reading Progress Bar ==================================== */
-    .progress-bar-container { position: sticky; top: 56px; width: 100%; height: 3px; background: transparent; z-index: 50; }
-    .progress-bar { height: 100%; background: #e52828; width: 0%; transition: width 0.1s ease; }
+    .progress-bar-container { position: sticky; top: 0; width: 100%; height: 3px; background: transparent; z-index: 500; }
+    .progress-bar { height: 100%; background: #2563eb; width: 0%; transition: width 0.1s ease; }
 
-    /* == Article Header Navigation ============================== */
-    .article-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 59px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      z-index: 40;
+    /* == Content area =========================================== */
+    .content { flex: 1; background: transparent; padding: 26px 40px 80px; }
+    .wrap { max-width: 760px; margin: 0 auto; background: var(--bg-card, #fff); padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    @media (max-width: 640px) {
+      .content { padding: 16px 12px 60px; }
+      .wrap { padding: 24px 20px; border-radius: 16px; }
     }
-    .article-nav__back {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #e52828;
-      transition: opacity 0.2s;
-    }
-    .article-nav__back:hover { opacity: 0.7; }
-    .article-nav__actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .icon-btn {
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      color: #666;
-      transition: all 0.2s;
-      background: #f8f8f8;
-    }
-    .icon-btn:hover { background: #eee; color: #111; }
+
+    /* ===== Post-detail layout ===== */
+    .loading-state { padding: 60px 24px; text-align: center; color: #9aa0a6; font-size: 15px; }
     
-    /* The Flip Button */
-    .flip-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #e52828;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 24px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .flip-btn:hover { background: #c51b1b; }
-    .flip-btn:active { transform: scale(0.96); }
-    .flip-btn svg { width: 14px; height: 14px; }
+    /* Breadcrumb */
+    .crumbs { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #9aa0a6; margin-bottom: 24px; }
+    .crumbs a { color: #9aa0a6; text-decoration: none; transition: color 0.15s; }
+    .crumbs a:hover { color: #2563eb; text-decoration: underline; }
 
-    /* == Article Container ====================================== */
-    .article-container {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
+    /* Hero image */
+    .hero-thumb {
+      width: 100%; height: 340px; border-radius: 16px; overflow: hidden;
+      margin-bottom: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); display: none;
     }
-    @media (max-width: 600px) {
-      .article-container { padding: 32px 20px 60px; }
-    }
+    .hero-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width: 640px) { .hero-thumb { height: 220px; } }
 
-    /* == Article Header ========================================= */
-    .article-header { margin-bottom: 32px; text-align: center; }
-    .article-tag {
-      display: inline-block;
-      color: #e52828;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-    }
-    .article-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(28px, 6vw, 44px);
-      font-weight: 900;
-      color: var(--text-primary);
-      line-height: 1.15;
-      margin-bottom: 24px;
-    }
-    .article-meta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-size: 13.5px;
-      color: #777;
-    }
-    .article-author {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #111;
-      font-weight: 600;
-    }
-    .author-avatar {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .meta-divider {
-      width: 3px; height: 3px;
-      border-radius: 50%;
-      background: #ccc;
-    }
-
-    /* == Hero Image ============================================= */
-    .article-hero {
-      width: 100%;
-      margin-bottom: 40px;
-    }
-    /* Breaking the container for a full-bleed effect on desktop */
-    @media (min-width: 900px) {
-      .article-hero {
-        width: 100vw;
-        max-width: 1000px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-    .article-hero img {
-      width: 100%;
-      max-height: 550px;
-      object-fit: cover;
-    }
-    .article-hero-caption {
-      font-size: 12.5px;
-      color: #777;
-      text-align: right;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    /* == Article Body =========================================== */
-    .article-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 19px;
-      line-height: 1.65;
-      color: #1a1a1a;
-    }
-    @media (max-width: 600px) {
-      .article-body { font-size: 17px; line-height: 1.6; }
-    }
+    /* Title & Meta */
+    article h1 { font-size: 32px; font-weight: 800; line-height: 1.25; color: var(--text-primary); margin: 0 0 16px; letter-spacing: -0.02em; }
+    @media (max-width: 640px) { article h1 { font-size: 26px; } }
     
-    /* Drop Cap */
-    .article-body > p:first-of-type::first-letter {
-      font-family: 'Playfair Display', serif;
-      font-size: 72px;
-      line-height: 56px;
-      float: left;
-      margin: 8px 12px 0 0;
-      color: var(--text-primary);
-      font-weight: 900;
-    }
+    .post-meta { display: flex; align-items: center; gap: 12px; color: #9aa0a6; font-size: 13.5px; margin-bottom: 32px; flex-wrap: wrap; }
+    .post-meta .avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; }
+    .post-meta .author-name { color: var(--text-primary); font-weight: 600; }
 
-    .article-body p { margin-bottom: 28px; }
-    .article-body h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin: 48px 0 20px;
-      line-height: 1.25;
-    }
-    .article-body h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 32px 0 16px;
-    }
-    .article-body a {
-      color: #e52828;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-    .article-body a:hover { color: #2563eb; }
-    .article-body ul, .article-body ol { margin-bottom: 28px; padding-left: 24px; }
-    .article-body li { margin-bottom: 12px; }
-
-    /* Pull Quote */
-    .pull-quote {
-      margin: 48px -24px;
-      padding: 32px 48px;
-      border-top: 2px solid #000;
-      border-bottom: 2px solid #000;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      .pull-quote { margin: 40px 0; padding: 24px 0; }
-    }
-    .pull-quote p {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-style: italic;
-      font-weight: 700;
-      line-height: 1.35;
-      color: var(--text-primary);
-      margin: 0;
-    }
+    /* Article body container */
+    .post-body { color: var(--text-primary); font-size: 16px; line-height: 1.8; margin-bottom: 40px; }
     
-    /* Inline Image */
-    .article-body figure {
-      margin: 40px 0;
-    }
-    .article-body figure img {
-      width: 100%;
-      background: #f8f8f8;
-    }
-    .article-body figcaption {
-      font-size: 13px;
-      color: #777;
-      margin-top: 10px;
-    }
+    /* If iframe is used */
+    .post-body iframe { width: 100%; border: none; min-height: 500px; display: block; }
 
-    /* == Engagement Footer ====================================== */
-    .article-footer {
-      margin-top: 60px;
-      padding-top: 32px;
-      border-top: 1px solid #e5e5e5;
+    /* Tags */
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0; }
+    .post-tag {
+      font-size: 12.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+      border: 1px solid var(--border, #e5e5e5); color: #6b7280; text-decoration: none;
     }
-    .tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-    .tag-pill {
-      padding: 8px 16px;
-      background: #f5f5f5;
-      color: #333;
-      font-size: 13px;
-      font-weight: 600;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .tag-pill:hover { background: #e0e0e0; }
+    .post-tag:hover { border-color: #2563eb; color: #2563eb; }
 
-    /* == Interaction Bar ========================================= */
-    .interaction-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid #e5e5e5;
+    /* Engagement summary */
+    .engagement-summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; border-top: 1px solid var(--border, #ececec); margin-top: 20px;
+      font-size: 13.5px; color: #6b7280;
     }
-    .interaction-group {
-      display: flex;
-      gap: 8px;
+    .likers { display: flex; align-items: center; gap: 8px; }
+    .like-stack { display: flex; }
+    .like-badge {
+      width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--bg-card, #fff);
+      display: flex; align-items: center; justify-content: center; margin-left: -6px;
+      background: #2563eb; color: #fff;
     }
-    .interaction-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 99px;
-      font-size: 14.5px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: var(--bg-base);
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    .interaction-btn:hover { background: var(--bg-base); color: var(--text-primary); }
-    .like-btn:hover { color: #e52828; border-color: #fca5a5; background: #fef2f2; }
-    .like-btn:hover svg { fill: #e52828; }
-    
-    .interaction-stats {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .stat-link { color: var(--text-muted); transition: color 0.2s; }
-    .stat-link:hover { color: #e52828; text-decoration: underline; }
-    .stat-divider { color: #d1d5db; }
+    .like-badge:first-child { margin-left: 0; }
+    .like-badge svg { width: 12px; height: 12px; fill: #fff; }
 
-    @media (max-width: 600px) {
-      .interaction-bar { flex-direction: column; align-items: flex-start; }
-      .interaction-group { width: 100%; justify-content: space-between; }
-      .interaction-btn { flex: 1; justify-content: center; padding: 10px 0; }
+    /* Action bar */
+    .action-bar {
+      display: flex; border-top: 1px solid var(--border, #ececec); padding-top: 8px;
     }
+    .action-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 0; background: none; border: none; cursor: pointer;
+      color: #6b7280; font-size: 14px; font-weight: 600; border-radius: 8px; transition: all 0.15s;
+    }
+    .action-btn svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.9; fill: none; }
+    .action-btn:hover { background: var(--bg-base, #f7f7f7); color: var(--text-primary); }
+    .action-btn.liked { color: #2563eb; }
+    .action-btn.liked svg { fill: rgba(37, 99, 235, 0.15); }
 
-    .author-box {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 24px;
-      background: #f9f9f9;
-      border-radius: 12px;
+    /* Related articles */
+    .related-section { margin-top: 48px; border-top: 2px solid var(--bg-base, #f5f5f5); padding-top: 32px; display: none; }
+    .related-section h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; color: var(--text-primary); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .related-card {
+      display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border, #eaeaea);
+      text-decoration: none; color: inherit; transition: transform 0.2s;
     }
-    .author-box__img {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .author-box__info h4 {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      color: var(--text-primary);
-    }
-    .author-box__info p {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* == Comments Section ====================================== */
-    .comments-section {
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid #e5e5e5;
-    }
-    .comments-header {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .comments-count {
-      background: #f1f1f1;
-      padding: 4px 10px;
-      border-radius: 99px;
-      font-size: 14px;
-      color: #555;
-    }
-    .comment-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .comment-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: #eee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: #777;
-      flex-shrink: 0;
-      object-fit: cover;
-    }
-    .comment-content {
-      flex: 1;
-    }
-    .comment-author {
-      font-weight: 700;
-      font-size: 14.5px;
-      color: #111;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .comment-time {
-      font-weight: 400;
-      font-size: 12px;
-      color: #888;
-    }
-    .comment-text {
-      font-size: 14.5px;
-      color: #333;
-      line-height: 1.5;
-    }
-    .comment-actions {
-      display: flex;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .comment-action {
-      font-size: 13px;
-      font-weight: 600;
-      color: #666;
-      background: none; border: none; cursor: pointer;
-      transition: color 0.2s;
-    }
-    .comment-action:hover { color: #e52828; }
-
-    /* == Up Next / Related (Flipboard feed style) =============== */
-    .related-section {
-      background: #fafafa;
-      border-top: 1px solid #eee;
-      padding: 60px 24px;
-    }
-    .related-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .related-title {
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-primary);
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .related-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #ddd;
-    }
-    
-    /* Re-using Flipboard feed styles from categories.html */
-    .fb-list-item { display: flex; gap: 16px; padding: 0; margin-bottom: 24px; text-decoration: none; color: inherit; }
-    .fb-list-item__img-wrap { width: 110px; aspect-ratio: 1/1; flex-shrink: 0; overflow: hidden; }
-    .fb-list-item__img { width: 100%; height: 100%; object-fit: cover; }
-    .fb-list-item__body { flex: 1; position: relative; padding-right: 24px; }
-    .fb-tag { color: #e52828; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-    .fb-list-item__title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 800; color: var(--text-primary); line-height: 1.25; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .fb-source { font-size: 13.5px; font-weight: 500; color: #777; }
-    .fb-menu-btn { position: absolute; top: 0; right: -8px; color: #999; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-    .fb-menu-btn:hover { color: var(--text-primary); }
-
+    .related-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .related-card img { width: 100%; height: 130px; object-fit: cover; }
+    .related-card__body { padding: 12px 14px; }
+    .related-card__tag { font-size: 11px; font-weight: 700; color: #2563eb; margin-bottom: 4px; text-transform: uppercase; }
+    .related-card__title { font-size: 14.5px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
   </style>
 </head>
+
 <body>
 <div class="app">
-  <!-- Include Sidebar -->
+  <!-- Sidebar web component -->
   <app-sidebar data-base="../../"></app-sidebar>
 
   <div class="main-wrapper">
-    <!-- Include Topbar -->
+    <!-- Topbar web component -->
     <app-topbar data-base="../../"></app-topbar>
+    <div class="progress-bar-container"><div class="progress-bar" id="reading-progress"></div></div>
 
-    <!-- Reading Progress Bar -->
-    <div class="progress-bar-container">
-      <div class="progress-bar" id="reading-progress"></div>
-    </div>
+    <main class="content">
+      <div class="wrap">
 
-    <!-- Article Secondary Nav -->
-    <nav class="article-nav">
-      <a href="categories.html" class="article-nav__back" id="backCategoryLink">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-        <span id="backCategoryLabel">Articles</span>
-      </a>
-      <div class="article-nav__actions">
-        <button class="icon-btn" aria-label="Share this article" title="Share" onclick="shareArticle()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Main Content Area -->
-    <main>
-      <!-- Loading State -->
-      <div id="loadingState" style="padding: 80px; text-align: center; color: #888;">
-        <div style="width: 40px; height: 40px; border: 3px solid #e5e7eb; border-top-color: #e52828; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px;"></div>
-        Loading article...
-      </div>
-      <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-
-      <div id="articleShell" style="display:none;">
-      <div class="article-container">
-        <!-- Article Header (populated by JS) -->
-        <header class="article-header">
-          <span class="article-tag" id="articleTag"></span>
-          <h1 class="article-title" id="articleTitle">Loading...</h1>
-          <div class="article-meta">
-            <div class="article-author">
-              <div class="author-avatar" id="authorAvatar" style="width:32px;height:32px;border-radius:50%;background:#e5e7eb;display:inline-block;"></div>
-              <span id="authorName">Publisher</span>
-            </div>
-            <span class="meta-divider"></span>
-            <span id="articleDate"></span>
-          </div>
-        </header>
-      </div> <!-- /End narrow container, hero breaks out -->
-
-      <!-- Hero Image (populated by JS) -->
-      <div class="article-hero" id="articleHero" style="display:none;">
-        <img id="articleHeroImg" loading="lazy" src="" alt="Article Hero">
-        <div class="article-container" style="padding-top:0; padding-bottom: 0;">
-          <div class="article-hero-caption" id="articleHeroCaption">Image via MyExamHub</div>
+        <div id="loadingState" class="loading-state">
+          Loading article...
         </div>
-      </div>
 
-      <div class="article-container" style="padding-top: 32px;">
-        <!-- Article Body: Loaded from Cloudflare R2 via iframe -->
-        <article class="article-body" id="articleBodyContainer">
-          <iframe id="articleBodyFrame" style="width:100%; border:none; min-height:400px; display:block;" scrolling="no"></iframe>
-        </article>
+        <div id="articleShell" style="display: none;">
+          <div class="crumbs">
+            <a href="categories.html">Blog</a> 
+            <span>/</span> 
+            <a href="categories.html" id="backCategoryLabel">Articles</a>
+          </div>
 
-        <!-- Article Footer -->
-        <footer class="article-footer">
-          <!-- Tags populated by JS -->
-          <div class="tags-container" id="articleTagsContainer"></div>
+          <div class="hero-thumb" id="articleHero">
+            <img id="articleHeroImg" src="" alt="Article feature image">
+          </div>
 
-          <!-- Interaction Bar -->
-          <div class="interaction-bar">
-            <div class="interaction-group">
-              <button class="interaction-btn share-btn" onclick="shareArticle()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                <span>Share</span>
+          <article>
+            <h1 id="articleTitle">Title</h1>
+            
+            <div class="post-meta">
+              <img class="avatar" id="authorAvatar" src="https://i.pravatar.cc/100?img=12" alt="">
+              <span class="author-name" id="authorName">MEC Staff</span>
+              <span class="dot">&middot;</span>
+              <span id="articleDate">Date</span>
+              <span class="dot">&middot;</span>
+              <span id="readTime">5 min read</span>
+            </div>
+
+            <!-- Content Area -->
+            <div class="post-body" id="articleBodyContainer">
+              <iframe id="articleBodyFrame" sandbox="allow-same-origin allow-scripts" title="Article Content"></iframe>
+            </div>
+
+            <div class="post-tags" id="articleTagsContainer">
+              <!-- Tags injected here -->
+            </div>
+
+            <!-- Engagement summary -->
+            <div class="engagement-summary">
+              <div class="likers">
+                <div class="like-stack">
+                  <div class="like-badge">
+                    <svg viewBox="0 0 24 24"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>
+                  </div>
+                </div>
+                <span id="likesCount">0 likes</span>
+              </div>
+              <div><span id="commentsCount">0</span> comments &middot; <span id="sharesCount">0</span> shares</div>
+            </div>
+
+            <!-- Action bar -->
+            <div class="action-bar" role="group" aria-label="Post actions">
+              <button class="action-btn" id="likeBtn">
+                <svg viewBox="0 0 24 24"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>
+                Like
+              </button>
+              <button class="action-btn" id="commentBtn">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Comment
+              </button>
+              <button class="action-btn" id="shareBtn">
+                <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                Share
               </button>
             </div>
-          </div>
-        </footer>
+          </article>
 
-      </div> <!-- /article-container -->
-      </div> <!-- /articleShell -->
+          <!-- Related articles -->
+          <section class="related-section" id="relatedSection">
+            <h2 id="relatedTitle">Related Articles</h2>
+            <div class="related-grid" id="relatedList">
+              <!-- Related injected here -->
+            </div>
+          </section>
+
+        </div> <!-- /articleShell -->
+
+      </div>
     </main>
 
-    <!-- Up Next / Related Content (populated by JS) -->
-    <section class="related-section" id="relatedSection" style="display:none;">
-      <div class="related-inner">
-        <h3 class="related-title" id="relatedTitle">More Articles</h3>
-        <div id="relatedList"></div>
-      </div>
-    </section>
-
-    <!-- App Footer -->
     <app-footer data-base="../../"></app-footer>
-
   </div><!-- /main-wrapper -->
 </div><!-- /app -->
 
 <!-- Scripts -->
 <script src="../../components/nav.js" defer></script>
-<script src="../../components/topbar.js" defer></script>
-<script src="../../components/sidebar.js?v=12" defer></script>
+<script src="../../components/topbar.js?v=4" defer></script>
+<script src="../../components/sidebar.js?v=20" defer></script>
 <script src="../../components/footer.js" defer></script>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="../../components/supabase.js"></script>
+
 <script>
   // Reading Progress Bar
   document.addEventListener('scroll', function() {
@@ -601,129 +268,195 @@
     document.getElementById('reading-progress').style.width = progressPercent + '%';
   });
 
-  // ── Share Article ──
-  function shareArticle() {
-    if (navigator.share) {
-      navigator.share({ title: document.title, url: window.location.href });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  }
-
-  // ── Auto-resize iframe height ──
+  // -- Auto-resize iframe height --
   function fitIframe(iframe) {
     try {
-      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 40 + 'px';
     } catch(e) {}
   }
 
-  // ── Main: Load article from Supabase ──
+  // -- Main: Load article from Supabase --
   document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
-    const postId = params.get('id');
+    // Support both clean URLs (/ng/blog/ID) and query param (?id=ID)
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const isClean = pathParts.includes('blog') && pathParts[pathParts.length - 1] !== 'blog';
+    const postId = isClean ? pathParts[pathParts.length - 1] : params.get('id');
 
     if (!postId) {
-      // No ID: redirect back to categories
-      window.location.href = 'categories.html';
+      // MEC_NAV may not be ready; use safe fallback
+      const blogUrl = (window.MEC_NAV && window.MEC_NAV.href) ? window.MEC_NAV.href('blog') : 'categories.html';
+      window.location.href = blogUrl;
       return;
     }
 
-    const sb = window.MECSupabase.getSupabase();
-    const { data: post, error } = await sb
-      .from('publisher_posts')
-      .select('*')
-      .eq('id', postId)
-      .eq('status', 'approved')
-      .single();
+    let post = null;
+    let error = null;
+
+    // Resolve dummy posts WITHOUT touching Supabase
+    if (postId === 'dummy-1' || postId === 'dummy-2') {
+      post = {
+        id: postId,
+        title: postId === 'dummy-1' ? 'Five Ways to Actually Remember What You Study' : 'JAMB 2027 Registration Dates - What We Know So Far',
+        excerpt: postId === 'dummy-1' ? 'Science-backed memory techniques for JAMB, WAEC and NECO students.' : 'Registration dates, requirements, and full guide for the 2027 JAMB UTME.',
+        thumbnail_url: postId === 'dummy-1' ? 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80' : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
+        topics: postId === 'dummy-1' ? ['Study Tips'] : ['Exam Updates'],
+        created_at: new Date().toISOString(),
+        author_name: postId === 'dummy-1' ? 'Amaka Okonkwo' : 'MEC Editorial',
+        author_avatar: postId === 'dummy-1' ? 'https://i.pravatar.cc/104?img=12' : 'https://i.pravatar.cc/104?img=11',
+        likes_count: postId === 'dummy-1' ? 1200 : 450,
+        comments_count: postId === 'dummy-1' ? 340 : 120,
+        shares_count: postId === 'dummy-1' ? 89 : 45,
+        content: `
+          <p>This is a sample article body for <strong>${postId === 'dummy-1' ? 'Five Ways to Actually Remember What You Study' : 'JAMB 2027 Registration Dates'}</strong>.</p>
+          <p>When studying for exams, it's crucial to pace yourself and understand the core concepts rather than just memorizing facts.</p>
+          <h2>Tip 1: Active Recall</h2>
+          <p>Instead of re-reading your notes, close the book and try to write down everything you remember. This forces your brain to actively retrieve information.</p>
+          <h2>Tip 2: Spaced Repetition</h2>
+          <p>Review the material at increasing intervals over time. This helps lock the information into your long-term memory.</p>
+          <div style="background: #fff8f7; border-left: 3px solid #2563eb; padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px;">
+            <strong>Quick summary:</strong> Space your sessions, test yourself early, teach what you learn, make connections, and protect your sleep.
+          </div>
+        `
+      };
+    } else {
+      const sb = window.MECSupabase.getSupabase();
+      const { data: dbPost, error: dbError } = await sb
+        .from('publisher_posts')
+        .select('*')
+        .eq('id', postId)
+        .eq('status', 'approved')
+        .single();
+      post = dbPost;
+      error = dbError;
+    }
 
     if (error || !post) {
       document.getElementById('loadingState').innerHTML = '<p style="color:red;">Article not found or not yet approved.</p>';
       return;
     }
 
-    // ── Update SEO meta tags dynamically (AdSense-friendly) ──
+    // -- Update SEO --
     document.title = `${post.title} | MyExamHub`;
-    document.querySelector('meta[name="description"]').content = `${post.title}. Read the full article on MyExamHub.`;
+    document.querySelector('meta[name="description"]').content = post.excerpt || `${post.title}. Read the full article on MyExamHub.`;
     document.querySelector('meta[property="og:title"]').content = post.title;
-    document.querySelector('meta[property="og:description"]').content = `${post.title} - Read on MyExamHub`;
-    if (post.thumbnail_url) {
-      document.querySelector('meta[property="og:image"]').content = post.thumbnail_url;
+    document.querySelector('meta[property="og:description"]').content = post.excerpt || `${post.title} - Read on MyExamHub`;
+    if (post.thumbnail_url) document.querySelector('meta[property="og:image"]').content = post.thumbnail_url;
+    
+    // JSON-LD Schema
+    const schemaEl = document.getElementById('seoSchema');
+    if (schemaEl) {
+      const schemaData = JSON.parse(schemaEl.innerHTML);
+      schemaData.headline = post.title;
+      schemaData.description = post.excerpt || post.title;
+      schemaData.datePublished = post.created_at;
+      schemaData.dateModified = post.updated_at || post.created_at;
+      if (post.author_name) schemaData.author = { "@type": "Person", "name": post.author_name };
+      if (post.thumbnail_url) schemaData.image = post.thumbnail_url;
+      schemaEl.innerHTML = JSON.stringify(schemaData);
     }
 
-    // ── Populate article header ──
-    const firstTopic = post.topics && post.topics.length ? '#' + post.topics[0].toUpperCase() : '#ARTICLE';
-    document.getElementById('articleTag').textContent = firstTopic;
+    // -- Populate article header --
     document.getElementById('articleTitle').textContent = post.title;
-    document.getElementById('articleDate').textContent = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('articleDate').textContent = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    
+    // Author
+    if (post.author_name) document.getElementById('authorName').textContent = post.author_name;
+    if (post.author_avatar) document.getElementById('authorAvatar').src = post.author_avatar;
 
-    // Update back nav label
+    // Breadcrumb category
     const firstCategory = post.topics && post.topics.length ? post.topics[0] : 'Articles';
     document.getElementById('backCategoryLabel').textContent = firstCategory;
+    document.getElementById('backCategoryLabel').href = `categories.html?category=${encodeURIComponent(firstCategory)}`;
 
-    // ── Hero Image ──
+    // Calculate read time based on raw content
+    const wordCount = (post.content || '').split(/\s+/).length;
+    document.getElementById('readTime').textContent = Math.max(1, Math.round(wordCount / 200)) + ' min read';
+
+    // -- Hero Image --
     if (post.thumbnail_url) {
       document.getElementById('articleHeroImg').src = post.thumbnail_url;
       document.getElementById('articleHero').style.display = 'block';
     }
 
-    // ── Load article HTML from Cloudflare R2 or GitHub fallback via iframe srcdoc ──
-    const articleUrl = post.cloudflare_url || post.github_url;
-    if (articleUrl) {
-      fetch(articleUrl)
-        .then(res => res.text())
-        .then(html => {
-          const iframe = document.getElementById('articleBodyFrame');
-          iframe.srcdoc = html;
-          iframe.onload = () => fitIframe(iframe);
-        })
-        .catch(() => {
-          document.getElementById('articleBodyFrame').srcdoc = '<p style="color:red;padding:20px;">Failed to load article content.</p>';
-        });
+    // -- Content Loading (Supports both direct HTML in DB and legacy Cloudflare/Github URL) --
+    if (post.content && post.content.trim().length > 0) {
+      // New format: direct HTML content
+      document.getElementById('articleBodyContainer').innerHTML = post.content;
     } else {
-      document.getElementById('articleBodyFrame').srcdoc = '<p style="color:gray;padding:20px;">No article content available.</p>';
+      // Legacy format: load via iframe
+      const articleUrl = post.cloudflare_url || post.github_url;
+      if (articleUrl) {
+        fetch(articleUrl)
+          .then(res => res.text())
+          .then(html => {
+            const iframe = document.getElementById('articleBodyFrame');
+            iframe.srcdoc = html;
+            iframe.onload = () => fitIframe(iframe);
+          })
+          .catch(() => {
+            document.getElementById('articleBodyFrame').srcdoc = '<p style="color:red;padding:20px;">Failed to load article content.</p>';
+          });
+      } else {
+        document.getElementById('articleBodyFrame').srcdoc = '<p style="color:gray;padding:20px;">No article content available.</p>';
+      }
     }
 
-    // ── Tags ──
+    // -- Tags --
     if (post.topics && post.topics.length) {
-      const tagsHtml = post.topics.map(t => `<a href="categories.html?category=${encodeURIComponent(t)}" class="tag-pill">${t}</a>`).join('');
+      const tagsHtml = post.topics.map(t => `<a href="categories.html?category=${encodeURIComponent(t)}" class="post-tag">${t}</a>`).join('');
       document.getElementById('articleTagsContainer').innerHTML = tagsHtml;
     }
 
-    // ── Show article shell ──
+    // -- Stats --
+    document.getElementById('likesCount').textContent = (post.likes_count || 0) + ' likes';
+    document.getElementById('commentsCount').textContent = post.comments_count || 0;
+    document.getElementById('sharesCount').textContent = post.shares_count || 0;
+
+    // Show shell
     document.getElementById('loadingState').style.display = 'none';
     document.getElementById('articleShell').style.display = 'block';
 
-    // ── Fetch related articles (same topic, different post) ──
-    const { data: related } = await sb
-      .from('publisher_posts')
-      .select('id, title, thumbnail_url, topics, created_at')
-      .eq('status', 'approved')
-      .neq('id', postId)
-      .limit(3);
+    // -- Fetch related articles (same topic, different post) --
+    if (post.topics && post.topics.length) {
+      const { data: related } = await sb
+        .from('publisher_posts')
+        .select('id, title, thumbnail_url, topics, created_at')
+        .eq('status', 'approved')
+        .contains('topics', [post.topics[0]])
+        .neq('id', postId)
+        .limit(3);
 
-    if (related && related.length > 0) {
-      document.getElementById('relatedTitle').textContent = post.topics && post.topics.length ? 'More from ' + post.topics[0] : 'More Articles';
-      document.getElementById('relatedList').innerHTML = related.map(r => {
-        const tag = r.topics && r.topics.length ? '#' + r.topics[0].toUpperCase() : '#ARTICLE';
-        const thumb = r.thumbnail_url
-          ? `<img loading="lazy" class="fb-list-item__img" src="${r.thumbnail_url}" alt="${r.title}">`
-          : `<div style="width:100%;height:100%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;">No image</div>`;
-        return `
-          <article class="fb-list-item">
-            <a href="content.html?id=${r.id}">
-              <div class="fb-list-item__img-wrap">${thumb}</div>
-            </a>
-            <div class="fb-list-item__body">
-              <div class="fb-tag">${tag}</div>
-              <a href="content.html?id=${r.id}">
-                <h2 class="fb-list-item__title">${r.title}</h2>
-              </a>
-              <div class="fb-source">MyExamHub Publisher</div>
-            </div>
-          </article>`;
-      }).join('');
-      document.getElementById('relatedSection').style.display = 'block';
+      if (related && related.length > 0) {
+        document.getElementById('relatedTitle').textContent = 'More from ' + post.topics[0];
+        document.getElementById('relatedList').innerHTML = related.map(r => {
+          const tag = r.topics && r.topics.length ? r.topics[0] : 'Article';
+          const thumb = r.thumbnail_url
+            ? `<img loading="lazy" src="${r.thumbnail_url}" alt="${r.title}">`
+            : `<div style="width:100%;height:130px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;">No image</div>`;
+          return `
+            <a href="content.html?id=${r.id}" class="related-card">
+              ${thumb}
+              <div class="related-card__body">
+                <div class="related-card__tag">${tag}</div>
+                <div class="related-card__title">${r.title}</div>
+              </div>
+            </a>`;
+        }).join('');
+        document.getElementById('relatedSection').style.display = 'block';
+      }
+    }
+
+    // -- Interactive Actions --
+    const likeBtn = document.getElementById('likeBtn');
+    if (likeBtn) likeBtn.addEventListener('click', () => likeBtn.classList.toggle('liked'));
+    
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        if (navigator.share) navigator.share({ title: document.title, url: location.href });
+        else navigator.clipboard.writeText(location.href).then(() => alert('Link copied!'));
+      });
     }
   });
 </script>

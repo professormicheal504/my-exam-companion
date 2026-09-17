@@ -1,0 +1,23 @@
+# Cache static assets aggressively
+/components/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Never cache HTML pages (always fresh for crawlers)
+/ng/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: index, follow
+
+/gh/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/us/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers (all pages)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
