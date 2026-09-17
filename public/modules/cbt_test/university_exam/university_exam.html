@@ -200,7 +200,7 @@
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ${uni.levels}</span>
           </div>
           <div class="card-footer">
-            <button class="btn-primary" onclick="window.location.href='/modules/cbt_test/university_exam/all_courses.html?uni=${uni.id}&country=${uni.country || 'ng'}'">Select University</button>
+            <button class="btn-primary" onclick="window.location.href='/${uni.country || 'ng'}/test/all_courses?uni=${uni.id}'">Select University</button>
           </div>
         `;
         grid.appendChild(card);

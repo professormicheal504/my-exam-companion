@@ -7,8 +7,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "build": "node scripts/obfuscate.cjs",
-    "deploy": "npm run build && npx wrangler pages deploy dist/ --project-name=myexamcompanion",
+    "build": "node scripts/gen_middleware.cjs && node scripts/obfuscate.cjs",
+    "generate-seo": "node scripts/generate_seo_pages.js",
+    "generate-seo:force": "node scripts/generate_seo_pages.js --force",
+    "deploy": "npm run build && npx wrangler pages deploy dist/ --project-name=myexamcompanion --branch=main",
     "deploy:raw": "npx wrangler pages deploy public --project-name=myexamcompanion"
   },
   "keywords": [],
@@ -27,7 +29,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@supabase/supabase-js": "^2.112.4",
+    "@supabase/supabase-js": "^2.115.0",
     "@types/node": "^26.2.0",
     "clean-css": "^5.3.3",
     "html-minifier-terser": "^7.2.0",

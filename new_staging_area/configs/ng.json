@@ -40,6 +40,26 @@
             "icon": "🌴",
             "logo": "/assets/country/nigeria/southern_delta_university.webp",
             "data_source": "ng/exams/university/southern_delta_university_sdu/index.json"
+        },
+        {
+            "id": "nigeria/uniben_post_utme",
+            "display_name": "Post UTME (UNIBEN)",
+            "category": "university_entrance",
+            "exam_body": "uniben",
+            "renderer": "cbt_premium_engine",
+            "icon": "🎓",
+            "logo": "/assets/country/nigeria/university_of_benin.webp",
+            "data_source": "ng/exams/university_entrance/post_utme/uniben/index.json"
+        },
+        {
+            "id": "nigeria/unilag_post_utme",
+            "display_name": "Post UTME (UNILAG)",
+            "category": "university_entrance",
+            "exam_body": "unilag",
+            "renderer": "cbt_premium_engine",
+            "icon": "🎓",
+            "logo": "/assets/country/nigeria/university_of_lagos.webp",
+            "data_source": "ng/exams/university_entrance/post_utme/unilag/index.json"
         }
     ]
 }

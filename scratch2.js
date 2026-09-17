@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿
 
-<head>
-  <script>
+
+
+  
     /* Anti-flash: apply saved theme before first paint */
     (function () {
       try {
@@ -10,15 +10,15 @@
         document.documentElement.setAttribute('data-theme', t);
       } catch (e) { }
     })();
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MEC CBT Player</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="../../../components/supabase.js"></script>
+  
+  
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js">
+  <script src="../../../components/supabase.js">
 
   <!-- MathJax for rendering LaTeX math equations -->
-  <script>
+  
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -29,16 +29,16 @@
         typeset: false
       }
     };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../components/topbar.css?v=13">
-  <link rel="stylesheet" href="../../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../../components/sidebar.css?v=23">
-  <script src="../../../components/exam_rules.js"></script>
+    href="data:image/svg+xml,">
+  
+  
+  
+  
+  <script src="../../../components/exam_rules.js">
 
   <style>
     /* ---- Theme CSS (Matched to jamb_all_subject.html) ---- */
@@ -52,13 +52,13 @@
       --text-muted: #6b7280;
 
       --c-answered: #2563eb;
-      /* Blue — user selected an answer */
+      /* Blue â€” user selected an answer */
       --c-not-ans: #ef4444;
-      /* Red  — visited but no answer   */
+      /* Red  â€” visited but no answer   */
       --c-not-vis: #9ca3af;
-      /* Grey — never opened            */
+      /* Grey â€” never opened            */
       --c-flagged: #f59e0b;
-      /* Yellow — flagged for review    */
+      /* Yellow â€” flagged for review    */
 
       /* Review mode navigator colors */
       --green: #16a34a;
@@ -139,7 +139,7 @@
       color: var(--text-primary);
     }
 
-    /* Dark mode MUST explicitly override each coloured state — specificity fix */
+    /* Dark mode MUST explicitly override each coloured state â€” specificity fix */
     :root[data-theme="dark"] .q-cell.active {
       background: var(--primary) !important;
       color: #fff !important;
@@ -299,7 +299,7 @@
       background: var(--bg-base);
       color: var(--text-primary);
       min-height: 100vh;
-      overflow-x: clip;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
     }
@@ -416,7 +416,7 @@
       flex: 1;
     }
 
-    /* ── Question Pre-Loader ─────────────────────────────────── */
+    /* â”€â”€ Question Pre-Loader â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #preloader-overlay {
       position: fixed;
       inset: 0;
@@ -665,36 +665,23 @@
         padding-top: 0 !important;
       }
 
-      body {
-        padding-top: 0 !important;
-      }
-
-      .main-wrapper {
-        margin-top: 0 !important;
-      }
-
       .exam-main {
         min-height: 100vh;
       }
 
       .exam-header {
         top: 0 !important;
-        z-index: 100 !important;
+        z-index: 1000 !important;
       }
     }
 
 
 
-    /* Hide topbar hamburger in CBT Player */
-    #mec-sb-toggle, #btn-toggle-sidebar {
-      display: none !important;
-    }
-
     /* Exam Header */
     .exam-header {
       position: sticky;
-      top: 84px;
-      z-index: 100;
+      top: 0;
+      z-index: 1000;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -1414,17 +1401,17 @@
   </style>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
-  <script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH">
+  
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-CHG6831RHH');
-  </script>
-</head>
+  
 
-<body>
+
+
   <app-topbar data-base="../../../"></app-topbar>
   <app-sidebar data-base="../../../"></app-sidebar>
   <div class="main-wrapper" id="question-container">
@@ -1435,15 +1422,15 @@
         <div class="preloader-icon">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
             stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            
             <polyline points="14 2 14 8 20 8" />
             <line x1="16" y1="13" x2="8" y2="13" />
             <line x1="16" y1="17" x2="8" y2="17" />
             <polyline points="10 9 9 9 8 9" />
           </svg>
         </div>
-        <div class="preloader-headline">Preparing Your Exam</div>
-        <div class="preloader-sub" id="preloader-sub">Fetching questions from server&hellip;</div>
+        
+        
 
         <!-- Circular progress ring -->
         <div class="preloader-counter-wrap">
@@ -1458,16 +1445,16 @@
             <circle class="preloader-ring-fill" cx="60" cy="60" r="54" id="preloader-ring-fill" />
           </svg>
           <div class="preloader-num">
-            <span class="preloader-num-val" id="preloader-count">0</span>
-            <span class="preloader-num-label" id="preloader-count-label">Questions</span>
+            
+            
           </div>
         </div>
 
         <!-- Linear bar -->
         <div class="preloader-bar-wrap">
-          <div class="preloader-bar-fill" id="preloader-bar"></div>
+          
         </div>
-        <div class="preloader-status" id="preloader-status">Loading questions&hellip;</div>
+        
 
         <!-- Action Area -->
         <div class="preloader-done-msg" id="preloader-done-msg">
@@ -1493,11 +1480,11 @@
     <div class="modal-overlay" id="submit-modal">
       <div class="modal-box">
         <h3 class="modal-title">Submit Exam?</h3>
-        <div id="modal-summary" style="margin-bottom:24px; text-align:left;"></div>
+        
         <p class="modal-note">You cannot change your answers after submitting.</p>
         <div class="modal-actions">
-          <button class="btn-secondary" id="modal-cancel">Go Back</button>
-          <button class="btn-primary" id="modal-confirm">Submit Now</button>
+          
+          
         </div>
       </div>
     </div>
@@ -1508,7 +1495,7 @@
         <h3 class="modal-title">Quit Exam?</h3>
         <p class="modal-note">Are you sure you want to quit? Your progress will be lost.</p>
         <div class="modal-actions">
-          <button class="btn-secondary" id="quit-cancel">No, Continue</button>
+          
           <button class="btn-primary" id="quit-confirm"
             style="background:#fef2f2; color:#ef4444; border-color:#fecaca;">Yes, Quit</button>
         </div>
@@ -1524,22 +1511,22 @@
           <h3 class="modal-title"
             style="margin:0; font-size: 20px; color: var(--primary); display: flex; align-items: center; gap: 8px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </path>
+              </path>
             </svg>
             Reference Passage
           </h3>
           <button id="passage-close"
             style="background: none; border: none; font-size: 28px; cursor: pointer; color: var(--text-muted); line-height: 1;">&times;</button>
         </div>
-        <div id="passage-content" style="font-size: 15px; line-height: 1.7; color: var(--text-primary);"></div>
+        
       </div>
     </div>
 
     <!-- RESULT SCREEN -->
     <div class="result-screen" id="result-screen">
       <div class="result-card">
-        <div id="result-emoji" style="font-size: 64px; margin-bottom:16px;">ð</div>
+        
         <h2 class="result-title" id="result-title">Exam Submitted!</h2>
         <div class="result-score-ring">
           <svg viewBox="0 0 120 120" style="width:100%;height:100%;transform:rotate(-90deg);">
@@ -1548,23 +1535,23 @@
               stroke-dasharray="314" stroke-dashoffset="314" id="score-ring-circle" />
           </svg>
           <div class="result-score-text">
-            <span class="result-score-num" id="result-score-num">0</span>
-            <span class="result-score-label" id="result-score-total">/ 180</span>
+            
+            
           </div>
         </div>
         <div class="result-stats">
-          <div class="result-stat"><span class="rs-num" id="rs-correct" style="color:#10b981;">0</span><span
+          <div class="result-stat"><span
               class="rs-label">Correct</span></div>
-          <div class="result-stat"><span class="rs-num" id="rs-wrong" style="color:#ef4444;">0</span><span
+          <div class="result-stat"><span
               class="rs-label">Wrong</span></div>
-          <div class="result-stat"><span class="rs-num" id="rs-skipped" style="color: var(--text-muted);">0</span><span
+          <div class="result-stat"><span
               class="rs-label">Skipped</span></div>
         </div>
         <p id="result-message" style="margin-bottom:8px;font-weight:600;">Your exam has been saved successfully!</p>
         <p style="margin-bottom:24px;color:var(--text-muted);">You can review your answers and see corrections below.
         </p>
         <div class="result-actions">
-          <button class="btn-secondary" id="result-review-btn">Review Answers</button>
+          
           <a href="/modules/cbt_test/core/setup.html" class="btn-primary" style="text-decoration:none;">Back to
             Setup</a>
         </div>
@@ -1581,16 +1568,16 @@
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg></button>
         <div>
-          <div class="exam-subject-tag" id="exam-subject-tag">JAMB CBT</div>
-          <div class="exam-title-text" id="exam-title-text">JAMB CBT Simulator</div>
+          
+          
         </div>
       </div>
       <div class="exam-header-right">
         <div class="network-block" id="network-block"><svg id="network-icon" width="20" height="20" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-            <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-            <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+            
+            
+            
             <line x1="12" y1="20" x2="12.01" y2="20" />
           </svg></div>
 
@@ -1600,9 +1587,9 @@
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
-          <span id="timer-display">--:--</span>
+          
         </div>
-        <button class="btn-primary submit-btn-top" id="submit-btn-top" style="padding: 10px 18px;">Submit</button>
+        
       </div>
     </header>
 
@@ -1617,24 +1604,24 @@
         </div>
 
         <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="progress-fill"></div>
+          
         </div>
 
         <div class="q-header">
-          <span class="q-number-badge" id="q-number-badge">Q 1 / 180</span>
+          
           <button class="flag-btn" id="flag-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+              
               <line x1="4" y1="22" x2="4" y2="15" />
-            </svg> <span id="flag-label">Flag</span></button>
+            </svg> </button>
         </div>
 
         <div id="passage-btn-container" style="display:none; margin-bottom: 16px;">
           <button id="btn-read-passage"
             style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s; font-size: 14px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </path>
+              </path>
             </svg>
             Read Passage
           </button>
@@ -1648,13 +1635,13 @@
           </div>
         </div>
         <div class="options-list" id="options-list">
-          <button class="option-btn" id="opt-0" data-opt="0"><span class="opt-letter">A</span><span
+          <button class="option-btn" id="opt-0" data-opt="0"><span
               id="opt-0-text"></span></button>
-          <button class="option-btn" id="opt-1" data-opt="1"><span class="opt-letter">B</span><span
+          <button class="option-btn" id="opt-1" data-opt="1"><span
               id="opt-1-text"></span></button>
-          <button class="option-btn" id="opt-2" data-opt="2"><span class="opt-letter">C</span><span
+          <button class="option-btn" id="opt-2" data-opt="2"><span
               id="opt-2-text"></span></button>
-          <button class="option-btn" id="opt-3" data-opt="3"><span class="opt-letter">D</span><span
+          <button class="option-btn" id="opt-3" data-opt="3"><span
               id="opt-3-text"></span></button>
         </div>
 
@@ -1664,22 +1651,22 @@
         </div>
 
         <div id="premium-paywall" style="display: none; text-align: center; padding: 40px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 24px;">
-          <div style="font-size: 48px; margin-bottom: 16px;">🔒</div>
+          
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Premium Content</h3>
-          <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5;">You've reached the end of the free preview. To continue practicing with the full exam, please purchase access for ₦500.</p>
-          <button class="btn-primary" onclick="purchasePremium()" style="padding: 14px 32px; font-size: 16px;">Buy Exam for ₦500</button>
+          <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5;">You've reached the end of the free preview. To continue practicing with the full exam, please purchase access for â‚¦500.</p>
+          
         </div>
 
         <div class="q-nav-controls" id="q-nav-controls">
-          <button class="btn-secondary" id="qn-prev">Previous</button>
-          <button class="btn-primary" id="qn-next">Next</button>
+          
+          
         </div>
 
         <div class="answer-review-box" id="answer-review-box">
-          <div class="arb-icon">💡</div>
+          
           <div>
-            <div class="arb-correct">✅ Correct Answer: <span id="arb-correct-val"></span></div>
-            <div class="arb-explain" id="arb-explain"></div>
+            
+            
           </div>
         </div>
       </main>
@@ -1690,16 +1677,16 @@
           <h3 class="sn-title">Question Navigator</h3>
         </div>
         <!-- Subject tabs + grids rendered by JS -->
-        <div id="nav-tabs-desktop"></div>
-        <div id="nav-grids-desktop"></div>
+        
+        
         <!-- Legend below the grid -->
         <div class="nav-legend" style="margin-top: 4px; margin-bottom: 16px;">
-          <div class="legend-item"><span class="legend-dot answered"></span> Answered</div>
-          <div class="legend-item"><span class="legend-dot not-answered"></span> Not Answered</div>
-          <div class="legend-item"><span class="legend-dot flagged"></span> Flagged</div>
-          <div class="legend-item"><span class="legend-dot not-visited"></span> Not Visited</div>
+          
+          
+          
+          
         </div>
-        <button class="btn-primary" id="submit-btn-sidebar" style="width:100%; margin-top:auto;">Submit Exam</button>
+        
       </aside>
     </div>
 
@@ -1728,31 +1715,31 @@
     </nav>
 
     <!-- NAV DRAWER (MOBILE) -->
-    <div class="nav-drawer-overlay" id="nav-drawer-overlay"></div>
+    
     <div class="nav-drawer" id="nav-drawer">
       <div style="display:flex; justify-content:space-between; margin-bottom:16px; align-items:center;">
         <h4 style="font-size:18px; font-weight:700;">Question Navigator</h4>
-        <button id="nav-drawer-close" style="font-size:20px; color:var(--text-muted);">&times;</button>
+        
       </div>
       <!-- Subject tabs + grids rendered by JS -->
-      <div id="nav-tabs-drawer"></div>
-      <div id="nav-grids-drawer" style="flex:1; overflow-y:auto;"></div>
+      
+      
       <!-- Legend below the grid -->
       <div class="nav-legend" style="margin-top: 8px; margin-bottom: 16px;">
-        <div class="legend-item"><span class="legend-dot answered"></span> Answered</div>
-        <div class="legend-item"><span class="legend-dot not-answered"></span> Not Answered</div>
-        <div class="legend-item"><span class="legend-dot flagged"></span> Flagged</div>
-        <div class="legend-item"><span class="legend-dot not-visited"></span> Not Visited</div>
+        
+        
+        
+        
       </div>
-      <button class="btn-primary" id="submit-btn-drawer" style="width:100%; margin-top:8px;">Submit Exam</button>
+      
     </div>
 
     <!-- AI FAB -->
     <div class="ai-fab-container" id="ai-fab-container">
       <div class="ai-fab-popup" id="ai-fab-popup">
-        <div class="ai-fab-header"><span>✨ AI Explanation</span> <span class="ai-fab-close"
+        <div class="ai-fab-header"> <span class="ai-fab-close"
             id="ai-fab-close">&times;</span></div>
-        <div class="ai-fab-content" id="ai-fab-content-inject"></div>
+        
       </div>
       <button class="ai-fab-btn collapsed" id="ai-fab-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1760,7 +1747,7 @@
           <path
             d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
         </svg>
-        <span class="ai-fab-text">AI Explanation</span>
+        
       </button>
     </div>
 
@@ -1771,21 +1758,21 @@
           <h4 style="font-weight:700; font-size:16px;">Calculator</h4> <span id="calc-close"
             style="cursor:pointer; color:var(--text-muted);">&times;</span>
         </div>
-        <div id="calc-display">0</div>
+        
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
-          <button class="calc-btn" data-val="C">C</button> <button class="calc-btn" data-val="sqrt">&radic;</button>
-          <button class="calc-btn" data-val="%">%</button> <button class="calc-btn" style="color:var(--primary);"
+           
+           <button class="calc-btn" style="color:var(--primary);"
             data-val="/">&divide;</button>
-          <button class="calc-btn" data-val="7">7</button> <button class="calc-btn" data-val="8">8</button> <button
+            <button
             class="calc-btn" data-val="9">9</button> <button class="calc-btn" style="color:var(--primary);"
             data-val="*">&times;</button>
-          <button class="calc-btn" data-val="4">4</button> <button class="calc-btn" data-val="5">5</button> <button
+            <button
             class="calc-btn" data-val="6">6</button> <button class="calc-btn" style="color:var(--primary);"
             data-val="-">-</button>
-          <button class="calc-btn" data-val="1">1</button> <button class="calc-btn" data-val="2">2</button> <button
+            <button
             class="calc-btn" data-val="3">3</button> <button class="calc-btn" style="color:var(--primary);"
             data-val="+">+</button>
-          <button class="calc-btn" data-val="0" style="grid-column:span 2;">0</button> <button class="calc-btn"
+           <button class="calc-btn"
             data-val=".">.</button> <button class="calc-btn" style="background:var(--primary); color:white;"
             data-val="=">=</button>
         </div>
@@ -1793,18 +1780,18 @@
     </div>
   </div>
 
-  <script src="../../../components/nav.js"></script>
-  <script src="../../../components/topbar.js?v=4"></script>
-  <script src="../../../components/sidebar.js"></script>
+  <script src="../../../components/nav.js">
+  <script src="../../../components/topbar.js?v=4">
+  <script src="../../../components/sidebar.js">
 
 
-  <script>
+  
     /* ============================================================
-       JAMB CBT BOARD â Exam Engine (Light Theme, No Firebase)
+       JAMB CBT BOARD Ã¢Â€Â” Exam Engine (Light Theme, No Firebase)
        Placeholder logic; wire up to your data source as needed.
     ============================================================ */
 
-    /* ── State ────────────────────────────────────────────────────────────────── */
+    /* â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     let EXAM_DATA = null;
     let currentQ = 0;
     let answers = {};     // { qIndex: optIndex }
@@ -1816,11 +1803,11 @@
     let examFinished = false;
     let reviewMode = false;
 
-    /* ── DOM helpers ─────────────────────────────────────────────────────────── */
+    /* â”€â”€ DOM helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     const $ = id => document.getElementById(id);
 
-    /* ── Pre-loader helpers ──────────────────────────────────────────────────── */
-    const RING_CIRCUMFERENCE = 2 * Math.PI * 54; // r=54 → ~339.3
+    /* â”€â”€ Pre-loader helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    const RING_CIRCUMFERENCE = 2 * Math.PI * 54; // r=54 â†’ ~339.3
 
     function updatePreloaderCounter(current, total) {
       const countEl = $('preloader-count');
@@ -1858,9 +1845,9 @@
       const detailsEl = $('preloader-exam-details');
       const subEl = $('preloader-sub');
       const btnEl = $('btn-start-now');
-      if (statusEl) statusEl.textContent = `✅ All ${totalQ} questions loaded and ready!`;
+      if (statusEl) statusEl.textContent = `âœ… All ${totalQ} questions loaded and ready!`;
       if (subEl) subEl.textContent = 'Questions loaded. Read the details below and click Start when ready.';
-      if (detailsEl) detailsEl.textContent = `${totalQ} Questions  •  ${totalMinutes} Minutes  •  Full Exam Mode`;
+      if (detailsEl) detailsEl.textContent = `${totalQ} Questions  â€¢  ${totalMinutes} Minutes  â€¢  Full Exam Mode`;
       if (btnEl) {
         btnEl.textContent = 'Start Exam & Begin Timer';
         btnEl.disabled = false;
@@ -1875,7 +1862,7 @@
       if (el) el.classList.add('fade-out');
     }
 
-    /* ── Init ────────────────────────────────────────────────────────────────── */
+    /* â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     window.addEventListener('DOMContentLoaded', async () => {
       // Parse URL parameters
       const params = new URLSearchParams(window.location.search);
@@ -1915,14 +1902,14 @@
         const activeCountry = localStorage.getItem('mec_country') || 'ng';
 
         if (mode === 'mock') {
-            // ── Mock Exam Config — supports JAMB (Nigeria) and SAT (USA) ─────────
+            // â”€â”€ Mock Exam Config â€” supports JAMB (Nigeria) and SAT (USA) â”€â”€â”€â”€â”€â”€â”€â”€â”€
             // Driven by ?mock_exam=jamb|sat URL param. Defaults to jamb.
             const mockExamType = params.get('mock_exam') || 'jamb';
 
             const MOCK_CONFIG = {
                 jamb: {
                     r2BasePath: 'ng/exams/university_entrance/jamb',
-                    years: Array.from({length: 15}, (_, i) => String(2024 - i)), // 2024→2010
+                    years: Array.from({length: 15}, (_, i) => String(2024 - i)), // 2024â†’2010
                     compulsorySubject: 'english_language',
                     compulsoryCount: 60,
                     othersCount: 40,
@@ -1930,15 +1917,15 @@
                 },
                 sat: {
                     r2BasePath: 'us/exams/university_entrance/sat',
-                    years: Array.from({length: 27}, (_, i) => String(2026 - i)), // 2026→2000
-                    compulsorySubject: null, // SAT has no compulsory — all equal
+                    years: Array.from({length: 27}, (_, i) => String(2026 - i)), // 2026â†’2000
+                    compulsorySubject: null, // SAT has no compulsory â€” all equal
                     compulsoryCount: 52,    // SAT Reading/Writing standard
                     othersCount: 58         // SAT Math standard
                 }
             };
 
             const cfg = MOCK_CONFIG[mockExamType] || MOCK_CONFIG.jamb;
-            console.log(`[MOCK] Building mock exam — type: ${mockExamType}, path: ${cfg.r2BasePath}, subjects:`, subjects);
+            console.log(`[MOCK] Building mock exam â€” type: ${mockExamType}, path: ${cfg.r2BasePath}, subjects:`, subjects);
 
             const shuffleArray = arr => { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; };
             const optionLetters = ['A', 'B', 'C', 'D', 'E'];
@@ -1982,23 +1969,23 @@
                         // Include all questions, even passage-reference ones
                         const filtered = data;
                         collected.push(...filtered.map(q => ({ ...q, _year: tryYear })));
-                        console.log(`[MOCK] ${subj} — year ${tryYear}: +${filtered.length} (pool: ${collected.length})`);
+                        console.log(`[MOCK] ${subj} â€” year ${tryYear}: +${filtered.length} (pool: ${collected.length})`);
                     } catch (e) { 
                         console.error(`[MOCK] Exception during fetch for ${subj} ${tryYear}:`, e); 
                     }
                 }
 
                 if (collected.length === 0) {
-                    console.warn(`[MOCK] ⚠️ No questions found for "${subj}" in ${mockExamType} bunker`);
+                    console.warn(`[MOCK] âš ï¸ No questions found for "${subj}" in ${mockExamType} bunker`);
                     return;
                 }
 
-                // Shuffle entire pool, then slice to target — guarantees random mix across years
+                // Shuffle entire pool, then slice to target â€” guarantees random mix across years
                 shuffleArray(collected);
                 const selected = collected.slice(0, targetCount);
                 const subjectName = subj.replace(/_/g, ' ').toUpperCase();
 
-                // ── Normalise raw R2 format → player format ───────────────────────
+                // â”€â”€ Normalise raw R2 format â†’ player format â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
                 const normalised = selected.map((q, index) => {
                     let correctIndex = 0;
                     let optionsArray = ['Option A', 'Option B', 'Option C', 'Option D'];
@@ -2033,7 +2020,7 @@
                     };
                 });
 
-                console.log(`[MOCK] ✅ ${subj}: ${normalised.length} questions ready (target ${targetCount}, pool was ${collected.length})`);
+                console.log(`[MOCK] âœ… ${subj}: ${normalised.length} questions ready (target ${targetCount}, pool was ${collected.length})`);
                 fetchedSubjectsMap[idx] = {
                     id: subj,
                     name: subjectName,
@@ -2060,7 +2047,7 @@
         }
 
         if (mode !== 'mock') await Promise.all(subjects.map(async (subj, subjOriginalIndex) => {
-          // ── Build priority-ordered list of years to attempt for this subject ──
+          // â”€â”€ Build priority-ordered list of years to attempt for this subject â”€â”€
           // Strategy: selected year first, then all known years from index, 
           // then a broad fallback range so we NEVER give up on a subject just 
           // because the index lookup fails or the ID doesn't match exactly.
@@ -2070,7 +2057,7 @@
             // Try exact ID match first, then case-insensitive / partial match
             let subjConfig = (examConfig.subjects || []).find(s => s.id === subj);
             if (!subjConfig) {
-              // Partial match — handles e.g. 'history' vs 'history_government'
+              // Partial match â€” handles e.g. 'history' vs 'history_government'
               subjConfig = (examConfig.subjects || []).find(s =>
                 s.id && (
                   s.id.toLowerCase() === subj.toLowerCase() ||
@@ -2078,22 +2065,22 @@
                   subj.toLowerCase().replace(/_/g, '').includes(s.id.toLowerCase().replace(/_/g, ''))
                 )
               );
-              if (subjConfig) console.log(`[CBT] Partial ID match for "${subj}" → "${subjConfig.id}"`);
+              if (subjConfig) console.log(`[CBT] Partial ID match for "${subj}" â†’ "${subjConfig.id}"`);
             }
 
             if (subjConfig && subjConfig.years && subjConfig.years.length > 0) {
               const available = subjConfig.years.map(String);
               if (available.includes(String(year))) {
-                // Requested year exists — put it first, shuffle rest as fallback
+                // Requested year exists â€” put it first, shuffle rest as fallback
                 const others = available.filter(y => y !== String(year)).sort(() => Math.random() - 0.5);
                 yearsToTry = [String(year), ...others];
               } else {
-                // Requested year NOT available for this subject — shuffle all available
+                // Requested year NOT available for this subject â€” shuffle all available
                 console.warn(`[CBT] Year ${year} not in index for "${subj}". Trying all available: ${available.join(', ')}`);
                 yearsToTry = available.sort(() => Math.random() - 0.5);
               }
             } else {
-              // Subject not in index at all — generate broad fallback year range
+              // Subject not in index at all â€” generate broad fallback year range
               // most recent first so we land on real data quickly
               console.warn(`[CBT] No year config found for "${subj}" in index. Generating broad year fallback.`);
               const currentYear = new Date().getFullYear();
@@ -2103,14 +2090,14 @@
               yearsToTry = [String(year), ...broadRange.filter(y => y !== String(year))];
             }
           } else {
-            // University exam — only one file path, no year fallback needed
+            // University exam â€” only one file path, no year fallback needed
             yearsToTry = [String(year)];
           }
 
           let data = null;
-          let fp = '';  // ← hoisted: must be accessible after the for loop exits
+          let fp = '';  // â† hoisted: must be accessible after the for loop exits
 
-          // ── Try each year in sequence until one loads successfully ────────────
+          // â”€â”€ Try each year in sequence until one loads successfully â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
           for (const tryYear of yearsToTry) {
             if (data) break;
 
@@ -2133,7 +2120,7 @@
               if (!res.ok && activeCountry !== 'ng') res = await fetch(localFallbackUrl);
               if (res.ok) {
                 const text = await res.text();
-                try { data = JSON.parse(text); fp = tryFp; console.log(`[CBT] ✅ Local (year=${tryYear}): ${localUrl}`); } catch (e) { }
+                try { data = JSON.parse(text); fp = tryFp; console.log(`[CBT] âœ… Local (year=${tryYear}): ${localUrl}`); } catch (e) { }
               }
             } catch (e) { }
 
@@ -2154,13 +2141,13 @@
               const d = await res.json();
               data = d;
               fp = tryFp;
-              console.log(`[CBT] ✅ R2 (year=${tryYear}): ${r2Url}`);
+              console.log(`[CBT] âœ… R2 (year=${tryYear}): ${r2Url}`);
             } catch (e) { }
           }
 
-          // ── If ALL year attempts failed, skip this subject gracefully ─────────
+          // â”€â”€ If ALL year attempts failed, skip this subject gracefully â”€â”€â”€â”€â”€â”€â”€â”€â”€
           if (!data) {
-            console.error(`❌ SUBJECT SKIPPED: "${subj}" — no data found for any of ${yearsToTry.length} years tried.`);
+            console.error(`âŒ SUBJECT SKIPPED: "${subj}" â€” no data found for any of ${yearsToTry.length} years tried.`);
             return;
           }
 
@@ -2281,7 +2268,7 @@
           // Slice questions
           subjQuestions = subjQuestions.slice(0, limit);
 
-          // Re-index for the combined array — do NOT touch repoPath here; it was correctly
+          // Re-index for the combined array â€” do NOT touch repoPath here; it was correctly
           // set per-question inside the fetch loop above (each subject has its own fp).
           subjQuestions.forEach((q, i) => {
             q.id = runningIndex + i + 1;
@@ -2302,7 +2289,7 @@
             examDisplayName = mockExamType.toUpperCase() + ' Mock';
         }
         let examTitle = `${examDisplayName} Simulator`;
-        let examSubject = `${subjects.length > 1 ? 'Multiple Subjects' : subjects[0].toUpperCase().replace(/_/g, ' ')} • ${year}`;
+        let examSubject = `${subjects.length > 1 ? 'Multiple Subjects' : subjects[0].toUpperCase().replace(/_/g, ' ')} â€¢ ${year}`;
 
         if (uni && uniFile) {
           const formattedUni = uni.replace(/_/g, ' ').toUpperCase();
@@ -2323,7 +2310,7 @@
         const tabsContainer = $('subject-tabs');
         if (tabsContainer && EXAM_DATA.subjectMeta.length > 0) {
           tabsContainer.innerHTML = EXAM_DATA.subjectMeta.map((s, i) =>
-            `<button class="subject-tab ${i === 0 ? 'active' : ''}" data-start="${s.startIndex}">${s.name}</button>`
+            ``
           ).join('');
 
           // Add click listeners to tabs
@@ -2337,27 +2324,27 @@
         }
 
       } catch (err) {
-        console.error("[CBT] ❌ Failed to load exam data:", err);
+        console.error("[CBT] âŒ Failed to load exam data:", err);
 
         // Show error inside the preloader card
         const subEl = $('preloader-sub');
         const statusEl = $('preloader-status');
         const countEl = $('preloader-count');
-        if (subEl) subEl.textContent = '⚠️ Could not load exam questions';
-        if (statusEl) statusEl.innerHTML = `<span style="color:#ef4444;font-size:12px;">${err.message}</span>`;
+        if (subEl) subEl.textContent = 'âš ï¸ Could not load exam questions';
+        if (statusEl) statusEl.innerHTML = ``;
         if (countEl) countEl.textContent = '!';
         const ringEl = $('preloader-ring-fill');
         if (ringEl) { ringEl.style.stroke = '#ef4444'; }
         return;
       }
 
-      // ── Questions loaded — run the animated counter ──────────────
+      // â”€â”€ Questions loaded â€” run the animated counter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const totalQ = EXAM_DATA.questions.length;
 
-      $('preloader-status').textContent = `Preparing ${totalQ} questions…`;
+      $('preloader-status').textContent = `Preparing ${totalQ} questionsâ€¦`;
       $('preloader-count-label').textContent = `of ${totalQ}`;
 
-      // Animate counter from 0 → totalQ
+      // Animate counter from 0 â†’ totalQ
       await animateCounter(0, totalQ, Math.min(1400, totalQ * 12));
 
       // Update SEO Meta Tags
@@ -2378,11 +2365,24 @@
             const state = JSON.parse(stateStr);
             answers = state.answers || {};
             flags = new Set(state.flags || []);
+            
+            // Restore EXAM_DATA from cbt_result so questions match user's previous session
+            const resultStr = localStorage.getItem('cbt_result');
+            if (resultStr) {
+              const resData = JSON.parse(resultStr);
+              EXAM_DATA = {
+                title: resData.title,
+                subject: resData.subjects[0]?.name || 'General',
+                totalMinutes: Math.ceil(resData.timeSpentSecs / 60) || 60,
+                questions: resData.questions,
+                subjectMeta: resData.subjects.map((s, i) => ({ name: s.name, startIndex: 0 }))
+              };
+              totalQ = EXAM_DATA.questions.length;
+            }
+
             reviewMode = true;
             examStarted = true;
             examFinished = true;
-            $('exam-subject-tag').textContent = EXAM_DATA.subject;
-            $('exam-title-text').textContent = EXAM_DATA.title;
             hidePreloader();
             $('start-screen-overlay').classList.add('hidden');
             currentQ = 0;
@@ -2425,14 +2425,14 @@
         }
       }
 
-      // Normal Start — reveal the Start button inside the preloader
+      // Normal Start â€” reveal the Start button inside the preloader
       $('exam-subject-tag').textContent = EXAM_DATA.subject;
       $('exam-title-text').textContent = EXAM_DATA.title;
       renderGrids();
       showPreloaderDone(totalQ, EXAM_DATA.totalMinutes);
     });
 
-    /* ── Save State Helper ───────────────────────────────────────────── */
+    /* â”€â”€ Save State Helper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function saveActiveState() {
       if (reviewMode || !examStarted || examFinished) return;
       const searchParams = new URLSearchParams(window.location.search);
@@ -2449,7 +2449,7 @@
       localStorage.setItem('cbt_active_state', JSON.stringify(stateToSave));
     }
 
-    /* ── Start exam ────────────────────────────────────────────────── */
+    /* â”€â”€ Start exam â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     $('btn-start-now').addEventListener('click', () => {
       // Dismiss the preloader overlay
       hidePreloader();
@@ -2459,7 +2459,7 @@
       renderQuestion();
     });
 
-    /* ── Timer ───────────────────────────────────────────────────── */
+    /* â”€â”€ Timer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function startTimer() {
       updateTimerDisplay();
       if (timerInterval) clearInterval(timerInterval); // Bug fix #3: timer leak
@@ -2484,7 +2484,7 @@
       }
     }
 
-    /* ── Question Text Formatting ───────────────────────────────────────────── */
+    /* â”€â”€ Question Text Formatting â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function formatQuestionText(text, q) {
       if (!text) return '';
       let formatted = text.replace(/\n/g, '<br>');
@@ -2497,7 +2497,7 @@
       return formatted;
     }
 
-    /* ── Render question ────────────────────────────────────────────────── */
+    /* â”€â”€ Render question â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function renderQuestion() {
       const q = EXAM_DATA.questions[currentQ];
 
@@ -2666,7 +2666,7 @@
       const arb = $('answer-review-box');
       if (reviewMode) {
         arb.classList.add('show');
-        const correctValStr = q.isGridIn ? q.correctAnswer : ['A', 'B', 'C', 'D', 'E'][q.correct];
+        const correctValStr = q.isGridIn ? q.correctAnswer : ['A', 'B', 'C', 'D'][q.correct];
         $('arb-correct-val').textContent = correctValStr;
         const explanationHtml = q.explanation || '';
         const isMissing = !explanationHtml || explanationHtml.includes('No explanation available');
@@ -2699,7 +2699,7 @@
             .then(res => res.ok ? res.json() : Promise.reject('Cache miss'))
             .then(cached => {
               if (cached && cached.explanation) {
-                console.log('[CBT] ✅ AI explanation auto-loaded from jsDelivr cache!');
+                console.log('[CBT] âœ… AI explanation auto-loaded from jsDelivr cache!');
                 q.explanation = cached.explanation;
                 EXAM_DATA.questions[currentQ].explanation = cached.explanation;
                 arbExplainDiv.innerHTML = cached.explanation;
@@ -2718,9 +2718,9 @@
                 <div style="margin-top: 8px;">
                   <p style="color: var(--text-muted); margin-bottom: 12px;">No explanation available for this question.</p>
                   <button class="btn-ai-generate" id="btn-ai-explain">
-                    ✨ Generate AI Explanation
+                    âœ¨ Generate AI Explanation
                   </button>
-                  <span id="ai-save-status"></span>
+                  
                 </div>
               `;
 
@@ -2729,12 +2729,12 @@
                 aiBtn.addEventListener('click', async () => {
                   if (_aiGenerating) return;
                   _aiGenerating = true;
-                  aiBtn.textContent = '⏳ Generating...';
+                  aiBtn.textContent = 'â³ Generating...';
                   aiBtn.disabled = true;
 
                   try {
                     // Cache already checked, go straight to Edge Function
-                    aiBtn.textContent = '✨ Asking AI...';
+                    aiBtn.textContent = 'âœ¨ Asking AI...';
                     const sb = MECSupabase.getSupabase();
                     const result = await sb.functions.invoke('explain-question', {
                       body: {
@@ -2769,11 +2769,11 @@
                       const saveStatus = document.getElementById('ai-save-status');
                       if (saveStatus) {
                         if (data.savedToGithub) {
-                          console.log('[AI] ✅ Explanation saved to GitHub at:', data.savedPath);
-                          saveStatus.innerHTML = '<span class="github-saved-badge">✓ Saved to Question Bank</span>';
+                          console.log('[AI] âœ… Explanation saved to GitHub at:', data.savedPath);
+                          saveStatus.innerHTML = '';
                         } else {
-                          console.error('[AI] ❌ GitHub save failed:', data);
-                          saveStatus.innerHTML = '<span class="github-error-badge">⚠ Could not save — see console</span>';
+                          console.error('[AI] âŒ GitHub save failed:', data);
+                          saveStatus.innerHTML = '';
                         }
                       }
 
@@ -2781,7 +2781,7 @@
                     }
                   } catch (e) {
                     console.error(e);
-                    aiBtn.innerHTML = '❌ Error. Try again.';
+                    aiBtn.innerHTML = 'âŒ Error. Try again.';
                     aiBtn.disabled = false;
                     _aiGenerating = false;
                   }
@@ -2793,16 +2793,31 @@
         }
         // Bug #25: FAB panel always shows current (possibly just-generated) explanation
         if ($('ai-fab-content-inject')) {
+          let optionsHtml = '';
+          if (!q.isGridIn && q.options) {
+              optionsHtml = '<div style="margin-top: 12px; font-size: 14px;">';
+              q.options.forEach((opt, idx) => {
+                 const isCorrect = (idx === q.correct);
+                 const letter = ['A','B','C','D','E'][idx];
+                 optionsHtml += ``;
+              });
+              optionsHtml += '</div>';
+          }
           $('ai-fab-content-inject').innerHTML = `
             <div class="ai-explanation-card">
               <div class="ai-exp-header">
-                <span class="ai-exp-badge">Correct Answer: ${correctValStr}</span>
+                
               </div>
               <div class="ai-exp-body">
+                
+                
+                ${optionsHtml}
+                <hr style="border:none; border-top: 1px solid var(--border); margin: 16px 0;">
+                
                 ${isMissing ? '<em style="color:var(--text-muted)">No explanation yet. Use the Generate button in the review panel.</em>' : explanationHtml}
               </div>
               <div class="ai-exp-footer">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                
                 Powered by Deep Analysis
               </div>
             </div>
@@ -2819,15 +2834,15 @@
         $('qn-next').style.background = '#059669';
         $('qn-next').style.borderColor = '#059669';
         if ($('bn-next')) {
-          $('bn-next').innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Submit';
+          $('bn-next').innerHTML = 'Submit';
           $('bn-next').style.color = '#059669';
         }
       } else {
-        $('qn-next').textContent = 'Next →';
+        $('qn-next').textContent = 'Next â†’';
         $('qn-next').style.background = '';
         $('qn-next').style.borderColor = '';
         if ($('bn-next')) {
-          $('bn-next').innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6" /></svg>Next';
+          $('bn-next').innerHTML = 'Next';
           $('bn-next').style.color = '';
         }
       }
@@ -2862,21 +2877,14 @@
       updateGrids();
 
       // Format math formulas robustly, then reveal
-      // Hard failsafe: always restore opacity after 3s, even if formatMath stalls
-      const _revealTimeout = setTimeout(() => {
-        $('question-card').style.opacity = '1';
-        $('options-list').style.opacity = '1';
-        if ($('grid-in-container')) $('grid-in-container').style.opacity = '1';
-      }, 3000);
       formatMath().then(() => {
-        clearTimeout(_revealTimeout);
         $('question-card').style.opacity = '1';
         $('options-list').style.opacity = '1';
         if ($('grid-in-container')) $('grid-in-container').style.opacity = '1';
       });
     }
 
-    /* ── MathJax Formatter ──────────────────────────────── */
+    /* â”€â”€ MathJax Formatter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     let mathJaxRetries = 0;
     async function formatMath() {
       if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
@@ -2887,14 +2895,8 @@
         } catch (err) {
           console.log('MathJax error:', err);
         }
-        // Always resolves here — opacity will be restored by caller
-        return;
       } else {
-        if (mathJaxRetries > 20) {
-          // Bug fix #4: MathJax never loaded — resolve anyway so content is revealed
-          mathJaxRetries = 0;
-          return;
-        }
+        if (mathJaxRetries > 20) return; // Bug fix #4: prevent infinite loop
         mathJaxRetries++;
         // If MathJax isn't fully loaded yet, try again shortly
         await new Promise(resolve => setTimeout(resolve, 100));
@@ -2902,7 +2904,7 @@
       }
     }
 
-    /* ── Option click & Grid-in input ────────────────────── */
+    /* â”€â”€ Option click & Grid-in input â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     document.querySelectorAll('.option-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (examFinished) return;
@@ -2919,7 +2921,7 @@
       });
     }
 
-    /* ── Navigation ────────────────────────────────────────────────── */
+    /* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function goTo(index) {
       if (index < 0 || index >= EXAM_DATA.questions.length) return;
       currentQ = index;
@@ -2942,7 +2944,7 @@
       else goTo(currentQ + 1);
     });
 
-    /* ── Flag ────────────────────────────────────────────────────────── */
+    /* â”€â”€ Flag â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function toggleFlag() {
       if (flags.has(currentQ)) flags.delete(currentQ);
       else flags.add(currentQ);
@@ -2952,7 +2954,7 @@
     if ($('flag-btn')) $('flag-btn').addEventListener('click', toggleFlag);
     if ($('bn-flag')) $('bn-flag').addEventListener('click', toggleFlag);
 
-    /* ── Modals & Passages ──────────────────────────────── */
+    /* â”€â”€ Modals & Passages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     if ($('passage-close')) {
       $('passage-close').addEventListener('click', () => {
         $('passage-modal').classList.remove('visible');
@@ -2964,7 +2966,7 @@
       });
     }
 
-    /* ── Q Grids (Subject-Tabbed) ─────────────────────────────────── */
+    /* â”€â”€ Q Grids (Subject-Tabbed) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     // Group questions by subject for navigator
     function getSubjectGroups() {
       const groups = []; // [{name, questions: [{globalIdx}]}]
@@ -3024,7 +3026,7 @@
             cell.className = 'q-cell';
             cell.dataset.qidx = globalIdx;  // KEY FIX: store global index
             cell.textContent = posInGroup + 1; // show 1-based within subject
-            cell.title = `Q${globalIdx + 1} — ${g.name}`;
+            cell.title = `Q${globalIdx + 1} â€” ${g.name}`;
             cell.addEventListener('click', () => goTo(globalIdx));
             grid.appendChild(cell);
           });
@@ -3063,7 +3065,7 @@
         if (reviewMode) {
           const q = EXAM_DATA.questions[i];
           const userAns = (answers[i] || '').toString().trim().toLowerCase().replace(/,/g, '');
-          const correctAns = (q.correctAnswer || (q.correct !== undefined ? ['A','B','C','D','E'][q.correct] : '')).toString().trim().toLowerCase().replace(/,/g, '');
+          const correctAns = (q.correctAnswer || (q.correct !== undefined ? ['A','B','C','D'][q.correct] : '')).toString().trim().toLowerCase().replace(/,/g, '');
           
           let isCorrect = false;
           if (q.isGridIn) {
@@ -3086,7 +3088,7 @@
       });
     }
 
-    /* ── Navigator Drawer (mobile) ─────────────────────────────────── */
+    /* â”€â”€ Navigator Drawer (mobile) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     $('bn-navigator').addEventListener('click', openDrawer);
     $('nav-drawer-close').addEventListener('click', closeDrawer);
     $('nav-drawer-overlay').addEventListener('click', closeDrawer);
@@ -3101,7 +3103,7 @@
       $('nav-drawer-overlay').classList.remove('visible');
     }
 
-    /* ── Submit ──────────────────────────────────────────────────────── */
+    /* â”€â”€ Submit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function showSubmitModal() {
       const answered = Object.keys(answers).length;
       const total = EXAM_DATA.questions.length;
@@ -3119,11 +3121,11 @@
         const unanswered = stats.total - stats.answered;
         subjectHTML += `
           <div style="display:flex; justify-content:space-between; padding:12px 16px; background: var(--bg-base); border:1px solid var(--border); border-radius:12px; font-size:14px; align-items:center;">
-            <span style="font-weight:700; color:var(--text-primary); text-transform:uppercase; font-family:'Outfit',sans-serif;">${subj}</span>
+            
             <span style="font-family:'Inter',sans-serif; font-size: 13px;">
-               <span style="color:var(--green, #10b981); font-weight:700;">${stats.answered}</span> <span style="color:var(--text-muted);">Ans</span> 
-               <span style="color:var(--border); margin:0 8px;">|</span> 
-               <span style="color:${unanswered > 0 ? 'var(--red, #ef4444)' : 'var(--text-muted)'}; font-weight:700;">${unanswered}</span> <span style="color:var(--text-muted);">Left</span>
+                 
+                
+                
             </span>
           </div>
         `;
@@ -3134,16 +3136,16 @@
         ${subjectHTML}
         <div style="display:flex; justify-content:space-between; margin-top:20px; padding-top:20px; border-top:1px dashed var(--border);">
           <div style="display:flex; flex-direction:column; align-items:center; flex:1; border-right:1px solid var(--border);">
-            <span style="font-size:22px; font-weight:800; color:var(--green, #10b981); line-height:1;">${answered}</span>
-            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase; margin-top:6px;">Total Ans</span>
+            
+            
           </div>
           <div style="display:flex; flex-direction:column; align-items:center; flex:1; border-right:1px solid var(--border);">
-            <span style="font-size:22px; font-weight:800; color:var(--red, #ef4444); line-height:1;">${total - answered}</span>
-            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase; margin-top:6px;">Total Left</span>
+            
+            
           </div>
           <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
-            <span style="font-size:22px; font-weight:800; color:#f59e0b; line-height:1;">${flags.size}</span>
-            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase; margin-top:6px;">Flagged</span>
+            
+            
           </div>
         </div>
       `;
@@ -3253,21 +3255,11 @@
       }
 
       // Redirect to the new JAMB Result Slip page
-      if (window.location.protocol === 'file:') {
-        window.location.href = 'result.html' + window.location.search;
-      } else {
-        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
-        window.location.href = `/${cc}/test/result` + window.location.search;
-      }
+      window.location.href = './result.html' + window.location.search;
     }
 
     function openDeepAnalysis() {
-      if (window.location.protocol === 'file:') {
-        window.location.href = 'deep_analysis.html';
-      } else {
-        const cc = window.location.pathname.split('/').filter(p => p.length > 0)[0] || 'ng';
-        window.location.href = `/${cc}/test/analysis`;
-      }
+      window.location.href = './deep_analysis.html';
     }
 
     /* Submit buttons */
@@ -3292,7 +3284,7 @@
       renderQuestion();
     });
 
-    /* ── Sidebar & Quit ───────────────────────────────────────────── */
+    /* â”€â”€ Sidebar & Quit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     if ($('btn-toggle-sidebar')) {
       $('btn-toggle-sidebar').addEventListener('click', () => {
         if (typeof mecToggleSidebar === 'function') mecToggleSidebar();
@@ -3315,7 +3307,7 @@
       });
     }
 
-    /* ── Calculator ───────────────────────────────────────────── */
+    /* â”€â”€ Calculator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     const calcModal = $('calc-modal');
     const openCalc = () => { if (calcModal) calcModal.style.display = 'block'; };
     if ($('bn-calculator')) $('bn-calculator').addEventListener('click', openCalc);
@@ -3326,7 +3318,7 @@
       });
     }
 
-    /* ── Calculator Drag Logic ──────────────────────────────── */
+    /* â”€â”€ Calculator Drag Logic â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     const calcHeader = $('calc-header');
     let isDragging = false, startX, startY, initialX, initialY;
 
@@ -3436,7 +3428,7 @@
       });
     });
 
-    /* ââ Network status âââââââââââââââââââââââââââââââââââââââ */
+    /* Ã¢Â”Â€Ã¢Â”Â€ Network status Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€ */
     function updateNetwork() {
       const block = $('network-block');
       if (navigator.onLine) {
@@ -3451,12 +3443,12 @@
     window.addEventListener('online', updateNetwork);
     window.addEventListener('offline', updateNetwork);
 
-    /* ââ Keyboard shortcuts âââââââââââââââââââââââââââââââââââ */
+    /* Ã¢Â”Â€Ã¢Â”Â€ Keyboard shortcuts Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€ */
     document.addEventListener('keydown', e => {
       if (examFinished || !examStarted) return;
       const key = e.key.toUpperCase();
-      if (['A', 'B', 'C', 'D', 'E'].includes(key)) {
-        const idx = ['A', 'B', 'C', 'D', 'E'].indexOf(key);
+      if (['A', 'B', 'C', 'D'].includes(key)) {
+        const idx = ['A', 'B', 'C', 'D'].indexOf(key);
         if (idx < EXAM_DATA.questions[currentQ].options.length) {
           answers[currentQ] = idx;
           renderQuestion();
@@ -3470,7 +3462,7 @@
       }
     });
 
-    /* ââ AI FAB Logic âââââââââââââââââââââââââââââââââââââââââ */
+    /* Ã¢Â”Â€Ã¢Â”Â€ AI FAB Logic Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€ */
     let aiFabTimeout;
     window.addEventListener('DOMContentLoaded', () => {
       // Small timeout to ensure state is restored if coming from result page
@@ -3506,7 +3498,7 @@
       }, 5000);
     });
 
-    /* ââ Passage Modal Events âââââââââââââââââââââââââââââââââ */
+    /* Ã¢Â”Â€Ã¢Â”Â€ Passage Modal Events Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€Ã¢Â”Â€ */
     $('btn-read-passage').addEventListener('click', () => {
       $('passage-modal').classList.add('visible');
     });
@@ -3521,7 +3513,7 @@
         $('passage-modal').classList.remove('visible');
       }
     });
-    /* ─── Network Status Indicator ───────────────────────────────────────── */
+    /* â”€â”€â”€ Network Status Indicator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function updateNetworkStatus() {
       const icon = $('network-icon');
       if (!icon) return;
@@ -3545,7 +3537,7 @@
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (conn) conn.addEventListener('change', updateNetworkStatus);
 
-    /* ── Premium Purchase Redirect ───────────────────────────────────────── */
+    /* â”€â”€ Premium Purchase Redirect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function purchasePremium() {
       const redirectUrl = encodeURIComponent(window.location.pathname + window.location.search);
       const searchParams = new URLSearchParams(window.location.search);
@@ -3554,7 +3546,7 @@
       window.location.href = `../../top_up/amount_entry.html?redirect_back=${redirectUrl}&auto_amount=500&purpose=exam_unlock&exam_id=${encodeURIComponent(examId)}`;
     }
 
-  </script>
-</body>
+  
 
-</html>
+
+

@@ -573,9 +573,11 @@
     let allUniversities = [];
 
     function buildSetupUrl(mod) {
-      const base = window.location.pathname.includes('/public/modules/')
+      const isLocal = window.location.pathname.includes('/public/modules/');
+      const country = typeof state !== 'undefined' && state.country ? state.country : 'ng';
+      const base = isLocal
         ? '/public/modules/cbt_test/core/setup_premium.html'
-        : '/modules/cbt_test/core/setup_premium.html';
+        : `/${country}/test/premium`;
 
       const params = new URLSearchParams({
         exam_id: mod.id,
