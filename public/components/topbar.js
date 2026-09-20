@@ -75,8 +75,15 @@ class AppTopbar extends HTMLElement {
     
     this.render();
     
-    // Add top padding to account for fixed topbar globally
-    document.body.style.paddingTop = '56px';
+    // Add responsive top padding to account for fixed topbar
+    // Mobile: 52px (actual topbar height on mobile)
+    // Desktop (641px+): 84px (actual topbar height on desktop)
+    const updateBodyPadding = () => {
+      const topbarHeight = window.innerWidth >= 641 ? '84px' : '52px';
+      document.body.style.paddingTop = topbarHeight;
+    };
+    updateBodyPadding();
+    window.addEventListener('resize', updateBodyPadding);
     
     // Initialize mobile smart scroll
     this.initSmartScroll();

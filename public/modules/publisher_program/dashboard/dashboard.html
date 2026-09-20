@@ -413,7 +413,7 @@
         <!-- Actions -->
         <div class="actions-wrap">
              <div class="actions-grid">
-                <a href="article/create_post.html" class="action-btn">
+                <a href="/ng/publisher/create-post" class="action-btn">
                     <div class="action-icon">
                         <svg class="svg-ic" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                     </div>
@@ -548,7 +548,7 @@
         const user = await window.MECSupabase.getCurrentUser();
         if (!user) {
             alert('Debug: No user found in dashboard. Auth might have been lost.');
-            window.location.href = '../profile/bio.html';
+            window.location.href = '/ng/publisher/bio';
             return;
         }
         
@@ -575,7 +575,7 @@
         if (error || !publisher) {
             alert('Debug Redirecting! Error: ' + JSON.stringify(error) + ' | Data returned: ' + JSON.stringify(publishers));
             // No publisher record — send to onboarding
-            window.location.href = '../profile/bio.html';
+            window.location.href = '/ng/publisher/bio';
             return;
         }
 
@@ -680,8 +680,8 @@
         closeCreate();
         // Blog — pass topic if available
         const url = _pendingTopic
-            ? 'article/create_post.html?topic=' + encodeURIComponent(_pendingTopic)
-            : 'article/create_post.html';
+            ? '/ng/publisher/create-post?topic=' + encodeURIComponent(_pendingTopic)
+            : '/ng/publisher/create-post';
         window.location.href = url;
     }
 </script>

@@ -45,8 +45,19 @@
 [data-theme="dark"] .content-area,
 [data-theme="dark"] .main-content,
 [data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .app-container,
 [data-theme="dark"] .app {
   background: var(--bg-base) !important;
+}
+
+/* Preserve border-radius on main containers in dark mode */
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .app-container {
+  border-radius: 24px 24px 0 0 !important;
+}
+
+[data-theme="dark"] .content-area {
+  border-radius: 16px 16px 0 0 !important;
 }
 
 /* ================================================================

@@ -270,34 +270,167 @@
       min-width: 0;
     }
 
-    /* ---- Ad Banners (Image) ---- */
+    /* ---- Ad Banners (Image Carousel) ---- */
     .ad-banner-wrapper {
-      margin: 32px auto;
+      margin: 16px auto;
       width: 100%;
-      max-width: 800px;
+      max-width: 100%;
+      padding: 0 12px;
+      box-sizing: border-box;
     }
 
-    .ad-banner-img {
-      display: block;
+    .ad-banner-container {
+      position: relative;
       width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      background: #0e2212;
     }
 
-    .ad-banner-img:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    /* Mobile: Single banner with slideshow after 3s */
+    @media (max-width: 640px) {
+      .ad-banner-wrapper {
+        margin: 12px auto;
+        padding: 0 8px;
+      }
+
+      .ad-banner-container {
+        border-radius: 8px;
+        overflow: visible;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        background: transparent;
+        aspect-ratio: auto;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .ad-banner-img {
+        display: none;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: opacity 0.6s ease;
+        flex-shrink: 0;
+      }
+
+      .ad-banner-img.active {
+        display: block;
+        opacity: 1;
+      }
+
+      .ad-banner-img img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        border-radius: 8px;
+        max-width: 100%;
+      }
+
+      .ad-banner-dots {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        z-index: 10;
+        margin-top: 10px;
+        padding: 0;
+      }
+
+      .ad-banner-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(100, 116, 139, 0.4);
+        cursor: pointer;
+        transition: background 0.3s, width 0.3s;
+        box-shadow: none;
+      }
+
+      .ad-banner-dot.active {
+        background: #2563eb;
+        width: 20px;
+        border-radius: 3px;
+      }
+
+      .ad-banner-dots-desktop {
+        display: none;
+      }
     }
 
-    .ad-banner-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
+    /* Tablet & Desktop: 3 banners in a row */
+    @media (min-width: 641px) {
+      .ad-banner-wrapper {
+        margin: 12px auto;
+        padding: 0 16px;
+      }
+
+      .ad-banner-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+      }
+
+      .ad-banner-img {
+        display: block;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        background: #0e2212;
+        aspect-ratio: auto;
+        min-height: 110px;
+        max-height: none;
+      }
+
+      .ad-banner-img:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .ad-banner-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        border-radius: 8px;
+        padding: 4px;
+        box-sizing: border-box;
+      }
+
+      .ad-banner-dots {
+        display: none;
+      }
+
+      /* Indicator dots for desktop/tablet */
+      .ad-banner-dots-desktop {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .ad-banner-dot-desktop {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(100, 116, 139, 0.4);
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .ad-banner-dot-desktop.active {
+        background: #2563eb;
+        transform: scale(1.2);
+      }
     }
 
     /* ---- Section Headers ---- */
@@ -1296,11 +1429,21 @@
             </div>
           </div>
 
-          <!-- Banner 1 -->
-          <div class="ad-banner-wrapper mec-ad-banner-inline">
-            <div class="ad-banner-img" style="cursor: default;">
-              <img src="../assets/banners/banner_1.webp" alt="Loading Advertisement..." loading="lazy">
+          <!-- Promotional Banners Carousel -->
+          <div class="ad-banner-wrapper mec-ad-banner-inline" id="ad-banner-section">
+            <div class="ad-banner-container">
+              <div class="ad-banner-img active" data-index="0" data-link="publisher/onboarding">
+                <img src="../assets/banners/write_and_earn.webp" alt="Write and Earn" loading="lazy">
+              </div>
+              <div class="ad-banner-img" data-index="1" data-link="#">
+                <img src="../assets/banners/post_exam_question_and_earn.webp" alt="Post Exam Questions" loading="lazy">
+              </div>
+              <div class="ad-banner-img" data-index="2" data-link="#">
+                <img src="../assets/banners/join_whatsapp_group.webp" alt="Join WhatsApp Group" loading="lazy">
+              </div>
             </div>
+            <div class="ad-banner-dots" id="ad-banner-dots"></div>
+            <div class="ad-banner-dots-desktop" id="ad-banner-dots-desktop"></div>
           </div>
 
           <!-- Dynamic Exam Sections -->
@@ -1342,12 +1485,7 @@
             </div>
           </div>
 
-          <!-- Banner 3 -->
-          <div class="ad-banner-wrapper mec-ad-banner-inline">
-            <div class="ad-banner-img" style="cursor: default;">
-              <img src="../assets/banners/banner_3.webp" alt="Loading Advertisement..." loading="lazy">
-            </div>
-          </div>
+
 
           <!-- ── Education News Feed (Facebook-style) ─────────────────── -->
           <div class="fb-news-section">
@@ -2100,6 +2238,7 @@
                   'southern_delta_university_sdu': '../assets/country/nigeria/southern_delta_university.webp',
                   'southern_delta_university': '../assets/country/nigeria/southern_delta_university.webp',
                   'uniben': '../assets/country/nigeria/university_of_benin.webp',
+                  'ui': '../assets/country/nigeria/university_of_ibadan.webp',
                   'unilag': '../assets/country/nigeria/university_of_lagos.webp',
                 };
                 const logoSrc = LOGO_MAP[mod.exam_body] || null;
@@ -2264,6 +2403,115 @@
         });
       }
     });
+  </script>
+
+  <!-- Banner Carousel Script -->
+  <script>
+    (function () {
+      const isMobile = window.innerWidth <= 640;
+      const bannerSection = document.getElementById('ad-banner-section');
+      const bannerContainer = bannerSection?.querySelector('.ad-banner-container');
+      const bannerImgs = bannerSection?.querySelectorAll('.ad-banner-img');
+      const bannerDots = document.getElementById('ad-banner-dots');
+      const bannerDotsDesktop = document.getElementById('ad-banner-dots-desktop');
+
+      if (!bannerImgs || bannerImgs.length === 0) return;
+
+      let currentIndex = 0;
+      let slideTimeout;
+
+      // Add click handlers to banners
+      bannerImgs.forEach((img) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+          const link = this.getAttribute('data-link');
+          if (link && link !== '#') {
+            // Get country code from current URL
+            // URL format: /ng/modules/index.html or /ng/
+            const currentPath = window.location.pathname;
+            const pathParts = currentPath.split('/').filter(p => p);
+            const countryCode = pathParts[0] || 'ng'; // Default to 'ng' if not found
+            
+            // Construct clean URL with country code
+            const fullPath = '/' + countryCode + '/' + link;
+            window.location.href = fullPath;
+          }
+        });
+      });
+
+      // Create dots for mobile
+      if (isMobile && bannerDots) {
+        bannerImgs.forEach((_, idx) => {
+          const dot = document.createElement('div');
+          dot.className = 'ad-banner-dot' + (idx === 0 ? ' active' : '');
+          dot.onclick = () => goToSlide(idx);
+          bannerDots.appendChild(dot);
+        });
+      }
+
+      // Create dots for desktop/tablet
+      if (!isMobile && bannerDotsDesktop) {
+        bannerImgs.forEach((_, idx) => {
+          const dot = document.createElement('div');
+          dot.className = 'ad-banner-dot-desktop' + (idx === 0 ? ' active' : '');
+          dot.onclick = () => goToSlide(idx);
+          bannerDotsDesktop.appendChild(dot);
+        });
+      }
+
+      function showSlide(index) {
+        bannerImgs.forEach((img, idx) => {
+          img.classList.toggle('active', idx === index);
+        });
+
+        // Update mobile dots
+        document.querySelectorAll('.ad-banner-dot').forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === index);
+        });
+
+        // Update desktop dots
+        document.querySelectorAll('.ad-banner-dot-desktop').forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === index);
+        });
+
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        const next = (currentIndex + 1) % bannerImgs.length;
+        showSlide(next);
+      }
+
+      function goToSlide(index) {
+        showSlide(index);
+        clearTimeout(slideTimeout);
+        if (isMobile) {
+          scheduleNextSlide();
+        }
+      }
+
+      function scheduleNextSlide() {
+        slideTimeout = setTimeout(() => {
+          nextSlide();
+          scheduleNextSlide();
+        }, 4000); // 4 second interval between slides
+      }
+
+      // Start carousel on mobile after 3 seconds
+      if (isMobile) {
+        setTimeout(() => {
+          scheduleNextSlide();
+        }, 3000); // 3 second initial delay
+      }
+
+      // Handle resize to switch between mobile/desktop modes
+      window.addEventListener('resize', () => {
+        const newIsMobile = window.innerWidth <= 640;
+        if (newIsMobile !== isMobile) {
+          location.reload(); // Reload on breakpoint change for simplicity
+        }
+      });
+    })();
   </script>
 </body>
 

@@ -351,7 +351,7 @@
   <div class="main-card">
     <!-- Top Bar with Back Arrow -->
     <div class="top-bar">
-        <button class="back-btn" onclick="window.location.href='../onboarding/onboarding_screen.html'" aria-label="Go back">
+        <button class="back-btn" onclick="window.location.href='/ng/publisher/onboarding'" aria-label="Go back">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
@@ -376,7 +376,7 @@
     </div>
 
     <!-- Form Area -->
-    <form class="form-container" action="identity.html" method="GET" style="display: flex; flex-direction: column;">
+    <form class="form-container" onsubmit="handleBioSubmit(event)" style="display: flex; flex-direction: column;">
         
         <!-- Publisher Name -->
         <div class="input-group">
@@ -482,6 +482,13 @@
         nameInput.addEventListener('input', () => localStorage.setItem('pub_draft_name', nameInput.value));
         catSelect.addEventListener('change', () => localStorage.setItem('pub_draft_cat', catSelect.value));
         descInput.addEventListener('input', () => localStorage.setItem('pub_draft_desc', descInput.value));
+
+        // Handle form submission
+        function handleBioSubmit(event) {
+            event.preventDefault();
+            // Navigate to identity page without .html extension
+            window.location.href = '/ng/publisher/identity';
+        }
     </script>
 </body>
 </html>

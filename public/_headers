@@ -1,7 +1,11 @@
-# Cache static assets aggressively
-/components/*
-  Cache-Control: public, max-age=31536000, immutable
+# Cache static CSS/JS with 1 hour expiry for quick updates
+/components/*.css
+  Cache-Control: public, max-age=3600, must-revalidate
 
+/components/*.js
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Cache images/assets aggressively
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 

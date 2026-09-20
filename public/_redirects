@@ -21,6 +21,13 @@
 /ng/study/videos           /modules/study/topic_video/topic_video 200
 /ng/study/scholarships     /modules/study/scholarship/list_of_scholarship 200
 
+# -- Legacy old URL format redirects (study/country/exam/subject) --
+/study/nigeria/jamb/*      /ng/test/:splat 301
+/study/nigeria/waec/*      /ng/test/:splat 301
+/study/nigeria/neco/*      /ng/test/:splat 301
+/study/ghana/waec/*        /gh/test/:splat 301
+/study/usa/sat/*           /us/test/:splat 301
+
 /gh/study/classroom        /modules/study/classroom/classroom_subject 200
 /gh/study/classroom/*      /modules/study/classroom/classroom_questions 200
 /gh/study/past-questions   /modules/study/study_past_questions/study_subject 200
@@ -96,6 +103,77 @@
 /signup      /modules/auth/sign_up 200
 /verify      /modules/auth/otp 200
 /onboarding  /modules/auth/fill_form 200
+
+# -- Publisher Program (country-scoped) --
+/ng/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/ng/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/ng/publisher/bio                  /modules/publisher_program/profile/bio 200
+/ng/publisher/identity             /modules/publisher_program/profile/identity 200
+/ng/publisher/account              /modules/publisher_program/profile/account 200
+/ng/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/ng/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/ng/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+/gh/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/gh/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/gh/publisher/bio                  /modules/publisher_program/profile/bio 200
+/gh/publisher/identity             /modules/publisher_program/profile/identity 200
+/gh/publisher/account              /modules/publisher_program/profile/account 200
+/gh/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/gh/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/gh/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+/us/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/us/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/us/publisher/bio                  /modules/publisher_program/profile/bio 200
+/us/publisher/identity             /modules/publisher_program/profile/identity 200
+/us/publisher/account              /modules/publisher_program/profile/account 200
+/us/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/us/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/us/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+# -- Backward compatibility for old publisher URLs --
+/ng/profile/bio.html               /ng/publisher/bio 301
+/ng/profile/bio                    /ng/publisher/bio 301
+/ng/profile/identity.html          /ng/publisher/identity 301
+/ng/profile/identity               /ng/publisher/identity 301
+/ng/profile/account.html           /ng/publisher/account 301
+/ng/profile/account                /ng/publisher/account 301
+
+/ng/dashboard/dashboard.html       /ng/publisher/dashboard 301
+/ng/dashboard/dashboard            /ng/publisher/dashboard 301
+
+/ng/publisher/article/create_post.html  /ng/publisher/create-post 301
+/ng/publisher/article/post_review.html  /ng/publisher/post-review 301
+/ng/publisher/article/preview.html      /ng/publisher/preview 301
+
+/gh/profile/bio.html               /gh/publisher/bio 301
+/gh/profile/bio                    /gh/publisher/bio 301
+/gh/profile/identity.html          /gh/publisher/identity 301
+/gh/profile/identity               /gh/publisher/identity 301
+/gh/profile/account.html           /gh/publisher/account 301
+/gh/profile/account                /gh/publisher/account 301
+
+/gh/dashboard/dashboard.html       /gh/publisher/dashboard 301
+/gh/dashboard/dashboard            /gh/publisher/dashboard 301
+
+/gh/publisher/article/create_post.html  /gh/publisher/create-post 301
+/gh/publisher/article/post_review.html  /gh/publisher/post-review 301
+/gh/publisher/article/preview.html      /gh/publisher/preview 301
+
+/us/profile/bio.html               /us/publisher/bio 301
+/us/profile/bio                    /us/publisher/bio 301
+/us/profile/identity.html          /us/publisher/identity 301
+/us/profile/identity               /us/publisher/identity 301
+/us/profile/account.html           /us/publisher/account 301
+/us/profile/account                /us/publisher/account 301
+
+/us/dashboard/dashboard.html       /us/publisher/dashboard 301
+/us/dashboard/dashboard            /us/publisher/dashboard 301
+
+/us/publisher/article/create_post.html  /us/publisher/create-post 301
+/us/publisher/article/post_review.html  /us/publisher/post-review 301
+/us/publisher/article/preview.html      /us/publisher/preview 301
 
 # -- Legacy 301 Redirects (SEO & backward compatibility) --
 /pricing                    /ng/pricing 301

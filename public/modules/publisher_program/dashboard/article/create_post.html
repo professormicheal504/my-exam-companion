@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <script>
-  /* Anti-flash: apply saved theme before first paint */
   (function() {
     try {
       var t = localStorage.getItem('mec_theme') || 'light';
@@ -12,613 +11,2384 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
+    <title>Create Article - Publisher Program</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg-color: #f5f7fa;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-blue: #2563eb;
+            --accent-red: #dc2626;
+            --accent-green: #2563eb;
+            --accent-yellow: #f59e0b;
+            --border-color: #e5e7eb;
+            --success-color: #2563eb;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-body, #f0f2f5);
-            color: var(--text-primary, #111);
-            -webkit-font-smoothing: antialiased;
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .main-wrapper { 
+            display: flex; 
+            min-height: 100vh; 
+            gap: 0; 
+            flex-direction: column;
+        }
+        
+        /* Editor Panel */
+        .editor-panel {
+            flex: 1;
+            background: var(--surface-color);
+            padding: 40px;
+            overflow-y: auto;
+            border-right: none;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Quality Panel */
+        .quality-panel {
+            flex: none;
+            background: #f9fafb;
+            padding: 32px 40px;
+            overflow-y: auto;
+            position: static;
+            top: auto;
+            height: auto;
+            border-top: 1px solid #e5e7eb;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: block;
+        }
+
+        .section-header {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-primary);
             display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-header-icon {
+            font-size: 24px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .container {
-            width: 100%;
-            max-width: 800px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-card, #fff);
+        .step-box {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: 48px;
+            transition: none;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #f3f4f6;
         }
 
-        @media (min-width: 850px) {
-            .container {
-                height: calc(100vh - 40px);
-                margin-top: 20px;
-                margin-bottom: 20px;
+        .step-box:last-of-type {
+            border-bottom: none;
+        }
+
+        .step-box.completed {
+            border: none;
+            background: transparent;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            display: none;
+        }
+
+        .step-box.completed .step-number {
+            display: none;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .step-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 0;
+        }
+
+        .quality-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f0f4ff;
+            color: #2563eb;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .quality-badge.completed {
+            background: #f0f4ff;
+            color: #2563eb;
+        }
+
+        /* Quality Score Panel */
+        .quality-score-box {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
+            border: 1px solid #bbdefb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .quality-score-box.low {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-color: #ef5350;
+        }
+
+        .quality-score-box.medium {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-color: #ffa726;
+        }
+
+        .score-percentage {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1565c0;
+        }
+
+        .quality-score-box.low .score-percentage {
+            color: #c62828;
+        }
+
+        .quality-score-box.medium .score-percentage {
+            color: #ef6c00;
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: #5f6368;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-top: 14px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: white;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Missing Items */
+        .missing-items {
+            background: rgba(220, 38, 38, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .missing-items h4 {
+            color: var(--accent-red);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .missing-item-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            color: #7f1d1d;
+            font-size: 12px;
+        }
+
+        .missing-item-row::before {
+            content: "✕";
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-primary);
+            background: var(--surface-color);
+            transition: all 0.2s;
+        }
+
+        .form-input:hover, .form-textarea:hover, .form-select:hover {
+            border-color: #5f6368;
+        }
+
+        .form-textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Rich Editor */
+        .editor-toolbar {
+            display: flex;
+            gap: 8px;
+            padding: 14px;
+            background: #f9fafb;
+            border-radius: 8px 8px 0 0;
+            border: 1px solid #dadce0;
+            border-bottom: none;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: position 0.2s, top 0.2s;
+        }
+
+        .editor-toolbar.stuck {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .editor-toolbar.stuck-with-constraints {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 900px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .toolbar-btn {
+            padding: 8px 14px;
+            background: white;
+            border: 1px solid #dadce0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #5f6368;
+            transition: all 0.2s;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .toolbar-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .toolbar-btn:hover {
+            background: #f0f4ff;
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .toolbar-btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        .toolbar-btn:active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        /* Callout Dropdown */
+        .callout-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .callout-dropdown-btn {
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #dadce0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #5f6368;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+            justify-content: center;
+        }
+
+        .callout-dropdown-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .callout-dropdown-btn:hover {
+            background: #f0f4ff;
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .callout-dropdown-btn:active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        /* Show callout text on all devices */
+        .callout-text {
+            display: inline !important;
+        }
+
+        .callout-dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10001;
+            min-width: 220px;
+            top: 100%;
+            left: 0;
+            margin-top: 4px;
+            overflow: hidden;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .callout-dropdown.active .callout-dropdown-content {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .callout-dropdown-content {
+                position: fixed;
+                min-width: calc(100vw - 16px);
+                left: 8px !important;
+                right: 8px !important;
+                top: 50% !important;
+                transform: translateY(-50%);
+                margin-top: 0;
+                max-height: 80vh;
+                overflow-y: auto;
                 border-radius: 12px;
-                border: 1px solid var(--border, #eaeaea);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             }
         }
 
-        /* ── Header ── */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-        .back-btn {
-            color: #555;
+        .callout-option {
+            padding: 10px 14px;
             cursor: pointer;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-        }
-        .back-btn svg { width: 24px; height: 24px; fill: currentColor; }
-        .next-btn {
-            font-size: 1rem;
-            color: #555;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
+            gap: 10px;
+            border-bottom: 1px solid #f3f4f6;
+            user-select: none;
         }
 
-        /* ── Title ── */
-        .title-area {
-            padding: 14px 16px 8px;
-            flex-shrink: 0;
+        .callout-option:last-child {
+            border-bottom: none;
         }
-        .title-input {
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-primary, #111);
-            background: transparent;
-            font-family: inherit;
-            line-height: 1.35;
-            min-height: 36px;
+
+        .callout-option:hover {
+            background: #f9fafb;
         }
-        .title-input:empty::before {
-            content: attr(data-placeholder);
-            color: var(--text-muted, #999);
+
+        .callout-option:active {
+            background: #f0f4ff;
         }
-        .char-count {
+
+        .callout-option-icon {
             display: flex;
-            justify-content: flex-end;
-            font-size: 0.8rem;
-            color: var(--text-secondary, #666);
-            margin-top: 6px;
-        }
-
-        /* ── Toolbar ── */
-        .toolbar-wrap {
-            position: relative;
-            flex-shrink: 0;
-            border-top: 1px solid #efefef;
-            border-bottom: 1px solid #efefef;
-            background: #fafafa;
-        }
-
-        /* URL Input Popup */
-        .url-popup {
-            display: none;
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            background: var(--bg-card);
-            border-bottom: 1px solid #e0e0e0;
-            padding: 8px 12px;
-            gap: 8px;
             align-items: center;
-            z-index: 20;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            font-size: 16px;
         }
-        .url-popup.open { display: flex; }
-        .url-popup input {
+
+        .callout-option-text {
             flex: 1;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 7px 10px;
-            font-size: 0.85rem;
-            outline: none;
-            font-family: inherit;
-        }
-        .url-popup input:focus { border-color: #2563eb; }
-        .url-popup-btn {
-            padding: 7px 14px;
-            background: #2563eb;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-        .url-popup-cancel {
-            padding: 7px 10px;
-            background: #f0f0f0;
-            color: #666;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
         }
 
-        /* Single Toolbar Row — scrollable, never wraps */
-        .toolbar {
+        .callout-option-title {
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .callout-option-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Material Icons */
+        .material-icons {
+            user-select: none;
+        }
+
+        #editor {
+            min-height: 300px;
+            padding: 16px;
+            border: 1px solid #dadce0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background: var(--surface-color);
+            color: var(--text-primary);
+            line-height: 1.75;
+            font-size: 15px;
+            transition: border-color 0.2s;
+            overflow-x: hidden;
+        }
+
+        #editor:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        /* List styling to keep within bounds */
+        #editor ul,
+        #editor ol {
+            margin: 12px 0;
+            padding-left: 24px;
+            list-style-position: inside;
+        }
+
+        #editor ul li,
+        #editor ol li {
+            margin: 6px 0;
+            padding-left: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #editor ul {
+            list-style-type: disc;
+        }
+
+        #editor ul,
+        #editor ol {
+            margin: 12px 0;
+            padding-left: 24px;
+            list-style-position: inside;
+        }
+
+        #editor ul li,
+        #editor ol li {
+            margin: 6px 0;
+            padding-left: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #editor ul {
+            list-style-type: disc;
+        }
+
+        #editor ol {
+            list-style-type: decimal;
+        }
+
+        /* Callout boxes in editor */
+        #editor .callout-box {
+            border: 1px solid;
+            border-left: 4px solid;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            display: flex;
+            gap: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #editor .callout-box .material-icons {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        #editor .callout-box-content {
+            flex: 1;
+        }
+
+        #editor .callout-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        #editor .faq-callout {
+            flex-direction: column !important;
+            gap: 8px !important;
+        }
+
+        #editor .faq-callout .material-icons {
+            margin-bottom: 0 !important;
+        }
+
+        /* FAQ specific styling */
+        #editor .faq-callout strong {
+            margin-bottom: 10px;
+        }
+
+        #editor .faq-callout > div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #editor .faq-question,
+        #editor .faq-answer {
+            font-size: 13px;
+            color: #424242;
+            line-height: 1.5;
+        }
+
+        #editor .faq-question strong,
+        #editor .faq-answer strong {
+            font-size: 12px;
+            font-weight: 600;
+            display: inline;
+            margin-right: 6px;
+        }
+
+        #editor .faq-answer {
+            margin-top: 4px;
+        }
+
+        /* Contenteditable placeholder styling - shows hint text */
+        #editor [contenteditable="true"]:empty::before {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Callout remove button */
+        .callout-remove-btn {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .callout-box:hover .callout-remove-btn {
+            opacity: 1;
+        }
+
+        .callout-remove-btn:hover {
+            color: #dc2626 !important;
+        }
+
+        /* Quality Score */
+        .quality-score-box {
+            background: linear-gradient(135deg, #fdf2f1 0%, #fef5f4 100%);
+            border: 2px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .quality-score-box.high {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f3faf8 100%);
+            border-color: var(--accent-green);
+        }
+
+        .score-percentage {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--accent-red);
+            margin-bottom: 4px;
+        }
+
+        .quality-score-box.high .score-percentage {
+            color: var(--accent-green);
+        }
+
+        .score-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow), var(--accent-blue));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Quality Checklist */
+        .quality-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #f3f4f6;
+        }
+
+        .quality-item:hover {
+            background: #f9fafb;
+            border-color: #e5e7eb;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .quality-item.completed {
+            background: #f0f4ff;
+            border-color: #2563eb;
+        }
+
+        .quality-item-icon {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            padding: 6px 12px;
-            gap: 2px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            flex-wrap: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-        .toolbar::-webkit-scrollbar { display: none; }
-        .toolbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .t-divider {
-            width: 1px;
-            height: 20px;
-            background: #ddd;
-            margin: 0 6px;
-            flex-shrink: 0;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 2px;
         }
 
-        .t-btn {
+        .quality-item.pending .quality-item-icon {
+            background: #e5e7eb;
+            color: #9ca3af;
+        }
+
+        .quality-item.completed .quality-item-icon {
+            background: #2563eb;
+            color: white;
+        }
+
+        .quality-item-text {
+            flex: 1;
+        }
+
+        .quality-item-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .quality-item-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .quality-item-count {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Help Tooltip */
+        .help-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 34px;
-            height: 34px;
+            width: 16px;
+            height: 16px;
+            background: var(--text-secondary);
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: help;
+            position: relative;
+            margin-left: 4px;
+        }
+
+        .help-tooltip {
+            position: absolute;
+            bottom: 125%;
+            right: 0;
+            background: #1a1a1a;
+            color: white;
+            padding: 8px 12px;
             border-radius: 6px;
-            cursor: pointer;
-            color: #888;
-            flex-shrink: 0;
-            transition: background 0.15s, color 0.15s;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .t-btn:hover { background: #ebebeb; color: #222; }
-        .t-btn:active { background: #e0e0e0; }
-        .t-btn.is-active { background: #dbeafe; color: #2563eb; }
-
-        .t-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity 0.2s;
+            z-index: 100;
         }
 
-        /* Text-based buttons (H1, H2, B, I, U) */
-        .t-text {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 1;
-            letter-spacing: -0.5px;
+        .help-icon:hover .help-tooltip {
+            opacity: 1;
         }
-        .t-text sup { font-size: 0.6em; vertical-align: super; }
 
-        .t-bold { font-family: sans-serif; font-size: 0.95rem; font-weight: 900; }
-        .t-italic { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 1.1rem; font-weight: 700; }
-        .t-underline { text-decoration: underline; font-family: sans-serif; font-size: 0.9rem; font-weight: 700; }
-
-        /* ── Editor ── */
-        .editor-area {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px;
-        }
-        .editor {
-            min-height: 100%;
-            outline: none;
-            font-size: 1.1rem;
-            color: var(--text-primary, #111);
-            line-height: 1.8;
-            font-family: inherit;
-        }
-        .editor:empty::before {
-            content: attr(data-placeholder);
-            color: var(--text-muted, #999);
-            pointer-events: none;
-        }
-        /* Article-like styles inside the editor */
-        .editor h1 { font-size: 1.5rem; font-weight: 800; margin: 16px 0 8px; line-height: 1.25; }
-        .editor h2 { font-size: 1.2rem; font-weight: 700; margin: 12px 0 6px; line-height: 1.3; }
-        .editor h3 { font-size: 1.05rem; font-weight: 700; margin: 10px 0 5px; }
-        .editor blockquote {
-            margin: 24px 0;
-            padding: 16px 24px;
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            font-weight: 700;
-            line-height: 1.35;
-            color: var(--text-primary);
-        }
-        .editor ul { padding-left: 22px; margin: 8px 0; }
-        .editor ol { padding-left: 22px; margin: 8px 0; }
-        .editor li { margin-bottom: 5px; }
-        .editor a { color: #e52828; text-decoration: underline; }
-        .editor figure { margin: 14px 0; }
-        .editor figure img { max-width: 100%; border-radius: 6px; }
-        .editor figcaption { font-size: 0.78rem; color: #888; margin-top: 6px; }
-        .editor p { margin-bottom: 10px; }
-
-        /* ── Footer ── */
-        .footer {
+        /* Footer Actions */
+        .footer-actions {
             display: flex;
-            justify-content: flex-end;
-            gap: 16px;
-            padding: 10px 16px;
-            font-size: 0.72rem;
-            color: #bbb;
-            font-weight: 500;
-            border-top: 1px solid #f5f5f5;
-            flex-shrink: 0;
+            gap: 12px;
+            padding: 24px 40px;
+            border-top: 1px solid #e5e7eb;
+            background: var(--surface-color);
+            position: sticky;
+            bottom: 0;
+            margin-top: 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
         }
+
+        .btn-draft, .btn-submit {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-draft {
+            background: white;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+        }
+
+        .btn-draft:hover {
+            background: #f9fafb;
+            border-color: #5f6368;
+        }
+
+        .btn-submit {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: #1d4ed8;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:disabled {
+            background: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+
+            .quality-panel {
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                height: auto;
+                position: static;
+            }
+
+            .editor-panel {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .editor-panel {
+                padding: 24px 16px;
+            }
+
+            .quality-panel {
+                padding: 20px 16px;
+            }
+
+            .section-header {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .step-box {
+                margin-bottom: 32px;
+                padding-bottom: 32px;
+            }
+
+            .editor-toolbar {
+                gap: 6px;
+                padding: 10px;
+                flex-wrap: wrap;
+            }
+
+            .toolbar-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+                flex: 0 1 auto;
+            }
+
+            .callout-dropdown-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .callout-dropdown-content {
+                min-width: 180px;
+                left: -50px;
+            }
+
+            #editor {
+                min-height: 250px;
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .footer-actions {
+                padding: 16px;
+                gap: 8px;
+            }
+
+            .btn-draft, .btn-submit {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            .score-percentage {
+                font-size: 36px;
+            }
+
+            .quality-item {
+                padding: 10px;
+            }
+
+            .quality-item-label {
+                font-size: 12px;
+            }
+
+            .quality-item-description {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .editor-panel {
+                padding: 12px;
+            }
+
+            .quality-panel {
+                padding: 12px;
+            }
+
+            .section-header {
+                font-size: 18px;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+
+            .step-box {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+
+            .score-percentage {
+                font-size: 24px;
+            }
+
+            .footer-actions {
+                flex-direction: column;
+                padding: 12px;
+                gap: 8px;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .btn-draft, .btn-submit {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
+            .editor-toolbar {
+                gap: 4px;
+                padding: 8px;
+                flex-wrap: wrap;
+                border-radius: 6px;
+            }
+
+            .toolbar-btn {
+                padding: 10px 10px;
+                font-size: 11px;
+                min-width: auto;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                white-space: nowrap;
+                flex: 0 1 auto;
+            }
+
+            .toolbar-btn .material-icons {
+                font-size: 18px;
+                flex-shrink: 0;
+            }
+
+            .callout-dropdown-btn {
+                padding: 10px 10px;
+                font-size: 11px;
+                min-width: auto;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                flex: 0 1 auto;
+            }
+
+            .callout-dropdown-btn .material-icons {
+                font-size: 18px;
+                flex-shrink: 0;
+            }
+        }
+
+        /* iPhone 5/SE and smaller screens (320px) */
+        @media (max-width: 374px) {
+            .editor-panel {
+                padding: 8px;
+            }
+
+            .quality-panel {
+                padding: 8px;
+            }
+
+            .section-header {
+                font-size: 16px;
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+                gap: 6px;
+            }
+
+            .section-header .material-icons {
+                font-size: 20px;
+            }
+
+            .step-box {
+                margin-bottom: 16px;
+                padding-bottom: 16px;
+            }
+
+            .step-title {
+                font-size: 14px;
+            }
+
+            .step-subtitle {
+                font-size: 11px;
+            }
+
+            .quality-badge {
+                font-size: 9px;
+                padding: 2px 6px;
+            }
+
+            .editor-toolbar {
+                gap: 3px;
+                padding: 6px 4px;
+                border-radius: 6px;
+            }
+
+            .toolbar-btn {
+                padding: 8px 6px;
+                font-size: 10px;
+                min-width: auto;
+                border-radius: 5px;
+                gap: 3px;
+                flex: 0 1 auto;
+            }
+
+            .toolbar-btn .material-icons {
+                font-size: 16px;
+            }
+
+            .callout-dropdown-btn {
+                padding: 8px 6px;
+                font-size: 10px;
+                min-width: auto;
+                gap: 3px;
+            }
+
+            .callout-dropdown-btn .material-icons {
+                font-size: 16px;
+            }
+
+            .callout-text {
+                display: inline !important;
+            }
+
+            #editor {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .form-input, .form-textarea, .form-select {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .form-label {
+                font-size: 11px;
+            }
+
+            .footer-actions {
+                padding: 10px 8px;
+            }
+
+            .btn-draft, .btn-submit {
+                padding: 12px 10px;
+                font-size: 13px;
+            }
+
+            .quality-item {
+                padding: 6px;
+                gap: 8px;
+            }
+
+            .quality-item-icon {
+                width: 16px;
+                height: 16px;
+                font-size: 9px;
+                min-width: 16px;
+            }
+
+            .quality-item-label {
+                font-size: 11px;
+            }
+
+            .quality-item-description {
+                font-size: 10px;
+            }
+
+            .callout-option {
+                padding: 10px 8px;
+            }
+
+            .callout-option-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 16px;
+            }
+
+            .callout-option-title {
+                font-size: 11px;
+            }
+
+            .callout-option-desc {
+                font-size: 9px;
+            }
+        }
+
+            .form-input, .form-textarea {
+                font-size: 16px;
+                padding: 14px 12px;
+                border-radius: 6px;
+            }
+
+            .form-label {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+
+            #editor {
+                min-height: 200px;
+                font-size: 15px;
+                padding: 12px;
+                line-height: 1.6;
+                border-radius: 0 0 6px 6px;
+            }
+
+            #editor ul, #editor ol {
+                padding-left: 20px;
+                margin: 8px 0;
+            }
+
+            #editor ul li, #editor ol li {
+                margin: 4px 0;
+                padding-left: 4px;
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .callout-box {
+                padding: 12px !important;
+                margin: 12px 0 !important;
+                gap: 8px !important;
+            }
+
+            .quality-item {
+                padding: 8px;
+            }
+
+            .quality-item-label {
+                font-size: 11px;
+            }
+
+            .quality-item-description {
+                font-size: 10px;
+            }
+
+            .quality-item-icon {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+
+            .callout-option {
+                padding: 12px 10px;
+            }
+
+            .callout-option-icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            .callout-option-title {
+                font-size: 12px;
+            }
+
+            .callout-option-desc {
+                font-size: 10px;
+            }
+
+            .step-title {
+                font-size: 15px;
+            }
+
+            .step-subtitle {
+                font-size: 12px;
+            }
+
+            .quality-badge {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+
+            /* Ensure callout text is always visible */
+            .callout-text {
+                display: inline !important;
+                font-size: 11px;
+            }
+        
     </style>
   <link rel="stylesheet" href="../../../../components/dark-mode.css">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-CHG6831RHH');
-  </script>
 </head>
 <body>
-<div class="container">
 
-    <!-- Header -->
-    <div class="header">
-        <a href="../dashboard.html" class="back-btn" title="Go back">
-            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        </a>
-        <a href="#" class="next-btn" onclick="handleNext(event)">Next</a>
-    </div>
+<div class="main-wrapper">
 
-    <!-- Title -->
-    <div class="title-area">
-        <div id="titleInput" class="title-input" contenteditable="true" data-placeholder="Title..."></div>
-        <div class="char-count"><span id="charCount">0</span>/100</div>
-    </div>
+    <!-- Editor Panel -->
+    <div class="editor-panel">
+        <h1 class="section-header">📝 Create Your Article</h1>
 
-    <!-- Toolbar -->
-    <div class="toolbar-wrap">
-
-        <!-- URL Popup -->
-        <div class="url-popup" id="urlPopup">
-            <input type="url" id="urlInput" placeholder="Paste URL here...">
-            <button class="url-popup-btn" id="urlConfirmBtn">Insert</button>
-            <button class="url-popup-cancel" onclick="closePopup()">Cancel</button>
+        <!-- Step 1: Title -->
+        <div class="step-box" id="step-title">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div>
+                    <div class="step-title">Article Title</div>
+                    <span class="quality-badge">50-70 characters</span>
+                </div>
+            </div>
+            <div class="step-subtitle">This is the headline readers see first. Make it compelling and include your main keyword.</div>
+            <input type="text" id="titleInput" class="form-input" placeholder="E.g., How to Actually Remember What You Study: 5 Science-Backed Methods" maxlength="100">
         </div>
 
-        <!-- Single Row Toolbar -->
-        <div class="toolbar" id="mainToolbar">
-
-            <!-- Text Formatting -->
-            <div class="t-btn t-text" id="btn-h1" title="Heading 1" onclick="applyFormat('h1')">H<sup>1</sup></div>
-            <div class="t-btn t-text" id="btn-h2" title="Heading 2" onclick="applyFormat('h2')">H<sup>2</sup></div>
-
-            <div class="t-divider"></div>
-
-            <div class="t-btn t-bold" id="btn-bold" title="Bold (Ctrl+B)" onclick="execCmd('bold')">B</div>
-            <div class="t-btn t-italic" id="btn-italic" title="Italic (Ctrl+I)" onclick="execCmd('italic')">I</div>
-            <div class="t-btn t-underline" id="btn-underline" title="Underline (Ctrl+U)" onclick="execCmd('underline')">U</div>
-
-            <div class="t-divider"></div>
-
-            <!-- Block formats -->
-            <div class="t-btn" id="btn-quote" title="Blockquote" onclick="applyFormat('blockquote')">
-                <!-- quote icon -->
-                <svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+        <!-- Step 2: Meta Description -->
+        <div class="step-box" id="step-description">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div>
+                    <div class="step-title">Meta Description</div>
+                    <span class="quality-badge">150-160 characters</span>
+                </div>
             </div>
-            <div class="t-btn" id="btn-ul" title="Bullet List" onclick="execCmd('insertUnorderedList')">
-                <!-- unordered list -->
-                <svg viewBox="0 0 24 24"><path d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5zM7 19h14v-2H7v2zm0-6h14v-2H7v2zm0-8v2h14V5H7z"/></svg>
+            <div class="step-subtitle">This summary shows in Google search results. Make readers want to click.</div>
+            <textarea id="descriptionInput" class="form-textarea" placeholder="Concise summary of your article..." maxlength="160"></textarea>
+        </div>
+
+        <!-- Step 3: Hero Image -->
+        <div class="step-box" id="step-hero">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div>
+                    <div class="step-title">Hero Image</div>
+                    <span class="quality-badge">1200×630px recommended</span>
+                </div>
             </div>
-            <div class="t-btn" id="btn-ol" title="Numbered List" onclick="execCmd('insertOrderedList')">
-                <!-- ordered list -->
-                <svg viewBox="0 0 24 24"><path d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"/></svg>
+            <div class="step-subtitle">High-quality cover image. Upload locally or paste URL.</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <input type="file" id="heroImageFile" accept="image/*" style="display: none;" onchange="handleHeroImageUpload(event)">
+                <button onclick="document.getElementById('heroImageFile').click()" onmouseover="this.style.borderColor='#2563eb'; this.style.background='#f9fafb';" onmouseout="this.style.borderColor='#dadce0'; this.style.background='white';" style="flex: 1; min-width: 140px; padding: 14px; background: white; border: 2px dashed #dadce0; border-radius: 8px; cursor: pointer; font-weight: 600; color: #5f6368; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <span class="material-icons" style="font-size: 20px; color: #2563eb;">cloud_upload</span>
+                    <span>Upload Image</span>
+                </button>
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; color: #5f6368;">Or paste URL:</div>
+            <input type="url" id="heroImageInput" class="form-input" placeholder="https://images.unsplash.com/..." style="margin-top: 8px;">
+            <div id="heroPreview" style="margin-top: 12px; display: none;">
+                <img id="heroPreviewImg" src="" alt="Hero preview" style="max-width: 100%; border-radius: 8px; max-height: 300px; object-fit: cover; border: 1px solid #e5e7eb;">
+            </div>
+        </div>
+
+        <!-- Step 4: Introduction -->
+        <div class="step-box" id="step-intro">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div>
+                    <div class="step-title">Introduction</div>
+                    <span class="quality-badge">Hook your reader</span>
+                </div>
+            </div>
+            <div class="step-subtitle">Write 2-3 sentences that grab attention and explain what readers will learn.</div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: var(--text-secondary);">
+                <span>Word Count: <strong id="introWordCount">0</strong> words</span>
+                <span>Character Count: <strong id="introCharCount">0</strong></span>
+            </div>
+            <textarea id="introInput" class="form-textarea" placeholder="Start with a relatable problem or interesting fact..." maxlength="500"></textarea>
+            
+            <!-- Content Body Guide -->
+            <div style="background: white; border: 1px solid #e3f2fd; border-left: 4px solid #2563eb; padding: 16px; margin-top: 14px; border-radius: 8px; font-size: 13px;">
+                <strong style="color: #2563eb; display: block; margin-bottom: 10px; font-weight: 600;">Content Body Structure:</strong>
+                <div style="color: #5f6368; line-height: 1.8;">
+                    <div>✓ <strong>Subheadings (H2, H3)</strong> - Organize sections clearly</div>
+                    <div>✓ <strong>Paragraphs & Lists</strong> - Mix text with bullets/numbered lists</div>
+                    <div>✓ <strong>Content Images</strong> - Add images with captions</div>
+                    <div>✓ <strong>Callout Boxes</strong> - Highlight key tips or warnings</div>
+                    <div>✓ <strong>Blockquotes</strong> - Quote experts or sources</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Main Content -->
+        <div class="step-box" id="step-content">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div>
+                    <div class="step-title">Main Article Content</div>
+                    <span class="quality-badge">500+ words</span>
+                </div>
+            </div>
+            <div class="step-subtitle">Write your full article. Use headings (H2/H3), images, lists, and quotes to organize your content.</div>
+            
+            <!-- Word Counter -->
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 12px; color: var(--text-secondary); background: var(--bg-color); padding: 12px; border-radius: 6px;">
+                <span>Word Count: <strong id="bodyWordCount" style="color: var(--accent-green);">0</strong> / <strong>500</strong> words</span>
+                <span>Character Count: <strong id="bodyCharCount">0</strong></span>
             </div>
 
-            <div class="t-divider"></div>
+            <div class="editor-toolbar">
+                <button class="toolbar-btn" onclick="execCmd('bold')" title="Bold (Ctrl+B)"><strong>B</strong></button>
+                <button class="toolbar-btn" onclick="execCmd('italic')" title="Italic (Ctrl+I)"><em>I</em></button>
+                <button class="toolbar-btn" onclick="execCmd('underline')" title="Underline (Ctrl+U)"><u>U</u></button>
+                <button class="toolbar-btn" onclick="execCmd('strikeThrough')" title="Strikethrough"><s>S</s></button>
+                <span style="width: 1px; height: 20px; background: #e5e7eb; margin: 0 4px;"></span>
+                <button class="toolbar-btn" onclick="insertHeading('h2')" title="Main Section (H2)">H2</button>
+                <button class="toolbar-btn" onclick="insertHeading('h3')" title="Subsection (H3)">H3</button>
+                <span style="width: 1px; height: 20px; background: #e5e7eb; margin: 0 4px;"></span>
+                <button class="toolbar-btn" onclick="execCmd('insertUnorderedList')" title="Bullet List">• List</button>
+                <button class="toolbar-btn" onclick="execCmd('insertOrderedList')" title="Numbered List">1. List</button>
+                <button class="toolbar-btn" onclick="insertBlockquote()" title="Quote">" "</button>
+                <input type="file" id="contentImageFile" accept="image/*" style="display: none;" onchange="handleContentImageUpload(event)">
+                <button class="toolbar-btn" onclick="document.getElementById('contentImageFile').click()" title="Upload Image">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </button>
+                
+                <span style="width: 1px; height: 20px; background: #e5e7eb; margin: 0 4px;"></span>
+                
+                <!-- Link & Media Buttons -->
+                <button class="toolbar-btn" onclick="insertLink()" title="Insert Link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </button>
+                <button class="toolbar-btn" onclick="insertImageLink()" title="Insert Image Link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="11" r="8"></circle><path d="M4 12a8 8 0 0 1 15.892 4m0 0v3m0-10v-3m8 11a8 8 0 0 1-15.892-4"></path></svg>
+                </button>
+                <button class="toolbar-btn" onclick="insertVideoLink()" title="Insert Video Link (YouTube/Vimeo)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                </button>
+                <button class="toolbar-btn" onclick="insertVideoWithText()" title="Insert Video Link with Text">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                </button>
+                
+                <span style="width: 1px; height: 20px; background: #e5e7eb; margin: 0 4px;"></span>
+                <!-- Callout Dropdown -->
+                <div class="callout-dropdown" id="calloutDropdown">
+                    <button class="toolbar-btn callout-dropdown-btn" onclick="toggleCalloutDropdown()" title="Insert Callout">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <span class="callout-text" style="display: none;">Callout</span>
+                    </button>
+                    <div class="callout-dropdown-content">
+                        <div class="callout-option" onclick="insertCallout('faq')">
+                            <div class="callout-option-icon" style="background: #e8f5e9; color: #2e7d32;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path></svg>
+                            </div>
+                            <div class="callout-option-text">
+                                <div class="callout-option-title">FAQ</div>
+                                <div class="callout-option-desc">Frequently asked questions</div>
+                            </div>
+                        </div>
+                        <div class="callout-option" onclick="insertCallout('tips')">
+                            <div class="callout-option-icon" style="background: #fff3e0; color: #ef6c00;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+                            </div>
+                            <div class="callout-option-text">
+                                <div class="callout-option-title">Pro Tips</div>
+                                <div class="callout-option-desc">Expert advice and tips</div>
+                            </div>
+                        </div>
+                        <div class="callout-option" onclick="insertCallout('key')">
+                            <div class="callout-option-icon" style="background: #e3f2fd; color: #1565c0;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"></path></svg>
+                            </div>
+                            <div class="callout-option-text">
+                                <div class="callout-option-title">Key Takeaway</div>
+                                <div class="callout-option-desc">Important points to remember</div>
+                            </div>
+                        </div>
+                        <div class="callout-option" onclick="insertCallout('seo')">
+                            <div class="callout-option-icon" style="background: #fce4ec; color: #c2185b;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"></path></svg>
+                            </div>
+                            <div class="callout-option-text">
+                                <div class="callout-option-title">SEO Tip</div>
+                                <div class="callout-option-desc">Search optimization advice</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="editor" contenteditable="true" style="min-height: 400px; padding: 14px; border: 1px solid var(--border-color); border-radius: 6px; background: white;"></div>
+            
+            <!-- Table of Contents Generator -->
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                <strong style="color: #1a1a1a; display: block; margin-bottom: 14px; font-size: 14px; font-weight: 700;">On this page</strong>
+                <div id="tocContainer" style="font-size: 13px; color: #5f6368; line-height: 2;">
+                    <em style="color: #9ca3af;">Add headings to generate table of contents</em>
+                </div>
+            </div>
+        </div>
 
-            <!-- Insert tools -->
-            <input type="file" id="imageFileInput" accept="image/*" style="display: none;" onchange="handleImageFile(event)">
-            <div class="t-btn" id="btn-img" title="Insert Image" onclick="document.getElementById('imageFileInput').click()">
-                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <!-- Step 6: Category & Tags -->
+        <div class="step-box" id="step-meta">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div>
+                    <div class="step-title">Category & Tags</div>
+                    <span class="quality-badge">SEO & Organization</span>
+                </div>
             </div>
-            <div class="t-btn" id="btn-link" title="Insert Link" onclick="openPopup('link')">
-                <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
-            </div>
-            <div class="t-btn" id="btn-video" title="Embed Video" onclick="openPopup('video')">
-                <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            </div>
+            <div class="step-subtitle">Help readers find your article with the right category and keywords.</div>
+            
+            <label class="form-label" style="margin-top: 12px;">Category</label>
+            <select id="categorySelect" class="form-select">
+                <option value="">Select category...</option>
+                <option value="study-tips">Study Tips</option>
+                <option value="exam-prep">Exam Preparation</option>
+                <option value="career">Career Advice</option>
+                <option value="university">University Life</option>
+                <option value="scholarships">Scholarships</option>
+            </select>
 
-            <div class="t-divider"></div>
+            <label class="form-label" style="margin-top: 14px;">Tags (comma-separated, 3-5 keywords)</label>
+            <input type="text" id="tagsInput" class="form-input" placeholder="study-skills, memory, exam-preparation">
+        </div>
 
-            <!-- Utilities -->
-            <div class="t-btn" title="Clear Formatting" onclick="execCmd('removeFormat')">
-                <svg viewBox="0 0 24 24"><path d="M6 5v.18L8.82 8h2.4l-.72 1.68 2.1 2.1L14.21 8H20V5H6zm14 13.59L5.41 4 4 5.41l6.62 6.63-3.12 7.33-.01.03H9v.01h10v-3h-2.59L20 19.41 18.59 18.59z"/></svg>
-            </div>
-            <div class="t-btn" title="Undo (Ctrl+Z)" onclick="execCmd('undo')">
-                <svg viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
-            </div>
-            <div class="t-btn" title="Redo (Ctrl+Y)" onclick="execCmd('redo')">
-                <svg viewBox="0 0 24 24"><path d="M18.4 10.6C16.55 9 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22l2.37.78c1.05-3.19 4.06-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
-            </div>
-
+        <div class="footer-actions">
+            <button class="btn-draft" onclick="saveDraft()">💾 Save Draft</button>
+            <button class="btn-submit" id="submitBtn" onclick="submitArticle()">✓ Review & Publish</button>
         </div>
     </div>
 
-    <!-- Editor -->
-    <div class="editor-area">
-        <div id="editor" class="editor" contenteditable="true" data-placeholder="Add content..."></div>
-    </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <span><span id="wordCount">0</span> Words</span>
-        <span><span id="charCountBody">0</span> Characters</span>
+
+    <!-- Quality Panel -->
+    <div class="quality-panel">
+        <div class="section-header">📊 Article Quality</div>
+
+        <div class="quality-score-box" id="qualityScoreBox">
+            <div class="score-percentage" id="scorePercentage">0%</div>
+            <div class="score-label">Content Quality</div>
+            <div class="score-bar">
+                <div class="score-bar-fill" id="scoreBar"></div>
+            </div>
+        </div>
+
+        <div id="missingItemsContainer"></div>
+
+        <div style="background: var(--surface-color); border-radius: 12px; padding: 16px; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 12px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary);">Checklist</h4>
+            <div id="qualityChecklist" style="display: flex; flex-direction: column; gap: 8px;"></div>
+        </div>
     </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../../../components/supabase.js"></script>
+
 <script>
-    const editor   = document.getElementById('editor');
-    const titleEl  = document.getElementById('titleInput');
-    const charCount    = document.getElementById('charCount');
-    const wordCount    = document.getElementById('wordCount');
-    const charCountBody = document.getElementById('charCountBody');
+    const editor = document.getElementById('editor');
+    const titleInput = document.getElementById('titleInput');
+    const descriptionInput = document.getElementById('descriptionInput');
+    const heroImageInput = document.getElementById('heroImageInput');
+    const tagsInput = document.getElementById('tagsInput');
+    const categorySelect = document.getElementById('categorySelect');
 
-    /* ── Title counter ── */
-    titleEl.addEventListener('input', () => {
-        const len = (titleEl.innerText || '').length;
-        charCount.textContent = len;
-        charCount.style.color = len > 90 ? '#e52828' : '#c0c0c0';
-    });
+    // Load saved article data on page load
+    function loadSavedArticle() {
+        try {
+            const articleData = JSON.parse(localStorage.getItem('publisher_article_draft'));
+            
+            if (!articleData) {
+                return; // No saved data
+            }
 
-    /* ── Body stats ── */
-    editor.addEventListener('input', updateStats);
-    function updateStats() {
-        const text = editor.innerText || '';
-        const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).filter(Boolean).length;
-        wordCount.textContent    = words;
-        charCountBody.textContent = text.length;
-        updateActiveStates();
-    }
+            // Restore all fields
+            if (articleData.title) titleInput.value = articleData.title;
+            if (articleData.description) descriptionInput.value = articleData.description;
+            if (articleData.heroImage) heroImageInput.value = articleData.heroImage;
+            if (articleData.intro) document.getElementById('introInput').value = articleData.intro;
+            if (articleData.content) editor.innerHTML = articleData.content;
+            if (articleData.category) categorySelect.value = articleData.category;
+            if (articleData.tags) tagsInput.value = articleData.tags;
 
-    /* ── Toolbar active states ── */
-    editor.addEventListener('keyup', updateActiveStates);
-    editor.addEventListener('mouseup', updateActiveStates);
-    document.addEventListener('selectionchange', updateActiveStates);
-
-    function updateActiveStates() {
-        document.getElementById('btn-bold').classList.toggle('is-active', document.queryCommandState('bold'));
-        document.getElementById('btn-italic').classList.toggle('is-active', document.queryCommandState('italic'));
-        document.getElementById('btn-underline').classList.toggle('is-active', document.queryCommandState('underline'));
-        document.getElementById('btn-ul').classList.toggle('is-active', document.queryCommandState('insertUnorderedList'));
-        document.getElementById('btn-ol').classList.toggle('is-active', document.queryCommandState('insertOrderedList'));
-
-        const block = document.queryCommandValue('formatBlock').toLowerCase();
-        document.getElementById('btn-h1').classList.toggle('is-active', block === 'h1');
-        document.getElementById('btn-h2').classList.toggle('is-active', block === 'h2');
-        document.getElementById('btn-quote').classList.toggle('is-active', block === 'blockquote');
-    }
-
-    /* ── Core command ── */
-    function execCmd(cmd, value = null) {
-        editor.focus();
-        document.execCommand(cmd, false, value);
-        updateActiveStates();
-    }
-
-    /* ── Heading & block format ── */
-    function applyFormat(tag) {
-        editor.focus();
-        // Toggle off if already active
-        const current = document.queryCommandValue('formatBlock').toLowerCase();
-        if (current === tag) {
-            document.execCommand('formatBlock', false, '<p>');
-        } else {
-            document.execCommand('formatBlock', false, '<' + tag + '>');
+            console.log('Article data restored from localStorage');
+        } catch (error) {
+            console.error('Error loading saved article:', error);
         }
-        updateActiveStates();
     }
 
-    /* ── URL Popup ── */
-    let insertType = null;
-    let savedRange = null;
+    // Sticky Toolbar Handler
+    function initStickyToolbar() {
+        const toolbar = document.querySelector('.editor-toolbar');
+        if (!toolbar) return;
 
-    function openPopup(type) {
-        insertType = type;
-        const inp = document.getElementById('urlInput');
-        const btn = document.getElementById('urlConfirmBtn');
+        const contentStep = document.getElementById('step-content');
+        if (!contentStep) return;
 
-        // Save selection
-        const sel = window.getSelection();
-        if (sel && sel.rangeCount) savedRange = sel.getRangeAt(0).cloneRange();
+        let lastScrollTop = 0;
+        let isStuck = false;
 
-        const labels = {
-            link:  ['Paste link URL...',  'Insert Link'],
-            video: ['Paste YouTube / video URL...', 'Embed Video']
+        window.addEventListener('scroll', () => {
+            if (!toolbar || !contentStep) return;
+
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const isScrollingDown = currentScrollTop > lastScrollTop;
+            
+            const contentStepRect = contentStep.getBoundingClientRect();
+            const contentStepTop = contentStep.offsetTop;
+            const contentStepBottom = contentStepTop + contentStep.offsetHeight;
+
+            // Check if we're within the main article content section
+            const isWithinContent = currentScrollTop >= contentStepTop && currentScrollTop < contentStepBottom;
+            
+            // If scrolling DOWN and still within content section, stick the toolbar
+            if (isScrollingDown && isWithinContent && !isStuck) {
+                toolbar.classList.add('stuck-with-constraints');
+                toolbar.classList.remove('stuck');
+                editor.style.paddingTop = (toolbar.offsetHeight + 16) + 'px';
+                isStuck = true;
+            }
+            // If scrolling UP and still within content, keep it stuck
+            else if (!isScrollingDown && isWithinContent && isStuck) {
+                toolbar.classList.add('stuck-with-constraints');
+                toolbar.classList.remove('stuck');
+                editor.style.paddingTop = (toolbar.offsetHeight + 16) + 'px';
+            }
+            // If we've scrolled past the content section, hide the toolbar
+            else if (currentScrollTop >= contentStepBottom) {
+                toolbar.classList.remove('stuck-with-constraints');
+                toolbar.classList.remove('stuck');
+                editor.style.paddingTop = '16px';
+                isStuck = false;
+            }
+            // If we've scrolled back above the content section, hide the toolbar
+            else if (currentScrollTop < contentStepTop) {
+                toolbar.classList.remove('stuck-with-constraints');
+                toolbar.classList.remove('stuck');
+                editor.style.paddingTop = '16px';
+                isStuck = false;
+            }
+
+            lastScrollTop = currentScrollTop;
+        });
+    }
+
+    // Simple Quality Checker - Direct checks only
+    function calculateQuality() {
+        const checks = {
+            title: {
+                label: 'Article Title',
+                description: '20-80 characters',
+                isComplete: titleInput.value.length >= 20 && titleInput.value.length <= 80,
+                hint: `${titleInput.value.length} chars (need 20-80)`
+            },
+            description: {
+                label: 'Meta Description',
+                description: '120-160 characters for SEO',
+                isComplete: descriptionInput.value.length >= 120 && descriptionInput.value.length <= 160,
+                hint: `${descriptionInput.value.length} chars (need 120-160)`
+            },
+            heroImage: {
+                label: 'Hero Image',
+                description: 'URL to high-res image',
+                isComplete: heroImageInput.value.trim().length > 0 && heroImageInput.value.includes('http'),
+                hint: heroImageInput.value ? 'Image URL detected' : 'Add image URL'
+            },
+            content: {
+                label: 'Main Content',
+                description: '500+ words required',
+                isComplete: getWordCount() >= 500,
+                hint: `${getWordCount()} words (need 500+)`,
+                required: true
+            },
+            category: {
+                label: 'Category Selected',
+                description: 'Choose from dropdown',
+                isComplete: categorySelect.value.length > 0,
+                hint: categorySelect.value ? `${categorySelect.value}` : 'Select category'
+            },
+            tags: {
+                label: 'Tags (3+)',
+                description: 'Comma-separated keywords',
+                isComplete: getTagCount() >= 3,
+                hint: `${getTagCount()} tags (need 3+)`
+            }
         };
-        inp.placeholder  = labels[type][0];
-        btn.textContent  = labels[type][1];
-        inp.value = '';
 
-        document.getElementById('urlPopup').classList.add('open');
-        inp.focus();
+        const completed = Object.values(checks).filter(c => c.isComplete).length;
+        const total = Object.keys(checks).length;
+        const score = Math.round((completed / total) * 100);
+
+        return { checks, score, completed, total };
     }
 
-    function closePopup() {
-        document.getElementById('urlPopup').classList.remove('open');
-        insertType = null;
+    function getWordCount() {
+        const text = editor.innerText || '';
+        return text.trim().split(/\s+/).filter(w => w.length > 0).length;
     }
 
-    /* ── Handle Image File Selection ── */
-    function handleImageFile(e) {
-        const file = e.target.files[0];
-        if (!file) return;
+    function getTagCount() {
+        return tagsInput.value.split(',').filter(t => t.trim().length > 0).length;
+    }
 
-        let caption = prompt("Add a comment or caption for this image (max 200 characters):", "");
-        if (caption === null) {
-            e.target.value = '';
-            return; // User cancelled
+    function updateWordCounters() {
+        // Intro word count
+        const introText = document.getElementById('introInput').value;
+        const introWords = introText.trim().split(/\s+/).filter(w => w.length > 0).length;
+        const introChars = introText.length;
+        document.getElementById('introWordCount').textContent = introWords;
+        document.getElementById('introCharCount').textContent = introChars;
+
+        // Body word count
+        const bodyText = editor.innerText || '';
+        const bodyWords = bodyText.trim().split(/\s+/).filter(w => w.length > 0).length;
+        const bodyChars = editor.innerHTML.length;
+        document.getElementById('bodyWordCount').textContent = bodyWords;
+        document.getElementById('bodyCharCount').textContent = bodyChars;
+
+        // Update color based on word count
+        const bodyWordCounter = document.getElementById('bodyWordCount');
+        if (bodyWords >= 500) {
+            bodyWordCounter.style.color = 'var(--accent-green)';
+        } else if (bodyWords >= 300) {
+            bodyWordCounter.style.color = 'var(--accent-yellow)';
+        } else {
+            bodyWordCounter.style.color = 'var(--accent-red)';
+        }
+
+        // Generate table of contents
+        generateTableOfContents();
+    }
+
+    function generateTableOfContents() {
+        const headings = editor.querySelectorAll('h2, h3');
+        const tocContainer = document.getElementById('tocContainer');
+
+        if (headings.length === 0) {
+            tocContainer.innerHTML = '<em style="color: #999;">Add headings to generate table of contents</em>';
+            return;
+        }
+
+        let tocHTML = '';
+        let h2Counter = 0;
+        let h3Counter = 0;
+
+        headings.forEach((heading, index) => {
+            const level = heading.tagName.toLowerCase();
+            const text = heading.innerText || heading.textContent;
+            const id = `heading-${index}`;
+            heading.id = id;
+
+            if (level === 'h2') {
+                h2Counter++;
+                h3Counter = 0;
+                tocHTML += `<div style="margin-bottom: 8px;"><a href="#${id}" style="color: #2563eb; text-decoration: none; cursor: pointer;">${h2Counter}. ${text}</a></div>`;
+            } else if (level === 'h3') {
+                h3Counter++;
+                tocHTML += `<div style="margin-bottom: 6px; padding-left: 20px;"><a href="#${id}" style="color: #2563eb; text-decoration: none; cursor: pointer;">${h2Counter}.${h3Counter} ${text}</a></div>`;
+            }
+        });
+
+        tocContainer.innerHTML = tocHTML;
+    }
+
+    function updateQualityScore() {
+        const { checks, score, completed, total } = calculateQuality();
+
+        // Update score display
+        document.getElementById('scorePercentage').textContent = score + '%';
+        document.getElementById('scoreBar').style.width = score + '%';
+
+        // Update quality-score-box styling based on score
+        const qualityBox = document.getElementById('qualityScoreBox');
+        qualityBox.classList.remove('low', 'medium');
+        
+        if (score < 50) {
+            qualityBox.classList.add('low');
+        } else if (score < 80) {
+            qualityBox.classList.add('medium');
+        }
+
+        // Update step boxes completion state
+        Object.entries(checks).forEach(([key, check]) => {
+            const stepId = getStepIdFromKey(key);
+            const stepBox = document.getElementById(stepId);
+            if (stepBox) {
+                if (check.isComplete) {
+                    stepBox.classList.add('completed');
+                } else {
+                    stepBox.classList.remove('completed');
+                }
+            }
+        });
+
+        // Render checklist
+        renderQualityChecklist(checks);
+
+        // Update word counters and TOC
+        updateWordCounters();
+
+        // Update button state
+        const submitBtn = document.getElementById('submitBtn');
+        const missing = total - completed;
+        const wordCount = getWordCount();
+        
+        // Enforce: >500 words is mandatory for publishing
+        if (wordCount < 500) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = `✗ Need ${500 - wordCount} more words`;
+            submitBtn.style.opacity = '0.6';
+        } else if (score < 100) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = `✓ Review & Publish (${missing}/${total} items)`;
+            submitBtn.style.opacity = '1';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = '✓ Review & Publish';
+            submitBtn.style.opacity = '1';
+        }
+    }
+
+    function getStepIdFromKey(key) {
+        const mapping = {
+            title: 'step-title',
+            description: 'step-description',
+            heroImage: 'step-hero',
+            content: 'step-content',
+            category: 'step-meta',
+            tags: 'step-meta'
+        };
+        return mapping[key];
+    }
+
+    function renderQualityChecklist(checks) {
+        const container = document.getElementById('qualityChecklist');
+        const items = Object.entries(checks).map(([key, check]) => {
+            const icon = check.isComplete ? '✓' : '○';
+            const status = check.isComplete ? 'completed' : 'pending';
+            return `
+                <div class="quality-item ${status}">
+                    <div class="quality-item-icon">${icon}</div>
+                    <div class="quality-item-text">
+                        <div class="quality-item-label">${check.label}</div>
+                        <div class="quality-item-description">${check.description}</div>
+                        <div class="quality-item-count">${check.hint}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        container.innerHTML = items;
+    }
+
+    // Rich text helpers
+    function execCmd(cmd, value = null) {
+        try {
+            document.execCommand(cmd, false, value);
+        } catch (e) {
+            console.log('execCommand error:', e);
+        }
+        editor.focus();
+        updateQualityScore();
+        
+        // Update button active states
+        updateToolbarActiveStates();
+    }
+
+    function updateToolbarActiveStates() {
+        // Update bold button
+        const boldBtn = document.querySelector('button[onclick="execCmd(\'bold\')"]');
+        if (boldBtn) {
+            boldBtn.classList.toggle('active', document.queryCommandState('bold'));
         }
         
-        if (caption.length > 200) {
-            caption = caption.substring(0, 200);
+        // Update italic button
+        const italicBtn = document.querySelector('button[onclick="execCmd(\'italic\')"]');
+        if (italicBtn) {
+            italicBtn.classList.toggle('active', document.queryCommandState('italic'));
         }
-        if (!caption.trim()) {
-            caption = "Add caption...";
+        
+        // Update underline button
+        const underlineBtn = document.querySelector('button[onclick="execCmd(\'underline\')"]');
+        if (underlineBtn) {
+            underlineBtn.classList.toggle('active', document.queryCommandState('underline'));
+        }
+    }
+
+    function insertHeading(level) {
+        document.execCommand('formatBlock', false, `<${level}>`);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    function insertBlockquote() {
+        const text = window.getSelection().toString() || 'Your quote here';
+        document.execCommand('formatBlock', false, '<blockquote>');
+        editor.focus();
+        updateQualityScore();
+    }
+
+    function insertCallout(type = 'key') {
+        const calloutConfig = {
+            faq: { color: '#2e7d32', bgColor: '#e8f5e9', borderColor: '#66bb6a', title: '❓ FAQ' },
+            tips: { color: '#ef6c00', bgColor: '#fff3e0', borderColor: '#ffa726', title: '💡 Pro Tip' },
+            key: { color: '#1565c0', bgColor: '#e3f2fd', borderColor: '#42a5f5', title: '⭐ Key Takeaway' },
+            seo: { color: '#c2185b', bgColor: '#fce4ec', borderColor: '#ec407a', title: '🔍 SEO Tip' }
+        };
+
+        const config = calloutConfig[type] || calloutConfig.key;
+
+        // Build the callout using DOM API (not insertHTML, which strips events)
+        const box = document.createElement('div');
+        box.className = type === 'faq' ? 'callout-box faq-callout' : 'callout-box';
+        box.style.cssText = `border: 1px solid ${config.borderColor}; border-left: 4px solid ${config.borderColor}; background-color: ${config.bgColor}; padding: 12px; margin: 12px 0; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: relative;`;
+        box.contentEditable = 'false'; // whole box is NOT editable
+
+        // ── Remove button ──────────────────────────────────────────
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '✕';
+        removeBtn.style.cssText = 'position:absolute;top:6px;right:6px;background:none;border:none;font-size:16px;cursor:pointer;color:#999;padding:0;width:24px;height:24px;line-height:1;';
+        removeBtn.addEventListener('mouseenter', () => removeBtn.style.color = '#dc2626');
+        removeBtn.addEventListener('mouseleave', () => removeBtn.style.color = '#999');
+        removeBtn.addEventListener('mousedown', (e) => {
+            e.preventDefault(); // prevent editor losing focus
+            e.stopPropagation();
+            box.remove();
+            updateQualityScore();
+        });
+        box.appendChild(removeBtn);
+
+        // ── Title (permanent, not editable) ───────────────────────
+        const titleEl = document.createElement('div');
+        titleEl.textContent = config.title;
+        titleEl.contentEditable = 'false';
+        titleEl.style.cssText = `color:${config.color};font-size:13px;font-weight:600;margin-bottom:${type === 'faq' ? '8px' : '6px'};margin-right:28px;`;
+        box.appendChild(titleEl);
+
+        if (type === 'faq') {
+            // ── Q row ──────────────────────────────────────────────
+            const qRow = document.createElement('div');
+            qRow.style.cssText = 'margin-bottom:6px;font-size:13px;color:#424242;line-height:1.6;';
+
+            const qLabel = document.createElement('strong');
+            qLabel.textContent = 'Q: ';
+            qLabel.contentEditable = 'false';
+            qRow.appendChild(qLabel);
+
+            const qInput = document.createElement('span');
+            qInput.contentEditable = 'true';
+            qInput.style.cssText = 'outline:none;color:#aaa;font-style:italic;min-width:80px;display:inline;';
+            qInput.textContent = 'What is your question?';
+            attachHintBehaviour(qInput, 'What is your question?');
+            qRow.appendChild(qInput);
+            box.appendChild(qRow);
+
+            // ── A row ──────────────────────────────────────────────
+            const aRow = document.createElement('div');
+            aRow.style.cssText = 'margin-top:6px;font-size:13px;color:#424242;line-height:1.6;';
+
+            const aLabel = document.createElement('strong');
+            aLabel.textContent = 'A: ';
+            aLabel.contentEditable = 'false';
+            aRow.appendChild(aLabel);
+
+            const aInput = document.createElement('span');
+            aInput.contentEditable = 'true';
+            aInput.style.cssText = 'outline:none;color:#aaa;font-style:italic;min-width:80px;display:inline;';
+            aInput.textContent = 'Type your answer here';
+            attachHintBehaviour(aInput, 'Type your answer here');
+            aRow.appendChild(aInput);
+            box.appendChild(aRow);
+
+        } else {
+            // ── Content span (editable) ────────────────────────────
+            const contentSpan = document.createElement('span');
+            contentSpan.contentEditable = 'true';
+            contentSpan.style.cssText = 'outline:none;color:#aaa;font-style:italic;font-size:13px;line-height:1.6;display:block;min-height:20px;';
+            contentSpan.textContent = 'Add your important information here';
+            attachHintBehaviour(contentSpan, 'Add your important information here');
+            box.appendChild(contentSpan);
         }
 
+        // ── Insert into editor at cursor ───────────────────────────
+        editor.focus();
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount > 0) {
+            const range = sel.getRangeAt(0);
+            // ensure cursor is inside editor
+            if (editor.contains(range.commonAncestorContainer)) {
+                range.deleteContents();
+                range.insertNode(box);
+                // move cursor after the inserted box
+                range.setStartAfter(box);
+                range.collapse(true);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            } else {
+                editor.appendChild(box);
+            }
+        } else {
+            editor.appendChild(box);
+        }
+
+        updateQualityScore();
+
+        // Close dropdown
+        const dropdown = document.getElementById('calloutDropdown');
+        if (dropdown) dropdown.classList.remove('active');
+    }
+
+    // Hint text behaviour: grey italic placeholder, clears on focus, restores on empty blur
+    function attachHintBehaviour(el, hint) {
+        el.addEventListener('focus', function () {
+            if (this.textContent === hint) {
+                this.textContent = '';
+                this.style.color = '#424242';
+                this.style.fontStyle = 'normal';
+            }
+        });
+        el.addEventListener('blur', function () {
+            if (this.textContent.trim() === '') {
+                this.textContent = hint;
+                this.style.color = '#aaa';
+                this.style.fontStyle = 'italic';
+            }
+        });
+    }
+
+    function toggleCalloutDropdown() {
+        const dropdown = document.getElementById('calloutDropdown');
+        if (!dropdown) return;
+        
+        const isActive = dropdown.classList.contains('active');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.callout-dropdown').forEach(d => {
+            d.classList.remove('active');
+        });
+        
+        // Toggle current dropdown
+        if (!isActive) {
+            dropdown.classList.add('active');
+            
+            // Close dropdown when clicking outside
+            setTimeout(() => {
+                document.addEventListener('click', function closeDropdown(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                        document.removeEventListener('click', closeDropdown);
+                    }
+                });
+            }, 0);
+        }
+    }
+
+    function insertImagePrompt() {
+        const url = prompt('Enter image URL:', 'https://images.unsplash.com/');
+        if (url) {
+            const caption = prompt('Image caption:');
+            const html = `<figure style="margin: 24px 0;"><img src="${url}" alt="${caption}" style="width: 100%; border-radius: 8px; margin-bottom: 8px;"><figcaption style="font-size: 12px; color: #999; text-align: left;">${caption || 'Image'}</figcaption></figure>`;
+            document.execCommand('insertHTML', false, html);
+            updateQualityScore();
+        }
+    }
+
+    function handleHeroImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
         const reader = new FileReader();
-        reader.onload = function(ev) {
-            editor.focus();
-            document.execCommand('insertHTML', false,
-                `<figure><img src="${ev.target.result}" alt="Inserted image"><figcaption contenteditable="true" style="font-style: italic; font-size: 0.9rem; text-align: center;">${caption}</figcaption></figure><p><br></p>`
-            );
-            updateStats();
+        reader.onload = (e) => {
+            heroImageInput.value = e.target.result;
+            document.getElementById('heroPreviewImg').src = e.target.result;
+            document.getElementById('heroPreview').style.display = 'block';
+            updateQualityScore();
         };
         reader.readAsDataURL(file);
-        // Reset input so the same file can be selected again if needed
-        e.target.value = '';
     }
 
-    document.getElementById('urlConfirmBtn').addEventListener('click', () => {
-        const url = document.getElementById('urlInput').value.trim();
-        if (!url) return;
-
-        editor.focus();
-        if (savedRange) {
-            const sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(savedRange);
-        }
-
-        if (insertType === 'link') {
-            const sel = window.getSelection();
-            const text = sel.toString() || url;
-            document.execCommand('insertHTML', false,
-                `<a href="${url}" target="_blank" rel="noopener">${text}</a>`
-            );
-        } else if (insertType === 'video') {
-            const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([-\w]+)/);
-            let html;
-            if (ytMatch) {
-                html = `<figure><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000"><iframe src="https://www.youtube.com/embed/${ytMatch[1]}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe></div></figure><p><br></p>`;
-            } else {
-                html = `<figure><video controls style="max-width:100%;border-radius:8px"><source src="${url}"></video></figure><p><br></p>`;
-            }
+    function handleContentImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const caption = prompt('Image caption (optional):');
+            const html = `<figure style="margin: 24px 0;"><img src="${e.target.result}" alt="${caption || 'Image'}" style="width: 100%; border-radius: 8px; margin-bottom: 8px;"><figcaption style="font-size: 12px; color: #999; text-align: left;">${caption || 'Image'}</figcaption></figure>`;
             document.execCommand('insertHTML', false, html);
-        }
-
-        closePopup();
-        updateStats();
-    });
-
-    /* Allow pressing Enter in URL popup to confirm */
-    document.getElementById('urlInput').addEventListener('keydown', e => {
-        if (e.key === 'Enter') document.getElementById('urlConfirmBtn').click();
-        if (e.key === 'Escape') closePopup();
-    });
-
-    /* ── Handle Next button ── */
-    function handleNext(e) {
-        e.preventDefault();
-        const title   = titleEl.innerText.trim();
-        const content = editor.innerHTML.trim();
-        if (!title) {
-            titleEl.focus();
-            titleEl.style.outline = '2px solid #e52828';
-            setTimeout(() => titleEl.style.outline = '', 1500);
-            return;
-        }
-        if (!content || content === '<br>') {
-            editor.focus();
-            return;
-        }
-        // Save to sessionStorage so post_review can read it
-        sessionStorage.setItem('post_title', title);
-        sessionStorage.setItem('post_content', editor.innerHTML);
-        window.location.href = 'post_review.html';
+            updateQualityScore();
+        };
+        reader.readAsDataURL(file);
     }
 
-    /* ── Keyboard shortcuts ── */
-    editor.addEventListener('keydown', e => {
-        if (e.ctrlKey || e.metaKey) {
-            if (e.key === 'b') { e.preventDefault(); execCmd('bold'); }
-            if (e.key === 'i') { e.preventDefault(); execCmd('italic'); }
-            if (e.key === 'u') { e.preventDefault(); execCmd('underline'); }
-        }
-    });
-</script>
-
-<script>
-    /* Auto-fill from sessionStorage (if navigating back) or from URL params */
-    (function () {
-        const savedTitle = sessionStorage.getItem('post_title');
-        const savedContent = sessionStorage.getItem('post_content');
+    // Insert Link (covered with text)
+    function insertLink() {
+        const url = prompt('Enter the URL:');
+        if (!url) return;
         
-        if (savedTitle) {
-            titleEl.innerText = savedTitle;
-        } else {
-            const params = new URLSearchParams(window.location.search);
-            const topic = params.get('topic');
-            if (topic) {
-                titleEl.innerText = topic;
+        const text = prompt('Enter the link text:', 'Click here');
+        if (!text) return;
+        
+        const html = `<a href="${url}" target="_blank" rel="noopener" style="color: #2563eb; text-decoration: underline; font-weight: 500;">${text}</a>`;
+        document.execCommand('insertHTML', false, html);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    // Insert Image Link
+    function insertImageLink() {
+        const imageUrl = prompt('Enter the image URL:');
+        if (!imageUrl) return;
+        
+        const linkUrl = prompt('Enter the link URL (where clicking the image should go):');
+        if (!linkUrl) return;
+        
+        const caption = prompt('Image caption (optional):');
+        
+        const html = `<figure style="margin: 24px 0; text-align: center;">
+            <a href="${linkUrl}" target="_blank" rel="noopener">
+                <img src="${imageUrl}" alt="${caption || 'Linked Image'}" style="max-width: 100%; border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            </a>
+            ${caption ? `<figcaption style="font-size: 12px; color: #999; text-align: center;">${caption}</figcaption>` : ''}
+        </figure>`;
+        
+        document.execCommand('insertHTML', false, html);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    // Insert Video Link (YouTube/Vimeo embed)
+    function insertVideoLink() {
+        const url = prompt('Enter the YouTube or Vimeo URL:');
+        if (!url) return;
+        
+        let embedUrl = '';
+        
+        // Handle YouTube URLs
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            const videoId = url.includes('youtu.be') 
+                ? url.split('youtu.be/')[1]?.split('?')[0]
+                : url.split('v=')[1]?.split('&')[0];
+            
+            if (videoId) {
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            }
+        }
+        // Handle Vimeo URLs
+        else if (url.includes('vimeo.com')) {
+            const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
+            if (videoId) {
+                embedUrl = `https://player.vimeo.com/video/${videoId}`;
             }
         }
         
-        if (savedContent) {
-            editor.innerHTML = savedContent;
-            updateStats();
+        if (!embedUrl) {
+            alert('Invalid video URL. Please use a YouTube or Vimeo link.');
+            return;
         }
         
-        // Update character count if title is present
-        if (titleEl.innerText) {
-            charCount.textContent = titleEl.innerText.length;
+        const html = `<div style="margin: 24px 0; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            <iframe src="${embedUrl}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;" allowfullscreen></iframe>
+        </div>`;
+        
+        document.execCommand('insertHTML', false, html);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    // Insert Video Link with Text
+    function insertVideoWithText() {
+        const url = prompt('Enter the YouTube or Vimeo URL:');
+        if (!url) return;
+        
+        const title = prompt('Enter video title:', 'Watch this video');
+        const description = prompt('Enter video description (optional):');
+        
+        let embedUrl = '';
+        let thumbnail = '';
+        
+        // Handle YouTube URLs
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            const videoId = url.includes('youtu.be') 
+                ? url.split('youtu.be/')[1]?.split('?')[0]
+                : url.split('v=')[1]?.split('&')[0];
+            
+            if (videoId) {
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            }
+        }
+        // Handle Vimeo URLs
+        else if (url.includes('vimeo.com')) {
+            const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
+            if (videoId) {
+                embedUrl = `https://player.vimeo.com/video/${videoId}`;
+                thumbnail = `https://vumbnail.com/${videoId}.jpg`;
+            }
+        }
+        
+        if (!embedUrl) {
+            alert('Invalid video URL. Please use a YouTube or Vimeo link.');
+            return;
+        }
+        
+        const html = `<div style="margin: 32px 0; padding: 20px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px;">
+            <h3 style="font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">${title || 'Video'}</h3>
+            ${description ? `<p style="font-size: 14px; color: #666; margin-bottom: 16px; line-height: 1.6;">${description}</p>` : ''}
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <iframe src="${embedUrl}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 8px;" allowfullscreen></iframe>
+            </div>
+        </div>`;
+        
+        document.execCommand('insertHTML', false, html);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    function insertTable() {
+        const html = `<table style="width: 100%; border-collapse: collapse; margin: 16px 0;"><tr><td style="border: 1px solid #ddd; padding: 8px;">Header 1</td><td style="border: 1px solid #ddd; padding: 8px;">Header 2</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px;">Data 1</td><td style="border: 1px solid #ddd; padding: 8px;">Data 2</td></tr></table>`;
+        document.execCommand('insertHTML', false, html);
+        editor.focus();
+        updateQualityScore();
+    }
+
+    // Save & Submit
+    function saveDraft() {
+        const data = {
+            title: titleInput.value,
+            description: descriptionInput.value,
+            heroImage: heroImageInput.value,
+            content: editor.innerHTML,
+            category: categorySelect.value,
+            tags: tagsInput.value,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('publisher_article_draft', JSON.stringify(data));
+        alert('Draft saved successfully!');
+    }
+
+    function submitArticle() {
+        const { score, total, completed } = calculateQuality();
+        
+        if (score < 50) {
+            const missing = total - completed;
+            alert(`Article is ${score}% complete. Please fix ${missing} more items before reviewing.`);
+            return;
         }
 
-        // Move cursor to end of title if it was populated
-        if (titleEl.innerText) {
-            const range = document.createRange();
-            const sel = window.getSelection();
-            range.selectNodeContents(titleEl);
-            range.collapse(false);
-            sel.removeAllRanges();
-            sel.addRange(range);
+        if (!titleInput.value.trim()) {
+            alert('Please enter an article title.');
+            return;
         }
-        // Focus the editor if title already provided
-        if (topic) {
-            setTimeout(() => editor.focus(), 100);
-        } else {
-            titleEl.focus();
+
+        // Save to localStorage
+        const articleData = {
+            title: titleInput.value,
+            description: descriptionInput.value,
+            heroImage: heroImageInput.value,
+            intro: document.getElementById('introInput').value,
+            content: editor.innerHTML,
+            category: categorySelect.value,
+            tags: tagsInput.value,
+            qualityScore: score,
+            timestamp: new Date().toISOString()
+        };
+        
+        try {
+            localStorage.setItem('publisher_article_draft', JSON.stringify(articleData));
+            console.log('Article saved to localStorage:', articleData);
+            // Navigate to post-review
+            window.location.href = '/ng/publisher/post-review';
+        } catch (e) {
+            console.error('Error saving to localStorage:', e);
+            alert('Error saving article. Please try again.');
         }
-    })();
+    }
+
+    // Rich text event tracking
+    function setupEditorListeners() {
+        editor.addEventListener('input', () => {
+            updateQualityScore();
+            updateToolbarActiveStates();
+        });
+        editor.addEventListener('change', updateQualityScore);
+        editor.addEventListener('keyup', () => {
+            updateQualityScore();
+            updateToolbarActiveStates();
+        });
+        editor.addEventListener('mouseup', updateToolbarActiveStates);
+        editor.addEventListener('paste', () => {
+            setTimeout(() => {
+                updateQualityScore();
+                updateToolbarActiveStates();
+            }, 100);
+        });
+        
+        // Handle Enter key to create paragraphs or exit callouts
+        editor.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                
+                const selection = window.getSelection();
+                if (!selection.rangeCount) {
+                    document.execCommand('insertParagraph', false);
+                    updateQualityScore();
+                    return;
+                }
+                
+                const range = selection.getRangeAt(0);
+                let currentElement = range.startContainer;
+                
+                // If it's a text node, get its parent element
+                if (currentElement.nodeType === 3) {
+                    currentElement = currentElement.parentElement;
+                }
+                
+                // Check if we're inside a callout by walking up the DOM
+                let calloutElement = null;
+                let element = currentElement;
+                
+                while (element && element !== editor) {
+                    if (element.classList && element.classList.contains('callout-box')) {
+                        calloutElement = element;
+                        break;
+                    }
+                    element = element.parentElement;
+                }
+                
+                if (calloutElement) {
+                    // We're in a callout - create a new paragraph after it
+                    const newP = document.createElement('p');
+                    newP.innerHTML = '&nbsp;'; // Non-breaking space to ensure paragraph exists
+                    
+                    // Insert after the callout
+                    if (calloutElement.nextSibling) {
+                        editor.insertBefore(newP, calloutElement.nextSibling);
+                    } else {
+                        editor.appendChild(newP);
+                    }
+                    
+                    // Move cursor to the new paragraph
+                    const newRange = document.createRange();
+                    newRange.setStart(newP, 0);
+                    newRange.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(newRange);
+                    
+                    // Clear the non-breaking space so user can start typing
+                    setTimeout(() => {
+                        if (newP.innerHTML === '&nbsp;') {
+                            newP.innerHTML = '';
+                        }
+                    }, 10);
+                    
+                    updateQualityScore();
+                } else {
+                    // Normal behavior - create paragraph
+                    document.execCommand('insertParagraph', false);
+                    updateQualityScore();
+                }
+            }
+        });
+    }
+
+    // Form input event listeners
+    titleInput.addEventListener('input', updateQualityScore);
+    titleInput.addEventListener('change', updateQualityScore);
+    titleInput.addEventListener('keyup', updateQualityScore);
+
+    descriptionInput.addEventListener('input', updateQualityScore);
+    descriptionInput.addEventListener('change', updateQualityScore);
+    descriptionInput.addEventListener('keyup', updateQualityScore);
+
+    heroImageInput.addEventListener('input', updateQualityScore);
+    heroImageInput.addEventListener('change', updateQualityScore);
+    heroImageInput.addEventListener('blur', updateQualityScore);
+
+    // Intro input
+    const introInput = document.getElementById('introInput');
+    if (introInput) {
+        introInput.addEventListener('input', updateQualityScore);
+        introInput.addEventListener('change', updateQualityScore);
+        introInput.addEventListener('keyup', updateQualityScore);
+    }
+
+    tagsInput.addEventListener('input', updateQualityScore);
+    tagsInput.addEventListener('change', updateQualityScore);
+    tagsInput.addEventListener('keyup', updateQualityScore);
+
+    categorySelect.addEventListener('change', updateQualityScore);
+
+    // Initial quality score calculation
+    document.addEventListener('DOMContentLoaded', () => {
+        loadSavedArticle();
+        setupEditorListeners();
+        initStickyToolbar();
+        updateQualityScore();
+    });
+    
+    // Call on page load in case DOMContentLoaded already fired
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedArticle();
+            setupEditorListeners();
+            initStickyToolbar();
+            updateQualityScore();
+        });
+    } else {
+        loadSavedArticle();
+        setupEditorListeners();
+        updateQualityScore();
+    }
 </script>
 </body>
 </html>

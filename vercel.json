@@ -5,6 +5,14 @@
       "use": "@vercel/python"
     }
   ],
+  "headers": [
+    {
+      "source": "/:key.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/wallet-dashboard", "destination": "/modules/top_up/wallet_dashboard.html" },

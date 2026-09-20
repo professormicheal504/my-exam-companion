@@ -17,7 +17,7 @@
   --primary-dk: #1d4ed8;
 }
 
-/* ── Global tap reset ───────────────────────────────── */
+/* ── Global tap reset ───────────────────────────────– */
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -31,11 +31,13 @@ app-topbar {
   top: 0;
   left: 0;
   right: 0;
-  /* MUST be above sidebar (200) and overlay (199) */
   z-index: 300;
   width: 100%;
   background: var(--bg-card);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 app-topbar.topbar-hidden {
@@ -53,47 +55,75 @@ app-topbar.topbar-hidden {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   gap: 8px;
   font-family: 'Outfit', 'Inter', sans-serif;
+  margin: 0;
+  border-top: 0;
 }
 
-/* Desktop + Tablet — taller transparent topbar (reference v3) */
+/* Mobile: 56px height, white bg */
+@media (max-width: 600px) {
+  .mec-topbar {
+    padding: 0 6px;
+    gap: 0;
+    height: 52px;
+    margin: 0;
+  }
+  
+  app-topbar {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+}
+
+/* Desktop + Tablet — 84px height, solid background matching sidebar */
 @media (min-width: 641px) {
   app-topbar {
-    background: transparent;
+    background: #F7F7F7; /* Light mode: match page bg */
+    top: 0 !important;
+    height: 84px !important;
+    min-height: 84px !important;
   }
 
   .mec-topbar {
-    height: 84px;
-    background: transparent;
-    border-bottom: none;
-    box-shadow: none;
-    padding: 0 40px;
-    gap: 16px;
+    height: 84px !important;
+    background: #F7F7F7; /* Light mode: solid gray */
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding: 0 40px !important;
+    gap: 0 !important;
+    margin: 0 !important;
   }
 
-  /* Hide hamburger on desktop — sidebar is always visible */
+  /* Dark mode: use darker shade */
+  :root[data-theme="dark"] app-topbar {
+    background: #1e293b !important;
+  }
+  :root[data-theme="dark"] .mec-topbar {
+    background: #1e293b !important;
+  }
+
+  /* Hide hamburger on desktop */
   .mec-sb-toggle {
     display: none;
   }
 }
 
-/* Tablet */
 @media (min-width: 641px) and (max-width: 1024px) {
   .mec-topbar {
     padding: 0 20px;
   }
 }
 
-/* Left cluster: [hamburger] [logo — expands to fill space] */
+/* Left cluster: [hamburger] [logo] */
 .mec-topbar__left {
   display: flex;
   align-items: center;
   gap: 6px;
-  /* Grow to take all space between hamburger and right icons */
   flex: 1;
   min-width: 0;
 }
 
-/* Right cluster: [search] [flag] [messages] [notifications] [profile] */
+/* Right cluster: [flags] [theme] [notifications] [profile] */
 .mec-topbar__right {
   display: flex;
   align-items: center;
@@ -101,7 +131,7 @@ app-topbar.topbar-hidden {
   flex-shrink: 0;
 }
 
-/* Logo stretches to fill the available width */
+/* Logo */
 .mec-topbar__logo {
   display: flex;
   align-items: center;
@@ -111,10 +141,6 @@ app-topbar.topbar-hidden {
   min-width: 0;
 }
 
-/* ── Text logo — matches original bubbly style ─────────
-   White text, rounded font
-   on a blue rounded-rectangle background blob
-──────────────────────────────────────────────────────── */
 .mec-logo-text {
   display: inline-flex;
   flex-direction: column;
@@ -133,8 +159,6 @@ app-topbar.topbar-hidden {
   font-family: 'Outfit', sans-serif;
   display: block;
   color: #ffffff !important;
-  -webkit-text-stroke: 0;
-  -webkit-text-fill-color: #ffffff;
   background: none;
 }
 
@@ -152,26 +176,17 @@ app-topbar.topbar-hidden {
   opacity: 0.9;
 }
 
-/* Responsive sizing */
 @media (min-width: 400px) {
-  .mec-logo-line1 {
-    font-size: 22px;
-  }
-  .mec-logo-line2 {
-    font-size: 12px;
-  }
+  .mec-logo-line1 { font-size: 22px; }
+  .mec-logo-line2 { font-size: 12px; }
 }
 
 @media (min-width: 520px) {
-  .mec-logo-line1 {
-    font-size: 24px;
-  }
-  .mec-logo-line2 {
-    font-size: 13px;
-  }
+  .mec-logo-line1 { font-size: 24px; }
+  .mec-logo-line2 { font-size: 13px; }
 }
 
-/* Hamburger / menu toggle */
+/* Hamburger */
 .mec-sb-toggle {
   display: flex;
   align-items: center;
@@ -185,7 +200,6 @@ app-topbar.topbar-hidden {
   color: #374151;
   flex-shrink: 0;
   transition: background 0.15s, color 0.15s;
-  padding: 0;
 }
 
 .mec-sb-toggle:hover {
@@ -199,7 +213,7 @@ app-topbar.topbar-hidden {
   stroke: currentColor;
 }
 
-/* Icon buttons on the right */
+/* Icon buttons */
 .mec-tb-btn {
   position: relative;
   display: flex;
@@ -227,13 +241,11 @@ app-topbar.topbar-hidden {
   height: 21px;
 }
 
-/* Country switcher flag button */
 .mec-tb-btn--flag {
   width: auto;
   height: auto;
   border-radius: 9999px !important;
   padding: 4px 10px !important;
-  overflow: visible;
 }
 
 /* Notification badge */
@@ -253,10 +265,9 @@ app-topbar.topbar-hidden {
   justify-content: center;
   padding: 0 4px;
   border: 2px solid #fff;
-  font-family: 'Outfit', sans-serif;
 }
 
-/* Profile pill */
+/* Profile */
 .mec-tb-profile {
   display: flex;
   align-items: center;
@@ -283,142 +294,8 @@ app-topbar.topbar-hidden {
   color: var(--text-muted);
 }
 
-/* ================================================================
-   MOBILE TOPBAR — Compact but COMPLETE: all items visible
-   Target: < 600px
-================================================================ */
-@media (max-width: 600px) {
-  .mec-topbar {
-    padding: 0 6px;
-    gap: 0px;
-    height: 52px;
-  }
-
-  /* Left: hamburger + logo, don't grow */
-  .mec-topbar__left {
-    flex: 0 0 auto;
-    gap: 2px;
-  }
-
-  /* Logo: very compact */
-  .mec-topbar__logo {
-    flex: 0 0 auto;
-  }
-
-  .mec-logo-text {
-    padding: 3px 6px 3px 6px;
-    border-radius: 7px;
-  }
-
-  .mec-logo-line1 {
-    font-size: 11px !important;
-    letter-spacing: -0.02em;
-  }
-
-  .mec-logo-line2 {
-    font-size: 9px !important;
-    letter-spacing: 0.08em;
-  }
-
-  /* Right cluster: fill space, all elements visible */
-  .mec-topbar__right {
-    flex: 1;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1px;
-    min-width: 0;
-  }
-
-  /* Country flag */
-  .mec-country-switcher {
-    display: flex !important;
-    align-items: center;
-    margin-right: 0 !important;
-  }
-
-  #mec-country-flag,
-  .mec-country-switcher img {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
-  }
-
-  .mec-tb-btn--flag {
-    padding: 2px 4px !important;
-  }
-
-  /* Theme toggle */
-  .mec-theme-toggle {
-    margin-right: 1px;
-  }
-
-  .mec-theme-label {
-    width: 34px;
-    height: 20px;
-  }
-
-  .mec-theme-label .mec-theme-slider {
-    width: 14px;
-    height: 14px;
-    top: 3px;
-    left: 3px;
-  }
-
-  .mec-theme-slider svg {
-    width: 9px;
-    height: 9px;
-  }
-
-  :root[data-theme="dark"] .mec-theme-slider {
-    transform: translateX(14px);
-  }
-
-  /* Icon buttons (logged-in state) */
-  .mec-tb-btn {
-    width: 30px;
-    height: 30px;
-  }
-
-  .mec-tb-btn svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .mec-sb-toggle {
-    width: 32px;
-    height: 32px;
-  }
-
-  /* Auth buttons: small but always fully visible */
-  .mec-auth-login {
-    padding: 5px 8px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-    flex-shrink: 0;
-    border-radius: 9999px;
-  }
-
-  .mec-auth-signup {
-    padding: 5px 9px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-    flex-shrink: 0;
-    border-radius: 9999px;
-  }
-}
-
-/* Extremely small phones (< 320px): only hide Login, keep Sign Up */
-@media (max-width: 320px) {
-  .mec-auth-login {
-    display: none !important;
-  }
-  .mec-country-switcher {
-    display: none !important;
-  }
-}
-
 /* ═══════════════════════════════════════════════════════
-   DARK MODE
+   DARK MODE — Overrides
 ═══════════════════════════════════════════════════════ */
 :root[data-theme="dark"] {
   --bg-base: #0f172a;
@@ -435,37 +312,33 @@ app-topbar.topbar-hidden {
   color: var(--text-primary);
 }
 
-:root[data-theme="dark"] app-topbar,
 :root[data-theme="dark"] .mec-topbar {
-  background: var(--bg-card);
   border-bottom-color: var(--border);
 }
 
 :root[data-theme="dark"] .mec-sb-toggle {
   color: var(--text-muted);
 }
+
 :root[data-theme="dark"] .mec-sb-toggle:hover {
   background: rgba(255, 255, 255, 0.05);
   color: var(--primary);
 }
 
-:root[data-theme="dark"] .mec-tb-btn {
-  color: var(--text-muted);
-}
 :root[data-theme="dark"] .mec-tb-btn:hover {
   background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary);
 }
 
 :root[data-theme="dark"] .mec-tb-profile {
   background: var(--bg-base);
   border-color: var(--border);
 }
+
 :root[data-theme="dark"] .mec-tb-profile:hover {
   border-color: var(--primary);
 }
 
-/* Dark mode toggle slider */
+/* Theme toggle slider */
 .mec-theme-toggle {
   display: flex;
   align-items: center;
@@ -511,7 +384,7 @@ app-topbar.topbar-hidden {
 .mec-theme-slider svg {
   width: 12px;
   height: 12px;
-  color: #f59e0b; /* Sun color */
+  color: #f59e0b;
   transition: opacity 0.2s, transform 0.3s;
 }
 
@@ -519,7 +392,7 @@ app-topbar.topbar-hidden {
   position: absolute;
   opacity: 0;
   transform: rotate(-90deg) scale(0.5);
-  color: #60a5fa; /* Moon color */
+  color: #60a5fa;
 }
 
 :root[data-theme="dark"] .mec-theme-slider .sun-icon {
@@ -532,178 +405,102 @@ app-topbar.topbar-hidden {
   transform: rotate(0) scale(1);
 }
 
-/* ===============================================================
-   DESKTOP + TABLET � Final Topbar Overrides (must be LAST)
-   Using !important to beat all base rules above.
-================================================================ */
-@media (min-width: 641px) {
-  /* Transparent topbar wrapper */
-  app-topbar,
-  app-topbar.topbar-hidden + * { background: transparent !important; }
-
-  app-topbar { background: transparent !important; }
-
-  /* Topbar bar itself: tall, transparent, no border/shadow */
-  .mec-topbar {
-    height: 84px !important;
-    background: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    padding: 0 40px !important;
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .mec-topbar__left {
+    flex: 0 0 auto;
+    gap: 2px;
   }
 
-  /* Hide hamburger � sidebar always visible */
-  .mec-sb-toggle { display: none !important; }
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .mec-topbar { padding: 0 20px !important; }
-}
-
-/* ===============================================================
-   DESKTOP + TABLET � Topbar scroll fix
-   Transparent means content shows through when scrolling.
-   Use the page background color so it LOOKS transparent but
-   actually hides scroll content underneath.
-================================================================ */
-@media (min-width: 641px) {
-  app-topbar {
-    background: #F7F7F7 !important;
-  }
-  :root[data-theme="dark"] app-topbar {
-    background: var(--bg-base) !important;
-  }
-  .mec-topbar {
-    background: #F7F7F7 !important;
-  }
-  :root[data-theme="dark"] .mec-topbar {
-    background: var(--bg-base) !important;
-  }
-}
-
-/* ===============================================================
-   DESKTOP + TABLET � Final Layout Polish
-   1. Topbar: solid gray background (not transparent)
-   2. Flyout (sub-sidebar): match sidebar gray background
-   3. Content card: top aligned with sidebar first item
-================================================================ */
-@media (min-width: 641px) {
-
-  /* -- 1. Topbar: solid gray to mask scroll + match sidebar -- */
-  app-topbar {
-    background: #F7F7F7 !important;
-  }
-  .mec-topbar {
-    height: 84px !important;
-    background: #F7F7F7 !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    padding: 0 40px !important;
-  }
-  :root[data-theme="dark"] app-topbar { background: var(--bg-base) !important; }
-  :root[data-theme="dark"] .mec-topbar { background: var(--bg-base) !important; }
-
-  /* -- 2. Flyout (sub-sidebar): match sidebar gray -- */
-  .mec-flyout {
-    background: #F7F7F7 !important;
-    border: 1px solid #e8e8e8 !important;
-    box-shadow: 4px 4px 24px rgba(0,0,0,0.08) !important;
-    /* Align left edge flush with sidebar right edge */
-    margin-left: 0 !important;
-  }
-  :root[data-theme="dark"] .mec-flyout {
-    background: var(--bg-base) !important;
-    border-color: var(--border) !important;
+  .mec-topbar__logo {
+    flex: 0 0 auto;
   }
 
-  /* -- 3. Content card: top aligns with sidebar first item --
-     Sidebar: top=84px + padding-top=12px = first item at 96px
-     Content card: margin-top=96px so top border-radius
-     starts exactly where Home icon starts               -- */
-  .main-wrapper,
-  .app-container {
-    margin-top: 96px !important;
-    min-height: calc(100vh - 96px) !important;
+  .mec-logo-text {
+    padding: 3px 6px;
+    border-radius: 7px;
   }
 
-  /* Remove extra top padding on desktop so content starts immediately */
-  .main-content {
-    padding-top: 12px !important;
+  .mec-logo-line1 {
+    font-size: 11px !important;
+    letter-spacing: -0.02em;
+  }
+
+  .mec-logo-line2 {
+    font-size: 9px !important;
+    letter-spacing: 0.08em;
+  }
+
+  .mec-topbar__right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .mec-country-switcher {
+    display: flex !important;
+  }
+
+  #mec-country-flag,
+  .mec-country-switcher img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .mec-tb-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mec-tb-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mec-sb-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mec-auth-login,
+  .mec-auth-signup {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+    border-radius: 9999px;
+  }
+
+  .mec-auth-signup {
+    padding: 5px 9px !important;
   }
 }
 
-@media (min-width: 641px) and (max-width: 1024px) {
-  .mec-topbar { padding: 0 20px !important; }
-}
-
-
-/* ===============================================================
-   DESKTOP + TABLET � Align Content & Fix Topbar scrolling
-================================================================ */
-@media (min-width: 641px) {
-  /* Stop topbar from hiding on scroll */
-  app-topbar.topbar-hidden {
-    transform: none !important;
+@media (max-width: 320px) {
+  .mec-auth-login {
+    display: none !important;
   }
-
-  /* Bring content up to sit right under topbar (84px) */
-  .main-wrapper,
-  .app-container {
-    margin-top: 84px !important;
-    min-height: calc(100vh - 84px) !important;
+  .mec-country-switcher {
+    display: none !important;
   }
 }
 
-/* ===============================================================
-   DESKTOP + TABLET � Flyout Match (Sub-sidebar)
-================================================================ */
-@media (min-width: 641px) {
-  .mec-flyout {
-    background: #F7F7F7 !important;
-    border: 1px solid #e8e8e8 !important;
-    box-shadow: 4px 4px 24px rgba(0,0,0,0.08) !important;
-    margin-left: 0 !important;
-  }
-  :root[data-theme="dark"] .mec-flyout {
-    background: var(--bg-base) !important;
-    border-color: var(--border) !important;
-  }
+
+/* ═══════════════════════════════════════════════════════
+   FLUSH GAP REMOVAL — Zero spacing enforcement
+═══════════════════════════════════════════════════════ */
+app-topbar, .mec-topbar {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-top: 0 !important;
+  border-bottom-width: 0 !important;
 }
 
-/* ===============================================================
-   DESKTOP + TABLET � Layout Fix: Topbar always fixed, content
-   starts exactly at 84px, rounded top corners on content card.
-================================================================ */
-@media (min-width: 641px) {
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
 
-  /* 1. Topbar: always fixed � never scrolls, never hides */
-  app-topbar {
-    position: fixed !important;
-    top: 0 !important;
-    transform: none !important;
-  }
-  app-topbar.topbar-hidden {
-    transform: none !important;
-  }
-
-  /* 2. Main wrapper: start exactly where topbar ends (84px) */
-  .main-wrapper,
-  .app-container {
-    margin-top: 84px !important;
-    min-height: calc(100vh - 84px) !important;
-    border-top-left-radius: 16px !important;
-    border-top-right-radius: 16px !important;
-    overflow: hidden !important;
-  }
-
-  /* Dark mode: match dark bg on wrapper */
-  :root[data-theme="dark"] .main-wrapper,
-  :root[data-theme="dark"] .app-container {
-    background: var(--bg-base) !important;
-  }
-
-  /* 3. No extra top padding � content sits right at the top of wrapper */
-  .main-content {
-    padding-top: 0 !important;
-  }
+html {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }

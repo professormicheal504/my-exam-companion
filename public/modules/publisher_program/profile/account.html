@@ -9,11 +9,14 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-dark: #1d1d1f;
-            --text-gray: #9ca3af;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-muted: #9ca3af;
             --primary-blue: #3b82f6; 
-            --border-color: #d1d5db;
-            --opay-green: #1cc698; /* Exact match to the image */
+            --border-color: #e5e7eb;
+            --bg-card: #ffffff;
+            --bg-base: #f9fafb;
+            --opay-green: #1cc698;
         }
 
         * {
@@ -24,11 +27,36 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: #f3f4f6;
             color: var(--text-dark);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             min-height: 100vh;
+            padding: 0;
+        }
+
+        /* Responsive Card Wrapper */
+        .main-card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        @media (min-width: 640px) {
+            .main-card {
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                overflow: hidden;
+                flex: none;
+                min-height: auto;
+            }
         }
 
         /* Top Bar */
@@ -73,7 +101,8 @@
         /* Header Texts */
         .header-content {
             padding: 0 24px;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
+            text-align: center;
         }
 
         h1 {
@@ -81,7 +110,7 @@
             font-weight: 700;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
-            color: #111;
+            color: #111827;
         }
 
         p.subtitle {
@@ -94,11 +123,13 @@
         .form-container {
             padding: 0 24px;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .input-group {
             position: relative;
-            margin-bottom: 4px; /* Reduced to fit hint below */
+            margin-bottom: 4px;
             margin-top: 16px;
         }
 
@@ -106,10 +137,10 @@
             position: absolute;
             top: -10px;
             left: 12px;
-            background-color: white;
+            background-color: var(--bg-card);
             padding: 0 6px;
             font-size: 14px;
-            color: #9ca3af;
+            color: var(--text-muted);
             font-weight: 400;
             z-index: 10;
         }
@@ -127,15 +158,15 @@
         }
         
         .input-control::placeholder {
-            color: #9ca3af; /* Grey hint text as requested */
+            color: var(--text-muted);
             font-weight: 400;
         }
 
-        /* Active focus state styles matching the image */
         .input-control:focus {
             border-color: var(--primary-blue);
             border-width: 1px;
         }
+
         .input-group:focus-within label {
             color: var(--primary-blue);
         }
@@ -148,7 +179,7 @@
             display: block;
         }
 
-        /* Register Opay Button */
+        /* Register Payment Button */
         .register-opay-btn {
             display: flex;
             align-items: center;
@@ -178,20 +209,6 @@
             margin-left: 8px;
         }
 
-        /* SVG for Opay Logo */
-        .opay-logo-svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Cursor / Caret simulation from the image */
-        .input-group.active-simulated .input-control {
-            border-color: var(--primary-blue);
-        }
-        .input-group.active-simulated label {
-            color: var(--primary-blue);
-        }
-
         /* Footer Controls */
         .footer-controls {
             padding: 24px;
@@ -203,7 +220,7 @@
         .btn-back {
             flex: 1;
             background-color: #fafafa;
-            color: #9ca3af;
+            color: var(--text-muted);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 16px;
@@ -252,10 +269,11 @@
   </script>
 </head>
 <body>
-
-    <!-- Top Bar with Back Arrow -->
-    <div class="top-bar">
-        <button class="back-btn" onclick="window.location.href='identity.html'">
+    <!-- Responsive Card Wrapper -->
+    <div class="main-card">
+        <!-- Top Bar with Back Arrow -->
+        <div class="top-bar">
+        <button class="back-btn" onclick="window.location.href='/ng/publisher/identity'">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
@@ -304,9 +322,10 @@
 
     <!-- Footer Controls -->
     <div class="footer-controls">
-        <button class="btn-back" onclick="window.location.href='identity.html'">Back</button>
+        <button class="btn-back" onclick="window.location.href='/ng/publisher/identity'">Back</button>
         <button class="btn-confirm" onclick="confirmAccount()">Confirm</button>
     </div>
+    </div><!-- End main-card -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="../../../components/supabase.js"></script>
@@ -381,7 +400,7 @@
             }
             keysToRemove.forEach(k => localStorage.removeItem(k));
 
-            window.location.href = '../dashboard/dashboard.html';
+            window.location.href = '/ng/publisher/dashboard';
         } catch (err) {
             console.error('Publisher submit exception:', err);
             alert('Something went wrong. Please try again.');
