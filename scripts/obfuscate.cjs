@@ -206,6 +206,16 @@ function processJS(filePath, outPath) {
   fs.writeFileSync(outPath, obfuscated, 'utf8');
 }
 
+// ─── Directories to skip obfuscation (copy as-is) ──────────────────────────
+const SKIP_OBFUSCATION = [
+  'editor_program',
+  'publisher_program',
+];
+
+function shouldSkipObfuscation(filePath) {
+  return SKIP_OBFUSCATION.some(dir => filePath.includes(path.sep + dir + path.sep));
+}
+
 // ─── Recursively walk and process ─────────────────────────────────────────
 let _processed = 0;
 let _skipped   = 0;
@@ -222,17 +232,36 @@ async function walk(srcDir, distDir) {
     }
 
     const ext = path.extname(entry.name).toLowerCase();
+    const skipObfuscate = shouldSkipObfuscation(srcPath);
 
     if (ext === '.html') {
       if (!needsUpdate(srcPath, distPath)) { _skipped++; continue; }
-      process.stdout.write(`  HTML  ${path.relative(SRC, srcPath)}\n`);
-      await processHTML(srcPath, distPath);
+      if (skipObfuscate) {
+        process.stdout.write(`  HTML* ${path.relative(SRC, srcPath)} (no obfuscation)\n`);
+        // Just minify HTML, don't obfuscate JS
+        let content = fs.readFileSync(srcPath, 'utf8');
+        try {
+          content = await minifyHTML(content, HTML_OPTIONS);
+        } catch (e) {}
+        fs.mkdirSync(path.dirname(distPath), { recursive: true });
+        fs.writeFileSync(distPath, content, 'utf8');
+      } else {
+        process.stdout.write(`  HTML  ${path.relative(SRC, srcPath)}\n`);
+        await processHTML(srcPath, distPath);
+      }
       markDone(srcPath);
       _processed++;
     } else if (ext === '.js' || ext === '.mjs' || ext === '.cjs') {
       if (!needsUpdate(srcPath, distPath)) { _skipped++; continue; }
-      process.stdout.write(`  JS    ${path.relative(SRC, srcPath)}\n`);
-      processJS(srcPath, distPath);
+      if (skipObfuscate) {
+        process.stdout.write(`  JS*   ${path.relative(SRC, srcPath)} (no obfuscation)\n`);
+        // Just copy as-is
+        fs.mkdirSync(path.dirname(distPath), { recursive: true });
+        fs.copyFileSync(srcPath, distPath);
+      } else {
+        process.stdout.write(`  JS    ${path.relative(SRC, srcPath)}\n`);
+        processJS(srcPath, distPath);
+      }
       markDone(srcPath);
       _processed++;
     } else {

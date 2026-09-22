@@ -2421,6 +2421,21 @@
 
     // Manual "Save Draft" button — immediate save with user feedback
     async function saveDraft() {
+        // SECURITY: Verify user is authenticated before saving
+        if (typeof window.MECSupabase === 'undefined') {
+            alert('System not ready. Please refresh and try again.');
+            return;
+        }
+
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            // Allow local-only saves when not signed in
+            const payload = buildDraftPayload();
+            saveToLocalStorage(payload);
+            alert('Article saved locally. Sign in to save to the cloud.');
+            return;
+        }
+
         const draftBtn = document.querySelector('.btn-draft');
         const originalText = draftBtn.textContent;
         draftBtn.textContent = '💾 Saving…';
@@ -2510,6 +2525,19 @@
 
     // Submit: auto-save one last time, then go to post-review
     async function submitArticle() {
+        // SECURITY: Verify user is authenticated before allowing article submission
+        if (typeof window.MECSupabase === 'undefined') {
+            alert('System not ready. Please refresh and try again.');
+            return;
+        }
+
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            alert('Session expired. Please login again to submit your article.');
+            window.location.href = '../profile/login.html';
+            return;
+        }
+
         const { score, total, completed } = calculateQuality();
 
         if (score < 50) {

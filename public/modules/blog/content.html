@@ -308,8 +308,8 @@
       return;
     }
 
-    (async () => {
-    const sb = window.MECSupabase.getSupabase();
+    try {
+      const sb = window.MECSupabase.getSupabase();
     // Fetch the post — don't load rendered_html or draft_content (huge fields)
     const { data: post, error } = await sb
       .from('publisher_posts')
@@ -476,7 +476,10 @@
         navigator.clipboard.writeText(location.href).then(() => alert('Link copied!'));
       }
     });
-    })(); // End async IIFE
+    } catch (err) {
+      console.error('Error loading blog post:', err);
+      document.getElementById('loadingState').innerHTML = '<p style="color:red;padding:20px;">Error loading article. Please try again later.</p>';
+    }
   });
 </script>
 </body>

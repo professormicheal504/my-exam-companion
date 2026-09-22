@@ -687,6 +687,21 @@
     }
 
     async function handleDecision(decision) {
+        // SECURITY: Verify user is still authenticated and authorized before allowing action
+        const sb = window.MECSupabase.getSupabase();
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            alert('Session expired. Please login again.');
+            window.location.href = '../profile/login.html';
+            return;
+        }
+
+        const allowedEmails = ['professormicheal504@gmail.com', 'prepzone504@gmail.com'];
+        if (!allowedEmails.includes(user.email)) {
+            alert('Access Denied. You are not authorized to perform this action.');
+            return;
+        }
+
         if (!currentReviewPostId) return;
 
         const reason = document.getElementById('rejectionReason').value.trim();
@@ -694,8 +709,6 @@
             alert('Please provide a rejection reason.');
             return;
         }
-
-        const sb = window.MECSupabase.getSupabase();
 
         // Optimistically disable buttons to prevent double-clicks
         document.querySelectorAll('.action-buttons .action-btn').forEach(b => b.disabled = true);
@@ -789,6 +802,21 @@
 
     // ── Revert an approved or rejected article back to pending ────────────────
     async function handleRevert() {
+        // SECURITY: Verify user is still authenticated and authorized before allowing action
+        const sb = window.MECSupabase.getSupabase();
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) {
+            alert('Session expired. Please login again.');
+            window.location.href = '../profile/login.html';
+            return;
+        }
+
+        const allowedEmails = ['professormicheal504@gmail.com', 'prepzone504@gmail.com'];
+        if (!allowedEmails.includes(user.email)) {
+            alert('Access Denied. You are not authorized to perform this action.');
+            return;
+        }
+
         if (!currentReviewPostId) return;
 
         const post = allPosts.find(p => p.id === currentReviewPostId);
