@@ -308,8 +308,8 @@
       return;
     }
 
+    (async () => {
     const sb = window.MECSupabase.getSupabase();
-
     // Fetch the post — don't load rendered_html or draft_content (huge fields)
     const { data: post, error } = await sb
       .from('publisher_posts')
@@ -476,6 +476,7 @@
         navigator.clipboard.writeText(location.href).then(() => alert('Link copied!'));
       }
     });
+    })(); // End async IIFE
   });
 </script>
 </body>
