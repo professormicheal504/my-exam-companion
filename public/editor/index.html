@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Editor - My Exam Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: #252526;
+            border-bottom: 1px solid #3e3e42;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: #404040;
+            color: #d4d4d4;
+        }
+
+        .btn-secondary:hover {
+            background: #505050;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .editor-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #3e3e42;
+        }
+
+        .editor-label {
+            background: #2d2d30;
+            padding: 8px 16px;
+            font-size: 12px;
+            color: #858585;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #3e3e42;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 16px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border: none;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            tab-size: 2;
+        }
+
+        textarea::selection {
+            background: #264f78;
+        }
+
+        .output-panel {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            background: #252526;
+        }
+
+        .output {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #d4d4d4;
+        }
+
+        .output-message {
+            margin-bottom: 12px;
+            padding: 8px;
+            border-left: 3px solid #858585;
+            background: #2d2d30;
+        }
+
+        .output-message.success {
+            border-left-color: #4ec9b0;
+            color: #4ec9b0;
+        }
+
+        .output-message.error {
+            border-left-color: #f48771;
+            color: #f48771;
+        }
+
+        .output-message.info {
+            border-left-color: #569cd6;
+            color: #569cd6;
+        }
+
+        .templates {
+            background: #2d2d30;
+            border-bottom: 1px solid #3e3e42;
+            padding: 12px 16px;
+        }
+
+        .templates select {
+            padding: 6px 12px;
+            background: #3e3e42;
+            color: #d4d4d4;
+            border: 1px solid #555;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .templates select:hover {
+            background: #505050;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .output-panel {
+                width: 100%;
+                height: 35%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🗄️ SQL Editor - Editor Setup</h1>
+        <div class="header-right">
+            <button class="btn btn-secondary" onclick="clearOutput()">Clear Output</button>
+            <button class="btn btn-primary" onclick="runSQL()">▶ Execute SQL</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="editor-panel">
+            <div class="templates">
+                <label for="template-select">📋 Load Template:</label>
+                <select id="template-select" onchange="loadTemplate()">
+                    <option value="">-- Select a template --</option>
+                    <option value="editor-setup">Editor Roles Setup</option>
+                    <option value="verify">Verify Roles</option>
+                </select>
+            </div>
+            <div class="editor-label">SQL Query Editor</div>
+            <textarea id="sql-editor" placeholder="Paste your SQL here or select a template..."></textarea>
+        </div>
+
+        <div class="output-panel">
+            <div class="editor-label">Output</div>
+            <div id="output" class="output"></div>
+        </div>
+    </div>
+
+    <script>
+        const TEMPLATES = {
+            'editor-setup': `-- ============================================================================
+-- EDITOR ACCOUNT SETUP FOR MY EXAM COMPANION
+-- ============================================================================
+
+-- Step 1: Create roles table
+CREATE TABLE IF NOT EXISTS public.roles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    role TEXT NOT NULL CHECK (role IN ('editor', 'publisher', 'admin')),
+    created_at TIMESTAMP DEFAULT NOW(),
+    UNIQUE(user_id, role)
+);
+
+-- Step 2: Insert editor roles for both accounts
+INSERT INTO public.roles (user_id, role) VALUES
+    ('02ca7006-9f4c-4ef7-a80c-7d192591d885', 'editor'),
+    ('6ce7ac7a-f3a7-4e6b-8969-eb7347a07abd', 'editor')
+ON CONFLICT (user_id, role) DO NOTHING;
+
+-- Step 3: Create indexes for performance
+CREATE INDEX IF NOT EXISTS idx_roles_user_id ON public.roles(user_id);
+CREATE INDEX IF NOT EXISTS idx_roles_role ON public.roles(role);
+
+-- Step 4: Enable RLS on roles table
+ALTER TABLE public.roles ENABLE ROW LEVEL SECURITY;
+
+-- Step 5: RLS Policy - users can read their own roles
+CREATE POLICY "users_can_read_own_roles" ON public.roles
+    FOR SELECT USING (auth.uid() = user_id);
+
+-- Step 6: RLS Policy - editors can read all non-draft posts
+DROP POLICY IF EXISTS "editors_can_select_all_posts" ON public.publisher_posts;
+CREATE POLICY "editors_can_select_all_posts" ON public.publisher_posts
+    FOR SELECT USING (
+        EXISTS (
+            SELECT 1 FROM public.roles 
+            WHERE user_id = auth.uid() AND role = 'editor'
+        ) OR status = 'approved'
+    );
+
+-- Step 7: RLS Policy - editors can update post status and rejection_reason
+DROP POLICY IF EXISTS "editors_can_update_posts" ON public.publisher_posts;
+CREATE POLICY "editors_can_update_posts" ON public.publisher_posts
+    FOR UPDATE USING (
+        EXISTS (
+            SELECT 1 FROM public.roles 
+            WHERE user_id = auth.uid() AND role = 'editor'
+        )
+    )
+    WITH CHECK (
+        EXISTS (
+            SELECT 1 FROM public.roles 
+            WHERE user_id = auth.uid() AND role = 'editor'
+        )
+    );
+
+-- Step 8: Verify setup - show inserted roles
+SELECT user_id, role, created_at FROM public.roles 
+WHERE role = 'editor' 
+ORDER BY created_at DESC;`,
+
+            'verify': `-- Check if editor roles exist
+SELECT user_id, role, created_at FROM public.roles 
+WHERE role = 'editor' 
+ORDER BY created_at DESC;`
+        };
+
+        function loadTemplate() {
+            const select = document.getElementById('template-select');
+            const key = select.value;
+            if (key && TEMPLATES[key]) {
+                document.getElementById('sql-editor').value = TEMPLATES[key];
+                addOutput('info', 'Template loaded. Ready to execute!');
+            }
+        }
+
+        function addOutput(type, message) {
+            const output = document.getElementById('output');
+            const div = document.createElement('div');
+            div.className = `output-message ${type}`;
+            div.textContent = message;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+        }
+
+        function runSQL() {
+            const sql = document.getElementById('sql-editor').value.trim();
+            
+            if (!sql) {
+                addOutput('error', 'Error: No SQL to execute');
+                return;
+            }
+
+            addOutput('info', '⏳ Executing SQL in Supabase...');
+            addOutput('info', 'Instructions:');
+            addOutput('info', '1. Go to Supabase Dashboard (app.supabase.com)');
+            addOutput('info', '2. Select your project');
+            addOutput('info', '3. Click SQL Editor (left sidebar)');
+            addOutput('info', '4. Click New Query');
+            addOutput('info', '5. Paste the SQL below');
+            addOutput('info', '6. Click Run');
+            addOutput('success', '✓ SQL is ready to paste into Supabase');
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(sql).then(() => {
+                addOutput('success', '✓ SQL copied to clipboard! Paste it in Supabase now.');
+            }).catch(() => {
+                addOutput('error', 'Could not copy to clipboard. Please copy manually.');
+            });
+        }
+
+        // Load first template by default
+        window.addEventListener('load', () => {
+            document.getElementById('template-select').value = 'editor-setup';
+            loadTemplate();
+        });
+    </script>
+</body>
+</html>
