@@ -632,25 +632,26 @@
             <div>Loading preview…</div>
         </div>`;
 
-        const sb2 = window.MECSupabase.getSupabase();
-        let previewData = null;
-        try {
-            const { data } = await sb2
-                .from('publisher_posts')
-                .select('rendered_html, draft_content')
-                .eq('id', post.id)
-                .single();
-            previewData = data;
-        } catch (_) {}
+        (async () => {
+            const sb2 = window.MECSupabase.getSupabase();
+            let previewData = null;
+            try {
+                const { data } = await sb2
+                    .from('publisher_posts')
+                    .select('rendered_html, draft_content')
+                    .eq('id', post.id)
+                    .single();
+                previewData = data;
+            } catch (_) {}
 
-        const rendered_html  = previewData && previewData.rendered_html  ? previewData.rendered_html  : null;
-        const draft_content  = previewData && previewData.draft_content  ? previewData.draft_content  : null;
+            const rendered_html  = previewData && previewData.rendered_html  ? previewData.rendered_html  : null;
+            const draft_content  = previewData && previewData.draft_content  ? previewData.draft_content  : null;
 
-        if (rendered_html) {
-            frameContainer.innerHTML = '';
-            const iframe = document.createElement('iframe');
-            iframe.srcdoc = rendered_html;
-            iframe.style.cssText = 'width:100%;height:100%;border:none;';
+            if (rendered_html) {
+                frameContainer.innerHTML = '';
+                const iframe = document.createElement('iframe');
+                iframe.srcdoc = rendered_html;
+                iframe.style.cssText = 'width:100%;height:100%;border:none;';
             frameContainer.appendChild(iframe);
         } else if (draft_content) {
             const dc    = typeof draft_content === 'string' ? JSON.parse(draft_content) : draft_content;
@@ -679,6 +680,7 @@
                 <p style="font-size:14px;">No preview available yet.</p>
             </div>`;
         }
+        })();  // End async IIFE for lazy preview loading
     }
 
     function closeModal() {

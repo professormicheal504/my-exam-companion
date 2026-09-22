@@ -308,10 +308,11 @@
       return;
     }
 
-    try {
-      const sb = window.MECSupabase.getSupabase();
+    const sb = window.MECSupabase.getSupabase();
+
     // Fetch the post — don't load rendered_html or draft_content (huge fields)
-    const { data: post, error } = await sb
+    try {
+      const { data: post, error } = await sb
       .from('publisher_posts')
       .select('id, title, slug, description, intro, category, tags, thumbnail_url, publisher_id, created_at, updated_at, likes_count, comments_count, shares_count')
       .eq('id', postId)
