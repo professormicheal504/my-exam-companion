@@ -495,6 +495,9 @@ def build_options_speech(options: list[dict]) -> str:
     """
     parts: list[str] = []
     for opt in options:
+        if not isinstance(opt, dict):
+            # Some JSON files store options as plain strings — skip gracefully
+            continue
         tag  = opt.get("tag", "").upper()
         raw  = opt.get("text", "") or ""
         text = clean_for_tts(raw)

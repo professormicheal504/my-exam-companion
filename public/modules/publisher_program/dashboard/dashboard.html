@@ -294,6 +294,8 @@
         .status-pending { color: #f29d38; border-color: #f29d38; }
         .status-rejected { color: #dc2626; border-color: #dc2626; }
         .status-published { color: var(--accent-blue); border-color: var(--accent-blue); }
+        .status-draft { color: #6b7280; border-color: #6b7280; }
+        .article-draft-hint { font-size: 0.75rem; color: #999; margin-top: 4px; font-weight: 500; }
         .article-stats { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; color: #aaa; font-weight: 500; }
         .article-stats .divider { color: #eaeaea; }
 
@@ -514,6 +516,20 @@
         </div> <!-- End of mainDashboardContent -->
     </div> <!-- End of container -->
 
+    <!-- Status Info Bottom Sheet (pending / rejected feedback) -->
+    <div class="sheet-overlay" id="statusSheet" onclick="if(event.target===this)closeStatusSheet()">
+        <div class="sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-title" id="statusSheetTitle">Article Status</div>
+            <div style="padding: 0 24px 8px;">
+                <div id="statusSheetBody" style="font-size:0.95rem;line-height:1.6;color:#374151;"></div>
+            </div>
+            <div style="padding: 16px 24px 0;">
+                <button onclick="closeStatusSheet()" style="width:100%;padding:14px;border:none;border-radius:12px;background:#f1f5f9;font-size:0.95rem;font-weight:700;cursor:pointer;color:#1e293b;">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Create Type Bottom Sheet -->
     <div class="sheet-overlay" id="createSheet" onclick="handleSheetOverlayClick(event)">
         <div class="sheet">
@@ -566,7 +582,7 @@
         // Query publishers table for this user
         const { data: publishers, error } = await sb
             .from('publishers')
-            .select('*')
+            .select('user_id, status, publisher_name')
             .eq('user_id', user.id)
             .limit(1);
 
@@ -604,10 +620,11 @@
         pendingScreen.style.display = 'none';
         if (mainContent) mainContent.style.display = 'block';
 
-        // Fetch posts
+        // Fetch posts — only the columns needed for the list view.
+        // rendered_html / draft_content are intentionally excluded (too large).
         const { data: posts, error: postsError } = await sb
             .from('publisher_posts')
-            .select('*')
+            .select('id, title, thumbnail_url, status, category, slug, rejection_reason, created_at, cloudflare_url')
             .eq('publisher_id', user.id)
             .order('created_at', { ascending: false });
 
@@ -618,20 +635,43 @@
                 list.innerHTML = '<div style="padding: 24px; text-align: center; color: #666;">No articles yet. Click + to create one.</div>';
             } else {
                 posts.forEach(post => {
-                    const statusClass = post.status === 'pending' ? 'status-pending' : (post.status === 'rejected' ? 'status-rejected' : 'status-approved');
-                    const statusText = post.status.charAt(0).toUpperCase() + post.status.slice(1);
-                    const link = post.status === 'approved' ? post.cloudflare_url : (post.github_url || '#');
-                    
+                    const statusClass = post.status === 'pending'  ? 'status-pending'  :
+                                       post.status === 'rejected' ? 'status-rejected' :
+                                       post.status === 'draft'    ? 'status-draft'    : 'status-approved';
+                    const statusText  = post.status === 'draft' ? 'Draft' :
+                                       post.status.charAt(0).toUpperCase() + post.status.slice(1);
                     const date = new Date(post.created_at).toLocaleDateString();
 
-                    const thumbHtml = post.thumbnail_url 
-                        ? `<img src="${post.thumbnail_url}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`
-                        : `<div class="article-img-text" style="font-size: 14px; padding: 10px; line-height: 1.2;">${post.title.substring(0, 20)}...</div>`;
+                    let clickAction = '';
+                    let cardExtra   = '';
+                    if (post.status === 'draft') {
+                        clickAction = `openDraft('${post.id}')`;
+                        cardExtra   = `<div class="article-draft-hint">Tap to continue editing</div>`;
+                    } else if (post.status === 'pending') {
+                        clickAction = `showStatusInfo('pending','${post.id}','')`;
+                        cardExtra   = `<div class="article-draft-hint" style="color:#f59e0b;">Under editor review…</div>`;
+                    } else if (post.status === 'rejected') {
+                        const esc = (post.rejection_reason||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+                        clickAction = `showStatusInfo('rejected','${post.id}','${esc}')`;
+                        cardExtra   = `<div class="article-draft-hint" style="color:#dc2626;">Rejected — tap for feedback</div>`;
+                    } else {
+                        // Build the clean public blog URL: /<cc>/blog/<category>/<slug>
+                        const cc       = (window.location.pathname.split('/')[1] || 'ng').toLowerCase();
+                        const catSlug  = (post.category || 'guide').toLowerCase().replace(/\s+/g, '-');
+                        const artSlug  = post.slug || post.id;
+                        const publicUrl = `/${cc}/blog/${catSlug}/${artSlug}`;
+                        clickAction = `window.open('${publicUrl}','_blank')`;
+                        cardExtra   = `<div class="article-draft-hint" style="color:#16a34a;">Live ↗ — tap to view</div>`;
+                    }
+
+                    const thumbHtml = post.thumbnail_url
+                        ? `<img src="${post.thumbnail_url}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`
+                        : `<div class="article-img-text" style="font-size:14px;padding:10px;line-height:1.2;">${post.title.substring(0,20)}...</div>`;
 
                     list.innerHTML += `
-                        <div class="article-item" onclick="if('${link}' !== '#' && '${link}' !== 'null') window.location.href = 'article/preview.html?viewUrl=' + encodeURIComponent('${link}')" style="cursor: pointer;">
+                        <div class="article-item" onclick="${clickAction}" style="cursor:pointer;">
                             <div class="article-content-row">
-                                <div class="article-img" style="background: #f0f0f0; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <div class="article-img" style="background:#f0f0f0;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden;">
                                     ${thumbHtml}
                                 </div>
                                 <div class="article-info">
@@ -640,25 +680,61 @@
                                         <span class="status-badge ${statusClass}">${statusText}</span>
                                         <span>${date}</span>
                                     </div>
-                                    <div class="article-stats" style="margin-top: 6px;">
+                                    ${cardExtra}
+                                    <div class="article-stats" style="margin-top:6px;">
                                         <span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px; margin-bottom: 2px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                            ${post.impressions || 0} Impressions
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                            ${post.impressions||0} Impressions
                                         </span>
                                         <span class="divider">|</span>
                                         <span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px; margin-bottom: 2px;"><path d="M15 3h6v6"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="21 3 14 10 10 6 3 13"></polyline></svg>
-                                            ${post.clicks || 0} Clicks
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M15 3h6v6"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="21 3 14 10 10 6 3 13"></polyline></svg>
+                                            ${post.clicks||0} Clicks
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     `;
+
                 });
             }
         }
     });
+
+    // Open a draft: store its id so create-post restores it, then navigate
+    function openDraft(postId) {
+        localStorage.setItem('publisher_draft_post_id', postId);
+        window.location.href = '/ng/publisher/create-post';
+    }
+
+    // Show pending / rejected status info sheet
+    function showStatusInfo(status, postId, reason) {
+        const title = document.getElementById('statusSheetTitle');
+        const body  = document.getElementById('statusSheetBody');
+
+        if (status === 'pending') {
+            title.textContent = '⏳ Under Review';
+            body.innerHTML = `
+                <p style="margin-bottom:12px;">Your article has been submitted and is currently in the <strong>editor review queue</strong>.</p>
+                <p style="margin-bottom:12px;">Our editorial team will read it and decide whether to <strong style="color:#16a34a;">approve</strong> or <strong style="color:#dc2626;">reject</strong> it, usually within 24–48 hours.</p>
+                <p style="color:#6b7280;font-size:0.85rem;">You will see the decision here once it is made.</p>`;
+        } else if (status === 'rejected') {
+            const fb = reason
+                ? `<div style="background:#fef2f2;border-left:4px solid #dc2626;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:0.875rem;color:#7f1d1d;">${reason}</div>`
+                : '<p style="color:#6b7280;margin-top:8px;">No specific reason was provided.</p>';
+            body.innerHTML = `
+                <p style="margin-bottom:12px;">Unfortunately your article was not approved. Editor feedback:</p>
+                ${fb}
+                <p style="margin-top:16px;color:#6b7280;font-size:0.85rem;">You can edit and resubmit a new draft at any time.</p>`;
+        }
+
+        document.getElementById('statusSheet').classList.add('open');
+    }
+
+    function closeStatusSheet() {
+        document.getElementById('statusSheet').classList.remove('open');
+    }
 
     let _pendingTopic = '';
 
@@ -672,13 +748,11 @@
     }
 
     function handleSheetOverlayClick(e) {
-        // Close only if clicking the dark overlay, not the sheet itself
         if (e.target === document.getElementById('createSheet')) closeCreate();
     }
 
     function goCreate(type) {
         closeCreate();
-        // Blog — pass topic if available
         const url = _pendingTopic
             ? '/ng/publisher/create-post?topic=' + encodeURIComponent(_pendingTopic)
             : '/ng/publisher/create-post';

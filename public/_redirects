@@ -11,6 +11,7 @@
 /us/  /modules/ 200
 
 # -- Study (Exact matches & Wildcards) --
+/ng/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
 /ng/study/classroom        /modules/study/classroom/classroom_subject 200
 /ng/study/classroom/*      /modules/study/classroom/classroom_questions 200
 /ng/study/past-questions   /modules/study/study_past_questions/study_subject 200
@@ -28,12 +29,14 @@
 /study/ghana/waec/*        /gh/test/:splat 301
 /study/usa/sat/*           /us/test/:splat 301
 
+/gh/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
 /gh/study/classroom        /modules/study/classroom/classroom_subject 200
 /gh/study/classroom/*      /modules/study/classroom/classroom_questions 200
 /gh/study/past-questions   /modules/study/study_past_questions/study_subject 200
 /gh/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
 /gh/study/videos           /modules/study/topic_video/topic_video 200
 
+/us/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
 /us/study/classroom        /modules/study/classroom/classroom_subject 200
 /us/study/classroom/*      /modules/study/classroom/classroom_questions 200
 /us/study/past-questions   /modules/study/study_past_questions/study_subject 200
@@ -67,13 +70,16 @@
 /us/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
 /us/test/*                 /modules/cbt_test/core/cbt_player 200
 
-# -- Blog (Exact matches & Wildcards) --
-/ng/blog                   /modules/blog/categories 200
-/ng/blog/*                 /modules/blog/content 200
-/gh/blog                   /modules/blog/categories 200
-/gh/blog/*                 /modules/blog/content 200
-/us/blog                   /modules/blog/categories 200
-/us/blog/*                 /modules/blog/content 200
+# -- Blog — served by Edge SSR function (functions/[[country]]/blog/[[path]].js)
+# The Pages Function intercepts these routes before the static fallback fires.
+# No static redirect needed; entries below exist only so Cloudflare Pages
+# doesn't return a 404 before the function runs.
+/ng/blog                   /ng/blog/ 200
+/ng/blog/*                 /ng/blog/:splat 200
+/gh/blog                   /gh/blog/ 200
+/gh/blog/*                 /gh/blog/:splat 200
+/us/blog                   /us/blog/ 200
+/us/blog/*                 /us/blog/:splat 200
 
 # -- Utility (country-scoped) --
 /ng/rank       /modules/rank/rank 200
@@ -103,6 +109,10 @@
 /signup      /modules/auth/sign_up 200
 /verify      /modules/auth/otp 200
 /onboarding  /modules/auth/fill_form 200
+
+# -- Editor Program --
+/editor        /modules/editor_program/dashboard 200
+/editor/       /modules/editor_program/dashboard 200
 
 # -- Publisher Program (country-scoped) --
 /ng/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200

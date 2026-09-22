@@ -19,12 +19,25 @@ export async function onRequest(context) {
   const subject = path[1] || '';
   const year = path[2] || '';
 
-  // --- DISCUSSION PAGE: /[cc]/study/classroom/[exam]/[subject]/[qKey]/discussion ---
-  const isDiscussionPage = path[path.length - 1] === 'discussion';
+  // --- DISCUSSION PAGE ---
+  // New format: /[cc]/study/classroom/[exam]/[subject]/discussion/[qKey]
+  // Old format: /[cc]/study/classroom/[exam]/[subject]/[qKey]/discussion  (legacy)
+  const discussionIdx = path.indexOf('discussion');
+  const isDiscussionPage = discussionIdx !== -1;
 
   if (isDiscussionPage) {
-    const dSubject = path[1] || '';
-    const dQKey    = path[2] || '';
+    // New format: discussion is at index 2, qKey at index 3
+    // Old format: qKey at index 2, discussion at index 3
+    let dSubject, dQKey;
+    if (path[2] === 'discussion') {
+      // New: /[exam]/[subject]/discussion/[qKey]
+      dSubject = path[1] || '';
+      dQKey    = path[3] || '';
+    } else {
+      // Old: /[exam]/[subject]/[qKey]/discussion
+      dSubject = path[1] || '';
+      dQKey    = path[2] || '';
+    }
     const _dYearRaw = url.searchParams.get('year') || '';
     const dYear = _dYearRaw || (dQKey.match(/^(\d{4})_/) ? dQKey.match(/^(\d{4})_/)[1] : '');
     const dType    = url.searchParams.get('type') || 'objective';
@@ -37,7 +50,7 @@ export async function onRequest(context) {
     let title       = `${dExamFmt} ${dSubjectFmt} — Explanation | My Exam Companion`;
     let description = `View the official answer and step-by-step explanation for this ${dExamFmt} ${dSubjectFmt} past question.`;
     let image       = `https://myexamcompanion.pages.dev/api/og-image?title=${encodeURIComponent(title)}`;
-    const canonicalUrl = `https://myexamcompanion.pages.dev/${countryCode}/study/classroom/${exam}/${dSubject}/${dQKey}/discussion`;
+    const canonicalUrl = `https://myexamcompanion.pages.dev/${countryCode}/study/classroom/${exam}/${dSubject}/discussion/${dQKey ? encodeURIComponent(dQKey) : ''}`;
 
     let schemas = [];
     let questionHtml = '';

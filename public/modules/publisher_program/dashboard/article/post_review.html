@@ -622,12 +622,11 @@
             <div class="category-section">
                 <div class="category-label">Category</div>
                 <div class="chips-wrap" id="chipsWrap">
-                    <div class="chip" onclick="selectChip(this)">Scholarships</div>
-                    <div class="chip" onclick="selectChip(this)">Admission</div>
-                    <div class="chip" onclick="selectChip(this)">Study Tips</div>
-                    <div class="chip" onclick="selectChip(this)">Post-UTME</div>
-                    <div class="chip" onclick="selectChip(this)">University</div>
-                    <div class="chip" onclick="selectChip(this)">Career</div>
+                    <div class="chip" data-slug="study-tips"   onclick="selectChip(this)">Study Tips</div>
+                    <div class="chip" data-slug="exam-updates" onclick="selectChip(this)">Exam Updates</div>
+                    <div class="chip" data-slug="guide"        onclick="selectChip(this)">Guide</div>
+                    <div class="chip" data-slug="scholarships" onclick="selectChip(this)">Scholarships</div>
+                    <div class="chip" data-slug="school-news"  onclick="selectChip(this)">School News</div>
                 </div>
             </div>
         </div>
@@ -665,6 +664,8 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../../../components/supabase.js"></script>
 <script>
     // Load article data from localStorage
     function loadArticleData() {
@@ -698,12 +699,15 @@
                 document.getElementById('topicInput').style.display = 'none';
             }
 
-            // Set category
+            // Set category — match by data-slug first, then label text
             if (articleData.category) {
+                const needle = articleData.category.toLowerCase().replace(/\s+/g, '-');
                 const chips = document.querySelectorAll('.chip');
                 chips.forEach(chip => {
-                    if (chip.textContent.toLowerCase().includes(articleData.category.toLowerCase())) {
+                    const chipSlug = chip.dataset.slug || chip.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+                    if (chipSlug === needle) {
                         chip.classList.add('selected');
+                        selectedCategorySlug = chipSlug;
                     }
                 });
             }
@@ -832,29 +836,98 @@
 
     /* ── Category chips ── */
     function selectChip(el) {
-        // Single selection visual
         document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
         el.classList.add('selected');
-        
-        // Add to topics array
-        const val = el.textContent.trim();
-        if (!topics.includes(val)) {
-            topics.push(val);
-            renderTags();
-            document.getElementById('topicInput').style.display = 'none';
+        // Store the slug so the pipeline gets 'study-tips' not 'Study Tips'
+        selectedCategorySlug = el.dataset.slug || el.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+    }
+
+    let selectedCategorySlug = '';
+
+    // ── Shared draft-id key (same key used in create_post.html) ──
+    const DRAFT_ID_KEY = 'publisher_draft_post_id';
+
+    // Detect country code from URL slug (e.g. /ng/publisher/post-review → 'ng')
+    const CC = (window.location.pathname.split('/')[1] || 'ng').toLowerCase();
+
+    // Persist metadata to the existing Supabase draft row
+    async function saveMetadataToSupabase(thumbnailSrc) {
+        if (typeof window.MECSupabase === 'undefined') return false;
+        let user;
+        try { user = await window.MECSupabase.getCurrentUser(); } catch (_) { return false; }
+        if (!user) return false;
+
+        const draftId = localStorage.getItem(DRAFT_ID_KEY);
+        if (!draftId) return false;           // no draft row to update
+
+        const sb = window.MECSupabase.getSupabase();
+
+        // Build updated draft_content by merging new metadata over the saved JSONB
+        // First, fetch the current draft_content so we don't overwrite editor fields
+        const { data: existing } = await sb
+            .from('publisher_posts')
+            .select('draft_content')
+            .eq('id', draftId)
+            .eq('publisher_id', user.id)
+            .maybeSingle();
+
+        const base = (existing && existing.draft_content) ? existing.draft_content : {};
+
+        const merged = {
+            ...base,
+            heroImage:   thumbnailSrc || base.heroImage || null,
+            tags:        topics.join(', '),
+            category:    getSelectedCategory(),
+            timestamp:   new Date().toISOString()
+        };
+
+        const tagArray = topics.length ? topics : (base.tags ? base.tags.split(',').map(t => t.trim()).filter(Boolean) : []);
+
+        const { error } = await sb
+            .from('publisher_posts')
+            .update({
+                thumbnail_url: thumbnailSrc || base.heroImage || null,
+                tags:          tagArray,
+                category:      getSelectedCategory() || base.category || null,
+                draft_content: merged,
+                last_saved_at: new Date().toISOString()
+            })
+            .eq('id', draftId)
+            .eq('publisher_id', user.id)
+            .in('status', ['draft']);
+
+        if (error) {
+            console.warn('Metadata save error:', error.message);
+            return false;
         }
+        return true;
+    }
+
+    function getSelectedCategory() {
+        const selected = document.querySelector('.chip.selected');
+        return selected ? (selected.dataset.slug || selected.textContent.trim().toLowerCase().replace(/\s+/g, '-')) : null;
     }
 
     /* ── Draft ── */
-    function saveDraft() {
+    async function saveDraft() {
         const title = titleDisplay.textContent;
+        // Keep sessionStorage in sync for post_review → preview handoff
         sessionStorage.setItem('post_title', title);
         sessionStorage.setItem('post_topics', JSON.stringify(topics));
-        showToast('Saved as draft ✓');
+
+        const thumb = document.getElementById('thumbnailPreview').src;
+        const hasThumbnail = document.getElementById('thumbnailBox').classList.contains('has-image');
+        if (hasThumbnail && thumb) {
+            sessionStorage.setItem('post_thumbnail', thumb);
+        }
+
+        // Also persist to Supabase draft
+        const ok = await saveMetadataToSupabase(hasThumbnail ? thumb : null);
+        showToast(ok ? 'Saved as draft ✓' : 'Saved locally ✓');
     }
 
     /* ── Preview ── */
-    function goToPreview() {
+    async function goToPreview() {
         const title = titleDisplay.textContent.trim();
         if (!title) {
             showToast('No title found. Please go back and add a title.');
@@ -865,9 +938,14 @@
             showToast('Please add a thumbnail image');
             return;
         }
-        
-        // Save thumbnail data so preview can use it
+
+        // Save thumbnail so preview can use it
         sessionStorage.setItem('post_thumbnail', thumb);
+        sessionStorage.setItem('post_topics', JSON.stringify(topics));
+
+        // Persist metadata to Supabase before navigating
+        await saveMetadataToSupabase(thumb);
+
         window.location.href = '/ng/publisher/preview';
     }
 

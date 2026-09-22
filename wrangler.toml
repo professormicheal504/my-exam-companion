@@ -1,9 +1,14 @@
 # Cloudflare Pages Configuration
 name = "myexamcompanion"
 pages_build_output_dir = "public"
-
 compatibility_date = "2024-03-20"
 compatibility_flags = ["nodejs_compat"]
+
+# ── Environment variables for Pages Functions ──────────────────────────────
+# Used by functions/[[country]]/blog/[[path]].js to query Supabase.
+[vars]
+SUPABASE_URL      = "https://alwplfsqzrijxqujrpyu.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsd3BsZnNxenJpanhxdWpycHl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MjQ4OTUsImV4cCI6MjEwMTUwMDg5NX0.m73Ag_LllwlfqVacWq5UbBjLeMDpb-xsg8W3ZFYv3oI"
 
 [[d1_databases]]
 binding = "DB"
@@ -17,4 +22,3 @@ id = "b56d726439984478955ea9ed5d9d54ca"
 [[r2_buckets]]
 binding = "QUESTIONS_BUCKET"
 bucket_name = "my-exam-companion-data"
-

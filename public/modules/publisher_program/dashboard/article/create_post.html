@@ -280,6 +280,30 @@
             transition: all 0.2s;
         }
 
+        /* Category chips in create_post */
+        .cat-chip {
+            padding: 9px 18px;
+            border-radius: 20px;
+            border: 1.5px solid #d1dff7;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: #ffffff;
+            user-select: none;
+        }
+        .cat-chip:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            background: #f0f4ff;
+        }
+        .cat-chip.selected {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+        }
+
         .form-input:hover, .form-textarea:hover, .form-select:hover {
             border-color: #5f6368;
         }
@@ -1489,18 +1513,20 @@
                 </div>
             </div>
             <div class="step-subtitle">Help readers find your article with the right category and keywords.</div>
-            
-            <label class="form-label" style="margin-top: 12px;">Category</label>
-            <select id="categorySelect" class="form-select">
-                <option value="">Select category...</option>
-                <option value="study-tips">Study Tips</option>
-                <option value="exam-prep">Exam Preparation</option>
-                <option value="career">Career Advice</option>
-                <option value="university">University Life</option>
-                <option value="scholarships">Scholarships</option>
-            </select>
 
-            <label class="form-label" style="margin-top: 14px;">Tags (comma-separated, 3-5 keywords)</label>
+            <label class="form-label" style="margin-top: 12px;">Category</label>
+            <!-- 6 canonical blog categories — slugs match the URL route -->
+            <div id="categoryChips" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+                <div class="cat-chip" data-slug="study-tips"   onclick="selectCategoryChip(this)">Study Tips</div>
+                <div class="cat-chip" data-slug="exam-updates" onclick="selectCategoryChip(this)">Exam Updates</div>
+                <div class="cat-chip" data-slug="guide"        onclick="selectCategoryChip(this)">Guide</div>
+                <div class="cat-chip" data-slug="scholarships" onclick="selectCategoryChip(this)">Scholarships</div>
+                <div class="cat-chip" data-slug="school-news"  onclick="selectCategoryChip(this)">School News</div>
+            </div>
+            <!-- Hidden input so calculateQuality() can still check categorySelect.value -->
+            <input type="hidden" id="categorySelect" value="">
+
+            <label class="form-label" style="margin-top: 4px;">Tags (comma-separated, 3-5 keywords)</label>
             <input type="text" id="tagsInput" class="form-input" placeholder="study-skills, memory, exam-preparation">
         </div>
 
@@ -1543,7 +1569,19 @@
     const descriptionInput = document.getElementById('descriptionInput');
     const heroImageInput = document.getElementById('heroImageInput');
     const tagsInput = document.getElementById('tagsInput');
-    const categorySelect = document.getElementById('categorySelect');
+    const categorySelect = document.getElementById('categorySelect'); // hidden input
+
+    // Detect country code from URL (e.g. /ng/publisher/create-post → 'ng')
+    const CC = (window.location.pathname.split('/')[1] || 'ng').toLowerCase();
+
+    // Category chip selection — updates the hidden #categorySelect input
+    function selectCategoryChip(el) {
+        document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        categorySelect.value = el.dataset.slug;
+        updateQualityScore();
+        scheduleAutoSave();
+    }
 
     // Load saved article data on page load
     function loadSavedArticle() {
@@ -1558,10 +1596,21 @@
             if (articleData.title) titleInput.value = articleData.title;
             if (articleData.description) descriptionInput.value = articleData.description;
             if (articleData.heroImage) heroImageInput.value = articleData.heroImage;
-            if (articleData.intro) document.getElementById('introInput').value = articleData.intro;
+            if (articleData.intro) { const el = document.getElementById('introInput'); if (el) el.value = articleData.intro; }
             if (articleData.content) editor.innerHTML = articleData.content;
-            if (articleData.category) categorySelect.value = articleData.category;
             if (articleData.tags) tagsInput.value = articleData.tags;
+
+            // Restore category chip by slug
+            if (articleData.category) {
+                const needle = articleData.category.toLowerCase().replace(/\s+/g, '-');
+                const chip = document.querySelector(`.cat-chip[data-slug="${needle}"]`);
+                if (chip) { chip.classList.add('selected'); categorySelect.value = needle; }
+            }
+
+            if (articleData.heroImage) {
+                document.getElementById('heroPreviewImg').src = articleData.heroImage;
+                document.getElementById('heroPreview').style.display = 'block';
+            }
 
             console.log('Article data restored from localStorage');
         } catch (error) {
@@ -1643,8 +1692,8 @@
             heroImage: {
                 label: 'Hero Image',
                 description: 'URL to high-res image',
-                isComplete: heroImageInput.value.trim().length > 0 && heroImageInput.value.includes('http'),
-                hint: heroImageInput.value ? 'Image URL detected' : 'Add image URL'
+                isComplete: heroImageInput.value.trim().length > 0 && (heroImageInput.value.includes('http') || heroImageInput.value.startsWith('blob:')),
+                hint: heroImageInput.value ? 'Image ready' : 'Add image URL or upload'
             },
             content: {
                 label: 'Main Content',
@@ -2044,17 +2093,56 @@
         }
     }
 
-    function handleHeroImageUpload(event) {
+    async function handleHeroImageUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            heroImageInput.value = e.target.result;
-            document.getElementById('heroPreviewImg').src = e.target.result;
-            document.getElementById('heroPreview').style.display = 'block';
-            updateQualityScore();
-        };
-        reader.readAsDataURL(file);
+
+        // Show preview immediately using an object URL (never stored as base64)
+        const objectUrl = URL.createObjectURL(file);
+        document.getElementById('heroPreviewImg').src = objectUrl;
+        document.getElementById('heroPreview').style.display = 'block';
+
+        // Upload to Supabase Storage so we get a real public URL
+        const uploadBtn = document.querySelector('button[onclick*="heroImageFile"]');
+        const origText = uploadBtn ? uploadBtn.querySelector('span') ? uploadBtn.querySelector('span').textContent : uploadBtn.textContent : '';
+        if (uploadBtn) uploadBtn.textContent = '⏳ Uploading…';
+
+        try {
+            if (typeof window.MECSupabase !== 'undefined') {
+                const user = await window.MECSupabase.getCurrentUser();
+                const sb   = window.MECSupabase.getSupabase();
+                if (user && sb) {
+                    const ext      = file.name.split('.').pop().toLowerCase() || 'jpg';
+                    const fileName = 'thumbnails/' + user.id + '-' + Date.now() + '.' + ext;
+                    const { data, error } = await sb.storage
+                        .from('publisher-assets')
+                        .upload(fileName, file, { contentType: file.type, upsert: true });
+
+                    if (!error && data) {
+                        const { data: urlData } = sb.storage.from('publisher-assets').getPublicUrl(fileName);
+                        const publicUrl = urlData && urlData.publicUrl ? urlData.publicUrl : null;
+                        if (publicUrl) {
+                            heroImageInput.value = publicUrl;
+                            document.getElementById('heroPreviewImg').src = publicUrl;
+                            updateQualityScore();
+                            if (uploadBtn) uploadBtn.textContent = origText || 'Upload Image';
+                            scheduleAutoSave();
+                            return;
+                        }
+                    }
+                    console.warn('Storage upload failed, using object URL as fallback:', error);
+                }
+            }
+        } catch (err) {
+            console.warn('Image upload error:', err);
+        }
+
+        // Fallback: store the object URL (works for preview in this session but
+        // won't persist across devices — user should use URL input for permanent images)
+        heroImageInput.value = objectUrl;
+        updateQualityScore();
+        if (uploadBtn) uploadBtn.textContent = origText || 'Upload Image';
+        scheduleAutoSave();
     }
 
     function handleContentImageUpload(event) {
@@ -2116,8 +2204,8 @@
         // Handle YouTube URLs
         if (url.includes('youtube.com') || url.includes('youtu.be')) {
             const videoId = url.includes('youtu.be') 
-                ? url.split('youtu.be/')[1]?.split('?')[0]
-                : url.split('v=')[1]?.split('&')[0];
+                ? url.split('youtu.be/')[1].split('?')[0]
+                : url.split('v=')[1].split('&')[0];
             
             if (videoId) {
                 embedUrl = `https://www.youtube.com/embed/${videoId}`;
@@ -2125,7 +2213,7 @@
         }
         // Handle Vimeo URLs
         else if (url.includes('vimeo.com')) {
-            const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
+            const videoId = url.split('vimeo.com/')[1].split('?')[0];
             if (videoId) {
                 embedUrl = `https://player.vimeo.com/video/${videoId}`;
             }
@@ -2159,8 +2247,8 @@
         // Handle YouTube URLs
         if (url.includes('youtube.com') || url.includes('youtu.be')) {
             const videoId = url.includes('youtu.be') 
-                ? url.split('youtu.be/')[1]?.split('?')[0]
-                : url.split('v=')[1]?.split('&')[0];
+                ? url.split('youtu.be/')[1].split('?')[0]
+                : url.split('v=')[1].split('&')[0];
             
             if (videoId) {
                 embedUrl = `https://www.youtube.com/embed/${videoId}`;
@@ -2169,7 +2257,7 @@
         }
         // Handle Vimeo URLs
         else if (url.includes('vimeo.com')) {
-            const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
+            const videoId = url.split('vimeo.com/')[1].split('?')[0];
             if (videoId) {
                 embedUrl = `https://player.vimeo.com/video/${videoId}`;
                 thumbnail = `https://vumbnail.com/${videoId}.jpg`;
@@ -2201,57 +2289,249 @@
         updateQualityScore();
     }
 
-    // Save & Submit
-    function saveDraft() {
-        const data = {
-            title: titleInput.value,
-            description: descriptionInput.value,
-            heroImage: heroImageInput.value,
-            content: editor.innerHTML,
-            category: categorySelect.value,
-            tags: tagsInput.value,
-            timestamp: new Date().toISOString()
-        };
-        localStorage.setItem('publisher_article_draft', JSON.stringify(data));
-        alert('Draft saved successfully!');
+    // ═══════════════════════════════════════════════════════════════════════════
+    // AUTO-DRAFT SYSTEM — saves to Supabase; localStorage is only a fallback
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    // Key used to persist the Supabase row id across page loads
+    const DRAFT_ID_KEY = 'publisher_draft_post_id';
+
+    // Status indicator injected into the footer
+    let _saveStatusEl = null;
+    function getSaveStatusEl() {
+        if (!_saveStatusEl) {
+            _saveStatusEl = document.createElement('span');
+            _saveStatusEl.id = 'autoSaveStatus';
+            _saveStatusEl.style.cssText = 'font-size:12px;color:#9ca3af;margin-left:auto;align-self:center;flex-shrink:0;transition:color .3s;';
+            document.querySelector('.footer-actions').appendChild(_saveStatusEl);
+        }
+        return _saveStatusEl;
     }
 
-    function submitArticle() {
-        const { score, total, completed } = calculateQuality();
-        
-        if (score < 50) {
-            const missing = total - completed;
-            alert(`Article is ${score}% complete. Please fix ${missing} more items before reviewing.`);
-            return;
+    function setDraftStatus(msg, color) {
+        const el = getSaveStatusEl();
+        el.textContent = msg;
+        el.style.color = color || '#9ca3af';
+    }
+
+    // Build the payload object from the current editor state
+    function buildDraftPayload() {
+        const heroRaw = heroImageInput.value.trim();
+        // Never save base64 data URIs — they are megabytes in size and will break
+        // the Edge SSR function when rendered. Only save real https:// URLs.
+        const heroImage = (heroRaw && !heroRaw.startsWith('data:') && !heroRaw.startsWith('blob:'))
+            ? heroRaw : '';
+        return {
+            title: titleInput.value.trim(),
+            description: descriptionInput.value.trim(),
+            heroImage: heroImage,
+            intro: (document.getElementById('introInput') || {}).value || '',
+            content: editor.innerHTML,
+            category: categorySelect.value,
+            tags: tagsInput.value.trim(),
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    // Save to localStorage as a fast fallback / offline support
+    function saveToLocalStorage(payload) {
+        try {
+            localStorage.setItem('publisher_article_draft', JSON.stringify(payload));
+        } catch (_) { /* quota exceeded — ignore */ }
+    }
+
+    // Core save function — upserts to Supabase publisher_posts (status: 'draft')
+    async function saveToSupabase(payload, silent) {
+        if (typeof window.MECSupabase === 'undefined') return false;
+
+        let user;
+        try { user = await window.MECSupabase.getCurrentUser(); } catch (_) { return false; }
+        if (!user) return false;
+
+        const sb = window.MECSupabase.getSupabase();
+        const existingId = localStorage.getItem(DRAFT_ID_KEY);
+
+        const tagArray = payload.tags
+            ? payload.tags.split(',').map(t => t.trim()).filter(Boolean)
+            : [];
+
+        const row = {
+            publisher_id: user.id,
+            title:        payload.title || 'Untitled Draft',
+            description:  payload.description || null,
+            intro:        payload.intro || null,
+            category:     payload.category || null,
+            tags:         tagArray,
+            thumbnail_url: payload.heroImage || null,
+            draft_content: payload,          // full raw editor state as JSONB
+            last_saved_at: new Date().toISOString(),
+            status:       'draft'
+        };
+
+        let error, data;
+
+        if (existingId) {
+            // UPDATE the existing draft row
+            ({ error, data } = await sb
+                .from('publisher_posts')
+                .update(row)
+                .eq('id', existingId)
+                .eq('publisher_id', user.id)   // safety: can't touch other users' rows
+                .in('status', ['draft'])        // only update while still a draft
+                .select('id')
+                .single());
+        } else {
+            // INSERT a new draft row
+            ({ error, data } = await sb
+                .from('publisher_posts')
+                .insert(row)
+                .select('id')
+                .single());
         }
 
+        if (error) {
+            console.warn('Auto-save error:', error.message);
+            if (!silent) setDraftStatus('⚠ Save failed', '#ef4444');
+            return false;
+        }
+
+        if (data && data.id) {
+            localStorage.setItem(DRAFT_ID_KEY, data.id);
+        }
+
+        if (!silent) {
+            const now = new Date();
+            const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            setDraftStatus(`✓ Saved ${time}`, '#22c55e');
+        }
+        return true;
+    }
+
+    // Debounced auto-save: fires 3 s after the last keystroke
+    let _autoSaveTimer = null;
+    function scheduleAutoSave() {
+        clearTimeout(_autoSaveTimer);
+        setDraftStatus('Saving…', '#f59e0b');
+        _autoSaveTimer = setTimeout(async () => {
+            const payload = buildDraftPayload();
+            saveToLocalStorage(payload);          // always keep localStorage in sync
+            await saveToSupabase(payload, false);
+        }, 3000);
+    }
+
+    // Manual "Save Draft" button — immediate save with user feedback
+    async function saveDraft() {
+        const draftBtn = document.querySelector('.btn-draft');
+        const originalText = draftBtn.textContent;
+        draftBtn.textContent = '💾 Saving…';
+        draftBtn.disabled = true;
+
+        const payload = buildDraftPayload();
+        saveToLocalStorage(payload);
+        const ok = await saveToSupabase(payload, true);
+
+        draftBtn.disabled = false;
+        if (ok) {
+            draftBtn.textContent = '✓ Draft Saved';
+            setDraftStatus('✓ Draft saved', '#22c55e');
+            setTimeout(() => { draftBtn.textContent = originalText; }, 2000);
+        } else {
+            draftBtn.textContent = originalText;
+            alert('Draft saved locally. Sign in to keep it in the cloud.');
+        }
+    }
+
+    // Load existing draft from Supabase on page load
+    async function loadDraftFromSupabase() {
+        if (typeof window.MECSupabase === 'undefined') return false;
+
+        let user;
+        try { user = await window.MECSupabase.getCurrentUser(); } catch (_) { return false; }
+        if (!user) return false;
+
+        const sb = window.MECSupabase.getSupabase();
+        const existingId = localStorage.getItem(DRAFT_ID_KEY);
+
+        let data, error;
+
+        if (existingId) {
+            // Try to load the specific draft we know about
+            ({ data, error } = await sb
+                .from('publisher_posts')
+                .select('id, draft_content, last_saved_at')
+                .eq('id', existingId)
+                .eq('publisher_id', user.id)
+                .eq('status', 'draft')
+                .maybeSingle());
+        } else {
+            // Fallback: fetch the most recent draft for this user
+            ({ data, error } = await sb
+                .from('publisher_posts')
+                .select('id, draft_content, last_saved_at')
+                .eq('publisher_id', user.id)
+                .eq('status', 'draft')
+                .order('last_saved_at', { ascending: false })
+                .limit(1)
+                .maybeSingle());
+        }
+
+        if (error || !data || !data.draft_content) return false;
+
+        // Persist the id so future saves update this row
+        localStorage.setItem(DRAFT_ID_KEY, data.id);
+
+        const d = data.draft_content;
+        if (d.title)       titleInput.value       = d.title;
+        if (d.description) descriptionInput.value = d.description;
+        if (d.heroImage)   heroImageInput.value   = d.heroImage;
+        if (d.intro)       { const el = document.getElementById('introInput'); if (el) el.value = d.intro; }
+        if (d.content)     editor.innerHTML        = d.content;
+        if (d.tags)        tagsInput.value         = d.tags;
+
+        // Restore category chip
+        if (d.category) {
+            const needle = d.category.toLowerCase().replace(/\s+/g, '-');
+            const chip = document.querySelector(`.cat-chip[data-slug="${needle}"]`);
+            if (chip) { chip.classList.add('selected'); categorySelect.value = needle; }
+        }
+
+        if (d.heroImage) {
+            document.getElementById('heroPreviewImg').src = d.heroImage;
+            document.getElementById('heroPreview').style.display = 'block';
+        }
+
+        const savedAt = data.last_saved_at
+            ? new Date(data.last_saved_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            : '';
+        setDraftStatus(savedAt ? `Cloud draft • ${savedAt}` : 'Cloud draft loaded', '#9ca3af');
+        console.log('Draft restored from Supabase:', data.id);
+        return true;
+    }
+
+    // Submit: auto-save one last time, then go to post-review
+    async function submitArticle() {
+        const { score, total, completed } = calculateQuality();
+
+        if (score < 50) {
+            alert(`Article is ${score}% complete. Please fix ${total - completed} more items before reviewing.`);
+            return;
+        }
         if (!titleInput.value.trim()) {
             alert('Please enter an article title.');
             return;
         }
 
-        // Save to localStorage
-        const articleData = {
-            title: titleInput.value,
-            description: descriptionInput.value,
-            heroImage: heroImageInput.value,
-            intro: document.getElementById('introInput').value,
-            content: editor.innerHTML,
-            category: categorySelect.value,
-            tags: tagsInput.value,
-            qualityScore: score,
-            timestamp: new Date().toISOString()
-        };
-        
-        try {
-            localStorage.setItem('publisher_article_draft', JSON.stringify(articleData));
-            console.log('Article saved to localStorage:', articleData);
-            // Navigate to post-review
-            window.location.href = '/ng/publisher/post-review';
-        } catch (e) {
-            console.error('Error saving to localStorage:', e);
-            alert('Error saving article. Please try again.');
-        }
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Saving…';
+
+        const payload = buildDraftPayload();
+        payload.qualityScore = score;
+
+        saveToLocalStorage(payload);
+        await saveToSupabase(payload, true);  // save before leaving
+
+        window.location.href = '/ng/publisher/post-review';
     }
 
     // Rich text event tracking
@@ -2259,6 +2539,7 @@
         editor.addEventListener('input', () => {
             updateQualityScore();
             updateToolbarActiveStates();
+            scheduleAutoSave();               // ← auto-save on every edit
         });
         editor.addEventListener('change', updateQualityScore);
         editor.addEventListener('keyup', () => {
@@ -2270,6 +2551,7 @@
             setTimeout(() => {
                 updateQualityScore();
                 updateToolbarActiveStates();
+                scheduleAutoSave();           // ← auto-save on paste
             }, 100);
         });
         
@@ -2345,14 +2627,16 @@
     titleInput.addEventListener('input', updateQualityScore);
     titleInput.addEventListener('change', updateQualityScore);
     titleInput.addEventListener('keyup', updateQualityScore);
+    titleInput.addEventListener('blur', scheduleAutoSave);
 
     descriptionInput.addEventListener('input', updateQualityScore);
     descriptionInput.addEventListener('change', updateQualityScore);
     descriptionInput.addEventListener('keyup', updateQualityScore);
+    descriptionInput.addEventListener('blur', scheduleAutoSave);
 
     heroImageInput.addEventListener('input', updateQualityScore);
     heroImageInput.addEventListener('change', updateQualityScore);
-    heroImageInput.addEventListener('blur', updateQualityScore);
+    heroImageInput.addEventListener('blur', () => { updateQualityScore(); scheduleAutoSave(); });
 
     // Intro input
     const introInput = document.getElementById('introInput');
@@ -2360,17 +2644,25 @@
         introInput.addEventListener('input', updateQualityScore);
         introInput.addEventListener('change', updateQualityScore);
         introInput.addEventListener('keyup', updateQualityScore);
+        introInput.addEventListener('blur', scheduleAutoSave);
     }
 
     tagsInput.addEventListener('input', updateQualityScore);
     tagsInput.addEventListener('change', updateQualityScore);
     tagsInput.addEventListener('keyup', updateQualityScore);
+    tagsInput.addEventListener('blur', scheduleAutoSave);
 
-    categorySelect.addEventListener('change', updateQualityScore);
+    categorySelect.addEventListener('change', () => { updateQualityScore(); scheduleAutoSave(); });
+    // Note: category is now driven by .cat-chip clicks (selectCategoryChip),
+    // which call updateQualityScore() and scheduleAutoSave() directly.
 
     // Initial quality score calculation
-    document.addEventListener('DOMContentLoaded', () => {
-        loadSavedArticle();
+    document.addEventListener('DOMContentLoaded', async () => {
+        // 1. Try cloud draft first; fall back to localStorage
+        const cloudLoaded = await loadDraftFromSupabase();
+        if (!cloudLoaded) {
+            loadSavedArticle();   // existing localStorage restore
+        }
         setupEditorListeners();
         initStickyToolbar();
         updateQualityScore();
@@ -2378,16 +2670,20 @@
     
     // Call on page load in case DOMContentLoaded already fired
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSavedArticle();
+        document.addEventListener('DOMContentLoaded', async () => {
+            const cloudLoaded = await loadDraftFromSupabase();
+            if (!cloudLoaded) loadSavedArticle();
             setupEditorListeners();
             initStickyToolbar();
             updateQualityScore();
         });
     } else {
-        loadSavedArticle();
-        setupEditorListeners();
-        updateQualityScore();
+        (async () => {
+            const cloudLoaded = await loadDraftFromSupabase();
+            if (!cloudLoaded) loadSavedArticle();
+            setupEditorListeners();
+            updateQualityScore();
+        })();
     }
 </script>
 </body>

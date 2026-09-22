@@ -18,6 +18,7 @@
     { "source": "/wallet-dashboard", "destination": "/modules/top_up/wallet_dashboard.html" },
     { "source": "/paystack-inline-checkout", "destination": "/modules/top_up/paystack_inline_checkout.html" },
     { "source": "/amount-entry", "destination": "/modules/top_up/amount_entry.html" },
+    { "source": "/ng/study/classroom/:exam/:subject/discussion/:qKey", "destination": "/modules/study/classroom/classroom_discussion.html" },
     { "source": "/ng/study/classroom/(.*)", "destination": "/modules/study/classroom/classroom_questions.html" },
     { "source": "/ng/study/classroom", "destination": "/modules/study/classroom/classroom_subject.html" },
     { "source": "/ng/study/past-questions/(.*)", "destination": "/modules/study/study_past_questions/study_explanation.html" },

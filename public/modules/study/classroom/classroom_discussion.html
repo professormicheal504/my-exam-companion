@@ -504,7 +504,10 @@
 
     // Helper: build a clean discussion URL for a given question key
     function discussionUrl(key, extra) {
-      const base = `/study/${EXAM_ID}/${SUBJECT}/${encodeURIComponent(key)}/discussion`;
+      const _prefix  = EXAM_ID.split('/')[0].toLowerCase();
+      const _cc      = COUNTRY_CODE_MAP[_prefix] || _prefix;
+      const _exam    = EXAM_ID.split('/').pop();
+      const base = `/${_cc}/study/classroom/${_exam}/${SUBJECT}/discussion/${encodeURIComponent(key)}`;
       return extra ? `${base}?${extra}` : base;
     }
 
@@ -517,9 +520,18 @@
     // -- Map country name in EXAM_ID to the config file code --
     const COUNTRY_CODE_MAP = {
       nigeria: 'ng',
+      ng:      'ng',
       ghana:   'gh',
+      gh:      'gh',
+      usa:     'us',
       us:      'us',
+      united_states: 'us',
       'united states': 'us',
+      america: 'us',
+      uk:      'uk',
+      united_kingdom: 'uk',
+      canada:  'ca',
+      ca:      'ca',
     };
 
     // -- Resolve DATA_BASE from country config when not supplied via URL --

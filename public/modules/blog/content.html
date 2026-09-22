@@ -196,7 +196,7 @@
 
             <!-- Content Area -->
             <div class="post-body" id="articleBodyContainer">
-              <iframe id="articleBodyFrame" sandbox="allow-same-origin allow-scripts" title="Article Content"></iframe>
+              <!-- Article body injected here from rendered_html or draft_content -->
             </div>
 
             <div class="post-tags" id="articleTagsContainer">
@@ -259,205 +259,223 @@
 <script src="../../components/supabase.js"></script>
 
 <script>
-  // Reading Progress Bar
+  // Reading progress bar
   document.addEventListener('scroll', function() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight;
-    const winHeight = window.innerHeight;
-    const progressPercent = Math.min(100, Math.max(0, (scrollTop / (docHeight - winHeight)) * 100));
-    document.getElementById('reading-progress').style.width = progressPercent + '%';
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.body.scrollHeight;
+    const winHeight  = window.innerHeight;
+    const pct        = Math.min(100, Math.max(0, (scrollTop / (docHeight - winHeight)) * 100));
+    document.getElementById('reading-progress').style.width = pct + '%';
   });
 
-  // -- Auto-resize iframe height --
-  function fitIframe(iframe) {
-    try {
-      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 40 + 'px';
-    } catch(e) {}
+  // ── Helpers ────────────────────────────────────────────────────────────────
+  function getCategoryLabel(slug) {
+    const map = {
+      'study-tips':   'Study Tips',
+      'exam-updates': 'Exam Updates',
+      'guide':        'Guide',
+      'scholarships': 'Scholarships',
+      'school-news':  'School News',
+    };
+    return map[slug] || (slug ? slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : 'Articles');
   }
 
-  // -- Main: Load article from Supabase --
+  function articleHref(post) {
+    const cc      = (window.location.pathname.split('/').filter(Boolean)[0] || 'ng').toLowerCase();
+    const catSlug = post.category || 'guide';
+    const artSlug = post.slug || post.id;
+    const isModules = window.location.pathname.includes('/modules/');
+    return isModules
+      ? `content.html?id=${post.id}`
+      : `/${cc}/blog/${catSlug}/${artSlug}`;
+  }
+
+  // ── Main ────────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', async () => {
-    const params = new URLSearchParams(window.location.search);
-    // Support both clean URLs (/ng/blog/ID) and query param (?id=ID)
+    // Resolve post ID from URL
+    const params    = new URLSearchParams(window.location.search);
     const pathParts = window.location.pathname.split('/').filter(Boolean);
-    const isClean = pathParts.includes('blog') && pathParts[pathParts.length - 1] !== 'blog';
-    const postId = isClean ? pathParts[pathParts.length - 1] : params.get('id');
+    const isClean   = pathParts.includes('blog') && pathParts[pathParts.length - 1] !== 'blog';
+    const postId    = isClean ? pathParts[pathParts.length - 1] : params.get('id');
 
     if (!postId) {
-      // MEC_NAV may not be ready; use safe fallback
-      const blogUrl = (window.MEC_NAV && window.MEC_NAV.href) ? window.MEC_NAV.href('blog') : 'categories.html';
-      window.location.href = blogUrl;
+      window.location.href = 'categories.html';
       return;
     }
 
-    let post = null;
-    let error = null;
-
-    // Resolve dummy posts WITHOUT touching Supabase
-    if (postId === 'dummy-1' || postId === 'dummy-2') {
-      post = {
-        id: postId,
-        title: postId === 'dummy-1' ? 'Five Ways to Actually Remember What You Study' : 'JAMB 2027 Registration Dates - What We Know So Far',
-        excerpt: postId === 'dummy-1' ? 'Science-backed memory techniques for JAMB, WAEC and NECO students.' : 'Registration dates, requirements, and full guide for the 2027 JAMB UTME.',
-        thumbnail_url: postId === 'dummy-1' ? 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80' : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
-        topics: postId === 'dummy-1' ? ['Study Tips'] : ['Exam Updates'],
-        created_at: new Date().toISOString(),
-        author_name: postId === 'dummy-1' ? 'Amaka Okonkwo' : 'MEC Editorial',
-        author_avatar: postId === 'dummy-1' ? 'https://i.pravatar.cc/104?img=12' : 'https://i.pravatar.cc/104?img=11',
-        likes_count: postId === 'dummy-1' ? 1200 : 450,
-        comments_count: postId === 'dummy-1' ? 340 : 120,
-        shares_count: postId === 'dummy-1' ? 89 : 45,
-        content: `
-          <p>This is a sample article body for <strong>${postId === 'dummy-1' ? 'Five Ways to Actually Remember What You Study' : 'JAMB 2027 Registration Dates'}</strong>.</p>
-          <p>When studying for exams, it's crucial to pace yourself and understand the core concepts rather than just memorizing facts.</p>
-          <h2>Tip 1: Active Recall</h2>
-          <p>Instead of re-reading your notes, close the book and try to write down everything you remember. This forces your brain to actively retrieve information.</p>
-          <h2>Tip 2: Spaced Repetition</h2>
-          <p>Review the material at increasing intervals over time. This helps lock the information into your long-term memory.</p>
-          <div style="background: #fff8f7; border-left: 3px solid #2563eb; padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px;">
-            <strong>Quick summary:</strong> Space your sessions, test yourself early, teach what you learn, make connections, and protect your sleep.
-          </div>
-        `
-      };
-    } else {
-      const sb = window.MECSupabase.getSupabase();
-      const { data: dbPost, error: dbError } = await sb
-        .from('publisher_posts')
-        .select('*')
-        .eq('id', postId)
-        .eq('status', 'approved')
-        .single();
-      post = dbPost;
-      error = dbError;
+    if (typeof window.MECSupabase === 'undefined') {
+      document.getElementById('loadingState').innerHTML = '<p style="color:red;padding:20px;">Unable to connect. Please refresh.</p>';
+      return;
     }
+
+    const sb = window.MECSupabase.getSupabase();
+
+    // Fetch the post — don't load rendered_html or draft_content (huge fields)
+    const { data: post, error } = await sb
+      .from('publisher_posts')
+      .select('id, title, slug, description, intro, category, tags, thumbnail_url, publisher_id, created_at, updated_at, likes_count, comments_count, shares_count')
+      .eq('id', postId)
+      .eq('status', 'approved')
+      .single();
 
     if (error || !post) {
-      document.getElementById('loadingState').innerHTML = '<p style="color:red;">Article not found or not yet approved.</p>';
+      document.getElementById('loadingState').innerHTML = '<p style="color:red;padding:20px;">Article not found or not yet approved.</p>';
       return;
     }
 
-    // -- Update SEO --
-    document.title = `${post.title} | MyExamHub`;
-    document.querySelector('meta[name="description"]').content = post.excerpt || `${post.title}. Read the full article on MyExamHub.`;
-    document.querySelector('meta[property="og:title"]').content = post.title;
-    document.querySelector('meta[property="og:description"]').content = post.excerpt || `${post.title} - Read on MyExamHub`;
-    if (post.thumbnail_url) document.querySelector('meta[property="og:image"]').content = post.thumbnail_url;
-    
-    // JSON-LD Schema
+    // Enrich with publisher name + avatar
+    let authorName   = 'MEC Staff';
+    let authorAvatar = 'https://i.pravatar.cc/104?img=12';
+    try {
+      const { data: pub }     = await sb.from('publishers').select('publisher_name').eq('user_id', post.publisher_id).maybeSingle();
+      const { data: profile } = await sb.from('profiles').select('avatar_url').eq('id', post.publisher_id).maybeSingle();
+      if (pub     && pub.publisher_name) authorName   = pub.publisher_name;
+      if (profile && profile.avatar_url) authorAvatar = profile.avatar_url;
+    } catch (_) {}
+
+    // ── SEO meta ────────────────────────────────────────────────────────────
+    const desc = post.description || post.intro || post.title || '';
+    document.title = `${post.title} | MyExam Companion`;
+    document.querySelector('meta[name="description"]').content = desc;
+    document.querySelector('meta[property="og:title"]').content   = post.title;
+    document.querySelector('meta[property="og:description"]').content = desc;
+    if (post.thumbnail_url) {
+      let ogImg = document.querySelector('meta[property="og:image"]');
+      if (!ogImg) {
+        ogImg = document.createElement('meta');
+        ogImg.setAttribute('property', 'og:image');
+        document.head.appendChild(ogImg);
+      }
+      ogImg.content = post.thumbnail_url;
+    }
+
+    // ── JSON-LD schema ──────────────────────────────────────────────────────
+    const cc       = (window.location.pathname.split('/').filter(Boolean)[0] || 'ng').toLowerCase();
+    const catSlug  = post.category || 'guide';
+    const artSlug  = post.slug || post.id;
+    const canonical = `https://myexamcompanion.com/${cc}/blog/${catSlug}/${artSlug}`;
+
     const schemaEl = document.getElementById('seoSchema');
     if (schemaEl) {
-      const schemaData = JSON.parse(schemaEl.innerHTML);
-      schemaData.headline = post.title;
-      schemaData.description = post.excerpt || post.title;
-      schemaData.datePublished = post.created_at;
-      schemaData.dateModified = post.updated_at || post.created_at;
-      if (post.author_name) schemaData.author = { "@type": "Person", "name": post.author_name };
-      if (post.thumbnail_url) schemaData.image = post.thumbnail_url;
-      schemaEl.innerHTML = JSON.stringify(schemaData);
+      schemaEl.textContent = JSON.stringify({
+        '@context':        'https://schema.org',
+        '@type':           'Article',
+        headline:          post.title,
+        description:       desc,
+        datePublished:     post.created_at,
+        dateModified:      post.updated_at || post.created_at,
+        image:             post.thumbnail_url || undefined,
+        author:            { '@type': 'Person', name: authorName },
+        publisher: {
+          '@type': 'Organization',
+          name:    'My Exam Companion',
+          logo:    { '@type': 'ImageObject', url: 'https://www.myexamcompanion.com/favicon.ico' }
+        },
+        mainEntityOfPage:  { '@type': 'WebPage', '@id': canonical },
+        articleSection:    getCategoryLabel(catSlug),
+        keywords:          Array.isArray(post.tags) ? post.tags.join(', ') : '',
+      });
     }
 
-    // -- Populate article header --
-    document.getElementById('articleTitle').textContent = post.title;
-    document.getElementById('articleDate').textContent = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    
-    // Author
-    if (post.author_name) document.getElementById('authorName').textContent = post.author_name;
-    if (post.author_avatar) document.getElementById('authorAvatar').src = post.author_avatar;
+    // ── Populate header ─────────────────────────────────────────────────────
+    document.getElementById('articleTitle').textContent  = post.title;
+    document.getElementById('authorName').textContent    = authorName;
+    document.getElementById('authorAvatar').src          = authorAvatar;
+    document.getElementById('articleDate').textContent   = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
-    // Breadcrumb category
-    const firstCategory = post.topics && post.topics.length ? post.topics[0] : 'Articles';
-    document.getElementById('backCategoryLabel').textContent = firstCategory;
-    document.getElementById('backCategoryLabel').href = `categories.html?category=${encodeURIComponent(firstCategory)}`;
+    const catLabel  = getCategoryLabel(catSlug);
+    const backLabel = document.getElementById('backCategoryLabel');
+    backLabel.textContent = catLabel;
+    backLabel.href        = `categories.html`;   // always go back to full listing
 
-    // Calculate read time based on raw content
-    const wordCount = (post.content || '').split(/\s+/).length;
+    // ── Hero image ──────────────────────────────────────────────────────────
+    if (post.thumbnail_url) {
+      document.getElementById('articleHeroImg').src          = post.thumbnail_url;
+      document.getElementById('articleHeroImg').alt          = post.title;
+      document.getElementById('articleHero').style.display   = 'block';
+    }
+
+    // ── Article body ────────────────────────────────────────────────────────
+    // Priority: rendered_html (stored by post-submission Edge Fn) → draft_content fields
+    const bodyContainer = document.getElementById('articleBodyContainer');
+
+    if (post.rendered_html) {
+      // Extract just the <body> from the stored full-page HTML
+      const bodyMatch = post.rendered_html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      const bodyHtml  = bodyMatch ? bodyMatch[1] : post.rendered_html;
+      bodyContainer.innerHTML = bodyHtml;
+    } else {
+      // Fallback: reconstruct from raw draft_content fields
+      const dc     = (typeof post.draft_content === 'string' ? JSON.parse(post.draft_content) : post.draft_content) || {};
+      const intro  = post.intro   || dc.intro   || '';
+      const body   = dc.content   || '';
+      bodyContainer.innerHTML =
+        (intro ? `<p style="font-size:17px;line-height:1.8;color:#4b5563;font-weight:500;margin-bottom:24px;">${intro}</p>` : '') +
+        (body  ? body : '<p style="color:#999;">Content not available.</p>');
+    }
+
+    // ── Read time ───────────────────────────────────────────────────────────
+    const wordCount = bodyContainer.innerText.split(/\s+/).filter(Boolean).length;
     document.getElementById('readTime').textContent = Math.max(1, Math.round(wordCount / 200)) + ' min read';
 
-    // -- Hero Image --
-    if (post.thumbnail_url) {
-      document.getElementById('articleHeroImg').src = post.thumbnail_url;
-      document.getElementById('articleHero').style.display = 'block';
+    // ── Tags ────────────────────────────────────────────────────────────────
+    const tags = Array.isArray(post.tags) ? post.tags : [];
+    if (tags.length) {
+      document.getElementById('articleTagsContainer').innerHTML =
+        tags.map(t => `<a href="categories.html" class="post-tag">${t}</a>`).join('');
     }
 
-    // -- Content Loading (Supports both direct HTML in DB and legacy Cloudflare/Github URL) --
-    if (post.content && post.content.trim().length > 0) {
-      // New format: direct HTML content
-      document.getElementById('articleBodyContainer').innerHTML = post.content;
-    } else {
-      // Legacy format: load via iframe
-      const articleUrl = post.cloudflare_url || post.github_url;
-      if (articleUrl) {
-        fetch(articleUrl)
-          .then(res => res.text())
-          .then(html => {
-            const iframe = document.getElementById('articleBodyFrame');
-            iframe.srcdoc = html;
-            iframe.onload = () => fitIframe(iframe);
-          })
-          .catch(() => {
-            document.getElementById('articleBodyFrame').srcdoc = '<p style="color:red;padding:20px;">Failed to load article content.</p>';
-          });
-      } else {
-        document.getElementById('articleBodyFrame').srcdoc = '<p style="color:gray;padding:20px;">No article content available.</p>';
-      }
-    }
+    // ── Stats ───────────────────────────────────────────────────────────────
+    document.getElementById('likesCount').textContent    = (post.likes_count    || 0) + ' likes';
+    document.getElementById('commentsCount').textContent =  post.comments_count || 0;
+    document.getElementById('sharesCount').textContent   =  post.shares_count   || 0;
 
-    // -- Tags --
-    if (post.topics && post.topics.length) {
-      const tagsHtml = post.topics.map(t => `<a href="categories.html?category=${encodeURIComponent(t)}" class="post-tag">${t}</a>`).join('');
-      document.getElementById('articleTagsContainer').innerHTML = tagsHtml;
-    }
+    // ── Show shell ──────────────────────────────────────────────────────────
+    document.getElementById('loadingState').style.display    = 'none';
+    document.getElementById('articleShell').style.display    = 'block';
 
-    // -- Stats --
-    document.getElementById('likesCount').textContent = (post.likes_count || 0) + ' likes';
-    document.getElementById('commentsCount').textContent = post.comments_count || 0;
-    document.getElementById('sharesCount').textContent = post.shares_count || 0;
-
-    // Show shell
-    document.getElementById('loadingState').style.display = 'none';
-    document.getElementById('articleShell').style.display = 'block';
-
-    // -- Fetch related articles (same topic, different post) --
-    if (post.topics && post.topics.length) {
+    // ── Related articles ────────────────────────────────────────────────────
+    try {
       const { data: related } = await sb
         .from('publisher_posts')
-        .select('id, title, thumbnail_url, topics, created_at')
+        .select('id, title, slug, category, thumbnail_url, created_at')
         .eq('status', 'approved')
-        .contains('topics', [post.topics[0]])
+        .eq('category', catSlug)
         .neq('id', postId)
         .limit(3);
 
       if (related && related.length > 0) {
-        document.getElementById('relatedTitle').textContent = 'More from ' + post.topics[0];
+        document.getElementById('relatedTitle').textContent = 'More from ' + catLabel;
         document.getElementById('relatedList').innerHTML = related.map(r => {
-          const tag = r.topics && r.topics.length ? r.topics[0] : 'Article';
-          const thumb = r.thumbnail_url
+          const rHref  = articleHref(r);
+          const rLabel = getCategoryLabel(r.category);
+          const thumb  = r.thumbnail_url
             ? `<img loading="lazy" src="${r.thumbnail_url}" alt="${r.title}">`
             : `<div style="width:100%;height:130px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;">No image</div>`;
           return `
-            <a href="content.html?id=${r.id}" class="related-card">
+            <a href="${rHref}" class="related-card">
               ${thumb}
               <div class="related-card__body">
-                <div class="related-card__tag">${tag}</div>
+                <div class="related-card__tag">${rLabel}</div>
                 <div class="related-card__title">${r.title}</div>
               </div>
             </a>`;
         }).join('');
         document.getElementById('relatedSection').style.display = 'block';
       }
-    }
+    } catch (_) {}
 
-    // -- Interactive Actions --
-    const likeBtn = document.getElementById('likeBtn');
-    if (likeBtn) likeBtn.addEventListener('click', () => likeBtn.classList.toggle('liked'));
-    
-    const shareBtn = document.getElementById('shareBtn');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', () => {
-        if (navigator.share) navigator.share({ title: document.title, url: location.href });
-        else navigator.clipboard.writeText(location.href).then(() => alert('Link copied!'));
-      });
-    }
+    // ── Actions ─────────────────────────────────────────────────────────────
+    document.getElementById('likeBtn').addEventListener('click', function() {
+      this.classList.toggle('liked');
+    });
+    document.getElementById('shareBtn').addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({ title: document.title, url: location.href });
+      } else {
+        navigator.clipboard.writeText(location.href).then(() => alert('Link copied!'));
+      }
+    });
   });
 </script>
 </body>

@@ -1,91 +1,92 @@
 """
 fish_client.py
 ==============
-Fish Audio TTS caller with:
-  - Token-bucket rate limiter (2 req/s free tier)
-  - Exponential back-off on 429 / 5xx  (2s → 4s → 8s, then give up)
-  - Character-ratio word timing  (works on every plan, no extra endpoint)
-  - Returns (mp3_bytes: bytes, words: list[dict])
+Fish Audio TTS caller using the s2.1-pro-free model (free, no hard cap).
 
-Character-ratio timing explained:
+Why httpx directly instead of the fish-audio-sdk Session?
+  The SDK's Backends type is Literal['speech-1.5','speech-1.6',...] and
+  does not yet include 's2.1-pro-free' (announced June 2026, SDK not updated).
+  We call the same /v1/tts endpoint directly using httpx + ormsgpack,
+  which is exactly what the SDK does internally — same wire format, same auth.
+
+Free tier:
+  Model : s2.1-pro-free
+  Limit : Fair Use (no hard character cap), available through Nov 2026
+  Rate  : 2 req/s recommended on free tier
+
+Character-ratio word timing:
   Fish Audio does not expose a public timestamp endpoint on the free tier.
   We estimate each word's start/end time by its character-position share of
-  the total clean text, multiplied by the actual MP3 duration.
+  the total text, multiplied by the actual MP3 duration parsed from the file.
 
-  word_start = (char_offset_of_word / total_chars) * duration_sec
-  word_end   = ((char_offset + len(word)) / total_chars) * duration_sec
+  word_start = (char_start / total_chars) * duration_sec
+  word_end   = (char_end   / total_chars) * duration_sec
 
-  Accuracy is ±0.3s for normal sentences — tight enough for live word
-  highlighting. If Fish ever exposes timestamps on your plan, swap in the
-  real data; the JSON schema is identical.
-
-MP3 duration is read with a lightweight pure-Python parser that scans
-the first valid MPEG frame header — no external libraries needed.
+  Accuracy ~±0.3s for normal prose — sufficient for live word highlighting.
 
 Usage:
     from fish_client import FishClient
 
     client = FishClient(api_key="sk-fish-...")
-    mp3_bytes, words = client.generate("Hello world.", audio_type="question")
-    #  words → [{"word": "Hello", "start": 0.00, "end": 0.45},
-    #           {"word": "world", "start": 0.46, "end": 0.90}]
+    mp3_bytes, words, opt_bounds = client.generate(
+        "Hello world.", audio_type="question"
+    )
+    # words -> [{"word":"Hello","start":0.00,"end":0.45}, ...]
 """
 
 from __future__ import annotations
 
-import struct
 import time
 import threading
 from typing import Optional
 
-from fish_audio_sdk import Session, TTSRequest
+import httpx
+import ormsgpack
 
 # ── Constants ──────────────────────────────────────────────────────────────────
 
-FISH_API_KEY  = ""          # set by generate_audio.py at runtime
-VOICE_ID      = "bf322df2096a46f18c579d0baa36f41d"  # Adrian — clear neutral English voice
-BACKEND       = "speech-1.6"
+FISH_API_URL  = "https://api.fish.audio/v1/tts"
+
+# Free model — announced June 2026, no hard usage cap
+BACKEND       = "s2.1-pro-free"
+
+# A clear neutral English voice from Fish Audio's public library (Adrian)
+VOICE_ID      = "bf322df2096a46f18c579d0baa36f41d"
 
 # Audio settings
 FORMAT        = "mp3"
-MP3_BITRATE   = 128         # kbps  (64 / 128 / 192)
-LATENCY       = "balanced"  # "balanced" = lower TTFA, good for quiz
+MP3_BITRATE   = 128         # 64 / 128 / 192
+LATENCY       = "balanced"  # lower time-to-first-audio
 
-# Rate limiting
-MAX_RPS       = 2           # free tier: 2 requests per second
-RETRY_DELAYS  = [2, 4, 8]   # seconds to wait after each failed attempt
+# Rate limiting — stay gentle on the free tier
+MAX_RPS       = 2
+RETRY_DELAYS  = [2, 4, 8]   # seconds between retries on 429 / 5xx
+REQUEST_TIMEOUT = 120        # seconds total per request
 
 
 # ── Token-bucket rate limiter ──────────────────────────────────────────────────
 
 class _TokenBucket:
-    """Thread-safe token bucket — max `rate` tokens per second."""
+    """Thread-safe token bucket: max `rate` tokens per second."""
 
     def __init__(self, rate: float) -> None:
-        self._rate      = rate
-        self._tokens    = rate
-        self._last      = time.monotonic()
-        self._lock      = threading.Lock()
-        self._min_gap   = 1.0 / rate   # minimum seconds between requests
+        self._rate   = rate
+        self._tokens = rate
+        self._last   = time.monotonic()
+        self._lock   = threading.Lock()
 
     def acquire(self) -> None:
-        """Block until a token is available."""
         with self._lock:
             now     = time.monotonic()
             elapsed = now - self._last
             self._tokens = min(self._rate, self._tokens + elapsed * self._rate)
-            self._last  = now
-
+            self._last   = now
             if self._tokens >= 1.0:
                 self._tokens -= 1.0
                 return
-
-            # Not enough tokens — sleep for the deficit
-            deficit     = 1.0 - self._tokens
-            sleep_for   = deficit / self._rate
+            deficit   = (1.0 - self._tokens) / self._rate
             self._tokens = 0.0
-
-        time.sleep(sleep_for)
+        time.sleep(deficit)
 
 
 _bucket = _TokenBucket(MAX_RPS)
@@ -93,132 +94,71 @@ _bucket = _TokenBucket(MAX_RPS)
 
 # ── MP3 duration parser ────────────────────────────────────────────────────────
 
-# MPEG bitrate table: [version_index][layer_index][bitrate_index]
-_MPEG_BITRATES = {
-    # MPEG1
-    (1, 1): [0,32,64,96,128,160,192,224,256,288,320,352,384,416,448,0],
-    (1, 2): [0,32,48,56,64,80,96,112,128,160,192,224,256,320,384,0],
-    (1, 3): [0,32,40,48,56,64,80,96,112,128,160,192,224,256,320,0],
-    # MPEG2
-    (2, 1): [0,32,48,56,64,80,96,112,128,144,160,176,192,224,256,0],
-    (2, 2): [0,8,16,24,32,40,48,56,64,80,96,112,128,144,160,0],
-    (2, 3): [0,8,16,24,32,40,48,56,64,80,96,112,128,144,160,0],
-}
-
-_MPEG_SAMPLE_RATES = {
-    0: [44100, 48000, 32000],  # MPEG1
-    1: [22050, 24000, 16000],  # MPEG2
-    2: [11025, 12000, 8000],   # MPEG2.5
-}
-
-_SAMPLES_PER_FRAME = {
-    (1, 1): 384, (1, 2): 1152, (1, 3): 1152,
-    (2, 1): 384, (2, 2): 1152, (2, 3): 576,
-}
-
-
 def _parse_mp3_duration(data: bytes) -> float:
     """
-    Scan the first valid MPEG audio frame in `data` and estimate
-    total duration from file size ÷ bitrate.
-
-    Returns duration in seconds, or a fallback estimate on failure.
+    Estimate MP3 duration by scanning the first valid MPEG frame header
+    and computing: (audio_bytes * 8) / (bitrate_kbps * 1000).
+    Falls back to a rough estimate at 128 kbps if parsing fails.
     """
-    # Skip ID3v2 tag if present
+    # Skip ID3v2 tag
     offset = 0
-    if data[:3] == b"ID3":
-        # ID3v2 header: 10 bytes, size encoded in 4 synchsafe bytes at offset 6
-        if len(data) >= 10:
-            sz = (
-                (data[6] & 0x7F) << 21 |
-                (data[7] & 0x7F) << 14 |
-                (data[8] & 0x7F) << 7  |
-                (data[9] & 0x7F)
-            )
-            offset = 10 + sz
+    if data[:3] == b"ID3" and len(data) >= 10:
+        sz = (
+            (data[6] & 0x7F) << 21 | (data[7] & 0x7F) << 14 |
+            (data[8] & 0x7F) << 7  | (data[9] & 0x7F)
+        )
+        offset = 10 + sz
 
-    # Scan for sync word (0xFF 0xEx or 0xFF 0xFx)
+    _BITRATES = {
+        (1,1):[0,32,64,96,128,160,192,224,256,288,320,352,384,416,448,0],
+        (1,2):[0,32,48,56,64,80,96,112,128,160,192,224,256,320,384,0],
+        (1,3):[0,32,40,48,56,64,80,96,112,128,160,192,224,256,320,0],
+        (2,1):[0,32,48,56,64,80,96,112,128,144,160,176,192,224,256,0],
+        (2,2):[0,8,16,24,32,40,48,56,64,80,96,112,128,144,160,0],
+        (2,3):[0,8,16,24,32,40,48,56,64,80,96,112,128,144,160,0],
+    }
+
     for i in range(offset, min(offset + 8192, len(data) - 4)):
-        if data[i] != 0xFF:
+        if data[i] != 0xFF or (data[i+1] & 0xE0) != 0xE0:
             continue
-        b1 = data[i + 1]
-        if (b1 & 0xE0) != 0xE0:
-            continue
-
-        # Parse frame header
-        b2 = data[i + 2]
-        b3 = data[i + 3]
-
-        version_bits = (b1 >> 3) & 0x03  # 3=MPEG1, 2=MPEG2, 0=MPEG2.5
-        layer_bits   = (b1 >> 1) & 0x03  # 3=L1, 2=L2, 1=L3
-        bitrate_idx  = (b2 >> 4) & 0x0F
-        sample_idx   = (b2 >> 2) & 0x03
-
-        version = {3: 1, 2: 2, 0: 2}.get(version_bits)
-        layer   = {3: 1, 2: 2, 1: 3}.get(layer_bits)
+        b1, b2 = data[i+1], data[i+2]
+        version = {3:1, 2:2, 0:2}.get((b1 >> 3) & 0x03)
+        layer   = {3:1, 2:2, 1:3}.get((b1 >> 1) & 0x03)
         if version is None or layer is None:
             continue
-
-        br_table = _MPEG_BITRATES.get((version, layer))
-        if br_table is None or bitrate_idx >= len(br_table):
+        br_table = _BITRATES.get((version, layer))
+        if br_table is None:
             continue
-
-        bitrate = br_table[bitrate_idx]
-        if bitrate == 0:
+        bitrate_idx = (b2 >> 4) & 0x0F
+        if bitrate_idx >= len(br_table) or br_table[bitrate_idx] == 0:
             continue
-
-        sr_list = _MPEG_SAMPLE_RATES.get(version - 1 if version > 0 else 2, [44100,48000,32000])
-        if sample_idx >= len(sr_list):
-            continue
-
-        # Estimate duration from total data size and bitrate
+        bitrate     = br_table[bitrate_idx]
         audio_bytes = len(data) - i
-        duration = (audio_bytes * 8) / (bitrate * 1000)
-        return max(0.1, round(duration, 3))
+        return max(0.1, round(audio_bytes * 8 / (bitrate * 1000), 3))
 
-    # Fallback: rough estimate at 128kbps
-    return max(0.1, round(len(data) * 8 / (128 * 1000), 3))
+    # Fallback
+    return max(0.1, round(len(data) * 8 / (MP3_BITRATE * 1000), 3))
 
 
 # ── Character-ratio word timing ────────────────────────────────────────────────
 
 def _build_word_timings(text: str, duration_sec: float) -> list[dict]:
     """
-    Assign each word a start and end time proportional to its character
-    position in the text.
-
-    Returns:
-        [{"word": str, "start": float, "end": float}, ...]
+    Assign each word a start/end time proportional to its char position.
+    Returns [{"word": str, "start": float, "end": float}, ...]
     """
+    import re
     words: list[dict] = []
-    total_chars = len(text)
-    if total_chars == 0 or duration_sec <= 0:
+    total  = len(text)
+    if total == 0 or duration_sec <= 0:
         return words
 
-    pos = 0
-    for token in re.split(r"(\s+)", text) if True else []:
-        pass  # replaced below
-
-    # Walk character by character to find word boundaries
-    import re as _re
-    for m in _re.finditer(r"\S+", text):
-        word  = m.group()
-        start_char = m.start()
-        end_char   = m.end()
-
-        start_sec = round((start_char / total_chars) * duration_sec, 3)
-        end_sec   = round((end_char   / total_chars) * duration_sec, 3)
-
-        # Ensure minimum word duration of 0.05s
-        if end_sec - start_sec < 0.05:
-            end_sec = round(start_sec + 0.05, 3)
-
-        words.append({
-            "word":  word,
-            "start": start_sec,
-            "end":   end_sec,
-        })
-
+    for m in re.finditer(r"\S+", text):
+        s = round(m.start() / total * duration_sec, 3)
+        e = round(m.end()   / total * duration_sec, 3)
+        if e - s < 0.05:
+            e = round(s + 0.05, 3)
+        words.append({"word": m.group(), "start": s, "end": e})
     return words
 
 
@@ -226,46 +166,37 @@ def _build_option_boundaries(options_text: str,
                               duration_sec: float,
                               options: list[dict]) -> list[dict]:
     """
-    For each option, find its spoken prefix ("Option A. text.") in the
-    full options_text and compute start/end time for the whole option block.
-
-    Returns:
-        [{"tag": "a", "text": "...", "start": float, "end": float}, ...]
+    For each option block ("Option A. ..."), find its char span in
+    options_text and convert to time boundaries.
+    Returns [{"tag", "text", "start", "end"}, ...]
     """
-    import re as _re
-    total_chars = len(options_text)
+    from text_cleaner import clean_for_tts
+    total = len(options_text)
     boundaries: list[dict] = []
+    tag_seq = "ABCDEFGH"
 
-    for opt in options:
-        tag  = opt.get("tag", "").upper()
-        raw  = opt.get("text", "") or ""
+    for i, opt in enumerate(options):
+        tag    = opt.get("tag", "").upper()
         prefix = f"Option {tag}."
-
-        idx = options_text.find(prefix)
+        idx    = options_text.find(prefix)
         if idx == -1:
             continue
 
-        # Find start of NEXT option to determine end boundary
-        next_tag_map = {"A": "B", "B": "C", "C": "D", "D": "E",
-                        "E": "F", "F": "G"}
-        next_tag = next_tag_map.get(tag)
+        # End = start of next option, or end of string
         end_idx = len(options_text)
-        if next_tag:
-            ni = options_text.find(f"Option {next_tag}.")
+        if i + 1 < len(options):
+            next_tag    = options[i+1].get("tag", "").upper()
+            next_prefix = f"Option {next_tag}."
+            ni          = options_text.find(next_prefix)
             if ni != -1:
                 end_idx = ni
 
-        start_sec = round((idx       / total_chars) * duration_sec, 3)
-        end_sec   = round((end_idx   / total_chars) * duration_sec, 3)
-
-        from text_cleaner import clean_for_tts
         boundaries.append({
             "tag":   opt.get("tag", ""),
-            "text":  clean_for_tts(raw),
-            "start": start_sec,
-            "end":   end_sec,
+            "text":  clean_for_tts(opt.get("text", "") or ""),
+            "start": round(idx     / total * duration_sec, 3),
+            "end":   round(end_idx / total * duration_sec, 3),
         })
-
     return boundaries
 
 
@@ -273,13 +204,8 @@ def _build_option_boundaries(options_text: str,
 
 class FishClient:
     """
-    Thin wrapper around fish_audio_sdk.Session.
-
-    Parameters
-    ----------
-    api_key   : Fish Audio API key
-    voice_id  : reference_id of the voice to use (default: Adrian)
-    backend   : model backend (default: speech-1.6)
+    Calls Fish Audio /v1/tts directly with httpx + ormsgpack.
+    Uses model s2.1-pro-free (free tier, no hard cap).
     """
 
     def __init__(
@@ -294,101 +220,118 @@ class FishClient:
 
     def generate(
         self,
-        text: str,
+        text:       str,
         *,
-        audio_type: str = "question",       # "question" | "options" | "explanation"
-        options: Optional[list[dict]] = None,  # needed only for audio_type="options"
+        audio_type:  str = "question",
+        options:     Optional[list[dict]] = None,
+        clean_text:  Optional[str] = None,
     ) -> tuple[bytes, list[dict], list[dict]]:
         """
-        Generate TTS audio and compute timing data.
+        Generate TTS audio and compute word timing data.
 
         Parameters
         ----------
-        text        : clean TTS-ready text (already processed by text_cleaner)
-        audio_type  : label used for context — no effect on generation
-        options     : raw options list (only for options audio, to build boundaries)
+        text        : text sent to Fish Audio (may include emotion tags)
+        audio_type  : "q" | "opts" | "exp"
+        options     : raw options list — only needed when audio_type="opts"
+        clean_text  : tag-free version used for word-timing alignment.
+                      If None, falls back to text.
 
         Returns
         -------
         (mp3_bytes, words, option_boundaries)
-          mp3_bytes         : raw MP3 audio bytes
-          words             : [{word, start, end}, ...]  — word-level timings
-          option_boundaries : [{tag, text, start, end}, ...] — only for options audio
-                              empty list for question / explanation audio
         """
         if not text or not text.strip():
             raise ValueError("Cannot generate audio for empty text.")
 
+        # Use clean_text for timing if provided (tags skew char positions)
+        timing_text = clean_text if clean_text else text
+
         mp3_bytes = self._call_with_retry(text)
         duration  = _parse_mp3_duration(mp3_bytes)
-        words     = _build_word_timings(text, duration)
+        words     = _build_word_timings(timing_text, duration)
 
         opt_bounds: list[dict] = []
-        if audio_type == "options" and options:
-            opt_bounds = _build_option_boundaries(text, duration, options)
+        if audio_type == "opts" and options:
+            opt_bounds = _build_option_boundaries(timing_text, duration, options)
 
         return mp3_bytes, words, opt_bounds
 
+    # ── Internal ──────────────────────────────────────────────────────────────
+
     def _call_with_retry(self, text: str) -> bytes:
-        """Call Fish API with rate limiting and exponential back-off."""
         last_exc: Exception | None = None
 
         for attempt, delay in enumerate([0] + RETRY_DELAYS, start=1):
             if delay:
-                print(f"    [retry {attempt}/{len(RETRY_DELAYS)+1}] waiting {delay}s...")
+                print(f"    [retry {attempt}/{len(RETRY_DELAYS)+1}] "
+                      f"waiting {delay}s...", flush=True)
                 time.sleep(delay)
 
-            # Respect rate limit
             _bucket.acquire()
 
             try:
-                mp3_bytes = self._stream_to_bytes(text)
-                return mp3_bytes
-
+                return self._post(text)
             except Exception as exc:
                 msg = str(exc)
                 last_exc = exc
 
-                # 429 rate-limited — always retry
-                if "429" in msg or "rate" in msg.lower():
-                    print(f"    [429] rate limited — will retry")
+                # 429 rate-limited — retry
+                if "429" in msg:
+                    print(f"    [429] rate limited, will retry", flush=True)
                     continue
 
-                # 5xx server error — retry
+                # 5xx server errors — retry
                 if any(f"{c}" in msg for c in (500, 502, 503, 504)):
-                    print(f"    [5xx] server error — will retry: {msg[:80]}")
+                    print(f"    [5xx] {msg[:80]}, will retry", flush=True)
                     continue
 
-                # 4xx (except 429) — no point retrying
-                print(f"    [err] Fish Audio error: {msg[:120]}")
+                # 402 / 401 / 400 — no point retrying
                 raise
 
         raise RuntimeError(
             f"Fish Audio failed after {len(RETRY_DELAYS)+1} attempts"
         ) from last_exc
 
-    def _stream_to_bytes(self, text: str) -> bytes:
-        """Use fish_audio_sdk Session to stream TTS and collect all bytes."""
-        req = TTSRequest(
-            text=text,
-            reference_id=self._voice_id if self._voice_id else None,
-            format=FORMAT,
-            mp3_bitrate=MP3_BITRATE,
-            latency=LATENCY,
-            normalize=True,
-        )
+    def _post(self, text: str) -> bytes:
+        """
+        POST to /v1/tts using msgpack body, collect streaming response.
+        Mirrors what fish_audio_sdk does internally.
+        """
+        body = {
+            "text":         text,
+            "format":       FORMAT,
+            "mp3_bitrate":  MP3_BITRATE,
+            "latency":      LATENCY,
+            "normalize":    True,
+        }
+        if self._voice_id:
+            body["reference_id"] = self._voice_id
+
+        headers = {
+            "Authorization": f"Bearer {self._api_key}",
+            "Content-Type":  "application/msgpack",
+            "model":          self._backend,    # "s2.1-pro-free"
+        }
 
         chunks: list[bytes] = []
-        with Session(self._api_key) as session:
-            for chunk in session.tts(req, self._backend):
-                if chunk:
-                    chunks.append(chunk)
+        with httpx.Client(timeout=REQUEST_TIMEOUT) as client:
+            with client.stream(
+                "POST",
+                FISH_API_URL,
+                headers=headers,
+                content=ormsgpack.packb(body),
+            ) as resp:
+                if not resp.is_success:
+                    resp.read()
+                    raise RuntimeError(
+                        f"{resp.status_code} {resp.reason_phrase}"
+                    )
+                for chunk in resp.iter_bytes():
+                    if chunk:
+                        chunks.append(chunk)
 
         if not chunks:
             raise RuntimeError("Fish Audio returned empty response")
 
         return b"".join(chunks)
-
-
-# Fix the stray dead code in _build_word_timings
-import re as _re  # noqa — needed at module level for _build_word_timings

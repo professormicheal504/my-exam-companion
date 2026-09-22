@@ -521,7 +521,7 @@
             <header>
                 <h1 id="articleTitle"></h1>
                 <div class="post-meta">
-                    <img class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author">
+                    <img id="metaAvatar" class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author">
                     <span id="authorName">Author</span>
                     <span>·</span>
                     <time id="publishDate"></time>
@@ -544,10 +544,10 @@
 
             <!-- Author Bio -->
             <div class="author-box">
-                <img class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author" width="56" height="56">
+                <img id="authorBoxAvatar" class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author" width="56" height="56">
                 <div>
-                    <h3>About the Author</h3>
-                    <p>This article was created using the MyExam Companion Publisher Program. Ensure all content is original and follows our community guidelines.</p>
+                    <h3 id="authorBoxName">About the Publisher</h3>
+                    <p id="authorBoxBio"></p>
                 </div>
             </div>
 
@@ -573,71 +573,142 @@
     <button class="btn-publish" onclick="publishArticle()">Publish Article</button>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../../../../components/supabase.js"></script>
+
 <script>
-    // Load article data from localStorage
-    function loadArticleData() {
-        try {
-            const articleData = JSON.parse(localStorage.getItem('publisher_article_draft'));
-            
-            if (!articleData) {
-                alert('No article data found. Please create an article first.');
-                window.location.href = '/ng/publisher/create-post';
-                return;
-            }
+    // Load and display the actual publisher name + bio from the publishers table
+    async function loadPublisherName() {
+        if (typeof window.MECSupabase === 'undefined') return;
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) return;
 
-            const title = articleData.title || 'Untitled Article';
-            const intro = articleData.intro || '';
-            const content = articleData.content || '<p>No content provided.</p>';
-            const heroImage = articleData.heroImage || '';
-            const category = articleData.category || '';
-            const tags = articleData.tags || '';
-            const qualityScore = articleData.qualityScore || '85';
+        const sb = window.MECSupabase.getSupabase();
 
-            // Set title
-            document.getElementById('articleTitle').textContent = title;
-            document.title = title + ' - MyExam Companion';
+        // Step 1: Set name immediately from user_metadata
+        const metaName = (user.user_metadata && user.user_metadata.full_name)
+                || (user.user_metadata && user.user_metadata.display_name)
+                || (user.user_metadata && user.user_metadata.name)
+                || (user.email ? user.email.split('@')[0] : null)
+                || 'Publisher';
+        document.getElementById('authorName').textContent = metaName;
+        document.getElementById('authorBoxName').textContent = metaName;
 
-            // Set intro paragraph
-            if (intro) {
-                const introHTML = `<p style="font-size: 16px; line-height: 1.8; margin-bottom: 24px; color: #555; font-weight: 500;">${intro}</p>`;
-                document.getElementById('articleContent').innerHTML = introHTML + content;
-            } else {
-                document.getElementById('articleContent').innerHTML = content;
-            }
-
-            // Set hero image
-            if (heroImage) {
-                document.getElementById('heroImage').src = heroImage;
-                document.getElementById('heroImage').alt = title;
-                document.getElementById('heroCaption').textContent = title;
-                document.getElementById('heroFigure').style.display = 'block';
-            }
-
-            // Set tags
-            if (tags) {
-                const tagArray = tags.split(',').map(t => t.trim()).filter(t => t.length > 0);
-                const tagsHTML = tagArray.map(tag => `<a href="#" class="tag-pill">${tag}</a>`).join('');
-                document.getElementById('tagsContainer').innerHTML = tagsHTML;
-            }
-
-            // Set publish date
-            document.getElementById('publishDate').textContent = 'Today';
-
-            // Set quality score
-            document.getElementById('qualityScore').textContent = qualityScore + '% Complete';
-
-            // Calculate read time
-            const wordCount = (intro + ' ' + content).replace(/<[^>]*>/g, '').split(/\s+/).length;
-            const readTime = Math.max(1, Math.round(wordCount / 200));
-            document.getElementById('readTime').textContent = readTime + ' min read';
-
-            // Generate Table of Contents from content
-            generateTableOfContents(content);
-        } catch (error) {
-            console.error('Error loading article:', error);
-            alert('Error loading article data.');
-            window.location.href = '/ng/publisher/create-post';
+        // Step 2: Fetch avatar (same pattern as dashboard.html)
+        const { data: profile } = await sb.from('profiles').select('avatar_url').eq('id', user.id).single();
+        if (profile && profile.avatar_url) {
+            document.getElementById('metaAvatar').src = profile.avatar_url;
+            document.getElementById('authorBoxAvatar').src = profile.avatar_url;
         }
+
+        // Step 3: Fetch publisher_name and bio
+        const { data: pub } = await sb.from('publishers').select('publisher_name, bio').eq('user_id', user.id).single();
+        if (pub && pub.publisher_name) {
+            document.getElementById('authorName').textContent = pub.publisher_name;
+            document.getElementById('authorBoxName').textContent = pub.publisher_name;
+        }
+        document.getElementById('authorBoxBio').textContent = (pub && pub.bio) ? pub.bio : '';
+    }
+
+    // ── Shared draft-id key (same key used throughout the pipeline) ──
+    const DRAFT_ID_KEY = 'publisher_draft_post_id';
+
+    // Load article data: try Supabase draft first, fall back to localStorage
+    async function loadArticleData() {
+        let articleData = null;
+
+        // 1. Try cloud draft
+        if (typeof window.MECSupabase !== 'undefined') {
+            try {
+                const user = await window.MECSupabase.getCurrentUser();
+                const draftId = localStorage.getItem(DRAFT_ID_KEY);
+                if (user && draftId) {
+                    const sb = window.MECSupabase.getSupabase();
+                    const { data } = await sb
+                        .from('publisher_posts')
+                        .select('draft_content, thumbnail_url, tags, category, title, last_saved_at')
+                        .eq('id', draftId)
+                        .eq('publisher_id', user.id)
+                        .maybeSingle();
+                    if (data && data.draft_content) {
+                        articleData = data.draft_content;
+                        // Overlay any metadata saved in post_review
+                        if (data.thumbnail_url) articleData.heroImage = data.thumbnail_url;
+                        if (data.tags && data.tags.length) articleData.tags = data.tags.join(', ');
+                        if (data.category) articleData.category = data.category;
+                    }
+                }
+            } catch (_) { /* fall through to localStorage */ }
+        }
+
+        // 2. Fallback: localStorage
+        if (!articleData) {
+            try {
+                articleData = JSON.parse(localStorage.getItem('publisher_article_draft'));
+            } catch (_) {}
+        }
+
+        // Merge sessionStorage overrides (thumbnail / topics set in post_review)
+        const sessionThumb  = sessionStorage.getItem('post_thumbnail');
+        const sessionTopics = sessionStorage.getItem('post_topics');
+        if (articleData && sessionThumb)  articleData.heroImage = sessionThumb;
+        if (articleData && sessionTopics) {
+            try { articleData.tags = JSON.parse(sessionTopics).join(', '); } catch (_) {}
+        }
+
+        if (!articleData) {
+            alert('No article data found. Please create an article first.');
+            window.location.href = '/ng/publisher/create-post';
+            return;
+        }
+
+        renderArticle(articleData);
+        loadPublisherName();
+    }
+
+    function renderArticle(articleData) {
+        const title       = articleData.title       || 'Untitled Article';
+        const intro       = articleData.intro       || '';
+        const content     = articleData.content     || '<p>No content provided.</p>';
+        const heroImage   = articleData.heroImage   || '';
+        const tags        = articleData.tags        || '';
+        const qualityScore = articleData.qualityScore || '85';
+
+        // Title
+        document.getElementById('articleTitle').textContent = title;
+        document.title = title + ' - MyExam Companion';
+
+        // Intro + body
+        if (intro) {
+            const introHTML = `<p style="font-size:16px;line-height:1.8;margin-bottom:24px;color:#555;font-weight:500;">${intro}</p>`;
+            document.getElementById('articleContent').innerHTML = introHTML + content;
+        } else {
+            document.getElementById('articleContent').innerHTML = content;
+        }
+
+        // Hero
+        if (heroImage) {
+            document.getElementById('heroImage').src    = heroImage;
+            document.getElementById('heroImage').alt    = title;
+            document.getElementById('heroCaption').textContent = title;
+            document.getElementById('heroFigure').style.display = 'block';
+        }
+
+        // Tags
+        if (tags) {
+            const tagArray  = tags.split(',').map(t => t.trim()).filter(Boolean);
+            document.getElementById('tagsContainer').innerHTML =
+                tagArray.map(tag => `<a href="#" class="tag-pill">${tag}</a>`).join('');
+        }
+
+        // Publish date & read time
+        document.getElementById('publishDate').textContent = 'Today';
+        document.getElementById('qualityScore').textContent = qualityScore + '% Complete';
+
+        const wordCount = (intro + ' ' + content).replace(/<[^>]*>/g, '').split(/\s+/).length;
+        document.getElementById('readTime').textContent = Math.max(1, Math.round(wordCount / 200)) + ' min read';
+
+        generateTableOfContents(content);
     }
 
     // Generate TOC from article content
@@ -723,68 +794,120 @@
         printWindow.print();
     }
 
-    function publishArticle() {
-        const title = document.getElementById('articleTitle').textContent;
+    async function publishArticle() {
+        const title   = document.getElementById('articleTitle').textContent;
         const content = document.getElementById('articleContent').innerHTML;
-        
+
         if (!title || !content) {
             alert('Cannot publish empty article.');
             return;
         }
 
-        // Show loading state
         const publishBtn = document.querySelector('.btn-primary');
         const originalText = publishBtn.textContent;
-        publishBtn.textContent = 'Publishing...';
+        publishBtn.textContent = 'Submitting…';
         publishBtn.disabled = true;
 
-        // Simulate publishing (in production, this would save to database)
-        setTimeout(async () => {
-            try {
-                // Check if Supabase is available
-                if (typeof window.MECSupabase !== 'undefined') {
-                    const user = await window.MECSupabase.getCurrentUser();
-                    if (user) {
-                        const sb = window.MECSupabase.getSupabase();
-                        
-                        // Insert into publisher_posts table
-                        const { data, error } = await sb.from('publisher_posts').insert([{
-                            publisher_id: user.id,
-                            title: title,
-                            content: content,
-                            status: 'published',
-                            created_at: new Date().toISOString()
-                        }]);
-
-                        if (error) {
-                            throw error;
-                        }
-
-                        // Clear draft
-                        localStorage.removeItem('publisher_article_draft');
-
-                        // Show success and redirect
-                        alert('✓ Article published successfully!');
-                        window.location.href = '/ng/publisher/dashboard';
-                        return;
-                    }
-                }
-
-                // Fallback: just clear and redirect
-                localStorage.removeItem('publisher_article_draft');
-                alert('✓ Article published successfully!');
-                window.location.href = '/ng/publisher/dashboard';
-            } catch (error) {
-                console.error('Publish error:', error);
-                alert('Error publishing article: ' + (error.message || 'Unknown error'));
-                publishBtn.textContent = originalText;
-                publishBtn.disabled = false;
+        try {
+            if (typeof window.MECSupabase === 'undefined') {
+                throw new Error('Supabase not loaded. Please refresh and try again.');
             }
-        }, 1500);
+
+            const user = await window.MECSupabase.getCurrentUser();
+            if (!user) throw new Error('You must be signed in to publish.');
+
+            const sb  = window.MECSupabase.getSupabase();
+            const draftId = localStorage.getItem(DRAFT_ID_KEY);
+
+            // Collect full article data from Supabase draft (most authoritative source)
+            let articleData = null;
+            if (draftId) {
+                const { data } = await sb
+                    .from('publisher_posts')
+                    .select('draft_content, thumbnail_url, tags, category, title, description, intro')
+                    .eq('id', draftId)
+                    .eq('publisher_id', user.id)
+                    .maybeSingle();
+                if (data) articleData = data;
+            }
+
+            // Fall back to localStorage
+            if (!articleData) {
+                const local = JSON.parse(localStorage.getItem('publisher_article_draft') || 'null');
+                if (local) {
+                    articleData = {
+                        draft_content: local,
+                        thumbnail_url: local.heroImage,
+                        tags:          local.tags ? local.tags.split(',').map(t => t.trim()).filter(Boolean) : [],
+                        category:      local.category,
+                        title:         local.title,
+                        description:   local.description,
+                        intro:         local.intro
+                    };
+                }
+            }
+
+            if (!articleData) throw new Error('No article data found. Please go back and create your article.');
+
+            const dc = articleData.draft_content || {};
+
+            // Get the session token to pass to the Edge Function
+            const { data: { session } } = await sb.auth.getSession();
+            if (!session) throw new Error('Session expired. Please sign in again.');
+
+            // Build payload for the post-submission Edge Function
+            const payload = {
+                draft_id:      draftId || null,
+                title:         articleData.title  || dc.title,
+                description:   articleData.description || dc.description || '',
+                intro:         articleData.intro   || dc.intro   || '',
+                content:       dc.content          || content,
+                thumbnail_url: articleData.thumbnail_url || dc.heroImage || '',
+                topics:        Array.isArray(articleData.tags) ? articleData.tags
+                               : (dc.tags ? dc.tags.split(',').map(t => t.trim()).filter(Boolean) : []),
+                category:      articleData.category || dc.category || ''
+            };
+
+            // Resolve Supabase project URL from the client
+            const supabaseUrl = sb.supabaseUrl || (sb.rest && sb.rest.url ? sb.rest.url.replace('/rest/v1', '') : '') || '';
+            const edgeFnUrl   = `${supabaseUrl}/functions/v1/post-submission`;
+
+            const res = await fetch(edgeFnUrl, {
+                method:  'POST',
+                headers: {
+                    'Content-Type':  'application/json',
+                    'Authorization': `Bearer ${session.access_token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await res.json();
+            if (!res.ok) throw new Error(result.error || `Server error ${res.status}`);
+
+            // Clear draft markers — article is now in the review queue
+            localStorage.removeItem('publisher_article_draft');
+            localStorage.removeItem(DRAFT_ID_KEY);
+            sessionStorage.removeItem('post_thumbnail');
+            sessionStorage.removeItem('post_topics');
+            sessionStorage.removeItem('post_title');
+
+            publishBtn.textContent = '✓ Submitted!';
+
+            // Show success state before redirecting
+            setTimeout(() => {
+                window.location.href = '/ng/publisher/dashboard';
+            }, 1200);
+
+        } catch (err) {
+            console.error('Publish error:', err);
+            alert('Error submitting article: ' + (err.message || 'Unknown error'));
+            publishBtn.textContent = originalText;
+            publishBtn.disabled = false;
+        }
     }
 
     // Load on page load
-    document.addEventListener('DOMContentLoaded', loadArticleData);
+    document.addEventListener('DOMContentLoaded', () => loadArticleData());
 </script>
 </body>
 </html>

@@ -46,9 +46,6 @@ export async function onRequest(context) {
   "/us/test/result": "/modules/cbt_test/core/result",
   "/us/test/instruction": "/modules/cbt_test/core/instruction",
   "/us/test/live-arena/instruction": "/modules/cbt_test/live_quiz_arena/instruction",
-  "/ng/blog": "/modules/blog/categories",
-  "/gh/blog": "/modules/blog/categories",
-  "/us/blog": "/modules/blog/categories",
   "/ng/rank": "/modules/rank/rank",
   "/ng/earnings": "/modules/earnings/earnings",
   "/ng/task": "/modules/task/task",
@@ -70,6 +67,8 @@ export async function onRequest(context) {
   "/signup": "/modules/auth/sign_up",
   "/verify": "/modules/auth/otp",
   "/onboarding": "/modules/auth/fill_form",
+  "/editor": "/modules/editor_program/dashboard",
+  "/editor/": "/modules/editor_program/dashboard",
   "/ng/publisher/onboarding": "/modules/publisher_program/onboarding/onboarding_screen",
   "/ng/publisher/dashboard": "/modules/publisher_program/dashboard/dashboard",
   "/ng/publisher/bio": "/modules/publisher_program/profile/bio",
@@ -123,10 +122,7 @@ export async function onRequest(context) {
   "/us/study/past-questions/": "/modules/study/study_past_questions/study_explanation",
   "/ng/test/": "/modules/cbt_test/core/cbt_player",
   "/gh/test/": "/modules/cbt_test/core/cbt_player",
-  "/us/test/": "/modules/cbt_test/core/cbt_player",
-  "/ng/blog/": "/modules/blog/content",
-  "/gh/blog/": "/modules/blog/content",
-  "/us/blog/": "/modules/blog/content"
+  "/us/test/": "/modules/cbt_test/core/cbt_player"
 };
 
   if (exactRoutes[path]) {

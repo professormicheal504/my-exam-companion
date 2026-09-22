@@ -338,6 +338,33 @@
 
         .btn-approve { background: var(--success); color: white; flex: 1; text-align: center; padding: 12px; }
         .btn-reject { background: var(--danger); color: white; flex: 1; text-align: center; padding: 12px; }
+        .btn-revert {
+            width: 100%; padding: 12px; margin-top: 12px;
+            background: transparent; color: var(--warning);
+            border: 1.5px solid var(--warning); border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-revert:hover { background: var(--warning); color: white; }
+
+        /* Status banner shown inside modal for decided posts */
+        .decision-banner {
+            display: none;
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .decision-banner.approved {
+            background: #d1fae5; color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        .decision-banner.rejected {
+            background: #fee2e2; color: #7f1d1d;
+            border: 1px solid #fca5a5;
+        }
         
         .empty-state {
             padding: 60px;
@@ -418,6 +445,10 @@
                 </div>
                 <div class="action-area">
                     <h3>Decision</h3>
+
+                    <!-- Shown when article is already approved or rejected -->
+                    <div class="decision-banner" id="decisionBanner"></div>
+
                     <div class="form-group">
                         <label>Rejection Reason (if rejecting)</label>
                         <textarea id="rejectionReason" placeholder="Please provide constructive feedback..."></textarea>
@@ -426,6 +457,11 @@
                         <button class="action-btn btn-reject" onclick="handleDecision('rejected')">Reject</button>
                         <button class="action-btn btn-approve" onclick="handleDecision('approved')">Approve</button>
                     </div>
+
+                    <!-- Shown only for approved / rejected posts -->
+                    <button class="btn-revert" id="revertBtn" onclick="handleRevert()" style="display:none;">
+                        ↩ Revert to Pending Review
+                    </button>
                     
                     <div style="margin-top: 40px; padding: 16px; background: rgba(37, 99, 235, 0.05); border-radius: 8px;">
                         <h4 style="margin-bottom: 8px; color: var(--accent-blue);">Editor Guidelines</h4>
@@ -433,6 +469,7 @@
                             <li>Ensure content meets quality standards.</li>
                             <li>Check for plagiarism or inappropriate material.</li>
                             <li>Approving this article will automatically publish it to the live Cloudflare CDN.</li>
+                            <li>Reverting moves the article back to Pending so it can be reviewed again.</li>
                         </ul>
                     </div>
                 </div>
@@ -470,11 +507,13 @@
 
     async function fetchPosts() {
         const sb = window.MECSupabase.getSupabase();
-        
-        // As an editor, we query all posts.
+
+        // rendered_html and draft_content are intentionally excluded here —
+        // they can be 100–200 KB per article and are only needed in the preview
+        // modal. They are fetched lazily in openReview() instead.
         const { data: posts, error } = await sb
             .from('publisher_posts')
-            .select('*')
+            .select('id, title, thumbnail_url, status, category, slug, rejection_reason, created_at, publisher_id, cloudflare_url')
             .order('created_at', { ascending: false });
 
         if (error) {
@@ -538,42 +577,108 @@
         currentReviewPostId = post.id;
         document.getElementById('modalTitle').textContent = `Reviewing: ${post.title}`;
         document.getElementById('rejectionReason').value = post.rejection_reason || '';
-        
-        // Hide action buttons if already approved/rejected (optional, but good for read-only viewing)
-        const actionButtons = document.querySelector('.action-buttons');
-        const rejectReasonField = document.getElementById('rejectionReason');
-        
+
+        const actionButtons   = document.querySelector('.action-buttons');
+        const rejectField     = document.getElementById('rejectionReason');
+        const banner          = document.getElementById('decisionBanner');
+        const revertBtn       = document.getElementById('revertBtn');
+
+        // Reset all panels first
+        banner.style.display    = 'none';
+        banner.className        = 'decision-banner';
+        banner.innerHTML        = '';
+        revertBtn.style.display = 'none';
+
         if (post.status === 'pending') {
+            // Fresh review — show approve/reject buttons, editable reason
             actionButtons.style.display = 'flex';
-            rejectReasonField.readOnly = false;
-        } else {
+            rejectField.readOnly        = false;
+            rejectField.style.opacity   = '1';
+
+        } else if (post.status === 'approved') {
+            // Show green banner + revert button; hide approve/reject
             actionButtons.style.display = 'none';
-            rejectReasonField.readOnly = true;
+            rejectField.readOnly        = true;
+            rejectField.style.opacity   = '0.5';
+
+            banner.className   = 'decision-banner approved';
+            banner.innerHTML   = `✅ This article was <strong>Approved</strong> and is live on the blog.<br>
+                                  <span style="font-weight:400;font-size:0.8rem;">You can revert it to Pending if you approved by mistake.</span>`;
+            banner.style.display = 'block';
+            revertBtn.style.display = 'block';
+
+        } else if (post.status === 'rejected') {
+            // Show red banner with reason + revert button; hide approve/reject
+            actionButtons.style.display = 'none';
+            rejectField.readOnly        = true;
+            rejectField.style.opacity   = '0.5';
+
+            const reason = post.rejection_reason ? `<br><em style="font-weight:400;">"${post.rejection_reason}"</em>` : '';
+            banner.className   = 'decision-banner rejected';
+            banner.innerHTML   = `❌ This article was <strong>Rejected</strong>.${reason}<br>
+                                  <span style="font-weight:400;font-size:0.8rem;">Revert to Pending to allow the publisher to resubmit.</span>`;
+            banner.style.display = 'block';
+            revertBtn.style.display = 'block';
         }
 
         document.getElementById('reviewModal').classList.add('active');
 
-        // Fetch jsDelivr HTML and render inside iframe
+        // ── Render preview — fetch heavy fields lazily ───────────────────────
+        // rendered_html / draft_content are NOT in the list query (too large).
+        // Fetch them now on-demand for this specific post only.
         const frameContainer = document.getElementById('deviceFrame');
-        frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: #666;">Downloading code from jsDelivr...</div>`;
-        
-        const url = post.github_url;
-        if (!url) {
-            frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: red;">No jsDelivr URL found for this post.</div>`;
-            return;
-        }
+        frameContainer.innerHTML = `<div style="padding:40px;text-align:center;color:#999;font-size:14px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="margin-bottom:10px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <div>Loading preview…</div>
+        </div>`;
 
-        fetch(url)
-            .then(res => res.text())
-            .then(html => {
-                const iframe = document.createElement('iframe');
-                iframe.srcdoc = html;
-                frameContainer.innerHTML = '';
-                frameContainer.appendChild(iframe);
-            })
-            .catch(err => {
-                frameContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: red;">Failed to load preview from jsDelivr.</div>`;
-            });
+        const sb2 = window.MECSupabase.getSupabase();
+        let previewData = null;
+        try {
+            const { data } = await sb2
+                .from('publisher_posts')
+                .select('rendered_html, draft_content')
+                .eq('id', post.id)
+                .single();
+            previewData = data;
+        } catch (_) {}
+
+        const rendered_html  = previewData && previewData.rendered_html  ? previewData.rendered_html  : null;
+        const draft_content  = previewData && previewData.draft_content  ? previewData.draft_content  : null;
+
+        if (rendered_html) {
+            frameContainer.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.srcdoc = rendered_html;
+            iframe.style.cssText = 'width:100%;height:100%;border:none;';
+            frameContainer.appendChild(iframe);
+        } else if (draft_content) {
+            const dc    = typeof draft_content === 'string' ? JSON.parse(draft_content) : draft_content;
+            const thumb = dc.heroImage ? `<img src="${dc.heroImage}" style="width:100%;border-radius:8px;margin-bottom:16px;">` : '';
+            const intro = dc.intro     ? `<p style="font-size:16px;color:#555;margin-bottom:16px;">${dc.intro}</p>` : '';
+            const body  = dc.content   || '<p style="color:#999;">No content yet.</p>';
+            const html  = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+                body{font-family:-apple-system,sans-serif;padding:20px;color:#1a1a1a;line-height:1.7;font-size:15px;}
+                h1{font-size:22px;font-weight:800;margin-bottom:12px;}
+                img{max-width:100%;}h2{font-size:18px;font-weight:700;margin:24px 0 10px;}
+                h3{font-size:16px;font-weight:700;margin:18px 0 8px;}p{margin-bottom:14px;}
+                ul,ol{padding-left:20px;margin-bottom:14px;}
+                blockquote{border-left:3px solid #2563eb;padding:8px 16px;background:#eff6ff;margin:16px 0;}
+                .callout-box{border:1px solid;border-left:4px solid;padding:12px;margin:12px 0;border-radius:6px;font-size:13px;}
+            </style></head><body>
+                <h1>${post.title || 'Untitled'}</h1>${thumb}${intro}${body}
+            </body></html>`;
+            frameContainer.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.srcdoc = html;
+            iframe.style.cssText = 'width:100%;height:100%;border:none;';
+            frameContainer.appendChild(iframe);
+        } else {
+            frameContainer.innerHTML = `<div style="padding:40px;text-align:center;color:#999;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="margin-bottom:12px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                <p style="font-size:14px;">No preview available yet.</p>
+            </div>`;
+        }
     }
 
     function closeModal() {
@@ -591,8 +696,10 @@
         }
 
         const sb = window.MECSupabase.getSupabase();
-        
-        // Update the database
+
+        // Optimistically disable buttons to prevent double-clicks
+        document.querySelectorAll('.action-buttons .action-btn').forEach(b => b.disabled = true);
+
         const updatePayload = {
             status: decision,
             rejection_reason: decision === 'rejected' ? reason : null
@@ -605,12 +712,125 @@
 
         if (error) {
             alert('Error updating post: ' + error.message);
+            document.querySelectorAll('.action-buttons .action-btn').forEach(b => b.disabled = false);
             return;
+        }
+
+        // If approved, call the approval trigger Edge Function so the article
+        // is uploaded to Cloudflare R2 immediately — no Supabase Webhook delay.
+        if (decision === 'approved') {
+            try {
+                const { data: sessionData } = await sb.auth.getSession();
+                const session = sessionData && sessionData.session ? sessionData.session : null;
+
+                // Get Supabase URL from the client — v2 stores it on supabaseUrl
+                // Try multiple paths since the internal property varies by version
+                const supabaseUrl = (
+                    sb.supabaseUrl ||
+                    (sb.rest && sb.rest.url ? sb.rest.url.replace('/rest/v1', '') : '') ||
+                    (sb.restUrl ? sb.restUrl.replace('/rest/v1', '') : '') ||
+                    ''
+                ).replace(/\/$/, '');
+
+                const post = allPosts.find(p => p.id === currentReviewPostId);
+
+                if (!session) {
+                    console.warn('No session found — cannot call approval trigger');
+                } else if (!supabaseUrl) {
+                    console.warn('Cannot resolve Supabase URL from client — skipping trigger call');
+                } else if (post) {
+                    // Send only the minimal fields needed — NOT rendered_html
+                    // to avoid hitting the payload size limit.
+                    // The trigger will re-fetch rendered_html directly from the DB
+                    // using the post id via the service role key.
+                    const triggerPayload = {
+                        type:  'UPDATE',
+                        table: 'publisher_posts',
+                        record: {
+                            id:           post.id,
+                            status:       'approved',
+                            category:     post.category,
+                            slug:         post.slug,
+                            publisher_id: post.publisher_id,
+                            // rendered_html intentionally omitted — trigger fetches it
+                        },
+                        old_record: {
+                            id:     post.id,
+                            status: 'pending',
+                        }
+                    };
+
+                    const triggerRes = await fetch(`${supabaseUrl}/functions/v1/post-approval-trigger`, {
+                        method:  'POST',
+                        headers: {
+                            'Content-Type':  'application/json',
+                            'Authorization': `Bearer ${session.access_token}`
+                        },
+                        body: JSON.stringify(triggerPayload)
+                    });
+
+                    if (triggerRes.ok) {
+                        const result = await triggerRes.json();
+                        console.log('✓ R2 upload complete:', result.cloudflare_url);
+                    } else {
+                        const errText = await triggerRes.text();
+                        console.warn('R2 upload warning (article still approved):', errText);
+                    }
+                }
+            } catch (triggerErr) {
+                console.warn('Approval trigger call failed (article still approved):', triggerErr);
+            }
         }
 
         alert(`Article successfully ${decision}!`);
         closeModal();
-        await fetchPosts(); // Refresh list
+        await fetchPosts();
+    }
+
+    // ── Revert an approved or rejected article back to pending ────────────────
+    async function handleRevert() {
+        if (!currentReviewPostId) return;
+
+        const post = allPosts.find(p => p.id === currentReviewPostId);
+        if (!post) return;
+
+        const confirmed = confirm(
+            `Revert "${post.title.substring(0, 60)}" back to Pending Review?\n\n` +
+            (post.status === 'approved'
+                ? 'This will remove it from the live blog and send it back to the review queue.'
+                : 'This will allow the publisher to resubmit an updated version.')
+        );
+        if (!confirmed) return;
+
+        const sb = window.MECSupabase.getSupabase();
+
+        document.getElementById('revertBtn').disabled = true;
+        document.getElementById('revertBtn').textContent = 'Reverting…';
+
+        const { error } = await sb
+            .from('publisher_posts')
+            .update({
+                status:           'pending',
+                rejection_reason: null,
+                cloudflare_url:   null   // clear the published URL so it's not shown as live
+            })
+            .eq('id', currentReviewPostId);
+
+        if (error) {
+            alert('Error reverting post: ' + error.message);
+            document.getElementById('revertBtn').disabled = false;
+            document.getElementById('revertBtn').textContent = '↩ Revert to Pending Review';
+            return;
+        }
+
+        // Note: we do NOT delete the R2 file here because R2 doesn't support
+        // delete via the S3 SDK without a separate DeleteObjectCommand setup.
+        // The file stays in R2 but is no longer linked (cloudflare_url = null)
+        // and won't appear in the blog since status is no longer 'approved'.
+
+        alert('Article reverted to Pending Review. The publisher will need to resubmit.');
+        closeModal();
+        await fetchPosts();
     }
 </script>
 </body>

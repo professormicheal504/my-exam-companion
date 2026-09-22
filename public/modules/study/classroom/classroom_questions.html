@@ -2368,7 +2368,11 @@
     // -- Render a single question card --
     function renderQuestion(qData, index, startIndex) {
       const qKey = qData.qKey || '';
-      const explUrl = `/study/${EXAM_ID}/${SUBJECT}/${encodeURIComponent(qKey)}/discussion`;
+      const _countryPrefix = EXAM_ID.split('/')[0].toLowerCase();
+      const _countryEntry  = COUNTRY_CODE_MAP[_countryPrefix];
+      const _countryCode   = _countryEntry ? _countryEntry.code : _countryPrefix;
+      const _examName      = EXAM_ID.split('/').pop();
+      const explUrl = `/${_countryCode}/study/classroom/${_examName}/${SUBJECT}/discussion/${encodeURIComponent(qKey)}`;
       const isArabic = SUBJECT.toLowerCase() === 'arabic';
       const dirAttr = isArabic ? ' dir="rtl"' : '';
 
@@ -3676,7 +3680,11 @@
     };
 
     window.openComments = async function (examId, questionId) {
-      window.location.href = `classroom_discussion.html?examId=${encodeURIComponent(examId)}&questionId=${encodeURIComponent(questionId)}#comments`;
+      const _prefix  = EXAM_ID.split('/')[0].toLowerCase();
+      const _entry   = COUNTRY_CODE_MAP[_prefix];
+      const _cc      = _entry ? _entry.code : _prefix;
+      const _exam    = EXAM_ID.split('/').pop();
+      window.location.href = `/${_cc}/study/classroom/${_exam}/${SUBJECT}/discussion/${encodeURIComponent(questionId)}#comments`;
     };
 
     document.addEventListener('DOMContentLoaded', init);
