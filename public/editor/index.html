@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL Editor - My Exam Companion</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../components/supabase.js"></script>
     <style>
         * {
             margin: 0;
@@ -41,6 +43,127 @@
             align-items: center;
         }
 
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: #3e3e42;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .user-email {
+            color: #4ec9b0;
+            font-weight: 600;
+        }
+
+        .access-denied {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .access-denied.active {
+            display: flex;
+        }
+
+        .access-denied-content {
+            background: #252526;
+            border: 2px solid #f48771;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .access-denied-content h2 {
+            color: #f48771;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .access-denied-content p {
+            color: #d4d4d4;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .login-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-modal.active {
+            display: flex;
+        }
+
+        .login-box {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            color: #2563eb;
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: #858585;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background: #3e3e42;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #d4d4d4;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: #404040;
+        }
+
+        .login-error {
+            color: #f48771;
+            font-size: 12px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .login-error.active {
+            display: block;
+        }
+
         .btn {
             padding: 8px 16px;
             border: none;
@@ -70,10 +193,23 @@
             background: #505050;
         }
 
-        .container {
-            display: flex;
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        .main-content {
+            display: none;
             flex: 1;
             overflow: hidden;
+        }
+
+        .main-content.active {
+            display: flex;
         }
 
         .editor-panel {
@@ -186,12 +322,45 @@
     <div class="header">
         <h1>🗄️ SQL Editor - Editor Setup</h1>
         <div class="header-right">
-            <button class="btn btn-secondary" onclick="clearOutput()">Clear Output</button>
-            <button class="btn btn-primary" onclick="runSQL()">▶ Execute SQL</button>
+            <div id="user-info" class="user-info" style="display:none;">
+                <span>📧</span>
+                <span class="user-email" id="user-email"></span>
+                <button class="btn btn-danger" onclick="logout()" style="padding: 6px 12px; font-size: 11px;">Logout</button>
+            </div>
+            <button id="login-btn" class="btn btn-primary" onclick="showLoginModal()">Login</button>
         </div>
     </div>
 
-    <div class="container">
+    <!-- Login Modal -->
+    <div id="login-modal" class="login-modal">
+        <div class="login-box">
+            <h2>Editor Login</h2>
+            <div class="login-error" id="login-error"></div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="login-email" placeholder="professormicheal504@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+            <button class="btn btn-primary" onclick="handleLogin()" style="width: 100%; margin-bottom: 12px;">Login</button>
+            <button class="btn btn-secondary" onclick="closeLoginModal()" style="width: 100%;">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Access Denied Modal -->
+    <div id="access-denied" class="access-denied">
+        <div class="access-denied-content">
+            <h2>❌ Access Denied</h2>
+            <p>You are not authorized to access the SQL Editor.</p>
+            <p>Only editors (professormicheal504@gmail.com and prepzone504@gmail.com) can access this tool.</p>
+            <button class="btn btn-secondary" onclick="logout()" style="margin-top: 16px;">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Editor Content -->
+    <div id="main-content" class="main-content">
         <div class="editor-panel">
             <div class="templates">
                 <label for="template-select">📋 Load Template:</label>
@@ -206,12 +375,24 @@
         </div>
 
         <div class="output-panel">
-            <div class="editor-label">Output</div>
+            <div class="editor-label">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Output</span>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn btn-secondary" onclick="clearOutput()" style="padding: 6px 12px; font-size: 11px;">Clear</button>
+                        <button class="btn btn-primary" onclick="runSQL()" style="padding: 6px 12px; font-size: 11px;">▶ Execute</button>
+                    </div>
+                </div>
+            </div>
             <div id="output" class="output"></div>
         </div>
     </div>
+    </div>
 
     <script>
+        const ALLOWED_EDITORS = ['02ca7006-9f4c-4ef7-a80c-7d192591d885', '6ce7ac7a-f3a7-4e6b-8969-eb7347a07abd'];
+        let currentUser = null;
+
         const TEMPLATES = {
             'editor-setup': `-- ============================================================================
 -- EDITOR ACCOUNT SETUP FOR MY EXAM COMPANION
@@ -280,6 +461,137 @@ WHERE role = 'editor'
 ORDER BY created_at DESC;`
         };
 
+        // Initialize on page load
+        window.addEventListener('load', async () => {
+            if (typeof window.MECSupabase === 'undefined') {
+                addOutput('error', 'Error: Supabase not initialized');
+                return;
+            }
+
+            const user = await window.MECSupabase.getCurrentUser();
+            if (user) {
+                currentUser = user;
+                checkEditorAccess();
+            } else {
+                showLoginPrompt();
+            }
+        });
+
+        function checkEditorAccess() {
+            const mainContent = document.getElementById('main-content');
+            const loginBtn = document.getElementById('login-btn');
+            const userInfo = document.getElementById('user-info');
+            const accessDenied = document.getElementById('access-denied');
+
+            if (ALLOWED_EDITORS.includes(currentUser.id)) {
+                // Authorized editor
+                mainContent.classList.add('active');
+                loginBtn.style.display = 'none';
+                userInfo.style.display = 'flex';
+                document.getElementById('user-email').textContent = currentUser.email;
+                accessDenied.classList.remove('active');
+                
+                // Load main content
+                renderEditor();
+            } else {
+                // Not authorized
+                accessDenied.classList.add('active');
+                mainContent.classList.remove('active');
+                loginBtn.style.display = 'none';
+            }
+        }
+
+        function renderEditor() {
+            const content = `
+                <div class="container">
+                    <div class="editor-panel">
+                        <div class="templates">
+                            <label for="template-select">📋 Load Template:</label>
+                            <select id="template-select" onchange="loadTemplate()">
+                                <option value="">-- Select a template --</option>
+                                <option value="editor-setup">Editor Roles Setup</option>
+                                <option value="verify">Verify Roles</option>
+                            </select>
+                        </div>
+                        <div class="editor-label">SQL Query Editor</div>
+                        <textarea id="sql-editor" placeholder="Paste your SQL here or select a template..."></textarea>
+                    </div>
+
+                    <div class="output-panel">
+                        <div class="editor-label">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span>Output</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn btn-secondary" onclick="clearOutput()" style="padding: 6px 12px; font-size: 11px;">Clear</button>
+                                    <button class="btn btn-primary" onclick="runSQL()" style="padding: 6px 12px; font-size: 11px;">▶ Execute</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="output" class="output"></div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('main-content').innerHTML = content;
+            
+            // Load first template by default
+            setTimeout(() => {
+                document.getElementById('template-select').value = 'editor-setup';
+                loadTemplate();
+            }, 100);
+        }
+
+        function showLoginPrompt() {
+            document.getElementById('login-btn').style.display = 'block';
+            document.getElementById('main-content').classList.remove('active');
+            addOutput('info', 'Please login to continue');
+        }
+
+        function showLoginModal() {
+            document.getElementById('login-modal').classList.add('active');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.remove('active');
+            document.getElementById('login-error').classList.remove('active');
+            document.getElementById('login-email').value = '';
+            document.getElementById('login-password').value = '';
+        }
+
+        async function handleLogin() {
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            if (!email || !password) {
+                errorDiv.textContent = 'Please enter email and password';
+                errorDiv.classList.add('active');
+                return;
+            }
+
+            try {
+                const { data, error } = await window.MECSupabase.getSupabase().auth.signInWithPassword({ email, password });
+                
+                if (error) {
+                    errorDiv.textContent = error.message;
+                    errorDiv.classList.add('active');
+                    return;
+                }
+
+                currentUser = data.user;
+                closeLoginModal();
+                checkEditorAccess();
+            } catch (err) {
+                errorDiv.textContent = 'Login failed: ' + err.message;
+                errorDiv.classList.add('active');
+            }
+        }
+
+        async function logout() {
+            await window.MECSupabase.getSupabase().auth.signOut();
+            currentUser = null;
+            location.reload();
+        }
+
         function loadTemplate() {
             const select = document.getElementById('template-select');
             const key = select.value;
@@ -291,6 +603,7 @@ ORDER BY created_at DESC;`
 
         function addOutput(type, message) {
             const output = document.getElementById('output');
+            if (!output) return;
             const div = document.createElement('div');
             div.className = `output-message ${type}`;
             div.textContent = message;
@@ -299,11 +612,14 @@ ORDER BY created_at DESC;`
         }
 
         function clearOutput() {
-            document.getElementById('output').innerHTML = '';
+            const output = document.getElementById('output');
+            if (output) output.innerHTML = '';
         }
 
         function runSQL() {
-            const sql = document.getElementById('sql-editor').value.trim();
+            const editor = document.getElementById('sql-editor');
+            if (!editor) return;
+            const sql = editor.value.trim();
             
             if (!sql) {
                 addOutput('error', 'Error: No SQL to execute');
@@ -327,12 +643,6 @@ ORDER BY created_at DESC;`
                 addOutput('error', 'Could not copy to clipboard. Please copy manually.');
             });
         }
-
-        // Load first template by default
-        window.addEventListener('load', () => {
-            document.getElementById('template-select').value = 'editor-setup';
-            loadTemplate();
-        });
     </script>
 </body>
 </html>
