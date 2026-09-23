@@ -63,7 +63,6 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.8);
-            display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
@@ -99,7 +98,6 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.8);
-            display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
@@ -327,7 +325,8 @@
                 <span class="user-email" id="user-email"></span>
                 <button class="btn btn-danger" onclick="logout()" style="padding: 6px 12px; font-size: 11px;">Logout</button>
             </div>
-            <button id="login-btn" class="btn btn-primary" onclick="showLoginModal()">Login</button>
+            <button id="login-btn" class="btn btn-primary" onclick="showLoginModal()" style="display:none;">Login</button>
+            <span id="auth-loading" style="font-size:12px; color:#858585;">Checking session…</span>
         </div>
     </div>
 
@@ -465,10 +464,13 @@ ORDER BY created_at DESC;`
         window.addEventListener('load', async () => {
             if (typeof window.MECSupabase === 'undefined') {
                 addOutput('error', 'Error: Supabase not initialized');
+                document.getElementById('auth-loading').style.display = 'none';
+                document.getElementById('login-btn').style.display = 'block';
                 return;
             }
 
             const user = await window.MECSupabase.getCurrentUser();
+            document.getElementById('auth-loading').style.display = 'none';
             if (user) {
                 currentUser = user;
                 checkEditorAccess();

@@ -555,11 +555,11 @@
                             <div class="article-thumb">${thumb}</div>
                             <div>
                                 <div class="article-title">${post.title.substring(0, 50)}${post.title.length > 50 ? '...' : ''}</div>
-                                <div class="article-publisher">ID: ${post.id.split('-')[0]}</div>
+                                <div class="article-publisher">ID: ${(post.id || '').split('-')[0]}</div>
                             </div>
                         </div>
                     </td>
-                    <td style="font-family: monospace; font-size: 0.75rem;">${post.publisher_id.split('-')[0]}...</td>
+                    <td style="font-family: monospace; font-size: 0.75rem;">${(post.publisher_id || '').split('-')[0]}...</td>
                     <td>${date}</td>
                     <td><span class="status-badge status-${post.status}">${post.status.toUpperCase()}</span></td>
                     <td>
@@ -831,8 +831,6 @@
                 : 'This will allow the publisher to resubmit an updated version.')
         );
         if (!confirmed) return;
-
-        const sb = window.MECSupabase.getSupabase();
 
         document.getElementById('revertBtn').disabled = true;
         document.getElementById('revertBtn').textContent = 'Reverting…';
