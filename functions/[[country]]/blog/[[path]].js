@@ -573,45 +573,426 @@ async function handleRequest(context) {
   const isKnownCategory  = CATEGORIES.some(c => c.slug === categoryFromPath);
 
   // â”€â”€ Listing & category pages â†’ redirect to categories.html SPA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ── Listing & category pages → serve categories.html content directly ──
-  // This serves the same content as /modules/blog/categories.html but keeps
-  // the /ng/blog URL in the browser address bar (no redirect).
+  // ── Listing & category pages → serve embedded categories.html content ──
+  // This serves the blog listing page content at /ng/blog while preserving the URL
   if (!slugFromPath) {
+    const lang = CC_LANG[cc] || 'en';
+    const pageTitle = `Blog — Study Tips, Exam Updates & Guides | ${SITE_NAME}`;
+    const description = `Practical study tips, exam registration updates, scholarship guides, and ${cc === 'ng' ? 'JAMB/WAEC' : 'exam'} news to help students prepare with confidence.`;
+    const canonicalUrl = `${url.origin}/${cc}/blog`;
+
+    const html = `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+<script>
+  /* Anti-flash: apply saved theme before first paint */
+  (function() {
     try {
-      // Fetch the categories.html content from the static assets
-      const categoriesResponse = await fetch(`${url.origin}/modules/blog/categories.html`);
-      if (!categoriesResponse.ok) {
-        throw new Error(`Categories page fetch failed: ${categoriesResponse.status}`);
-      }
-      
-      let html = await categoriesResponse.text();
-      
-      // Update the canonical URL to match the current /ng/blog path
-      html = html.replace(
-        '<link rel="canonical" href="https://www.myexamcompanion.com/ng/blog">',
-        `<link rel="canonical" href="${url.origin}/${cc}/blog">`
-      );
-      
-      // Update Open Graph URL to match current path
-      html = html.replace(
-        '<meta property="og:url" content="https://www.myexamcompanion.com/ng/blog">',
-        `<meta property="og:url" content="${url.origin}/${cc}/blog">`
-      );
-      
-      // Serve the content with proper headers
-      return new Response(html, {
-        status: 200,
-        headers: {
-          'Content-Type': 'text/html;charset=UTF-8',
-          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=1800',
-          'Vary': 'Accept-Encoding',
-        },
-      });
-    } catch (err) {
-      console.error('Failed to serve categories.html:', err);
-      // Fallback to redirect if serving directly fails
-      return Response.redirect(`${url.origin}/modules/blog/categories.html`, 302);
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(pageTitle)}</title>
+  <meta name="description" content="${esc(description)}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="${canonicalUrl}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${SITE_NAME}">
+  <meta property="og:title" content="${esc(pageTitle)}">
+  <meta property="og:description" content="${esc(description)}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${BASE}/assets/og-blog.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(pageTitle)}">
+  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:site" content="@myexamcompanion">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "${SITE_NAME} Blog",
+    "description": "${esc(description)}",
+    "url": "${canonicalUrl}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "${SITE_NAME}",
+      "logo": { "@type": "ImageObject", "url": "${BASE}/favicon.ico" }
     }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%232563eb'/><text x='50%25' y='50%25' font-family='sans-serif' font-weight='800' font-size='22' fill='white' dominant-baseline='central' text-anchor='middle'>M</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- App Shell -->
+  <link rel="stylesheet" href="/components/topbar.css?v=13">
+  <link rel="stylesheet" href="/components/dark-mode.css">
+  <link rel="stylesheet" href="/components/sidebar.css?v=23">
+  <link rel="stylesheet" href="/components/footer.css">
+
+  <style>
+    /* == Reset ================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; font-size: 14px; -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg-base, #F7F7F7); color: var(--text-primary, #1a1a1a); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul, ol { list-style: none; }
+    button { background: none; border: none; cursor: pointer; font-family: inherit; }
+
+    /* == App Shell =============================================== */
+    .app { display: flex; min-height: 100vh; }
+    .main-wrapper { margin-left: 72px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+    @media (max-width: 600px) { .main-wrapper { margin-left: 0; } }
+
+    /* == Content area =========================================== */
+    .content { flex: 1; background: var(--bg-card, #fff); border-radius: 20px 0 0 0; padding: 32px 40px 80px; }
+    .wrap { max-width: 760px; margin: 0 auto; }
+
+    /* == Page header ============================================ */
+    .page-head { margin-bottom: 22px; }
+    .page-head h1 { font-size: 26px; font-weight: 800; margin: 0 0 6px; color: var(--text-primary); }
+    .page-head p { color: #8b929b; margin: 0; font-size: 14.5px; }
+
+    /* == Topic tabs ============================================= */
+    .topic-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 26px; padding-bottom: 18px;
+      border-bottom: 1px solid var(--border, #ececec);
+    }
+    .topic-tab {
+      font-size: 13.5px; font-weight: 600; padding: 8px 16px; border-radius: 999px;
+      border: 1px solid var(--border, #e5e5e5); background: var(--bg-card, #fff);
+      color: #6b7280; cursor: pointer; transition: all 0.15s;
+    }
+    .topic-tab:hover { border-color: #2563eb; color: #2563eb; }
+    .topic-tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    [data-theme="dark"] .topic-tab.active { background: #f8fafc; color: #0f172a; border-color: #f8fafc; }
+
+    .no-results { display: none; padding: 40px 0; text-align: center; color: #9aa0a6; font-size: 14.5px; }
+    .no-results.show { display: block; }
+
+    /* == Post card ============================================== */
+    .post-card {
+      border: 1px solid var(--border, #ececec); border-radius: 16px; overflow: hidden;
+      margin-bottom: 20px; background: var(--bg-card, #fff);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: block; color: inherit;
+    }
+    .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+    .thumb { height: 190px; position: relative; overflow: hidden; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .post-card:hover .thumb img { transform: scale(1.03); }
+    .thumb .tag {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(255,255,255,0.92); color: #2563eb;
+      font-size: 11.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+    }
+
+    .card-body { padding: 18px 20px 6px; }
+    .card-body h2 { font-size: 18px; margin: 0 0 8px; font-weight: 700; line-height: 1.35; color: var(--text-primary); }
+    .card-body p { margin: 0 0 12px; color: #6b7280; font-size: 14px; line-height: 1.5; }
+    .card-meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #9aa0a6; margin-bottom: 4px; }
+    .avatar-sm { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; }
+
+    /* == Engagement row ========================================= */
+    .eng-row {
+      display: flex; align-items: center; gap: 18px;
+      font-size: 13px; color: #6b7280;
+      padding: 12px 0; border-top: 1px solid var(--border, #f1f1f1); margin-top: 6px;
+    }
+    .eng-item { display: flex; align-items: center; gap: 6px; }
+    .eng-item svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+    .eng-item.like { color: #2563eb; }
+
+    /* == Loading / empty states ================================= */
+    .loading-state { padding: 60px 24px; text-align: center; color: #9aa0a6; font-size: 14.5px; }
+    .skeleton-card {
+      border-radius: 16px; overflow: hidden; margin-bottom: 20px;
+      background: var(--bg-card, #fff); border: 1px solid var(--border, #ececec);
+    }
+    .skel-thumb { height: 190px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+    .skel-body { padding: 18px 20px 20px; }
+    .skel-line { height: 14px; border-radius: 6px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; margin-bottom: 10px; }
+    .skel-line.short { width: 55%; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* == Mobile ================================================= */
+    @media (max-width: 640px) {
+      .content { border-radius: 0; padding: 22px 16px 60px; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="app">
+  <!-- Sidebar web component -->
+  <app-sidebar></app-sidebar>
+
+  <div class="main-wrapper">
+    <!-- Topbar web component -->
+    <app-topbar></app-topbar>
+
+    <main class="content" id="main-content">
+      <div class="wrap">
+
+        <div class="page-head">
+          <h1>Blog</h1>
+          <p>Study tips, exam updates, and guides — picked for you.</p>
+        </div>
+
+        <!-- Topic filter tabs -->
+        <nav class="topic-tabs" aria-label="Filter posts by topic" role="tablist" id="topicTabsNav">
+          <button class="topic-tab active" data-topic="all" role="tab" aria-selected="true">All</button>
+          <button class="topic-tab" data-topic="Study Tips" role="tab" aria-selected="false">Study Tips</button>
+          <button class="topic-tab" data-topic="Exam Updates" role="tab" aria-selected="false">Exam Updates</button>
+          <button class="topic-tab" data-topic="Guides" role="tab" aria-selected="false">Guides</button>
+          <button class="topic-tab" data-topic="Scholarships" role="tab" aria-selected="false">Scholarships</button>
+          <button class="topic-tab" data-topic="School News" role="tab" aria-selected="false">School News</button>
+        </nav>
+
+        <!-- Dynamic article list -->
+        <section aria-label="Blog posts" id="postList">
+          <!-- Skeleton placeholders while loading -->
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
+        </section>
+
+        <p class="no-results" id="noResults" role="status">No posts in this topic yet — check back soon.</p>
+
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </div><!-- /main-wrapper -->
+</div><!-- /app -->
+
+<!-- Scripts -->
+<script src="/components/nav.js" defer></script>
+<script src="/components/topbar.js?v=4" defer></script>
+<script src="/components/sidebar.js?v=20" defer></script>
+<script src="/components/footer.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="/components/supabase.js"></script>
+
+<script>
+  let allPosts = [];
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function timeAgo(dateStr) {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 60)  return mins + 'm ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24)   return hrs + 'h ago';
+    const days = Math.floor(hrs / 24);
+    if (days < 7)   return days + 'd ago';
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
+  function getReadTime(post) {
+    const src = (post.rendered_html || (post.description || '') + ' ' + (post.intro || ''));
+    const words = src.replace(/<[^>]+>/g, ' ').split(/\\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 200)) + ' min read';
+  }
+
+  function getCategoryLabel(slug) {
+    const map = {
+      'study-tips':   'Study Tips',
+      'exam-updates': 'Exam Updates',
+      'guide':        'Guide',
+      'scholarships': 'Scholarships',
+      'school-news':  'School News',
+    };
+    return map[slug] || (slug ? slug.replace(/-/g, ' ').replace(/\\b\\w/g, c => c.toUpperCase()) : 'Article');
+  }
+
+  // ── Build clean article URL ───────────────────────────────────────────────
+  function articleHref(post) {
+    const cc       = '${cc}';
+    const catSlug  = post.category || 'guide';
+    const artSlug  = post.slug || post.id;
+    return \`/\${cc}/blog/\${catSlug}/\${artSlug}\`;
+  }
+
+  // ── Render post cards ─────────────────────────────────────────────────────
+  function renderPosts(posts) {
+    const list      = document.getElementById('postList');
+    const noResults = document.getElementById('noResults');
+
+    if (!posts || posts.length === 0) {
+      list.innerHTML = '';
+      noResults.classList.add('show');
+      return;
+    }
+    noResults.classList.remove('show');
+
+    list.innerHTML = posts.map(post => {
+      const catLabel = getCategoryLabel(post.category);
+      const date     = timeAgo(post.created_at);
+      const href     = articleHref(post);
+      const desc     = post.description || post.intro || '';
+      const authorName   = post.publisher_name || 'MEC Staff';
+      const authorAvatar = post.avatar_url || '';
+
+      const imgSrc = post.cloudflare_url;
+      const img = imgSrc
+        ? \`<img src="\${imgSrc}" alt="\${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy">\`
+        : \`<div style="width:100%;height:100%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aaa;">No image</div>\`;
+
+      return \`
+        <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
+          <a href="\${href}" aria-label="\${(post.title || '').replace(/"/g, '&quot;')}">
+            <div class="thumb">
+              \${img}
+              <span class="tag">\${catLabel}</span>
+            </div>
+            <div class="card-body">
+              <h2 itemprop="headline">\${post.title || 'Untitled'}</h2>
+              \${desc ? \`<p itemprop="description">\${desc.substring(0, 140)}\${desc.length > 140 ? '…' : ''}</p>\` : ''}
+              <div class="card-meta">
+                \${authorAvatar ? \`<img class="avatar-sm" src="\${authorAvatar}" alt="\${authorName}" loading="lazy">\` : ''}
+                <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span itemprop="name">\${authorName}</span>
+                </span>
+                <span>&middot;</span>
+                <time itemprop="datePublished" datetime="\${post.created_at || ''}">\${date}</time>
+                <span>&middot;</span>
+                <span>\${getReadTime(post)}</span>
+              </div>
+              <div class="eng-row" role="group" aria-label="Post stats">
+                <div class="eng-item like">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>
+                  \${post.likes_count || 0}
+                </div>
+                <div class="eng-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  \${post.comments_count || 0}
+                </div>
+                <div class="eng-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                  \${post.shares_count || 0}
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>\`;
+    }).join('');
+  }
+
+  // ── Boot ──────────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', async () => {
+    const list = document.getElementById('postList');
+
+    if (typeof window.MECSupabase === 'undefined') {
+      list.innerHTML = '<p class="loading-state">Unable to load posts right now. Please try again later.</p>';
+      return;
+    }
+
+    const sb = window.MECSupabase.getSupabase();
+
+    const { data: posts, error } = await sb
+      .from('publisher_posts')
+      .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    if (error) {
+      console.error('Blog fetch error:', error);
+      list.innerHTML = '<p class="loading-state">Failed to load posts. Please refresh.</p>';
+      return;
+    }
+
+    let enriched = posts || [];
+    if (enriched.length > 0) {
+      const pubIds = [...new Set(enriched.map(p => p.publisher_id).filter(Boolean))];
+      if (pubIds.length) {
+        try {
+          const { data: pubs } = await sb
+            .from('publishers')
+            .select('user_id, publisher_name');
+          const { data: profiles } = await sb
+            .from('profiles')
+            .select('id, avatar_url');
+          const pubMap  = {};
+          const avatarMap = {};
+          (pubs     || []).forEach(p => { pubMap[p.user_id]   = p.publisher_name; });
+          (profiles || []).forEach(p => { avatarMap[p.id]      = p.avatar_url;     });
+          enriched = enriched.map(p => ({
+            ...p,
+            publisher_name: pubMap[p.publisher_id]   || 'MEC Staff',
+            avatar_url:     avatarMap[p.publisher_id] || '',
+          }));
+        } catch (_) {}
+      }
+    }
+
+    allPosts = enriched;
+
+    if (allPosts.length === 0) {
+      list.innerHTML = '';
+      document.getElementById('noResults').classList.add('show');
+      return;
+    }
+
+    renderPosts(allPosts);
+
+    // ── Category tab filtering ────────────────────────────────────────────
+    const TAB_TO_SLUG = {
+      'all':          'all',
+      'Study Tips':   'study-tips',
+      'Exam Updates': 'exam-updates',
+      'Guides':       'guide',
+      'Scholarships': 'scholarships',
+      'School News':  'school-news',
+    };
+
+    document.querySelectorAll('.topic-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.topic-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const topic    = tab.dataset.topic;
+        const catSlug  = TAB_TO_SLUG[topic] || topic.toLowerCase().replace(/\\s+/g, '-');
+        const filtered = catSlug === 'all'
+          ? allPosts
+          : allPosts.filter(p => (p.category || '') === catSlug);
+        renderPosts(filtered);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>`;
+
+    return new Response(html, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/html;charset=UTF-8',
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=1800',
+        'Vary': 'Accept-Encoding',
+      },
+    });
   }
 
   // â”€â”€ Single article â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
