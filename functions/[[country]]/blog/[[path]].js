@@ -149,8 +149,8 @@ function buildListingHtml({ cc, category, posts, page, totalPages }) {
     ],
   });
 
-  // Pick the first post thumbnail as the OG image — exclude base64 data URIs
-  const ogImage = (posts.find(p => p.thumbnail_url && !p.thumbnail_url.startsWith('data:')) || {}).thumbnail_url || LOGO_URL;
+  // Pick the first post cloudflare_url as the OG image
+  const ogImage = (posts.find(p => p.cloudflare_url) || {}).cloudflare_url || LOGO_URL;
 
   const navTabs = CATEGORIES.map(c => {
     const active = c.slug === category;
@@ -161,8 +161,8 @@ function buildListingHtml({ cc, category, posts, page, totalPages }) {
   const cards = posts.map(p => {
     const catSlug = normaliseCategorySlug(p.category);
     const href    = `/${cc}/blog/${catSlug}/${p.slug}`;
-    const thumb   = p.thumbnail_url && !p.thumbnail_url.startsWith('data:')
-      ? `<img src="${esc(p.thumbnail_url)}" alt="${esc(p.title)}" loading="lazy" width="400" height="225">`
+    const thumb   = p.cloudflare_url
+      ? `<img src="${esc(p.cloudflare_url)}" alt="${esc(p.title)}" loading="lazy" width="400" height="225">`
       : '<div class="card-thumb-placeholder" aria-hidden="true"></div>';
     const date = p.created_at
       ? new Date(p.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
@@ -296,8 +296,7 @@ function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvat
   const desc       = post.description || (post.intro ? stripHtml(post.intro).substring(0, 160) : '');
 
   // Only use real image URLs — never base64 (can be megabytes, crashes the Worker)
-  const thumbUrl = (post.thumbnail_url && !post.thumbnail_url.startsWith('data:'))
-    ? post.thumbnail_url : null;
+  const thumbUrl = post.cloudflare_url || null;
 
   // Build article body from lightweight fields — rendered_html is NOT fetched
   // in the list query to avoid hitting Worker memory limits.
@@ -577,7 +576,7 @@ async function handleRequest(context) {
 
       if (isUuid) {
         const rows = await supabaseFetch(env, 'publisher_posts',
-          `select=id,title,slug,description,intro,category,tags,thumbnail_url,publisher_id,created_at,updated_at&id=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
+          `select=id,title,slug,description,intro,category,tags,cloudflare_url,publisher_id,created_at,updated_at&id=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
         );
         post = rows[0] || null;
         if (post && post.slug && post.slug !== slugFromPath) {
@@ -589,12 +588,12 @@ async function handleRequest(context) {
         }
       } else {
         const rows = await supabaseFetch(env, 'publisher_posts',
-          `select=id,title,slug,description,intro,category,tags,thumbnail_url,publisher_id,created_at,updated_at&slug=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
+          `select=id,title,slug,description,intro,category,tags,cloudflare_url,publisher_id,created_at,updated_at&slug=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
         );
         post = rows[0] || null;
         if (!post) {
           const fallback = await supabaseFetch(env, 'publisher_posts',
-            `select=id,title,slug,description,intro,category,tags,thumbnail_url,publisher_id,created_at,updated_at&id=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
+            `select=id,title,slug,description,intro,category,tags,cloudflare_url,publisher_id,created_at,updated_at&id=eq.${encodeURIComponent(slugFromPath)}&status=eq.approved&limit=1`
           );
           post = fallback[0] || null;
         }
@@ -668,7 +667,7 @@ async function handleRequest(context) {
     totalCount = parseInt(cr.split('/')[1] || '0', 10);
 
     posts = await supabaseFetch(env, 'publisher_posts',
-      `select=id,title,slug,description,category,thumbnail_url,tags,created_at,publisher_id${catFilter}&status=eq.approved&order=created_at.desc&limit=${pageSize}&offset=${offset}`
+      `select=id,title,slug,description,category,cloudflare_url,tags,created_at,publisher_id${catFilter}&status=eq.approved&order=created_at.desc&limit=${pageSize}&offset=${offset}`
     );
 
     const pubIds = [...new Set(posts.map(p => p.publisher_id).filter(Boolean))];
