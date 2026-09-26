@@ -1,0 +1,387 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publisher Hub - Link Account</title><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>:root {
+            --bg-color: #ffffff;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-muted: #9ca3af;
+            --primary-blue: #3b82f6; 
+            --border-color: #e5e7eb;
+            --bg-card: #ffffff;
+            --bg-base: #f9fafb;
+            --opay-green: #1cc698;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        /* Responsive Card Wrapper */
+        .main-card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        @media (min-width: 640px) {
+            .main-card {
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                overflow: hidden;
+                flex: none;
+                min-height: auto;
+            }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 0;
+        }
+        
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            padding: 24px;
+            padding-top: 16px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 4px;
+            background-color: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 100%; /* Step 3 of 3 */
+            height: 100%;
+            background-color: var(--primary-blue);
+        }
+
+        /* Header Texts */
+        .header-content {
+            padding: 0 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: #111827;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Form Area */
+        .form-container {
+            padding: 0 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 4px;
+            margin-top: 16px;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: var(--bg-card);
+            padding: 0 6px;
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+            z-index: 10;
+        }
+
+        .input-control {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px 14px;
+            font-size: 16px;
+            color: #111;
+            outline: none;
+            transition: border-color 0.2s ease;
+            background-color: transparent;
+        }
+        
+        .input-control::placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .input-control:focus {
+            border-color: var(--primary-blue);
+            border-width: 1px;
+        }
+
+        .input-group:focus-within label {
+            color: var(--primary-blue);
+        }
+
+        .hint-text {
+            font-size: 13px;
+            color: #b0b4bd;
+            margin-bottom: 24px;
+            padding: 0 4px;
+            display: block;
+        }
+
+        /* Register Payment Button */
+        .register-opay-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: 1px solid var(--opay-green);
+            background-color: white;
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .register-opay-btn:hover {
+            background-color: #f0fdf9;
+        }
+        
+        .register-opay-btn:active {
+            transform: scale(0.99);
+        }
+
+        .register-opay-btn span {
+            color: var(--opay-green);
+            font-size: 16px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Footer Controls */
+        .footer-controls {
+            padding: 24px;
+            margin-top: auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-back {
+            flex: 1;
+            background-color: #fafafa;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-back:hover {
+            background-color: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .btn-confirm {
+            flex: 1;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-confirm:hover {
+            background-color: #2563eb;
+        }
+        
+        .btn-confirm:active {
+            transform: scale(0.99);
+        }</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script><script>window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');</script></head><body><div class="main-card"><div class="top-bar"><button class="back-btn" onclick="window.location.href='/ng/publisher/identity'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button></div><div class="progress-container"><div class="progress-track"><div class="progress-fill"></div></div></div><div class="header-content"><h1 id="pageTitle">Link an Opay account</h1><p class="subtitle">Make sure you always get paid on time</p></div><div class="form-container"><div class="input-group" id="accountGroup"><label id="accountLabel">Opay Account (optional)</label> <input id="accountInput" class="input-control" placeholder="Enter Opay account number"></div><span class="hint-text" id="accountHint">Please make sure you add a valid Opay account to get paid.</span><div id="accountError" style="display:none; color: #e52828; font-size: 13px; margin-top: -16px; margin-bottom: 16px;"></div><button class="register-opay-btn" id="registerBtn" onclick="window.open('https://www.opayweb.com/', '_blank')"><img src="../../../assets/publisher_program/opay.webp" alt="Opay Logo" id="paymentLogo" style="height: 44px; width: auto; max-width: 100%; object-fit: contain;"> <span id="paymentBtnText" style="display: none;">Register</span></button><div class="input-group active-simulated"><label>Referral code (optional)</label> <input id="referralInput" class="input-control" placeholder="Enter referral code"></div><span class="hint-text">We will reward your inviter once you successfully publish an article.</span></div><div class="footer-controls"><button class="btn-back" onclick="window.location.href='/ng/publisher/identity'">Back</button> <button class="btn-confirm" onclick="confirmAccount()">Confirm</button></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="../../../components/supabase.js"></script><script>async function confirmAccount() {
+        const accountInput = document.getElementById('accountInput');
+        const accountGroup = document.getElementById('accountGroup');
+        const accountError = document.getElementById('accountError');
+        const confirmBtn = document.querySelector('.btn-confirm');
+        
+        if (!accountInput || !accountInput.value.trim()) {
+            if(accountGroup) accountGroup.classList.add('error');
+            if(accountError) {
+                accountError.style.display = 'block';
+                accountError.textContent = 'Account number cannot be empty';
+            }
+            if(accountGroup) {
+                accountGroup.style.animation = 'shake 0.4s ease-in-out';
+                setTimeout(() => { accountGroup.style.animation = ''; }, 400);
+            }
+            return;
+        }
+        
+        if(accountGroup) accountGroup.classList.remove('error');
+        if(accountError) accountError.style.display = 'none';
+
+        if (confirmBtn) {
+            confirmBtn.disabled = true;
+            confirmBtn.textContent = 'Submitting...';
+        }
+
+        try {
+            const user = await window.MECSupabase.getCurrentUser();
+            if (!user) {
+                alert('You must be logged in to apply as a publisher.');
+                if (confirmBtn) { confirmBtn.disabled = false; confirmBtn.textContent = 'Confirm'; }
+                return;
+            }
+
+            const sb = window.MECSupabase.getSupabase();
+            const publisherData = {
+                user_id: user.id,
+                publisher_name: localStorage.getItem('pub_draft_name') || user.user_metadata?.full_name || 'Publisher',
+                category: localStorage.getItem('pub_draft_cat') || null,
+                bio: localStorage.getItem('pub_draft_desc') || null,
+                first_name: localStorage.getItem('pub_draft_fname') || null,
+                last_name: localStorage.getItem('pub_draft_lname') || null,
+                country: localStorage.getItem('pub_draft_country') || null,
+                phone_prefix: localStorage.getItem('pub_draft_phonePrefix') || null,
+                phone: localStorage.getItem('pub_draft_phone') || null,
+                payment_account: accountInput.value.trim(),
+                referral_code: document.getElementById('referralInput') ? document.getElementById('referralInput').value.trim() : null,
+                status: 'reviewing'
+            };
+
+            const { data, error } = await sb.from('publishers').insert(publisherData);
+
+            if (error) {
+                console.error('Publisher insert error:', error);
+                alert(`Database Error: ${error.message}\nDetails: ${error.details || 'None'}`);
+                if (confirmBtn) { confirmBtn.disabled = false; confirmBtn.textContent = 'Confirm'; }
+                return;
+            }
+
+            // Success — clear all localStorage drafts
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('pub_draft_')) {
+                    keysToRemove.push(key);
+                }
+            }
+            keysToRemove.forEach(k => localStorage.removeItem(k));
+
+            window.location.href = '/ng/publisher/dashboard';
+        } catch (err) {
+            console.error('Publisher submit exception:', err);
+            alert('Something went wrong. Please try again.');
+            if (confirmBtn) { confirmBtn.disabled = false; confirmBtn.textContent = 'Confirm'; }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const country = localStorage.getItem('pub_draft_country');
+        
+        const pageTitle = document.getElementById('pageTitle');
+        const accountLabel = document.getElementById('accountLabel');
+        const accountInput = document.getElementById('accountInput');
+        const accountHint = document.getElementById('accountHint');
+        const registerBtn = document.getElementById('registerBtn');
+        const paymentLogo = document.getElementById('paymentLogo');
+        const paymentBtnText = document.getElementById('paymentBtnText');
+        const referralInput = document.getElementById('referralInput');
+
+        if (country === 'NG' || !country) {
+            // Setup for Nigeria (Opay)
+            if(pageTitle) pageTitle.textContent = 'Link an Opay account';
+            if(accountLabel) accountLabel.textContent = 'Opay Account Number';
+            if(accountInput) accountInput.placeholder = 'Enter Opay account number';
+            if(accountHint) accountHint.textContent = 'Please make sure you add a valid Opay account to get paid.';
+            if(paymentLogo) paymentLogo.style.display = 'block';
+            if(paymentBtnText) paymentBtnText.style.display = 'none';
+            if(registerBtn) {
+                registerBtn.style.borderColor = 'var(--opay-green)';
+                registerBtn.onclick = () => window.open('https://www.opayweb.com/', '_blank');
+            }
+        } else {
+            // Setup for Other Countries (Payoneer)
+            if(pageTitle) pageTitle.textContent = 'Link a Payoneer account';
+            if(accountLabel) accountLabel.textContent = 'Payoneer Email/Account';
+            if(accountInput) accountInput.placeholder = 'Enter Payoneer email address';
+            if(accountHint) accountHint.textContent = 'Please make sure you add a valid Payoneer account to get paid internationally.';
+            if(paymentLogo) paymentLogo.style.display = 'none';
+            if(paymentBtnText) paymentBtnText.style.display = 'block';
+            if(registerBtn) {
+                registerBtn.style.borderColor = 'var(--primary-blue)';
+                registerBtn.onclick = () => window.open('https://www.payoneer.com/', '_blank');
+            }
+        }
+
+        // Auto-save logic
+        if (accountInput && localStorage.getItem('pub_draft_account')) accountInput.value = localStorage.getItem('pub_draft_account');
+        if (referralInput && localStorage.getItem('pub_draft_referral')) referralInput.value = localStorage.getItem('pub_draft_referral');
+
+        if(accountInput) {
+            accountInput.addEventListener('input', () => {
+                localStorage.setItem('pub_draft_account', accountInput.value);
+                // Clear error when user starts typing
+                const accountGroup = document.getElementById('accountGroup');
+                const accountError = document.getElementById('accountError');
+                if (accountInput.value.trim()) {
+                    if(accountGroup) accountGroup.classList.remove('error');
+                    if(accountError) accountError.style.display = 'none';
+                }
+            });
+        }
+        if(referralInput) {
+            referralInput.addEventListener('input', () => localStorage.setItem('pub_draft_referral', referralInput.value));
+        }
+    });</script></body></html>

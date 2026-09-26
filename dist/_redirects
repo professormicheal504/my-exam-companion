@@ -1,0 +1,231 @@
+# -- R2 Proxy --
+/r2/* https://pub-d048d28d4cd54d579def4bf758d5a298.r2.dev/:splat 200
+
+# -- Country Entry Points (single file, country read from URL slug) --
+/     /modules/ 200
+/ng   /modules/ 200
+/ng/  /modules/ 200
+/gh   /modules/ 200
+/gh/  /modules/ 200
+/us   /modules/ 200
+/us/  /modules/ 200
+
+# -- Study (Exact matches & Wildcards) --
+/ng/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
+/ng/study/classroom        /modules/study/classroom/classroom_subject 200
+/ng/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/ng/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/ng/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+/ng/study/novel            /modules/study/novel/novel 200
+/ng/study/syllabus         /modules/study/syllabus/syllabus 200
+/ng/study/brochure         /modules/study/brochure/brochure 200
+/ng/study/videos           /modules/study/topic_video/topic_video 200
+/ng/study/scholarships     /modules/study/scholarship/list_of_scholarship 200
+
+# -- Legacy old URL format redirects (study/country/exam/subject) --
+/study/nigeria/jamb/*      /ng/test/:splat 301
+/study/nigeria/waec/*      /ng/test/:splat 301
+/study/nigeria/neco/*      /ng/test/:splat 301
+/study/ghana/waec/*        /gh/test/:splat 301
+/study/usa/sat/*           /us/test/:splat 301
+
+/gh/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
+/gh/study/classroom        /modules/study/classroom/classroom_subject 200
+/gh/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/gh/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/gh/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+/gh/study/videos           /modules/study/topic_video/topic_video 200
+
+/us/study/classroom/:exam/:subject/discussion/*  /modules/study/classroom/classroom_discussion 200
+/us/study/classroom        /modules/study/classroom/classroom_subject 200
+/us/study/classroom/*      /modules/study/classroom/classroom_questions 200
+/us/study/past-questions   /modules/study/study_past_questions/study_subject 200
+/us/study/past-questions/* /modules/study/study_past_questions/study_explanation 200
+
+# -- Test / CBT (Exact matches & Wildcards) --
+/ng/test                   /modules/cbt_test/core/setup 200
+/ng/test/result            /modules/cbt_test/core/result 200
+/ng/test/analysis          /modules/cbt_test/core/deep_analysis 200
+/ng/test/jamb-mock         /modules/cbt_test/jamb_mock_exam/mock_date_and_point 200
+/ng/test/live-arena        /modules/cbt_test/live_quiz_arena/exam_body 200
+/ng/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/ng/test/secondary         /modules/cbt_test/secondary_school/all_classes 200
+/ng/test/post-utme         /modules/cbt_test/core/university_exam_post_utme 200
+/ng/test/university        /modules/cbt_test/university_exam/university_exam 200
+/ng/test/instruction       /modules/cbt_test/core/instruction 200
+/ng/test/premium           /modules/cbt_test/core/setup_premium 200
+/ng/test/*                 /modules/cbt_test/core/cbt_player 200
+
+/gh/test                   /modules/cbt_test/core/setup 200
+/gh/test/premium           /modules/cbt_test/core/setup_premium 200
+/gh/test/result            /modules/cbt_test/core/result 200
+/gh/test/instruction       /modules/cbt_test/core/instruction 200
+/gh/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/gh/test/*                 /modules/cbt_test/core/cbt_player 200
+
+/us/test                   /modules/cbt_test/core/setup 200
+/us/test/premium           /modules/cbt_test/core/setup_premium 200
+/us/test/result            /modules/cbt_test/core/result 200
+/us/test/instruction       /modules/cbt_test/core/instruction 200
+/us/test/live-arena/instruction /modules/cbt_test/live_quiz_arena/instruction 200
+/us/test/*                 /modules/cbt_test/core/cbt_player 200
+
+# -- Blog — served by Edge SSR function (functions/[[country]]/blog/[[path]].js)
+# The Pages Function intercepts these routes before the static fallback fires.
+# No static redirect needed; entries below exist only so Cloudflare Pages
+# doesn't return a 404 before the function runs.
+/ng/blog                   /ng/blog/ 200
+/ng/blog/*                 /ng/blog/:splat 200
+/gh/blog                   /gh/blog/ 200
+/gh/blog/*                 /gh/blog/:splat 200
+/us/blog                   /us/blog/ 200
+/us/blog/*                 /us/blog/:splat 200
+
+# -- Utility (country-scoped) --
+/ng/rank       /modules/rank/rank 200
+/ng/earnings   /modules/earnings/earnings 200
+/ng/task       /modules/task/task 200
+/ng/referral   /modules/referrals/referrals 200
+/ng/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/ng/pricing    /modules/pricing/pricing 200
+/ng/chat       /modules/chat/admin_list 200
+/ng/history    /modules/history/history 200
+
+/gh/rank       /modules/rank/rank 200
+/gh/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/gh/pricing    /modules/pricing/pricing 200
+
+/us/rank       /modules/rank/rank 200
+/us/ai-tutor   /modules/cbt_test/core/ai_plan 200
+/us/pricing    /modules/pricing/pricing 200
+
+# -- Wallet / Top-Up (global, no country prefix) --
+/top-up            /modules/top_up/wallet_dashboard 200
+/top-up/add        /modules/top_up/amount_entry 200
+/top-up/checkout   /modules/top_up/paystack_inline_checkout 200
+
+# -- Auth (global) --
+/login       /modules/auth/login 200
+/signup      /modules/auth/sign_up 200
+/verify      /modules/auth/otp 200
+/onboarding  /modules/auth/fill_form 200
+
+# -- Editor Program --
+/editor        /modules/editor_program/dashboard 200
+/editor/       /modules/editor_program/dashboard 200
+
+# -- Publisher Program (country-scoped) --
+/ng/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/ng/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/ng/publisher/bio                  /modules/publisher_program/profile/bio 200
+/ng/publisher/identity             /modules/publisher_program/profile/identity 200
+/ng/publisher/account              /modules/publisher_program/profile/account 200
+/ng/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/ng/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/ng/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+/gh/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/gh/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/gh/publisher/bio                  /modules/publisher_program/profile/bio 200
+/gh/publisher/identity             /modules/publisher_program/profile/identity 200
+/gh/publisher/account              /modules/publisher_program/profile/account 200
+/gh/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/gh/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/gh/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+/us/publisher/onboarding           /modules/publisher_program/onboarding/onboarding_screen 200
+/us/publisher/dashboard            /modules/publisher_program/dashboard/dashboard 200
+/us/publisher/bio                  /modules/publisher_program/profile/bio 200
+/us/publisher/identity             /modules/publisher_program/profile/identity 200
+/us/publisher/account              /modules/publisher_program/profile/account 200
+/us/publisher/create-post          /modules/publisher_program/dashboard/article/create_post 200
+/us/publisher/post-review          /modules/publisher_program/dashboard/article/post_review 200
+/us/publisher/preview              /modules/publisher_program/dashboard/article/preview 200
+
+# -- Backward compatibility for old publisher URLs --
+/ng/profile/bio.html               /ng/publisher/bio 301
+/ng/profile/bio                    /ng/publisher/bio 301
+/ng/profile/identity.html          /ng/publisher/identity 301
+/ng/profile/identity               /ng/publisher/identity 301
+/ng/profile/account.html           /ng/publisher/account 301
+/ng/profile/account                /ng/publisher/account 301
+
+/ng/dashboard/dashboard.html       /ng/publisher/dashboard 301
+/ng/dashboard/dashboard            /ng/publisher/dashboard 301
+
+/ng/publisher/article/create_post.html  /ng/publisher/create-post 301
+/ng/publisher/article/post_review.html  /ng/publisher/post-review 301
+/ng/publisher/article/preview.html      /ng/publisher/preview 301
+
+/gh/profile/bio.html               /gh/publisher/bio 301
+/gh/profile/bio                    /gh/publisher/bio 301
+/gh/profile/identity.html          /gh/publisher/identity 301
+/gh/profile/identity               /gh/publisher/identity 301
+/gh/profile/account.html           /gh/publisher/account 301
+/gh/profile/account                /gh/publisher/account 301
+
+/gh/dashboard/dashboard.html       /gh/publisher/dashboard 301
+/gh/dashboard/dashboard            /gh/publisher/dashboard 301
+
+/gh/publisher/article/create_post.html  /gh/publisher/create-post 301
+/gh/publisher/article/post_review.html  /gh/publisher/post-review 301
+/gh/publisher/article/preview.html      /gh/publisher/preview 301
+
+/us/profile/bio.html               /us/publisher/bio 301
+/us/profile/bio                    /us/publisher/bio 301
+/us/profile/identity.html          /us/publisher/identity 301
+/us/profile/identity               /us/publisher/identity 301
+/us/profile/account.html           /us/publisher/account 301
+/us/profile/account                /us/publisher/account 301
+
+/us/dashboard/dashboard.html       /us/publisher/dashboard 301
+/us/dashboard/dashboard            /us/publisher/dashboard 301
+
+/us/publisher/article/create_post.html  /us/publisher/create-post 301
+/us/publisher/article/post_review.html  /us/publisher/post-review 301
+/us/publisher/article/preview.html      /us/publisher/preview 301
+
+# -- Legacy 301 Redirects (SEO & backward compatibility) --
+/pricing                    /ng/pricing 301
+/wallet-dashboard           /top-up 301
+/amount-entry               /top-up/add 301
+/paystack-inline-checkout   /top-up/checkout 301
+
+# Map old module paths to clean paths (fallback via 301)
+/modules/pricing            /ng/pricing 301
+/modules/auth/login.html    /login 301
+/modules/auth/sign_up.html  /signup 301
+/modules/auth/otp.html      /verify 301
+/modules/auth/fill_form.html /onboarding 301
+
+# NOTE: The /modules/* catch-all redirect was removed.
+# It was causing a redirect loop: /ng/ → /modules/index.html → /ng/index.html (404)
+# All /modules/* paths are now served as static files directly.
+
+# -- Landing Pages (country/landing/exam-body) --
+/ng/landing/jamb                    /modules/landing/nigeria-jamb 200
+/ng/landing/waec                    /modules/landing/nigeria-waec 200
+/ng/landing/neco                    /modules/landing/nigeria-neco 200
+/ng/landing/uniben-post-utme        /modules/landing/nigeria-uniben-post-utme 200
+/ng/landing/southern-delta-university /modules/landing/nigeria-southern-delta-university 200
+/gh/landing/waec                    /modules/landing/ghana-waec 200
+/us/landing/sat                     /modules/landing/usa-sat 200
+
+# -- Footer Pages (country-scoped) --
+/ng/about-us         /modules/footer/about_us 200
+/ng/contact-us       /modules/footer/contact_us 200
+/ng/privacy-policy   /modules/footer/privacy_policy 200
+/ng/terms-of-service /modules/footer/terms_of_service 200
+/ng/disclaimer       /modules/footer/disclaimer 200
+
+/gh/about-us         /modules/footer/about_us 200
+/gh/contact-us       /modules/footer/contact_us 200
+/gh/privacy-policy   /modules/footer/privacy_policy 200
+/gh/terms-of-service /modules/footer/terms_of_service 200
+/gh/disclaimer       /modules/footer/disclaimer 200
+
+/us/about-us         /modules/footer/about_us 200
+/us/contact-us       /modules/footer/contact_us 200
+/us/privacy-policy   /modules/footer/privacy_policy 200
+/us/terms-of-service /modules/footer/terms_of_service 200
+/us/disclaimer       /modules/footer/disclaimer 200

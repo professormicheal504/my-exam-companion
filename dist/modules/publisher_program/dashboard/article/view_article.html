@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>View Article - Publisher Program</title><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script type="module" src="/components/supabase.js"></script><style>:root {
+            --bg-color: #f5f7fa;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-blue: #2563eb;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .back-link .material-icons { margin-right: 4px; font-size: 20px; }
+        
+        #article-content img { max-width: 100%; height: auto; border-radius: 8px; }
+        #article-content h1 { font-size: 2.5em; margin-bottom: 0.5em; }
+        #article-content .meta { color: var(--text-secondary); margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #eee; }
+        
+        .loading { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 1.2em; }
+        .error { background: #fee2e2; color: #b91c1c; padding: 20px; border-radius: 8px; margin-bottom: 20px; }</style></head><body><div class="container"><a href="javascript:history.back()" class="back-link"><span class="material-icons">arrow_back</span> Back</a><div id="loading" class="loading"><p>Loading article...</p></div><div id="error" class="error" style="display: none;"></div><div id="article-content" style="display: none;"><h1 id="title"></h1><div class="meta" id="meta"></div><div id="body-html"></div></div></div><script>document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            const articleSlug = urlParams.get('slug');
+            
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const contentEl = document.getElementById('article-content');
+            
+            // Allow checking UUIDs passed via standard path pattern in publisher dashboards
+            const pathParts = window.location.pathname.split('/');
+            const potentialId = pathParts[pathParts.length - 1];
+            const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(potentialId);
+            
+            const targetId = articleId || (isUuid ? potentialId : null);
+            
+            if (!targetId && !articleSlug) {
+                showError("No article ID or slug provided in URL.");
+                return;
+            }
+
+            // Wait for Supabase to initialize
+            let retries = 0;
+            while (typeof window.MECSupabase === 'undefined' && retries < 10) {
+                await new Promise(r => setTimeout(r, 200));
+                retries++;
+            }
+            
+            if (typeof window.MECSupabase === 'undefined') {
+                showError("Database connection failed to initialize.");
+                return;
+            }
+
+            const sb = window.MECSupabase.getSupabase();
+            
+            try {
+                let query = sb.from('publisher_posts').select('*');
+                
+                if (targetId) {
+                    query = query.eq('id', targetId);
+                } else if (articleSlug) {
+                    query = query.eq('slug', articleSlug);
+                }
+                
+                const { data, error } = await query.single();
+                
+                if (error || !data) {
+                    throw new Error(error ? error.message : "Article not found");
+                }
+                
+                // If it has a Cloudflare URL, fetch and render directly to bypass 1101s entirely for preview
+                if (data.cloudflare_url) {
+                    try {
+                        const r2Res = await fetch(data.cloudflare_url);
+                        if (r2Res.ok) {
+                            const html = await r2Res.text();
+                            document.write(html);
+                            document.close();
+                            return;
+                        }
+                    } catch (e) {
+                        console.warn("Failed to load from R2, falling back to raw data", e);
+                    }
+                }
+                
+                // Fallback: render raw data
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
+                
+                document.getElementById('title').textContent = data.title || 'Untitled Article';
+                
+                let metaHtml = `Status: <strong style="text-transform: capitalize;">${data.status}</strong>`;
+                if (data.category) metaHtml += ` | Category: ${data.category}`;
+                if (data.created_at) metaHtml += ` | Created: ${new Date(data.created_at).toLocaleDateString()}`;
+                document.getElementById('meta').innerHTML = metaHtml;
+                
+                let rawHtml = "";
+                if (data.status === 'draft' && data.draft_content) {
+                    rawHtml = data.draft_content.content || "";
+                } else {
+                    rawHtml = data.intro || data.content || "<p>No content available.</p>";
+                }
+                
+                document.getElementById('body-html').innerHTML = rawHtml;
+                
+            } catch (err) {
+                showError("Failed to load article: " + err.message);
+            }
+            
+            function showError(msg) {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                errorEl.textContent = msg;
+            }
+        });</script></body></html>

@@ -1,0 +1,663 @@
+/* ═══════════════════════════════════════════════════════
+   MY EXAM COMPANION — App Shell Design System v9
+   Light Theme, Chess.com-style layout
+═══════════════════════════════════════════════════════ */
+
+/* ── Font Import ────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ── Global tap reset ───────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT — sidebar strip + content area
+═══════════════════════════════════════════════════════ */
+
+/* Content wrapper shifts right to make room for sidebar */
+.main-wrapper,
+.app-container {
+  margin-left: 72px;
+  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.sidebar-closed .main-wrapper,
+body.sidebar-closed .app-container {
+  margin-left: 0;
+}
+
+/* On mobile, content always full width; sidebar overlays */
+@media (max-width: 600px) {
+
+  .main-wrapper,
+  .app-container {
+    margin-left: 0 !important;
+  }
+
+  /* Add subtle rounded corners on mobile */
+  .content-area,
+  .main-content {
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DESKTOP + TABLET — Reference v3 layout
+   Transparent sidebar on gray canvas, white rounded card
+═══════════════════════════════════════════════════════ */
+@media (min-width: 641px) {
+  body {
+    background-color: #F7F7F7;
+  }
+
+  /* Content card — white, floating on gray, rounded corners */
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px;
+    background: var(--bg-card);
+    border-radius: 24px 24px 0 0;
+    min-height: calc(100vh - 84px);
+    margin-top: 84px;
+  }
+
+  body.sidebar-closed .main-wrapper,
+  body.sidebar-closed .app-container {
+    margin-left: 0;
+    border-radius: 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .main-wrapper,
+  .app-container {
+    margin-left: 96px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SIDEBAR OVERLAY (mobile backdrop)
+═══════════════════════════════════════════════════════ */
+.mec-sb-overlay {
+  display: none;
+  position: fixed;
+  /* Start BELOW topbar so it never covers the topbar */
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 199;
+  background: rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.mec-sb-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SIDEBAR STRIP — 72px icon column (mobile default)
+═══════════════════════════════════════════════════════ */
+.mec-sidebar {
+  position: fixed;
+  left: 0;
+  top: 56px;
+  /* sits directly below topbar */
+  bottom: 0;
+  width: 72px;
+  background: var(--bg-card);
+  border-right: 1.5px solid #ededed;
+  box-shadow: 1px 0 10px rgba(0, 0, 0, 0.04);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 8px;
+  overflow: visible;
+  /* Transition for collapse on desktop */
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Desktop collapse */
+body.sidebar-closed .mec-sidebar {
+  transform: translateX(-100%);
+}
+
+/* Mobile: hidden by default, slides in */
+@media (max-width: 600px) {
+  .mec-sidebar {
+    transform: translateX(-100%);
+    z-index: 2000;
+  }
+
+  .mec-sb-overlay {
+    z-index: 1999;
+  }
+
+  body.sidebar-mobile-open .mec-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Desktop + Tablet sidebar — reference v3 style */
+@media (min-width: 641px) {
+  .mec-sidebar {
+    top: 84px; /* below new taller topbar */
+    width: 120px;
+    background: #F7F7F7; /* Light mode: match page bg */
+    border-right: none;
+    box-shadow: none;
+    padding: 12px 0 0;
+    z-index: 100; /* below topbar (300) */
+  }
+
+  /* Dark mode: match topbar color */
+  :root[data-theme="dark"] .mec-sidebar {
+    background: #1e293b !important;
+  }
+}
+
+/* Tablet narrower sidebar */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-sidebar {
+    width: 96px;
+  }
+}
+
+/* Nav column */
+.mec-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+  flex: 1;
+  overflow: visible;
+}
+
+.mec-sidebar__bottom {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 6px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Separator */
+.mec-sb-sep {
+  width: 36px;
+  height: 1px;
+  background: #f0f0f0;
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+/* ── Sidebar Item ─────────────────────────────────── */
+.mec-sb-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 60px;
+  min-height: 58px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-muted);
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 0.13s, color 0.13s;
+  position: relative;
+  padding: 5px 2px;
+  flex-shrink: 0;
+}
+
+.mec-sb-item:hover {
+  background: #f5f5f5;
+  color: #374151;
+}
+
+.mec-sb-item.active {
+  background: #fff0ef;
+  color: #2563eb;
+}
+
+/* Left active indicator — uses box-shadow so it never clips */
+.mec-sb-item.active {
+  box-shadow: -3px 0 0 0 #2563eb;
+}
+
+/* Desktop + Tablet sidebar items — reference v3 style */
+@media (min-width: 641px) {
+  .mec-sb-item {
+    width: 100%;
+    min-height: auto;
+    gap: 5px;
+    padding: 22px 4px;
+    border-radius: 0;
+    color: #8b929b;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mec-sb-item:hover:not(.active) {
+    background: transparent;
+    color: #1a1a1a;
+  }
+
+  .mec-sb-item.active {
+    background: transparent;
+    color: #2563eb;
+    box-shadow: none;
+  }
+
+  .mec-sb-icon {
+    background: transparent !important;
+  }
+
+  .mec-sb-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+}
+
+/* Icon container */
+.mec-sb-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: background 0.13s;
+  flex-shrink: 0;
+  color: inherit;
+  /* SVG stroke="currentColor" picks this up */
+}
+
+.mec-sb-icon svg {
+  display: block;
+  pointer-events: none;
+  /* prevent SVG paths from blocking clicks */
+  flex-shrink: 0;
+}
+
+.mec-sb-item:hover .mec-sb-icon {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.mec-sb-item.active .mec-sb-icon {
+  background: rgba(183, 12, 1, 0.09);
+}
+
+/* Label */
+.mec-sb-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: inherit;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* NEW badge */
+.mec-sb-new {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 7px;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: #2563eb;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Accent (AI Tutor) */
+.mec-sb-item--accent {
+  color: #0ea5e9;
+}
+
+.mec-sb-item--accent:hover {
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+.mec-sb-item--accent.active {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+/* Dimmed / coming soon */
+.mec-sb-item--dim {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+.mec-sb-item--premium {
+  color: #d97706;
+}
+
+.mec-sb-item--premium:hover {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.mec-sb-item--premium.active {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FLYOUT PANEL — pops to the right of sidebar
+═══════════════════════════════════════════════════════ */
+.mec-flyout {
+  position: fixed;
+  z-index: 2500;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.13), 0 2px 8px rgba(0, 0, 0, 0.06);
+  width: 258px;
+  max-height: calc(100vh - 30px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: 'Outfit', 'Inter', sans-serif;
+
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-6px) scale(0.97);
+  transform-origin: left center;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+  pointer-events: none;
+}
+
+.mec-flyout::-webkit-scrollbar {
+  display: none;
+}
+
+.mec-flyout.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s;
+  pointer-events: auto;
+}
+
+/* Flyout section title */
+.mec-flyout-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #c0c0c0;
+  padding: 6px 12px 2px;
+}
+
+/* Flyout divider */
+.mec-flyout-div {
+  height: 1px;
+  background: #f2f2f2;
+  margin: 3px 8px;
+}
+
+/* Flyout link row */
+.mec-flyout-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 11px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.11s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mec-flyout-item:hover {
+  background: #f6f6f6;
+}
+
+.mec-flyout-item--hl {
+  color: #2563eb;
+  background: #fff3f2;
+  font-weight: 600;
+}
+
+.mec-flyout-item--hl:hover {
+  background: #ffe8e6;
+}
+
+.mec-flyout-item--dim {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.mec-flyout-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  /* SVG stroke="currentColor" picks this up */
+}
+
+.mec-flyout-icon svg {
+  display: block;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.mec-flyout-soon {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 20px;
+  background: var(--bg-base);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .mec-flyout {
+    width: calc(100vw - 86px);
+    max-width: 240px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════════════════ */
+:root[data-theme="dark"] .mec-sidebar,
+:root[data-theme="dark"] .mec-flyout {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .mec-flyout-item--hl {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--primary);
+}
+
+:root[data-theme="dark"] .mec-sb-item {
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-sb-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+:root[data-theme="dark"] .mec-sb-item.active {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--primary);
+  box-shadow: -3px 0 0 0 var(--primary);
+}
+:root[data-theme="dark"] .mec-sb-item:hover .mec-sb-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+:root[data-theme="dark"] .mec-sb-item.active .mec-sb-icon {
+  background: transparent;
+}
+:root[data-theme="dark"] .mec-sb-sep {
+  background: var(--border);
+}
+:root[data-theme="dark"] .mec-flyout-title {
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-flyout-item {
+  color: var(--text-primary);
+}
+:root[data-theme="dark"] .mec-flyout-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:root[data-theme="dark"] .mec-flyout-div {
+  background: var(--border);
+}
+/* ===============================================================
+   DESKTOP + TABLET � Reference v3 Final Overrides
+   Must stay LAST to win the cascade.
+================================================================ */
+@media (min-width: 641px) {
+
+  /* Sidebar strip */
+  .mec-sidebar {
+    background: transparent !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    top: 84px !important;
+    width: 120px !important;
+    padding: 12px 0 0 !important;
+    z-index: 100 !important;
+  }
+
+  /* Dark mode: match topbar background */
+  :root[data-theme="dark"] .mec-sidebar {
+    background: #1e293b !important;
+  }
+
+  /* Hide separators and bottom border */
+  .mec-sb-sep { display: none !important; }
+  .mec-sidebar__bottom { border-top: none !important; }
+
+  /* Nav items: full-width, tall, NO backgrounds at all */
+  .mec-sb-item,
+  .mec-sb-item:hover,
+  .mec-sb-item.active {
+    width: 100% !important;
+    min-height: auto !important;
+    gap: 6px !important;
+    padding: 20px 4px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Colors */
+  .mec-sb-item                  { color: #8b929b !important; }
+  .mec-sb-item:hover:not(.active){ color: #1a1a1a !important; }
+  .mec-sb-item.active            { color: #2563eb !important; }
+
+  /* Icon: no background, no border-radius */
+  .mec-sb-item .mec-sb-icon,
+  .mec-sb-item:hover .mec-sb-icon,
+  .mec-sb-item.active .mec-sb-icon {
+    background: transparent !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 0 !important;
+  }
+
+  /* SVG size */
+  .mec-sb-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Label */
+  .mec-sb-label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Hide hamburger + NEW badge */
+  .mec-sb-toggle { display: none !important; }
+  .mec-sb-new    { display: none !important; }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mec-sidebar { width: 96px !important; }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET � Consistent Sidebar Width
+   User requested sidebar width to be the same across all screens
+   (meaning tablet shouldn't shrink to 96px, it should stay 120px)
+================================================================ */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Override the 96px tablet rules to match desktop 120px */
+  .mec-sidebar {
+    width: 120px !important;
+  }
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px !important;
+  }
+}
+
+/* ===============================================================
+   DESKTOP + TABLET � Final Layout Enforcer
+   Forces all pages to respect the 120px sidebar layout, overriding
+   any inline <style> blocks that try to force 72px width/margin.
+================================================================ */
+@media (min-width: 641px) {
+  /* Enforce Sidebar width */
+  .mec-sidebar {
+    width: 120px !important;
+    background: transparent !important;
+    border-right: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Dark mode: match topbar background */
+  :root[data-theme="dark"] .mec-sidebar {
+    background: #1e293b !important;
+  }
+
+  /* Enforce Content offset and card styling */
+  .main-wrapper,
+  .app-container {
+    margin-left: 120px !important;
+    background: var(--bg-card) !important;
+    border-radius: 24px 24px 0 0 !important;
+  }
+}

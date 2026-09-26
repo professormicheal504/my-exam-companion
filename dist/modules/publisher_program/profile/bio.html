@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en"><head><script>/* Anti-flash: apply saved theme before first paint */
+  (function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();</script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publisher Hub - Profile Setup</title><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>:root {
+            --bg-color: #ffffff;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-muted: #9ca3af;
+            --primary-blue: #3b82f6;
+            --border-color: #e5e7eb;
+            --bg-card: #ffffff;
+            --bg-base: #f9fafb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6; /* Premium light gray background for desktop */
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Responsive Card Wrapper */
+        .main-card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 640px) {
+            .main-card {
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                overflow: hidden;
+                flex: none;
+                min-height: auto;
+            }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            margin-left: -8px;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #f3f4f6;
+        }
+
+        /* Numbered Progress Steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 50%;
+            left: 54px;
+            right: 54px;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+            width: 0%; /* Step 1 -> 0% fill to next step */
+        }
+
+        .step-node {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--bg-base);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 2;
+            transition: all 0.3s ease;
+            border: 2px solid var(--bg-card); /* to cut out the line behind */
+        }
+
+        .step-node.active {
+            background-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .step-node.completed {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Header Texts */
+        .header-content {
+            padding: 0 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: #111827;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        /* Form Area */
+        .form-container {
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 28px;
+            margin-top: 8px; /* Space for the label to float */
+        }
+
+        .input-group label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: var(--bg-card);
+            padding: 0 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .input-control {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 14px;
+            font-size: 16px;
+            color: #111827;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: transparent;
+            appearance: none;
+        }
+
+        .input-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-group:focus-within label {
+            color: var(--primary-blue);
+        }
+
+        .char-count {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 13px;
+            color: #d1d5db;
+            pointer-events: none;
+        }
+
+        /* Textarea specific */
+        textarea.input-control {
+            resize: none;
+            height: 120px;
+            padding-bottom: 32px;
+        }
+
+        .textarea-count {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            top: auto;
+            transform: none;
+            font-size: 13px;
+            color: #d1d5db;
+        }
+
+        /* Select arrow */
+        .select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--text-muted);
+        }
+
+        /* Photo Upload */
+        .photo-upload-wrap {
+            position: relative;
+            margin-bottom: 28px;
+            margin-top: 8px;
+        }
+
+        .photo-upload-wrap label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-size: 13px;
+            color: var(--text-muted);
+            background-color: var(--bg-card);
+            padding: 0 6px;
+            z-index: 10;
+            font-weight: 500;
+        }
+
+        .photo-upload {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: var(--bg-base);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s;
+            margin-top: 12px; /* Add margin so it doesn't overlap label */
+        }
+
+        .photo-upload:hover {
+            border-color: var(--primary-blue);
+            background-color: #eff6ff;
+        }
+
+        .photo-icon {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .photo-upload:hover .photo-icon {
+            color: var(--primary-blue);
+        }
+
+        /* Footer Button */
+        .footer-controls {
+            padding: 24px;
+            margin-top: auto;
+        }
+
+        .btn-next {
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-next:hover {
+            background-color: #2563eb;
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .btn-next:active {
+            transform: scale(0.99);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }</style><link rel="stylesheet" href="../../../components/dark-mode.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-CHG6831RHH"></script><script>window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHG6831RHH');</script></head><body><div class="main-card"><div class="top-bar"><button class="back-btn" onclick="window.location.href='/ng/publisher/onboarding'" aria-label="Go back"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button></div><div class="progress-steps"><div class="progress-line"><div class="progress-line-fill" style="width: 0%;"></div></div><div class="step-node active">1</div><div class="step-node">2</div><div class="step-node">3</div></div><div class="header-content"><h1>Refine your profile</h1><p class="subtitle">A great chance to distinguish yourself from other creators</p></div><form class="form-container" onsubmit="handleBioSubmit(event)" style="display: flex; flex-direction: column;"><div class="input-group"><label>Publisher Name</label> <input class="input-control" placeholder="Enter your publisher name" maxlength="30" id="nameInput" required> <span class="char-count" id="nameCount">0/30</span></div><div class="input-group" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;"><img id="avatarPreview" src="https://ui-avatars.com/api/?name=User&background=f3f4f6&color=9ca3af" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color);" alt="Avatar"><div style="font-size: 13px; color: var(--text-muted);">Avatar loaded from your profile</div></div><div class="input-group"><label>Category</label> <select class="input-control" required id="categorySelect"><option value="" disabled="disabled" selected="selected">Select a category</option><option value="entrance exam">Entrance exam (e.g JAMB, SAT and others)</option><option value="scholarship">Scholarship</option><option value="admission">Admission</option><option value="study tips">Study tips</option><option value="post utme">Post UTME</option><option value="university">University</option><option value="career">Career</option></select><div class="select-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div><div class="input-group"><label>Bio & Expertise</label> <textarea class="input-control" placeholder="Tell students about yourself and your expertise..." maxlength="150" id="descInput" required></textarea> <span class="textarea-count" id="descCount">0/150</span></div><div class="footer-controls" style="padding: 24px 0 0 0; margin-top: auto;"><button type="submit" class="btn-next">Continue to Next Step</button></div></form></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="../../../components/supabase.js"></script><script>// Fetch avatar and name from profiles table dynamically
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (typeof window.MECSupabase !== 'undefined') {
+                const user = await window.MECSupabase.getCurrentUser();
+                if (user) {
+                    const sb = window.MECSupabase.getSupabase();
+                    const { data, error } = await sb.from('profiles').select('avatar_url, full_name').eq('id', user.id).single();
+                    if (!error && data) {
+                        if (data.avatar_url) {
+                            document.getElementById('avatarPreview').src = data.avatar_url;
+                        }
+                        if (data.full_name && !document.getElementById('nameInput').value) {
+                            document.getElementById('nameInput').value = data.full_name;
+                            document.getElementById('nameCount').textContent = `${data.full_name.length}/30`;
+                        }
+                    }
+                }
+            }
+        });
+
+        // Character count logic for Name
+        const nameInput = document.getElementById('nameInput');
+        const nameCount = document.getElementById('nameCount');
+        
+        function updateNameCount() {
+            nameCount.textContent = `${nameInput.value.length}/30`;
+            nameCount.style.color = nameInput.value.length > 0 ? '#6b7280' : '#d1d5db';
+        }
+        nameInput.addEventListener('input', updateNameCount);
+
+        // Character count logic for Description
+        const descInput = document.getElementById('descInput');
+        const descCount = document.getElementById('descCount');
+
+        function updateDescCount() {
+            descCount.textContent = `${descInput.value.length}/150`;
+            descCount.style.color = descInput.value.length > 0 ? '#6b7280' : '#d1d5db';
+        }
+        descInput.addEventListener('input', updateDescCount);
+
+        // Auto-save logic
+        const catSelect = document.getElementById('categorySelect');
+        
+        // Load saved progress
+        if (localStorage.getItem('pub_draft_name')) nameInput.value = localStorage.getItem('pub_draft_name');
+        if (localStorage.getItem('pub_draft_cat')) catSelect.value = localStorage.getItem('pub_draft_cat');
+        if (localStorage.getItem('pub_draft_desc')) descInput.value = localStorage.getItem('pub_draft_desc');
+        updateNameCount();
+        updateDescCount();
+
+        // Save on input
+        nameInput.addEventListener('input', () => localStorage.setItem('pub_draft_name', nameInput.value));
+        catSelect.addEventListener('change', () => localStorage.setItem('pub_draft_cat', catSelect.value));
+        descInput.addEventListener('input', () => localStorage.setItem('pub_draft_desc', descInput.value));
+
+        // Handle form submission
+        function handleBioSubmit(event) {
+            event.preventDefault();
+            // Navigate to identity page without .html extension
+            window.location.href = '/ng/publisher/identity';
+        }</script></body></html>

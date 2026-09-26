@@ -1,0 +1,117 @@
+{
+  "routes": [
+    {
+      "routePath": "/modules/study/classroom/classroom_discussion.html",
+      "mountPath": "/modules/study/classroom",
+      "method": "",
+      "module": [
+        "modules/study/classroom/classroom_discussion.html.js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/modules/study/classroom/classroom_questions.html",
+      "mountPath": "/modules/study/classroom",
+      "method": "",
+      "module": [
+        "modules/study/classroom/classroom_questions.html.js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/:country*/study/brochure/:slug*",
+      "mountPath": "/:country*/study/brochure",
+      "method": "",
+      "module": [
+        "[[country]]/study/brochure/[[slug]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/:country*/study/classroom/:path*",
+      "mountPath": "/:country*/study/classroom",
+      "method": "",
+      "module": [
+        "[[country]]/study/classroom/[[path]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/:country*/blog/:path*",
+      "mountPath": "/:country*/blog",
+      "method": "",
+      "module": [
+        "[[country]]/blog/[[path]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/api/poll",
+      "mountPath": "/api",
+      "method": "GET",
+      "module": [
+        "api/poll.js:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/poll",
+      "mountPath": "/api",
+      "method": "POST",
+      "module": [
+        "api/poll.js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/og-image",
+      "mountPath": "/api",
+      "method": "",
+      "module": [
+        "api/og-image.js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/api/r2",
+      "mountPath": "/api",
+      "method": "",
+      "module": [
+        "api/r2.js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/api/share",
+      "mountPath": "/api",
+      "method": "",
+      "module": [
+        "api/share.js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/brochure/:path*",
+      "mountPath": "/brochure",
+      "method": "",
+      "module": [
+        "brochure/[[path]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/study/:path*",
+      "mountPath": "/study",
+      "method": "",
+      "module": [
+        "study/[[path]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/syllabus/:path*",
+      "mountPath": "/syllabus",
+      "method": "",
+      "module": [
+        "syllabus/[[path]].js:onRequest"
+      ]
+    },
+    {
+      "routePath": "/",
+      "mountPath": "/",
+      "method": "",
+      "middleware": [
+        "_middleware.js:onRequest"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}

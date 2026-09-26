@@ -1,0 +1,805 @@
+<!DOCTYPE html><html lang="en"><head><script>(function() {
+    try {
+      var t = localStorage.getItem('mec_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  })();</script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><title>Article Preview - Publisher Program</title><style>:root {
+            --bg-color: #f0f2f5;
+            --surface-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #999999;
+            --accent-blue: #0066ff;
+            --accent-red: #e60000;
+            --accent-green: #2563eb;
+            --border-color: #ebebeb;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body { margin: 0; font-family: var(--font-family); color: var(--text-primary); background: var(--bg-color); }
+
+        /* Header with preview info */
+        .preview-header {
+            background: var(--surface-color);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-btn:hover { color: var(--accent-red); }
+
+        .quality-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--accent-green);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-secondary, .btn-primary {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--text-primary); background: var(--bg-color); }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
+        }
+
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+        /* Main content */
+        .content { padding: 40px 20px 100px; background: var(--bg-color); }
+        .wrap { max-width: 760px; margin: 0 auto; }
+
+        /* Hero Image */
+        .hero-thumb {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 0 0 8px;
+            height: 320px;
+        }
+
+        .hero-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        figcaption {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            margin: 0 0 28px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        /* Article Metadata */
+        article header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin: 0 0 14px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #e2e5e9;
+        }
+
+        .updated-note {
+            font-size: 12.5px;
+            color: #b0b6bd;
+            margin-bottom: 28px;
+        }
+
+        /* Article Content */
+        article p {
+            color: #3a3f47;
+            margin: 0 0 16px;
+            font-size: 15.5px;
+            line-height: 1.75;
+        }
+
+        article h2 {
+            font-size: 21px;
+            font-weight: 800;
+            margin: 36px 0 14px;
+            scroll-margin-top: 20px;
+        }
+
+        article h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 22px 0 10px;
+            scroll-margin-top: 20px;
+        }
+
+        article ul, article ol {
+            margin: 0 0 16px;
+            padding-left: 22px;
+            color: #3a3f47;
+            font-size: 15.5px;
+            line-height: 1.7;
+        }
+
+        article li { margin-bottom: 6px; }
+        article a { color: var(--accent-red); text-decoration: underline; }
+        article strong { color: var(--text-primary); font-weight: 700; }
+
+        /* Images & Figures */
+        figure {
+            margin: 24px 0;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Callouts */
+        .callout {
+            border: 1px solid #ececec;
+            border-left: 4px solid var(--accent-red);
+            background: #fdf2f1;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .callout strong {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* Callout boxes styling */
+        #articleContent .callout-box {
+            border: 1px solid;
+            border-left: 4px solid;
+            background-color: inherit;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        #articleContent .callout-box strong {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: normal;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        #articleContent .callout-box span {
+            font-size: 13px;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        /* FAQ Callout Styling */
+        #articleContent .callout-box.faq-callout {
+            border: 1px solid #66bb6a;
+            border-left: 4px solid #66bb6a;
+            background-color: #e8f5e9;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        #articleContent .faq-callout > div:first-child {
+            color: #2e7d32;
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #articleContent .faq-callout > div:nth-child(2) {
+            font-size: 13px;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        #articleContent .faq-question {
+            margin-bottom: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        #articleContent .faq-question strong {
+            font-weight: 600;
+            display: inline;
+            margin-right: 6px;
+            font-size: 13px;
+        }
+
+        #articleContent .faq-answer {
+            margin-top: 8px;
+            padding: 6px 0;
+        }
+
+        #articleContent .faq-answer strong {
+            font-weight: 600;
+            display: inline;
+            margin-right: 6px;
+            font-size: 13px;
+        }
+
+        #articleContent .faq-callout > div:last-child {
+            font-size: 11px;
+            color: #666;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Placeholder text for contenteditable elements in preview */
+        #articleContent [contenteditable]:empty::before {
+            content: attr(placeholder);
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Blockquote */
+        blockquote {
+            border-left: 3px solid var(--accent-red);
+            margin: 12px 0;
+            padding: 4px 0 4px 16px;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+
+        table td, table th {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--bg-color);
+            font-weight: 700;
+        }
+
+        table tr:hover { background: #fafafa; }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 32px 0;
+        }
+
+        .tag-pill {
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #F7F7F7;
+            color: #6b7280;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .tag-pill:hover {
+            background: #fdf2f1;
+            color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* Author Bio */
+        .author-box {
+            display: flex;
+            gap: 16px;
+            background: #F7F7F7;
+            border-radius: 14px;
+            padding: 20px;
+            margin: 32px 0;
+            align-items: flex-start;
+        }
+
+        .author-box .avatar {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+        }
+
+        .author-box h3 {
+            margin: 0 0 4px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .author-box p {
+            margin: 0;
+            font-size: 13.5px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* Actions */
+        .action-bar {
+            display: flex;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 32px;
+        }
+
+        .action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .action-btn svg {
+            width: 19px;
+            height: 19px;
+            stroke: currentColor;
+            stroke-width: 1.9;
+        }
+
+        .action-btn:hover { background: #f7f7f7; }
+
+        /* Footer Actions */
+        .footer-actions {
+            display: none;
+        }
+
+        /* Print styles */
+        @media print {
+            .preview-header, .footer-actions, .action-bar { display: none; }
+            .content { padding: 20px; background: white; }
+            article { color: #000; }
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .content { padding: 32px 20px; }
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .content { padding: 24px 16px 80px; }
+            .preview-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .header-left { width: 100%; }
+            .header-actions { width: 100%; }
+            .header-actions button { flex: 1; }
+
+            article h1 { font-size: 24px; }
+            article h2 { font-size: 19px; }
+            article h3 { font-size: 16px; }
+
+            .footer-actions {
+                flex-direction: column;
+                margin-left: -16px;
+                margin-right: -16px;
+                padding: 16px;
+                width: calc(100% + 32px);
+                max-width: none;
+            }
+
+            .author-box { flex-direction: column; text-align: center; align-items: center; }
+        }</style><link rel="stylesheet" href="../../../../components/dark-mode.css"></head><body><div class="preview-header"><div class="header-left"><a href="/ng/publisher/post-review" class="back-btn">← Back to Review</a><div class="quality-badge" id="qualityBadge"><span>✓</span> <span id="qualityScore">85% Complete</span></div></div><div class="header-actions"><button class="btn-secondary" onclick="goBack()">Edit</button> <button class="btn-primary" onclick="publishArticle()">Publish Article</button></div></div><main class="content"><div class="wrap"><figure id="heroFigure" style="display: none;"><div class="hero-thumb"><img id="heroImage" src="" alt=""></div><figcaption id="heroCaption"></figcaption></figure><article><header><h1 id="articleTitle"></h1><div class="post-meta"><img id="metaAvatar" class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author"> <span id="authorName">Author</span> <span>·</span> <time id="publishDate"></time> <span>·</span> <span id="readTime">5 min read</span></div><p class="updated-note">Preview — Ready to publish</p></header><div id="tocContainer" style="display: none; background: #f9fafb; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #e5e7eb;"><strong style="color: #1a1a1a; display: block; margin-bottom: 14px; font-size: 14px; font-weight: 700;">On this page</strong><div id="tocList" style="font-size: 13px; color: #666; line-height: 2;"></div></div><div id="articleContent"></div><div class="tags" id="tagsContainer"></div><div class="author-box"><img id="authorBoxAvatar" class="avatar" src="https://i.pravatar.cc/68?img=12" alt="Author" width="56" height="56"><div><h3 id="authorBoxName">About the Publisher</h3><p id="authorBoxBio"></p></div></div><div class="action-bar" style="display: none;"><button class="action-btn" onclick="shareArticle()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button> <button class="action-btn" onclick="downloadPDF()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download</button></div></article></div></main><div class="footer-actions"><button class="btn-back" onclick="goBack()">← Edit Article</button> <button class="btn-publish" onclick="publishArticle()">Publish Article</button></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="../../../../components/supabase.js"></script><script>// Load and display the actual publisher name + bio from the publishers table
+    async function loadPublisherName() {
+        if (typeof window.MECSupabase === 'undefined') return;
+        const user = await window.MECSupabase.getCurrentUser();
+        if (!user) return;
+
+        const sb = window.MECSupabase.getSupabase();
+
+        // Step 1: Set name immediately from user_metadata
+        const metaName = (user.user_metadata && user.user_metadata.full_name)
+                || (user.user_metadata && user.user_metadata.display_name)
+                || (user.user_metadata && user.user_metadata.name)
+                || (user.email ? user.email.split('@')[0] : null)
+                || 'Publisher';
+        document.getElementById('authorName').textContent = metaName;
+        document.getElementById('authorBoxName').textContent = metaName;
+
+        // Step 2: Fetch avatar (same pattern as dashboard.html)
+        const { data: profile } = await sb.from('profiles').select('avatar_url').eq('id', user.id).single();
+        if (profile && profile.avatar_url) {
+            document.getElementById('metaAvatar').src = profile.avatar_url;
+            document.getElementById('authorBoxAvatar').src = profile.avatar_url;
+        }
+
+        // Step 3: Fetch publisher_name and bio
+        const { data: pub } = await sb.from('publishers').select('publisher_name, bio').eq('user_id', user.id).single();
+        if (pub && pub.publisher_name) {
+            document.getElementById('authorName').textContent = pub.publisher_name;
+            document.getElementById('authorBoxName').textContent = pub.publisher_name;
+        }
+        document.getElementById('authorBoxBio').textContent = (pub && pub.bio) ? pub.bio : '';
+    }
+
+    // ── Shared draft-id key (same key used throughout the pipeline) ──
+    const DRAFT_ID_KEY = 'publisher_draft_post_id';
+
+    // Load article data: try Supabase draft first, fall back to localStorage
+    async function loadArticleData() {
+        let articleData = null;
+
+        // 1. Try cloud draft
+        if (typeof window.MECSupabase !== 'undefined') {
+            try {
+                const user = await window.MECSupabase.getCurrentUser();
+                const draftId = localStorage.getItem(DRAFT_ID_KEY);
+                if (user && draftId) {
+                    const sb = window.MECSupabase.getSupabase();
+                    const { data } = await sb
+                        .from('publisher_posts')
+                        .select('draft_content, thumbnail_url, tags, category, title, last_saved_at')
+                        .eq('id', draftId)
+                        .eq('publisher_id', user.id)
+                        .maybeSingle();
+                    if (data && data.draft_content) {
+                        articleData = data.draft_content;
+                        // Overlay any metadata saved in post_review
+                        if (data.thumbnail_url) articleData.heroImage = data.thumbnail_url;
+                        if (data.tags && data.tags.length) articleData.tags = data.tags.join(', ');
+                        if (data.category) articleData.category = data.category;
+                    }
+                }
+            } catch (_) { /* fall through to localStorage */ }
+        }
+
+        // 2. Fallback: localStorage
+        if (!articleData) {
+            try {
+                articleData = JSON.parse(localStorage.getItem('publisher_article_draft'));
+            } catch (_) {}
+        }
+
+        // Merge sessionStorage overrides (thumbnail / topics set in post_review)
+        const sessionThumb  = sessionStorage.getItem('post_thumbnail');
+        const sessionTopics = sessionStorage.getItem('post_topics');
+        if (articleData && sessionThumb)  articleData.heroImage = sessionThumb;
+        if (articleData && sessionTopics) {
+            try { articleData.tags = JSON.parse(sessionTopics).join(', '); } catch (_) {}
+        }
+
+        if (!articleData) {
+            alert('No article data found. Please create an article first.');
+            window.location.href = '/ng/publisher/create-post';
+            return;
+        }
+
+        renderArticle(articleData);
+        loadPublisherName();
+    }
+
+    function renderArticle(articleData) {
+        const title       = articleData.title       || 'Untitled Article';
+        const intro       = articleData.intro       || '';
+        const content     = articleData.content     || '<p>No content provided.</p>';
+        const heroImage   = articleData.heroImage   || '';
+        const tags        = articleData.tags        || '';
+        const qualityScore = articleData.qualityScore || '85';
+
+        // Title
+        document.getElementById('articleTitle').textContent = title;
+        document.title = title + ' - MyExam Companion';
+
+        // Intro + body
+        if (intro) {
+            const introHTML = `<p style="font-size:16px;line-height:1.8;margin-bottom:24px;color:#555;font-weight:500;">${intro}</p>`;
+            document.getElementById('articleContent').innerHTML = introHTML + content;
+        } else {
+            document.getElementById('articleContent').innerHTML = content;
+        }
+
+        // Hero
+        if (heroImage) {
+            document.getElementById('heroImage').src    = heroImage;
+            document.getElementById('heroImage').alt    = title;
+            document.getElementById('heroCaption').textContent = title;
+            document.getElementById('heroFigure').style.display = 'block';
+        }
+
+        // Tags
+        if (tags) {
+            const tagArray  = tags.split(',').map(t => t.trim()).filter(Boolean);
+            document.getElementById('tagsContainer').innerHTML =
+                tagArray.map(tag => `<a href="#" class="tag-pill">${tag}</a>`).join('');
+        }
+
+        // Publish date & read time
+        document.getElementById('publishDate').textContent = 'Today';
+        document.getElementById('qualityScore').textContent = qualityScore + '% Complete';
+
+        const wordCount = (intro + ' ' + content).replace(/<[^>]*>/g, '').split(/\s+/).length;
+        document.getElementById('readTime').textContent = Math.max(1, Math.round(wordCount / 200)) + ' min read';
+
+        generateTableOfContents(content);
+    }
+
+    // Generate TOC from article content
+    function generateTableOfContents(htmlContent) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+        const headings = tempDiv.querySelectorAll('h2, h3');
+
+        if (headings.length === 0) {
+            document.getElementById('tocContainer').style.display = 'none';
+            return;
+        }
+
+        let tocHTML = '';
+        let h2Counter = 0;
+        let h3Counter = 0;
+
+        headings.forEach((heading, index) => {
+            const level = heading.tagName.toLowerCase();
+            const text = heading.innerText || heading.textContent;
+            const id = `heading-${index}`;
+
+            if (level === 'h2') {
+                h2Counter++;
+                h3Counter = 0;
+                tocHTML += `<div style="margin-bottom: 8px;"><a href="#${id}" style="color: #2563eb; text-decoration: none;">${h2Counter}. ${text}</a></div>`;
+            } else if (level === 'h3') {
+                h3Counter++;
+                tocHTML += `<div style="margin-bottom: 6px; padding-left: 20px;"><a href="#${id}" style="color: #2563eb; text-decoration: none;">${h2Counter}.${h3Counter} ${text}</a></div>`;
+            }
+        });
+
+        document.getElementById('tocList').innerHTML = tocHTML;
+        document.getElementById('tocContainer').style.display = 'block';
+
+        // Add IDs to actual headings in article for anchor links to work
+        const articleHeadings = document.querySelectorAll('article h2, article h3');
+        articleHeadings.forEach((heading, index) => {
+            heading.id = `heading-${index}`;
+            heading.style.scrollMarginTop = '80px';
+        });
+    }
+
+    function goBack() {
+        window.location.href = '/ng/publisher/create-post';
+    }
+
+    function shareArticle() {
+        const title = document.getElementById('articleTitle').textContent;
+        if (navigator.share) {
+            navigator.share({
+                title: title,
+                text: 'Check out this article',
+                url: window.location.href
+            });
+        } else {
+            alert('Share: ' + title);
+        }
+    }
+
+    function downloadPDF() {
+        const title = document.getElementById('articleTitle').textContent;
+        const content = document.getElementById('articleContent').innerHTML;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>${title}</title>
+                <style>
+                    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; margin: 40px; }
+                    h1 { font-size: 28px; margin-bottom: 10px; }
+                    h2 { font-size: 20px; margin-top: 30px; margin-bottom: 10px; }
+                    p { margin: 12px 0; }
+                </style>
+            </head>
+            <body>
+                <h1>${title}</h1>
+                <div>${content}</div>
+            </body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    async function publishArticle() {
+        const title   = document.getElementById('articleTitle').textContent;
+        const content = document.getElementById('articleContent').innerHTML;
+
+        if (!title || !content) {
+            alert('Cannot publish empty article.');
+            return;
+        }
+
+        const publishBtn = document.querySelector('.btn-primary');
+        const originalText = publishBtn.textContent;
+        publishBtn.textContent = 'Submitting…';
+        publishBtn.disabled = true;
+
+        try {
+            if (typeof window.MECSupabase === 'undefined') {
+                throw new Error('Supabase not loaded. Please refresh and try again.');
+            }
+
+            const user = await window.MECSupabase.getCurrentUser();
+            if (!user) throw new Error('You must be signed in to publish.');
+
+            const sb  = window.MECSupabase.getSupabase();
+            const draftId = localStorage.getItem(DRAFT_ID_KEY);
+
+            // Collect full article data from Supabase draft (most authoritative source)
+            let articleData = null;
+            if (draftId) {
+                const { data } = await sb
+                    .from('publisher_posts')
+                    .select('draft_content, thumbnail_url, tags, category, title, description, intro')
+                    .eq('id', draftId)
+                    .eq('publisher_id', user.id)
+                    .maybeSingle();
+                if (data) articleData = data;
+            }
+
+            // Fall back to localStorage
+            if (!articleData) {
+                const local = JSON.parse(localStorage.getItem('publisher_article_draft') || 'null');
+                if (local) {
+                    articleData = {
+                        draft_content: local,
+                        thumbnail_url: local.heroImage,
+                        tags:          local.tags ? local.tags.split(',').map(t => t.trim()).filter(Boolean) : [],
+                        category:      local.category,
+                        title:         local.title,
+                        description:   local.description,
+                        intro:         local.intro
+                    };
+                }
+            }
+
+            if (!articleData) throw new Error('No article data found. Please go back and create your article.');
+
+            const dc = articleData.draft_content || {};
+
+            // Get the session token to pass to the Edge Function
+            const { data: { session } } = await sb.auth.getSession();
+            if (!session) throw new Error('Session expired. Please sign in again.');
+
+            // Build payload for the post-submission Edge Function
+            const payload = {
+                draft_id:      draftId || null,
+                title:         articleData.title  || dc.title,
+                description:   articleData.description || dc.description || '',
+                intro:         articleData.intro   || dc.intro   || '',
+                content:       dc.content          || content,
+                thumbnail_url: articleData.thumbnail_url || dc.heroImage || '',
+                topics:        Array.isArray(articleData.tags) ? articleData.tags
+                               : (dc.tags ? dc.tags.split(',').map(t => t.trim()).filter(Boolean) : []),
+                category:      articleData.category || dc.category || ''
+            };
+
+            // Resolve Supabase project URL from the client
+            const supabaseUrl = sb.supabaseUrl || (sb.rest && sb.rest.url ? sb.rest.url.replace('/rest/v1', '') : '') || '';
+            const edgeFnUrl   = `${supabaseUrl}/functions/v1/post-submission`;
+
+            const res = await fetch(edgeFnUrl, {
+                method:  'POST',
+                headers: {
+                    'Content-Type':  'application/json',
+                    'Authorization': `Bearer ${session.access_token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await res.json();
+            if (!res.ok) throw new Error(result.error || `Server error ${res.status}`);
+
+            // Clear draft markers — article is now in the review queue
+            localStorage.removeItem('publisher_article_draft');
+            localStorage.removeItem(DRAFT_ID_KEY);
+            sessionStorage.removeItem('post_thumbnail');
+            sessionStorage.removeItem('post_topics');
+            sessionStorage.removeItem('post_title');
+
+            publishBtn.textContent = '✓ Submitted!';
+
+            // Show success state before redirecting
+            setTimeout(() => {
+                window.location.href = '/ng/publisher/dashboard';
+            }, 1200);
+
+        } catch (err) {
+            console.error('Publish error:', err);
+            alert('Error submitting article: ' + (err.message || 'Unknown error'));
+            publishBtn.textContent = originalText;
+            publishBtn.disabled = false;
+        }
+    }
+
+    // Load on page load
+    document.addEventListener('DOMContentLoaded', () => loadArticleData());</script></body></html>

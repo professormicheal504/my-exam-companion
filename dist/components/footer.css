@@ -1,0 +1,103 @@
+.mec-footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid #eaeaea;
+  padding: 40px 24px 20px;
+  margin-top: auto;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+}
+.mec-footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.mec-footer__brand {
+  max-width: 400px;
+}
+.mec-footer__brand h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.mec-footer__brand p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.mec-footer__links-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+.mec-footer__links h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.mec-footer__links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mec-footer__links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.mec-footer__links a:hover {
+  color: #2563eb;
+}
+.mec-footer__bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #f3f4f6;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .mec-footer__content {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .mec-footer__links-group {
+    gap: 32px;
+    flex-direction: column;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════════════════ */
+:root[data-theme="dark"] .mec-footer {
+  background-color: var(--bg-card);
+  border-top-color: var(--border);
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-footer__brand h3,
+:root[data-theme="dark"] .mec-footer__links h4 {
+  color: var(--text-primary);
+}
+:root[data-theme="dark"] .mec-footer__links a {
+  color: var(--text-muted);
+}
+:root[data-theme="dark"] .mec-footer__links a:hover {
+  color: var(--primary);
+}
+:root[data-theme="dark"] .mec-footer__bottom {
+  border-top-color: var(--border);
+}
