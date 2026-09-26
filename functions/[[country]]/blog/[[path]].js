@@ -573,9 +573,7 @@ async function handleRequest(context) {
   const isKnownCategory  = CATEGORIES.some(c => c.slug === categoryFromPath);
 
   // â”€â”€ Listing & category pages â†’ redirect to categories.html SPA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ── Listing & category pages → use client-side URL rewriting ──
-  // Instead of complex server-side template, use a simple approach:
-  // Serve a basic HTML page that rewrites the URL client-side
+  // ── Listing & category pages → serve redirect HTML with URL preservation ──
   if (!slugFromPath) {
     const lang = CC_LANG[cc] || 'en';
     const pageTitle = `Blog — Study Tips, Exam Updates & Guides | ${SITE_NAME}`;
@@ -591,17 +589,25 @@ async function handleRequest(context) {
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:title" content="${esc(pageTitle)}">
+  <meta property="og:description" content="${esc(description)}">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
   <style>
-    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
-    .loading { text-align: center; padding: 60px 20px; color: #666; }
+    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; text-align: center; }
+    .loading { padding: 60px 20px; color: #666; }
+    .spinner { border: 3px solid #f3f3f3; border-top: 3px solid #2563eb; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
-  <div class="loading">Loading blog...</div>
+  <div class="loading">
+    <div class="spinner"></div>
+    Loading blog posts...
+  </div>
   <script>
-    // Client-side URL preservation and redirect
-    const targetUrl = '/modules/blog/categories.html?preserve_url=${cc}/blog';
-    window.location.replace(targetUrl);
+    // Immediate redirect while preserving URL for SEO
+    window.location.replace('/modules/blog/categories.html?preserve_url=${cc}/blog');
   </script>
 </body>
 </html>`;
