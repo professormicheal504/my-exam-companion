@@ -516,11 +516,14 @@ ${ADSENSE_INIT}
 
 // ── Main handler ─────────────────────────────────────────────────────────────
 export async function onRequest(context) {
+  // Tell Pages to fall through to static assets if something completely unexpected happens
+  context.passThroughOnException();
+
   // ── Outer safety net — never let a raw exception produce Error 1101 ────────
   try {
     return await handleRequest(context);
   } catch (fatal) {
-    console.error('Blog function fatal error:', fatal);
+    console.error('Blog function fatal error:', fatal?.message || fatal, fatal?.stack);
     const cc = (context.params?.country || 'ng').toLowerCase();
     return new Response(
       `<!DOCTYPE html><html lang="en"><head><title>Something went wrong</title>
