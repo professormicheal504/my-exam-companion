@@ -103,10 +103,9 @@
     /* Tags */
     .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0; }
     .post-tag {
-      font-size: 12.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
-      border: 1px solid var(--border, #e5e5e5); color: #6b7280; text-decoration: none;
+      font-size: 12.5px; font-weight: 600; padding: 5px 14px; border-radius: 999px;
+      background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; display: inline-block;
     }
-    .post-tag:hover { border-color: #2563eb; color: #2563eb; }
 
     /* Engagement summary */
     .engagement-summary {
@@ -151,6 +150,43 @@
     .related-card__body { padding: 12px 14px; }
     .related-card__tag { font-size: 11px; font-weight: 700; color: #2563eb; margin-bottom: 4px; text-transform: uppercase; }
     .related-card__title { font-size: 14.5px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+
+    /* == Injected Article Styles (from [[path]].js) == */
+    .hero-wrap{border-radius:16px;overflow:hidden;margin-bottom:36px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+    .hero-wrap img{width:100%;display:block;object-fit:cover;max-height:520px}
+    h1.art-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:18px;color:#111}
+    .art-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-bottom:32px}
+    .art-meta img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+    .art-meta .author-name{color:var(--text);font-weight:600}
+    .art-meta .sep{opacity:.4}
+    .toc-box{background:#f9fafb;border:1px solid var(--border, #e5e7eb);border-radius:12px;padding:18px 22px;margin-bottom:32px}
+    .toc-box h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:10px}
+    .toc-list{list-style:none;font-size:14px;line-height:2}
+    .toc-list li.h3{padding-left:16px;font-size:13px}
+    .toc-list a{color:#2563eb}
+    .toc-list a:hover{text-decoration:underline}
+    .art-body{font-size:17px;line-height:1.82}
+    .art-body p{margin-bottom:22px;color:#374151}
+    .art-body h2{font-family:'Playfair Display',Georgia,serif;font-size:25px;font-weight:800;margin:44px 0 16px;color:#111;scroll-margin-top:72px}
+    .art-body h3{font-size:18px;font-weight:700;margin:28px 0 10px;color:#1f2937;scroll-margin-top:72px}
+    .art-body ul,.art-body ol{margin:0 0 22px;padding-left:26px;color:#374151}
+    .art-body li{margin-bottom:7px}
+    .art-body strong{color:#111;font-weight:700}
+    .art-body a{color:#dc2626;text-decoration:underline}
+    .art-body img{max-width:100%;border-radius:10px;margin:28px 0;display:block}
+    .art-body figure{margin:28px 0}
+    .art-body figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;text-align:center}
+    .art-body blockquote{border-left:3px solid #dc2626;padding:4px 0 4px 18px;font-style:italic;color:var(--muted);font-size:16px;margin:20px 0}
+    .art-body .callout-box{border:1px solid;border-left:4px solid;padding:14px 16px;margin:20px 0;border-radius:8px;font-size:15px;line-height:1.6}
+    .intro-para{font-size:18px;line-height:1.85;color:#4b5563;font-weight:500;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0}
+    .tag-pill{font-size:12.5px;font-weight:600;padding:5px 14px;border-radius:999px;background:#f3f4f6;color:var(--muted);border:1px solid var(--border, #e5e7eb)}
+    .tag-pill:hover{background:#eff6ff;color:#2563eb;border-color:#2563eb}
+    .author-box{display:flex;gap:16px;background:#f9fafb;border-radius:14px;padding:20px;margin:40px 0;border:1px solid var(--border, #e5e7eb)}
+    .author-box img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#e5e7eb}
+    .author-name-lg{font-size:17px;font-weight:800;margin-bottom:4px;color:#111}
+    .author-bio{font-size:14.5px;color:var(--muted);line-height:1.55}
+    .ad-wrap{display:none} /* Hide ads in preview */
   </style>
 </head>
 
@@ -178,21 +214,23 @@
             <a href="categories.html" id="backCategoryLabel">Articles</a>
           </div>
 
-          <div class="hero-thumb" id="articleHero">
-            <img id="articleHeroImg" src="" alt="Article feature image">
-          </div>
-
-          <article>
-            <h1 id="articleTitle">Title</h1>
-            
-            <div class="post-meta">
-              <img class="avatar" id="authorAvatar" src="https://i.pravatar.cc/100?img=12" alt="">
-              <span class="author-name" id="authorName">MEC Staff</span>
-              <span class="dot">&middot;</span>
-              <span id="articleDate">Date</span>
-              <span class="dot">&middot;</span>
-              <span id="readTime">5 min read</span>
+          <div id="contentHeaderElements">
+            <div class="hero-thumb" id="articleHero">
+              <img id="articleHeroImg" src="" alt="Article feature image">
             </div>
+
+            <article>
+              <h1 id="articleTitle">Title</h1>
+              
+              <div class="post-meta" id="postMetaSection">
+                <img class="avatar" id="authorAvatar" src="https://i.pravatar.cc/100?img=12" alt="">
+                <span class="author-name" id="authorName">MEC Staff</span>
+                <span class="dot">&middot;</span>
+                <span id="articleDate">Date</span>
+                <span class="dot">&middot;</span>
+                <span id="readTime">5 min read</span>
+              </div>
+          </div>
 
             <!-- Content Area -->
             <div class="post-body" id="articleBodyContainer">
@@ -313,7 +351,7 @@
     // Fetch the post — don't load rendered_html or draft_content (huge fields)
     const { data: post, error } = await sb
       .from('publisher_posts')
-      .select('id, title, slug, description, intro, category, tags, thumbnail_url, publisher_id, created_at, updated_at, likes_count, comments_count, shares_count')
+      .select('id, title, slug, description, intro, category, tags, thumbnail_url, cloudflare_url, publisher_id, created_at, updated_at, likes_count, comments_count, shares_count, rendered_html, draft_content, publisher_name, avatar_url')
       .eq('id', postId)
       .eq('status', 'approved')
       .single();
@@ -339,7 +377,8 @@
     document.querySelector('meta[name="description"]').content = desc;
     document.querySelector('meta[property="og:title"]').content   = post.title;
     document.querySelector('meta[property="og:description"]').content = desc;
-    if (post.thumbnail_url) {
+    const imgUrl = post.cloudflare_url || post.thumbnail_url;
+    if (imgUrl) {
       let ogImg = document.querySelector('meta[property="og:image"]');
       if (!ogImg) {
         ogImg = document.createElement('meta');
@@ -377,6 +416,7 @@
       });
     }
 
+
     // ── Populate header ─────────────────────────────────────────────────────
     document.getElementById('articleTitle').textContent  = post.title;
     document.getElementById('authorName').textContent    = authorName;
@@ -386,13 +426,14 @@
     const catLabel  = getCategoryLabel(catSlug);
     const backLabel = document.getElementById('backCategoryLabel');
     backLabel.textContent = catLabel;
-    backLabel.href        = `categories.html`;   // always go back to full listing
+    backLabel.href        = `categories.html`;
 
     // ── Hero image ──────────────────────────────────────────────────────────
-    if (post.thumbnail_url) {
-      document.getElementById('articleHeroImg').src          = post.thumbnail_url;
-      document.getElementById('articleHeroImg').alt          = post.title;
-      document.getElementById('articleHero').style.display   = 'block';
+    const heroImgUrl = post.thumbnail_url;
+    if (heroImgUrl) {
+      document.getElementById('articleHeroImg').src = heroImgUrl;
+      document.getElementById('articleHeroImg').alt = post.title;
+      document.getElementById('articleHero').style.display = 'block';
     }
 
     // ── Article body ────────────────────────────────────────────────────────
@@ -400,10 +441,45 @@
     const bodyContainer = document.getElementById('articleBodyContainer');
 
     if (post.rendered_html) {
-      // Extract just the <body> from the stored full-page HTML
-      const bodyMatch = post.rendered_html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-      const bodyHtml  = bodyMatch ? bodyMatch[1] : post.rendered_html;
-      bodyContainer.innerHTML = bodyHtml;
+      // Extract ONLY the pure article prose from <div class="art-body">.
+      // The rendered_html is the full SSR page HTML (sidebar, topbar, h1, TOC,
+      // art-body, tags, author-box, footer). Injecting it wholesale causes
+      // duplicate headings, duplicate TOC, and a sideways footer inside the content area.
+      const artBodyMatch = post.rendered_html.match(/<div[^>]*\bclass="art-body"[^>]*>([\s\S]+?)(?=<div[^>]*\b(?:article-tags|author-box)\b)/i);
+      let articleContent;
+      if (artBodyMatch) {
+        articleContent = artBodyMatch[1];
+      } else {
+        // Fallback: extract <body> then strip all layout shell elements
+        let raw = post.rendered_html;
+        const bm = raw.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+        if (bm) raw = bm[1];
+        raw = raw.replace(/<app-sidebar[\s\S]*?<\/app-sidebar>/gi, '');
+        raw = raw.replace(/<app-topbar[\s\S]*?<\/app-topbar>/gi, '');
+        raw = raw.replace(/<app-footer[\s\S]*?<\/app-footer>/gi, '');
+        raw = raw.replace(/<div[^>]+class="(?:app|main-wrapper|inner|page-wrap|hero-wrap)[^"]*"[^>]*>/gi, '');
+        raw = raw.replace(/<(?:nav|div)[^>]+class="[^"]*(?:crumbs|toc-box|art-meta|post-meta|article-tags|author-box)[^"]*"[^>]*>[\s\S]*?<\/(?:nav|div)>/gi, '');
+        raw = raw.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '');
+        raw = raw.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+        raw = raw.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
+        articleContent = raw;
+      }
+      bodyContainer.innerHTML = articleContent;
+
+      // Build TOC from h2/h3 headings in the extracted content
+      const headings = bodyContainer.querySelectorAll('h2, h3');
+      if (headings.length >= 2) {
+        headings.forEach((h, i) => { if (!h.id) h.id = `sec-${i}`; });
+        const tocItems = Array.from(headings).map((h, i) =>
+          `<li${h.tagName === 'H3' ? ' class="h3"' : ''}><a href="#sec-${i}">${h.textContent.trim()}</a></li>`
+        ).join('');
+        const tocEl = document.createElement('nav');
+        tocEl.className = 'toc-box';
+        tocEl.setAttribute('aria-label', 'Table of contents');
+        tocEl.innerHTML = `<h2>On this page</h2><ul class="toc-list">${tocItems}</ul>`;
+        bodyContainer.parentNode.insertBefore(tocEl, bodyContainer);
+      }
+
     } else {
       // Fallback: reconstruct from raw draft_content fields
       const dc     = (typeof post.draft_content === 'string' ? JSON.parse(post.draft_content) : post.draft_content) || {};
@@ -418,11 +494,11 @@
     const wordCount = bodyContainer.innerText.split(/\s+/).filter(Boolean).length;
     document.getElementById('readTime').textContent = Math.max(1, Math.round(wordCount / 200)) + ' min read';
 
-    // ── Tags ────────────────────────────────────────────────────────────────
+    // ── Tags (always show, styled as blue pills) ─────────────────────────────
     const tags = Array.isArray(post.tags) ? post.tags : [];
     if (tags.length) {
       document.getElementById('articleTagsContainer').innerHTML =
-        tags.map(t => `<a href="categories.html" class="post-tag">${t}</a>`).join('');
+        tags.map(t => `<span class="post-tag">${t}</span>`).join('');
     }
 
     // ── Stats ───────────────────────────────────────────────────────────────
@@ -438,7 +514,7 @@
     try {
       const { data: related } = await sb
         .from('publisher_posts')
-        .select('id, title, slug, category, thumbnail_url, created_at')
+        .select('id, title, slug, category, thumbnail_url, cloudflare_url, created_at')
         .eq('status', 'approved')
         .eq('category', catSlug)
         .neq('id', postId)
@@ -449,7 +525,8 @@
         document.getElementById('relatedList').innerHTML = related.map(r => {
           const rHref  = articleHref(r);
           const rLabel = getCategoryLabel(r.category);
-          const thumb  = r.thumbnail_url
+          const rImg   = r.cloudflare_url || r.thumbnail_url;
+          const thumb  = rImg
             ? `<img loading="lazy" src="${r.thumbnail_url}" alt="${r.title}">`
             : `<div style="width:100%;height:130px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;">No image</div>`;
           return `
@@ -480,3 +557,10 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
