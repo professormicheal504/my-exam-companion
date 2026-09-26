@@ -56,7 +56,7 @@
   <!-- App Shell -->
   <link rel="stylesheet" href="../../components/topbar.css?v=13">
   <link rel="stylesheet" href="../../components/dark-mode.css">
-  <link rel="stylesheet" href="../../components/sidebar.css?v=4">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
   <link rel="stylesheet" href="../../components/footer.css">
 
   <style>
@@ -272,8 +272,10 @@
       const authorName   = post.publisher_name || 'MEC Staff';
       const authorAvatar = post.avatar_url || '';
 
-      const img = post.thumbnail_url
-        ? `<img src="${post.thumbnail_url}" alt="${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy">`
+      // Prefer cloudflare_url (permanent R2 storage) over thumbnail_url (may be base64 or expired)
+      const imgSrc = post.cloudflare_url || (post.thumbnail_url && !post.thumbnail_url.startsWith('data:') ? post.thumbnail_url : null);
+      const img = imgSrc
+        ? `<img src="${imgSrc}" alt="${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy">`
         : `<div style="width:100%;height:100%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aaa;">No image</div>`;
 
       return `
@@ -330,7 +332,7 @@
     // Fetch approved posts — use the real columns that exist after migrations
     const { data: posts, error } = await sb
       .from('publisher_posts')
-      .select('id, title, slug, description, intro, category, tags, thumbnail_url, rendered_html, created_at, publisher_id, likes_count, comments_count, shares_count')
+      .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
       .eq('status', 'approved')
       .order('created_at', { ascending: false })
       .limit(50);

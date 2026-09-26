@@ -1,17 +1,17 @@
-/**
- * Edge SSR — Blog
+﻿/**
+ * Edge SSR â€” Blog
  *
  * Routes handled:
- *   /:cc/blog                          → blog listing (all categories)
- *   /:cc/blog/:category                → category listing
- *   /:cc/blog/:category/:slug          → single article (full SSR)
+ *   /:cc/blog                          â†’ blog listing (all categories)
+ *   /:cc/blog/:category                â†’ category listing
+ *   /:cc/blog/:category/:slug          â†’ single article (full SSR)
  *
  * The country code (:cc) is read from the URL slug (ng / gh / us).
  * Googlebot receives a complete, JS-free HTML document on every route.
  * Google AdSense ads are injected via pre-defined slots.
  */
 
-// ── Category definitions ────────────────────────────────────────────────────
+// â”€â”€ Category definitions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CATEGORIES = [
   { slug: 'all',           label: 'All' },
   { slug: 'study-tips',    label: 'Study Tips' },
@@ -21,7 +21,7 @@ const CATEGORIES = [
   { slug: 'school-news',   label: 'School News' },
 ];
 
-// Map country code → BCP-47 language tag for <html lang>
+// Map country code â†’ BCP-47 language tag for <html lang>
 const CC_LANG = { ng: 'en-NG', gh: 'en-GH', us: 'en-US' };
 
 function normaliseCategorySlug(raw) {
@@ -35,11 +35,11 @@ function getCategoryLabel(slug) {
   return (CATEGORIES.find(c => c.slug === slug) || {}).label || 'Guide';
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const BASE = 'https://myexamcompanion.com';
 const SITE_NAME = 'MyExam Companion';
 const LOGO_URL  = `${BASE}/logos/logo.png`;
-const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX'; // ← replace with real publisher ID
+const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX'; // â† replace with real publisher ID
 
 function esc(s = '') {
   return String(s)
@@ -83,7 +83,7 @@ function buildTocHtml(html = '') {
   ).join('');
 }
 
-// AdSense — push call is inlined but uses a safe pattern
+// AdSense â€” push call is inlined but uses a safe pattern
 function adSlot(slotId, label) {
   return `<div class="ad-wrap" aria-label="Advertisement" data-slot="${label}">
   <ins class="adsbygoogle" style="display:block;text-align:center;"
@@ -92,7 +92,7 @@ function adSlot(slotId, label) {
 </div>`;
 }
 
-// AdSense init — single push block at bottom of <body>, not per-slot
+// AdSense init â€” single push block at bottom of <body>, not per-slot
 // Note: closing script tag is split to prevent esbuild from treating it as
 // the end of the JS module when this string is embedded in bundled output.
 const ADSENSE_INIT = '<script>\n' +
@@ -100,7 +100,7 @@ const ADSENSE_INIT = '<script>\n' +
   'document.querySelectorAll(\'.adsbygoogle\').forEach(function(){(adsbygoogle=window.adsbygoogle||[]).push({});});\n' +
   '<\/script>';
 
-// ── Supabase REST helper ─────────────────────────────────────────────────────
+// â”€â”€ Supabase REST helper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function supabaseFetch(env, table, query) {
   const url = env.SUPABASE_URL;
   const key = env.SUPABASE_ANON_KEY;
@@ -112,21 +112,21 @@ async function supabaseFetch(env, table, query) {
   return res.json();
 }
 
-// ── LISTING PAGE ─────────────────────────────────────────────────────────────
+// â”€â”€ LISTING PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function buildListingHtml({ cc, category, posts, page, totalPages }) {
   const lang       = CC_LANG[cc] || 'en';
   const catLabel   = getCategoryLabel(category);
   const catIsAll   = category === 'all';
   const pageTitle  = catIsAll
-    ? `Blog — ${SITE_NAME}`
-    : `${catLabel} Articles — ${SITE_NAME}`;
+    ? `Blog â€” ${SITE_NAME}`
+    : `${catLabel} Articles â€” ${SITE_NAME}`;
   const description = catIsAll
     ? `Study tips, exam updates, scholarship guides and school news for ${cc === 'ng' ? 'Nigerian' : cc === 'gh' ? 'Ghanaian' : ''} students on ${SITE_NAME}.`
     : `Latest ${catLabel} articles for students. Find expert guides, tips and news on ${SITE_NAME}.`;
   const canonicalBase = `${BASE}/${cc}/blog${catIsAll ? '' : '/' + category}`;
   const canonicalUrl  = page > 1 ? `${canonicalBase}?page=${page}` : canonicalBase;
 
-  // WebSite schema with SearchAction — appears once on the listing root, great for sitelinks
+  // WebSite schema with SearchAction â€” appears once on the listing root, great for sitelinks
   const websiteSchema = !catIsAll || page > 1 ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -175,12 +175,12 @@ function buildListingHtml({ cc, category, posts, page, totalPages }) {
       <div class="card-body">
         <span class="card-cat">${getCategoryLabel(catSlug)}</span>
         <h2 class="card-title"><a href="${href}">${esc(p.title)}</a></h2>
-        ${p.description ? `<p class="card-desc">${esc(p.description.substring(0, 120))}…</p>` : ''}
+        ${p.description ? `<p class="card-desc">${esc(p.description.substring(0, 120))}â€¦</p>` : ''}
         <div class="card-meta">
           <span>${esc(p.publisher_name || 'Staff')}</span>
-          <span class="sep" aria-hidden="true">·</span>
+          <span class="sep" aria-hidden="true">Â·</span>
           <time datetime="${p.created_at || ''}">${date}</time>
-          <span class="sep" aria-hidden="true">·</span>
+          <span class="sep" aria-hidden="true">Â·</span>
           <span>${rt} min read</span>
         </div>
       </div>
@@ -195,12 +195,12 @@ function buildListingHtml({ cc, category, posts, page, totalPages }) {
   const pagination = totalPages > 1 ? `
   <nav class="pagination" aria-label="Pagination">
     ${page > 1
-      ? `<a href="${canonicalBase}${page - 1 > 1 ? '?page=' + (page - 1) : ''}" class="page-btn" rel="prev">← Previous</a>`
-      : '<span class="page-btn disabled" aria-disabled="true">← Previous</span>'}
+      ? `<a href="${canonicalBase}${page - 1 > 1 ? '?page=' + (page - 1) : ''}" class="page-btn" rel="prev">â† Previous</a>`
+      : '<span class="page-btn disabled" aria-disabled="true">â† Previous</span>'}
     <span class="page-info">Page ${page} of ${totalPages}</span>
     ${page < totalPages
-      ? `<a href="${canonicalBase}?page=${page + 1}" class="page-btn" rel="next">Next →</a>`
-      : '<span class="page-btn disabled" aria-disabled="true">Next →</span>'}
+      ? `<a href="${canonicalBase}?page=${page + 1}" class="page-btn" rel="next">Next â†’</a>`
+      : '<span class="page-btn disabled" aria-disabled="true">Next â†’</span>'}
   </nav>` : '';
 
   return `<!DOCTYPE html>
@@ -282,7 +282,7 @@ ${ADSENSE_INIT}
 </html>`;
 }
 
-// ── ARTICLE PAGE ─────────────────────────────────────────────────────────────
+// â”€â”€ ARTICLE PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvatar }) {
   const lang       = CC_LANG[cc] || 'en';
   const catSlug    = normaliseCategorySlug(post.category);
@@ -295,10 +295,10 @@ function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvat
   const tags       = Array.isArray(post.tags) ? post.tags : [];
   const desc       = post.description || (post.intro ? stripHtml(post.intro).substring(0, 160) : '');
 
-  // Only use real image URLs — never base64 (can be megabytes, crashes the Worker)
+  // Only use real image URLs â€” never base64 (can be megabytes, crashes the Worker)
   const thumbUrl = post.cloudflare_url || null;
 
-  // Build article body from lightweight fields — rendered_html is NOT fetched
+  // Build article body from lightweight fields â€” rendered_html is NOT fetched
   // in the list query to avoid hitting Worker memory limits.
   // The intro + description gives Googlebot enough content to index well.
   const articleBody = post.intro
@@ -306,12 +306,12 @@ function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvat
        <p style="color:#6b7280;font-size:15px;line-height:1.7;margin-top:24px;">
          ${desc ? esc(desc) : ''}
        </p>`
-    : `<p style="color:#6b7280;">Content loading…</p>`;
+    : `<p style="color:#6b7280;">Content loadingâ€¦</p>`;
 
   const tocItems = '';
   const rt = 5;
 
-  // ── JSON-LD ──────────────────────────────────────────────────────────────
+  // â”€â”€ JSON-LD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -359,7 +359,7 @@ function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvat
   ).join('\n  ');
 
   // Title includes category keyword for topical relevance
-  const pageTitle = `${post.title} — ${catLabel} | ${SITE_NAME}`;
+  const pageTitle = `${post.title} â€” ${catLabel} | ${SITE_NAME}`;
 
   return `<!DOCTYPE html>
 <html lang="${lang}">
@@ -473,10 +473,10 @@ function buildArticleHtml({ cc, post, publisherName, publisherBio, publisherAvat
     <span class="author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
       <span itemprop="name">${esc(publisherName)}</span>
     </span>
-    <span class="sep" aria-hidden="true">·</span>
+    <span class="sep" aria-hidden="true">Â·</span>
     <time datetime="${dateIso}" itemprop="datePublished">${dateHuman}</time>
     <meta itemprop="dateModified" content="${modIso}">
-    <span class="sep" aria-hidden="true">·</span>
+    <span class="sep" aria-hidden="true">Â·</span>
     <span>${rt} min read</span>
   </div>
 
@@ -514,12 +514,12 @@ ${ADSENSE_INIT}
 </html>`;
 }
 
-// ── Main handler ─────────────────────────────────────────────────────────────
+// â”€â”€ Main handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export async function onRequest(context) {
   // Tell Pages to fall through to static assets if something completely unexpected happens
   context.passThroughOnException();
 
-  // ── Outer safety net — never let a raw exception produce Error 1101 ────────
+  // â”€â”€ Outer safety net â€” never let a raw exception produce Error 1101 â”€â”€â”€â”€â”€â”€â”€â”€
   try {
     const result = await handleRequest(context);
     if (!(result instanceof Response)) {
@@ -536,7 +536,7 @@ export async function onRequest(context) {
       <body style="font-family:sans-serif;padding:40px;max-width:600px;margin:0 auto;">
         <h1 style="font-size:24px;margin-bottom:12px;">Something went wrong</h1>
         <p style="color:#666;margin-bottom:20px;">We couldn't load this page. Please try again in a moment.</p>
-        <a href="/${cc}/blog" style="color:#2563eb;">← Back to blog</a>
+        <a href="/${cc}/blog" style="color:#2563eb;">â† Back to blog</a>
       </body></html>`,
       { status: 500, headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
     );
@@ -562,24 +562,31 @@ async function handleRequest(context) {
       <body style="font-family:sans-serif;padding:40px;">
         <h1>Blog temporarily unavailable</h1>
         <p>Please check back soon.</p>
-        <a href="/${cc}/blog">← Back to blog</a>
+        <a href="/${cc}/blog">â† Back to blog</a>
       </body></html>`,
       { status: 503, headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
     );
   }
 
-  const categoryFromPath = path[0] ? path[0].toLowerCase() : 'all';
+  const categoryFromPath = path[0] ? path[0].toLowerCase() : null;
   const slugFromPath     = path[1] || null;
   const isKnownCategory  = CATEGORIES.some(c => c.slug === categoryFromPath);
 
-  // ── Single article ────────────────────────────────────────────────────────
+  // â”€â”€ Listing & category pages â†’ redirect to categories.html SPA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Only single article pages (/cc/blog/:category/:slug) use SSR.
+  // The listing SPA has the proper topbar/sidebar layout and handles filtering.
+  if (!slugFromPath) {
+    return Response.redirect(`${url.origin}/modules/blog/categories.html`, 302);
+  }
+
+  // â”€â”€ Single article â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (isKnownCategory && slugFromPath) {
     let post = null;
     let publisherName = 'Staff', publisherBio = '', publisherAvatar = '';
 
     try {
       // Try slug column first (new articles), then fall back to id (old articles
-      // whose URL was generated before the slug column existed — e.g. UUIDs)
+      // whose URL was generated before the slug column existed â€” e.g. UUIDs)
       const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slugFromPath);
 
       if (isUuid) {
@@ -611,14 +618,14 @@ async function handleRequest(context) {
     if (!post) {
       return new Response(
         `<!DOCTYPE html><html lang="${CC_LANG[cc]||'en'}"><head>
-        <title>Article not found — ${SITE_NAME}</title>
+        <title>Article not found â€” ${SITE_NAME}</title>
         <meta name="robots" content="noindex">
         <link rel="canonical" href="${BASE}/${cc}/blog">
         </head>
         <body style="font-family:sans-serif;padding:40px;max-width:600px;margin:0 auto;">
           <h1 style="font-size:24px;margin-bottom:12px;">Article not found</h1>
           <p style="color:#666;margin-bottom:20px;">This article may have been removed or is not yet approved.</p>
-          <a href="/${cc}/blog" style="color:#2563eb;">← Back to blog</a>
+          <a href="/${cc}/blog" style="color:#2563eb;">â† Back to blog</a>
         </body></html>`,
         { status: 404, headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
       );
@@ -649,58 +656,12 @@ async function handleRequest(context) {
     );
   }
 
-  // ── Category listing ──────────────────────────────────────────────────────
-  const category = isKnownCategory ? categoryFromPath : 'all';
-  const page     = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
-  const pageSize = 12;
-  const offset   = (page - 1) * pageSize;
+  // â”€â”€ Unknown path with slug but unrecognised category â†’ try SSR anyway â”€â”€â”€
+  // Fall back to redirect to listing if we can't serve the article.
+  if (!isKnownCategory) {
+    return Response.redirect(`${url.origin}/modules/blog/categories.html`, 302);
+  }
 
-  let posts = [], totalCount = 0;
-
-  try {
-    const catFilter = category === 'all' ? '' : `&category=eq.${encodeURIComponent(category)}`;
-
-    const countRes = await fetch(
-      `${env.SUPABASE_URL}/rest/v1/publisher_posts?select=id${catFilter}&status=eq.approved`,
-      {
-        headers: {
-          'apikey':        env.SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${env.SUPABASE_ANON_KEY}`,
-          'Prefer':        'count=exact',
-          'Range':         '0-0',
-        },
-      }
-    );
-    const cr = countRes.headers.get('Content-Range') || '0-0/0';
-    totalCount = parseInt(cr.split('/')[1] || '0', 10);
-
-    posts = await supabaseFetch(env, 'publisher_posts',
-      `select=id,title,slug,description,category,cloudflare_url,tags,created_at,publisher_id${catFilter}&status=eq.approved&order=created_at.desc&limit=${pageSize}&offset=${offset}`
-    );
-
-    const pubIds = [...new Set(posts.map(p => p.publisher_id).filter(Boolean))];
-    if (pubIds.length) {
-      try {
-        const pubs = await supabaseFetch(env, 'publishers',
-          `select=user_id,publisher_name&user_id=in.(${pubIds.map(id => `"${id}"`).join(',')})`);
-        const pubMap = {};
-        pubs.forEach(p => { pubMap[p.user_id] = p.publisher_name; });
-        posts = posts.map(p => ({ ...p, publisher_name: pubMap[p.publisher_id] || 'Staff' }));
-      } catch (_) {}
-    }
-  } catch (err) { console.error('Listing fetch:', err); }
-
-  const totalPages = Math.ceil(totalCount / pageSize) || 1;
-
-  return new Response(
-    buildListingHtml({ cc, category, posts, page, totalPages }),
-    {
-      status: 200,
-      headers: {
-        'Content-Type': 'text/html;charset=UTF-8',
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=1800',
-        'Vary': 'Accept-Encoding',
-      },
-    }
-  );
+  // (Dead code path â€” all listing routes already redirected above)
+  return Response.redirect(`${url.origin}/modules/blog/categories.html`, 302);
 }
