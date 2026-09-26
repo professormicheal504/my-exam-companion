@@ -3,6 +3,16 @@
 
 <head>
 <script>
+  // URL preservation for /ng/blog -> /modules/blog/categories.html
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const preserveUrl = params.get('preserve_url');
+    if (preserveUrl) {
+      // Silently update URL to preserve SEO-friendly path
+      history.replaceState({}, '', '/' + preserveUrl);
+    }
+  })();
+  
   /* Anti-flash: apply saved theme before first paint */
   (function() {
     try {
