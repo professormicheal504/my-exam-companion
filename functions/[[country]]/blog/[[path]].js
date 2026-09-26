@@ -521,9 +521,14 @@ export async function onRequest(context) {
 
   // ── Outer safety net — never let a raw exception produce Error 1101 ────────
   try {
-    return await handleRequest(context);
+    const result = await handleRequest(context);
+    if (!(result instanceof Response)) {
+      console.error('Blog handleRequest returned non-Response:', typeof result);
+      throw new Error('handleRequest must return a Response');
+    }
+    return result;
   } catch (fatal) {
-    console.error('Blog function fatal error:', fatal?.message || fatal, fatal?.stack);
+    console.error('Blog function fatal error:', fatal?.message || String(fatal), fatal?.stack);
     const cc = (context.params?.country || 'ng').toLowerCase();
     return new Response(
       `<!DOCTYPE html><html lang="en"><head><title>Something went wrong</title>
