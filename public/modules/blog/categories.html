@@ -290,7 +290,7 @@
       // Test 2: Fetch sample posts with correct columns
       const { data, error } = await sb
         .from('publisher_posts')
-        .select('id, title, status, category, cloudflare_url')
+        .select('id, title, status, category, cloudflare_url, thumbnail_url')
         .limit(3);
         
       if (error) {
@@ -371,12 +371,20 @@
       const authorName   = post.publisher_name || 'MEC Staff';
       const authorAvatar = post.avatar_url || '';
 
-      // Debug image URL
-      const imgSrc = post.cloudflare_url;
-      if (!imgSrc) {
-        debugLog(`Post "${post.title}" missing cloudflare_url`, 'warn');
+      // Debug image URL - try multiple sources
+      const cloudflareUrl = post.cloudflare_url;
+      const thumbnailUrl = post.thumbnail_url;
+      
+      // Use cloudflare_url first, then thumbnail_url as fallback (but avoid base64)
+      const imgSrc = cloudflareUrl || 
+                    (thumbnailUrl && !thumbnailUrl.startsWith('data:') ? thumbnailUrl : null);
+      
+      if (!cloudflareUrl && !thumbnailUrl) {
+        debugLog(`Post "${post.title}" has no image URLs`, 'warn');
+      } else if (!cloudflareUrl && thumbnailUrl) {
+        debugLog(`Post "${post.title}" using thumbnail_url fallback`, 'info');
       } else {
-        debugLog(`Post "${post.title}" has image: ${imgSrc.substring(0,50)}...`, 'success');
+        debugLog(`Post "${post.title}" using cloudflare_url`, 'success');
       }
       
       const img = imgSrc
@@ -433,10 +441,10 @@
     debugLog('Supabase client created, fetching posts...', 'info');
 
     try {
-      // Fetch approved posts — use only the columns that actually exist
+      // Fetch approved posts — include thumbnail_url as backup for images
       const { data: posts, error } = await sb
         .from('publisher_posts')
-        .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id')
+        .select('id, title, slug, description, intro, category, tags, cloudflare_url, thumbnail_url, created_at, publisher_id')
         .eq('status', 'approved')
         .order('created_at', { ascending: false })
         .limit(50);
