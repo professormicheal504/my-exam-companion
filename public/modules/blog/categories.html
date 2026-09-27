@@ -287,10 +287,10 @@
         debugLog(`Found ${count} total posts in database`, 'success');
       }
       
-      // Test 2: Fetch sample posts
+      // Test 2: Fetch sample posts with correct columns
       const { data, error } = await sb
         .from('publisher_posts')
-        .select('id, title, status')
+        .select('id, title, status, category, cloudflare_url')
         .limit(3);
         
       if (error) {
@@ -397,20 +397,6 @@
                 <span>&middot;</span>
                 <span>${getReadTime(post)}</span>
               </div>
-              <div class="eng-row" role="group" aria-label="Post stats">
-                <div class="eng-item like">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>
-                  ${post.likes_count || 0}
-                </div>
-                <div class="eng-item">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                  ${post.comments_count || 0}
-                </div>
-                <div class="eng-item">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                  ${post.shares_count || 0}
-                </div>
-              </div>
             </div>
           </a>
         </article>`;
@@ -441,10 +427,10 @@
     debugLog('Supabase client created, fetching posts...', 'info');
 
     try {
-      // Fetch approved posts — use the real columns that exist after migrations
+      // Fetch approved posts — use only the columns that actually exist
       const { data: posts, error } = await sb
         .from('publisher_posts')
-        .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
+        .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id')
         .eq('status', 'approved')
         .order('created_at', { ascending: false })
         .limit(50);
