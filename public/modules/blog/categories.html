@@ -317,7 +317,9 @@
           debugLog(`Sample shows ${approvedPosts.length}/${data.length} approved posts`, 'info');
           
           data.forEach(post => {
-            debugLog(`Post "${post.title}": status=${post.status}, cloudflare_url=${!!post.cloudflare_url}, thumbnail_url=${!!post.thumbnail_url}`, 'info');
+            const hasCloudflare = !!post.cloudflare_url;
+            const isJsonUrl = post.cloudflare_url && post.cloudflare_url.includes('.json');
+            debugLog(`Post "${post.title}": status=${post.status}, cloudflare_url=${hasCloudflare}, is_json=${isJsonUrl}, thumbnail_url=${!!post.thumbnail_url}`, 'info');
           });
         }
       }
@@ -406,24 +408,32 @@
       const authorName   = post.publisher_name || 'MEC Staff';
       const authorAvatar = post.avatar_url || '';
 
-      // Debug image URL - try multiple sources
+      // Debug image URL - fix .json cloudflare URLs and add fallbacks
       const cloudflareUrl = post.cloudflare_url;
       const thumbnailUrl = post.thumbnail_url;
       
-      // Use cloudflare_url first, then thumbnail_url as fallback (but avoid base64)
-      const imgSrc = cloudflareUrl || 
-                    (thumbnailUrl && !thumbnailUrl.startsWith('data:') ? thumbnailUrl : null);
-      
-      if (!cloudflareUrl && !thumbnailUrl) {
-        debugLog(`Post "${post.title}" has no image URLs`, 'warn');
-      } else if (!cloudflareUrl && thumbnailUrl) {
+      // Fix cloudflare_url if it points to .json instead of image
+      let imgSrc = null;
+      if (cloudflareUrl && cloudflareUrl.includes('.json')) {
+        // Convert .json URL to .jpg/.png by replacing extension
+        const imageUrl = cloudflareUrl.replace('.json', '.jpg');
+        debugLog(`Post "${post.title}" converting JSON URL to image: ${imageUrl}`, 'info');
+        imgSrc = imageUrl;
+      } else if (cloudflareUrl) {
+        imgSrc = cloudflareUrl;
+      } else if (thumbnailUrl && !thumbnailUrl.startsWith('data:')) {
+        imgSrc = thumbnailUrl;
         debugLog(`Post "${post.title}" using thumbnail_url fallback`, 'info');
+      }
+      
+      if (!imgSrc) {
+        debugLog(`Post "${post.title}" has no usable image URLs`, 'warn');
       } else {
-        debugLog(`Post "${post.title}" using cloudflare_url`, 'success');
+        debugLog(`Post "${post.title}" final image URL: ${imgSrc}`, 'success');
       }
       
       const img = imgSrc
-        ? `<img src="${imgSrc}" alt="${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy" onerror="console.error('Image failed to load:', this.src)">`
+        ? `<img src="${imgSrc}" alt="${(post.title || '').replace(/"/g, '&quot;')}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\"width:100%;height:100%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aaa;\\">Image failed</div>'">`
         : `<div style="width:100%;height:100%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aaa;">No image</div>`;
 
       return `
@@ -512,26 +522,40 @@
         debugLog(`Found ${pubIds.length} unique publisher IDs: ${JSON.stringify(pubIds.slice(0,3))}...`, 'info');
         if (pubIds.length) {
           try {
+            // Try publishers table first (new system)
             const { data: pubs } = await sb
               .from('publishers')
               .select('user_id, publisher_name');
+              
+            // Get profiles data (fallback for publisher names)  
             const { data: profiles } = await sb
               .from('profiles')
-              .select('id, avatar_url');
+              .select('id, avatar_url, full_name');
               
             debugLog(`Publishers query returned: ${pubs?.length || 0} records`, 'info');
             debugLog(`Profiles query returned: ${profiles?.length || 0} records`, 'info');
             
             const pubMap  = {};
             const avatarMap = {};
-            (pubs     || []).forEach(p => { pubMap[p.user_id]   = p.publisher_name; });
-            (profiles || []).forEach(p => { avatarMap[p.id]      = p.avatar_url;     });
+            
+            // Use publishers table if available, otherwise fall back to profiles
+            if (pubs && pubs.length > 0) {
+              pubs.forEach(p => { pubMap[p.user_id] = p.publisher_name; });
+            } else {
+              // Fallback: use full_name from profiles table
+              profiles?.forEach(p => { 
+                pubMap[p.id] = p.full_name || 'MEC Staff';
+              });
+              debugLog('Using profiles.full_name as fallback for publisher names', 'info');
+            }
+            
+            profiles?.forEach(p => { avatarMap[p.id] = p.avatar_url; });
             
             debugLog(`Publisher name mapping: ${JSON.stringify(Object.fromEntries(Object.entries(pubMap).slice(0,3)))}`, 'info');
             
             enriched = enriched.map(p => ({
               ...p,
-              publisher_name: pubMap[p.publisher_id]   || 'MEC Staff',
+              publisher_name: pubMap[p.publisher_id] || 'MEC Staff',
               avatar_url:     avatarMap[p.publisher_id] || '',
             }));
             debugLog('Publisher data enrichment complete', 'success');
