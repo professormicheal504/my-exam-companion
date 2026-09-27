@@ -64,10 +64,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 
   <!-- App Shell -->
-  <link rel="stylesheet" href="/components/topbar.css?v=13">
-  <link rel="stylesheet" href="/components/dark-mode.css">
-  <link rel="stylesheet" href="/components/sidebar.css?v=23">
-  <link rel="stylesheet" href="/components/footer.css">
+  <link rel="stylesheet" href="../../components/topbar.css?v=13">
+  <link rel="stylesheet" href="../../components/dark-mode.css">
+  <link rel="stylesheet" href="../../components/sidebar.css?v=23">
+  <link rel="stylesheet" href="../../components/footer.css">
 
   <style>
     /* == Reset ================================================== */
@@ -167,11 +167,11 @@
 <body>
 <div class="app">
   <!-- Sidebar web component -->
-  <app-sidebar></app-sidebar>
+  <app-sidebar data-base="../../"></app-sidebar>
 
   <div class="main-wrapper">
     <!-- Topbar web component -->
-    <app-topbar></app-topbar>
+    <app-topbar data-base="../../"></app-topbar>
 
     <main class="content" id="main-content">
       <div class="wrap">
@@ -204,17 +204,17 @@
       </div>
     </main>
 
-    <app-footer></app-footer>
+    <app-footer data-base="../../"></app-footer>
   </div><!-- /main-wrapper -->
 </div><!-- /app -->
 
 <!-- Scripts -->
-<script src="/components/nav.js" defer></script>
-<script src="/components/topbar.js?v=4" defer></script>
-<script src="/components/sidebar.js?v=20" defer></script>
-<script src="/components/footer.js" defer></script>
+<script src="../../components/nav.js" defer></script>
+<script src="../../components/topbar.js?v=4" defer></script>
+<script src="../../components/sidebar.js?v=20" defer></script>
+<script src="../../components/footer.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="/components/supabase.js"></script>
+<script src="../../components/supabase.js"></script>
 
 <script>
   let allPosts = [];
@@ -332,40 +332,45 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const list = document.getElementById('postList');
 
-    // Debug: Check if Supabase is available
-    console.log('MECSupabase available:', typeof window.MECSupabase !== 'undefined');
+    console.log('[MEC Blog] Starting blog load...');
     
     if (typeof window.MECSupabase === 'undefined') {
-      console.error('MECSupabase not available');
+      console.error('[MEC Blog] MECSupabase config not loaded');
       list.innerHTML = '<p class="loading-state">Unable to load posts right now. Please try again later.</p>';
       return;
     }
 
+    console.log('[MEC Blog] MECSupabase config loaded');
+    
     const sb = window.MECSupabase.getSupabase();
-    console.log('Supabase client:', sb);
+    if (!sb) {
+      console.error('[MEC Blog] Failed to create Supabase client');
+      list.innerHTML = '<p class="loading-state">Database connection failed. Please refresh the page.</p>';
+      return;
+    }
+    
+    console.log('[MEC Blog] Supabase client created, fetching posts...');
 
     // Fetch approved posts — use the real columns that exist after migrations
-    try {
-      const { data: posts, error } = await sb
-        .from('publisher_posts')
-        .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
-        .eq('status', 'approved')
-        .order('created_at', { ascending: false })
-        .limit(50);
+    const { data: posts, error } = await sb
+      .from('publisher_posts')
+      .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false })
+      .limit(50);
 
-      console.log('Posts fetch result:', { posts: posts?.length, error });
+    if (error) {
+      console.error('[MEC Blog] Blog fetch error:', error);
+      list.innerHTML = '<p class="loading-state">Failed to load posts. Please refresh.</p>';
+      return;
+    }
 
-      if (error) {
-        console.error('Blog fetch error:', error);
-        list.innerHTML = '<p class="loading-state">Failed to load posts. Please refresh.</p>';
-        return;
-      }
-
-      // Enrich with publisher names in one extra query
-      let enriched = posts || [];
-      console.log('Posts to enrich:', enriched.length);
-      
-      if (enriched.length > 0) {
+    console.log(`[MEC Blog] Fetched ${posts?.length || 0} posts`);
+    
+    // Enrich with publisher names in one extra query
+    let enriched = posts || [];
+    if (enriched.length > 0) {
+      console.log('[MEC Blog] Enriching with publisher data...');
       const pubIds = [...new Set(enriched.map(p => p.publisher_id).filter(Boolean))];
       if (pubIds.length) {
         try {
@@ -384,18 +389,23 @@
             publisher_name: pubMap[p.publisher_id]   || 'MEC Staff',
             avatar_url:     avatarMap[p.publisher_id] || '',
           }));
-        } catch (_) {}
+          console.log('[MEC Blog] Publisher data enrichment complete');
+        } catch (enrichError) {
+          console.warn('[MEC Blog] Publisher enrichment failed:', enrichError);
+        }
       }
     }
 
     allPosts = enriched;
 
     if (allPosts.length === 0) {
+      console.log('[MEC Blog] No posts found');
       list.innerHTML = '';
       document.getElementById('noResults').classList.add('show');
       return;
     }
 
+    console.log(`[MEC Blog] Rendering ${allPosts.length} posts`);
     renderPosts(allPosts);
 
     // ── Category tab filtering ────────────────────────────────────────────
