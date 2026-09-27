@@ -201,6 +201,16 @@
 
         <p class="no-results" id="noResults" role="status">No posts in this topic yet &mdash; check back soon.</p>
 
+        <!-- Debug Panel -->
+        <div id="debugPanel" style="display:none; position:fixed; top:20px; right:20px; width:400px; max-height:500px; overflow-y:auto; background:rgba(0,0,0,0.9); color:#00ff00; padding:15px; border-radius:8px; font-family:monospace; font-size:12px; z-index:9999; border:1px solid #333;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <strong style="color:#00ff00;">🔧 Blog Debug Console</strong>
+            <button onclick="document.getElementById('debugPanel').style.display='none'" style="background:none; border:1px solid #666; color:#00ff00; padding:2px 8px; border-radius:3px; cursor:pointer;">✕</button>
+          </div>
+          <button onclick="testSupabaseDirect()" style="background:#333; border:1px solid #666; color:#00ff00; padding:5px 10px; border-radius:3px; cursor:pointer; margin-bottom:10px; width:100%;">🧪 Test Supabase Direct</button>
+          <div id="debugLog" style="white-space:pre-wrap; word-break:break-all;"></div>
+        </div>
+
       </div>
     </main>
 
@@ -218,6 +228,85 @@
 
 <script>
   let allPosts = [];
+
+  // ── Debug Console ──────────────────────────────────────────────────────────
+  let debugMode = true; // Set to true to show debug panel
+  
+  function debugLog(message, type = 'info') {
+    const timestamp = new Date().toLocaleTimeString();
+    const icon = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : type === 'success' ? '✅' : 'ℹ️';
+    const color = type === 'error' ? '#ff4444' : type === 'warn' ? '#ffaa00' : type === 'success' ? '#44ff44' : '#00ff00';
+    
+    console.log(`[MEC Blog] ${message}`);
+    
+    if (debugMode) {
+      const debugPanel = document.getElementById('debugPanel');
+      const debugLogDiv = document.getElementById('debugLog');
+      if (debugPanel && debugLogDiv) {
+        debugPanel.style.display = 'block';
+        debugLogDiv.innerHTML += `<div style="color:${color}; margin-bottom:5px;">[${timestamp}] ${icon} ${message}</div>`;
+        debugLogDiv.scrollTop = debugLogDiv.scrollHeight;
+      }
+    }
+  }
+
+  // Show debug panel immediately
+  window.addEventListener('load', () => {
+    if (debugMode && document.getElementById('debugPanel')) {
+      document.getElementById('debugPanel').style.display = 'block';
+      debugLog('Debug console initialized', 'success');
+    }
+  });
+  
+  // Manual Supabase test function
+  async function testSupabaseDirect() {
+    debugLog('Running manual Supabase test...', 'info');
+    
+    try {
+      if (typeof window.MECSupabase === 'undefined') {
+        debugLog('MECSupabase not found', 'error');
+        return;
+      }
+      
+      const sb = window.MECSupabase.getSupabase();
+      if (!sb) {
+        debugLog('Failed to get Supabase client', 'error');
+        return;
+      }
+      
+      debugLog('Testing basic connection...', 'info');
+      
+      // Test 1: Simple count query
+      const { count, error: countError } = await sb
+        .from('publisher_posts')
+        .select('*', { count: 'exact', head: true });
+        
+      if (countError) {
+        debugLog(`Count query error: ${countError.message}`, 'error');
+      } else {
+        debugLog(`Found ${count} total posts in database`, 'success');
+      }
+      
+      // Test 2: Fetch sample posts
+      const { data, error } = await sb
+        .from('publisher_posts')
+        .select('id, title, status')
+        .limit(3);
+        
+      if (error) {
+        debugLog(`Sample fetch error: ${error.message}`, 'error');
+        debugLog(`Error code: ${error.code}`, 'error');
+      } else {
+        debugLog(`Sample posts: ${JSON.stringify(data, null, 2)}`, 'success');
+      }
+      
+    } catch (err) {
+      debugLog(`Test exception: ${err.message}`, 'error');
+    }
+  }
+  
+  // Make test function global
+  window.testSupabaseDirect = testSupabaseDirect;
 
   // ── Helpers ──────────────────────────────────────────────────────────────
   function timeAgo(dateStr) {
@@ -332,81 +421,89 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const list = document.getElementById('postList');
 
-    console.log('[MEC Blog] Starting blog load...');
+    debugLog('Starting blog load...', 'info');
     
     if (typeof window.MECSupabase === 'undefined') {
-      console.error('[MEC Blog] MECSupabase config not loaded');
+      debugLog('MECSupabase config not loaded', 'error');
       list.innerHTML = '<p class="loading-state">Unable to load posts right now. Please try again later.</p>';
       return;
     }
 
-    console.log('[MEC Blog] MECSupabase config loaded');
+    debugLog('MECSupabase config loaded', 'success');
     
     const sb = window.MECSupabase.getSupabase();
     if (!sb) {
-      console.error('[MEC Blog] Failed to create Supabase client');
+      debugLog('Failed to create Supabase client', 'error');
       list.innerHTML = '<p class="loading-state">Database connection failed. Please refresh the page.</p>';
       return;
     }
     
-    console.log('[MEC Blog] Supabase client created, fetching posts...');
+    debugLog('Supabase client created, fetching posts...', 'info');
 
-    // Fetch approved posts — use the real columns that exist after migrations
-    const { data: posts, error } = await sb
-      .from('publisher_posts')
-      .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
-      .eq('status', 'approved')
-      .order('created_at', { ascending: false })
-      .limit(50);
+    try {
+      // Fetch approved posts — use the real columns that exist after migrations
+      const { data: posts, error } = await sb
+        .from('publisher_posts')
+        .select('id, title, slug, description, intro, category, tags, cloudflare_url, created_at, publisher_id, likes_count, comments_count, shares_count')
+        .eq('status', 'approved')
+        .order('created_at', { ascending: false })
+        .limit(50);
 
-    if (error) {
-      console.error('[MEC Blog] Blog fetch error:', error);
-      list.innerHTML = '<p class="loading-state">Failed to load posts. Please refresh.</p>';
-      return;
-    }
+      if (error) {
+        debugLog(`Blog fetch error: ${error.message}`, 'error');
+        debugLog(`Error details: ${JSON.stringify(error)}`, 'error');
+        list.innerHTML = '<p class="loading-state">Failed to load posts. Please refresh.</p>';
+        return;
+      }
 
-    console.log(`[MEC Blog] Fetched ${posts?.length || 0} posts`);
-    
-    // Enrich with publisher names in one extra query
-    let enriched = posts || [];
-    if (enriched.length > 0) {
-      console.log('[MEC Blog] Enriching with publisher data...');
-      const pubIds = [...new Set(enriched.map(p => p.publisher_id).filter(Boolean))];
-      if (pubIds.length) {
-        try {
-          const { data: pubs } = await sb
-            .from('publishers')
-            .select('user_id, publisher_name');
-          const { data: profiles } = await sb
-            .from('profiles')
-            .select('id, avatar_url');
-          const pubMap  = {};
-          const avatarMap = {};
-          (pubs     || []).forEach(p => { pubMap[p.user_id]   = p.publisher_name; });
-          (profiles || []).forEach(p => { avatarMap[p.id]      = p.avatar_url;     });
-          enriched = enriched.map(p => ({
-            ...p,
-            publisher_name: pubMap[p.publisher_id]   || 'MEC Staff',
-            avatar_url:     avatarMap[p.publisher_id] || '',
-          }));
-          console.log('[MEC Blog] Publisher data enrichment complete');
-        } catch (enrichError) {
-          console.warn('[MEC Blog] Publisher enrichment failed:', enrichError);
+      debugLog(`Fetched ${posts?.length || 0} posts`, 'success');
+      
+      // Enrich with publisher names in one extra query
+      let enriched = posts || [];
+      if (enriched.length > 0) {
+        debugLog('Enriching with publisher data...', 'info');
+        const pubIds = [...new Set(enriched.map(p => p.publisher_id).filter(Boolean))];
+        if (pubIds.length) {
+          try {
+            const { data: pubs } = await sb
+              .from('publishers')
+              .select('user_id, publisher_name');
+            const { data: profiles } = await sb
+              .from('profiles')
+              .select('id, avatar_url');
+            const pubMap  = {};
+            const avatarMap = {};
+            (pubs     || []).forEach(p => { pubMap[p.user_id]   = p.publisher_name; });
+            (profiles || []).forEach(p => { avatarMap[p.id]      = p.avatar_url;     });
+            enriched = enriched.map(p => ({
+              ...p,
+              publisher_name: pubMap[p.publisher_id]   || 'MEC Staff',
+              avatar_url:     avatarMap[p.publisher_id] || '',
+            }));
+            debugLog('Publisher data enrichment complete', 'success');
+          } catch (enrichError) {
+            debugLog(`Publisher enrichment failed: ${enrichError.message}`, 'warn');
+          }
         }
       }
+
+      allPosts = enriched;
+
+      if (allPosts.length === 0) {
+        debugLog('No posts found', 'warn');
+        list.innerHTML = '';
+        document.getElementById('noResults').classList.add('show');
+        return;
+      }
+
+      debugLog(`Rendering ${allPosts.length} posts`, 'success');
+      renderPosts(allPosts);
+      
+    } catch (mainError) {
+      debugLog(`Main error: ${mainError.message}`, 'error');
+      debugLog(`Stack: ${mainError.stack}`, 'error');
+      list.innerHTML = '<p class="loading-state">An unexpected error occurred. Check console for details.</p>';
     }
-
-    allPosts = enriched;
-
-    if (allPosts.length === 0) {
-      console.log('[MEC Blog] No posts found');
-      list.innerHTML = '';
-      document.getElementById('noResults').classList.add('show');
-      return;
-    }
-
-    console.log(`[MEC Blog] Rendering ${allPosts.length} posts`);
-    renderPosts(allPosts);
 
     // ── Category tab filtering ────────────────────────────────────────────
     // Map tab data-topic values to category slugs
