@@ -287,17 +287,52 @@
         debugLog(`Found ${count} total posts in database`, 'success');
       }
       
-      // Test 2: Fetch sample posts with correct columns
+      // Test 2: Check approved posts specifically
+      const { count: approvedCount, error: approvedError } = await sb
+        .from('publisher_posts')
+        .select('*', { count: 'exact', head: true })
+        .eq('status', 'approved');
+        
+      if (approvedError) {
+        debugLog(`Approved count error: ${approvedError.message}`, 'error');
+      } else {
+        debugLog(`Found ${approvedCount} approved posts`, 'success');
+      }
+      
+      // Test 3: Fetch sample posts with all image fields
       const { data, error } = await sb
         .from('publisher_posts')
-        .select('id, title, status, category, cloudflare_url, thumbnail_url')
-        .limit(3);
+        .select('id, title, status, category, cloudflare_url, thumbnail_url, publisher_id')
+        .limit(5);
         
       if (error) {
         debugLog(`Sample fetch error: ${error.message}`, 'error');
         debugLog(`Error code: ${error.code}`, 'error');
       } else {
         debugLog(`Sample posts: ${JSON.stringify(data, null, 2)}`, 'success');
+        
+        // Analyze the data
+        if (data && data.length > 0) {
+          const approvedPosts = data.filter(p => p.status === 'approved');
+          debugLog(`Sample shows ${approvedPosts.length}/${data.length} approved posts`, 'info');
+          
+          data.forEach(post => {
+            debugLog(`Post "${post.title}": status=${post.status}, cloudflare_url=${!!post.cloudflare_url}, thumbnail_url=${!!post.thumbnail_url}`, 'info');
+          });
+        }
+      }
+      
+      // Test 4: Check publishers table
+      debugLog('Testing publishers table...', 'info');
+      const { data: pubs, error: pubError } = await sb
+        .from('publishers')
+        .select('user_id, publisher_name')
+        .limit(3);
+        
+      if (pubError) {
+        debugLog(`Publishers error: ${pubError.message}`, 'error');
+      } else {
+        debugLog(`Found ${pubs?.length || 0} publishers: ${JSON.stringify(pubs)}`, 'info');
       }
       
     } catch (err) {
