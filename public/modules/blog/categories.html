@@ -207,7 +207,8 @@
             <strong style="color:#00ff00;">🔧 Blog Debug Console</strong>
             <button onclick="document.getElementById('debugPanel').style.display='none'" style="background:none; border:1px solid #666; color:#00ff00; padding:2px 8px; border-radius:3px; cursor:pointer;">✕</button>
           </div>
-          <button onclick="testSupabaseDirect()" style="background:#333; border:1px solid #666; color:#00ff00; padding:5px 10px; border-radius:3px; cursor:pointer; margin-bottom:10px; width:100%;">🧪 Test Supabase Direct</button>
+          <button onclick="testSupabaseDirect()" style="background:#333; border:1px solid #666; color:#00ff00; padding:5px 10px; border-radius:3px; cursor:pointer; margin-bottom:5px; width:100%;">🧪 Test Supabase Direct</button>
+          <button onclick="testJsonFile()" style="background:#333; border:1px solid #666; color:#00ff00; padding:5px 10px; border-radius:3px; cursor:pointer; margin-bottom:10px; width:100%;">📄 Test JSON File</button>
           <div id="debugLog" style="white-space:pre-wrap; word-break:break-all;"></div>
         </div>
 
@@ -342,8 +343,43 @@
     }
   }
   
-  // Make test function global
+  // Test JSON file content
+  async function testJsonFile() {
+    debugLog('Testing JSON file content...', 'info');
+    
+    const jsonUrl = 'https://pub-0b8f6599db8d4f1d8602956352bb6d7b.r2.dev/ng/blog/guide/jamb-2027-everything-you-must-do-before-you-register-for-utme-89590c.json';
+    
+    try {
+      debugLog(`Fetching: ${jsonUrl}`, 'info');
+      const response = await fetch(jsonUrl);
+      
+      if (!response.ok) {
+        debugLog(`JSON fetch failed: ${response.status} ${response.statusText}`, 'error');
+        return;
+      }
+      
+      const data = await response.json();
+      debugLog(`JSON file content keys: ${Object.keys(data).join(', ')}`, 'info');
+      
+      // Look for image-related fields
+      const imageFields = ['featured_image', 'thumbnail_url', 'image_url', 'cloudflare_url', 'image', 'cover_image'];
+      imageFields.forEach(field => {
+        if (data[field]) {
+          debugLog(`Found ${field}: ${data[field]}`, 'success');
+        }
+      });
+      
+      // Show first 500 chars of JSON for debugging
+      debugLog(`JSON sample: ${JSON.stringify(data).substring(0, 500)}...`, 'info');
+      
+    } catch (error) {
+      debugLog(`JSON test error: ${error.message}`, 'error');
+    }
+  }
+  
+  // Make test functions global
   window.testSupabaseDirect = testSupabaseDirect;
+  window.testJsonFile = testJsonFile;
 
   // ── Helpers ──────────────────────────────────────────────────────────────
   function timeAgo(dateStr) {
@@ -408,28 +444,20 @@
       const authorName   = post.publisher_name || 'MEC Staff';
       const authorAvatar = post.avatar_url || '';
 
-      // Debug image URL - fix .json cloudflare URLs and add fallbacks
+      // Use pre-resolved image URL if available
+      const resolvedImageUrl = post._resolved_image_url;
       const cloudflareUrl = post.cloudflare_url;
       const thumbnailUrl = post.thumbnail_url;
       
-      // Fix cloudflare_url if it points to .json instead of image
-      let imgSrc = null;
-      if (cloudflareUrl && cloudflareUrl.includes('.json')) {
-        // Convert .json URL to .jpg/.png by replacing extension
-        const imageUrl = cloudflareUrl.replace('.json', '.jpg');
-        debugLog(`Post "${post.title}" converting JSON URL to image: ${imageUrl}`, 'info');
-        imgSrc = imageUrl;
-      } else if (cloudflareUrl) {
+      let imgSrc = resolvedImageUrl;
+      if (!imgSrc && cloudflareUrl && cloudflareUrl.includes('.json')) {
+        // Convert .json to .jpg as fallback
+        imgSrc = cloudflareUrl.replace('.json', '.jpg');
+        debugLog(`Post "${post.title}" using .jpg fallback: ${imgSrc}`, 'info');
+      } else if (!imgSrc && cloudflareUrl) {
         imgSrc = cloudflareUrl;
-      } else if (thumbnailUrl && !thumbnailUrl.startsWith('data:')) {
+      } else if (!imgSrc && thumbnailUrl && !thumbnailUrl.startsWith('data:')) {
         imgSrc = thumbnailUrl;
-        debugLog(`Post "${post.title}" using thumbnail_url fallback`, 'info');
-      }
-      
-      if (!imgSrc) {
-        debugLog(`Post "${post.title}" has no usable image URLs`, 'warn');
-      } else {
-        debugLog(`Post "${post.title}" final image URL: ${imgSrc}`, 'success');
       }
       
       const img = imgSrc
@@ -566,6 +594,36 @@
       }
 
       allPosts = enriched;
+
+      // Pre-process posts to resolve JSON image URLs
+      if (allPosts.length > 0) {
+        debugLog('Pre-processing image URLs...', 'info');
+        for (let i = 0; i < allPosts.length; i++) {
+          const post = allPosts[i];
+          if (post.cloudflare_url && post.cloudflare_url.includes('.json')) {
+            try {
+              debugLog(`Fetching JSON for post: ${post.title}`, 'info');
+              const jsonResponse = await fetch(post.cloudflare_url);
+              if (jsonResponse.ok) {
+                const articleData = await jsonResponse.json();
+                const realImageUrl = articleData.featured_image || 
+                                   articleData.thumbnail_url || 
+                                   articleData.image_url ||
+                                   articleData.cloudflare_url;
+                                   
+                if (realImageUrl && !realImageUrl.includes('.json')) {
+                  post._resolved_image_url = realImageUrl;
+                  debugLog(`Resolved image for "${post.title}": ${realImageUrl}`, 'success');
+                } else {
+                  debugLog(`No usable image in JSON for "${post.title}"`, 'warn');
+                }
+              }
+            } catch (error) {
+              debugLog(`Failed to fetch JSON for "${post.title}": ${error.message}`, 'warn');
+            }
+          }
+        }
+      }
 
       if (allPosts.length === 0) {
         debugLog('No posts found', 'warn');
